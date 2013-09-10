@@ -6,7 +6,7 @@ define(function () {
       validator  = require('common/validator'),
       disablable = require('common/controllers/disablable');
 
-  return function SliderController(component, scriptingAPI, interactivesController, model) {
+  return function SliderController(component, scriptingAPI, interactivesController) {
     var min, max, steps, propertyName,
         action, initialValue,
         title, labels, displayValue,
@@ -26,7 +26,7 @@ define(function () {
         // a) model is loaded,
         // b) slider is bound to some property.
         updateSlider = function  () {
-          var value = model.get(propertyName);
+          var value = interactivesController.getModel().get(propertyName);
           $slider.slider('value', value);
           if (displayValue) {
             $sliderHandle.text(displayValue(value));
@@ -163,7 +163,7 @@ define(function () {
         // Just ignore slide events that occur before the model is loaded.
         var obj = {};
         obj[propertyName] = ui.value;
-        if (model) model.set(obj);
+        if (interactivesController.getModel()) interactivesController.getModel().set(obj);
         if (displayValue) {
           $sliderHandle.text(displayValue(ui.value));
         }
