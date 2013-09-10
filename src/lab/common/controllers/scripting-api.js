@@ -14,7 +14,7 @@ define(function (require) {
   // script context; and scripts are run in strict mode so they don't
   // accidentally expose or read globals.
   //
-  return function ScriptingAPI (interactivesController, model) {
+  return function ScriptingAPI (interactivesController) {
 
     var controller = {
 
@@ -98,15 +98,17 @@ define(function (require) {
           format: d3.format,
 
           get: function get() {
+            var model = interactivesController.getModel();
             return model.get.apply(model, arguments);
           },
 
           set: function set() {
+            var model = interactivesController.getModel();
             return model.set.apply(model, arguments);
           },
 
           loadModel: function loadModel(modelId) {
-            model.stop();
+            interactivesController.getModel().stop();
             interactivesController.loadModel(modelId, null);
           },
 
@@ -119,8 +121,8 @@ define(function (require) {
             Pass property value to action.
           */
           onPropertyChange: function onPropertyChange(propertyName, action) {
-            model.addPropertiesListener([propertyName], function() {
-              action( model.get(propertyName) );
+            interactivesController.getModel().addPropertiesListener([propertyName], function() {
+              action( interactivesController.getModel().get(propertyName) );
             });
           },
 
@@ -144,7 +146,7 @@ define(function (require) {
               time: time,
               action: action,
               check: function() {
-                if (model.get("time") >= this.time) {
+                if (interactivesController.getModel().get("time") >= this.time) {
                   this.action();
                   // Optimization - when function was once executed, replace
                   // check with empty function.
@@ -154,7 +156,7 @@ define(function (require) {
                 }
               }
             };
-            model.addPropertiesListener("time", function () {
+            interactivesController.getModel().addPropertiesListener("time", function () {
               actionTimeout.check();
             });
           },
@@ -184,14 +186,14 @@ define(function (require) {
               interval: interval,
               action: action,
               execute: function() {
-                var time = model.get("time");
+                var time = interactivesController.getModel().get("time");
                 while (time - this.lastCall >= this.interval) {
                   this.action();
                   this.lastCall += this.interval;
                 }
               }
             };
-            model.addPropertiesListener("time", function () {
+            interactivesController.getModel().addPropertiesListener("time", function () {
               actionInterval.execute();
             });
           },
@@ -300,20 +302,20 @@ define(function (require) {
           },
 
           start: function start() {
-            model.start();
+            interactivesController.getModel().start();
             trackEvent('Interactive', "Start", "Starting interactive: " + interactivesController.get('title') );
           },
 
           onStart: function onStart(handler) {
-            model.on("play.custom-script", handler);
+            interactivesController.getModel().on("play.custom-script", handler);
           },
 
           stop: function stop() {
-            model.stop();
+            interactivesController.getModel().stop();
           },
 
           onStop: function onStop(handler) {
-            model.on("stop.custom-script", handler);
+            interactivesController.getModel().on("stop.custom-script", handler);
           },
 
           reset: function reset(options) {
@@ -325,27 +327,27 @@ define(function (require) {
           },
 
           stepForward: function stepForward() {
-            model.stepForward();
-            if (!model.isNewStep()) {
+            interactivesController.getModel().stepForward();
+            if (!interactivesController.getModel().isNewStep()) {
               interactivesController.updateModelView();
             }
           },
 
           stepBack: function stepBack() {
-            model.stepBack();
+            interactivesController.getModel().stepBack();
             interactivesController.updateModelView();
           },
 
           tick: function tick() {
-            model.tick();
+            interactivesController.getModel().tick();
           },
 
           isStopped: function isStopped() {
-            return model.isStopped();
+            return interactivesController.getModel().isStopped();
           },
 
           getTime: function getTime() {
-            return model.get('time');
+            return interactivesController.getModel().get('time');
           },
 
           /**
@@ -353,7 +355,7 @@ define(function (require) {
            * @return {number} frames per second.
            */
           getFPS: function getFPS() {
-            return model.getFPS();
+            return interactivesController.getModel().getFPS();
           },
 
           /**
@@ -363,11 +365,11 @@ define(function (require) {
            * @return {number} simulation progress rate.
            */
           getSimulationProgressRate: function getSimulationProgressRate() {
-            return model.getSimulationProgressRate();
+            return interactivesController.getModel().getSimulationProgressRate();
           },
 
           startPerformanceTuning: function startPerformanceTuning() {
-            model.performanceOptimizer.enable();
+            interactivesController.getModel().performanceOptimizer.enable();
           },
 
           repaint: function repaint() {
@@ -410,7 +412,7 @@ define(function (require) {
         Extend Scripting API
       */
       extend: function (ModelScriptingAPI) {
-        $.extend(this.api, new ModelScriptingAPI(this.api, model));
+        $.extend(this.api, new ModelScriptingAPI(this.api, interactivesController));
       },
 
       /**

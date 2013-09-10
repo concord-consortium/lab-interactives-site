@@ -1,4 +1,4 @@
-/*global define, model */
+/*global define */
 
 define(function (require) {
 
@@ -15,7 +15,7 @@ define(function (require) {
 
     @param: api
   */
-  return function MD2DScriptingAPI (api, model) {
+  return function MD2DScriptingAPI (api, interactivesController) {
 
     var dnaEditDialog = new DNAEditDialog(),
         // whether we are currently processing a batch command, suppresses repaint
@@ -29,27 +29,27 @@ define(function (require) {
 
       /* Returns number of atoms in the system. */
       getNumberOfAtoms: function getNumberOfAtoms(f) {
-        return model.getNumberOfAtoms(f);
+        return interactivesController.getModel().getNumberOfAtoms(f);
       },
 
       /* Returns number of obstacles in the system. */
       getNumberOfObstacles: function getNumberOfObstacles() {
-        return model.getNumberOfObstacles();
+        return interactivesController.getModel().getNumberOfObstacles();
       },
 
       /* Returns number of elements in the system. */
       getNumberOfElements: function getNumberOfElements() {
-        return model.getNumberOfElements();
+        return interactivesController.getModel().getNumberOfElements();
       },
 
       /* Returns number of radial bonds in the system. */
       getNumberOfRadialBonds: function getNumberOfRadialBonds() {
-        return model.getNumberOfRadialBonds();
+        return interactivesController.getModel().getNumberOfRadialBonds();
       },
 
       /* Returns number of angular bonds in the system. */
       getNumberOfAngularBonds: function getNumberOfAngularBonds() {
-        return model.getNumberOfAngularBonds();
+        return interactivesController.getModel().getNumberOfAngularBonds();
       },
 
       addAtom: function addAtom(props, options) {
@@ -60,7 +60,7 @@ define(function (require) {
           // Scripting API users.
           options.suppressEvent = true;
         }
-        return model.addAtom(props, options);
+        return interactivesController.getModel().addAtom(props, options);
       },
 
       /*
@@ -76,7 +76,7 @@ define(function (require) {
           delete options.suppressRepaint;
         }
         try {
-          model.removeAtom(i, options);
+          interactivesController.getModel().removeAtom(i, options);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -88,7 +88,7 @@ define(function (require) {
       */
       removeRadialBond: function removeRadialBond(i, options) {
         try {
-          model.removeRadialBond(i);
+          interactivesController.getModel().removeRadialBond(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -102,7 +102,7 @@ define(function (require) {
       */
       removeAngularBond: function removeAngularBond(i, options) {
         try {
-          model.removeAngularBond(i);
+          interactivesController.getModel().removeAngularBond(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -112,10 +112,12 @@ define(function (require) {
       },
 
       addRandomAtom: function addRandomAtom() {
+        var model = interactivesController.getModel();
         return model.addRandomAtom.apply(model, arguments);
       },
 
       adjustTemperature: function adjustTemperature(fraction) {
+        var model = interactivesController.getModel();
         model.set({targetTemperature: fraction * model.get('targetTemperature')});
       },
 
@@ -123,20 +125,21 @@ define(function (require) {
        Scales the velocity of a group of atoms to the desired temperature T
        */
       setTemperatureOfAtoms: function setTemperatureOfAtoms(atomIndices, T) {
-        model.setTemperatureOfAtoms(atomIndices,T);
+        interactivesController.getModel().setTemperatureOfAtoms(atomIndices,T);
       },
 
       getTemperatureOfAtoms: function getTemperatureOfAtoms(atomIndices) {
-        return model.getTemperatureOfAtoms(atomIndices);
+        return interactivesController.getModel().getTemperatureOfAtoms(atomIndices);
       },
 
       limitHighTemperature: function limitHighTemperature(t) {
+        var model = interactivesController.getModel();
         if (model.get('targetTemperature') > t) model.set({targetTemperature: t});
       },
 
       /** returns a list of integers corresponding to atoms in the system */
       randomAtoms: function randomAtoms(n) {
-        var numAtoms = model.getNumberOfAtoms();
+        var numAtoms = interactivesController.getModel().getNumberOfAtoms();
 
         if (n === null) n = 1 + api.randomInteger(numAtoms-1);
 
@@ -151,11 +154,11 @@ define(function (require) {
       /** Turn on quantum dynamics light source. TODO: sort out whether it's possible to expose
           lightSource[index].enabled */
       turnOnLightSource: function turnOnLightSource(index) {
-        model.turnOnLightSource(index);
+        interactivesController.getModel().turnOnLightSource(index);
       },
 
       turnOffLightSource: function turnOffLightSource(index) {
-        model.turnOffLightSource(index);
+        interactivesController.getModel().turnOffLightSource(index);
       },
 
       /**
@@ -170,6 +173,7 @@ define(function (require) {
        */
       atomsWithinCircle: function(x, y, r, element) {
         var result = [],
+            model = interactivesController.getModel(),
             props, dist, i, len;
 
         for (i = 0, len = model.getNumberOfAtoms(); i < len; i++) {
@@ -197,6 +201,7 @@ define(function (require) {
        */
       atomsWithinRect: function(x, y, w, h, element) {
         var result = [],
+            model = interactivesController.getModel(),
             props, dist, inX, inY, i, len;
 
         for (i = 0, len = model.getNumberOfAtoms(); i < len; i++) {
@@ -233,6 +238,7 @@ define(function (require) {
        */
       atomsWithinTriangle: function(ax, ay, bx, by, cx, cy, element) {
         var result = [],
+            model = interactivesController.getModel(),
             props, i, len;
 
         function isInTriangle(px, py) {
@@ -271,7 +277,8 @@ define(function (require) {
         Repaints the screen to make the marks visible.
       */
       markAtoms: function markAtoms(indices) {
-        var i,
+        var model = interactivesController.getModel(),
+            i,
             len;
 
         if (arguments.length === 0) return;
@@ -292,13 +299,17 @@ define(function (require) {
       },
 
       unmarkAllAtoms: function unmarkAllAtoms() {
-        for (var i = 0, len = model.getNumberOfAtoms(); i < len; i++) {
+        var model = interactivesController.getModel(),
+            i, len;
+        for (i = 0, len = model.getNumberOfAtoms(); i < len; i++) {
           model.setAtomProperties(i, {marked: 0});
         }
         api.repaintIfReady();
       },
 
       traceAtom: function traceAtom(i) {
+        var model = interactivesController.getModel();
+
         if (i === null) return;
 
         model.set({atomTraceId: i});
@@ -306,7 +317,7 @@ define(function (require) {
       },
 
       untraceAtom: function untraceAtom() {
-        model.set({showAtomTrace: false});
+        interactivesController.getModel().set({showAtomTrace: false});
       },
 
       /**
@@ -314,7 +325,7 @@ define(function (require) {
         e.g. setAtomProperties(5, {x: 1, y: 0.5, charge: 1})
       */
       setAtomProperties: function setAtomProperties(i, props, checkLocation, moveMolecule, options) {
-        model.setAtomProperties(i, props, checkLocation, moveMolecule);
+        interactivesController.getModel().setAtomProperties(i, props, checkLocation, moveMolecule);
         api.repaintIfReady(options);
       },
 
@@ -340,7 +351,7 @@ define(function (require) {
        * @return {AtomTransition} AtomTransition instance.
        */
       atomTransition: function atomTransition() {
-        return model.atomTransition();
+        return interactivesController.getModel().atomTransition();
       },
 
       /**
@@ -348,7 +359,7 @@ define(function (require) {
         e.g. getAtomProperties(5) --> {x: 1, y: 0.5, charge: 1, ... }
       */
       getAtomProperties: function getAtomProperties(i) {
-        return model.getAtomProperties(i);
+        return interactivesController.getModel().getAtomProperties(i);
       },
 
       /**
@@ -356,7 +367,7 @@ define(function (require) {
         e.g. getRadialBondsForAtom(5) --> [2]
       */
       getRadialBondsForAtom: function getRadialBondsForAtom(i) {
-        return model.getRadialBondsForAtom(i);
+        return interactivesController.getModel().getRadialBondsForAtom(i);
       },
 
       /**
@@ -364,7 +375,7 @@ define(function (require) {
         e.g. getAngularBondsForAtom(5) --> [6, 8]
       */
       getAngularBondsForAtom: function getAngularBondsForAtom(i) {
-        return model.getAngularBondsForAtom(i);
+        return interactivesController.getModel().getAngularBondsForAtom(i);
       },
 
       /**
@@ -372,11 +383,11 @@ define(function (require) {
         (not including i itself)
       */
       getMoleculeAtoms: function getMoleculeAtoms(i) {
-        return model.getMoleculeAtoms(i);
+        return interactivesController.getModel().getMoleculeAtoms(i);
       },
 
       setElementProperties: function setElementProperties(i, props) {
-        model.setElementProperties(i, props);
+        interactivesController.getModel().setElementProperties(i, props);
         api.repaintIfReady();
       },
 
@@ -388,11 +399,11 @@ define(function (require) {
         e.g. setPairwiseLJProperties(0, 1, {epsilon: -0.2})
       */
       setPairwiseLJProperties: function setPairwiseLJProperties(i, j, props) {
-        model.getPairwiseLJProperties().set(i, j, props);
+        interactivesController.getModel().getPairwiseLJProperties().set(i, j, props);
       },
 
       getElementProperties: function getElementProperties(i) {
-        return model.getElementProperties(i);
+        return interactivesController.getModel().getElementProperties(i);
       },
 
       /**
@@ -401,7 +412,7 @@ define(function (require) {
       */
       addObstacle: function addObstacle(props, options) {
         try {
-          model.addObstacle(props);
+          interactivesController.getModel().addObstacle(props);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -414,7 +425,7 @@ define(function (require) {
         e.g. setObstacleProperties(0, {x: 1, y: 0.5, externalAx: 0.00001})
       */
       setObstacleProperties: function setObstacleProperties(i, props) {
-        model.setObstacleProperties(i, props);
+        interactivesController.getModel().setObstacleProperties(i, props);
         api.repaintIfReady();
       },
 
@@ -423,7 +434,7 @@ define(function (require) {
         e.g. getObstacleProperties(0) --> {x: 1, y: 0.5, externalAx: 0.00001, ... }
       */
       getObstacleProperties: function getObstacleProperties(i) {
-        return model.getObstacleProperties(i);
+        return interactivesController.getModel().getObstacleProperties(i);
       },
 
       /**
@@ -431,7 +442,7 @@ define(function (require) {
       */
       removeObstacle: function removeObstacle(i, options) {
         try {
-          model.removeObstacle(i);
+          interactivesController.getModel().removeObstacle(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -441,26 +452,26 @@ define(function (require) {
       },
 
       setShapeProperties: function setShapeProperties(i, props) {
-        model.setShapeProperties(i, props);
+        interactivesController.getModel().setShapeProperties(i, props);
         api.repaintIfReady();
       },
 
       getShapeProperties: function getShapeProperties(i) {
-        return model.getShapeProperties(i);
+        return interactivesController.getModel().getShapeProperties(i);
       },
 
       setLineProperties: function setLineProperties(i, props) {
-        model.setLineProperties(i, props);
+        interactivesController.getModel().setLineProperties(i, props);
         api.repaintIfReady();
       },
 
       getLineProperties: function getLineProperties(i) {
-        return model.getLineProperties(i);
+        return interactivesController.getModel().getLineProperties(i);
       },
 
       addElectricField: function addElectricField(props, options) {
         try {
-          model.addElectricField(props);
+          interactivesController.getModel().addElectricField(props);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -469,7 +480,7 @@ define(function (require) {
 
       removeElectricField: function removeElectricField(i, options) {
         try {
-          model.removeElectricField(i);
+          interactivesController.getModel().removeElectricField(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -477,21 +488,21 @@ define(function (require) {
       },
 
       setElectricFieldProperties: function setElectricFieldProperties(i, props) {
-        model.setElectricFieldProperties(i, props);
+        interactivesController.getModel().setElectricFieldProperties(i, props);
       },
 
       getElectricFieldProperties: function getElectricFieldProperties(i) {
-        return model.getElectricFieldProperties(i);
+        return interactivesController.getModel().getElectricFieldProperties(i);
       },
 
       getAtomsWithinShape: function getAtomsInsideShape(i) {
-        var props=model.getShapeProperties(i);
+        var props=interactivesController.getModel().getShapeProperties(i);
         return this.atomsWithinRect(props.x, props.y, props.width, props.height);
       },
 
       removeShape: function removeShape(i, options) {
         try {
-          model.removeShape(i);
+          interactivesController.getModel().removeShape(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -501,7 +512,7 @@ define(function (require) {
 
       removeLine: function removeLine(i, options) {
         try {
-          model.removeLine(i);
+          interactivesController.getModel().removeLine(i);
         } catch (e) {
           if (!options || !options.silent)
             throw e;
@@ -510,21 +521,21 @@ define(function (require) {
       },
 
       setRadialBondProperties: function setRadialBondProperties(i, props) {
-        model.setRadialBondProperties(i, props);
+        interactivesController.getModel().setRadialBondProperties(i, props);
         api.repaintIfReady();
       },
 
       getRadialBondProperties: function getRadialBondProperties(i) {
-        return model.getRadialBondProperties(i);
+        return interactivesController.getModel().getRadialBondProperties(i);
       },
 
       setAngularBondProperties: function setAngularBondProperties(i, props) {
-        model.setAngularBondProperties(i, props);
+        interactivesController.getModel().setAngularBondProperties(i, props);
         api.repaintIfReady();
       },
 
       getAngularBondProperties: function getAngularBondProperties(i) {
-        return model.getAngularBondProperties(i);
+        return interactivesController.getModel().getAngularBondProperties(i);
       },
 
       /**
@@ -542,7 +553,7 @@ define(function (require) {
        * from translation:x to translation:x+1.
        */
       jumpToNextDNAState: function jumpToNextDNAState() {
-        model.geneticEngine().jumpToNextState();
+        interactivesController.getModel().geneticEngine().jumpToNextState();
       },
 
       /**
@@ -553,7 +564,7 @@ define(function (require) {
        * will cause jump to translation:0 state.
        */
       jumpToPrevDNAState: function jumpToPrevDNAState() {
-        model.geneticEngine().jumpToPrevState();
+        interactivesController.getModel().geneticEngine().jumpToPrevState();
       },
 
       /**
@@ -564,7 +575,7 @@ define(function (require) {
        *                       false otherwise.
        */
       DNAStateBefore: function DNAStateBefore(state) {
-        return model.geneticEngine().stateBefore(state);
+        return interactivesController.getModel().geneticEngine().stateBefore(state);
       },
 
       /**
@@ -575,7 +586,7 @@ define(function (require) {
        *                       false otherwise.
        */
       DNAStateAfter: function DNAStateAfter(state) {
-        return model.geneticEngine().stateAfter(state);
+        return interactivesController.getModel().geneticEngine().stateAfter(state);
       },
 
       /**
@@ -586,7 +597,7 @@ define(function (require) {
        * translation states is not supported!
        */
       animateToNextDNAState: function animateToNextDNAState() {
-        model.geneticEngine().transitionToNextState();
+        interactivesController.getModel().geneticEngine().transitionToNextState();
       },
 
       /**
@@ -603,7 +614,7 @@ define(function (require) {
        * @param  {string} stateName name of the state.
        */
       animateToDNAState: function animateToDNAState(stateName) {
-        model.geneticEngine().transitionTo(stateName);
+        interactivesController.getModel().geneticEngine().transitionTo(stateName);
       },
 
       /**
@@ -612,7 +623,7 @@ define(function (require) {
       stopDNAAnimation: function stopDNAAnimation() {
         // Jumping to previous state will cancel current animation
         // and cleanup transitions queue.
-        model.geneticEngine().stopTransition();
+        interactivesController.getModel().geneticEngine().stopTransition();
       },
 
       /**
@@ -630,7 +641,8 @@ define(function (require) {
        * @param {string} expectedNucleotide code of the expected nucleotide ("U", "C", "A" or "G").
        */
       transcribeDNAStep: function transcribeDNAStep(expectedNucleotide) {
-        var ge = model.geneticEngine();
+        var model = interactivesController.getModel(),
+            ge = model.geneticEngine();
         if (ge.stateBefore("dna") || ge.stateAfter("transcription-end")) {
           // Jump to beginning of DNA transcription if current state is before
           // or after transcrption process (so, state is different from:
@@ -648,7 +660,8 @@ define(function (require) {
        * Triggers only one step of DNA translation.
        */
       translateDNAStep: function translateDNAStep() {
-        var ge = model.geneticEngine();
+        var model = interactivesController.getModel(),
+            ge = model.geneticEngine();
         if (ge.stateBefore("translation:0") || ge.stateAfter("translation-end")) {
           // Animate directly to the translation:0, merge a few shorter
           // animations.
@@ -669,7 +682,7 @@ define(function (require) {
       *                                 and warning shown.
       */
       generateRandomProtein: function (expectedLength) {
-        var realLength = model.geneticEngine().generateProtein(undefined, expectedLength);
+        var realLength = interactivesController.getModel().geneticEngine().generateProtein(undefined, expectedLength);
 
         if (realLength !== expectedLength) {
           throw new Error("Generated protein was truncated due to limited area of the model. Only" +
@@ -683,52 +696,52 @@ define(function (require) {
         of 'solventForceFactor', 'dielectricConstant' and 'backgroundColor' properties.
       */
       setSolvent: function setSolvent(type) {
-        model.setSolvent(type);
+        interactivesController.getModel().setSolvent(type);
       },
 
       pe: function pe() {
-        return model.get('potentialEnergy');
+        return interactivesController.getModel().get('potentialEnergy');
       },
 
       ke: function ke() {
-        return model.get('kineticEnergy');
+        return interactivesController.getModel().get('kineticEnergy');
       },
 
       atomsKe: function atomsKe(atomsList) {
         var sum = 0, i;
         for (i = 0; i < atomsList.length; i++) {
-          sum += model.getAtomKineticEnergy(atomsList[i]);
+          sum += interactivesController.getModel().getAtomKineticEnergy(atomsList[i]);
         }
         return sum;
       },
 
       minimizeEnergy: function minimizeEnergy() {
-        model.minimizeEnergy();
+        interactivesController.getModel().minimizeEnergy();
         api.repaintIfReady();
       },
 
       addTextBox: function(props) {
-        model.addTextBox(props);
+        interactivesController.getModel().addTextBox(props);
       },
 
       removeTextBox: function(i) {
-        model.removeTextBox(i);
+        interactivesController.getModel().removeTextBox(i);
       },
 
       setTextBoxProperties: function(i, props) {
-        model.setTextBoxProperties(i, props);
+        interactivesController.getModel().setTextBoxProperties(i, props);
       },
 
       getTextBoxProperties: function(i) {
-        return model.getTextBoxProperties(i);
+        return interactivesController.getModel().getTextBoxProperties(i);
       },
 
       getNumberOfTextBoxes: function() {
-        return model.getNumberOfTextBoxes();
+        return interactivesController.getModel().getNumberOfTextBoxes();
       },
 
       getNumberOfLines: function() {
-        return model.getNumberOfLines();
+        return interactivesController.getModel().getNumberOfLines();
       },
 
       repaintIfReady: function(options) {
@@ -738,6 +751,8 @@ define(function (require) {
       },
 
       batch: function(func) {
+        var model = interactivesController.getModel();
+
         inBatch = true;
 
         model.startBatch();
