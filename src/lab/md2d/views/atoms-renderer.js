@@ -7,6 +7,7 @@ define(function(require) {
       canvg    = require('canvg'),
       mustache = require('mustache'),
       AtomsInteractions = require('md2d/views/atoms-interactions'),
+      detectFontChange = require('common/layout/detect-font-change'),
 
       atomSVG =
       '<svg x="0px" y="0px" width="{{ width }}px" height="{{ height }}px" \
@@ -14,7 +15,7 @@ define(function(require) {
         <style type="text/css"> \
         <![CDATA[ \
           text { \
-            font-family: Lato, OpenSans, helvetica, sans-serif; \
+            font-family: Lato, "Open Sans", helvetica, sans-serif; \
             font-size: {{ fontSize }}px; \
             font-weight: bold; \
             fill: #222; \
@@ -178,6 +179,10 @@ define(function(require) {
         var canv = document.createElement("canvas"),
             tplData;
 
+        // TODO? Keep a list of all the custom fonts we use
+        redrawAfterFontChange(label.fontSize + "px Lato");
+        redrawAfterFontChange(label.fontSize + "px \"Open Sans\"");
+
         tplData = {
           width: 2 * radius,
           height: 2 * radius,
@@ -193,6 +198,28 @@ define(function(require) {
         elementTex[key] = new PIXI.Texture.fromCanvas(canv);
       }
       return elementTex[key];
+    }
+
+    // TODO rename?
+    function redraw() {
+      console.log("redrawing");
+      clearCachedAtomTextures();
+      modelView.renderCanvas();
+    }
+
+    function redrawAfterFontChange(font) {
+      detectFontChange({
+        font: font,
+        onchange: redraw
+      });
+    }
+
+    function clearCachedAtomTextures() {
+      elementTex = {};
+
+      viewAtoms.forEach(function(atom, i) {
+        atom.setTexture(getAtomTexture(i));
+      });
     }
 
     function getAtomLabel(i) {
@@ -227,6 +254,8 @@ define(function(require) {
     api = {
       setup: function () {
         var i, len, atom, keSprite;
+
+        console.log("creating initial textures");
 
         if (container) {
           pixiContainer.removeChild(container);
