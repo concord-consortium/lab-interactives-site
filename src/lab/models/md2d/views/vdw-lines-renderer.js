@@ -27,13 +27,13 @@ define(function(require) {
     // Pixi texture consisting of the longest possible line
     var texture;
 
-    // height of Pixi texture in pixels
-    var textureHeight;
+    // Width of VdW lines in pixels
+    var strokeWidth;
 
     // Pixi sprites for each line
     var sprites = [];
 
-    var masks = [];
+    var mask;
 
     // Maximum value of sigma (=== 0.5 * radius) of atoms actually in the model (be sure to exlude
     // any predefined elements not actually in the model, to prevent unnecessarily large values)
@@ -52,16 +52,14 @@ define(function(require) {
       // and the maximum value of vdwLinesRatio is 2.0 (corresponding to
       // model.properties.VDWLinesCutoff === 'long')
       var maxLength   = 5 * modelView.model2canvas(2 * getMaxSigma());
-      var strokeWidth = modelView.model2canvas(0.02);
+
       var halfStroke  = strokeWidth / 2;
 
-      textureHeight = strokeWidth;
-
       var templateData = {
-        width: strokeWidth + maxLength,
-        height: textureHeight,
-        x1: halfStroke,
-        x2: halfStroke + maxLength,
+        width: maxLength,
+        height: strokeWidth,
+        x1: 0,
+        x2: maxLength,
         y1: halfStroke,
         y2: halfStroke,
         strokeWidth: strokeWidth,
@@ -74,15 +72,16 @@ define(function(require) {
     }
 
     function setup() {
-      var i;
+      // var i;
 
       if (container) {
-        for (i = 0; i < sprites.length; i++) {
-          // must clear mask even on sprites we're removing, or else, empirically, the entire canvas
-          // blanks after repaint (as if all graphics in all layers are masked)
-          // presumed cause: https://github.com/GoodBoyDigital/pixi.js/issues/323
-          sprites[i].mask = null;
-        }
+        // for (i = 0; i < sprites.length; i++) {
+        //   // must clear mask even on sprites we're removing, or else, empirically, the entire canvas
+        //   // blanks after repaint (as if all graphics in all layers are masked)
+        //   // presumed cause: https://github.com/GoodBoyDigital/pixi.js/issues/323
+        //   sprites[i].mask = null;
+        // }
+        container.mask = null;
         pixiContainer.removeChild(container);
         container = null;
       }
@@ -91,11 +90,16 @@ define(function(require) {
         return;
       }
 
+      strokeWidth = modelView.model2canvas(0.02);
+      texture = getLineTexture();
+      sprites = [];
+
       container = new PIXI.DisplayObjectContainer();
       pixiContainer.addChild(container);
-      sprites = [];
-      masks = [];
-      texture = getLineTexture();
+
+      mask = new PIXI.Graphics();
+      container.addChild(mask);
+      container.mask = mask;
 
       update();
     }
@@ -107,14 +111,16 @@ define(function(require) {
       var atom1, atom2;
       var dx, dy, length;
       var angle;
-      var mask;
-      var x, y;
+      var x1, y1, x2, y2;
+      var halfStroke = strokeWidth / 2;
+
+      mask.clear();
+      mask.lineStyle(strokeWidth, 0, 1);
 
       // make sure we have enough sprites...
       for (i = sprites.length; i < vdwPairs.count; i++) {
-        masks[i] = new PIXI.Graphics();
-        container.addChild(masks[i]);
         sprites[i] = new PIXI.Sprite(texture);
+        sprites[i].pivot.x = strokeWidth / 2;
         container.addChild(sprites[i]);
       }
 
@@ -122,39 +128,39 @@ define(function(require) {
         atom1 = atoms[vdwPairs.atom1[i]];
         atom2 = atoms[vdwPairs.atom2[i]];
 
-        dx = modelView.model2canvas(atom2.x - atom1.x);
-        dy = modelView.model2canvas(atom2.y - atom1.y);
-        length = Math.ceil(Math.sqrt(dx * dx + dy * dy));
-        angle = Math.atan2(-dy, dx);
+        x1 = modelView.model2canvas(atom1.x);
+        y1 = modelView.model2canvasInv(atom1.y);
+        x2 = modelView.model2canvas(atom2.x);
+        y2 = modelView.model2canvasInv(atom2.y);
 
-        x = modelView.model2canvas(atom1.x);
-        y = modelView.model2canvasInv(atom1.y);
+        dx = x2 - x1;
+        dy = y2 - y1;
+
+        length = Math.ceil(Math.sqrt(dx * dx + dy * dy));
+        angle = Math.atan2(dy, dx);
 
         // mask off the underlying line texture to the correct length (aka width)
-        mask = masks[i];
-        mask.clear();
-        mask.beginFill();
-        mask.drawRect(0, 0, length, textureHeight);
-        mask.endFill();
-        mask.rotation = angle;
-        mask.position.x = x;
-        mask.position.y = y;
 
-        sprites[i].mask = mask;
+        mask.beginFill();
+        mask.moveTo(x1, y1);
+        mask.lineTo(x2, y2);
+        mask.endFill();
+
+        //sprites[i].mask = mask;
         sprites[i].rotation = angle;
         sprites[i].visible = true;
-        sprites[i].position.x = x;
-        sprites[i].position.y = y;
+        sprites[i].position.x = x1 + halfStroke * Math.sin(angle);
+        sprites[i].position.y = y1 - halfStroke * Math.cos(angle);
       }
 
       // hide unused sprites, but don't delete them -- VdW lines come and go on each tick!
       for (; i < sprites.length; i++) {
         // must remove mask on hidden sprites! see
         // https://github.com/GoodBoyDigital/pixi.js/issues/323
-        sprites[i].mask = null;
+        // sprites[i].mask = null;
         sprites[i].visible = false;
         // also prevent the mask (which is just a filled rect) from becoming visible
-        masks[i].clear();
+        //masks[i].clear();
       }
     }
 
