@@ -30,7 +30,7 @@ define(function (require) {
 
         backgroundRect, backgroundGroup, foregroundGroup, brushContainer,
 
-        pixiRenderers, pixiStages, pixiContainers,
+        pixiRenderer, pixiStage, pixiContainers,
 
         hitTestingHelper,
         viewportZIndex = 0,
@@ -267,9 +267,7 @@ define(function (require) {
       // from model container background. It's necessary to convert color into number, as PIXI
       // accepts only numbers. D3 helps us handle color names like "red", "green" etc. It doesn't
       // support rgba values, so ingore alpha channel.
-      pixiStages.forEach(function (pixiStage) {
-        pixiStage.setBackgroundColor(parseInt(d3.rgb(color.replace("rgba", "rgb")).toString().substr(1), 16));
-      });
+      pixiStage.setBackgroundColor(parseInt(d3.rgb(color.replace("rgba", "rgb")).toString().substr(1), 16));
     }
 
     function mousedown() {
@@ -348,8 +346,6 @@ define(function (require) {
             .on("mousedown", mousedown);
         }
 
-        pixiRenderers = [];
-        pixiStages = [];
         pixiContainers = [];
 
         // Setup custom hit testing similar to one provided natively by SVG. So layers can overlap,
@@ -374,13 +370,13 @@ define(function (require) {
           height: cy + "px"
         });
 
-      pixiRenderers.forEach(function (pixiRenderer) {
+      if (pixiRenderer) {
         pixiRenderer.resize(cx * CANVAS_OVERSAMPLING, cy * CANVAS_OVERSAMPLING);
         $(pixiRenderer.view).css({
           width: cx,
           height: cy
         });
-      });
+      }
 
       viewBox = model2px(viewport.x) + " " +
                 model2pxInv(viewport.y) + " " +
@@ -624,7 +620,7 @@ define(function (require) {
         be reordered.
       */
       appendViewport: function() {
-        var parent = pixiRenderers.length > 0 ? foregroundGroup : backgroundGroup;
+        var parent = pixiRenderer ? foregroundGroup : backgroundGroup;
         return parent.append("g");
       },
 
@@ -636,12 +632,12 @@ define(function (require) {
         Note that mousemove events will be always passed to this viewport.
        */
       appendPixiViewport: function() {
-         if (pixiRenderers.length === 0) {
+        if ( ! pixiRenderer ) {
           // Assume that we can have *only one* Pixi renderer.
           // This is caused by the Pixi bug: https://github.com/GoodBoyDigital/pixi.js/issues/181
-          var pixiRenderer  = PIXI.autoDetectRenderer(cx * CANVAS_OVERSAMPLING,
-                                                      cy * CANVAS_OVERSAMPLING, null, true),
-              pixiStage     = new PIXI.Stage(null);
+          pixiRenderer = PIXI.autoDetectRenderer(cx * CANVAS_OVERSAMPLING,
+                                                 cy * CANVAS_OVERSAMPLING, null, true);
+          pixiStage = new PIXI.Stage(null);
 
           node.appendChild(pixiRenderer.view);
           d3.select(pixiRenderer.view)
@@ -649,23 +645,20 @@ define(function (require) {
             .style("z-index", nextViewportZIndex())
             .call(layeredOnTop);
 
-          pixiRenderers.push(pixiRenderer);
-          pixiStages.push(pixiStage);
-
           // Cascade events into this viewport.
           hitTestingHelper.addLayer(pixiRenderer.view);
-          hitTestingHelper.passMouseMove(foregroundContainer.node(), pixiRenderers[0].view);
+          hitTestingHelper.passMouseMove(foregroundContainer.node(), pixiRenderer.view);
         }
 
         var pixiContainer = new PIXI.DisplayObjectContainer();
-        pixiStages[0].addChild(pixiContainer);
+        pixiStage.addChild(pixiContainer);
         pixiContainers.push(pixiContainer);
 
         // We return container instead of stage, as we can apply view port transformations to it.
         // Stage transformations seem to be ignored by the PIXI renderer.
         return {
           pixiContainer: pixiContainer,
-          canvas: pixiRenderers[0].view
+          canvas: pixiRenderer.view
         };
       },
 
@@ -695,11 +688,7 @@ define(function (require) {
       },
 
       renderCanvas: function() {
-        var i, len;
-        // For now we follow that each Pixi viewport has just one PIXI.Stage.
-        for (i = 0, len = pixiRenderers.length; i < len; i++) {
-          pixiRenderers[i].render(pixiStages[i]);
-        }
+        if (pixiRenderer) pixiRenderer.render(pixiStage);
       },
 
       getHeightForWidth: function (width) {
