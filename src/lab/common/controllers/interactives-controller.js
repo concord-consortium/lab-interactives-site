@@ -124,7 +124,7 @@ define(function (require) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
   }
 
-  return function InteractivesController(interactiveReference, viewSelector) {
+  return function InteractivesController(interactiveReference, viewSelector, handleRedirect) {
 
     var interactive = {},
         controller = {},
@@ -521,6 +521,15 @@ define(function (require) {
       initialModelLoad = true;
 
       function nextStep() {
+        // Check if this is a redirect
+        if (controller.interactive.redirect) {
+          if (handleRedirect) {
+            handleRedirect(controller.interactive.redirect);
+            return;
+          } else {
+            throw new Error("Redirecting interactive loaded without a redirect handler");
+          }
+        }
         // Save initial interactive config for reload method (so it can be synchronous).
         initialInteractiveConfig = $.extend(true, {}, controller.interactive);
         // Validate interactive.

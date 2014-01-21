@@ -24,11 +24,22 @@ AUTHORING = false;
     _gaq.push(['_trackPageview', location.pathname + my_hashtag]);
   }
 
+  function handleRedirect(redirect){
+    // Let our parent know we are redirecting, this uses postMessage right away because
+    // the normal way of communicting with the parent is the parent message api. And it would waste time
+    // if we waited until that was ready to be used.
+    // to be ready.
+    if (window.parent) {
+      window.parent.postMessage(JSON.stringify({type: "redirect", content: redirect}), '*');
+    }
+    document.location.hash = "#" + redirect;
+  }
+
   hash = document.location.hash;
 
   if (hash) {
     interactiveUrl = hash.substr(1, hash.length);
-    controller = new Lab.InteractivesController(interactiveUrl, '#interactive-container');
+    controller = new Lab.InteractivesController(interactiveUrl, '#interactive-container', handleRedirect);
     controller.on("modelLoaded.application", function() {
       interactive = controller.interactive;
       document.title = "Lab Interactive: " + interactive.title;

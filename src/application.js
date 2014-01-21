@@ -143,6 +143,10 @@ AUTHORING = false;
     }
   }
 
+  function handleRedirect(redirect){
+    document.location.hash = "#" + redirect;
+  }
+
   hash = document.location.hash;
   if (hash) {
     interactiveUrl = hash.substr(1, hash.length);
@@ -165,7 +169,7 @@ AUTHORING = false;
     } else {
       // On all the other versions of this page we need to create an
       // instance of the Interactive now.
-      controller = new Lab.InteractivesController(interactiveUrl, '#interactive-container');
+      controller = new Lab.InteractivesController(interactiveUrl, '#interactive-container', handleRedirect);
       controller.on("modelLoaded.application", function() {
         model = controller.getModel();
         interactive = controller.serialize();
@@ -203,6 +207,7 @@ AUTHORING = false;
         }
       }
     });
+
     $content.css("border", "none");
     // initiate communication with Interactive in iframe and setup callback
     iframePhone = new Lab.IFramePhone($iframe[0], null, function() {
@@ -216,6 +221,12 @@ AUTHORING = false;
         interactive = content;
         setupFullPage();
       });
+    });
+
+    // add basic redirect listener, this might be called before the iframe-phone even
+    // receives a 'hello' message
+    iframePhone.addListener('redirect', function(content) {
+      window.location.hash = "#" + content;
     });
   }
 
