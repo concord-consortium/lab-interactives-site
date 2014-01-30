@@ -37,14 +37,6 @@
         "    setComponentDisabled('start-button', false);",
         "  }",
         "});",
-        "callEvery(1, function() {",
-        "   if ((Math.floor(getTime()) >= get('experimentDuration')) && get('durationEnabled')) {",
-        "     stop();",
-        "     setComponentDisabled('start-button',true);",
-        "   }",
-        "});",
-        "onPropertyChange('collectionTime', setGraphRange);",
-        "onPropertyChange('durationEnabled', function(){ setComponentDisabled('duration-slider', !(get('durationEnabled'))); });",
         "setGraphRange();"
       ]
     }
@@ -53,15 +45,6 @@
     {
       "name": "isNewRunInProgress",
       "initialValue": false
-    },
-    {
-      "name": "experimentDuration",
-      "initialValue": 5,
-      "onChange": "set('collectionTime', value*1.1);"
-    },
-    {
-      "name": "durationEnabled",
-      "initialValue": true
     }
   ],
   "hideExportDataControl": true,
@@ -83,32 +66,6 @@
       "enableSelectionButton": true,
       "clearSelectionOnLeavingSelectMode": true,
       "resetAxesOnReset": false
-    },
-    {
-      "type": "slider",
-      "id": "duration-slider",
-      "min": 1,
-      "max": 30,
-      "displayValue": "return format('.0f')(value)",
-      "labels": [
-        {
-          "value": 1,
-          "label": "1"
-        },
-        {
-          "value": 30,
-          "label": "30"
-        }
-      ],
-      "steps": 29,
-      "width": "8.5em",
-      "title": "Duration of Exp. (s)",
-      "property": "experimentDuration"
-    },
-    {
-      "type": "checkbox",
-      "id": "duration-enabled-checkbox",
-      "property": "durationEnabled"
     },
     {
       "type": "button",
@@ -134,7 +91,7 @@
       "tooltip": "Set up a new experiment run.",
       "action": [
         "resetModel({",
-        "  propertiesToRetain: ['sensorType','experimentDuration', 'durationEnabled', 'tareValue'],",
+        "  propertiesToRetain: ['sensorType', 'tareValue'],",
         "  cause: 'new-run'",
         "});",
         "scrollXAxisToZero('propertiesGraph');"
@@ -159,9 +116,7 @@
       "start-button",
       "stop-button",
       "analyze-data-button",
-      "new-run-button",
-      "duration-slider",
-      "duration-enabled-checkbox"
+      "new-run-button"
     ]
   },
   "exports": {
