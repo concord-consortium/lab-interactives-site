@@ -92,6 +92,9 @@ define(function(require) {
         dispatch.on(type, listener);
       },
 
+      connect: function() {
+      },
+
       start: function() {
       },
 
