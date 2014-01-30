@@ -1,31 +1,9 @@
 define(function() {
 
-  var SelectBoxView = require('common/views/select-box-view'),
-      NumericOutputView = require('common/views/numeric-output-view'),
-      sensorDefinitions = require('sensor-applet').sensorDefinitions,
+  var NumericOutputView = require('common/views/numeric-output-view'),
       viewState = require('common/views/view-state');
 
   return function(model, modelUrl) {
-
-    var sensorTypeView = new SelectBoxView({
-      id: 'sensor-type-view',
-      options: [{
-        value: null,
-        text: "Select type of sensor...",
-        selected: model.properties.sensorType == null,
-        disabled: true
-      }].concat(Object.keys(sensorDefinitions).map(function(key) {
-        return {
-          value: key,
-          text: sensorDefinitions[key].sensorName,
-          selected: key === model.properties.sensorType,
-          disabled: false
-        };
-      })),
-      onChange: function(option) {
-        model.properties.sensorType = option.value;
-      }
-    });
 
     // TODO use the formatter from the property description. Right now, it automatically adds
     // units to the returned string (which we don't want here).
@@ -49,24 +27,12 @@ define(function() {
       }
     }
 
-    function setSensorTypeDisabledState() {
-      var description = model.getPropertyDescription('sensorType');
-      if (description.getFrozen()) {
-        viewState.disableView(view.$selectBox);
-      } else {
-        viewState.enableView(view.$selectBox);
-      }
-    }
-
     function setupModelObservers() {
       model.addObserver('isTaring', setIsTaringState);
       setIsTaringState();
 
       model.addObserver('canTare', setCanTareState);
       setCanTareState();
-
-      model.addPropertyDescriptionObserver('sensorType', setSensorTypeDisabledState);
-      setSensorTypeDisabledState();
     }
 
     return view = {
@@ -94,21 +60,17 @@ define(function() {
           units: model.getPropertyDescription('sensorReading').getUnitAbbreviation()
         });
 
-        var $selectBox = sensorTypeView.render(this.$el),
-            $zeroButton = $("<div><button>Zero</button></div>"),
-            $sensorReading = sensorReadingView.render();
+        var $zeroButton = $("<div><button>Zero</button></div>");
+        var $sensorReading = sensorReadingView.render();
 
-        $selectBox.addClass('interactive-pulldown component component-spacing');
         $zeroButton.addClass('interactive-button component component-spacing');
         $sensorReading.addClass('numeric-output component horizontal component-spacing');
 
         this.$el.css('zIndex', 4);
-        this.$el.append($selectBox);
         this.$el.append($sensorReading);
         this.$el.append($zeroButton);
 
         this.$zeroButton = $zeroButton;
-        this.$selectBox = $selectBox;
 
         sensorReadingView.resize();
         setupModelObservers();
@@ -116,30 +78,6 @@ define(function() {
         $zeroButton.on('click', 'button', function() {
           model.tare();
         });
-      },
-
-      showInitializationProgress: function() {
-        var $progressbar;
-
-        if (!this.$progressbarContainer) {
-          $progressbar = $('<div/>')
-            .attr('id', 'sensor-progressbar');
-
-          this.$progressbarContainer = $('<div/>')
-            .attr('id', 'sensor-progressbar-container')
-            .css('bottom', $('body').height() / 2 + 75 + $('.lab-responsive-content').offset().top)
-            .append('<div class="label">Loading sensor...</div>')
-            .append($progressbar)
-            .appendTo('.lab-responsive-content');
-
-          $progressbar.progressbar({ value: false });
-        }
-
-        this.$progressbarContainer.show();
-      },
-
-      hideInitializationProgress: function() {
-        this.$progressbarContainer.hide();
       },
 
       resize: function() {

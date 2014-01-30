@@ -18,16 +18,6 @@ define(function (require) {
     function setupModelObservers() {
       var model = controller.model;
 
-      model.addObserver('isSensorInitializing', function() {
-        var view = controller.modelContainer;
-
-        if (model.properties.isSensorInitializing) {
-          view.showInitializationProgress();
-        } else {
-          view.hideInitializationProgress();
-        }
-      });
-
       model.addObserver('sensorReading', function() {
         // if the model is running, the tick handler will take care of it
         if (model.isStopped()) {
@@ -49,9 +39,9 @@ define(function (require) {
       });
     }
 
-    interactiveController.on('modelLoaded.sensor-model-controller', setupModelObservers);
+    interactiveController.on('modelLoaded.labquest2-model-controller', setupModelObservers);
 
-    interactiveController.on('modelReset.sensor-model-controller', function() {
+    interactiveController.on('modelReset.labquest2-model-controller', function() {
       controller.model.set('isNewRunInProgress', false);
     });
 
