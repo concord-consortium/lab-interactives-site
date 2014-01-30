@@ -5,16 +5,10 @@ define(function() {
   return {
     mainProperties: {
       type: {
-        defaultValue: "sensor",
+        defaultValue: "labquest2",
         immutable: true
       },
       sensorType: {
-        defaultValue: null
-      },
-      samplesPerSecond: {
-        readOnly: true
-      },
-      collectionTime: {
         defaultValue: null
       },
       tareValue: {
