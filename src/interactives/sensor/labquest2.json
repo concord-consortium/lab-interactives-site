@@ -91,8 +91,7 @@
       "tooltip": "Set up a new experiment run.",
       "action": [
         "resetModel({",
-        "  propertiesToRetain: ['sensorType', 'tareValue'],",
-        "  cause: 'new-run'",
+          "cause: 'new-run'",
         "});",
         "scrollXAxisToZero('propertiesGraph');"
       ]
