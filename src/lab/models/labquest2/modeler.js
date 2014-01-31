@@ -52,6 +52,7 @@ define(function(require) {
         isTaring,
         isSensorTareable,
         initialTareValue,
+        message = "Hello from model",
         model;
 
     function updatePropertyRange(property, min, max) {
@@ -204,6 +205,12 @@ define(function(require) {
       label: "Needs Reload?"
     }, function() {
       return needsReload;
+    });
+
+    model.defineOutput('message', {
+      label: "User Message"
+    }, function() {
+      return message;
     });
 
     // Clean up state before we go

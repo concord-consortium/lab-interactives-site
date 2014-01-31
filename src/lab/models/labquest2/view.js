@@ -27,12 +27,19 @@ define(function() {
       }
     }
 
+    function setMessageText() {
+      view.$message.text(model.properties.message);
+    }
+
     function setupModelObservers() {
       model.addObserver('isTaring', setIsTaringState);
       setIsTaringState();
 
       model.addObserver('canTare', setCanTareState);
       setCanTareState();
+
+      model.addObserver('message', setMessageText);
+      setMessageText();
     }
 
     return view = {
@@ -54,34 +61,31 @@ define(function() {
 
         this.$el.empty();
 
-        var $addressInput = $("<div class='address-input'><input type='text' name='address-input' placeholder='address of LabQuest2'></input></div>");
+        this.$addressInput = $("<div class='address-input'><input type='text' name='address-input' placeholder='address of LabQuest2'></input></div>");
         sensorReadingView = new NumericOutputView({
           id: 'sensor-value-view',
           label: "Reading: ",
           units: model.getPropertyDescription('sensorReading').getUnitAbbreviation()
         });
 
-        var $connectButton = $("<div class='interactive-button'><button>Connect</button></div>");
-        var $zeroButton = $("<div class='interactive-button'><button>Zero</button></div>");
-        var $sensorReading = sensorReadingView.render();
-        $sensorReading.addClass('horizontal');
+        this.$connectButton = $("<div class='interactive-button'><button>Connect</button></div>");
+        this.$zeroButton = $("<div class='interactive-button'><button>Zero</button></div>");
+        this.$message = $("<div class='message'></div>");
+        this.$sensorReading = sensorReadingView.render().addClass("horizontal");
 
         this.$el.css('zIndex', 4)
-          .append($addressInput)
-          .append($connectButton)
-          .append($sensorReading)
-          .append($zeroButton);
+          .append(this.$addressInput)
+          .append(this.$connectButton)
+          .append(this.$sensorReading)
+          .append(this.$zeroButton)
+          .append(this.$message);
 
         this.$el.find('div').addClass('component component-spacing');
-
-        this.$connectButton = $connectButton;
-        this.$zeroButton = $zeroButton;
-
         sensorReadingView.resize();
         setupModelObservers();
 
-        $connectButton.on('click', 'button', model.connect);
-        $zeroButton.on('click', 'button', model.tare);
+        this.$connectButton.on('click', 'button', model.connect);
+        this.$zeroButton.on('click', 'button', model.tare);
       },
 
       resize: function() {
