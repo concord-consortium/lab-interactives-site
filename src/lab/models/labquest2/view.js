@@ -58,34 +58,35 @@ define(function() {
 
       // called once we're in the DOM
       setup: function() {
+        view.$el.empty();
 
-        this.$el.empty();
-
-        this.$addressInput = $("<div class='address-input'><input type='text' name='address-input' placeholder='address of LabQuest2'></input></div>");
+        view.$addressInput = $("<div class='address-input'><input type='text' name='address-input' placeholder='address of LabQuest2'></input></div>");
         sensorReadingView = new NumericOutputView({
           id: 'sensor-value-view',
           label: "Reading: ",
           units: model.getPropertyDescription('sensorReading').getUnitAbbreviation()
         });
 
-        this.$connectButton = $("<div class='interactive-button'><button>Connect</button></div>");
-        this.$zeroButton = $("<div class='interactive-button'><button>Zero</button></div>");
-        this.$message = $("<div class='message'></div>");
-        this.$sensorReading = sensorReadingView.render().addClass("horizontal");
+        view.$connectButton = $("<div class='interactive-button'><button>Connect</button></div>");
+        view.$zeroButton = $("<div class='interactive-button'><button>Zero</button></div>");
+        view.$message = $("<div class='message'></div>");
+        view.$sensorReading = sensorReadingView.render().addClass("horizontal");
 
-        this.$el.css('zIndex', 4)
-          .append(this.$addressInput)
-          .append(this.$connectButton)
-          .append(this.$sensorReading)
-          .append(this.$zeroButton)
-          .append(this.$message);
+        view.$el.css('zIndex', 4)
+          .append(view.$addressInput)
+          .append(view.$connectButton)
+          .append(view.$sensorReading)
+          .append(view.$zeroButton)
+          .append(view.$message);
 
-        this.$el.find('div').addClass('component component-spacing');
+        view.$el.find('div').addClass('component component-spacing');
         sensorReadingView.resize();
         setupModelObservers();
 
-        this.$connectButton.on('click', 'button', model.connect);
-        this.$zeroButton.on('click', 'button', model.tare);
+        view.$connectButton.on('click', 'button', function() {
+          model.connect(view.$addressInput.find('input').val());
+        });
+        view.$zeroButton.on('click', 'button', model.tare);
       },
 
       resize: function() {
