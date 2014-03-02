@@ -26,6 +26,11 @@ rescue Errno::ENOENT
   raise msg
 end
 
+def render_file(filename, locals)
+  contents = File.read(filename)
+  Haml::Engine.new(contents).render(Object.new, locals)
+end
+
 # setup partial for Google Analytics
 if CONFIG[:google_analytics] && CONFIG[:google_analytics][:account_id]
   ANALYTICS = <<-HEREDOC
@@ -115,17 +120,6 @@ else
   HEREDOC
 end
 
-LAB_JS = case CONFIG[:environment]
-when 'production'
-  <<-HEREDOC
-<script src='lab/lab.min.js'></script>
-  HEREDOC
-else
-  <<-HEREDOC
-<script src='lab/lab.js'></script>
-  HEREDOC
-end
-
 LAB_SHUTTERBUG = <<-HEREDOC
 <script src='vendor/shutterbug/shutterbug.js' type='text/javascript'></script>
   HEREDOC
@@ -133,7 +127,7 @@ LAB_SHUTTERBUG_EMBEDDABLE = LAB_SHUTTERBUG + <<-HEREDOC
 <script>
   $(window).load(function () {
     if (typeof Shutterbug !== 'undefined') {
-      window.shutterbug = new Shutterbug("#interactive-container","#image_output") };
+      window.shutterbug = new Shutterbug("#interactive-container", "#image_output") };
     }
   );
 </script>
