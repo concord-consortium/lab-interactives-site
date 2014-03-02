@@ -36,7 +36,7 @@ SHUTTERBUG_GEM := $(shell bundle show shutterbug)
 INTERACTIVE_FILES := $(shell find src/models src/interactives -name '*.json' -exec echo {} \; | sed s'/src\/\(.*\)/public\/\1/' )
 vpath %.json src
 
-HAML_FILES := $(shell find src -name '*.haml' -exec echo {} \; | sed s'/src\/\(.*\)\.haml/public\/\1/' )
+HAML_FILES := $(shell find src -name '*.html.haml' -exec echo {} \; | sed s'/src\/\(.*\)\.haml/public\/\1/' )
 vpath %.haml src
 
 SASS_FILES := $(shell find src -name '*.sass' -and -not -path "src/sass/*" -exec echo {} \; | sed s'/src\/\(.*\)\.sass/public\/\1.css/' )
@@ -91,6 +91,8 @@ src: \
 	$(INTERACTIVE_FILES) \
 	public/interactives.html \
 	public/embeddable.html \
+	public/embeddable-staging.html \
+	public/embeddable-dev.html \
 	public/browser-check.html \
 	public/interactives.json \
 	public/application.js \
@@ -98,7 +100,9 @@ src: \
 
 # rebuild html files that use partials based on settings in project configuration
 public/interactives.html: config/config.yml
-public/embeddable.html: config/config.yml
+public/embeddable.html: config/config.yml embeddable.haml
+public/embeddable-staging.html: config/config.yml embeddable.haml
+public/embeddable-dev.html: config/config.yml embeddable.haml
 
 .PHONY: clean
 clean:
