@@ -11,6 +11,29 @@ SCRIPT_PATH = File.join(PROJECT_ROOT, 'script')                    if !defined? 
 BIN_PATH  = File.join(PROJECT_ROOT, 'bin')                         if !defined? BIN_PATH
 PUBLIC_PATH  = File.join(PROJECT_ROOT, 'public')                   if !defined? PUBLIC_PATH
 
+def render_file(filename, locals)
+  contents = File.read(filename)
+  Haml::Engine.new(contents).render(Object.new, locals)
+end
+
+LAB_JS = {
+  :production  => "http://lab.concord.org/lab/lab.min.js",
+  :staging     => "http://lab.dev.concord.org/lab/lab.js",
+  :development => "http://lab.dev.concord.org/lab/lab.js"
+}
+
+LAB_CSS = {
+  :production  => "http://lab.concord.org/lab/lab.css",
+  :staging     => "http://lab.dev.concord.org/lab/lab.css",
+  :development => "http://lab.dev.concord.org/lab/lab.css"
+}
+
+EMBEDDABLE_PAGE = {
+  :production  => "embeddable.html",
+  :staging     => "embeddable-staging.html",
+  :development => "embeddable-dev.html"
+}
+
 begin
   CONFIG = YAML.load_file(File.join(CONFIG_PATH, 'config.yml'))
 rescue Errno::ENOENT
@@ -24,11 +47,6 @@ rescue Errno::ENOENT
 
   HEREDOC
   raise msg
-end
-
-def render_file(filename, locals)
-  contents = File.read(filename)
-  Haml::Engine.new(contents).render(Object.new, locals)
 end
 
 # setup partial for Google Analytics

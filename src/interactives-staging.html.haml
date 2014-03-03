@@ -1,4 +1,1 @@
-= render_file('src/interactives.haml',
-              :LAB_JS => "http://lab.dev.concord.org/lab/lab.js",
-              :LAB_CSS => "http://lab.dev.concord.org/lab/lab.css",
-              :EMBEDDABLE_PAGE => "embeddable-staging.html")
+= render_file('src/interactives.haml', :LAB_ENV => :staging)
