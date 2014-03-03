@@ -1,0 +1,222 @@
+{
+  "type": "md2d",
+  "imagePath": "",
+  "width": 3.5,
+  "height": 2,
+  "unitsScheme": "md2d",
+  "lennardJonesForces": true,
+  "coulombForces": true,
+  "temperatureControl": false,
+  "gravitationalField": false,
+  "timeStep": 1,
+  "dielectricConstant": 1,
+  "realisticDielectricEffect": true,
+  "solventForceFactor": 1.25,
+  "solventForceType": 0,
+  "additionalSolventForceMult": 4,
+  "additionalSolventForceThreshold": 10,
+  "polarAAEpsilon": -2,
+  "viscosity": 1,
+  "timeStepsPerTick": 50,
+  "DNAState": "dna",
+  "DNA": "",
+  "DNAMutations": true,
+  "useQuantumDynamics": false,
+  "useChemicalReactions": false,
+  "viewOptions": {
+    "viewPortWidth": 3.5,
+    "viewPortHeight": 2,
+    "viewPortZoom": 1,
+    "viewPortX": 0,
+    "viewPortY": 0,
+    "viewPortDrag": false,
+    "backgroundColor": "#eeeeee",
+    "showClock": false,
+    "markColor": "#f8b500",
+    "keShading": false,
+    "chargeShading": false,
+    "useThreeLetterCode": true,
+    "aminoAcidColorScheme": "hydrophobicity",
+    "showChargeSymbols": true,
+    "showVDWLines": false,
+    "VDWLinesCutoff": "medium",
+    "showVelocityVectors": false,
+    "showForceVectors": false,
+    "showElectricField": false,
+    "electricFieldDensity": 18,
+    "electricFieldColor": "auto",
+    "showAtomTrace": false,
+    "images": [],
+    "imageMapping": {},
+    "textBoxes": [
+      {
+        "text": "Magnetic chamber",
+        "x": 1.34,
+        "y": 1.21,
+        "layer": 1,
+        "frame": "rounded rectangle",
+        "fontSize": 0.12,
+        "backgroundColor": "rgb(255,192,255)",
+        "anchor": "upper-left"
+      }
+    ],
+    "xlabel": false,
+    "ylabel": false,
+    "xunits": false,
+    "yunits": false,
+    "controlButtons": "play",
+    "gridLines": false,
+    "atomNumbers": false,
+    "enableAtomTooltips": false,
+    "enableKeyboardHandlers": true,
+    "atomTraceColor": "#6913c5",
+    "velocityVectors": {
+      "color": "#000",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectors": {
+      "color": "#169C30",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectorsDirectionOnly": false
+  },
+  "pairwiseLJProperties": [],
+  "elements": {
+    "mass": [
+      20,
+      40,
+      60,
+      80,
+      600
+    ],
+    "sigma": [
+      0.1,
+      0.14,
+      0.21,
+      0.28,
+      0.3
+    ],
+    "epsilon": [
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1
+    ],
+    "color": [
+      -855310,
+      -9066941,
+      -9092186,
+      -2539040,
+      -855310
+    ]
+  },
+  "atoms": {
+    "x": [
+      1.8
+    ],
+    "y": [
+      1.09
+    ],
+    "vx": [
+      0
+    ],
+    "vy": [
+      0
+    ],
+    "charge": [
+      0
+    ],
+    "friction": [
+      0
+    ],
+    "element": [
+      0
+    ],
+    "pinned": [
+      0
+    ]
+  },
+  "shapes": {
+    "type": [
+      "rectangle",
+      "rectangle",
+      "rectangle",
+      "ellipse"
+    ],
+    "x": [
+      0,
+      0,
+      0,
+      1.73
+    ],
+    "y": [
+      1.8699999999999999,
+      0.009999999999999995,
+      0.10999999999999988,
+      1.02
+    ],
+    "height": [
+      0.1,
+      0.1,
+      1.77,
+      0.13
+    ],
+    "width": [
+      3.45,
+      3.45,
+      0.2,
+      0.13
+    ],
+    "fence": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "color": [
+      "rgb(0,192,0)",
+      "rgb(0,192,0)",
+      "rgba(255,255,0,0.5294117647058824)",
+      "rgb(255,255,255)"
+    ],
+    "lineColor": [
+      "black",
+      "black",
+      "black",
+      "black"
+    ],
+    "lineWeight": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "lineDashes": [
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "layer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "layerPosition": [
+      1,
+      1,
+      4,
+      2
+    ],
+    "visible": [
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+}
