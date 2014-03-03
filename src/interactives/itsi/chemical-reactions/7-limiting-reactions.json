@@ -14,8 +14,8 @@
     {
       "type": "md2d",
       "id": "initial",
-      "url": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/page7$0.json",
-      "importedFrom": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/page7$0.mml",
+      "url": "models-converted/lab-version/1/itsi/chemical-reactions/page7/page7$0.json",
+      "importedFrom": "models-converted/lab-version/1/itsi/chemical-reactions/page7/page7$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -23,8 +23,8 @@
     {
       "type": "md2d",
       "id": "perfect",
-      "url": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/combustion.json",
-      "importedFrom": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/combustion.mml",
+      "url": "models-converted/lab-version/1/itsi/chemical-reactions/page7/combustion.json",
+      "importedFrom": "models-converted/lab-version/1/itsi/chemical-reactions/page7/combustion.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -32,8 +32,8 @@
     {
       "type": "md2d",
       "id": "limited",
-      "url": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/combustionLimited.json",
-      "importedFrom": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page7/combustionLimited.mml",
+      "url": "models-converted/lab-version/1/itsi/chemical-reactions/page7/combustionLimited.json",
+      "importedFrom": "models-converted/lab-version/1/itsi/chemical-reactions/page7/combustionLimited.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

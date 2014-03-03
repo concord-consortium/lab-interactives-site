@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "noCatalyst",
-      "url": "imports/legacy-mw-content/converted/public/part1/elisa/noCatalyst.json",
+      "url": "models-converted/lab-version/1/public/part1/elisa/noCatalyst.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/elisa/noCatalyst.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

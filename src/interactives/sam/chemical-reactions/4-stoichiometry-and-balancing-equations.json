@@ -17,8 +17,8 @@
     {
       "type": "md2d",
       "id": "instructions",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.mml",
       "viewOptions": {
         "controlButtons": "",
         "textBoxes": [
@@ -36,8 +36,8 @@
     {
       "type": "md2d",
       "id": "oneToOne",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -61,8 +61,8 @@
     {
       "type": "md2d",
       "id": "twoToOne",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -86,8 +86,8 @@
     {
       "type": "md2d",
       "id": "twoToTwo",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -111,8 +111,8 @@
     {
       "type": "md2d",
       "id": "twoToThree",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -136,8 +136,8 @@
     {
       "type": "md2d",
       "id": "fourToFour",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },

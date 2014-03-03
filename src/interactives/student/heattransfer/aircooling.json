@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "aircooling$0",
-      "url": "imports/legacy-mw-content/converted/student/heattransfer/aircooling$0.json",
+      "url": "models-converted/lab-version/1/student/heattransfer/aircooling$0.json",
       "importedFrom": "imports/legacy-mw-content/student/heattransfer/aircooling$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

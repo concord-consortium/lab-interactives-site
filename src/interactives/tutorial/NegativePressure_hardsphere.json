@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "NegativePressure_hardsphere",
-      "url": "imports/legacy-mw-content/converted/tutorial/NegativePressure_hardsphere.json",
+      "url": "models-converted/lab-version/1/tutorial/NegativePressure_hardsphere.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

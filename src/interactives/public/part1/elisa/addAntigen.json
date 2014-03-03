@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "addAntigen",
-      "url": "imports/legacy-mw-content/converted/public/part1/elisa/addAntigen.json",
+      "url": "models-converted/lab-version/1/public/part1/elisa/addAntigen.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/elisa/addAntigen.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

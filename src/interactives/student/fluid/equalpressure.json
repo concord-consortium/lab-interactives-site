@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "equalpressure",
-      "url": "imports/legacy-mw-content/converted/student/fluid/equalpressure.json",
+      "url": "models-converted/lab-version/1/student/fluid/equalpressure.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

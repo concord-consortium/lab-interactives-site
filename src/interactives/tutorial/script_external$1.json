@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "script_external$1",
-      "url": "imports/legacy-mw-content/converted/tutorial/script_external$1.json",
+      "url": "models-converted/lab-version/1/tutorial/script_external$1.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

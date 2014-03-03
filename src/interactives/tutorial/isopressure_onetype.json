@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "isopressure_onetype",
-      "url": "imports/legacy-mw-content/converted/tutorial/isopressure_onetype.json",
+      "url": "models-converted/lab-version/1/tutorial/isopressure_onetype.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

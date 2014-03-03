@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "vdw-force-lines$0",
-      "url": "imports/legacy-mw-content/converted/conversion-and-physics-examples/vdw-force-lines$0.json",
+      "url": "models-converted/lab-version/1/conversion-and-physics-examples/vdw-force-lines$0.json",
       "viewOptions": {
         "controlButtons": ""
       }
@@ -15,7 +15,7 @@
     {
       "type": "md2d",
       "id": "vdw-force-lines-medium",
-      "url": "imports/legacy-mw-content/converted/conversion-and-physics-examples/vdw-force-lines-medium.json",
+      "url": "models-converted/lab-version/1/conversion-and-physics-examples/vdw-force-lines-medium.json",
       "viewOptions": {
         "controlButtons": ""
       }
@@ -23,7 +23,7 @@
     {
       "type": "md2d",
       "id": "vdw-force-lines-long",
-      "url": "imports/legacy-mw-content/converted/conversion-and-physics-examples/vdw-force-lines-long.json",
+      "url": "models-converted/lab-version/1/conversion-and-physics-examples/vdw-force-lines-long.json",
       "viewOptions": {
         "controlButtons": ""
       }

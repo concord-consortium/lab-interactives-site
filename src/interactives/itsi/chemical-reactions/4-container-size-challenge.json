@@ -18,8 +18,8 @@
     {
       "type": "md2d",
       "id": "page2$0",
-      "url": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page4/page4$0.json",
-      "importedFrom": "imports/legacy-mw-content/converted/itsi/chemical-reactions/page4/page4$0.mml",
+      "url": "models-converted/lab-version/1/itsi/chemical-reactions/page4/page4$0.json",
+      "importedFrom": "models-converted/lab-version/1/itsi/chemical-reactions/page4/page4$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },

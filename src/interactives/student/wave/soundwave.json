@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "soundwave$0",
-      "url": "imports/legacy-mw-content/converted/student/wave/soundwave$0.json",
+      "url": "models-converted/lab-version/1/student/wave/soundwave$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

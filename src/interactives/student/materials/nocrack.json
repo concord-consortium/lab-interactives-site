@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "nocrack",
-      "url": "imports/legacy-mw-content/converted/student/materials/nocrack.json",
+      "url": "models-converted/lab-version/1/student/materials/nocrack.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

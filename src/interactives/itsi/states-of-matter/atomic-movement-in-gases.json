@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "gas1",
-      "url": "imports/legacy-mw-content/converted/itsi/states-of-matter/gas1.json",
+      "url": "models-converted/lab-version/1/itsi/states-of-matter/gas1.json",
       "importedFrom": "imports/legacy-mw-content/itsi/states-of-matter/gas1.mml",
       "viewOptions": {
         "controlButtons": "play_reset",
@@ -18,7 +18,7 @@
     {
       "type": "md2d",
       "id": "gas2",
-      "url": "imports/legacy-mw-content/converted/itsi/states-of-matter/gas2.json",
+      "url": "models-converted/lab-version/1/itsi/states-of-matter/gas2.json",
       "importedFrom": "imports/legacy-mw-content/itsi/states-of-matter/gas2.mml",
       "viewOptions": {
         "controlButtons": "play_reset",

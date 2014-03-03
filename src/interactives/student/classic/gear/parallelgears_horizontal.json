@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "parallelgears_horizontal",
-      "url": "imports/legacy-mw-content/converted/student/classic/gear/parallelgears_horizontal.json",
+      "url": "models-converted/lab-version/1/student/classic/gear/parallelgears_horizontal.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

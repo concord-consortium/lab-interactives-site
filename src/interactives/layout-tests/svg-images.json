@@ -7,21 +7,21 @@
     "",
     "Current possible images including the SVG replacements for the png image:",
     "",
-    "1. [instructionBox.png](../../imports/legacy-mw-content/converted/layout-tests/svg-images/instructionBox.png)",
+    "1. [instructionBox.png](../../models-converted/lab-version/1/layout-tests/svg-images/instructionBox.png)",
     "",
     "   This is a 253x58 pixel png image. Will appear pixelated when scaled to larger sizes.",
     "",
-    "2. [instructionBox.svg](../../imports/legacy-mw-content/converted/layout-tests/svg-images/instructionBox.svg)",
+    "2. [instructionBox.svg](../../models-converted/lab-version/1/layout-tests/svg-images/instructionBox.svg)",
     "",
     "   Created with Adobe Illustrator this SVG image uses an embedded base64 image for the drop-shadow effect.",
     "   Additionally explicit paths are used to draw the text instead of using SVG text objects, this makes the text",
     "   rendering independent of whether a specific font is installed on the users computer.",
     "",
-    "3. [instructionBox2.svg](../../imports/legacy-mw-content/converted//layout-tests/svg-images/instructionBox2.svg)",
+    "3. [instructionBox2.svg](../../models-converted/lab-version/1//layout-tests/svg-images/instructionBox2.svg)",
     "",
     "   Created using the open-source Inkscape application this SVG image uses SVG text elements and does not have a drop shadow.",
     "",
-    "4. [instructionBox3.svg](../../imports/legacy-mw-content/converted//layout-tests/svg-images/instructionBox3.svg)",
+    "4. [instructionBox3.svg](../../models-converted/lab-version/1//layout-tests/svg-images/instructionBox3.svg)",
     "",
     "   Created by hand, this SVG image uses SVG text elements and the SVG feGaussianBlur filter to create the drop-shadow effect."
   ],
@@ -29,7 +29,7 @@
     {
       "type": "md2d",
       "id": "png",
-      "url": "imports/legacy-mw-content/converted/layout-tests/svg-images/page1$0.json",
+      "url": "models-converted/lab-version/1/layout-tests/svg-images/page1$0.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
@@ -38,7 +38,7 @@
     {
       "type": "md2d",
       "id": "svg1",
-      "url": "imports/legacy-mw-content/converted/layout-tests/svg-images/page1$0.json",
+      "url": "models-converted/lab-version/1/layout-tests/svg-images/page1$0.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -50,7 +50,7 @@
     {
       "type": "md2d",
       "id": "svg2",
-      "url": "imports/legacy-mw-content/converted/layout-tests/svg-images/page1$0.json",
+      "url": "models-converted/lab-version/1/layout-tests/svg-images/page1$0.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -62,7 +62,7 @@
     {
       "type": "md2d",
       "id": "svg3",
-      "url": "imports/legacy-mw-content/converted/layout-tests/svg-images/page1$0.json",
+      "url": "models-converted/lab-version/1/layout-tests/svg-images/page1$0.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,

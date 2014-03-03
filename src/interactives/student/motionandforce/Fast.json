@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "Fast",
-      "url": "imports/legacy-mw-content/converted/student/motionandforce/Fast.json",
+      "url": "models-converted/lab-version/1/student/motionandforce/Fast.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

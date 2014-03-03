@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "periodic$1",
-      "url": "imports/legacy-mw-content/converted/tutorial/periodic$1.json",
+      "url": "models-converted/lab-version/1/tutorial/periodic$1.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

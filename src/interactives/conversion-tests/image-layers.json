@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "image-layers$0",
-      "url": "imports/legacy-mw-content/converted/potential-tests/image-layers/image-layers$0.json",
+      "url": "models-converted/lab-version/1/potential-tests/image-layers/image-layers$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

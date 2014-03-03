@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "heatflow1$0",
-      "url": "imports/legacy-mw-content/converted/itsi/heattransfer/heatflow1$0.json",
+      "url": "models-converted/lab-version/1/itsi/heattransfer/heatflow1$0.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/heatflow1$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "msd$1",
-      "url": "imports/legacy-mw-content/converted/student/stateofmatter/msd$1.json",
+      "url": "models-converted/lab-version/1/student/stateofmatter/msd$1.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

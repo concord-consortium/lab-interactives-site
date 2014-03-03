@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "moreonleft",
-      "url": "imports/legacy-mw-content/converted/student/fluid/moreonleft.json",
+      "url": "models-converted/lab-version/1/student/fluid/moreonleft.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

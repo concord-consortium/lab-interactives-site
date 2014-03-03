@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "catalyst",
-      "url": "imports/legacy-mw-content/converted/public/part1/elisa/catalyst.json",
+      "url": "models-converted/lab-version/1/public/part1/elisa/catalyst.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/elisa/catalyst.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

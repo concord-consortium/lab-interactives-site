@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "ring50",
-      "url": "imports/legacy-mw-content/converted/student/fluid/ring50.json",
+      "url": "models-converted/lab-version/1/student/fluid/ring50.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

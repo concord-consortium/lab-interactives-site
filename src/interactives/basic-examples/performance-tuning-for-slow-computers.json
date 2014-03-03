@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "simple-gas",
-      "url": "imports/legacy-mw-content/converted/benchmarks/simple-gas/simple-gas$0.json",
+      "url": "models-converted/lab-version/1/benchmarks/simple-gas/simple-gas$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },
@@ -19,7 +19,7 @@
     {
       "type": "md2d",
       "id": "oil-and-water",
-      "url": "imports/legacy-mw-content/converted/benchmarks/oil-and-water/page3$1.json",
+      "url": "models-converted/lab-version/1/benchmarks/oil-and-water/page3$1.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },
@@ -28,7 +28,7 @@
     {
       "type": "md2d",
       "id": "temperature-volume",
-      "url": "imports/legacy-mw-content/converted/benchmarks/gas-laws-temperature-volume/page4$0.json",
+      "url": "models-converted/lab-version/1/benchmarks/gas-laws-temperature-volume/page4$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step",
         "imageMapping": {
@@ -40,7 +40,7 @@
     {
       "type": "md2d",
       "id": "hydrogen-bonds",
-      "url": "imports/legacy-mw-content/converted/benchmarks/hydrogen-bonds/page6$0.json",
+      "url": "models-converted/lab-version/1/benchmarks/hydrogen-bonds/page6$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },
@@ -49,7 +49,7 @@
     {
       "type": "md2d",
       "id": "100-atoms-charged",
-      "url": "imports/legacy-mw-content/converted/benchmarks/100-atoms/100-atoms-charged.json",
+      "url": "models-converted/lab-version/1/benchmarks/100-atoms/100-atoms-charged.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },
@@ -58,7 +58,7 @@
     {
       "type": "md2d",
       "id": "phase-change",
-      "url": "imports/legacy-mw-content/converted/benchmarks/phase-change-energy-input/page6$0.json",
+      "url": "models-converted/lab-version/1/benchmarks/phase-change-energy-input/page6$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },
@@ -67,7 +67,7 @@
     {
       "type": "md2d",
       "id": "plasticforce",
-      "url": "imports/legacy-mw-content/converted/benchmarks/plastic-forces/plasticforcesimple$0.json",
+      "url": "models-converted/lab-version/1/benchmarks/plastic-forces/plasticforcesimple$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },

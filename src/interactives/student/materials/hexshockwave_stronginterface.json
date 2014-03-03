@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "hexshockwave_stronginterface",
-      "url": "imports/legacy-mw-content/converted/student/materials/hexshockwave_stronginterface.json",
+      "url": "models-converted/lab-version/1/student/materials/hexshockwave_stronginterface.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

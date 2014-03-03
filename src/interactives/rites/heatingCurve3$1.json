@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "heatingCurve3$1",
-      "url": "imports/legacy-mw-content/converted/rites/heatingCurve3$1.json",
+      "url": "models-converted/lab-version/1/rites/heatingCurve3$1.json",
       "importedFrom": "imports/legacy-mw-content/rites/heatingCurve3$1.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "NoCharge",
-      "url": "imports/legacy-mw-content/converted/student/motionandforce/NoCharge.json",
+      "url": "models-converted/lab-version/1/student/motionandforce/NoCharge.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

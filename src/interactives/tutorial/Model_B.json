@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "Model_B",
-      "url": "imports/legacy-mw-content/converted/tutorial/Model_B.json",
+      "url": "models-converted/lab-version/1/tutorial/Model_B.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

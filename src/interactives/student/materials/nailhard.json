@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "nailhard",
-      "url": "imports/legacy-mw-content/converted/student/materials/nailhard.json",
+      "url": "models-converted/lab-version/1/student/materials/nailhard.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

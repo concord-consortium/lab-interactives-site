@@ -19,8 +19,8 @@
     {
       "type": "md2d",
       "id": "page2$0",
-      "url": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.json",
-      "importedFrom": "imports/legacy-mw-content/converted/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.mml",
+      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.json",
+      "importedFrom": "models-converted/lab-version/1/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset",
         "imageMapping": {

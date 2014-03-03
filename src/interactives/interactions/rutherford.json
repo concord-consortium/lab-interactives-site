@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "rutherford$0",
-      "url": "imports/legacy-mw-content/converted/interactions/rutherford-experiment/rutherford$0.json",
+      "url": "models-converted/lab-version/1/interactions/rutherford-experiment/rutherford$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/rutherford-experiment/rutherford$0.mml",
       "viewOptions": {
         "controlButtons": "",

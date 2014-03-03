@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "does-not-exist",
-      "url": "imports/legacy-mw-content/converted/this-model-does-not-exist.json",
+      "url": "models-converted/lab-version/1/this-model-does-not-exist.json",
       "viewOptions": {
         "controlButtons": ""
       }

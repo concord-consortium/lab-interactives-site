@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "salt",
-      "url": "imports/legacy-mw-content/converted/public/part1/distillation/salt.json",
+      "url": "models-converted/lab-version/1/public/part1/distillation/salt.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/distillation/salt.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
