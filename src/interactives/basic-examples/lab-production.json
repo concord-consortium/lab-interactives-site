@@ -1,0 +1,14 @@
+{
+  "title": "Lab Production Environment",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "This interactive demonstrates filtering based on 'labEnvironment' property.",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty",
+      "model": {}
+    }
+  ]
+}
