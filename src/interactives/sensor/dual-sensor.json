@@ -10,7 +10,7 @@
     {
       "type": "dual-sensor",
       "id": "signal1",
-      "url": "models/sensor/dual-sensor.json",
+      "url": "models/lab-version/1/sensor/dual-sensor.json",
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",

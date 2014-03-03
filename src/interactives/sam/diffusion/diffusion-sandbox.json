@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "diffusion-sandbox$0",
-      "url": "models/md2d/sam/diffusion/diffusion-sandbox-mml.json",
+      "url": "models/lab-version/1/md2d/sam/diffusion/diffusion-sandbox-mml.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "showClock": true,

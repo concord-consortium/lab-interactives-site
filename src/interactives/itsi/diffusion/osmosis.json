@@ -11,7 +11,7 @@
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models/md2d/itsi/diffusion/osmosis/osmosis.json",
+      "url": "models/lab-version/1/md2d/itsi/diffusion/osmosis/osmosis.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "imageMapping": {

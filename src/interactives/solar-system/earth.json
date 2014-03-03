@@ -8,7 +8,7 @@
     {
       "type": "solar-system",
       "id": "earth",
-      "url": "models/solar-system/earth.json",
+      "url": "models/lab-version/1/solar-system/earth.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },

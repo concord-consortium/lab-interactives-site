@@ -7,7 +7,7 @@
     {
       "type": "solar-system",
       "id": "two-bodies",
-      "url": "models/solar-system/one-planet.json",
+      "url": "models/lab-version/1/solar-system/one-planet.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       }

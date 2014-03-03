@@ -16,7 +16,7 @@
     {
       "type": "md2d",
       "id": "making-breaking-ab.json",
-      "url": "models/md2d/itsi/chemical-reactions/making-breaking-ab.json",
+      "url": "models/lab-version/1/md2d/itsi/chemical-reactions/making-breaking-ab.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       },

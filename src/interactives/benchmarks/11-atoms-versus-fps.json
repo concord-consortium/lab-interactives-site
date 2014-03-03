@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "main-model",
-      "url": "models/md2d/benchmarks/atoms-versus-fps.json",
+      "url": "models/lab-version/1/md2d/benchmarks/atoms-versus-fps.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       }

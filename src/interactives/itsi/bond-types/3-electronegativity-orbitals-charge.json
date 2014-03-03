@@ -9,7 +9,7 @@
     {
       "type": "md2d",
       "id": "3-electronegativity-orbitals-charge",
-      "url": "models/md2d/itsi/bond-types/3-electronegativity-orbitals-charge.json",
+      "url": "models/lab-version/1/md2d/itsi/bond-types/3-electronegativity-orbitals-charge.json",
       "viewOptions": {
         "controlButtons": ""
       },

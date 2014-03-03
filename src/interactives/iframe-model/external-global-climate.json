@@ -7,7 +7,7 @@
     {
       "type": "iframe-model",
       "id": "iframe-model",
-      "url": "models/iframe-model/iframe-model.json",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
         "url": "http://concord-consortium.github.io/agentscript-models/global-climate/global-climate-1.html"
       },

@@ -7,7 +7,7 @@
     {
       "type": "signal-generator",
       "id": "signal1",
-      "url": "models/signal-generator/signal-generator.json",
+      "url": "models/lab-version/1/signal-generator/signal-generator.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "showClock": true

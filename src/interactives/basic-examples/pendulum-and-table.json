@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "pendulum1$0",
-      "url": "models/md2d/basic-examples/pendulum.json",
+      "url": "models/lab-version/1/md2d/basic-examples/pendulum.json",
       "viewOptions": {
         "controlButtons": "",
         "gridLines": false,

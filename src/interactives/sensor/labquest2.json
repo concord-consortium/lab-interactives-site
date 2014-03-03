@@ -8,7 +8,7 @@
     {
       "type": "labquest2",
       "id": "signal1",
-      "url": "models/labquest2/labquest2.json",
+      "url": "models/lab-version/1/labquest2/labquest2.json",
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",

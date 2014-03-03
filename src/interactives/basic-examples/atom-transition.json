@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "empty-atom",
-      "url": "models/md2d/empty-model.json",
+      "url": "models/lab-version/1/md2d/empty-model.json",
       "onLoad": [
         "setAtomProperties(0, {pinned: true});",
         "markAtoms([0]);",
