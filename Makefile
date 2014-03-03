@@ -346,20 +346,7 @@ public/imports: \
 	$(COMMON_SRC_FILES)
 	mkdir -p public/imports
 	rsync -aq imports/ public/imports/
-	$(MAKE) convert-mml
-	rsync -aq --exclude 'converted/***' --filter '+ */'  --prune-empty-dirs --exclude '*.mml' --exclude '*.cml' --exclude '.*' --exclude '/*' public/imports/legacy-mw-content/ public/imports/legacy-mw-content/converted/
-
-.PHONY: convert-mml
-convert-mml:
-	./node-bin/convert-mml-files
-	./node-bin/create-mml-html-index
-	./src/helpers/md2d/post-batch-processor.rb
-
-.PHONY: convert-all-mml
-convert-all-mml:
-	./node-bin/convert-mml-files -a
-	./node-bin/create-mml-html-index
-	./src/helpers/md2d/post-batch-processor.rb
+	rsync -aq --filter '+ */'  --prune-empty-dirs --exclude '*.mml' --exclude '*.cml' --exclude '.*' --exclude '/*' public/imports/legacy-mw-content/ public/imports/legacy-mw-content/converted/
 
 public/resources:
 	cp -R ./src/lab/resources ./public/lab/
