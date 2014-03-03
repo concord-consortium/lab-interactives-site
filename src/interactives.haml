@@ -197,6 +197,9 @@
             .extras-item-description
               A link to the embeddable suitable for bundling with learner data.
 
+    :javascript
+      // Make LAB_ENV variable available also for scripts (e.g. application.js uses it).
+      var LAB_ENV = "#{LAB_ENV}";
     %script{:src => LAB_JS[LAB_ENV], :type => "text/javascript"}
     = LAB_SHUTTERBUG
     = LAB_MODEL_LIST

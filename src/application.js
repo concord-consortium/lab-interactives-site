@@ -1,4 +1,4 @@
-/*global Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, modelList, AUTHORING: true */
+/*global Lab, LAB_ENV, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, modelList, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
@@ -381,6 +381,10 @@
           draftFilter = $("#draft").is(':checked'),
           brokenFilter = $("#broken").is(':checked'),
           interactiveGroup = interactives.filter(function (interactive) {
+            var env = interactive.labEnvironment;
+            // LAB_ENV is a global variable set by interactives.haml template.
+            if (LAB_ENV === "production" && env !== "production") return false;
+            if (LAB_ENV === "staging" && env !== "production" && env !== "staging") return false;
             if (interactive.groupKey !== group.path) return false;
             if (interactive.publicationStatus === 'sample') return true;
             if (publicFilter && interactive.publicationStatus === 'public') return true;
