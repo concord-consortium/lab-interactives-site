@@ -29,8 +29,8 @@
           %a(href="") Interactive Browser
 
         %span.title additional links:
-        %a#embeddable-link{:href => "embeddable.html", :class => "opens-in-new-window", :target => "_blank"} Embeddable
-        %a#datagames-link{:href => "embeddable.html", :class => "opens-in-new-window", :target => "_blank"} DataGames
+        %a#embeddable-link{:href => EMBEDDABLE_PAGE[LAB_ENV], :class => "opens-in-new-window", :target => "_blank"} Embeddable
+        %a#datagames-link{:href => EMBEDDABLE_PAGE[LAB_ENV], :class => "opens-in-new-window", :target => "_blank"} DataGames
         %a#datagames-staging-link{:href => "embeddable.html", :class => "opens-in-new-window", :target => "_blank"} DataGames (Staging)
         %a#original-import-link{:href => "", :class => "opens-in-new-window", :target => "_blank"} Original Imported Model
 
@@ -82,6 +82,8 @@
       #interactive-title
     #interactive-error-dialog
     #content.standard-interactive-layout
+      #iframe-wrapper.ui-widget-content
+        %iframe{:id => "iframe-interactive", :width => "100%", :height => "100%", :frameborder => "no", :scrolling => "no", :allowfullscreen => "true", :webkitallowfullscreen => "true", :mozallowfullscreen => "true", :'data-embeddable-src' => EMBEDDABLE_PAGE[LAB_ENV]}
     #extras-bottom
       #extras-bottom-banner Extras
 
@@ -195,9 +197,6 @@
             .extras-item-description
               A link to the embeddable suitable for bundling with learner data.
 
-    :javascript
-      // set global EMBEDDABLE_PAGE, so the application.js can use it.
-      var EMBEDDABLE_PAGE = "#{EMBEDDABLE_PAGE[LAB_ENV]}";
     %script{:src => LAB_JS[LAB_ENV], :type => "text/javascript"}
     = LAB_SHUTTERBUG
     = LAB_MODEL_LIST

@@ -1,4 +1,4 @@
-/*global Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, EMBEDDABLE_PAGE, alert, modelList, AUTHORING: true */
+/*global Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, modelList, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
@@ -6,8 +6,6 @@
   var DEF_ASPECT_RATIO = 1.3,
 
       origin,
-      embeddablePath,
-      embeddableUrl,
       interactiveDescriptions,
       descriptionByPath,
       interactives,
@@ -128,8 +126,6 @@
     selectInteractiveSizeHandler();
 
     origin = document.location.href.match(/(.*?\/\/.*?)\//)[1];
-    embeddablePath = location.pathname.replace(/\/[^\/]+$/, "/" + EMBEDDABLE_PAGE);
-    embeddableUrl = origin + embeddablePath + hash;
 
     AUTHORING = true;
     applicationCallbacks = [setupFullPage];
@@ -154,12 +150,13 @@
         $iframe;
 
     // setup iframe
-    $iframeWrapper = $('<div id="iframe-wrapper" class="ui-widget-content ' + $selectInteractiveSize.val() + '"></div>');
-    $iframe = $('<iframe id="iframe-interactive" width="100%" height="100%" frameborder="no" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="' + embeddableUrl + '"></iframe>');
-    $content.append($iframeWrapper);
+    $iframe = $('#iframe-interactive');
+    $iframe.attr('src', $iframe.attr('data-embeddable-src') + hash);
+
+    $iframeWrapper = $('#iframe-wrapper');
+    $iframeWrapper.addClass($selectInteractiveSize.val());
     selectInteractiveSizeHandler();
     $selectInteractiveSize.removeAttr('disabled');
-    $iframeWrapper.append($iframe);
     $iframeWrapper.resizable({
       helper: "ui-resizable-helper",
       stop: function (event, ui) {
