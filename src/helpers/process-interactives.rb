@@ -32,6 +32,7 @@ Dir.chdir(INTERACTIVE_EXAMPLES_PATH) do
       :subtitle => interactive['subtitle'] || "",
       :about => interactive['about'] || "",
       :publicationStatus => interactive['publicationStatus'] || "draft",
+      :labEnvironment => interactive['labEnvironment'] || "production",
       :category => interactive['category'] || "",
       :subCategory => interactive['subCategory'] || "",
       :screenshot => interactive['screenshot'] || ""
