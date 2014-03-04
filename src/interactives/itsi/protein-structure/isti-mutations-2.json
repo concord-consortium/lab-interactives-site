@@ -1,5 +1,5 @@
 {
-  "title": "DNA Mutations",
+  "title": "ITSI DNA Mutations 2",
   "publicationStatus": "draft",
   "subtitle": "Explore how changing the DNA sequence can change the amino acid sequence of a protein.",
   "aspectRatio": 1.725,
@@ -15,13 +15,13 @@
     {
       "type": "md2d",
       "id": "page3$0",
-      "url": "models-converted/lab-version/1/md2d/itsi/protein-structure/page3$0.json",
+      "url": "imports/legacy-mw-content/converted/itsi/protein-structure/page3$0.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
       },
       "modelOptions": {
-        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNA": "TTTCCCTTTGGGCCCTTTAAATTTGGG",
         "DNAState": "dna"
       }
     }
