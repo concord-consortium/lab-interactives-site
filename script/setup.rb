@@ -150,9 +150,3 @@ LAB_SHUTTERBUG_EMBEDDABLE = LAB_SHUTTERBUG + <<-HEREDOC
   );
 </script>
   HEREDOC
-
-if ENV['LAB_DISABLE_MODEL_LIST']
-  LAB_MODEL_LIST = ''
-else
-  LAB_MODEL_LIST = "<script src='imports/legacy-mw-content/model-list.js' type='text/javascript'></script>"
-end

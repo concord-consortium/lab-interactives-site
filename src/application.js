@@ -1,4 +1,4 @@
-/*global Lab, LAB_ENV, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, modelList, AUTHORING: true */
+/*global Lab, LAB_ENV, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
@@ -336,23 +336,6 @@
 
   $selectInteractiveSize.change(selectInteractiveSizeHandler);
 
-  // used to extract values from nested object: modelList
-  function getObjects(obj, key, val) {
-    var objects = [],
-        i;
-
-    for (i in obj) {
-      if (obj.hasOwnProperty(i)) {
-        if (typeof obj[i] === 'object') {
-          objects = objects.concat(getObjects(obj[i], key, val));
-        } else if (i === key && obj[key] === val) {
-          objects.push(obj);
-        }
-      }
-    }
-    return objects;
-  }
-
   function setupSelectList() {
     if (chosenApplied) {
       $selectInteractive.chosen('destroy');
@@ -461,11 +444,7 @@
   function setupOriginalImportLinks() {
     var $originalImportLink = $("#original-import-link"),
         $originalModelLink = $("#original-model-link"),
-        javaMW = "http://mw2.concord.org/tmp.jnlp?address=",
-        javaMWhref,
-        mmlPath,
-        e2dModelPath,
-        contentItems = [];
+        e2dModelPath;
 
     function disableOriginalImportLink() {
       $originalImportLink.removeAttr("href");
@@ -485,26 +464,9 @@
     if (jsonModelPath) {
       switch(interactive.models[0].type) {
         case "md2d":
-        // construct Java MW link for running Interactive via jnlp
-        // uses generated resource list: /imports/legacy-mw-content/model-list.js
-        // also updates link to original MML in Model Editor
-        mmlPath = jsonModelPath.replace("imports/legacy-mw-content/converted/", "imports/legacy-mw-content/").replace(".json", ".mml");
-        $originalImportLink.attr("target", "");
-        if (typeof modelList !== 'undefined') {
-          contentItems = getObjects(modelList, "mml", mmlPath.replace("imports/legacy-mw-content/", ""));
-        } else {
-          $originalImportLink.hide();
-        }
-        if (contentItems.length > 0) {
-          javaMWhref = javaMW + origin + Lab.config.actualRoot + "imports/legacy-mw-content/" + contentItems[0].cml;
-          $originalImportLink.attr("href", javaMWhref);
-          $originalImportLink.attr("title", "View original Java Molecular Workbench content using Java Web Start");
-          $originalModelLink.attr("href", origin + Lab.config.actualRoot + mmlPath);
-          $originalModelLink.attr("title", "View original Java Molecular Workbench MML file in another window");
-        } else {
-          disableOriginalImportLink();
-          disableOriginalModelLink();
-        }
+        $originalImportLink.hide();
+        disableOriginalImportLink();
+        disableOriginalModelLink();
         break;
         case "energy2d":
         e2dModelPath = interactive.models[0].importedFrom;
