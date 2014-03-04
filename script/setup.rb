@@ -16,6 +16,12 @@ def render_file(filename, locals)
   Haml::Engine.new(contents).render(Object.new, locals)
 end
 
+LAB_ROOT_URL = {
+  :production  => "http://lab.concord.org/lab",
+  :staging     => "http://lab.dev.concord.org/lab",
+  :development => "http://lab.dev.concord.org/lab"
+}
+
 LAB_JS = {
   :production  => "http://lab.concord.org/lab/lab.min.js",
   :staging     => "http://lab.dev.concord.org/lab/lab.js",
