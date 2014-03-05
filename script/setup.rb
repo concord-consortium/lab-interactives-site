@@ -18,19 +18,19 @@ end
 
 LAB_ROOT_URL = {
   :production  => "http://lab.concord.org/lab",
-  :staging     => "http://lab.dev.concord.org/lab",
+  :staging     => "http://lab-staging.concord.org/lab",
   :development => "http://lab.dev.concord.org/lab"
 }
 
 LAB_JS = {
   :production  => "http://lab.concord.org/lab/lab.min.js",
-  :staging     => "http://lab.dev.concord.org/lab/lab.js",
+  :staging     => "http://lab-staging.concord.org/lab/lab.js",
   :development => "http://lab.dev.concord.org/lab/lab.js"
 }
 
 LAB_CSS = {
   :production  => "http://lab.concord.org/lab/lab.css",
-  :staging     => "http://lab.dev.concord.org/lab/lab.css",
+  :staging     => "http://lab-staging.concord.org/lab/lab.css",
   :development => "http://lab.dev.concord.org/lab/lab.css"
 }
 
