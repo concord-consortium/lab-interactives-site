@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "finalIndirect",
-      "url": "models-converted/lab-version/1/public/part1/elisa/finalIndirect.json",
+      "url": "models-converted/lab-version/1/md2d/public/part1/elisa/finalIndirect.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/elisa/finalIndirect.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

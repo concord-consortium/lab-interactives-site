@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "ring150_broken",
-      "url": "models-converted/lab-version/1/student/fluid/ring150_broken.json",
+      "url": "models-converted/lab-version/1/md2d/student/fluid/ring150_broken.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

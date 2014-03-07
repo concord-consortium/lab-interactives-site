@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "polymerimpact",
-      "url": "models-converted/lab-version/1/student/motionandforce/polymerimpact.json",
+      "url": "models-converted/lab-version/1/md2d/student/motionandforce/polymerimpact.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

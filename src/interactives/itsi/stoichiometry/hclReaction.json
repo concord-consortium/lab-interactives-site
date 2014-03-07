@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "hclReaction",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/hclReaction.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/hclReaction.json",
       "importedFrom": "imports/legacy-mw-content/itsi/stoichiometry/hclReaction.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

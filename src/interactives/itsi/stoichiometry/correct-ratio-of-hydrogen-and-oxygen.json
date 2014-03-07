@@ -9,7 +9,7 @@
     {
       "type": "md2d",
       "id": "correct-ratio-of-hydrogen-and-oxygen$0",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/correct-ratio-of-hydrogen-and-oxygen$0.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/correct-ratio-of-hydrogen-and-oxygen$0.json",
       "importedFrom": "imports/legacy-mw-content/itsi/stoichiometry/correct-ratio-of-hydrogen-and-oxygen$0.mml",
       "viewOptions": {
         "viewPortWidth": 3,

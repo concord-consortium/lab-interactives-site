@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "example3",
-      "url": "models-converted/lab-version/1/public/part1/emove/example3.json",
+      "url": "models-converted/lab-version/1/md2d/public/part1/emove/example3.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/emove/example3.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

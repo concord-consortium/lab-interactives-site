@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "A4B8_2",
-      "url": "models-converted/lab-version/1/public/part1/molecularcrystal/A4B8_2.json",
+      "url": "models-converted/lab-version/1/md2d/public/part1/molecularcrystal/A4B8_2.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/molecularcrystal/A4B8_2.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

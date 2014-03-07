@@ -9,7 +9,7 @@
     {
       "type": "md2d",
       "id": "thick-short-bar",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option2.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option2.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option2.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -18,7 +18,7 @@
     {
       "type": "md2d",
       "id": "thin-short-bar",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option3.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option3.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option3.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -27,7 +27,7 @@
     {
       "type": "md2d",
       "id": "thick-long-bar",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option4.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option4.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option4.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -36,7 +36,7 @@
     {
       "type": "md2d",
       "id": "thin-long-bar",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option5.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option5.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option5.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -45,7 +45,7 @@
     {
       "type": "md2d",
       "id": "gas",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option6.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option6.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option6.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -54,7 +54,7 @@
     {
       "type": "md2d",
       "id": "sponge",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option7.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option7.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option7.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -63,7 +63,7 @@
     {
       "type": "md2d",
       "id": "vacuum",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/option1.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

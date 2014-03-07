@@ -8,8 +8,8 @@
     {
       "type": "md2d",
       "id": "oneToOne",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/oneToOne.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/stoichiometry/oneToOne.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/oneToOne.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/stoichiometry/oneToOne.mml",
       "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -33,8 +33,8 @@
     {
       "type": "md2d",
       "id": "twoToOne",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/twoToOne.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/stoichiometry/twoToOne.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToOne.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToOne.mml",
       "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -58,8 +58,8 @@
     {
       "type": "md2d",
       "id": "twoToTwo",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/twoToTwo.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/stoichiometry/twoToTwo.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToTwo.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToTwo.mml",
       "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -85,8 +85,8 @@
     {
       "type": "md2d",
       "id": "twoToThree",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/twoToThree.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/stoichiometry/twoToThree.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToThree.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/stoichiometry/twoToThree.mml",
       "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -110,8 +110,8 @@
     {
       "type": "md2d",
       "id": "fourToFour",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/fourToFour.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/stoichiometry/fourToFour.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/fourToFour.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/stoichiometry/fourToFour.mml",
       "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "play_reset"

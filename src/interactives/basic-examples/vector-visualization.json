@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "pendulum1$0",
-      "url": "models-converted/lab-version/1/conversion-and-physics-examples/pendulum1$0.json",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/pendulum1$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step",
         "velocityVectors": {
@@ -22,7 +22,7 @@
     {
       "type": "md2d",
       "id": "simple-gas$0",
-      "url": "models-converted/lab-version/1/new-examples-for-nextgen/simple-gas$0.json",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
       "viewOptions": {
         "controlButtons": "play_reset_step",
         "velocityVectors": {
@@ -36,7 +36,7 @@
     {
       "type": "md2d",
       "id": "page3$1",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/page3$1.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/page3$1.json",
       "viewOptions": {
         "controlButtons": "play_reset_step"
       },

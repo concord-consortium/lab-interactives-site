@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "liquid1",
-      "url": "models-converted/lab-version/1/itsi/states-of-matter/liquid1.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/states-of-matter/liquid1.json",
       "importedFrom": "imports/legacy-mw-content/itsi/states-of-matter/liquid1.mml",
       "viewOptions": {
         "controlButtons": "play_reset",
@@ -18,7 +18,7 @@
     {
       "type": "md2d",
       "id": "liquid2",
-      "url": "models-converted/lab-version/1/itsi/states-of-matter/liquid2.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/states-of-matter/liquid2.json",
       "importedFrom": "imports/legacy-mw-content/itsi/states-of-matter/liquid2.mml",
       "viewOptions": {
         "controlButtons": "play_reset",

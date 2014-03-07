@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "multiple-attached-images$0",
-      "url": "models-converted/lab-version/1/potential-tests/multiple-attached-images/multiple-attached-images$0.json",
+      "url": "models-converted/lab-version/1/md2d/potential-tests/multiple-attached-images/multiple-attached-images$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "continuous",
-      "url": "models-converted/lab-version/1/interactions/mixing-liquids/continuous.json",
+      "url": "models-converted/lab-version/1/md2d/interactions/mixing-liquids/continuous.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

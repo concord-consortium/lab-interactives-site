@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "plasma$0",
-      "url": "models-converted/lab-version/1/rites/plasma$0.json",
+      "url": "models-converted/lab-version/1/md2d/rites/plasma$0.json",
       "importedFrom": "imports/legacy-mw-content/rites/plasma$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

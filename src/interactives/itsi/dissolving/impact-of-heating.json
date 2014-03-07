@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "impact-of-heating$0",
-      "url": "models-converted/lab-version/1/itsi/dissolving/impact-of-heating$0.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/dissolving/impact-of-heating$0.json",
       "importedFrom": "imports/legacy-mw-content/itsi/dissolving/impact-of-heating$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

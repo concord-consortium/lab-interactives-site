@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "particle",
-      "url": "models-converted/lab-version/1/interactions/mixing-liquids/particle.json",
+      "url": "models-converted/lab-version/1/md2d/interactions/mixing-liquids/particle.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particle.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

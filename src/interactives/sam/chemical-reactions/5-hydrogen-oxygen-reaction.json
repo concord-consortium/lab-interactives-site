@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "hydrogen-oxygen-reaction",
-      "url": "models-converted/lab-version/1/sam-activities/chemical-reactions/hydrogen-oxygen-reaction/hydrogen-oxygen-reaction$0.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/hydrogen-oxygen-reaction/hydrogen-oxygen-reaction$0.json",
       "importedFrom": "imports/legacy-mw-content/sam-activities/chemical-reactions/hydrogen-oxygen-reaction/hydrogen-oxygen-reaction$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

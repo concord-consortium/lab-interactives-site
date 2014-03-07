@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "reaction1",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/reaction1.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/reaction1.json",
       "importedFrom": "imports/legacy-mw-content/itsi/stoichiometry/reaction1.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -37,7 +37,7 @@
     {
       "type": "md2d",
       "id": "reaction2",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/reaction2.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/reaction2.json",
       "importedFrom": "imports/legacy-mw-content/itsi/stoichiometry/reaction2.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -70,7 +70,7 @@
     {
       "type": "md2d",
       "id": "reaction3",
-      "url": "models-converted/lab-version/1/itsi/stoichiometry/singleDisp.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/stoichiometry/singleDisp.json",
       "importedFrom": "imports/legacy-mw-content/itsi/stoichiometry/singleDisp.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

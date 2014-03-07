@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "stringwave2$0",
-      "url": "models-converted/lab-version/1/student/wave/stringwave2$0.json",
+      "url": "models-converted/lab-version/1/md2d/student/wave/stringwave2$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

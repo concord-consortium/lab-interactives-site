@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "syringe$0",
-      "url": "models-converted/lab-version/1/rites/empty.json",
+      "url": "models-converted/lab-version/1/md2d/rites/empty.json",
       "onLoad": [
         "set('timeStep',1);",
         "set('timeStepsPerTick',1);",

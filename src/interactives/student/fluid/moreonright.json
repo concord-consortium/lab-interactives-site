@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "moreonright",
-      "url": "models-converted/lab-version/1/student/fluid/moreonright.json",
+      "url": "models-converted/lab-version/1/md2d/student/fluid/moreonright.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

@@ -9,7 +9,7 @@
     {
       "type": "md2d",
       "id": "emission-spec",
-      "url": "models-converted/lab-version/1/sam-activities/light-matter/absorption/emissionSpc$0.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/emissionSpc$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -17,7 +17,7 @@
     {
       "type": "md2d",
       "id": "elementA",
-      "url": "models-converted/lab-version/1/sam-activities/light-matter/absorption/elementA.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementA.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -25,7 +25,7 @@
     {
       "type": "md2d",
       "id": "elementB",
-      "url": "models-converted/lab-version/1/sam-activities/light-matter/absorption/elementB.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementB.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -33,7 +33,7 @@
     {
       "type": "md2d",
       "id": "elementC",
-      "url": "models-converted/lab-version/1/sam-activities/light-matter/absorption/elementC.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementC.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "largesolid",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/largesolid.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/largesolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/largesolid.mml",
       "viewOptions": {
         "controlButtons": ""
@@ -20,7 +20,7 @@
     {
       "type": "md2d",
       "id": "smallsolid",
-      "url": "models-converted/lab-version/1/itsi/heattransfer/smallsolid.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/smallsolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/smallsolid.mml",
       "viewOptions": {
         "controlButtons": ""

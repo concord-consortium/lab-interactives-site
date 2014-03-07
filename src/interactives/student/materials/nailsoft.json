@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "nailsoft",
-      "url": "models-converted/lab-version/1/student/materials/nailsoft.json",
+      "url": "models-converted/lab-version/1/md2d/student/materials/nailsoft.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

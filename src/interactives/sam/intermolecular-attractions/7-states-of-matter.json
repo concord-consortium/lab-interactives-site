@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "100-atoms-charged",
-      "url": "models-converted/lab-version/1/conversion-and-physics-examples/100-atoms$0.json",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       },

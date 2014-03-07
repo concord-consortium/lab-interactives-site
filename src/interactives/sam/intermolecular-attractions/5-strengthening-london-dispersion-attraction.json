@@ -12,7 +12,7 @@
     {
       "type": "md2d",
       "id": "instructions",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/instructions.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/instructions.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -37,7 +37,7 @@
     {
       "type": "md2d",
       "id": "npSmallStraight",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npSmallStraight.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npSmallStraight.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -60,7 +60,7 @@
     {
       "type": "md2d",
       "id": "npLargeStraight",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npLargeStraight.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npLargeStraight.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -83,7 +83,7 @@
     {
       "type": "md2d",
       "id": "npStraightJagged",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightJagged.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightJagged.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -106,7 +106,7 @@
     {
       "type": "md2d",
       "id": "npStraightRound",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightRound.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightRound.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -129,7 +129,7 @@
     {
       "type": "md2d",
       "id": "npCurvedRound",
-      "url": "models-converted/lab-version/1/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npCurvedRound.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npCurvedRound.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,

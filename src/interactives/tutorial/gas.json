@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "gas",
-      "url": "models-converted/lab-version/1/tutorial/gas.json",
+      "url": "models-converted/lab-version/1/md2d/tutorial/gas.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

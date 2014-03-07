@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "active_filters$1",
-      "url": "models-converted/lab-version/1/student/materials/active_filters$1.json",
+      "url": "models-converted/lab-version/1/md2d/student/materials/active_filters$1.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

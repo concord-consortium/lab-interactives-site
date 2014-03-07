@@ -8,8 +8,8 @@
     {
       "type": "md2d",
       "id": "page8$1",
-      "url": "models-converted/lab-version/1/itsi/states-of-matter/page8$1.json",
-      "importedFrom": "models-converted/lab-version/1/itsi/states-of-matter/page8$1.mml",
+      "url": "models-converted/lab-version/1/md2d/itsi/states-of-matter/page8$1.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/itsi/states-of-matter/page8$1.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },

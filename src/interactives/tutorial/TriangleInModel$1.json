@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "TriangleInModel$1",
-      "url": "models-converted/lab-version/1/tutorial/TriangleInModel$1.json",
+      "url": "models-converted/lab-version/1/md2d/tutorial/TriangleInModel$1.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

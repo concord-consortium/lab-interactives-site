@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "saltonly",
-      "url": "models-converted/lab-version/1/itsi/dissolving/saltonly.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/dissolving/saltonly.json",
       "importedFrom": "imports/legacy-mw-content/itsi/dissolving/saltonly.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -16,7 +16,7 @@
     {
       "type": "md2d",
       "id": "saltandwater",
-      "url": "models-converted/lab-version/1/itsi/dissolving/saltandwater.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/dissolving/saltandwater.json",
       "importedFrom": "imports/legacy-mw-content/itsi/dissolving/saltandwater.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

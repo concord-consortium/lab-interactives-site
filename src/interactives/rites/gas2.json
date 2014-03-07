@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "gas2",
-      "url": "models-converted/lab-version/1/rites/gas2.json",
+      "url": "models-converted/lab-version/1/md2d/rites/gas2.json",
       "importedFrom": "imports/legacy-mw-content/rites/gas2.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

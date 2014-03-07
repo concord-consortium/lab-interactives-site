@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "level1",
-      "url": "models-converted/lab-version/1/public/part1/emove/level1.json",
+      "url": "models-converted/lab-version/1/md2d/public/part1/emove/level1.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/emove/level1.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

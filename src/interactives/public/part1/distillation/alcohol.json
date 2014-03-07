@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "alcohol",
-      "url": "models-converted/lab-version/1/public/part1/distillation/alcohol.json",
+      "url": "models-converted/lab-version/1/md2d/public/part1/distillation/alcohol.json",
       "importedFrom": "imports/legacy-mw-content/public/part1/distillation/alcohol.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

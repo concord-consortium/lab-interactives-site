@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "html_layout$0",
-      "url": "models-converted/lab-version/1/tutorial/html_layout$0.json",
+      "url": "models-converted/lab-version/1/md2d/tutorial/html_layout$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

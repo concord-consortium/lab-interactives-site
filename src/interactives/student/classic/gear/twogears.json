@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "twogears",
-      "url": "models-converted/lab-version/1/student/classic/gear/twogears.json",
+      "url": "models-converted/lab-version/1/md2d/student/classic/gear/twogears.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

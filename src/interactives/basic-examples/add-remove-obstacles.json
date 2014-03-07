@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "three-atoms-three-elements$0",
-      "url": "models-converted/lab-version/1/potential-tests/three-atoms-three-elements/three-atoms-three-elements$0.json",
+      "url": "models-converted/lab-version/1/md2d/potential-tests/three-atoms-three-elements/three-atoms-three-elements$0.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
