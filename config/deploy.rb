@@ -18,7 +18,7 @@ end
 
 desc "ls server"
 task :ls_server do
-  run "cd /var/www/app"
+  run "cd /var/www/interactives"
   run "ls -als"
 end
 
@@ -37,27 +37,27 @@ namespace :deploy do
 
   desc "restart the Rack application"
   task :restart do
-    run "mkdir -p /var/www/app/tmp"
-    run "touch /var/www/app/tmp/restart.txt"
+    run "mkdir -p /var/www/interactives/tmp"
+    run "touch /var/www/interactives/tmp/restart.txt"
   end
 
   desc "checkout branch and force reset to origin/branch"
   task :checkout do
-    run "cd /var/www/app; git fetch --all --tags"
-    run "cd /var/www/app; git checkout #{branch}"
-    run "cd /var/www/app; git reset --hard origin/#{branch}"
+    run "cd /var/www/interactives; git fetch --all --tags"
+    run "cd /var/www/interactives; git checkout #{branch}"
+    run "cd /var/www/interactives; git reset --hard origin/#{branch}"
   end
 
   desc "update Ruby Gems with bundle install"
   task :bundle_install do
-    run "cd /var/www/app; bundle install --binstubs"
+    run "cd /var/www/interactives; bundle install --binstubs"
   end
 
   desc "update server"
   task :update do
     checkout
     bundle_install
-    run "cd /var/www/app; make clean-public; make"
+    run "cd /var/www/interactives; make clean-public; make"
     create_symbolic_links_to_archives
     restart
   end
@@ -66,7 +66,7 @@ namespace :deploy do
   task :clean_and_update do
     checkout
     bundle_install
-    run "cd /var/www/app; make clean; make"
+    run "cd /var/www/interactives; make clean; make"
     create_symbolic_links_to_archives
     restart
   end
@@ -74,7 +74,7 @@ namespace :deploy do
   desc "clean and rebuild jars in public/jnlp dir on server"
   task :update_jnlps do
     checkout
-    run "cd /var/www/app; make jnlp-all"
+    run "cd /var/www/interactives; make jnlp-all"
     restart
   end
 
@@ -91,17 +91,17 @@ namespace :deploy do
 
   desc "create symbolic links archives of public dir"
   task :create_symbolic_links_to_archives do
-    run "cd /var/www/app; ./script/create-symbolic-links-to-archives.rb"
+    run "cd /var/www/interactives; ./script/create-symbolic-links-to-archives.rb"
   end
 
   desc "create archive of public dir"
   task :archive_public_dir do
-    run "cd /var/www/app; ./script/create-archived-public-dir.sh"
+    run "cd /var/www/interactives; ./script/create-archived-public-dir.sh"
     create_symbolic_links_to_archives
   end
 
   desc "display last commit on deployed server"
   task :status do
-    run "cd /var/www/app; git log -1"
+    run "cd /var/www/interactives; git log -1"
   end
 end
