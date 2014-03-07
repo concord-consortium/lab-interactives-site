@@ -73,7 +73,9 @@ src: \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
-public/interactives.html: config/config.yml
+public/interactives.html: config/config.yml interactives.haml
+public/interactives-staging.html: config/config.yml interactives.haml
+public/interactives-dev.html: config/config.yml interactives.haml
 public/embeddable.html: config/config.yml embeddable.haml
 public/embeddable-staging.html: config/config.yml embeddable.haml
 public/embeddable-dev.html: config/config.yml embeddable.haml
