@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "vortex-street-viscosity",
-      "url": "imports/energy2d/models-json/vortex-street-viscosity.json",
+      "url": "models-converted/lab-version/1/energy2d/vortex-street-viscosity.json",
       "importedFrom": "imports/energy2d/models-xml/vortex-street-viscosity.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

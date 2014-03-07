@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "hot-plate-in-air",
-      "url": "imports/energy2d/models-json/hot-plate-in-air.json",
+      "url": "models-converted/lab-version/1/energy2d/hot-plate-in-air.json",
       "importedFrom": "imports/energy2d/models-xml/hot-plate-in-air.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

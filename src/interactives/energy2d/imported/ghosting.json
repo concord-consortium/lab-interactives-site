@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "ghosting",
-      "url": "imports/energy2d/models-json/ghosting.json",
+      "url": "models-converted/lab-version/1/energy2d/ghosting.json",
       "importedFrom": "imports/energy2d/models-xml/ghosting.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "lid-driven-cavity",
-      "url": "imports/energy2d/models-json/lid-driven-cavity.json",
+      "url": "models-converted/lab-version/1/energy2d/lid-driven-cavity.json",
       "importedFrom": "imports/energy2d/models-xml/lid-driven-cavity.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

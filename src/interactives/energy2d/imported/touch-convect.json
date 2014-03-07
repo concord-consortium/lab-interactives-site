@@ -7,7 +7,7 @@
     {
       "type": "energy2d",
       "id": "touch-convect",
-      "url": "imports/energy2d/models-json/touch-convect.json",
+      "url": "models-converted/lab-version/1/energy2d/touch-convect.json",
       "importedFrom": "imports/energy2d/models-xml/touch-convect.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

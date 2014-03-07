@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "constant-temperature-sources",
-      "url": "imports/energy2d/models-json/constant-temperature-sources.json",
+      "url": "models-converted/lab-version/1/energy2d/constant-temperature-sources.json",
       "importedFrom": "imports/energy2d/models-xml/constant-temperature-sources.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

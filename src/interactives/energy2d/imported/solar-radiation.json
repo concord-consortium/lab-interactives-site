@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "solar-radiation",
-      "url": "imports/energy2d/models-json/solar-radiation.json",
+      "url": "models-converted/lab-version/1/energy2d/solar-radiation.json",
       "importedFrom": "imports/energy2d/models-xml/solar-radiation.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

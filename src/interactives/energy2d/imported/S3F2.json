@@ -7,7 +7,7 @@
     {
       "type": "energy2d",
       "id": "S3F2",
-      "url": "imports/energy2d/models-json/S3F2.json",
+      "url": "models-converted/lab-version/1/energy2d/S3F2.json",
       "importedFrom": "imports/energy2d/models-xml/S3F2.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "natural-daylighting",
-      "url": "imports/energy2d/models-json/natural-daylighting.json",
+      "url": "models-converted/lab-version/1/energy2d/natural-daylighting.json",
       "importedFrom": "imports/energy2d/models-xml/natural-daylighting.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

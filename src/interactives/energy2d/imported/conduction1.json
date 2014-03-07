@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "conduction1",
-      "url": "imports/energy2d/models-json/conduction1.json",
+      "url": "models-converted/lab-version/1/energy2d/conduction1.json",
       "importedFrom": "imports/energy2d/models-xml/conduction1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

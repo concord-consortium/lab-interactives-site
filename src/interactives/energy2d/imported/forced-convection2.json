@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "forced-convection2",
-      "url": "imports/energy2d/models-json/forced-convection2.json",
+      "url": "models-converted/lab-version/1/energy2d/forced-convection2.json",
       "importedFrom": "imports/energy2d/models-xml/forced-convection2.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

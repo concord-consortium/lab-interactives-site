@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "convection-exploration",
-      "url": "imports/energy2d/models-json/convection-exploration.json",
+      "url": "models-converted/lab-version/1/energy2d/convection-exploration.json",
       "importedFrom": "imports/energy2d/models-xml/convection-exploration.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

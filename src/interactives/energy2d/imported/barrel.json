@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "barrel",
-      "url": "imports/energy2d/models-json/barrel.json",
+      "url": "models-converted/lab-version/1/energy2d/barrel.json",
       "importedFrom": "imports/energy2d/models-xml/barrel.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

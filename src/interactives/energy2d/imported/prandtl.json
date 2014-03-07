@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "prandtl",
-      "url": "imports/energy2d/models-json/prandtl.json",
+      "url": "models-converted/lab-version/1/energy2d/prandtl.json",
       "importedFrom": "imports/energy2d/models-xml/prandtl.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -7,7 +7,7 @@
     {
       "type": "energy2d",
       "id": "sunspace",
-      "url": "imports/energy2d/models-json/sunspace.json",
+      "url": "models-converted/lab-version/1/energy2d/sunspace.json",
       "importedFrom": "imports/energy2d/models-xml/sunspace.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

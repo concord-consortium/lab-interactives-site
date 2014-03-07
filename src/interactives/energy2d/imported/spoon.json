@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "spoon",
-      "url": "imports/energy2d/models-json/spoon.json",
+      "url": "models-converted/lab-version/1/energy2d/spoon.json",
       "importedFrom": "imports/energy2d/models-xml/spoon.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

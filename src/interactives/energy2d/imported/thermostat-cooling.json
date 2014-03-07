@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "thermostat-cooling",
-      "url": "imports/energy2d/models-json/thermostat-cooling.json",
+      "url": "models-converted/lab-version/1/energy2d/thermostat-cooling.json",
       "importedFrom": "imports/energy2d/models-xml/thermostat-cooling.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -7,7 +7,7 @@
     {
       "type": "energy2d",
       "id": "blowing-wind",
-      "url": "imports/energy2d/models-json/blowing-wind.json",
+      "url": "models-converted/lab-version/1/energy2d/blowing-wind.json",
       "importedFrom": "imports/energy2d/models-xml/blowing-wind.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

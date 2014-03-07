@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "insulation-effect",
-      "url": "imports/energy2d/models-json/insulation-effect.json",
+      "url": "models-converted/lab-version/1/energy2d/insulation-effect.json",
       "importedFrom": "imports/energy2d/models-xml/insulation-effect.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

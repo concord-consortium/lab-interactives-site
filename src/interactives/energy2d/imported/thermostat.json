@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "thermostat",
-      "url": "imports/energy2d/models-json/thermostat.json",
+      "url": "models-converted/lab-version/1/energy2d/thermostat.json",
       "importedFrom": "imports/energy2d/models-xml/thermostat.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "stack-effect",
-      "url": "imports/energy2d/models-json/stack-effect.json",
+      "url": "models-converted/lab-version/1/energy2d/stack-effect.json",
       "importedFrom": "imports/energy2d/models-xml/stack-effect.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

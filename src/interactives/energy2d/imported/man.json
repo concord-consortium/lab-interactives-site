@@ -7,7 +7,7 @@
     {
       "type": "energy2d",
       "id": "man",
-      "url": "imports/energy2d/models-json/man.json",
+      "url": "models-converted/lab-version/1/energy2d/man.json",
       "importedFrom": "imports/energy2d/models-xml/man.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

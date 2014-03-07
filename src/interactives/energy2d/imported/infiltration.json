@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "infiltration",
-      "url": "imports/energy2d/models-json/infiltration.json",
+      "url": "models-converted/lab-version/1/energy2d/infiltration.json",
       "importedFrom": "imports/energy2d/models-xml/infiltration.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"

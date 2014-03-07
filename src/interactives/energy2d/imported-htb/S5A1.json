@@ -8,7 +8,7 @@
     {
       "type": "energy2d",
       "id": "S5A1",
-      "url": "imports/energy2d/models-json/S5A1.json",
+      "url": "models-converted/lab-version/1/energy2d/S5A1.json",
       "importedFrom": "imports/energy2d/models-xml/S5A1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
