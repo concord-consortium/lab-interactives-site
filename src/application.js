@@ -4,6 +4,7 @@
 (function() {
       // Default interactive aspect ratio.
   var DEF_ASPECT_RATIO = 1.3,
+      BENCHMARK_API_URL = "https://script.google.com/macros/s/AKfycbzosXAVPdVRFUrF6FRI42dzQb2IGLnF9GlIbj9gUpeWpXALKgM/exec",
 
       origin,
       interactiveDescriptions,
@@ -812,10 +813,6 @@
       parentPhone.addListener('returnBenchmarks', function(content) {
         Lab.benchmark.renderToTable(benchmarksTable, content.benchmarks, content.results);
       });
-
-      if (Lab.config.benchmarkAPIurl) {
-        $submitBenchmarksButton.removeAttr("disabled");
-      }
     });
 
     $browserFingerprint.text(fingerprint);
@@ -838,7 +835,7 @@
 
       $.ajax({
         type: "POST",
-        url: Lab.config.benchmarkAPIurl,
+        url: BENCHMARK_API_URL,
         data: data,
         complete: function() { $('#submit-success').text("Sent!"); }
       });

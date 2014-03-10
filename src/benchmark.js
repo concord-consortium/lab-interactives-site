@@ -1,4 +1,4 @@
-/*global Lab, iframePhone, Fingerprint, alert*/
+/*global iframePhone, Fingerprint, alert*/
 
 /**
  * IMPORTANT: to test a specific Lab version, you have to ensure that interactives.json file
@@ -10,6 +10,13 @@
  */
 $(function () {
   var PRODUCTION_SERV = "http://lab.concord.org";
+  var EMBEDDABLE_PAGE = {
+    "production":  "embeddable.html",
+    "staging":     "embeddable-staging.html",
+    "development": "embeddable-dev.html"
+  };
+  var BENCHMARK_API_URL = "https://script.google.com/macros/s/AKfycbzosXAVPdVRFUrF6FRI42dzQb2IGLnF9GlIbj9gUpeWpXALKgM/exec";
+  var version = null;
   var root = null;
   var interactivesJSONRoot = null;
   var categories = null;
@@ -32,7 +39,7 @@ $(function () {
   }());
 
   function start() {
-    readHost();
+    readVersion();
     // Download interactives.json (interactives list + short description) and connect
     // to the iframe using iframe phone.
     $.get(interactivesJSONRoot + "interactives.json").done(function(results) {
@@ -82,9 +89,9 @@ $(function () {
     info("Benchmark stopped (the test that is currently running won't be canceled).");
   }
 
-  function readHost() {
-    var version = $("input[name=host]:checked").val();
-    if (version === "current") {
+  function readVersion() {
+    version = $("input[name=host]:checked").val();
+    if (version === "production" || version === "staging" || version === "development") {
       root = interactivesJSONRoot = "/";
     } else {
       root = PRODUCTION_SERV + "/version/" + version + "/";
@@ -135,8 +142,15 @@ $(function () {
       return false;
     }
 
+    function labEnvironmentCheck(i) {
+      var env = i.labEnvironment;
+      if (version === "production" && env !== "production") return false;
+      if (version === "staging" && env !== "production" && env !== "staging") return false;
+      return true;
+    }
+
     interactivesDesc.forEach(function (i) {
-      if (i.groupKey in groupKeyAllowed && publicationStatusCheck(i) && modelTypeCheck(i)) {
+      if (i.groupKey in groupKeyAllowed && publicationStatusCheck(i) && modelTypeCheck(i) && labEnvironmentCheck(i)) {
         interactives.push(i.path);
       }
     });
@@ -154,7 +168,7 @@ $(function () {
     }
     console.log("Loading a new interactive");
     info("Testing " + (interactiveID + 1) + "/" + interactives.length + ": " + interactives[interactiveID]);
-    var newPath = root + "embeddable.html#" + interactives[interactiveID];
+    var newPath = root + EMBEDDABLE_PAGE[version] + "#" + interactives[interactiveID];
     if ($iframe.attr("src") === newPath) {
       // Reload iframe to trigger modelLoaded callback.
       $iframe[0].contentWindow.location.reload(true);
@@ -188,7 +202,7 @@ $(function () {
     console.log("Sending results:\n", data);
     $.ajax({
       type: "POST",
-      url: Lab.config.benchmarkAPIurl,
+      url: BENCHMARK_API_URL,
       data: data
     });
     // Put results into table.
