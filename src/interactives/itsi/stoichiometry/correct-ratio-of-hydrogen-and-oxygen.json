@@ -115,22 +115,22 @@
     {
       "type": "text",
       "id": "overview",
-      "text": "![H2 + O2 -> H2O](/imports/legacy-mw-content/itsi/stoichiometry/waterEquationFlat.png)"
+      "text": "![H2 + O2 -> H2O](models-converted/lab-version/1/itsi/stoichiometry/waterEquationFlat.png)"
     },
     {
       "type": "text",
       "id": "part1",
-      "text": "![H2](/imports/legacy-mw-content/itsi/stoichiometry/h2.png)"
+      "text": "![H2](models-converted/lab-version/1/itsi/stoichiometry/h2.png)"
     },
     {
       "type": "text",
       "id": "part2",
-      "text": "![O2](/imports/legacy-mw-content/itsi/stoichiometry/o2.png)"
+      "text": "![O2](models-converted/lab-version/1/itsi/stoichiometry/o2.png)"
     },
     {
       "type": "text",
       "id": "part3",
-      "text": "![H2O](/imports/legacy-mw-content/itsi/stoichiometry/h20.png)"
+      "text": "![H2O](models-converted/lab-version/1/itsi/stoichiometry/h20.png)"
     },
     {
       "type": "pulldown",
