@@ -18,20 +18,20 @@ end
 
 LAB_ROOT_URL = {
   :production  => "http://lab-framework.concord.org/lab",
-  :staging     => "http://lab-staging.concord.org/lab",
-  :development => "http://lab.dev.concord.org/lab"
+  :staging     => "http://lab-framework.staging.concord.org/lab",
+  :development => "http://lab-framework.dev.concord.org/lab"
 }
 
 LAB_JS = {
-  :production  => "http://lab-framework.concord.org/lab/lab.min.js",
-  :staging     => "http://lab-staging.concord.org/lab/lab.js",
-  :development => "http://lab.dev.concord.org/lab/lab.js"
+  :production  => LAB_ROOT_URL[:production] + "/lab.min.js",
+  :staging     => LAB_ROOT_URL[:staging] + "/lab.js",
+  :development => LAB_ROOT_URL[:development] + "/lab.js"
 }
 
 LAB_CSS = {
-  :production  => "http://lab-framework.concord.org/lab/lab.css",
-  :staging     => "http://lab-staging.concord.org/lab/lab.css",
-  :development => "http://lab.dev.concord.org/lab/lab.css"
+  :production  => LAB_ROOT_URL[:production] + "/lab.css",
+  :staging     => LAB_ROOT_URL[:staging] + "/lab.css",
+  :development => LAB_ROOT_URL[:development] + "/lab.css"
 }
 
 EMBEDDABLE_PAGE = {
