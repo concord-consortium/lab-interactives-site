@@ -17,9 +17,9 @@ def render_file(filename, locals)
 end
 
 LAB_ROOT_URL = {
-  :production  => "http://lab-framework.concord.org/lab",
-  :staging     => "http://lab-framework.staging.concord.org/lab",
-  :development => "http://lab-framework.dev.concord.org/lab"
+  :production  => "//d35u61vvaz2y4q.cloudfront.net/lab",
+  :staging     => "//lab-framework.staging.concord.org/lab",
+  :development => "//lab-framework.dev.concord.org/lab"
 }
 
 LAB_JS = {
