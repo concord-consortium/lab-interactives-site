@@ -264,6 +264,7 @@ public/vendor: \
 	public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js \
 	public/vendor/iframe-phone/iframe-phone.js \
 	public/vendor/chosen/chosen.jquery.min.js \
+	public/vendor/lab-grapher/lab-grapher.css \
 	public/favicon.ico
 
 
@@ -464,6 +465,14 @@ public/vendor/iframe-phone/iframe-phone.js: \
 
 public/vendor/iframe-phone:
 	mkdir -p public/vendor/iframe-phone
+
+public/vendor/lab-grapher/lab-grapher.css: \
+	public/vendor/lab-grapher \
+	vendor/lab-grapher/css/lab-grapher.css
+	cp vendor/lab-grapher/css/lab-grapher.css public/vendor/lab-grapher/
+
+public/vendor/lab-grapher:
+	mkdir -p public/vendor/lab-grapher
 
 public/favicon.ico:
 	cp -f src/favicon.ico public/favicon.ico
