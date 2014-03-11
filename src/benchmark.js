@@ -208,7 +208,7 @@ $(function () {
     // Put results into table.
     var $row = $("<tr>").appendTo("#results tbody");
     resultsKeys.forEach(function(key) {
-      var val = data[key];
+      var val = data[key] != null ? data[key] : "";
       if (key === "interactive") {
         // Make interactive name shorter.
         val = val.substr(val.lastIndexOf("/") + 1);
