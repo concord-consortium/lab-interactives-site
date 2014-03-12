@@ -1,4 +1,4 @@
-/*global Lab, LAB_ENV, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
+/*global SITE_CONFIG, Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
@@ -233,18 +233,18 @@
     $embeddableLink.attr("href", function(i, href) { return href + hash; });
     $embeddableLink.attr("title", "Open this Interactive in a new page suitable for embedding.");
 
-    $jsonInteractiveLink.attr("href", origin + Lab.config.actualRoot + interactiveUrl);
+    $jsonInteractiveLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + interactiveUrl);
 
     $jsonModelLink.attr("title", "View model JSON in another window");
 
     // construct link to JSON version of model
     if (interactive) {
       jsonModelPath = interactive.models[0].url;
-      $jsonModelLink.attr("href", origin + Lab.config.actualRoot + jsonModelPath);
+      $jsonModelLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + jsonModelPath);
       $jsonModelLink.attr("title", "View model JSON in another window");
     }
 
-    if (Lab.config.dataGamesProxyPrefix) {
+    if (SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
       // construct link to DataGames embeddable version of Interactive
       dgGameSpecification = JSON.stringify([{
         "name": $selectInteractive.find("option:selected").text(),
@@ -252,11 +252,11 @@
           "width": 600,
           "height":400
         },
-        "url": Lab.config.dataGamesProxyPrefix + "embeddable.html#" +  interactiveUrl
+        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + "embeddable.html#" +  interactiveUrl
       }]);
     }
 
-    if (Lab.config.static || !Lab.config.dataGamesProxyPrefix) {
+    if (SITE_CONFIG.STATIC || !SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
       $dataGamesLink.hide();
       $dataGamesStagingLink.hide();
     } else {
@@ -367,8 +367,8 @@
           interactiveGroup = interactives.filter(function (interactive) {
             var env = interactive.labEnvironment;
             // LAB_ENV is a global variable set by interactives.haml template.
-            if (LAB_ENV === "production" && env !== "production") return false;
-            if (LAB_ENV === "staging" && env !== "production" && env !== "staging") return false;
+            if (SITE_CONFIG.LAB_ENV === "production" && env !== "production") return false;
+            if (SITE_CONFIG.LAB_ENV === "staging" && env !== "production" && env !== "staging") return false;
             if (interactive.groupKey !== group.path) return false;
             if (interactive.publicationStatus === 'sample') return true;
             if (publicFilter && interactive.publicationStatus === 'public') return true;
@@ -480,7 +480,7 @@
           // The Energy2D model exists only as an e2d file, there is no associated HTML page,
           // use Generic Energy2D applet page instead:
           //    /imports/energy2d/energy2d-applet.html?e2dPath=content/compare-capacity.e2d&title=Compare%20Capacity
-          $originalImportLink.attr("href", origin + Lab.config.actualRoot +
+          $originalImportLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT +
             "imports/energy2d/energy2d-applet.html?" +
             encodeURI("e2dPath=" + e2dModelPath.replace("imports/energy2d/", "") + "&title=" + interactive.title.replace(/\*+$/, '')));
           $originalImportLink.attr("title", "View original Java Energy2D applet in generic HTML page in another window");
@@ -488,7 +488,7 @@
           disableOriginalImportLink();
         }
         if (e2dModelPath) {
-          $originalModelLink.attr("href", origin + Lab.config.actualRoot + interactive.models[0].importedFrom);
+          $originalModelLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + interactive.models[0].importedFrom);
           $originalModelLink.attr("title", "View original Java Energy2D applet e2d model file in another window");
         } else {
           disableOriginalModelLink();
@@ -504,7 +504,7 @@
       disableOriginalModelLink();
       disableJsonModelLink();
     }
-    if (Lab.config.static) {
+    if (SITE_CONFIG.STATIC) {
       $originalImportLink.hide();
     } else {
       $originalImportLink.show();
@@ -773,7 +773,7 @@
   // Benchmarks
   //
   function getFingerprint() {
-    if (Lab.config.environment === 'production') {
+    if (SITE_CONFIG.SITE_ENV === 'production') {
       // fake fingerprint on production because library won't be loaded
       return "mock fingerprint";
     } else {
