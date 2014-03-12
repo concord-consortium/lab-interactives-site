@@ -77,6 +77,19 @@ else
   ANALYTICS = ""
 end
 
+JS_SITE_CONFIG =
+  <<-HEREDOC
+<script>
+  var SITE_CONFIG = {
+    LAB_ENV: null,
+    SITE_ENV: "#{CONFIG[:environment]}",
+    ACTUAL_ROOT: "#{CONFIG[:jsconfig][:actualRoot]}",
+    STATIC: #{!!(ENV['LAB_STATIC'] || CONFIG[:jsconfig][:static])},
+    DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}",
+  };
+</script>
+  HEREDOC
+
 # setup partial for fontface
 if CONFIG[:jsconfig] && CONFIG[:jsconfig][:fontface]
   FONTFACE = CONFIG[:jsconfig][:fontface]
