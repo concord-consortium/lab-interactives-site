@@ -31,7 +31,8 @@
           }
         });
 
-        Lab.config.rootUrl = "#{LAB_ROOT_URL[LAB_ENV]}";
+        Lab.config.rootUrl              = "#{LAB_ROOT_URL[LAB_ENV]}";
+        Lab.config.dataGamesProxyPrefix = "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}";
         interactiveUrl = hash.substr(1, hash.length) || null;
         Embeddable.load(interactiveUrl, '#interactive-container', {
           controllerReady: function(controller){

@@ -233,14 +233,14 @@
     $embeddableLink.attr("href", function(i, href) { return href + hash; });
     $embeddableLink.attr("title", "Open this Interactive in a new page suitable for embedding.");
 
-    $jsonInteractiveLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + interactiveUrl);
+    $jsonInteractiveLink.attr("href", origin + Lab.config.actualRoot + interactiveUrl);
 
     $jsonModelLink.attr("title", "View model JSON in another window");
 
     // construct link to JSON version of model
     if (interactive) {
       jsonModelPath = interactive.models[0].url;
-      $jsonModelLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + jsonModelPath);
+      $jsonModelLink.attr("href", origin + Lab.config.actualRoot + jsonModelPath);
       $jsonModelLink.attr("title", "View model JSON in another window");
     }
 
@@ -480,7 +480,7 @@
           // The Energy2D model exists only as an e2d file, there is no associated HTML page,
           // use Generic Energy2D applet page instead:
           //    /imports/energy2d/energy2d-applet.html?e2dPath=content/compare-capacity.e2d&title=Compare%20Capacity
-          $originalImportLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT +
+          $originalImportLink.attr("href", origin + Lab.config.actualRoot +
             "imports/energy2d/energy2d-applet.html?" +
             encodeURI("e2dPath=" + e2dModelPath.replace("imports/energy2d/", "") + "&title=" + interactive.title.replace(/\*+$/, '')));
           $originalImportLink.attr("title", "View original Java Energy2D applet in generic HTML page in another window");
@@ -488,7 +488,7 @@
           disableOriginalImportLink();
         }
         if (e2dModelPath) {
-          $originalModelLink.attr("href", origin + SITE_CONFIG.ACTUAL_ROOT + interactive.models[0].importedFrom);
+          $originalModelLink.attr("href", origin + Lab.config.actualRoot + interactive.models[0].importedFrom);
           $originalModelLink.attr("title", "View original Java Energy2D applet e2d model file in another window");
         } else {
           disableOriginalModelLink();

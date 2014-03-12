@@ -2,9 +2,10 @@
 # environment can be 'development' or 'production'
 :environment: development
 :jsconfig:
-  # This can be set optionally set to true to disable links to DataGames and Java models
+  # This can be set optionally set to true to disable links to DataGames and Java models.
+  # Used only by application.js (SITE_CONFIG).
   :static: false
-  :actualRoot: ""
+  # Used both by application.js (SITE_CONFIG) and to set Lab.config.dataGamesProxyPrefix.
   :dataGamesProxyPrefix: ""
 :google_analytics:
   :account_id:
