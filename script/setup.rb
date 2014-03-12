@@ -19,25 +19,29 @@ end
 LAB_ROOT_URL = {
   :production  => "//d35u61vvaz2y4q.cloudfront.net/lab",
   :staging     => "//lab-framework.staging.concord.org/lab",
-  :development => "//lab-framework.dev.concord.org/lab"
+  :development => "//lab-framework.dev.concord.org/lab",
+  :local       => "//localhost:9191/lab",
 }
 
 LAB_JS = {
   :production  => LAB_ROOT_URL[:production] + "/lab.min.js",
   :staging     => LAB_ROOT_URL[:staging] + "/lab.js",
-  :development => LAB_ROOT_URL[:development] + "/lab.js"
+  :development => LAB_ROOT_URL[:development] + "/lab.js",
+  :local       => LAB_ROOT_URL[:local] + "/lab.js"
 }
 
 LAB_CSS = {
   :production  => LAB_ROOT_URL[:production] + "/lab.css",
   :staging     => LAB_ROOT_URL[:staging] + "/lab.css",
-  :development => LAB_ROOT_URL[:development] + "/lab.css"
+  :development => LAB_ROOT_URL[:development] + "/lab.css",
+  :local       => LAB_ROOT_URL[:local] + "/lab.css"
 }
 
 EMBEDDABLE_PAGE = {
   :production  => "embeddable.html",
   :staging     => "embeddable-staging.html",
-  :development => "embeddable-dev.html"
+  :development => "embeddable-dev.html",
+  :local       => "embeddable-local.html"
 }
 
 begin
