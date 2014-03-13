@@ -43,16 +43,5 @@ PROJECT_LIST = {
                         :path => 'org/concord/energy2d',
                         :main_class => "org.concord.energy2d.system.System2D",
                         :has_applet_class => true,
-                        :sign => false },
-
-  'mw'             => { :build_type => :maven,
-                        :build => MAVEN_STD_CLEAN_BUILD,
-                        :repository => 'git://github.com/concord-consortium/mw.git',
-                        :branch => 'master',
-                        :path => 'org/concord/modeler',
-                        :main_class => "org.concord.modeler.ModelerLauncher",
-                        :has_applet_class => true,
-                        :sign => true,
-                        :also_unsigned => true }
-
+                        :sign => false }
 }
