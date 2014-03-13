@@ -36,7 +36,7 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 ### Setup the local Lab repository for development
 
 1. Clone the git repository
-2. `cd lab`
+2. `cd lab-interactives-site`
 3. `cp config/config.sample.yml config/config.yml`
 4. `make everything`
 5. open another new terminal and run `bin/rackup config.ru`
