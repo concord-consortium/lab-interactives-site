@@ -57,8 +57,7 @@ namespace :deploy do
   task :update do
     checkout
     bundle_install
-    run "export LAB_HOST=#{lab_host}"
-    run "cd /var/www/interactives; make clean-public; make"
+    run "cd /var/www/interactives; make clean-public; make", :env => { 'LAB_HOST' => lab_host }
     create_symbolic_links_to_archives
     restart
   end
