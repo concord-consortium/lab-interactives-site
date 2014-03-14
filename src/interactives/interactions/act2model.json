@@ -18,6 +18,7 @@
         "controlButtons": "",
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)",
+        "electricFieldRenderingType": "needle",
         "forceVectors": {
           "length": 9
         }
