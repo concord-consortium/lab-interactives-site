@@ -407,6 +407,7 @@ Host #{@name}
     deploy_script_content = <<-HEREDOC
 server "#{@name}", :app, :primary => true
 set :branch, "#{target[:branch]}"
+set :lab_host, "#{target[:url]}"
     HEREDOC
     File.open(deploy_script_path, 'w') { |f| f.write deploy_script_content }
   end
