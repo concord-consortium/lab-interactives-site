@@ -11,6 +11,14 @@ SCRIPT_PATH = File.join(PROJECT_ROOT, 'script')                    if !defined? 
 BIN_PATH  = File.join(PROJECT_ROOT, 'bin')                         if !defined? BIN_PATH
 PUBLIC_PATH  = File.join(PROJECT_ROOT, 'public')                   if !defined? PUBLIC_PATH
 
+FRAMEWORK_HOST_FOR = {
+  "lab2.dev.concord.org" => "//lab2-framework.dev.concord.org/",
+  "lab3.dev.concord.org" => "//lab3-framework.dev.concord.org/",
+  "lab4.dev.concord.org" => "//lab4-framework.dev.concord.org/",
+  "lab5.dev.concord.org" => "//lab5-framework.dev.concord.org/"
+}
+
+
 def render_file(filename, locals)
   contents = File.read(filename)
   Haml::Engine.new(contents).render(Object.new, locals)
@@ -20,7 +28,7 @@ LAB_ROOT_URL = {
   :production  => "//lab-framework.concord.org/lab",
   :staging     => "//lab-framework.staging.concord.org/lab",
   :development => "//lab-framework.dev.concord.org/lab",
-  :topic_dev   => "/lab",
+  :topic_dev   => FRAMEWORK_HOST_FOR[ENV["LAB_HOST"]] || "//lab-framework.dev.concord.org/lab",
   :local       => "//localhost:9191/lab",
 }
 
