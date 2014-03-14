@@ -29,6 +29,12 @@
       "unitAbbreviation": "",
       "onChange": "setAtomProperties(0, {charge:value});",
       "initialValue": 2
+    },
+    {
+      "name": "renderElectricFieldAsNeedle",
+      "label": "Use needle style for rendering electric field?",
+      "onChange": "set('electricFieldRenderingType', value ? 'needle' : 'arrow');",
+      "initialValue": false
     }
   ],
   "components":[
@@ -88,7 +94,7 @@
       "type": "slider",
       "id": "electric-field-density-slider",
       "min": 0,
-      "max": 25,
+      "max": 40,
       "displayValue": "return format('.1f')(value)",
       "labels": [
         {
@@ -96,11 +102,11 @@
           "label": "0"
         },
         {
-          "value": 25,
-          "label": "25"
+          "value": 40,
+          "label": "40"
         }
       ],
-      "steps": 25,
+      "steps": 40,
       "title": "Density",
       "property": "electricFieldDensity"
     },
@@ -109,6 +115,12 @@
       "id": "show-electric-field",
       "text": "Show",
       "property": "showElectricField"
+    },
+    {
+      "type": "checkbox",
+      "id": "render-electric-field-as-needle",
+      "text": "Needle style",
+      "property": "renderElectricFieldAsNeedle"
     },
     {
       "id": "forces-label",
@@ -131,6 +143,7 @@
       ["dir-only"],
       ["efield-label"],
       ["show-electric-field"],
+      ["render-electric-field-as-needle"],
       ["electric-field-density-slider"]
     ]
   },
