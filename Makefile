@@ -68,6 +68,7 @@ src: \
 	public/embeddable.html \
 	public/embeddable-staging.html \
 	public/embeddable-dev.html \
+	public/embeddable-topic-dev.html \
 	public/browser-check.html \
 	public/interactives.json \
 	public/application.js
@@ -79,6 +80,7 @@ public/interactives-dev.html: config/config.yml interactives.haml
 public/embeddable.html: config/config.yml embeddable.haml
 public/embeddable-staging.html: config/config.yml embeddable.haml
 public/embeddable-dev.html: config/config.yml embeddable.haml
+public/embeddable-topic-dev.html: config/config.yml embeddable.haml
 
 .PHONY: clean
 clean:
