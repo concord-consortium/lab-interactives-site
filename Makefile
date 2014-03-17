@@ -194,7 +194,8 @@ public: \
 	public/doc \
 	public/developer-doc \
 	public/experiments \
-	public/jnlp
+	public/jnlp \
+	public/imports/energy2d
 	$(MAKE) src
 
 # copy everything (including symbolic links) except files that are
@@ -226,6 +227,19 @@ public/experiments:
 .PHONY: public/jnlp
 public/jnlp:
 	mkdir -p public/jnlp
+
+# ------------------------------------------------
+#
+#   public/imports
+#
+# Copy model resources imported from legacy Energy2d
+#
+# ------------------------------------------------
+
+.PHONY: public/imports/energy2d
+public/imports/energy2d:
+	mkdir -p public/imports
+	rsync -aq imports/energy2d public/imports
 
 # ------------------------------------------------
 #
