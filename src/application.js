@@ -152,7 +152,7 @@
 
     // setup iframe
     $iframe = $('#iframe-interactive');
-    $iframe.attr('src', $iframe.attr('data-embeddable-src') + hash);
+    $iframe.attr('src', SITE_CONFIG.EMBEDDABLE_PAGE + hash);
 
     $iframeWrapper = $('#iframe-wrapper');
     $iframeWrapper.addClass($selectInteractiveSize.val());
@@ -252,7 +252,7 @@
           "width": 600,
           "height":400
         },
-        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + "embeddable.html#" +  interactiveUrl
+        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "#" + interactiveUrl
       }]);
     }
 
