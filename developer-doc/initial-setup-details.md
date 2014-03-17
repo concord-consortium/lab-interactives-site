@@ -3,7 +3,7 @@
 The readme contains the following steps for initial setup:
 
 1. Clone the git repository
-2. `cd lab`
+2. `cd lab-interactives-site`
 3. `cp config/config.sample.yml config/config.yml`
 4. `make everything`
 5. open another new terminal and run `bin/rackup config.ru`
@@ -18,16 +18,17 @@ If you aren't familiar with git, you should read one of the tutorials on it.
 
 If you have commit access to the repository use this form:</p>
 
-    git clone git@github.com:concord-consortium/lab.git
+    git clone git@github.com:concord-consortium/lab-interactives-site.git
 
 Alternatively if you don’t have commit access use this form:
 
-    git clone git://github.com/concord-consortium/lab.git
+    git clone git://github.com/concord-consortium/lab-interactives-site.git
 
-### 2. `cd lab`
+### 2. `cd lab-interactives-site`
 
-Open a shell and change to the `lab/` directory. The first time you `cd` into the `lab/` directory
-RVM will switch to using `ruby-2.0.0-p247` based on the `.ruby-version` file in the repository.
+Open a shell and change to the `lab-interactives-site/` directory. The first time you `cd` into
+the `lab-interactives-site/` directory RVM will switch to using `ruby-2.0.0-p247` based on the
+`.ruby-version` file in the repository.
 Additionally the `.ruby-gemset` tells RVM to install the gems in a gemset named `lab`. So together
 these files tell RVM to store and load gems from the `ruby-2.0.0-p247@lab` gemset.
 

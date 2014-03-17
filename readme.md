@@ -1,15 +1,13 @@
-# Lab Framework
+# Lab Interactives Site
 
-HTML5-based open source scientific models, visualizations, graphing, and probeware from the
-[Concord Consortium](http://www.concord.org). This framework is deployed in the following places.
-These sites contain many examples of what it can do:
+[Lab](http://lab-framework.concord.org) interactives from the [Concord Consortium](http://www.concord.org). This site is deployed in the following places:
 
 - **[lab.concord.org](http://lab.concord.org)** _(production)_
 - **[lab.dev.concord.org](http://lab.dev.concord.org)** _(development)_
 
 ## Licensing
 
-Lab is Copyright 2012 (c) by the Concord Consortium and is distributed under
+Lab Interactives Site is Copyright 2012 (c) by the Concord Consortium and is distributed under
 any of the following licenses:
 
 - [Simplified BSD](http://www.opensource.org/licenses/BSD-2-Clause),
@@ -47,35 +45,26 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 It is recommended that you review the [initial setup details](developer-doc/initial-setup-details.md).
 They describe what each of the steps above does.
 
-## Contributing to Lab
+## Contributing to Lab Interactives Site
 
-If you think you'd like to contribute to Lab as an external developer:
+If you think you'd like to contribute to Lab Interactives Site as an external developer:
 
-1. Create a local clone from the repository located here: http://github.com/concord-consortium/lab.
+1. Create a local clone from the repository located here: http://github.com/concord-consortium/lab-interactives-site.
    This will by default have the git-remote name: **origin**.
 
-2. Make a fork of http://github.com/concord-consortium/lab to your account on github.
+2. Make a fork of http://github.com/concord-consortium/lab-interactives-site to your account on github.
 
 3. Make a new git-remote referencing your fork. I recommend making the remote name your github user name.
    For example my username is `stepheneb` so I would add a remote to my fork like this:
 
-        git remote add stepheneb git@github.com:stepheneb/lab.git
+        git remote add stepheneb git@github.com:stepheneb/lab-interactives-site.git
 
 4. Create your changes on a topic branch. Please include tests if you can. When your commits are ready
    push your topic branch to your fork and send a pull request.
 
 ## More Documentation
 
-- [Static Distribution](developer-doc/static-distribution.md)
 - [Project Configuration](developer-doc/configuration.md)
-- [Continuous Integration on Travis](developer-doc/travis.md)
-- [Repository Structure](developer-doc/repository-structure.md)
-- [Javascript Dependency Management and Build Process](developer-doc/js-dependency-management.md)
-- [Testing](developer-doc/testing.md)
-- [Physical Constants and Units](developer-doc/physical-constants-and-units.md)
 - [Deployment](developer-doc/deployment.md)
-- [References](developer-doc/references.md)
-- [Dependencies](developer-doc/dependencies.md)
-- [Java Resources](developer-doc/java.md)
-- [Building Website](developer-doc/website.md)
+- [Working with different Lab Framework versions](developer-doc/lab-framework-versions.md)
 
