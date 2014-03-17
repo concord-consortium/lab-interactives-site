@@ -32,13 +32,11 @@
     {   
       "name": "buffer_x",
       "initialValue": 1.23
-      
-    },
+      },
     {   
       "name": "buffer_y",
       "initialValue": 1.23
-      
-    },
+      },
     {
       "name": "show-second-atom",
       "initialValue": false,
@@ -50,8 +48,9 @@
         "                 charge:2,",
         "                 vx: 0,",
         "                 vy: 0});",
-        "} else {","set('buffer_x',getAtomProperties(1).x);", "set('buffer_y',getAtomProperties(1).y);",
-                  "  removeAtom(1);",
+        "} else {","set('buffer_x',getAtomProperties(1).x);", 
+                   "set('buffer_y',getAtomProperties(1).y);",
+                   "removeAtom(1);",
         "}"
       ]
     }
