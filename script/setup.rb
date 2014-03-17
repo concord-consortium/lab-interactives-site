@@ -16,11 +16,28 @@ def render_file(filename, locals)
   Haml::Engine.new(contents).render(Object.new, locals)
 end
 
+begin
+  CONFIG = YAML.load_file(File.join(CONFIG_PATH, 'config.yml'))
+rescue Errno::ENOENT
+  msg = <<-HEREDOC
+
+*** missing config/config.yml
+
+    cp config/config.sample.yml config/config.yml
+
+    and edit appropriately ...
+
+  HEREDOC
+  raise msg
+end
+
+config_lab_root_url = CONFIG[:lab_root_url] || {}
+
 LAB_ROOT_URL = {
-  :production  => "//lab-framework.concord.org/lab",
-  :staging     => "//lab-framework.staging.concord.org/lab",
-  :development => "//lab-framework.dev.concord.org/lab",
-  :local       => "//localhost:9191/lab",
+  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
+  :staging     => config_lab_root_url[:staging]     || "//lab-framework.staging.concord.org/lab",
+  :development => config_lab_root_url[:development] || "//lab-framework.dev.concord.org/lab",
+  :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
 }
 
 LAB_JS = {
@@ -43,21 +60,6 @@ EMBEDDABLE_PAGE = {
   :development => "embeddable-dev.html",
   :local       => "embeddable-local.html"
 }
-
-begin
-  CONFIG = YAML.load_file(File.join(CONFIG_PATH, 'config.yml'))
-rescue Errno::ENOENT
-  msg = <<-HEREDOC
-
-*** missing config/config.yml
-
-    cp config/config.sample.yml config/config.yml
-
-    and edit appropriately ...
-
-  HEREDOC
-  raise msg
-end
 
 # setup partial for Google Analytics
 if CONFIG[:google_analytics] && CONFIG[:google_analytics][:account_id]
