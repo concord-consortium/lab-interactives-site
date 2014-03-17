@@ -24,10 +24,10 @@
   :targets:
   - :name: lab
     :url: lab.concord.org
-    :branch: production
+    :branch: master
   - :name: lab-staging
     :url: lab-staging.concord.org
-    :branch: staging
+    :branch: master
   - :name: lab-dev
     :url: lab.dev.concord.org
     :branch: master
