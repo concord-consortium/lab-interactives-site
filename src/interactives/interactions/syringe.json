@@ -14,14 +14,9 @@
     {
       "type": "md2d",
       "id": "syringe$0",
-      "url": "models-converted/lab-version/1/md2d/interactions/syringe/syringe$0.json",
-      "importedFrom": "imports/legacy-mw-content/interactions/syringe/syringe$0.mml",
+      "url": "models/lab-version/1/md2d/interactions/syringe.json",
       "viewOptions": {
-        "controlButtons": "",
-        "imageMapping": {
-          "plunger.png": "plunger.svg",
-          "nail.png": "nail.svg"
-        }
+        "controlButtons": ""
       },
       "onLoad": [
         "setImageProperties(0,{imageX: 10});",
@@ -43,7 +38,7 @@
         "    xNew;",
         "while (moleculesInside.length > 0) {",
         "  xNew = 0.1 + Math.random() * (w - 0.2);",
-        "  while(xNew >= 1.32 && xNew < 1.72) {",
+        "  while(xNew >= 0.32 && xNew < 0.72) {",
         "    xNew = 0.1 + Math.random() * (w - 0.2);",
         "  }",
         "  setAtomProperties(moleculesInside[0], {x: xNew, vx: 0, vy: 0, ax: 0, ay: 0}, true);",
@@ -67,11 +62,11 @@
     },
     {
       "name": "plunger-min",
-      "initialValue": 1.67
+      "initialValue": 0.67
     },
     {
       "name": "plunger-max",
-      "initialValue": 2.95
+      "initialValue": 1.95
     },
     {
       "name": "index-plug",
@@ -147,7 +142,7 @@
         "      xNew;",
         "  while (moleculesInside.length > 0) {",
         "    xNew = 0.1 + Math.random() * (w - 0.2);",
-        "    while(xNew >= 1.32 && xNew < 1.72) {",
+        "    while(xNew >= 0.32 && xNew < 0.72) {",
         "      xNew = 0.1 + Math.random() * (w - 0.2);",
         "    }",
         "    setAtomProperties(moleculesInside[0], {x: xNew, vx: 0, vy: 0, ax: 0, ay: 0}, true);",
