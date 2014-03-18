@@ -24,7 +24,17 @@
           "ironOff.png":  "ironOff.svg",
           "ironOn1.png":  "ironOn1.svg",
           "ironOn2.png":  "ironOn2.svg",
-          "beamStraight.png": "beamStraight.svg"
+          "beamStraight.png": "beamStraight.svg",
+          "beamUp1.png": "beamUp1.svg",
+          "beamUp2.png": "beamUp2.svg",
+          "beamUp3.png": "beamUp3.svg",
+          "beamUp4.png": "beamUp4.svg",
+          "beamUp5.png": "beamUp5.svg",
+          "beamDown1.png": "beamDown1.svg",
+          "beamDown2.png": "beamDown2.svg",
+          "beamDown3.png": "beamDown3.svg",
+          "beamDonw4.png": "beamDown4.svg",
+          "beamDown5.png": "beamDown5.svg"
         }
       },
       "onLoad": [
@@ -79,7 +89,7 @@
         "      // within plates, skip it",
         "      if (props.x < 2) continue;",
         "      // absorbed by plate, remove it",
-        "      if (props.x < 2.5 && (props.y > 2.125 || props.y < 2.025)) {",
+        "      if (props.x < 2.5 && (props.y > 2.15 || props.y < 2.025)) {",
         "        removeAtom(i);",
         "        continue;",
         "      }",
