@@ -274,6 +274,7 @@ public/vendor: \
 	public/vendor/shutterbug/shutterbug.js \
 	public/vendor/shutterbug/README.md \
 	public/vendor/shutterbug/LICENSE.md \
+	public/vendor/lab-energy2d-java \
 	public/vendor/lab-sensor-applet-interface-dist \
 	public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js \
 	public/vendor/iframe-phone/iframe-phone.js \
@@ -440,6 +441,10 @@ public/vendor/codemirror:
 	rm -rf public/vendor/codemirror/mode/rst
 	rm -rf public/vendor/codemirror/mode/verilog
 
+public/vendor/lab-energy2d-java: vendor/lab-energy2d-java
+	mkdir -p public/vendor/lab-energy2d-java
+	cp -r vendor/lab-energy2d-java/dist/* public/vendor/lab-energy2d-java/
+
 public/vendor/fingerprintjs:
 	mkdir -p public/vendor/fingerprintjs
 	cp vendor/fingerprintjs/fingerprint.min.js public/vendor/fingerprintjs
@@ -508,6 +513,9 @@ vendor/jquery-ui:
 	git submodule update --init --recursive
 
 vendor/lab-sensor-applet-interface-dist:
+	git submodule update --init --recursive
+
+vendor/lab-energy2d-java:
 	git submodule update --init --recursive
 
 vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js:
