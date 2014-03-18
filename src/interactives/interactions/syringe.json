@@ -31,7 +31,7 @@
         "    maxX = get('plunger-max'),",
         "    timeStepsPerTick = get('timeStepsPerTick');",
         "setObstacleProperties(indexPlunger, {",
-        "    mass: Infinity,",
+        "    mass: 999999999,",
         "    friction: 0.005,",
         "    displayExternalAcceleration: false",
         "});",
@@ -109,7 +109,7 @@
       "text": "Lock plunger in place ⇎",
       "width": "14em",
       "action": [
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: Infinity});",
+        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: 999999999});",
         "setImageProperties(0,{imageX: 3.1});"
       ]
     },
