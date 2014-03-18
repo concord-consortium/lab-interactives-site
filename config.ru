@@ -6,10 +6,6 @@ require "./script/setup"
 ENVIRONMENT = CONFIG[:environment]
 puts "environment: #{ENVIRONMENT}"
 
-JNLP_APP_PATH = PUBLIC_PATH
-require './lib/rack/jnlp.rb'
-
-use Rack::Jnlp
 use Rack::ConditionalGet
 use Rack::ContentLength
 
@@ -30,6 +26,10 @@ if ENVIRONMENT == 'development'
   map '/vendor/lab-sensor-applet-interface-dist/jars' do
     # so no cache headers aren't added to the jars
     run Rack::Directory.new PUBLIC_PATH + "/vendor/lab-sensor-applet-interface-dist/jars"
+  end
+  map '/vendor/lab-energy2d-java' do
+    # so no cache headers aren't added to the jars
+    run Rack::Directory.new PUBLIC_PATH + "/vendor/lab-energy2d-java"
   end
   map '/' do
     use Rack::LiveReload

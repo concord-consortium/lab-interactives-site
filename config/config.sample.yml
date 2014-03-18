@@ -14,11 +14,6 @@
   :dataGamesProxyPrefix: ""
 :google_analytics:
   :account_id:
-# password and alias for Java siging certificate.
-:java:
-  :password: abc123
-  :alias: lab-sample-keystore
-  :keystore_path: config/lab-sample-keystore.jks
 # deploy configuration for working with Amazon Web Services
 :deploy:
   :targets:

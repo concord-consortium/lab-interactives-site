@@ -49,12 +49,11 @@ all: \
 bin:
 	bundle install --binstubs --quiet
 
-# clean, make ... and also build and deploy the Java resources
+# clean, make
 .PHONY: everything
 everything:
 	$(MAKE) clean
 	$(MAKE) all
-	$(MAKE) jnlp-all
 
 .PHONY: src
 src: \
@@ -122,24 +121,13 @@ clean-finish:
 # public dir cleanup.
 .PHONY: clean-public
 clean-public:
-	bash -O extglob -c 'rm -rf public/!(.git|jnlp|version)'
+	bash -O extglob -c 'rm -rf public/!(.git|version)'
 
 # versioned archives cleanup.
 .PHONY: clean-archives
 clean-archives:
 	rm -rf version
 	rm -rf public/version
-
-# separate tasks for building and cleaning Java resources since they do not get updated often
-.PHONY: jnlp-all
-jnlp-all: clean-jnlp \
-	public/jnlp \
-	copy-resources-to-public
-	script/build-and-deploy-jars.rb --maven-update
-
-.PHONY: clean-jnlp
-clean-jnlp:
-	rm -rf public/jnlp
 
 %.min.js: %.js
 	@rm -f $@
@@ -194,7 +182,6 @@ public: \
 	public/doc \
 	public/developer-doc \
 	public/experiments \
-	public/jnlp \
 	public/imports/energy2d
 	$(MAKE) src
 
@@ -223,10 +210,6 @@ public/developer-doc:
 .PHONY: public/experiments
 public/experiments:
 	mkdir -p public/experiments
-
-.PHONY: public/jnlp
-public/jnlp:
-	mkdir -p public/jnlp
 
 # ------------------------------------------------
 #
