@@ -34,7 +34,7 @@ end
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
-  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
+  :production  => ENV['LAB_ROOT_URL'] || config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
   :staging     => config_lab_root_url[:staging]     || "//lab-framework.staging.concord.org/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.dev.concord.org/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
