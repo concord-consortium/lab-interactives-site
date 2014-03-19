@@ -102,19 +102,3 @@ tests and display the results in the console window where `bin/guard`
 is running.
 
 This is optional because you can also just manually run `make` after making changes.
-
-### 8. (optional) `cp -vn script/post-commit .git/hooks/`
-
-Add a git post-commit hook. After every commit `src/lab/lab.version.js` should be updated to include recent
-version and build information for Lab's distribution. This is done with a git post-commit hook.
-There is a pre built one in `script/post-commit` which you can copy:
-
-    cp -vn script/post-commit .git/hooks/
-
-If you already have a post-commit file the above command will tell you. So instead add the following line to
-your existing `post-commit`:
-
-    (cd $GIT_DIR/.. && ./script/update-git-commit-and-branch.rb)
-
-This is optional because having updated version information is only needed if you are submitting benchmarks
-from your local machine. These benchmarks include the commit information, so it is best to have it updated.
