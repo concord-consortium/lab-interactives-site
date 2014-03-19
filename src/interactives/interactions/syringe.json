@@ -44,12 +44,14 @@
         "  setAtomProperties(moleculesInside[0], {x: xNew, vx: 0, vy: 0, ax: 0, ay: 0}, true);",
         "  moleculesInside = getAtomsWithinShape(1);",
         "}",
-        "callEvery(timeStepsPerTick,function(){",
+        "callEvery(timeStepsPerTick, function() {",
         "  var prop = getObstacleProperties(indexPlunger);",
         "  if (prop.x < minX) {",
-        "    setObstacleProperties(indexPlunger, {externalAx: 0, vx: 0, x: minX});",
+        "    set('pullDirection', 'none');",
+        "    setObstacleProperties(indexPlunger, { x: minX });",
         "  } else if (prop.x > maxX) {",
-        "    setObstacleProperties(indexPlunger, {externalAx: 0, vx: 0, x: maxX});",
+        "    set('pullDirection', 'none');",
+        "    setObstacleProperties(indexPlunger, { x: maxX });",
         "  }",
         "});"
       ]
@@ -75,6 +77,28 @@
     {
       "name": "notPlugged",
       "initialValue": false
+    },
+    {
+      "name": "pullDirection",
+      "initialValue": "none",
+      "onChange": [
+        "switch(value) {",
+        "  case 'left':",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: -0.0000005, mass: 5000 });",
+        "    setImageProperties(2, { visible: true });",
+        "    setImageProperties(3, { visible: false });",
+        "    break;",
+        "  case 'right':",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: 0.0000005, mass: 5000 });",
+        "    setImageProperties(2, { visible: false });",
+        "    setImageProperties(3, { visible: true });",
+        "    break;",
+        "  default:",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: 0, vx: 0 });",
+        "    setImageProperties(2, { visible: false });",
+        "    setImageProperties(3, { visible: false });",
+        "}"
+      ]
     }
   ],
   "components": [
@@ -84,8 +108,8 @@
       "text": "Pull plunger out ⇥",
       "width": "14em",
       "action": [
-        "setImageProperties(0,{imageX: 10});",
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0.0000005, mass: 5000});"
+        "setImageProperties(0, { imageX: 10 });",
+        "set('pullDirection', 'right');"
       ]
     },
     {
@@ -95,7 +119,7 @@
       "width": "14em",
       "action": [
         "setImageProperties(0,{imageX: 10});",
-        "setObstacleProperties(get('index-plunger'), {externalAx: -0.0000005, mass: 5000});"
+        "set('pullDirection', 'left');"
       ]
     },
     {
@@ -104,8 +128,9 @@
       "text": "Lock plunger in place ⇎",
       "width": "14em",
       "action": [
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: 999999999});",
-        "setImageProperties(0,{imageX: 3.1});"
+        "setImageProperties(0, { imageX: 3.1 });",
+        "set('pullDirection', 'none');",
+        "setObstacleProperties(get('index-plunger'), { mass: 999999999 });"
       ]
     },
     {
@@ -114,8 +139,9 @@
       "text": "Release plunger ⇔",
       "width": "14em",
       "action": [
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: 5000});",
-        "setImageProperties(0,{imageX: 10});"
+        "setImageProperties(0, { imageX: 10 });",
+        "set('pullDirection', 'none');",
+        "setObstacleProperties(get('index-plunger'), { externalAx: 0, vx: 0, mass: 5000 });"
       ]
     },
     {
@@ -124,8 +150,8 @@
       "text": "Remove stopper",
       "width": "10em",
       "action": [
-        "setShapeProperties(get('index-plug'), {y: -10});",
-        "set('notPlugged',true);"
+        "setShapeProperties(get('index-plug'), { y: -10 });",
+        "set('notPlugged', true);"
       ]
     },
     {

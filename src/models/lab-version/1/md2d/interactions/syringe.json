@@ -60,13 +60,33 @@
       },
       {
         "imageUri": "plunger.svg",
-        "imageX": 0.04,
-        "imageY": 1.34,
+        "imageX": 0,
+        "imageY": 0,
         "imageHostType": "RectangularObstacle",
         "imageHostIndex": 4,
         "imageLayer": 1,
         "imageLayerPosition": 4,
         "visible": true
+      },
+      {
+        "imageUri": "arrow-left.svg",
+        "imageX": 0,
+        "imageY": 0,
+        "imageHostType": "RectangularObstacle",
+        "imageHostIndex": 4,
+        "imageLayer": 1,
+        "imageLayerPosition": 5,
+        "visible": false
+      },
+      {
+        "imageUri": "arrow-right.svg",
+        "imageX": 0,
+        "imageY": 0,
+        "imageHostType": "RectangularObstacle",
+        "imageHostIndex": 4,
+        "imageLayer": 1,
+        "imageLayerPosition": 5,
+        "visible": false
       }
     ],
     "imageMapping": {
