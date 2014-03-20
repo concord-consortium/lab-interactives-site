@@ -15,13 +15,52 @@ def render_file(filename, locals)
   contents = File.read(filename)
   lab_env = locals[:LAB_ENV]
   lab_root_url = ENV['LAB_ROOT_URL'] || locals[:CUSTOM_LAB_ROOT_URL] || LAB_ROOT_URL[lab_env]
+  embeddable_page = EMBEDDABLE_PAGE[lab_env]
   Haml::Engine.new(contents).render(Object.new, {
     :lab_env => lab_env,
     :lab_root_url => lab_root_url,
     :lab_js_url => lab_root_url + (if lab_env == :production then "/lab.min.js" else "/lab.js" end),
     :lab_css_url => lab_root_url + "/lab.css",
     :data_games_prefix => CONFIG[:jsconfig][:dataGamesProxyPrefix],
-    :embeddable_page => EMBEDDABLE_PAGE[lab_env]
+    :embeddable_page => embeddable_page,
+    :lab_js_dependencies => case CONFIG[:environment]
+      when 'production'
+        <<-HEREDOC
+      <script src="#{lab_root_url}/../vendor/d3/d3.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery/jquery.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.min.js" type="text/javascript"></script>
+      <script src='#{lab_root_url}/../vendor/tinysort/jquery.tinysort.min.js' type='text/javascript'></script>
+        HEREDOC
+      else
+        <<-HEREDOC
+      <script src="#{lab_root_url}/../vendor/d3/d3.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery/jquery.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.js" type="text/javascript"></script>
+      <script src='#{lab_root_url}/../vendor/tinysort/jquery.tinysort.js' type='text/javascript'></script>
+        HEREDOC
+      end,
+    :lab_css_dependencies => <<-HEREDOC,
+      <link href='#{lab_root_url}/../vendor/jquery-ui/jquery-ui.css' rel='stylesheet' type='text/css'>
+      <link href='#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.css' rel='stylesheet' type='text/css'>
+      <link href='#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.css' rel='stylesheet' type='text/css'>
+      HEREDOC
+    :js_site_config => <<-HEREDOC,
+      <script>
+        var SITE_CONFIG = {
+          LAB_ENV: "#{lab_env}",
+          EMBEDDABLE_PAGE: "#{embeddable_page}",
+          SITE_ENV: "#{CONFIG[:environment]}",
+          STATIC: #{!!(ENV['LAB_STATIC'] || CONFIG[:jsconfig][:static])},
+          DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}",
+        };
+      </script>
+      HEREDOC
   })
 end
 
@@ -74,18 +113,6 @@ else
   ANALYTICS = ""
 end
 
-JS_SITE_CONFIG =
-  <<-HEREDOC
-<script>
-  var SITE_CONFIG = {
-    LAB_ENV: null,
-    SITE_ENV: "#{CONFIG[:environment]}",
-    STATIC: #{!!(ENV['LAB_STATIC'] || CONFIG[:jsconfig][:static])},
-    DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}",
-  };
-</script>
-  HEREDOC
-
 # setup partial for fontface
 if CONFIG[:jsconfig] && CONFIG[:jsconfig][:fontface]
   FONTFACE = CONFIG[:jsconfig][:fontface]
@@ -105,29 +132,6 @@ else          # default is "Open Sans"
 end
 
 # setup partials for 'production' (minimized resources) or 'development'
-
-LAB_JS_DEPENDENCIES = case CONFIG[:environment]
-when 'production'
-  <<-HEREDOC
-<script src="vendor/d3/d3.min.js" type="text/javascript"></script>
-<script src="vendor/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="vendor/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
-<script src="vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
-<script src="vendor/jquery-selectBoxIt/jquery.selectBoxIt.min.js" type="text/javascript"></script>
-<script src='vendor/tinysort/jquery.tinysort.min.js' type='text/javascript'></script>
-  HEREDOC
-else
-  <<-HEREDOC
-<script src="vendor/d3/d3.js" type="text/javascript"></script>
-<script src="vendor/jquery/jquery.js" type="text/javascript"></script>
-<script src="vendor/jquery-ui/jquery-ui.js" type="text/javascript"></script>
-<script src="vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js" type="text/javascript"></script>
-<script src="vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
-<script src="vendor/jquery-selectBoxIt/jquery.selectBoxIt.js" type="text/javascript"></script>
-<script src='vendor/tinysort/jquery.tinysort.js' type='text/javascript'></script>
-  HEREDOC
-end
 
 LAB_JS_ADDITIONAL_DEPENDENCIES = case CONFIG[:environment]
 when 'production'
