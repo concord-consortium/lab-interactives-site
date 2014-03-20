@@ -261,11 +261,11 @@
       $dataGamesStagingLink.hide();
     } else {
       $dataGamesLink.show();
-      $dataGamesLink.attr("href", encodeURI("http://is.kcptech.com/dg?moreGames=" + dgGameSpecification));
+      $dataGamesLink.attr("href", encodeURI("http://is.codap.concord.org/dg?moreGames=" + dgGameSpecification));
       $dataGamesLink.attr("title", "Run this Interactive inside DataGames");
 
       $dataGamesStagingLink.show();
-      $dataGamesStagingLink.attr("href", encodeURI("http://is-test.kcptech.com/dg?moreGames=" + dgGameSpecification));
+      $dataGamesStagingLink.attr("href", encodeURI("http://is-test.codap.concord.org/dg?moreGames=" + dgGameSpecification));
       $dataGamesStagingLink.attr("title", "Run this Interactive inside DataGames' staging server");
     }
 
