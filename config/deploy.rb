@@ -58,7 +58,7 @@ namespace :deploy do
     checkout
     bundle_install
     run "cd /var/www/interactives; make clean-public; make"
-    create_symbolic_links_to_archives
+    archive_public_dir
     restart
   end
 
@@ -67,26 +67,8 @@ namespace :deploy do
     checkout
     bundle_install
     run "cd /var/www/interactives; make clean; make"
-    create_symbolic_links_to_archives
+    archive_public_dir
     restart
-  end
-
-  desc "clean and rebuild jars in public/jnlp dir on server"
-  task :update_jnlps do
-    checkout
-    run "cd /var/www/interactives; make jnlp-all"
-    restart
-  end
-
-  desc "clean and update server and recreate jar resources"
-  task :clean_and_update_all do
-    clean_and_update
-    update_jnlps
-  end
-
-  desc "setup server"
-  task :setup do
-    clean_and_update_all
   end
 
   desc "create symbolic links archives of public dir"
@@ -96,7 +78,7 @@ namespace :deploy do
 
   desc "create archive of public dir"
   task :archive_public_dir do
-    run "cd /var/www/interactives; ./script/create-archived-public-dir.sh"
+    run "cd /var/www/interactives; ./script/create-archived-public-dir.sh " + SITE_VERSION
     create_symbolic_links_to_archives
   end
 
