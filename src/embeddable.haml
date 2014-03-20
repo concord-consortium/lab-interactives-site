@@ -31,7 +31,8 @@
 
         Lab.config.rootUrl              = "#{lab_root_url}";
         Lab.config.dataGamesProxyPrefix = "#{data_games_prefix}";
-        Lab.config.versionedHome        = function (majorVersion) {
+        Lab.config.versionedHome        = function (labVersion) {
+          // Ignore labVersion argument, use version of the Lab Interactives Site instead.
           var protocol = window.location.protocol;
           var host     = window.location.host;
           return protocol + "//" + host + "/version/" + "#{SITE_VERSION}" +
