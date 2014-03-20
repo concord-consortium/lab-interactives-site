@@ -1,6 +1,6 @@
 # Lab Interactives Site
 
-[Lab](http://lab-framework.concord.org) interactives from the [Concord Consortium](http://www.concord.org). This site is deployed in the following places:
+Set of interactives built using the [Lab Framework](http://lab-framework.concord.org) from the [Concord Consortium](http://www.concord.org). This site is deployed in the following places:
 
 - **[lab.concord.org](http://lab.concord.org)** _(production)_
 - **[lab.dev.concord.org](http://lab.dev.concord.org)** _(development)_
