@@ -220,9 +220,9 @@
 
   function finishSetupFullPage() {
     var $embeddableLink = $("#embeddable-link"),
-        $dataGamesLink = $("#datagames-link"),
-        $dataGamesStagingLink = $("#datagames-staging-link"),
-        dgGameSpecification,
+        $codapLink = $("#codap-link"),
+        $codapStagingLink = $("#codap-staging-link"),
+        codapGameSpecification,
         origin;
 
     origin = document.location.href.match(/(.*?\/\/.*?)\//)[1];
@@ -245,8 +245,8 @@
     }
 
     if (SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      // construct link to DataGames embeddable version of Interactive
-      dgGameSpecification = JSON.stringify([{
+      // construct link to CODAP embeddable version of Interactive
+      codapGameSpecification = JSON.stringify([{
         "name": $selectInteractive.find("option:selected").text(),
         "dimensions": {
           "width": 600,
@@ -257,16 +257,16 @@
     }
 
     if (SITE_CONFIG.STATIC || !SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      $dataGamesLink.hide();
-      $dataGamesStagingLink.hide();
+      $codapLink.hide();
+      $codapStagingLink.hide();
     } else {
-      $dataGamesLink.show();
-      $dataGamesLink.attr("href", encodeURI("http://is.codap.concord.org/dg?moreGames=" + dgGameSpecification));
-      $dataGamesLink.attr("title", "Run this Interactive inside DataGames");
+      $codapLink.show();
+      $codapLink.attr("href", encodeURI("http://is.codap.concord.org/dg?moreGames=" + codapGameSpecification));
+      $codapLink.attr("title", "Run this Interactive inside CODAP");
 
-      $dataGamesStagingLink.show();
-      $dataGamesStagingLink.attr("href", encodeURI("http://is-test.codap.concord.org/dg?moreGames=" + dgGameSpecification));
-      $dataGamesStagingLink.attr("title", "Run this Interactive inside DataGames' staging server");
+      $codapStagingLink.show();
+      $codapStagingLink.attr("href", encodeURI("http://is-test.codap.concord.org/dg?moreGames=" + codapGameSpecification));
+      $codapStagingLink.attr("title", "Run this Interactive inside the CODAP staging server");
     }
 
     setupOriginalImportLinks();
