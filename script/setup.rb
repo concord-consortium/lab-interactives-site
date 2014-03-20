@@ -11,6 +11,8 @@ SCRIPT_PATH = File.join(PROJECT_ROOT, 'script')                    if !defined? 
 BIN_PATH  = File.join(PROJECT_ROOT, 'bin')                         if !defined? BIN_PATH
 PUBLIC_PATH  = File.join(PROJECT_ROOT, 'public')                   if !defined? PUBLIC_PATH
 
+SITE_VERSION = File.read(File.join(PROJECT_ROOT, 'site-version'))
+
 def render_file(filename, locals)
   contents = File.read(filename)
   lab_env = locals[:LAB_ENV]

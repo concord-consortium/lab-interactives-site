@@ -34,8 +34,8 @@
         Lab.config.versionedHome        = function (majorVersion) {
           var protocol = window.location.protocol;
           var host     = window.location.host;
-          return protocol + "//" + host + "/embeddable-" + majorVersion +
-                 ".html?is_versioned_url=true";
+          return protocol + "//" + host + "/version/" + "#{SITE_VERSION}" +
+                 "/embeddable.html?is_versioned_url=true";
         };
         interactiveUrl = hash.substr(1, hash.length) || null;
         Embeddable.load(interactiveUrl, '#interactive-container', {
