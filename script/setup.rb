@@ -13,7 +13,16 @@ PUBLIC_PATH  = File.join(PROJECT_ROOT, 'public')                   if !defined? 
 
 def render_file(filename, locals)
   contents = File.read(filename)
-  Haml::Engine.new(contents).render(Object.new, locals)
+  lab_env = locals[:LAB_ENV]
+  lab_root_url = ENV['LAB_ROOT_URL'] || locals[:CUSTOM_LAB_ROOT_URL] || LAB_ROOT_URL[lab_env]
+  Haml::Engine.new(contents).render(Object.new, {
+    :lab_env => lab_env,
+    :lab_root_url => lab_root_url,
+    :lab_js_url => lab_root_url + (if lab_env == :production then "/lab.min.js" else "/lab.js" end),
+    :lab_css_url => lab_root_url + "/lab.css",
+    :data_games_prefix => CONFIG[:jsconfig][:dataGamesProxyPrefix],
+    :embeddable_page => EMBEDDABLE_PAGE[lab_env]
+  })
 end
 
 begin
@@ -34,24 +43,10 @@ end
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
-  :production  => ENV['LAB_ROOT_URL'] || config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
+  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
   :staging     => config_lab_root_url[:staging]     || "//lab-framework.staging.concord.org/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.dev.concord.org/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
-}
-
-LAB_JS = {
-  :production  => LAB_ROOT_URL[:production] + "/lab.min.js",
-  :staging     => LAB_ROOT_URL[:staging] + "/lab.js",
-  :development => LAB_ROOT_URL[:development] + "/lab.js",
-  :local       => LAB_ROOT_URL[:local] + "/lab.js"
-}
-
-LAB_CSS = {
-  :production  => LAB_ROOT_URL[:production] + "/lab.css",
-  :staging     => LAB_ROOT_URL[:staging] + "/lab.css",
-  :development => LAB_ROOT_URL[:development] + "/lab.css",
-  :local       => LAB_ROOT_URL[:local] + "/lab.css"
 }
 
 EMBEDDABLE_PAGE = {

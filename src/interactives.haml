@@ -29,9 +29,9 @@
           %a(href="") Interactive Browser
 
         %span.title additional links:
-        %a#embeddable-link{:href => EMBEDDABLE_PAGE[LAB_ENV], :class => "opens-in-new-window", :target => "_blank"} Embeddable
-        %a#codap-link{:href => EMBEDDABLE_PAGE[LAB_ENV], :class => "opens-in-new-window", :target => "_blank"} CODAP
-        %a#codap-staging-link{:href => "embeddable.html", :class => "opens-in-new-window", :target => "_blank"} CODAP (Staging)
+        %a#embeddable-link{:href => embeddable_page, :class => "opens-in-new-window", :target => "_blank"} Embeddable
+        %a#codap-link{:href => embeddable_page, :class => "opens-in-new-window", :target => "_blank"} CODAP
+        %a#codap-staging-link{:href => embeddable_page, :class => "opens-in-new-window", :target => "_blank"} CODAP (Staging)
         %a#original-import-link{:href => "", :class => "opens-in-new-window", :target => "_blank"} Original Imported Model
 
       .row
@@ -200,10 +200,10 @@
     = JS_SITE_CONFIG
     :javascript
       // LAB_ENV is defined per site, so set it to appropriate value.
-      SITE_CONFIG.LAB_ENV = "#{LAB_ENV}";
+      SITE_CONFIG.LAB_ENV = "#{lab_env}";
       // Set appropriate embeddable page.
-      SITE_CONFIG.EMBEDDABLE_PAGE = "#{EMBEDDABLE_PAGE[LAB_ENV]}";
-    %script{:src => LAB_JS[LAB_ENV], :type => "text/javascript"}
+      SITE_CONFIG.EMBEDDABLE_PAGE = "#{embeddable_page}";
+    %script{:src => lab_js_url, :type => "text/javascript"}
     = LAB_SHUTTERBUG
     %script{:src => "embeddable.js", :type => "text/javascript"}
     %script{:src => "application.js", :type => "text/javascript"}
