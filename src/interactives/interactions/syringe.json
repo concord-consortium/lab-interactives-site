@@ -19,7 +19,7 @@
         "controlButtons": ""
       },
       "onLoad": [
-        "setImageProperties(0,{imageX: 10});",
+        "setImageProperties(0, { visible: false });",
         "start();",
         "var indexPlunger = get('index-plunger'),",
         "    minX = get('plunger-min'),",
@@ -98,7 +98,7 @@
       "text": "Pull plunger out ⇥",
       "width": "14em",
       "action": [
-        "setImageProperties(0, { imageX: 10 });",
+        "setImageProperties(0, { visible: false });",
         "set('pullDirection', 'right');"
       ]
     },
@@ -108,7 +108,7 @@
       "text": "Push plunger in ⇤",
       "width": "14em",
       "action": [
-        "setImageProperties(0,{imageX: 10});",
+        "setImageProperties(0, { visible: false });",
         "set('pullDirection', 'left');"
       ]
     },
@@ -118,7 +118,7 @@
       "text": "Lock plunger in place ⇎",
       "width": "14em",
       "action": [
-        "setImageProperties(0, { imageX: 3.1 });",
+        "setImageProperties(0, { visible: true });",
         "set('pullDirection', 'none');",
         "setObstacleProperties(get('index-plunger'), { mass: 999999999 });"
       ]
@@ -129,7 +129,7 @@
       "text": "Release plunger ⇔",
       "width": "14em",
       "action": [
-        "setImageProperties(0, { imageX: 10 });",
+        "setImageProperties(0, { visible: false });",
         "set('pullDirection', 'none');",
         "setObstacleProperties(get('index-plunger'), { externalAx: 0, vx: 0, mass: 5000 });"
       ]
