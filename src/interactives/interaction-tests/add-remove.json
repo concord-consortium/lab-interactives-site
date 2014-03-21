@@ -1,0 +1,84 @@
+{
+  "title": "Adding and Removing Objects",
+  "publicationStatus": "public",
+  "about": "",
+  "fontScale": 0.78,
+  "aspectRatio": 1.45,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/interaction-tests/add-remove/model.json",
+      "onLoad": [
+        "setElementProperties(0, {color: -11625650});"
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "test-step",
+      "initialValue": 0,
+      "onChange": [
+        "if (value > 15) return;",
+        "setImageProperties(0, {imageUri: value + '.jpg'});",
+        "switch(value) {",
+        "  case 0: return;",
+        "  case 1: addAtom({x: 1.5, y: 1.5}); return;",
+        "  case 2: addAtom({x: 2.0, y: 1.5}); return;",
+        "  case 3: addAtom({x: 2.0, y: 2.0}); return;",
+        "  case 4: addRadialBond({atom1: 0, atom2: 1, length: 0.51, strength: 1000}); return;",
+        "  case 5: addRadialBond({atom1: 1, atom2: 2, length: 0.51, strength: 1000}); return;",
+        "  case 6: removeAtom(2); return;",
+        "  case 7: removeRadialBond(0); return;",
+        "  case 8: removeAtom(1); return;",
+        "  case 9: removeAtom(0); return;",
+        "  case 10: addObstacle({x: 1.5, y: 1.5, width: 1, height: 1}); return;",
+        "  case 11: addLine({x1: 0.5, x2: 2.5, y1: 0.5, y2: 0.5}); return;",
+        "  case 12: addShape({type: 'rectangle', x: 2.8, y: 2.6, width: 0.5, height: 0.5}); return;",
+        "  case 13: removeObstacle(0); return;",
+        "  case 14: removeLine(1); return;",
+        "  case 15: removeShape(0); return;",
+        "}"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "label1",
+      "text": "Click"
+    },
+    {
+      "type": "text",
+      "id": "label2",
+      "text": "and compare actual model (left) with the expected model state (right):"
+    },
+    {
+      "type": "button",
+      "id": "button",
+      "text": "Next step of test",
+      "action": "set('test-step', get('test-step') + 1);"
+    }
+  ],
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-bottom": "1em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "1em"
+    }
+  ],
+  "layout": {
+    "top": ["label1", "button", "label2"]
+  }
+}
