@@ -138,6 +138,10 @@
   :name: "Basic Interactive Examples"
   :category: Examples
 
+- :path: interaction-tests
+  :name: "Interaction Tests"
+  :category: Tests
+
 - :path: signal-generator
   :name: "Signal Generator Interactives"
   :category: Tests
