@@ -217,7 +217,7 @@
     },
     {
       "name": "superChargePlates",
-      "initialValue": true,
+      "initialValue": false,
       "onChange": [
         "set('plateChargeProxy', get('plateChargeProxy'));"
       ]
@@ -241,8 +241,8 @@
         "    imageYoffset;",
         "if (!shapePropsTop.type) return;",
         "if (plateStrengthScale < 1) {",
-        "  setImageProperties(1,{imageUri: 'plate_pos_weak.png'});",
-        "  setImageProperties(0,{imageUri: 'plate_neg_weak.png'});",
+        "  setImageProperties(1,{imageUri: 'plate_neg_weak.png'});",
+        "  setImageProperties(0,{imageUri: 'plate_pos_weak.png'});",
         "  imageYoffset = 0.02;",
         "  shapePropsTop.y = get('upperPlateY') + get('plateHeight')/2,",
         "  shapePropsTop.height = get('plateHeight')/2,",
@@ -252,8 +252,8 @@
         "  shapePropsBottom.x = get('plateCenterX') - get('plateWidth')/4,",
         "  shapePropsBottom.width = get('plateWidth')/2",
         "} else {",
-        "  setImageProperties(1,{imageUri: 'plate_pos.png'});",
-        "  setImageProperties(0,{imageUri: 'plate_neg.png'});",
+        "  setImageProperties(1,{imageUri: 'plate_neg.png'});",
+        "  setImageProperties(0,{imageUri: 'plate_pos.png'});",
         "  imageYoffset = 0;",
         "  shapePropsTop.y = get('upperPlateY'),",
         "  shapePropsTop.height = get('plateHeight'),",
@@ -290,8 +290,8 @@
   "layout": {
     "bottom": [
       ["send-neg-particle", "send-pos-particle"],
-      ["label-atom-mass","set-atom-mass"],
       ["send-mystery-particle", "enable-slow-motion"],
+      ["label-atom-mass","set-atom-mass"],
       ["set-charge-on-plates"],
       ["enable-super-plates"]
     ]
