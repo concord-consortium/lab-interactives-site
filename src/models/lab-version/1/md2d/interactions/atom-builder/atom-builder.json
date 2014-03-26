@@ -49,7 +49,7 @@
     "showAtomTrace": false,
     "images": [
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -58,7 +58,7 @@
         "imageY": 1.97
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -67,7 +67,7 @@
         "imageY": 1.82
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -76,7 +76,7 @@
         "imageY": 1.67
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -85,7 +85,7 @@
         "imageY": 1.52
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -94,7 +94,7 @@
         "imageY": 1.37
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -103,7 +103,7 @@
         "imageY": 1.22
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -112,7 +112,7 @@
         "imageY": 1.07
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -121,7 +121,7 @@
         "imageY": 0.92
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -130,7 +130,7 @@
         "imageY": 0.77
       },
       {
-        "imageUri": "electron.png",
+        "imageUri": "electron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -139,7 +139,7 @@
         "imageY": 0.62
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -148,7 +148,7 @@
         "imageY": 2.0
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -157,7 +157,7 @@
         "imageY": 1.85
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -166,7 +166,7 @@
         "imageY": 1.7
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -175,7 +175,7 @@
         "imageY": 1.55
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -184,7 +184,7 @@
         "imageY": 1.40
       },
                   {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -193,7 +193,7 @@
         "imageY": 1.25
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -202,7 +202,7 @@
         "imageY": 1.10
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -211,7 +211,7 @@
         "imageY": 0.95
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -220,7 +220,7 @@
         "imageY": 0.80
       },
       {
-        "imageUri": "proton.png",
+        "imageUri": "proton.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -229,7 +229,7 @@
         "imageY": 0.65
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -238,7 +238,7 @@
         "imageY": 2.0
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -247,7 +247,7 @@
         "imageY": 1.85
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -256,7 +256,7 @@
         "imageY": 1.70
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -265,7 +265,7 @@
         "imageY": 1.55
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -274,7 +274,7 @@
         "imageY": 1.40
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -283,7 +283,7 @@
         "imageY": 1.25
       },
                   {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -292,7 +292,7 @@
         "imageY": 1.10
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -301,7 +301,7 @@
         "imageY": 0.95
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -310,7 +310,7 @@
         "imageY": 0.80
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -319,7 +319,7 @@
         "imageY": 0.65
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
@@ -328,7 +328,7 @@
         "imageY": 0.50
       },
       {
-        "imageUri": "neutron.png",
+        "imageUri": "neutron.svg",
         "imageHostIndex": 0,
         "imageHostType": "",
         "imageLayer": 1,
