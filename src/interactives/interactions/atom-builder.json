@@ -48,7 +48,7 @@
         "    if (numElectrons === 0) {",
         "      setCentralEllipseAlpha(0);",
         "    } else {",
-        "      alpha = 0.8 * (40 + 18 * numElectrons) / 255;",
+        "      alpha = 0.8 * (75 + 15 * numElectrons) / 255;",
         "      setCentralEllipseAlpha(alpha);",
         "      w = 1.48 + 0.07 * (numElectrons - numProtons);",
         "      if (numElectrons > 2) {",
