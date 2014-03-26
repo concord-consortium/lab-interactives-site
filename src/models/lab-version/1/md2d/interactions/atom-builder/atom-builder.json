@@ -341,14 +341,14 @@
     "textBoxes": [
       {
         "text": "H",
-        "x": 3.9,
+        "x": 3.75,
         "y": 3.13,
         "layer": 1,
         "fontSize": 0.36,
         "anchor": "upper-left"
       },
       {
-        "text": "hydrogen",
+        "text": "Hydrogen",
         "x": 3.95,
         "y": 2.6,
         "layer": 1,
