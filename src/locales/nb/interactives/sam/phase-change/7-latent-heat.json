@@ -1,5 +1,5 @@
 {
-  "title": "Latent Heat",
+  "title": "Latent Varme",
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
@@ -17,7 +17,7 @@
     {
       "type": "button",
       "id": "start-heating",
-      "text": "Start heating",
+      "text": "Start oppvarming",
       "action": ""
     }
   ]
