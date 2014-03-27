@@ -1,8 +1,8 @@
 {
-  "title": "Ladede og nÃ¸ytrale atomer",
+  "title": "Ladede og Nøytrale Atomer",
   "publicationStatus": "sample",
   "labEnvironment": "production",
-  "subtitle": "Utforsk Coulomb og tiltrekning mellom molekyler.",
+  "subtitle": "Explore Coulomb and intermolecular attractions.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,11 +10,11 @@
   "fontScale": 1,
   "helpOnLoad": false,
   "about": [
-    "Det er to typer tiltrekningskraft i denne modellen: Coulombkrefter (tiltrekningen mellom ioner)",
+    "Det er to typer tiltrekningskraft i denne modellen: Coulomb krefter (tiltrekningen mellom ioner)",
     "og Van der Waals krefter (en tiltrekningskraft som eksiterer mellom alle atomer).",
     "",
-    "Hvilke mÃ¸nstre former seg gjerne med ladede og nÃ¸ytrale atomer? Hvordan endrer smelte- og ",
-    "kokepunktet seg nÃ¥r vi endrer Van der Waals-tiltrekningen eller nÃ¥r vi gir atomene ladning?"
+    "Hvilke mønstre former seg gjerne med ladede og nøytrale atomer? How does changing the Van der Waals",
+    "attraction or charging the atoms affect the melting and boiling point of the substance?"
   ],
   "models": [
     {
