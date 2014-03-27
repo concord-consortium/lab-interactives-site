@@ -7,7 +7,7 @@
   "lennardJonesForces": true,
   "coulombForces": true,
   "temperatureControl": true,
-  "targetTemperature": 0.1,
+  "targetTemperature": 0.001,
   "gravitationalField": false,
   "timeStep": 1,
   "dielectricConstant": 1,
