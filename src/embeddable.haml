@@ -45,6 +45,11 @@
               document.title = "Lab Interactive: " + controller.interactive.title;
               Embeddable.sendGAPageview();
             });
+            controller.on("interactiveRendered.application", function () {
+              // This is not necessary, this class isn't related with any styling.
+              // However it's used by the Selenium tests (see lab-selenium-tests repository).
+              $("#interactive-container").addClass("interactive-rendered");
+            });
           },
           redirect: function(path){
             // Let our parent know we are redirecting
