@@ -1,25 +1,30 @@
 {
-  "title": "Diffusion Across a Semipermeable Membrane",
+  "title": "Diffusjon over en semipermeabel membran",
   "publicationStatus": "public",
-  "subtitle": "How does pore size affect the diffusion of different molecules?",
-  "about": "Biological membranes are selectively permeable; some molecules can cross while others cannot. One way to affect this is through pore size. Change the pore size with the slider to change the permeability of the membrane to the different types of molecules. Trace an individual molecule to see the path it takes.",
+  "labEnvironment": "production",
+  "subtitle": "Hvordan påvirker porestørrelsen diffusjonen av forskjellige molekyler?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.2,
+  "fontScale": 1,
+  "helpOnLoad": false,
+  "about": "Biologiske membraner er selektivt permeable. Det betyr at noen molekyler kommer gjennom, andre gjør det ikke. En måte dette styres på, er med porestørrelsen. Endre porestørrelsen med glidebryteren, slik at membranens permeabilitet for ulike typer molekyler endres. Spor et enkeltmolekyl og se hvilken vei det tar.",
   "models": [
     {
       "type": "md2d",
       "id": "model1",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/semipermeable/semipermeable$0.json",
+      "onLoad": [],
       "viewOptions": {
         "controlButtons": "play_reset"
       },
       "modelOptions": {
         "unitsScheme": "mks"
-      },
-      "onLoad": [
-
-      ]
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -51,21 +56,38 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "slider",
       "id": "barrier-height",
+      "type": "slider",
       "min": 0,
       "max": 1,
       "steps": 50,
-      "title": "Pore size",
-      "property": "poreSize"
+      "title": "Porestørrelse",
+      "labels": [],
+      "width": "auto",
+      "height": "auto",
+      "property": "poreSize",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "checkbox",
       "id": "trace-atom",
-      "text": "Trace molecule",
-      "property": "tracingAtom"
+      "type": "checkbox",
+      "text": "Spor et molekyl",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "tracingAtom",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     }
   ],
   "layout": {
@@ -73,8 +95,7 @@
       "barrier-height",
       "trace-atom"
     ],
-    "right": [
-
-    ]
-  }
+    "right": []
+  },
+  "template": "simple"
 }
