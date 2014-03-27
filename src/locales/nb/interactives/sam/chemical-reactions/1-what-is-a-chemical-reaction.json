@@ -1,17 +1,17 @@
 {
-  "title": "What is a Chemical Reaction?",
+  "title": "Hva er en kjemisk reaksjon?",
   "publicationStatus": "public",
   "subtitle": "",
   "about": [
-    "A chemical reaction can occur in three different ways:",
+    "En kjemisk reaksjon kan forekomme på tre måter:",
     "",
-    "- A chemical bond is formed.",
-    "- A chemical bond is broken.",
-    "- One or more electrons are transferred between atoms or molecules.",
+    "- Et kjemisk bånd skapes.",
+    "- Et kjemisk bånd brytes.",
+    "- Et eller flere elektroner overføres mellom atomer eller molekyler.",
     "",
-    "Explore reactions in which chemical bonds are formed and broken with this model.",
-    "Press run, then try heating and cooling the atoms to see how temperature affects ",
-    "the balance between bond formation and breaking."
+    "Utforsk hvilke reaksjoner i hvilke kjemiske bånd som blir skapt og brutt i denne modellen.",
+    "Trykk Start, prøv å varm opp og kjøl ned atomer, for å se hvordan temperatur påvirker ",
+    "balansen mellom å skape og bryte bånd."
   ],
   "models": [
     {
@@ -62,7 +62,7 @@
         "  }",
         "});"
       ],
-      "text": "Heat"
+      "text": "Varm opp"
     },
     {
       "id": "cool",
@@ -79,7 +79,7 @@
         "  setComponentDisabled('heat', false);",
         "}"
       ],
-      "text": "Cool"
+      "text": "Kjøl ned"
     },
     {
       "id": "thermometer",
