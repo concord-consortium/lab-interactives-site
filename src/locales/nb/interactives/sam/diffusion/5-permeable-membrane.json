@@ -1,79 +1,43 @@
 {
-  "title": "Diffusion Across a Permeable Membrane",
+  "title": "Diffusion over en permeabel membran",
   "publicationStatus": "public",
-  "subtitle": "Exchanging gases across a cell membrane",
-  "about": [
-    "Cell membranes are composed of two layers of phospholipids (a phospholipid bilayer). Some molecules are capable of crossing this membrane directly, without use of specific membrane channels.",
-    "",
-    "Oxygen and carbon dioxide are two molecules that can freely cross the cell membrane. In aerobic cells, oxygen is necessary for cell functioning and carbon dioxide is produced as a waste molecule. Hence, the cell “wants” oxygen to enter and carbon dioxide to leave. But molecules don’t move only in one direction–they diffuse randomly across the membrane.",
-    "",
-    "Set up the model with high oxygen and low carbon dioxide outside the cell and low oxygen and high carbon dioxide inside the cell. In which direction do the oxygen and carbon dioxide molecules move?"
-  ],
+  "labEnvironment": "production",
+  "subtitle": "Utveksling av gasser over en cellemembran",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.6,
   "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [
+    	"Cellemembraner er sammensatt av to lag fosfolipider (et lipid-dobbeltlag). Noen molekyler kan passere denne membranen direkte, uten å bruke spesielle kanaler.",
+    	"",
+    	"Oksygen og karbondioksid er to molekyler som fritt kan passere gjennom cellemembranen. I aerobe celler er oksygen nødvendig for at cellen skal fungere, og karbondioksid er et avfallsstoff. Dermed “ønsker” cellen at oksygen skal komme inn, og at karbondioksid skal forsvinne. Men molekyler beveger seg ikke bare i en retning, de diffunderer tilfeldig gjennom membranen. ",
+    	"",
+    	"Arranger modellen med et høyt oksygeninnhold og lavt karbondioksidinnhold utenfor cellen, og lavt oksygeninnhold og høyt innhold av karbondioksid innenfor cellen. I hvilken retning går strømmen av oksygen- og karbondioksidmolekyler? "
+  ],
   "models": [
     {
       "type": "md2d",
       "id": "model1",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page2/page2mw5$0.json",
+      "onLoad": [
+        "onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "imageMapping": {
           "membraneNoPores.png": "membrane.svg",
           "oxygenCO2Key.png": "oxygenCO2Key.svg"
         }
-      },
-      "onLoad": [
-        "onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });"
-      ]
+      }
     }
   ],
-  "outputs": [
-    {
-      "name": "nLeftO2",
-      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 0).length;"
-    },
-    {
-      "name": "nLeftCO2",
-      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 1).length;"
-    },
-    {
-      "name": "nRightO2",
-      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 0).length;"
-    },
-    {
-      "name": "nRightCO2",
-      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 1).length;"
-    },
-    {
-      "name": "leftConcentrationO2",
-      "value": [
-      "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
-      ]
-    },
-    {
-      "name": "leftConcentrationCO2",
-      "value": [
-      "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
-      ]
-    },
-    {
-      "name": "rightConcentrationO2",
-      "value": [
-      "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
-      ]
-    },
-    {
-      "name": "rightConcentrationCO2",
-      "value": [
-      "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
-      ]
-    }
-  ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "setCountTrigger",
-      "initialValue": 0,
+      "initialValue": 4,
       "onChange": [
         "var x,y,vx,vy,w,h,i,nAtomsToAdd;",
         "stop();",
@@ -124,22 +88,30 @@
     {
       "name": "initialLeftCO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialLeftO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialRightCO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialRightO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "markingAtoms",
@@ -153,167 +125,252 @@
       ]
     }
   ],
+  "outputs": [
+    {
+      "name": "nLeftO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nLeftCO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "nRightO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nRightCO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "leftConcentrationO2",
+      "value": [
+        "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "leftConcentrationCO2",
+      "value": [
+        "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationO2",
+      "value": [
+        "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationCO2",
+      "value": [
+        "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "text",
       "id": "inside-above-label",
-      "text": "Inside cell"
+      "type": "text",
+      "text": "Inne i cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "outside-above-label",
-      "text": "Outside cell"
+      "type": "text",
+      "text": "Utenfor cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "inside-right-label",
-      "text": "Inside cell"
-    },
-    {
       "type": "text",
+      "text": "Inne i cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
       "id": "outside-right-label",
-      "text": "Outside cell"
+      "type": "text",
+      "text": "Utenfor cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "barGraph",
       "id": "left-concentration-CO2",
-      "fontScale": 0.5,
+      "type": "barGraph",
+      "property": "leftConcentrationCO2",
       "min": 0,
       "max": 100,
-      "labels": 0,
-      "barColor": "rgb(143,113,178)",
-      "fillColor": "rgb(225,243,253)",
       "title": "CO₂",
       "titleOn": "top",
-      "height": "15em",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
       "barWidth": "1em",
-      "property": "leftConcentrationCO2"
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(225,243,253)",
+      "tooltip": ""
     },
     {
-      "type": "barGraph",
       "id": "left-concentration-O2",
+      "type": "barGraph",
+      "property": "leftConcentrationO2",
       "min": 0,
       "max": 100,
+      "title": "O₂",
+      "titleOn": "top",
       "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
       "barColor": "rgb(242,234,27)",
       "fillColor": "rgb(225,243,253)",
-      "title": "O₂",
-      "titleOn": "top",
-      "height": "15em",
-      "barWidth": "1em",
-      "property": "leftConcentrationO2"
+      "tooltip": ""
     },
     {
-      "type": "barGraph",
       "id": "right-concentration-CO2",
+      "type": "barGraph",
+      "property": "rightConcentrationCO2",
       "min": 0,
       "max": 100,
-      "labels": 0,
-      "barColor": "rgb(143,113,178)",
-      "fillColor": "rgb(243,222,223)",
       "title": "CO₂",
       "titleOn": "top",
-      "height": "15em",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
       "barWidth": "1em",
-      "property": "rightConcentrationCO2"
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": ""
     },
     {
-      "type": "barGraph",
       "id": "right-concentration-O2",
+      "type": "barGraph",
+      "property": "rightConcentrationO2",
       "min": 0,
       "max": 100,
-      "labels": 0,
-      "barColor": "rgb(242,234,27)",
-      "fillColor": "rgb(243,222,223)",
       "title": "O₂",
       "titleOn": "top",
-      "height": "15em",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
       "barWidth": "1em",
-      "property": "rightConcentrationO2"
+      "height": "15em",
+      "barColor": "rgb(242,234,27)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": ""
     },
     {
-      "type": "pulldown",
       "id": "select-left-concentration-co2",
+      "type": "pulldown",
+      "label": "CO₂",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "Ingen",
+          "value": 0
+        },
+        {
+          "text": "Lav",
+          "value": 10
+        },
+        {
+          "text": "Høy",
+          "value": 50
+        }
+      ],
       "property": "initialLeftCO2",
-      "label": "CO₂",
-      "labelOn": "right",
-      "options": [
-        {
-          "text": "None",
-          "value": 0
-        },
-        {
-          "text": "Low",
-          "value": 10
-        },
-        {
-          "text": "High",
-          "value": 50
-        }
-      ]
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "pulldown",
       "id": "select-left-concentration-o2",
-      "property": "initialLeftO2",
+      "type": "pulldown",
       "label": "O₂",
       "labelOn": "right",
       "options": [
         {
-          "text": "None",
+          "text": "Ingen",
           "value": 0
         },
         {
-          "text": "Low",
+          "text": "Lav",
           "value": 10
         },
         {
-          "text": "High",
+          "text": "Høy",
           "value": 50
         }
-      ]
+      ],
+      "property": "initialLeftO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "pulldown",
       "id": "select-right-concentration-co2",
-      "property": "initialRightCO2",
+      "type": "pulldown",
       "label": "CO₂",
       "labelOn": "left",
       "options": [
         {
-          "text": "None",
+          "text": "Ingen",
           "value": 0
         },
         {
-          "text": "Low",
+          "text": "Lav",
           "value": 10
         },
         {
-          "text": "High",
+          "text": "Høy",
           "value": 50
         }
-      ]
+      ],
+      "property": "initialRightCO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "pulldown",
       "id": "select-right-concentration-o2",
-      "property": "initialRightO2",
+      "type": "pulldown",
       "label": "O₂",
       "labelOn": "left",
       "options": [
         {
-          "text": "None",
+          "text": "Ingen",
           "value": 0
         },
         {
-          "text": "Low",
+          "text": "Lav",
           "value": 10
         },
         {
-          "text": "High",
+          "text": "Høy",
           "value": 50
         }
-      ]
+      ],
+      "property": "initialRightO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     }
   ],
   "layout": {
@@ -351,8 +408,7 @@
         "select-right-concentration-co2"
       ]
     ],
-    "below": [
-    ],
+    "below": [],
     "above-left": [
       "inside-above-label"
     ],
