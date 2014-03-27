@@ -1,16 +1,21 @@
 {
-  "title": "Modeling Transcription",
+  "title": "En modell av transkripsjon",
   "publicationStatus": "public",
-  "subtitle": "Explore how an mRNA copy is made of DNA.",
+  "labEnvironment": "production",
+  "subtitle": "Undersøk hvordan en mRNA-kopi blir laget av DNA.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.2,
-  "about": [
-    "One strand of the DNA is used as a template to create an mRNA copy. This process is called transcription. An mRNA copy needs to be made because DNA cannot leave the nucleus.",
-    "",
-    "Protein complexes separate the DNA helix to allow complementary mRNA nucleotides to bind to the DNA sequence. The pairing of nucleotides is very specific.",
-    "",
-    "Use the **A**, **U**, **G** and **C** buttons to place the correct mRNA nucleotide with each DNA nucleotide."
-  ],
   "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [
+    "En streng av DNA er brukt som et mønster for å lage en nRNA-kopi. Denne prosessen blir kalt transkripsjon. En mRNA-kopi må lages fordi DNA ikke kan forlate kjernen.",
+    "",
+    "Spesielle proteiner splitter DNA-spiralen slik at samhørende nukleotider kan binde seg til DNA-sekvensen. Det er helt bestemte nukleotider som hører sammen i par.",
+    "",
+    "Bruk knappene **A**, **U**, **G** and **C** for å plassere riktig mRNA-nukleotid sammen med hver DNA-nukleotid. "
+  ],
   "models": [
     {
       "type": "md2d",
@@ -26,57 +31,97 @@
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "begin",
+      "type": "button",
+      "action": "animateToDNAState('transcription:0');",
       "text": "Prepare for transcription",
-      "action": "animateToDNAState('transcription:0');"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "transcribeA",
+      "type": "button",
+      "action": "transcribeDNAStep('A');",
       "text": "A",
-      "action": "transcribeDNAStep('A');"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "transcribeC",
+      "type": "button",
+      "action": "transcribeDNAStep('C');",
       "text": "C",
-      "action": "transcribeDNAStep('C');"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "transcribeG",
+      "type": "button",
+      "action": "transcribeDNAStep('G');",
       "text": "G",
-      "action": "transcribeDNAStep('G');"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "transcribeU",
-      "text": "U",
-      "action": "transcribeDNAStep('U');"
-    },
-    {
       "type": "button",
+      "action": "transcribeDNAStep('U');",
+      "text": "U",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
       "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
       "text": "Reset",
-      "action": "reloadModel();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "label1A",
-      "text": "Click"
+      "type": "text",
+      "text": "Click",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "label1B",
-      "text": "to separate DNA strands."
+      "type": "text",
+      "text": "to separate DNA strands.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "label2",
-      "text": "Then click on the button representing the correct **complementary** RNA nucleotide to proceed to the next step in the transcription process:"
+      "type": "text",
+      "text": "Then click on the button representing the correct **complementary** RNA nucleotide to proceed to the next step in the transcription process:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     }
   ],
   "layout": {
