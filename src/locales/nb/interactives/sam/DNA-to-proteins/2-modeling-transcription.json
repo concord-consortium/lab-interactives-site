@@ -10,7 +10,7 @@
   "fontScale": 0.8,
   "helpOnLoad": false,
   "about": [
-    "En streng av DNA er brukt som et mønster for å lage en nRNA-kopi. Denne prosessen blir kalt transkripsjon. En mRNA-kopi må lages fordi DNA ikke kan forlate kjernen.",
+    "En streng av DNA blir brukt som et mønster for å lage en nRNA-kopi. Denne prosessen blir kalt transkripsjon. En mRNA-kopi må lages fordi DNA ikke kan forlate kjernen.",
     "",
     "Spesielle proteiner splitter DNA-spiralen slik at samhørende nukleotider kan binde seg til DNA-sekvensen. Det er helt bestemte nukleotider som hører sammen i par.",
     "",
@@ -43,7 +43,7 @@
       "id": "begin",
       "type": "button",
       "action": "animateToDNAState('transcription:0');",
-      "text": "Prepare for transcription",
+      "text": "Forbered for transkripsjon",
       "width": "",
       "height": "",
       "disabled": false,
@@ -93,7 +93,7 @@
       "id": "reset",
       "type": "button",
       "action": "reloadModel();",
-      "text": "Reset",
+      "text": "Nullstill",
       "width": "",
       "height": "",
       "disabled": false,
@@ -102,7 +102,7 @@
     {
       "id": "label1A",
       "type": "text",
-      "text": "Click",
+      "text": "Klikk",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -110,7 +110,7 @@
     {
       "id": "label1B",
       "type": "text",
-      "text": "to separate DNA strands.",
+      "text": "for å splitte opp DNA-strengene.",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -118,7 +118,7 @@
     {
       "id": "label2",
       "type": "text",
-      "text": "Then click on the button representing the correct **complementary** RNA nucleotide to proceed to the next step in the transcription process:",
+      "text": "Klikk deretter på knappen som representerer den riktige **samhørende** RNA-nukleotiden for å fortsette til neste steg i transkripsjonsprosessen:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
