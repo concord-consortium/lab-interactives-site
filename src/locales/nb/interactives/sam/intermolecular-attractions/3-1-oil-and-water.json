@@ -1,11 +1,18 @@
 {
-  "title": "Oil and Water",
+  "title": "Olje og vann",
   "publicationStatus": "public",
-  "subtitle": "Explore how polar and non-polar substances interact.",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk hvordan polare og ikkepolare stoffer virker sammen.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "helpOnLoad": false,
   "about": [
-    "It is well known that \"oil and water don’t mix.\" But why? Run the model",
-    "of polar water (blue and red) and non-polar oil (gray). \"Shake up the oil and water mixture,\"",
-    "then run it again and watch what happens to the molecules over time."
+    "Det er velkjent at \"olje og vann ikke blander seg.\" Men hvorfor? Kjør modellen ",
+    "med polart vann (blått og rødt) og ikke polar olje (grå). Klikk på \"Rist blandingen av olje og vann,\"",
+    "kjør igjen, og se hva som skjer med molekylene etter en tid. "
   ],
   "models": [
     {
@@ -16,9 +23,9 @@
         "controlButtons": "play_reset",
         "textBoxes": [
           {
-            "text": "Separated oil and water",
-            "x": 1.0,
-            "y": 2.0,
+            "text": "Adskilt olje og vann",
+            "x": 1,
+            "y": 2,
             "fontScale": 1.3,
             "layer": 1,
             "frame": "rounded rectangle",
@@ -35,9 +42,9 @@
         "controlButtons": "play_reset",
         "textBoxes": [
           {
-            "text": "Oil and water shaken up and mixed",
+            "text": "Olje og vann er ristet og blandet",
             "x": 0.804,
-            "y": 2.0,
+            "y": 2,
             "fontScale": 1.3,
             "layer": 1,
             "frame": "rounded rectangle",
@@ -47,17 +54,29 @@
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "shake",
-      "text": "Shake up the oil and water mixture",
-      "action": "loadModel('oilAndWaterMix');"
+      "type": "button",
+      "action": "loadModel('oilAndWaterMix');",
+      "text": "Rist blandingen av olje og vann",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     }
   ],
   "layout": {
     "bottom": [
       "shake"
     ]
-  }
+  },
+  "template": "simple"
 }
