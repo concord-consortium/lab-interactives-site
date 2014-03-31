@@ -12,8 +12,8 @@
   		</li>
   		<li>Unzip the file above which should give you a folder 'lab-interactive'</li>
   		<li>Put the path to the interactive after the '#' in the URL above and reload this page</li>
-  		<li>Copy the text below into a text editor and save as an html file inside the 'lab-interactive' folder created
-  			by the file</li>
+  		<li>Click the Download HTML link below, and move the downloaded file inside the 'lab-interactive' folder created
+  			above</li>
   		<li>Open this new file in a browser, you should see a file:// URL and the interactive should load.</li>
   		<li>Disconnect your network, clear your browser cache and try loading the file again to make sure
   			it has everything it needs.</li>
@@ -22,8 +22,9 @@
   		NOTE: If the interactive or model has resources it references (like images) you will need to track those down and
   		put them in the appropriate place.
     </p>
-
-  	<textarea id="standalone_html" rows="50" cols="120">
+    <div id="download_link_container"></div>
+    <h3>Text of the stand alone HTML page</h3>
+  	<textarea id="standalone_html" rows="10" cols="120">
   		Loading Interactive...
   	</textarea>
   	<script>
@@ -55,12 +56,16 @@
 
           	$.when.apply($,promises).then(function() {
 	          var interactive_def,
-	      	      inlined;
+	      	      inlined,
+	      	      blob, blob_url;
 	      	  interactive_def = "window.INTERACTIVE=" + 
 	      	    JSON.stringify(interactive, null, 2) + 
 	      	    ";"
 	      	  inlined = template_html.replace("// SPOT_TO_PUT_INLINE_INTERACTIVE_AND_MODEL", 
 	      	  	"window.INTERACTIVE=" + JSON.stringify(interactive, null, 2) + ";");
+	      	  blob = new Blob([inlined], {type : 'text/html'})
+	      	  blob_url = URL.createObjectURL(blob);
+	      	  $('#download_link_container').append('<a href="' + blob_url + '" download="' + interactive.title + '.html">Download HTML</a>');
 	      	  $('#standalone_html').val(inlined);
             });
         });
