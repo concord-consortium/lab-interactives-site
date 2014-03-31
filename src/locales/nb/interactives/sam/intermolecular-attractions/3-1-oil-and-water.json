@@ -23,7 +23,7 @@
         "controlButtons": "play_reset",
         "textBoxes": [
           {
-            "text": "Adskilt olje og vann",
+            "text": "Olje og vann er adskilt",
             "x": 1,
             "y": 2,
             "fontScale": 1.3,
