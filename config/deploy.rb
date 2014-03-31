@@ -59,6 +59,7 @@ namespace :deploy do
     bundle_install
     run "cd /var/www/interactives; make clean-public; make"
     archive_public_dir
+    create_standalone
     restart
   end
 
@@ -68,6 +69,7 @@ namespace :deploy do
     bundle_install
     run "cd /var/www/interactives; make clean; make"
     archive_public_dir
+    create_standalone
     restart
   end
 
@@ -80,6 +82,11 @@ namespace :deploy do
   task :archive_public_dir do
     run "cd /var/www/interactives; ./script/create-archived-public-dir.sh " + SITE_VERSION
     create_symbolic_links_to_archives
+  end
+
+  desc "create standalone dir and archive for building standalone interactives"
+  task :create_standalone do
+    run "cd /var/www/interactives; ./script/popluate-standalone.sh"
   end
 
   desc "display last commit on deployed server"
