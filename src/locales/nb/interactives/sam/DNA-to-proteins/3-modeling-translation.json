@@ -1,15 +1,22 @@
 {
-  "title": "Modeling Translation",
+  "title": "En modell av translasjon",
   "publicationStatus": "public",
-  "subtitle": "Explore how a protein is made from an mRNA sequence.",
-  "about": [
-    "Translation, or making a protein from an mRNA sequence, occurs on ribosomes. The amino acids are brought to the ribosome by transfer RNAs (tRNAs).",
-    "",
-    "The tRNA pairs up with the mRNA by matching up complementary nucleotides. This ensures that the correct amino acid is added to the protein.",
-    "",
-    "Can you identify what the tRNA codon will be for each triplet of mRNA nucleotides?"
-  ],
+  "labEnvironment": "production",
+  "subtitle": "Utofrsk hvordan et protein lages fra en mRNA-sekvens.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
   "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [
+    "Translasjon, eller det å lage et protein, skjer i ribosomene. Aminosyrer blir fraktet til ribosomene av tRNA.",
+    "",
+    "tRNA stilles opp sammen med mRNA som har de samme nukleotidene. På denne måten blir den riktige aminosyren lagt til i proteinet. ",
+    "",
+    "Kan du se hva tRNA-kodonet for hver av nukleotide-triplettene til mRNAet er? "
+
+  ],
   "models": [
     {
       "type": "md2d",
@@ -25,55 +32,88 @@
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "translate",
-      "text": "Translate",
+      "type": "button",
       "action": [
         "if (get('DNAState') === 'translation-end') set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
-      ]
+      ],
+      "text": "Translater",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "translate-step",
-      "text": "Translate step by step",
-      "action": "translateDNAStep();"
-    },
-    {
-      "type": "text",
-      "id": "label3",
-      "text": "Click"
-    },
-    {
-      "type": "text",
-      "id": "label4",
-      "text": "to generate protein from mRNA or"
-    },
-    {
       "type": "button",
+      "action": "translateDNAStep();",
+      "text": "Translater steg for steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "label3",
+      "type": "text",
+      "text": "Klikk",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label4",
+      "type": "text",
+      "text": "for å lage protein fra mRNA, eller",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
       "id": "start",
-      "text": "Start/continue model",
+      "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
-      ]
+      ],
+      "text": "Start/fortsett kjøringen",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "stop",
-      "text": "Stop",
+      "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
-      ]
+      ],
+      "text": "Stopp",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "reset",
-      "text": "Reset",
-      "action": "reloadModel();"
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Start på nytt",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     }
   ],
   "layout": {
