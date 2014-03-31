@@ -121,6 +121,7 @@
       "min": 1,
       "max": 12,
       "steps": 11,
+      "width": "40%",
       "labels": [
         {
           "value": 1,
@@ -143,6 +144,11 @@
       "text": "Atom mass:"
     },
     {
+      "type": "text",
+      "id": "label-plate-charge",
+      "text": "Charge on plates:"
+    },
+    {
       "type": "checkbox",
       "id": "enable-slow-motion",
       "text": "Slow motion",
@@ -154,7 +160,7 @@
       "min": -20,
       "max": 20,
       "steps": 20,
-      "width": "60%",
+      "width": "40%",
       "labels": [
         {
           "value": -20,
@@ -169,7 +175,6 @@
           "label": "None"
         }
       ],
-      "title": "Adjust charge on plates",
       "property": "plateChargeProxy"
     },
     {
@@ -292,7 +297,7 @@
       ["send-neg-particle", "send-pos-particle"],
       ["send-mystery-particle", "enable-slow-motion"],
       ["label-atom-mass","set-atom-mass"],
-      ["set-charge-on-plates"],
+      ["label-plate-charge", "set-charge-on-plates"],
       ["enable-super-plates"]
     ]
   },
