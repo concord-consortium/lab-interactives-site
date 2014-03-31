@@ -1,16 +1,21 @@
 {
-  "title": "Mutations",
+  "title": "Mutasjoner",
   "publicationStatus": "public",
-  "subtitle": "Explore how changing the DNA sequence can change the amino acid sequence of a protein.",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk hvordan endringer i DNA-sekvensen kan endre aminosyrene som inngår i et protein.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.2,
-  "about": [
-    "Mutations are mistakes in the DNA sequence. Use the **Edit DNA** button to change the entire sequence or click on an individual nucleotide to make an insertion, deletion or substitution mutation. How does changing the DNA sequence change the resulting protein?",
-    "",
-    "You can quickly jump between the DNA sequence and final protein by using the **Show DNA** and **Show protein** buttons.",
-    "",
-    "Are some types of mutations more damaging than others?"
-  ],
   "fontScale": 0.75,
+  "helpOnLoad": false,
+  "about": [
+    "Mutasjoner er feil i DNA-sekvensen. Bruk **Endre DNA-** knappen for å endre hele sekvensen, eller klikk på et enkelt nukleotid for å gjøre en insettings-, slettings- eller substitusjonsmutasjon. Hva gjør endringen i DNA-sekvensen med det resulterende proteinet?",
+    "",
+    "Du kan raskt hoppe mellom DNA-sekvensen og det ferdige proteinet ved å bruke knappene **Vis DNA** og  **Vis protein**.",
+    "",
+    "Er noen mutasjonstyper mer skadelig enn andre?"
+  ],
   "models": [
     {
       "type": "md2d",
@@ -26,84 +31,133 @@
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "transcribe",
-      "text": "Transcribe",
+      "type": "button",
       "action": [
         "if (DNAStateAfter('transcription-end'))",
         "  set('DNAState', 'dna');",
         "animateToDNAState('transcription-end');"
-      ]
+      ],
+      "text": "Transkriber",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "translate",
-      "text": "Translate",
+      "type": "button",
       "action": [
         "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
         "  set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
-      ]
+      ],
+      "text": "Translater",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "reset",
-      "text": "Reset",
-      "action": "reloadModel();"
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Start på nytt",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "stop",
-      "text": "Stop",
+      "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
-      ]
+      ],
+      "text": "Stop",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "next-state",
-      "text": "Continue one step",
-      "action": "animateToNextDNAState();"
+      "type": "button",
+      "action": "animateToNextDNAState();",
+      "text": "Fortsett et steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "dna-dialog",
-      "text": "Edit DNA",
-      "action": "openDNADialog();"
+      "type": "button",
+      "action": "openDNADialog();",
+      "text": "Endre DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "show-protein",
-      "text": "Show protein",
-      "action": "set('DNAState', 'translation-end');"
+      "type": "button",
+      "action": "set('DNAState', 'translation-end');",
+      "text": "Vis protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "show-dna",
-      "text": "Show DNA",
-      "action": "set('DNAState', 'dna');"
+      "type": "button",
+      "action": "set('DNAState', 'dna');",
+      "text": "Vis DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "start",
-      "text": "Start/continue model",
+      "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
-      ]
+      ],
+      "text": "Start/fortsett kjøringen",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "label",
-      "text": "Click on a nucleotide to perform a mutation or "
+      "type": "text",
+      "text": "Klikk på et nukleotid for å gjøre en mutasjon, eller ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "buffer",
-      "text": "|"
+      "type": "text",
+      "text": "|",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     }
   ],
   "layout": {
