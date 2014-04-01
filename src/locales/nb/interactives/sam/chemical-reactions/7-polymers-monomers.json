@@ -1,28 +1,35 @@
 {
-  "title": "Polymers and Monomers",
+  "title": "Polymerer og monomerer",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "helpOnLoad": false,
   "about": [
-    "Carbohydrates, proteins, and nucleic acids are built from small molecular units that are",
-    "connected to each other by strong covalent bonds. The small molecular units are called",
-    "monomers (*mono* means one, or single), and they are linked together into long chains",
-    "called polymers (*poly* means many, or multiple). Each different type of macromolecule,",
-    "except lipids, is built from a different set of monomers that resemble each other in",
-    "composition and size. Lipids are not polymers, because they are not built from monomers",
-    "(units with similar composition).",
+    "Karbohydrater, proteiner og nukleinsyrer er bygd opp av små molekyler som er",
+    "forbundet med hverandre med sterke kovalente bindinger. De små molekylene kalles",
+    "monomerer (*mono* betyr en, eller enkel), og de er koplet sammen i lange kjeder",
+    "kalt polymerer (*poly* betyr mange, eller flere). Hver enkelt type makromolekyl,",
+    "unntatt lipider, er laget av forskjellige sett av monomerer som ligner hverandre i",
+    "sammensetning og størrelse. Lipider er ikke polymerer, fordi de ikke er bygd av monomerer",
+    "(enheter med omtrent lik sammensetning).",
     "",
-    "Use the model below to build two different kinds of polymers. Your challenge is to create",
-    "a chain of identical units (a homopolymer) and a chain of different units (a heteropolymer).",
+    "Bruk modellen nedenfor til å bygge to typer polymerer. Utfordringen er å skape",
+    "en kjede med identiske enheter (en homopolymer) og en kjede med ulike enheter (en heteropolymer).",
     "",
-    "###Challenge 1: Build a homopolymer###",
+    "###Utfordring 1: bygg en homopolymer###",
     "",
-    "- Select one of the monomer types and add about 15 monomers by clicking anywhere",
-    "in the *Polymerization reaction chamber*.",
-    "- Click play button to start the reaction.",
+    "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
+    "i *Polymeriserings-reaksjonskammeret*.",
+    "- Klikk på play-knappen for å starte reaksjonen.",
     "",
-    "###Challenge 2: Build a heteropolymer###",
-    "- Reset and then add about 5 of each monomer anywhere in the reaction chamber.",
-    "- Click play button to start the reaction."
+    "###Utfordring 2: Bygg en heteropolymer###",
+    "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
+    "- Klikk på play-knappen for å starte reaksjonen."
   ],
   "models": [
     {
@@ -30,9 +37,6 @@
       "id": "catalysis",
       "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.json",
       "importedFrom": "imports/legacy-mw-content/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.mml",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      },
       "onLoad": [
         "onClick('background', function (x, y) {",
         "  var vx = (Math.random() * 2 - 1) * 1e-5;",
@@ -40,6 +44,15 @@
         "  addAtom({element: get('userSelectedElement'), x: x, y: y, vx: vx, vy: vy});",
         "});"
       ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "x": 2.7,
+            "backgroundColor": "#f8f8f8"
+          }
+        ]
+      },
       "modelOptions": {
         "chemicalReactions": {
           "createAngularBonds": false,
@@ -73,30 +86,41 @@
             "default": 10
           }
         }
-      },
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "textBoxes": [
-          {
-            "x": 2.7,
-            "backgroundColor": "#f8f8f8"
-          }
-        ]
       }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "userSelectedElement",
       "initialValue": 0
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+ "###Utfordring 1: bygg en homopolymer###",
+    "",
+    "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
+    "i *Polymeriserings-reaksjonskammeret*.",
+    "- Klikk på play-knappen for å starte reaksjonen.",
+    "",
+    "###Utfordring 2: Bygg en heteropolymer###",
+    "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
+    "- Klikk på play-knappen for å starte reaksjonen."
+      ]
+    }
+  ],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
       "id": "element-pulldown",
       "type": "pulldown",
-      "label": "Click on background to add",
-      "property": "userSelectedElement",
+      "label": "Klikk på bakgrunnen for å legge til",
       "labelOn": "right",
       "options": [
         {
@@ -111,25 +135,17 @@
           "text": "monomer 3",
           "value": 2
         }
-      ]
-    }
-  ],
-  "helpTips": [
-    {
-      "text": [
-        "###Challenge 1: Build a homopolymer###",
-        "",
-        "- Select one of the monomer types and add about 15 monomers by clicking anywhere",
-        "in the *Polymerization reaction chamber*.",
-        "- Click play button to start the reaction.",
-        "",
-        "###Challenge 2: Build a heteropolymer###",
-        "- Reset and then add about 5 of each monomer anywhere in the reaction chamber.",
-        "- Click play button to start the reaction."
-      ]
+      ],
+      "property": "userSelectedElement",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     }
   ],
   "layout": {
-    "bottom": ["element-pulldown"]
-  }
+    "bottom": [
+      "element-pulldown"
+    ]
+  },
+  "template": "simple"
 }
