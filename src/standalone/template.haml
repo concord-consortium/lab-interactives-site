@@ -23,6 +23,7 @@
       (function() {
         Lab.config.rootUrl              = "lab";
         Lab.config.dataGamesProxyPrefix = "";
+        // SPOT_TO_INJECT_CUSTOMIZED_CONFIGURATION
         Embeddable.controller = new Lab.InteractivesController(INTERACTIVE, '#interactive-container');
         Embeddable.controller.on("modelLoaded.application", function() {
           document.title = "Lab Interactive: " + Embeddable.controller.interactive.title;
