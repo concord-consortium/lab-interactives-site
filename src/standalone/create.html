@@ -11,7 +11,7 @@
   		<li>Download the resources needed for all interactives: <a href="lab-interactive.tar.gz">lab-interactive.tar.gz</a>
   		</li>
   		<li>Unzip the file above which should give you a folder 'lab-interactive'</li>
-  		<li>Put the path to the interactive after the '#' in the URL above and reload this page</li>
+  		<li>Put the path to the interactive after the '#' in the URL above</li>
   		<li>Click the Download HTML link below, and move the downloaded file inside the 'lab-interactive' folder created
   			above</li>
   		<li>Open this new file in a browser, you should see a file:// URL and the interactive should load.</li>
@@ -28,28 +28,30 @@
   		Loading Interactive...
   	</textarea>
   	<script>
-      $(window).bind('hashchange', function() {
-        if (document.location.hash !== hash) {
-          location.reload();
-        }
-      });
-
-  	  // download standalone-template/template.html
-  	  // download the interactive specified in the hash
-  	  // download the model files and replace their references in the interactive
-  	  // inject the interactive into the template
-  	  // serialize the whole thing into the textarea
-  	  function getHomeForSharing() {
-          var protocol = window.location.protocol;
-          var host     = window.location.host;
-          var pathname = window.location.pathname;
-          return protocol + "//" + host + pathname.replace("/standalone/create.html", "");
-  	  }
-
   	  (function (){
         var template_html, 
             interactive,
-            promises = [];
+            promises = [],
+            hash = window.location.hash;
+
+        $(window).bind('hashchange', function() {
+          if (document.location.hash !== hash) {
+            location.reload();
+          }
+        });
+
+        // download standalone-template/template.html
+        // download the interactive specified in the hash
+        // download the model files and replace their references in the interactive
+        // inject the interactive into the template
+        // serialize the whole thing into the textarea
+        function getHomeForSharing() {
+            var protocol = window.location.protocol;
+            var host     = window.location.host;
+            var pathname = window.location.pathname;
+            return protocol + "//" + host + pathname.replace("/standalone/create.html", "");
+        }
+
         promises.push($.get("template.html", function(results){
           	  template_html = results;
         }));
