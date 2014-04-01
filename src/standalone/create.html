@@ -28,6 +28,12 @@
   		Loading Interactive...
   	</textarea>
   	<script>
+      $(window).bind('hashchange', function() {
+        if (document.location.hash !== hash) {
+          location.reload();
+        }
+      });
+
   	  // download standalone-template/template.html
   	  // download the interactive specified in the hash
   	  // download the model files and replace their references in the interactive
