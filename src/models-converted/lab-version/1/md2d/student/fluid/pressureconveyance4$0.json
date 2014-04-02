@@ -3488,6 +3488,14 @@
       0,
       0
     ],
+    "displayExternalAcceleration": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
     "friction": [
       0.0016,
       0.0016,

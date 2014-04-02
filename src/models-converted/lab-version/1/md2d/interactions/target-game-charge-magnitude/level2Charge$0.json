@@ -153,6 +153,10 @@
     "pinned": [
       1,
       1
+    ],
+    "draggableWhenStopped": [
+      0,
+      0
     ]
   },
   "obstacles": {
@@ -197,6 +201,13 @@
       0,
       0,
       0
+    ],
+    "displayExternalAcceleration": [
+      true,
+      true,
+      true,
+      true,
+      true
     ],
     "friction": [
       0,

@@ -3305,6 +3305,9 @@
     "externalAy": [
       5.0000002e-7
     ],
+    "displayExternalAcceleration": [
+      true
+    ],
     "friction": [
       0.0008
     ],
