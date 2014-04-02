@@ -94,7 +94,14 @@
     {
       "name": "object-charge",
       "initialValue": 1,
-      "onChange": "setAtomProperties(1, { charge: value });"
+      "onChange": [
+        "batch(function() { ",
+        "  for (var i = 2; i < 52; i++) {",
+        "    setImageProperties(i, { visible: false });",
+        "  }",
+        "});",
+        "setAtomProperties(1, { charge: value });"
+      ]
     }
   ],
   "components": [
