@@ -6,8 +6,8 @@
   "models": [
     {
       "type": "md2d",
-      "id": "crookesElectrodes$0",
-      "url": "models-converted/lab-version/1/md2d/interactions/basic-crookes-tube/crookesElectrodes$0.json",
+      "id": "crookesElectrodes",
+      "url": "models/lab-version/1/md2d/interactions/basic-crookes-tube/crookesElectrodes.json",
       "importedFrom": "imports/legacy-mw-content/interactions/basic-crookes-tube/crookesElectrodes$0.mml",
       "viewOptions": {
         "controlButtons": "",

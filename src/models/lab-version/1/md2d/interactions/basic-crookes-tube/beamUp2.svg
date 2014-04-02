@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="700px" height="600px">
+<defs>
+  <filter id="largeBlur" filterUnits="userSpaceOnUse">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+  </filter>
+</defs>
+
+<path
+  stroke="#00BF09"
+  fill="none"
+  stroke-width="6"
+  d="M0,65 C0,65 70,65 150,65 S480,0 480,0"
+  style="filter:url(#largeBlur)" />
+
+</svg>
