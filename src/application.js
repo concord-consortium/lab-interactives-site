@@ -655,9 +655,14 @@
           interactive.aspectRatio = aspectRatio;
           descriptionByPath[interactiveUrl].aspectRatio = aspectRatio;
           parentPhone.post('loadInteractive', interactive);
+          parentPhone.addListener("modelLoaded", function() {
+            parentPhone.post('set', { name: 'isBeingEdited', value: true });
+          });
           // Update editor.
           editor.setValue(JSON.stringify(interactive, null, indent));
           console.log("new aspect ratio: " + aspectRatio);
+        } else {
+          parentPhone.post('set', { name: 'isBeingEdited', value: false });
         }
       });
 
