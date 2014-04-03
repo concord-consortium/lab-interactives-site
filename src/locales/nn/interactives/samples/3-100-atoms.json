@@ -1,0 +1,154 @@
+{
+  "title": "Ladede og nøytrale atomer",
+  "publicationStatus": "sample",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk Coulomb og intramolekylære tiltrekninger.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "helpOnLoad": false,
+  "about": [
+    "Det er to typer tiltrekningskraft i denne modellen: Coulombkrefter (tiltrekningen mellom ioner)",
+    "og Van der Waals-krefter (en tiltrekningskraft som eksiterer mellom alle atomer).",
+    "",
+    "Hvilke mønstre viser seg gjerne med ladede og nøytrale atomer? Hvis du endrer Van der Waals-",
+    "tiltrekningen eller lader atomene, hva har det å si for smelte- og kokepunktet for stoffet?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
+      "onLoad": "",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "charge",
+      "initialValue": false,
+      "onChange": [
+        "batch(function(){",
+        "  var count = getNumberOfAtoms();",
+        "  var chargeVal;",
+        "  if (value) { chargeVal = 1.5 } else { chargeVal = 0; }",
+        "  for (var i=0; i < count; i++) {",
+        "    setAtomProperties(i, {charge: chargeVal}, false, false);",
+        "    chargeVal *= -1;",
+        "  }",
+        "  set('chargeShading', value);",
+        "});"
+      ]
+    },
+    {
+      "name": "epsilon",
+      "initialValue": 0.14,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "charged-box",
+      "type": "checkbox",
+      "text": "Lad",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "epsilon-slider",
+      "type": "slider",
+      "min": 0.075,
+      "max": 0.3,
+      "steps": 199,
+      "title": "Van der Waals tiltrekningskraft",
+      "labels": [
+        {
+          "value": 0.075,
+          "label": "Svak"
+        },
+        {
+          "value": 0.3,
+          "label": "Sterk"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.3f')(value)",
+      "property": "epsilon",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 5000,
+      "steps": 499,
+      "title": "Temperatur",
+      "labels": [
+        {
+          "value": 10,
+          "label": "10 K"
+        },
+        {
+          "value": 5000,
+          "label": "5000 K"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "targetTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 5000,
+      "title": "",
+      "titleOn": "right",
+      "labels": 5,
+      "units": true,
+      "gridLines": 10,
+      "labelFormat": "3r",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      [
+        "charged-box",
+        "epsilon-slider",
+        "temperature-slider"
+      ]
+    ]
+  },
+  "template": "simple"
+}
