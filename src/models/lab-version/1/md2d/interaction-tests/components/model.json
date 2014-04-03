@@ -1,0 +1,15 @@
+{
+  "width": 1,
+  "height": 0.15,
+  "viewOptions": {
+    "textBoxes": [
+      {
+        "x": 0.01,
+        "y": 0.15,
+        "width": 0.9,
+        "fontSize": 0.035,
+        "text": "Interactive Component Test.\nTry to interact with all components (including playback\ncontroller!). Each action should be reported here."
+      }
+    ]
+  }
+}

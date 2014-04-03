@@ -1,0 +1,138 @@
+{
+  "title": "Components",
+  "publicationStatus": "public",
+  "subtitle": "Test of interactive components.",
+  "about": "",
+  "fontScale": 1,
+  "aspectRatio": 1.1,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/interaction-tests/components/model.json",
+      "onLoad": [
+        "onStart(function() { setTextBoxProperties(0, {text: 'Play clicked'}); });",
+        "onStop(function() { setTextBoxProperties(0, {text: 'Pause clicked'}); });"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "button",
+      "text": "Button",
+      "action": "setTextBoxProperties(0, {text: 'Button clicked'});"
+    },
+    {
+      "type": "pulldown",
+      "id": "pulldown",
+      "title": "Pulldown",
+      "options": [
+        {
+          "text": "Option 1",
+          "action": "setTextBoxProperties(0, {text: 'Pulldown Option 1 selected'});"
+        },
+        {
+          "text": "Option 2",
+          "action": "setTextBoxProperties(0, {text: 'Pulldown Option 2 selected'});"
+        },
+        {
+          "text": "Disabled Option",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "radio",
+      "label": "Radio (vertical)",
+      "options": [
+        {
+          "text": "Option 1",
+          "action": "setTextBoxProperties(0, {text: 'Radio (vertical) Option 1 selected'});",
+          "selected": true
+        },
+        {
+          "text": "Option 2",
+          "action": "setTextBoxProperties(0, {text: 'Radio (vertical) Option 2 selected'});"
+        },
+        {
+          "text": "Disabled Option",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "radio-horizontal",
+      "label": "Radio (horizontal)",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Option 1",
+          "action": "setTextBoxProperties(0, {text: 'Radio (horizontal) Option 1 selected'});",
+          "selected": true
+        },
+        {
+          "text": "Option 2",
+          "action": "setTextBoxProperties(0, {text: 'Radio (horizontal) Option 2 selected'});"
+        },
+        {
+          "text": "Disabled Option",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "slider",
+      "title": "Slider",
+      "width": "18em",
+      "min": 0,
+      "max": 100,
+      "steps": 50,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 50,
+          "label": "50"
+        },
+        {
+          "value": 100,
+          "label": "100"
+        }
+      ],
+      "action": "setTextBoxProperties(0, {text: 'Slider moved, value ' + value});"
+    },
+    {
+      "type": "text",
+      "id": "clickable-text",
+      "text": "##Clickable Text##",
+      "onClick": "setTextBoxProperties(0, {text: 'Text clicked'});"
+    },
+    {
+      "type": "image",
+      "id": "clickable-img",
+      "height": "2em",
+      "src": "img.jpg",
+      "onClick": "setTextBoxProperties(0, {text: 'Image clicked'});"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["button"],
+      ["slider"],
+      ["pulldown"],
+      ["radio"],
+      ["radio-horizontal"],
+      ["clickable-text"],
+      ["clickable-img"]
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Dragging",
+  "publicationStatus": "public",
+  "subtitle": "Test of dragging behavior.",
+  "about": "",
+  "fontScale": 1,
+  "aspectRatio": 1.55,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/interaction-tests/dragging/model.json",
+      "onLoad": [
+        "var defMsg = 'When the simulation is stopped all objects but the red one should be draggable (except in editing mode).';",
+        "var testMsg = ' Test it and then start the simulation (play button).';",
+        "setTextBoxProperties(0, {text: defMsg + testMsg});",
+        "onStart(function() {",
+        "  setTextBoxProperties(0, {text: 'Simulation started, only GREEN objects (atom and star) should be draggable.'});",
+        "});",
+        "onStop(function() {",
+        "  setTextBoxProperties(0, {text: defMsg});",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "star.png": "star.svg"
+        }
+      }
+    }
+  ]
+}

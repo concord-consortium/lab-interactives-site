@@ -11,42 +11,52 @@
   "models": [
     {
       "type": "md2d",
-      "id": "forceDirectionVDG$0",
-      "url": "models-converted/lab-version/1/md2d/interactions/force-direction/forceDirection$0.json",
+      "id": "forceDirection",
+      "url": "models/lab-version/1/md2d/interactions/forceDirection.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction/forceDirection$0.mml",
       "viewOptions": {
         "controlButtons": "reset"
       },
       "onLoad": [
           "function updateVectors() {",
-          "  var dragAtomProps   = getAtomProperties(0);",
-          "  var targetAtomProps = getAtomProperties(1);",
-          "  var forceDirection = get('object-charge');",
-          "  var dx = targetAtomProps.x - dragAtomProps.x;",
-          "  var dy = targetAtomProps.y - dragAtomProps.y;",
-          "  var L = Math.sqrt(dx*dx + dy*dy);",
-          "  var targetX = dragAtomProps.x - forceDirection * 0.4/L*dx;",
-          "  var targetY = dragAtomProps.y - forceDirection * 0.4/L*dy;",
-          "  setLineProperties(0, {x1: dragAtomProps.x, y1: dragAtomProps.y, x2: targetX, y2: targetY});",
-          "  if ( get('trace-force-vectors') ) {",
-          "    var tNow = getCurrentComputerTime();",
-          "    if ( tNow - get('last-trace-time') > 250 ) {",
-          "      var traceidx = get('trace-idx');",
-          "      setLineProperties(2 + traceidx, {x1: dragAtomProps.x, y1: dragAtomProps.y, x2: targetX, y2: targetY, visible: true});",
-          "      set('trace-idx', (traceidx+1)%96);",
-          "      set('last-trace-time', tNow);",
+          "  batch(function() {",
+          "    var dragAtomProps   = getAtomProperties(0);",
+          "    var targetAtomProps = getAtomProperties(1);",
+          "    var charge = get('object-charge');",
+          "    var dx = dragAtomProps.x - targetAtomProps.x;",
+          "    var dy = dragAtomProps.y - targetAtomProps.y;",
+          "    var angle = rad2deg * Math.atan2(dy, dx);",
+          "    var fieldDirectionAtTestCharge = charge > 0 ? angle : angle + 180",
+          "    var d;",
+          "    setImageProperties(0, { rotation: fieldDirectionAtTestCharge } );",
+          "    setImageProperties(1, { rotation: fieldDirectionAtTestCharge + 180 } );",
+          "    if ( get('trace-force-vectors') ) {",
+          "      var tNow = getCurrentComputerTime();",
+          "      if ( tNow - get('last-trace-time') > 250 ) {",
+          "        var traceidx = get('trace-idx');",
+          "        d = Math.sqrt(dx*dx + dy*dy);",
+          "        setImageProperties(2 + traceidx, { ",
+          "          imageX: dragAtomProps.x - 0.25,",
+          "          imageY: dragAtomProps.y + 0.05,",
+          "          rotation: fieldDirectionAtTestCharge,",
+          "          opacity: 0.7,",
+          "          visible: true",
+          "        });",
+          "        set('trace-idx', (traceidx+1) % 50);",
+          "        set('last-trace-time', tNow);",
+          "      }",
           "    }",
-          "  }",
-          "  targetX = targetAtomProps.x + 0.4/L*dx;",
-          "  targetY = targetAtomProps.y + 0.4/L*dy;",
-          "  setLineProperties(1, {x1: targetAtomProps.x, y1: targetAtomProps.y, x2: targetX, y2: targetY});",
+          "  });",
           "};",
           "onDrag('atom', function(x, y, d, i) {",
-          "  if (getNumberOfTextBoxes() > 0) { removeTextBox(0); }",
+          "  if (getNumberOfTextBoxes() > 0) { ",
+          "    removeTextBox(0);",
+          "  }",
           "  if (i === 0) {",
-          "    batch(updateVectors);",
+          "    updateVectors();",
           "  }",
           "});",
+          "onPropertyChange('object-charge', updateVectors);",
           "updateVectors();"
         ]
     }
@@ -65,12 +75,12 @@
     {
       "name": "show-force-on-object",
       "initialValue": true,
-      "onChange": "setLineProperties(0, {visible: value});"
+      "onChange": "setImageProperties(0, { visible: value });"
     },
     {
       "name": "show-force-on-VDG",
       "initialValue": false,
-      "onChange": "setLineProperties(1, {visible: value});"
+      "onChange": "setImageProperties(1, { visible: value });"
     },
     {
       "name": "trace-force-vectors",
@@ -81,22 +91,12 @@
       "name": "object-charge",
       "initialValue": 1,
       "onChange": [
-        "setAtomProperties(1,{charge: value});",
-        "var forceDirection  = get('object-charge');",
-        "var dragAtomProps   = getAtomProperties(0);",
-        "var targetAtomProps = getAtomProperties(1);",
-        "var dx = targetAtomProps.x - dragAtomProps.x;",
-        "var dy = targetAtomProps.y - dragAtomProps.y;",
-        "var L = Math.sqrt(dx*dx + dy*dy);",
-        "var targetX = dragAtomProps.x - forceDirection * 0.4/L*dx;",
-        "var targetY = dragAtomProps.y - forceDirection * 0.4/L*dy;",
-        "setLineProperties(0, {x1: dragAtomProps.x, y1: dragAtomProps.y, x2: targetX, y2: targetY});",
-        "targetX = targetAtomProps.x + forceDirection * 0.4/L*dx;",
-        "targetY = targetAtomProps.y + forceDirection * 0.4/L*dy;",
-        "setLineProperties(1, {x1: targetAtomProps.x, y1: targetAtomProps.y, x2: targetX, y2: targetY});",
-        "batch( function() { ",
-        "  for( var i = 2; i < 98; setLineProperties(i++, {visible: false})); // clear traces",
-        "});"
+        "batch(function() { ",
+        "  for (var i = 2; i < 52; i++) {",
+        "    setImageProperties(i, { visible: false });",
+        "  }",
+        "});",
+        "setAtomProperties(1, { charge: value });"
       ]
     }
   ],
@@ -106,8 +106,10 @@
       "id": "clear-trace",
       "text": "Clear",
       "action": [
-        "batch( function() { ",
-        "  for( var i = 2; i < 98; setLineProperties(i++, {visible: false})); // clear traces",
+        "batch(function() { ",
+        "  for (var i = 2; i < 52; i++) {",
+        "    setImageProperties(i, { visible: false });",
+        "  }",
         "});"
       ]
     },

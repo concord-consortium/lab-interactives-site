@@ -2293,6 +2293,9 @@
     "externalAy": [
       0.0000020000000000000003
     ],
+    "displayExternalAcceleration": [
+      true
+    ],
     "friction": [
       0
     ],

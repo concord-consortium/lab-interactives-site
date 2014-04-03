@@ -1,7 +1,7 @@
 {
   "title": "Gas Pressure in a Syringe",
   "publicationStatus": "public",
-  "subtitle": "Explore the particulate model of gasses.",
+  "subtitle": "Explore the particulate model of gases.",
   "about": [
     "Why is it hard to pull back on a capped syringe, and why does the plunger move back in if you let go? ",
     "Why can you compress a capped syringe that has air in it, but you can only compress it to a certain point? ",
@@ -14,49 +14,70 @@
     {
       "type": "md2d",
       "id": "syringe$0",
-      "url": "models-converted/lab-version/1/md2d/interactions/syringe/syringe$0.json",
-      "importedFrom": "imports/legacy-mw-content/interactions/syringe/syringe$0.mml",
+      "url": "models/lab-version/1/md2d/interactions/syringe.json",
       "viewOptions": {
-        "controlButtons": "",
-        "imageMapping": {
-          "plunger.png": "plunger.svg",
-          "nail.png": "nail.svg"
-        }
+        "controlButtons": ""
       },
       "onLoad": [
-        "setImageProperties(0,{imageX: 10});",
+        "setImageProperties(0, { visible: false });",
         "start();",
         "var indexPlunger = get('index-plunger'),",
         "    minX = get('plunger-min'),",
         "    maxX = get('plunger-max'),",
         "    timeStepsPerTick = get('timeStepsPerTick');",
-        "setObstacleProperties(indexPlunger, {",
-        "    mass: 999999999,",
-        "    friction: 0.005,",
-        "    displayExternalAcceleration: false",
-        "});",
-        "// make sure there aren't any hidden atoms waiting to get kicked out",
-        "var moleculesInside = getAtomsWithinShape(1),",
-        "    props,",
-        "    w = get('width'),",
-        "    h = get('height'),",
-        "    xNew;",
-        "while (moleculesInside.length > 0) {",
-        "  xNew = 0.1 + Math.random() * (w - 0.2);",
-        "  while(xNew >= 1.32 && xNew < 1.72) {",
-        "    xNew = 0.1 + Math.random() * (w - 0.2);",
-        "  }",
-        "  setAtomProperties(moleculesInside[0], {x: xNew, vx: 0, vy: 0, ax: 0, ay: 0}, true);",
-        "  moleculesInside = getAtomsWithinShape(1);",
-        "}",
-        "callEvery(timeStepsPerTick,function(){",
+        "callEvery(timeStepsPerTick, function() {",
         "  var prop = getObstacleProperties(indexPlunger);",
-        "  if (prop.x < minX) {",
-        "    setObstacleProperties(indexPlunger, {externalAx: 0, vx: 0, x: minX});",
-        "  } else if (prop.x > maxX) {",
-        "    setObstacleProperties(indexPlunger, {externalAx: 0, vx: 0, x: maxX});",
+        "  if (prop.x < minX - 0.001) {",
+        "    if (get('pullDirection') === 'left') {",
+        "      set('pullDirection', 'none');",
+        "    }",
+        "    setObstacleProperties(indexPlunger, { x: minX });",
+        "  } else if (prop.x > maxX + 0.001) {",
+        "    if (get('pullDirection') === 'right') {",
+        "      set('pullDirection', 'none');",
+        "    }",
+        "    setObstacleProperties(indexPlunger, { x: maxX });",
         "  }",
-        "});"
+        "});",
+        "function setPlugButtonState() {",
+        "  if (get('isPlugged')) {",
+        "    setComponentDisabled('plug-remove', false);",
+        "    setComponentDisabled('plug-add', true);",
+        "  } else {",
+        "    setComponentDisabled('plug-remove', true);",
+        "    setComponentDisabled('plug-add', false);",
+        "  }",
+        "}",
+        "onPropertyChange('isPlugged', setPlugButtonState);",
+        "function setLockButtonState() {",
+        "  if (get('isLocked')) {",
+        "    setComponentDisabled('plunger-release', false);",
+        "    setComponentDisabled('plunger-lock', true);",
+        "  } else {",
+        "    setComponentDisabled('plunger-release', true);",
+        "    setComponentDisabled('plunger-lock', false);",
+        "  }",
+        "}",
+        "onPropertyChange('isLocked', setLockButtonState);",
+        "function setPullButtonState() {",
+        "  switch (get('pullDirection')) {",
+        "    case 'left':",
+        "      setComponentDisabled('plunger-push-in', true);",
+        "      setComponentDisabled('plunger-pull-out', false);",
+        "      break;",
+        "    case 'right':",
+        "      setComponentDisabled('plunger-push-in', false);",
+        "      setComponentDisabled('plunger-pull-out', true);",
+        "      break;",
+        "    default:",
+        "      setComponentDisabled('plunger-push-in', false);",
+        "      setComponentDisabled('plunger-pull-out', false);",
+        "  }",
+        "}",
+        "onPropertyChange('pullDirection', setPullButtonState);",
+        "setPlugButtonState();",
+        "setLockButtonState();",
+        "setPullButtonState();"
       ]
     }
   ],
@@ -67,19 +88,77 @@
     },
     {
       "name": "plunger-min",
-      "initialValue": 1.67
+      "initialValue": 0.67
     },
     {
       "name": "plunger-max",
-      "initialValue": 2.95
+      "initialValue": 1.95
     },
     {
       "name": "index-plug",
       "initialValue": 0
     },
     {
-      "name": "notPlugged",
-      "initialValue": false
+      "name": "isPlugged",
+      "initialValue": true,
+      "onChange": [
+        "var moleculesInside, w, h, xNew, i;",
+        "if (value) {",
+        "  moleculesInside = getAtomsWithinShape(1);",
+        "  w = get('width');",
+        "  h = get('height');",
+        "  while (moleculesInside.length > 0) {",
+        "    for (i = 0; i < moleculesInside.length; i++) {",
+        "      xNew = 0.1 + Math.random() * (w - 0.2);",
+        "      while (xNew >= 0.32 && xNew < 0.72) {",
+        "        xNew = 0.1 + Math.random() * (w - 0.2);",
+        "      }",
+        "      setAtomProperties(moleculesInside[i], { x: xNew, vx: 0, vy: 0, ax: 0, ay: 0 }, true);",
+        "    }",
+        "    moleculesInside = getAtomsWithinShape(1);",
+        "  }",
+        "  setShapeProperties(get('index-plug'), { y: 0.78 });",
+        "} else {",
+        "  setShapeProperties(get('index-plug'), { y: -10 });",
+        "}"
+      ]
+    },
+    {
+      "name": "isLocked",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  setImageProperties(0, { visible: true });",
+        "  setObstacleProperties(get('index-plunger'), { vx: 0, mass: 999999999 });",
+        "} else {",
+        "  setImageProperties(0, { visible: false });",
+        "  setObstacleProperties(get('index-plunger'), { mass: 5000 });",
+        "}"
+      ]
+    },
+    {
+      "name": "pullDirection",
+      "initialValue": "none",
+      "onChange": [
+        "switch(value) {",
+        "  case 'left':",
+        "    set('isLocked', false);",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: -0.0000005 });",
+        "    setImageProperties(2, { visible: true });",
+        "    setImageProperties(3, { visible: false });",
+        "    break;",
+        "  case 'right':",
+        "    set('isLocked', false);",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: 0.0000005 });",
+        "    setImageProperties(2, { visible: false });",
+        "    setImageProperties(3, { visible: true });",
+        "    break;",
+        "  default:",
+        "    setObstacleProperties(get('index-plunger'), { externalAx: 0 });",
+        "    setImageProperties(2, { visible: false });",
+        "    setImageProperties(3, { visible: false });",
+        "}"
+      ]
     }
   ],
   "components": [
@@ -89,8 +168,8 @@
       "text": "Pull plunger out ⇥",
       "width": "14em",
       "action": [
-        "setImageProperties(0,{imageX: 10});",
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0.0000005, mass: 5000});"
+        "setImageProperties(0, { visible: false });",
+        "set('pullDirection', 'right');"
       ]
     },
     {
@@ -99,8 +178,8 @@
       "text": "Push plunger in ⇤",
       "width": "14em",
       "action": [
-        "setImageProperties(0,{imageX: 10});",
-        "setObstacleProperties(get('index-plunger'), {externalAx: -0.0000005, mass: 5000});"
+        "setImageProperties(0, { visible: false });",
+        "set('pullDirection', 'left');"
       ]
     },
     {
@@ -109,8 +188,8 @@
       "text": "Lock plunger in place ⇎",
       "width": "14em",
       "action": [
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: 999999999});",
-        "setImageProperties(0,{imageX: 3.1});"
+        "set('pullDirection', 'none');",
+        "set('isLocked', true);"
       ]
     },
     {
@@ -119,8 +198,8 @@
       "text": "Release plunger ⇔",
       "width": "14em",
       "action": [
-        "setObstacleProperties(get('index-plunger'), {externalAx: 0, vx: 0, mass: 5000});",
-        "setImageProperties(0,{imageX: 10});"
+        "set('pullDirection', 'none');",
+        "set('isLocked', false);"
       ]
     },
     {
@@ -128,35 +207,14 @@
       "id": "plug-remove",
       "text": "Remove stopper",
       "width": "10em",
-      "action": [
-        "setShapeProperties(get('index-plug'), {y: -10});",
-        "set('notPlugged',true);"
-      ]
+      "action": "set('isPlugged', false);"
     },
     {
       "type": "button",
       "id": "plug-add",
       "text": "Add stopper",
       "width": "10em",
-      "action": [
-        "if (get('notPlugged')) {",
-        "  var moleculesInside = getAtomsWithinShape(1),",
-        "      props,",
-        "      w = get('width'),",
-        "      h = get('height'),",
-        "      xNew;",
-        "  while (moleculesInside.length > 0) {",
-        "    xNew = 0.1 + Math.random() * (w - 0.2);",
-        "    while(xNew >= 1.32 && xNew < 1.72) {",
-        "      xNew = 0.1 + Math.random() * (w - 0.2);",
-        "    }",
-        "    setAtomProperties(moleculesInside[0], {x: xNew, vx: 0, vy: 0, ax: 0, ay: 0}, true);",
-        "    moleculesInside = getAtomsWithinShape(1);",
-        "  }",
-        "}",
-        "setShapeProperties(get('index-plug'), {y: 0.78});",
-        "set('notPlugged',true);"
-      ]
+      "action": "set('isPlugged', true);"
     }
   ],
   "layout": {

@@ -295,35 +295,6 @@
         "imageX": 0.1,
         "imageY": 2.9,
         "visible": true
-      },
-      {
-        "imageUri": "silverOn1NoBeam.svg",
-        "imageHostIndex": 0,
-        "imageHostType": "",
-        "imageLayer": 1,
-        "imageX": 0.1800000014901161,
-        "imageY": 2.9,
-        "visible": false
-      },
-      {
-        "imageUri": "goldOn1NoBeam.svg",
-        "imageHostIndex": 0,
-        "imageHostType": "",
-        "imageLayer": 1,
-        "imageLayerPosition": 3,
-        "imageX": 0.18,
-        "imageY": 2.9,
-        "visible": false
-      },
-      {
-        "imageUri": "ironOn1NoBeam.svg",
-        "imageHostIndex": 0,
-        "imageHostType": "",
-        "imageLayer": 1,
-        "imageLayerPosition": 7,
-        "imageX": 0.1800000014901161,
-        "imageY": 2.9,
-        "visible": false
       }
     ],
     "imageMapping": {},

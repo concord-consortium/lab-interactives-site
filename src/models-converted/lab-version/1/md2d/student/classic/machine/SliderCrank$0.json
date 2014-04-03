@@ -142,6 +142,11 @@
       0,
       1,
       0
+    ],
+    "draggableWhenStopped": [
+      0,
+      0,
+      0
     ]
   },
   "radialBonds": {
@@ -190,6 +195,10 @@
     "externalAy": [
       0,
       0
+    ],
+    "displayExternalAcceleration": [
+      true,
+      true
     ],
     "friction": [
       0,

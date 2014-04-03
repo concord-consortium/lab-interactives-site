@@ -149,6 +149,10 @@
     "visible": [
       1,
       0
+    ],
+    "draggableWhenStopped": [
+      1,
+      0
     ]
   },
   "lines": {

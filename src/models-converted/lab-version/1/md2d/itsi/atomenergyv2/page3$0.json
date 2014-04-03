@@ -179,6 +179,10 @@
     "pinned": [
       0,
       1
+    ],
+    "draggableWhenStopped": [
+      0,
+      0
     ]
   },
   "radialBonds": {

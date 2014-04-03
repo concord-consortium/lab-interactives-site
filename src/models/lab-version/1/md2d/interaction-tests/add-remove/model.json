@@ -1,0 +1,44 @@
+{
+  "width": 8,
+  "height": 4,
+  "lines": {
+    "x1": [
+      4
+    ],
+    "x2": [
+      4
+    ],
+    "y1": [
+      0
+    ],
+    "y2": [
+      4
+    ],
+    "lineDashes": [
+      "4,4"
+    ]
+  },
+  "viewOptions": {
+    "textBoxes": [
+      {
+        "text": "Actual model:",
+        "x": 1,
+        "y": 4,
+        "fontSize": 0.25
+      },
+      {
+        "text": "Expected model (screenshot!):",
+        "x": 4.1,
+        "y": 4,
+        "fontSize": 0.25
+      }
+    ],
+    "images": [
+      {
+        "imageUri": "0.jpg",
+        "imageX": 4,
+        "imageY": 3.5
+      }
+    ]
+  }
+}

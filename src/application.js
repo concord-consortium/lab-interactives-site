@@ -147,15 +147,16 @@
   }
 
   function embedIframeInteractive() {
-    var $iframeWrapper,
-        $iframe;
+    var $iframeWrapper = $('#iframe-wrapper');
+    // Dynamically insert the model iframe to avoid a Firefox bug that sometimes causes the iframe
+    // src to be restored from session history, ignoring the the src attribute set dynamically
+    // by the parent frame.
+    var $iframe = $("<iframe id='iframe-interactive' src='" + SITE_CONFIG.EMBEDDABLE_PAGE + hash + "' width='100%' height='100%' frameborder=0 scrolling='no' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>");
 
-    // setup iframe
-    $iframe = $('#iframe-interactive');
-    $iframe.attr('src', SITE_CONFIG.EMBEDDABLE_PAGE + hash);
+    $iframeWrapper
+      .addClass($selectInteractiveSize.val())
+      .append($iframe);
 
-    $iframeWrapper = $('#iframe-wrapper');
-    $iframeWrapper.addClass($selectInteractiveSize.val());
     selectInteractiveSizeHandler();
     $selectInteractiveSize.removeAttr('disabled');
     $iframeWrapper.resizable({
@@ -654,9 +655,14 @@
           interactive.aspectRatio = aspectRatio;
           descriptionByPath[interactiveUrl].aspectRatio = aspectRatio;
           parentPhone.post('loadInteractive', interactive);
+          parentPhone.addListener("modelLoaded", function() {
+            parentPhone.post('set', { name: 'isBeingEdited', value: true });
+          });
           // Update editor.
           editor.setValue(JSON.stringify(interactive, null, indent));
           console.log("new aspect ratio: " + aspectRatio);
+        } else {
+          parentPhone.post('set', { name: 'isBeingEdited', value: false });
         }
       });
 
