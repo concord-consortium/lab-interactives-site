@@ -94,7 +94,7 @@ public/embeddable.html: config/config.yml embeddable.haml
 public/embeddable-production.html: config/config.yml embeddable.haml
 	script/generate-embeddable-html.rb production > $@
 public/embeddable-staging.html: config/config.yml embeddable.haml
-	script/generate-embeddable-html.rb production > $@
+	script/generate-embeddable-html.rb staging > $@
 public/embeddable-dev.html: config/config.yml embeddable.haml
 	script/generate-embeddable-html.rb development > $@
 public/embeddable-local.html: config/config.yml embeddable.haml
