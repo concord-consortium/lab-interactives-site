@@ -1,0 +1,73 @@
+{
+  "title": "Viewport",
+  "publicationStatus": "public",
+  "subtitle": "Test of viewport",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "simple-gas$0",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "gridLines": true,
+        "xunits": true,
+        "yunits": true,
+        "viewPortDrag": true
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "viewPortX",
+      "type": "slider",
+      "title": "viewPortX",
+      "property": "viewPortX",
+      "displayValue": "return format('.1f')(value)",
+      "min": -4,
+      "max": 4,
+      "steps": 100,
+      "width": "10em"
+    },
+    {
+      "id": "viewPortY",
+      "type": "slider",
+      "title": "viewPortY",
+      "property": "viewPortY",
+      "displayValue": "return format('.1f')(value)",
+      "min": -2.5,
+      "max": 2.5,
+      "steps": 50,
+      "width": "10em"
+    },
+    {
+      "id": "viewPortZoom",
+      "type": "slider",
+      "title": "viewPortZoom",
+      "property": "viewPortZoom",
+      "displayValue": "return format('.1f')(value)",
+      "min": 0.1,
+      "max": 5,
+      "steps": 100,
+      "width": "10em"
+    },
+    {
+      "id": "text",
+      "type": "text",
+      "text": [
+        "####Try to drag **empty** model area (not an atom) to move the viewport.####",
+        "You should observe interia and the sliders below the model should reflect changes.",
+        "There is no special gesture for zooming in, you can do it using slider (bound to model property)."
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "viewPortX",
+      "viewPortY",
+      "viewPortZoom"
+    ],
+    "top": [
+      "text"
+    ]
+  }
+}
