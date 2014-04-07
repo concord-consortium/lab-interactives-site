@@ -3,12 +3,16 @@
 # script/create-archived-public-dir.sh [name-of-versioned-dir] [path-to-lab-framework-dist]
 #
 
-version=$1
-if [ -z "$2" ]
-  then
-    lab_path="../app/public/lab"
-  else
-    lab_path=$2
+if [ -z "$1" ]; then
+  version=`cat site-version`
+else
+  version=$1
+fi
+
+if [ -z "$2" ]; then
+  lab_env="default"
+else
+  lab_env=$2
 fi
 archivename="$version.tar.gz"
 
@@ -24,9 +28,12 @@ echo "- copy public to version/$version/public/"
 # jnlp - following convention of the previous script, we also don't want to include that in archive.
 rsync -aq --exclude='.git/' --exclude='version/' --exclude='jnlp/' public version/$version/
 
-echo "- copy $lab_path to version/$version/public/"
+lab_url=`script/lab-root-url.rb $lab_env`
+echo "- download the $lab_env archive at $lab_url.tar.gz and uncompress to version/$version/public/"
 
-rsync -aq $lab_path version/$version/public/
+curl -O $lab_url.tar.gz
+tar xzf lab.tar.gz -C version/$version/public
+rm lab.tar.gz
 
 echo "- remove unnecessary HTML pages"
 
