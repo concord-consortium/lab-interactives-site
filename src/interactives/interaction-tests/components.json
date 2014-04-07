@@ -46,6 +46,12 @@
       ]
     },
     {
+      "type": "checkbox",
+      "id": "checkbox",
+      "text": "Checkbox",
+      "action": "setTextBoxProperties(0, {text: 'Checkbox state changed'});"
+    },
+    {
       "type": "radio",
       "id": "radio",
       "label": "Radio (vertical)",
@@ -129,6 +135,7 @@
       ["button"],
       ["slider"],
       ["pulldown"],
+      ["checkbox"],
       ["radio"],
       ["radio-horizontal"],
       ["clickable-text"],
