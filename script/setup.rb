@@ -84,6 +84,7 @@ end
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
+  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/lab",
   :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
   :staging     => config_lab_root_url[:staging]     || "//lab-framework.staging.concord.org/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.dev.concord.org/lab",
@@ -91,7 +92,8 @@ LAB_ROOT_URL = {
 }
 
 EMBEDDABLE_PAGE = {
-  :production  => "embeddable.html",
+  :default     => "embeddable.html",
+  :production  => "embeddable-production.html",
   :staging     => "embeddable-staging.html",
   :development => "embeddable-dev.html",
   :local       => "embeddable-local.html"

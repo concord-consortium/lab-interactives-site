@@ -41,8 +41,8 @@ rm version/$version/public/embeddable-local.html
 
 echo "- generate HTML pages with correct Lab root URL and STATIC=true"
 
-LAB_ROOT_URL="lab" LAB_STATIC=true bin/haml -r ./script/setup.rb src/interactives.html.haml version/$version/public/interactives.html
-LAB_ROOT_URL="lab" bin/haml -r ./script/setup.rb src/embeddable.html.haml version/$version/public/embeddable.html
+LAB_ROOT_URL="lab" LAB_STATIC=true script/generate-interactives-html.rb default > version/$version/public/interactives.html
+LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > version/$version/public/embeddable.html
 
 echo "- generate $archivename archive"
 
@@ -52,5 +52,5 @@ mv version/$version/$version/ version/$version/public/
 
 echo "- generate HTML pages with correct Lab root URL and STATIC=false"
 
-LAB_ROOT_URL="lab" bin/haml -r ./script/setup.rb src/interactives.html.haml version/$version/public/interactives.html
-LAB_ROOT_URL="lab" bin/haml -r ./script/setup.rb src/embeddable.html.haml version/$version/public/embeddable.html
+LAB_ROOT_URL="lab" script/generate-interactives-html.rb default > version/$version/public/interactives.html
+LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > version/$version/public/embeddable.html
