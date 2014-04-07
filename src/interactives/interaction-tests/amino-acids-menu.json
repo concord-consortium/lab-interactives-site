@@ -1,0 +1,82 @@
+{
+  "title": "Amino Acids Menu",
+  "publicationStatus": "public",
+  "subtitle": "Test of amino acids context menu.",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "dna",
+      "url": "models/lab-version/1/md2d/interaction-tests/amino-acids-menu/model.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "label1",
+      "type": "text",
+      "text": [
+        "###Right click an amino acid to bring the amino acids menu.###",
+        "Then compare it with screenshots. To collapse or expand amino acids group click one",
+        "of the headers (hydrophilic or hydrophobic)."
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "Expected menu:"
+    },
+    {
+      "id": "menu1",
+      "type": "image",
+      "src": "menu1.png",
+      "width": "9em"
+    },
+    {
+      "id": "menu2",
+      "type": "image",
+      "src": "menu2.png",
+      "width": "9em"
+    }
+  ],
+  "template": [
+      {
+        "id": "top",
+        "bottom": "model.top",
+        "width": "interactive.width"
+      },
+      {
+        "id": "right-top",
+        "top": "model.top",
+        "right": "interactive.right",
+        "left": "model.right",
+        "padding-left": "1em",
+        "padding-bottom": "0.5em",
+        "align": "center"
+      },
+      {
+        "id": "right1",
+        "top": "right-top.bottom",
+        "left": "model.right",
+        "height": "model.height",
+        "padding-left": "1em"
+      },
+      {
+        "id": "right2",
+        "top": "right-top.bottom",
+        "left": "right1.right",
+        "height": "model.height",
+        "padding-left": "0.5em",
+        "padding-right": "0.5em"
+      }
+    ],
+  "layout": {
+    "top": ["label1"],
+    "right-top": ["label2"],
+    "right1": ["menu1"],
+    "right2": ["menu2"]
+  }
+}

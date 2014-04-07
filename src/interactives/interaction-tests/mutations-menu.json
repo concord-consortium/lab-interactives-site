@@ -19,8 +19,8 @@
       "id": "label1",
       "type": "text",
       "text": [
-        "###Left click (or touch) BLUE nucleotide to bring the mutations menu.###",
-        "Then compare it with screenshotsbelow the model."
+        "###Left click (or touch) a BLUE nucleotide to bring the mutations menu.###",
+        "Then compare it with screenshots below the model."
       ]
     },
     {
