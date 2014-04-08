@@ -86,7 +86,7 @@ config_lab_root_url = CONFIG[:lab_root_url] || {}
 LAB_ROOT_URL = {
   :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/lab",
   :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
-  :staging     => config_lab_root_url[:staging]     || "//lab-s3.concord.org/version/1.0.0-pre.3/lab",
+  :staging     => config_lab_root_url[:staging]     || "//lab-s3.concord.org/version/1.0.0-pre.4/lab",
   :development => config_lab_root_url[:development] || "//lab-s3.concord.org/branch/master/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
 }
