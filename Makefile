@@ -270,7 +270,6 @@ public/vendor: \
 	public/vendor/mathjax \
 	public/vendor/fonts \
 	public/vendor/codemirror \
-	public/vendor/dsp.js \
 	public/vendor/requirejs \
 	public/vendor/text \
 	public/vendor/domReady \
@@ -286,12 +285,6 @@ public/vendor: \
 	public/vendor/lab-grapher/lab-grapher.css \
 	public/favicon.ico
 
-
-public/vendor/dsp.js:
-	mkdir -p public/vendor/dsp.js
-	cp vendor/dsp.js/dsp.js public/vendor/dsp.js
-	cp vendor/dsp.js/LICENSE public/vendor/dsp.js/LICENSE
-	cp vendor/dsp.js/README public/vendor/dsp.js/README
 
 public/vendor/d3: vendor/d3
 	mkdir -p public/vendor/d3

@@ -19,9 +19,6 @@
 [submodule "vendor/mathjax"]
 	path = vendor/mathjax
 	url = git://github.com/mathjax/MathJax.git
-[submodule "vendor/dsp.js"]
-	path = vendor/dsp.js
-	url = git://github.com/concord-consortium/dsp.js.git
 [submodule "vendor/d3-plugins"]
 	path = vendor/d3-plugins
 	url = git://github.com/d3/d3-plugins.git
