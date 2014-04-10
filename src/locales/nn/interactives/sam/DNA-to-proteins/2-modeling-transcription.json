@@ -1,0 +1,155 @@
+{
+  "title": "En modell av transkripsjon",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Undersøk hvordan en mRNA-kopi blir laget av DNA.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [
+    "En streng av DNA blir brukt som et mønster for å lage en nRNA-kopi. Denne prosessen blir kalt transkripsjon. En mRNA-kopi må lages fordi DNA ikke kan forlate kjernen.",
+    "",
+    "Spesielle proteiner splitter DNA-spiralen slik at samhørende nukleotider kan binde seg til DNA-sekvensen. Det er helt bestemte nukleotider som hører sammen i par.",
+    "",
+    "Bruk knappene **A**, **U**, **G** and **C** for å plassere riktig mRNA-nukleotid sammen med hver DNA-nukleotid. "
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page2/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGTTGACTCTAACTCGCATCCGCACTGTG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "begin",
+      "type": "button",
+      "action": "animateToDNAState('transcription:0');",
+      "text": "Forbered for transkripsjon",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "transcribeA",
+      "type": "button",
+      "action": "transcribeDNAStep('A');",
+      "text": "A",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "transcribeC",
+      "type": "button",
+      "action": "transcribeDNAStep('C');",
+      "text": "C",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "transcribeG",
+      "type": "button",
+      "action": "transcribeDNAStep('G');",
+      "text": "G",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "transcribeU",
+      "type": "button",
+      "action": "transcribeDNAStep('U');",
+      "text": "U",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Nullstill",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "label1A",
+      "type": "text",
+      "text": "Klikk",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label1B",
+      "type": "text",
+      "text": "for å splitte opp DNA-strengene.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "Klikk deretter på knappen som representerer den riktige **samhørende** RNA-nukleotiden for å fortsette til neste steg i transkripsjonsprosessen:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1A",
+        "begin",
+        "label1B"
+      ],
+      [
+        "label2"
+      ],
+      [
+        "transcribeA",
+        "transcribeU",
+        "transcribeG",
+        "transcribeC",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
+}

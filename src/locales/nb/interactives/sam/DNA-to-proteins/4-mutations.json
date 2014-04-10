@@ -1,0 +1,193 @@
+{
+  "title": "Mutasjoner",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk hvordan endringer i DNA-sekvensen kan endre aminosyrene som inngår i et protein.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 0.75,
+  "helpOnLoad": false,
+  "about": [
+    "Mutasjoner er feil i DNA-sekvensen. Bruk **Endre DNA-** knappen for å endre hele sekvensen, eller klikk på et enkelt nukleotid for å gjøre en insettings-, slettings- eller substitusjonsmutasjon. Hva gjør endringen i DNA-sekvensen med det resulterende proteinet?",
+    "",
+    "Du kan raskt hoppe mellom DNA-sekvensen og det ferdige proteinet ved å bruke knappene **Vis DNA** og  **Vis protein**.",
+    "",
+    "Er noen mutasjonstyper mer skadelig enn andre?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "transcribe",
+      "type": "button",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ],
+      "text": "Transkriber",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "translate",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ],
+      "text": "Translater",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Start på nytt",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Stop",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "next-state",
+      "type": "button",
+      "action": "animateToNextDNAState();",
+      "text": "Fortsett et steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "dna-dialog",
+      "type": "button",
+      "action": "openDNADialog();",
+      "text": "Endre DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "show-protein",
+      "type": "button",
+      "action": "set('DNAState', 'translation-end');",
+      "text": "Vis protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "show-dna",
+      "type": "button",
+      "action": "set('DNAState', 'dna');",
+      "text": "Vis DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Start/fortsett kjøringen",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "label",
+      "type": "text",
+      "text": "Klikk på et nukleotid for å gjøre en mutasjon, eller ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "buffer",
+      "type": "text",
+      "text": "|",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label",
+        "dna-dialog"
+      ],
+      [
+        "show-dna",
+        "transcribe",
+        "buffer",
+        "translate",
+        "show-protein"
+      ],
+      [
+        "next-state",
+        "start",
+        "stop",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
+}

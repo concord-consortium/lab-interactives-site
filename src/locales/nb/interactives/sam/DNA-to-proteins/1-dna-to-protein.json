@@ -1,0 +1,252 @@
+{
+  "title": "Fra DNA til protein",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk hvordan koden som er innbakt i DNA oversettes til protein.",
+  "category": "Biology",
+  "subCategory": "Genetics",
+  "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+  "aspectRatio": 1.2,
+  "fontScale": 0.65,
+  "helpOnLoad": false,
+  "about": [
+    "Klikk **Transkriber** for å zoome inn i cellekjernen og se hvordan kromosomet vikler seg ut, og se DNA-strengene. DNA-et deler seg, og en mRNA-streng lages av nukleotider, med DNA som mal.",
+    "",
+    "Klikk **Translasjon** for å se hvordan mRNA drar fra kjernen til cytoplasmaet og fester seg til et ribosom. tRNA-molekyler frakter inn aminosyrer, og aminosyrene blir lenket sammen i riktig rekkefølge ved hjelp av samhørende nukleotider.",
+    "",
+    "Etter translasjonen (oversettelsen) kan du granske proteinet og se hvordan sekvensen av aminosyrer har foldet seg."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "intro-cells"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "transcribe",
+      "type": "button",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ],
+      "text": "Transkriber",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "transcribe-step",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore ('dna')) {",
+        "  animateToDNAState('transcription:1');",
+        "} else { ",
+        "  transcribeDNAStep();",
+        "}"
+      ],
+      "text": "Transkriber steg for steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "translate",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "}",
+        "if (get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ],
+      "text": "Translasjon",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "translate-step",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "} else {",
+        "  translateDNAStep();",
+        "}"
+      ],
+      "text": "Oversett steg for steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "Klikk",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "for å se hele mRNA-strengen bli laget, eller",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label3",
+      "type": "text",
+      "text": "Klikk",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label4",
+      "type": "text",
+      "text": "for å generere hele proteinet fra mRNA, eller",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Start/gjenoppta modellen",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Stopp",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Nullstill",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "prev-state-jump",
+      "type": "button",
+      "action": "jumpToPrevDNAState();",
+      "text": "<< Hopp",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "next-state",
+      "type": "button",
+      "action": "animateToNextDNAState();",
+      "text": "Fortsett et steg",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "next-state-jump",
+      "type": "button",
+      "action": "jumpToNextDNAState();",
+      "text": "Hopp >>",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "dna-dialog",
+      "type": "button",
+      "action": "openDNADialog();",
+      "text": "Rediger DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1",
+        "transcribe",
+        "label2",
+        "transcribe-step"
+      ],
+      [
+        "label3",
+        "translate",
+        "label4",
+        "translate-step"
+      ],
+      [
+        "start",
+        "stop",
+        "reset",
+        "dna-dialog"
+      ],
+      [
+        "prev-state-jump",
+        "next-state",
+        "next-state-jump"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
+}
