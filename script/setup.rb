@@ -28,29 +28,29 @@ def render_file(filename, locals)
     :lab_js_dependencies => case CONFIG[:environment]
       when 'production'
         <<-HEREDOC
-      <script src="#{lab_root_url}/../vendor/d3/d3.min.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery/jquery.min.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.min.js" type="text/javascript"></script>
-      <script src='#{lab_root_url}/../vendor/tinysort/jquery.tinysort.min.js' type='text/javascript'></script>
+      <script src="#{lab_root_url}/vendor/d3/d3.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-selectBoxIt/jquery.selectBoxIt.min.js" type="text/javascript"></script>
+      <script src='#{lab_root_url}/vendor/tinysort/jquery.tinysort.min.js' type='text/javascript'></script>
         HEREDOC
       else
         <<-HEREDOC
-      <script src="#{lab_root_url}/../vendor/d3/d3.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery/jquery.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-ui/jquery-ui.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
-      <script src="#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.js" type="text/javascript"></script>
-      <script src='#{lab_root_url}/../vendor/tinysort/jquery.tinysort.js' type='text/javascript'></script>
+      <script src="#{lab_root_url}/vendor/d3/d3.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery/jquery.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-context-menu/jquery.contextMenu.js" type="text/javascript"></script>
+      <script src="#{lab_root_url}/vendor/jquery-selectBoxIt/jquery.selectBoxIt.js" type="text/javascript"></script>
+      <script src='#{lab_root_url}/vendor/tinysort/jquery.tinysort.js' type='text/javascript'></script>
         HEREDOC
       end,
     :lab_css_dependencies => <<-HEREDOC,
-      <link href='#{lab_root_url}/../vendor/jquery-ui/jquery-ui.css' rel='stylesheet' type='text/css'>
-      <link href='#{lab_root_url}/../vendor/jquery-context-menu/jquery.contextMenu.css' rel='stylesheet' type='text/css'>
-      <link href='#{lab_root_url}/../vendor/jquery-selectBoxIt/jquery.selectBoxIt.css' rel='stylesheet' type='text/css'>
+      <link href='#{lab_root_url}/vendor/jquery-ui/jquery-ui.css' rel='stylesheet' type='text/css'>
+      <link href='#{lab_root_url}/vendor/jquery-context-menu/jquery.contextMenu.css' rel='stylesheet' type='text/css'>
+      <link href='#{lab_root_url}/vendor/jquery-selectBoxIt/jquery.selectBoxIt.css' rel='stylesheet' type='text/css'>
       HEREDOC
     :js_site_config => <<-HEREDOC,
       <script>
@@ -84,14 +84,16 @@ end
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
+  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/lab",
   :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
-  :staging     => config_lab_root_url[:staging]     || "//lab-framework.staging.concord.org/lab",
-  :development => config_lab_root_url[:development] || "//lab-framework.dev.concord.org/lab",
+  :staging     => config_lab_root_url[:staging]     || "//lab-s3.concord.org/version/1.0.0-pre.3/lab",
+  :development => config_lab_root_url[:development] || "//lab-s3.concord.org/branch/master/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
 }
 
 EMBEDDABLE_PAGE = {
-  :production  => "embeddable.html",
+  :default     => "embeddable.html",
+  :production  => "embeddable-production.html",
   :staging     => "embeddable-staging.html",
   :development => "embeddable-dev.html",
   :local       => "embeddable-local.html"

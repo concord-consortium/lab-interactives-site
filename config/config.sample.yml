@@ -1,11 +1,14 @@
 ---
 # environment can be 'development' or 'production'
 :environment: development
+# use the lab_root_url to override the default lab urls used in
+# the embeddable-*.html files.
 # :lab_root_url:
 #   :production:  //lab-framework.concord.org/lab
 #   :staging:     //lab-framework.staging.concord.org/lab
 #   :development: //lab-framework.dev.concord.org/lab
 #   :local:       //localhost:9191/lab
+#   :default:     //lab-framework.concord.org/lab
 :jsconfig:
   # This can be set optionally set to true to disable links to DataGames and Java models.
   # Used only by application.js (SITE_CONFIG).

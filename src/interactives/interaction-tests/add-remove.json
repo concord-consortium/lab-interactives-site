@@ -40,7 +40,7 @@
         "  case 12: addShape({type: 'rectangle', x: 2.8, y: 2.6, width: 0.5, height: 0.5}); return;",
         "  case 13: removeObstacle(0); return;",
         "  case 14: removeLine(1); return;",
-        "  case 15: removeShape(0); return;",
+        "  case 15: removeShape(0); setComponentDisabled('button', true); return;",
         "}"
       ]
     }

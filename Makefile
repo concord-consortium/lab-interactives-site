@@ -64,20 +64,41 @@ src: \
 	$(COFFEESCRIPT_FILES) \
 	$(INTERACTIVE_FILES) \
 	public/interactives.html \
+	public/interactives-production.html \
+	public/interactives-staging.html \
+	public/interactives-dev.html \
+	public/interactives-local.html \
 	public/embeddable.html \
+	public/embeddable-production.html \
 	public/embeddable-staging.html \
 	public/embeddable-dev.html \
+	public/embeddable-local.html \
 	public/browser-check.html \
 	public/interactives.json \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
 public/interactives.html: config/config.yml interactives.haml
+	script/generate-interactives-html.rb default > $@
+public/interactives-production.html: config/config.yml interactives.haml
+	script/generate-interactives-html.rb production > $@
 public/interactives-staging.html: config/config.yml interactives.haml
+	script/generate-interactives-html.rb staging > $@
 public/interactives-dev.html: config/config.yml interactives.haml
+	script/generate-interactives-html.rb development > $@
+public/interactives-local.html: config/config.yml interactives.haml
+	script/generate-interactives-html.rb local > $@
+
 public/embeddable.html: config/config.yml embeddable.haml
+	script/generate-embeddable-html.rb default > $@
+public/embeddable-production.html: config/config.yml embeddable.haml
+	script/generate-embeddable-html.rb production > $@
 public/embeddable-staging.html: config/config.yml embeddable.haml
+	script/generate-embeddable-html.rb staging > $@
 public/embeddable-dev.html: config/config.yml embeddable.haml
+	script/generate-embeddable-html.rb development > $@
+public/embeddable-local.html: config/config.yml embeddable.haml
+	script/generate-embeddable-html.rb local > $@
 
 .PHONY: clean
 clean:

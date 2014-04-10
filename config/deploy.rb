@@ -80,7 +80,7 @@ namespace :deploy do
 
   desc "create archive of public dir"
   task :archive_public_dir do
-    run "cd /var/www/interactives; ./script/create-archived-public-dir.sh " + SITE_VERSION
+    run "cd /var/www/interactives; ./script/create-archived-public-dir.sh"
     create_symbolic_links_to_archives
   end
 

@@ -1,0 +1,57 @@
+{
+  "title": "Mutations Menu",
+  "publicationStatus": "public",
+  "subtitle": "Test of mutations context menu.",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "dna",
+      "url": "models/lab-version/1/md2d/interaction-tests/mutations-menu/model.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "label1",
+      "type": "text",
+      "text": [
+        "###Left click (or touch) a BLUE nucleotide to bring the mutations menu.###",
+        "Then compare it with screenshots below the model."
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "Expected menu:"
+    },
+    {
+      "id": "menu1",
+      "type": "image",
+      "src": "menu1.png",
+      "height": "6em"
+    },
+    {
+      "id": "menu2",
+      "type": "image",
+      "src": "menu2.png",
+      "height": "6em"
+    },
+    {
+      "id": "menu3",
+      "type": "image",
+      "src": "menu3.png",
+      "height": "6em"
+    }
+  ],
+  "layout": {
+    "top": ["label1"],
+    "bottom": [
+      ["label2"],
+      ["menu1", "menu2", "menu3"]
+    ]
+  }
+}
