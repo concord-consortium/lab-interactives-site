@@ -1,0 +1,472 @@
+{
+  "title": "Diffusion over en permeabel membran",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Utveksling av gasser over en cellemembran",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [
+    	"Cellemembraner er sammensatt av to lag fosfolipider (et lipid-dobbeltlag). Noen molekyler kan passere denne membranen direkte, uten å bruke spesielle kanaler.",
+    	"",
+    	"Oksygen og karbondioksid er to molekyler som fritt kan passere gjennom cellemembranen. I aerobe celler er oksygen nødvendig for at cellen skal fungere, og karbondioksid er et avfallsstoff. Dermed “ønsker” cellen at oksygen skal komme inn, og at karbondioksid skal forsvinne. Men molekyler beveger seg ikke bare i en retning, de diffunderer tilfeldig gjennom membranen. ",
+    	"",
+    	"Arranger modellen med et høyt oksygeninnhold og lavt karbondioksidinnhold utenfor cellen, og lavt oksygeninnhold og høyt innhold av karbondioksid innenfor cellen. I hvilken retning går strømmen av oksygen- og karbondioksidmolekyler? "
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page2/page2mw5$0.json",
+      "onLoad": [
+        "onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "membraneNoPores.png": "membrane.svg",
+          "oxygenCO2Key.png": "oxygenCO2Key.svg"
+        }
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "setCountTrigger",
+      "initialValue": 4,
+      "onChange": [
+        "var x,y,vx,vy,w,h,i,nAtomsToAdd;",
+        "stop();",
+        "batch(function(){",
+        "  for (i = getNumberOfAtoms(); i > 0; i--) {",
+        "    removeAtom(0);",
+        "  }",
+        "});",
+        "w = get('width');",
+        "h = get('height');",
+        "batch(function(){",
+        "  nAtomsToAdd = get('initialLeftO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: x, y: y, vx: vx, vy: vy, element: 0})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialLeftCO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: x, y: y, vx: vx, vy: vy, element: 1})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialRightO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: w/2+x, y: y, vx: vx, vy: vy, element: 0})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialRightCO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: w/2+x, y: y, vx: vx, vy: vy, element: 1})) nAtomsToAdd--;",
+        "  }",
+        "});",
+        "set('targetTemperature',500);"
+      ]
+    },
+    {
+      "name": "initialLeftCO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialLeftO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialRightCO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialRightO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "markingAtoms",
+      "initialValue": false,
+      "onChange": [
+        "if (value) { ",
+        "  onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });",
+        "} else {",
+        "  onSelect(null);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "nLeftO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nLeftCO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "nRightO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nRightCO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "leftConcentrationO2",
+      "value": [
+        "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "leftConcentrationCO2",
+      "value": [
+        "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationO2",
+      "value": [
+        "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationCO2",
+      "value": [
+        "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "inside-above-label",
+      "type": "text",
+      "text": "Inne i cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "outside-above-label",
+      "type": "text",
+      "text": "Utenfor cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "inside-right-label",
+      "type": "text",
+      "text": "Inne i cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "outside-right-label",
+      "type": "text",
+      "text": "Utenfor cellen",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "left-concentration-CO2",
+      "type": "barGraph",
+      "property": "leftConcentrationCO2",
+      "min": 0,
+      "max": 100,
+      "title": "CO₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(225,243,253)",
+      "tooltip": ""
+    },
+    {
+      "id": "left-concentration-O2",
+      "type": "barGraph",
+      "property": "leftConcentrationO2",
+      "min": 0,
+      "max": 100,
+      "title": "O₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(242,234,27)",
+      "fillColor": "rgb(225,243,253)",
+      "tooltip": ""
+    },
+    {
+      "id": "right-concentration-CO2",
+      "type": "barGraph",
+      "property": "rightConcentrationCO2",
+      "min": 0,
+      "max": 100,
+      "title": "CO₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": ""
+    },
+    {
+      "id": "right-concentration-O2",
+      "type": "barGraph",
+      "property": "rightConcentrationO2",
+      "min": 0,
+      "max": 100,
+      "title": "O₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(242,234,27)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": ""
+    },
+    {
+      "id": "select-left-concentration-co2",
+      "type": "pulldown",
+      "label": "CO₂",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "Ingen",
+          "value": 0
+        },
+        {
+          "text": "Lav",
+          "value": 10
+        },
+        {
+          "text": "Høy",
+          "value": 50
+        }
+      ],
+      "property": "initialLeftCO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "select-left-concentration-o2",
+      "type": "pulldown",
+      "label": "O₂",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "Ingen",
+          "value": 0
+        },
+        {
+          "text": "Lav",
+          "value": 10
+        },
+        {
+          "text": "Høy",
+          "value": 50
+        }
+      ],
+      "property": "initialLeftO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "select-right-concentration-co2",
+      "type": "pulldown",
+      "label": "CO₂",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Ingen",
+          "value": 0
+        },
+        {
+          "text": "Lav",
+          "value": 10
+        },
+        {
+          "text": "Høy",
+          "value": 50
+        }
+      ],
+      "property": "initialRightCO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "select-right-concentration-o2",
+      "type": "pulldown",
+      "label": "O₂",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Ingen",
+          "value": 0
+        },
+        {
+          "text": "Lav",
+          "value": 10
+        },
+        {
+          "text": "Høy",
+          "value": 50
+        }
+      ],
+      "property": "initialRightO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "right-inside": [
+      [
+        "inside-right-label"
+      ],
+      [
+        "left-concentration-O2",
+        "left-concentration-CO2"
+      ]
+    ],
+    "right-outside": [
+      [
+        "outside-right-label"
+      ],
+      [
+        "right-concentration-O2",
+        "right-concentration-CO2"
+      ]
+    ],
+    "bottom-left": [
+      [
+        "select-left-concentration-o2"
+      ],
+      [
+        "select-left-concentration-co2"
+      ]
+    ],
+    "bottom-right": [
+      [
+        "select-right-concentration-o2"
+      ],
+      [
+        "select-right-concentration-co2"
+      ]
+    ],
+    "below": [],
+    "above-left": [
+      "inside-above-label"
+    ],
+    "above-right": [
+      "outside-above-label"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "9.5em",
+      "align": "right"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "right": "model.right",
+      "width": "model.width/2",
+      "align": "right"
+    },
+    {
+      "id": "below",
+      "top": "bottom-left.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "above-left",
+      "left": "model.left",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "left"
+    },
+    {
+      "id": "above-right",
+      "right": "model.right",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "right"
+    },
+    {
+      "id": "right-inside",
+      "left": "model.right",
+      "top": "above-right.top",
+      "height": "model.height",
+      "align": "center"
+    },
+    {
+      "id": "right-outside",
+      "left": "right-inside.right",
+      "top": "above-right.top",
+      "height": "model.height",
+      "align": "center"
+    }
+  ]
+}

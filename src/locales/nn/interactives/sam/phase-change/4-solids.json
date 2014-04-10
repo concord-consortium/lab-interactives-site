@@ -1,11 +1,11 @@
 {
-  "title": "Visning av et fast stoff pÃ¥ molekylnivÃ¥.",
+  "title": "Molekylær oversikt over faste stoffer",
   "publicationStatus": "public",
-  "subtitle": "Hvordan ser et fast stoff ut pÃ¥ molekylÃ¦rt nivÃ¥?",
+  "subtitle": "Hvordan ser et fast stoff ut på molekylært nivå?",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyler er i konstant bevegelse-til og med i et fast stoff! Klikk pÃ¥ \"Merk to atomer,\" og",
-    "kjÃ¸r modellen for Ã¥ se hvordan molekylene i faste stoffer beveger seg i forhold til hverandre. Hvordan",
+    "Molekyler er i konstant bevegelse-til og med i et fast stoff! \"Merk to atomer,\" og",
+    "kjør modellen for å se hvordan molekylene i faste stoffer beveger seg i forhold til hverandre. Hvordan",
     "vil du beskrive bevegelsene og forholdet mellom molekylene i faste stoffer?"
   ],
   "models": [
@@ -35,13 +35,13 @@
     {
       "type": "button",
       "id": "trace-atom",
-      "text": "FÃ¸lg et tilfeldig atom",
+      "text": "Følg et tilfeldig atom",
       "action": "traceAtom(randomAtoms(1));"
     },
     {
       "type": "button",
       "id": "untrace-atom",
-      "text": "Stopp fÃ¸lg",
+      "text": "Stopp følg",
       "action": "untraceAtom();"
     }
   ],

@@ -1,0 +1,101 @@
+{
+  "title": "Diffusjon over en semipermeabel membran",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Hvordan påvirker porestørrelsen diffusjonen av forskjellige molekyler?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "helpOnLoad": false,
+  "about": "Biologiske membraner er selektivt permeable. Det betyr at noen molekyler kommer gjennom, andre gjør det ikke. En måte dette styres på, er med porestørrelsen. Endre porestørrelsen med glidebryteren, slik at membranens permeabilitet for ulike typer molekyler endres. Spor et enkeltmolekyl og se hvilken vei det tar.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/semipermeable/semipermeable$0.json",
+      "onLoad": [],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "unitsScheme": "mks"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "tracedAtom",
+      "initialValue": -99,
+      "onChange": ""
+    },
+    {
+      "name": "poreSize",
+      "initialValue": 0.2,
+      "onChange": [
+        "var h = get('height');",
+        "var barrierHeight = (h - 2*value)/3;",
+        "setObstacleProperties(0,{height: barrierHeight, y: 2*(barrierHeight + value)});",
+        "setObstacleProperties(1,{height: barrierHeight, y: barrierHeight + value});",
+        "setObstacleProperties(2,{height: barrierHeight, y: 0});"
+      ]
+    },
+    {
+      "name": "tracingAtom",
+      "initialValue": false,
+      "onChange": [
+        "if (!value) {",
+        "  untraceAtom();",
+        "} else {",
+        "  var idx = randomAtoms(1);",
+        "  traceAtom(idx);",
+        "  set('tracedAtom',idx);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "barrier-height",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "steps": 50,
+      "title": "Porestørrelse",
+      "labels": [],
+      "width": "auto",
+      "height": "auto",
+      "property": "poreSize",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "trace-atom",
+      "type": "checkbox",
+      "text": "Spor et molekyl",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "tracingAtom",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "barrier-height",
+      "trace-atom"
+    ],
+    "right": []
+  },
+  "template": "simple"
+}
