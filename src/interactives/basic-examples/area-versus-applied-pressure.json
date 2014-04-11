@@ -23,7 +23,7 @@
     },
     {
       "name": "pressureTimesArea",
-      "unitAbbreviation": "pN⋅nm",
+      "unitAbbreviation": "pN · nm",
       "label": "Pressure Times Area",
       "value": "return get('pressure') * get('area');"
     }

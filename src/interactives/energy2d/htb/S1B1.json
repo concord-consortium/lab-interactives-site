@@ -5,7 +5,7 @@
   "about": [
     "How much heat is stored in an object depends on its specific heat, as described by the formula below:",
     "",
-    "*Q* = **c**p⋅**m**(*T*final-*T*initial)",
+    "*Q* = **c**p · **m**(*T*final-*T*initial)",
     "",
     "This model is similar to 1A, except that the specific heats of the two rectangular objects are different.",
     "",
@@ -34,14 +34,14 @@
     {
       "name": "left-block",
       "label": "Left block specific heat",
-      "unitAbbreviation": "kg⋅°C",
+      "unitAbbreviation": "kg · °C",
       "onChange": "getPart(0).specific_heat = value;",
       "initialValue": 1000
     },
     {
       "name": "right-block",
       "label": "Right block specific heat",
-      "unitAbbreviation": "kg⋅°C",
+      "unitAbbreviation": "kg · °C",
       "onChange": "getPart(1).specific_heat = value;",
       "initialValue": 2000
     }
@@ -50,7 +50,7 @@
     {
       "type": "text",
       "id": "specific-heat-label",
-      "text": "### Specific heat (kg⋅°C):"
+      "text": "### Specific heat (kg · °C):"
     },
     {
       "type": "slider",
