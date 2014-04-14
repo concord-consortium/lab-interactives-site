@@ -25,8 +25,6 @@
         }
       },
       "onLoad": [
-        "set('loadedLevelID', 'level1');",
-        "set('selectedLevelID', 'level1');",
         "setShapeProperties(3, {lineColor: 'rgb(255,0,0)', lineWeight: 7});",
         "set('atomTraceColor','yellow');",
         "var timeStepsPerTick = get('timeStepsPerTick'),",
@@ -69,8 +67,6 @@
         }
       },
       "onLoad": [
-        "set('loadedLevelID', 'level2');",
-        "set('selectedLevelID', 'level2');",
         "setShapeProperties(3, {lineColor: 'rgb(255,0,0)', lineWeight: 7});",
         "set('atomTraceColor','yellow');",
         "var timeStepsPerTick = get('timeStepsPerTick'),",
@@ -137,19 +133,6 @@
         "  }",
         "});"
       ]
-    },
-    {
-      "name": "loadedLevelID",
-      "initialValue": "level1"
-    },
-    {
-      "name": "selectedLevelID",
-      "initialValue": "level1",
-      "onChange": [
-        "if (value !== get('loadedLevelID')) {",
-        "  loadModel(value, ['showElectricField', 'showForceVectors'])",
-        "}"
-      ]
     }
   ],
   "components": [
@@ -173,11 +156,7 @@
       "type": "button",
       "id": "reset",
       "text": "Reset",
-      "action": [
-        "reloadModel({",
-        "  propertiesToRetain: ['showElectricField', 'showForceVectors']",
-        "});"
-      ]
+      "action": "reloadModel();"
     },
     {
       "type": "button",
@@ -227,15 +206,15 @@
       "type": "radio",
       "id": "select-level",
       "orientation": "horizontal",
-      "property": "selectedLevelID",
       "options": [
         {
           "text": "Level 1",
-          "value": "level1"
+          "action": "loadModel('level1');",
+          "selected": true
         },
         {
           "text": "Level 2",
-          "value": "level2"
+          "action": "loadModel('level2');"
         }
       ]
     },
