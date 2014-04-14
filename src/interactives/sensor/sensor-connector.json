@@ -1,15 +1,15 @@
 {
-  "title": "Sensor Server",
+  "title": "Sensor Connector",
   "publicationStatus": "draft",
   "labEnvironment": "development",
-  "subtitle": "Collect data wirelessly from the locally running Sensor Server.",
+  "subtitle": "Collect data wirelessly from the locally running Sensor Connector.",
   "about": "",
   "fontscale": 0.9,
   "models": [
     {
-      "type": "sensor-server",
+      "type": "sensor-connector",
       "id": "signal1",
-      "url": "models/lab-version/1/sensor-server/sensor-server.json",
+      "url": "models/lab-version/1/sensor-connector/sensor-connector.json",
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",
