@@ -9,7 +9,7 @@
     {
       "type": "sensor-connector",
       "id": "signal1",
-      "url": "models/lab-version/1/sensor-connector/sensor-connector.json",
+      "model": {},
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",
