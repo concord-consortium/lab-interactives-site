@@ -49,12 +49,6 @@ _Currently in early development._
 1. [Quantum collision](interactives.html#interactives/conversion-tests/quantum-collision.json), _([embeddable](embeddable.html#interactives/conversion-tests/quantum-collision.json))_
 2. [Quantum emission](interactives.html#interactives/conversion-tests/quantum-emission.json), _([embeddable](embeddable.html#interactives/conversion-tests/quantum-emission.json))_
 
-## Solar System model-type
-
-_Currently in early development._
-
-- [Earth in orbit](interactives.html#interactives/solar-system/earth.json), _([embeddable](embeddable.html#interactives/solar-system/earth.json))_
-
 ## Signal generator model-type
 
 _Currently in early development._
