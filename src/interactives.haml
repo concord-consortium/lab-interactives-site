@@ -43,7 +43,13 @@
             %option{:value => "medium-small", :selected => "selected"} medium-small
             %option{:value => "medium", :selected => "selected"} medium
             %option{:value => "large"} large
-
+          %span.title Lab env:
+          %select#select-lab-environment{:name => "select-lab-environment"}
+            %option{:value => ""} default
+            %option{:value => "production"} production
+            %option{:value => "staging"} staging
+            %option{:value => "dev"} development
+            %option{:value => "local"} local
       .row
         %form#interactive-controls
           #select-filters.controls
