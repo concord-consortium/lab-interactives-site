@@ -8,7 +8,7 @@
     {
       "type": "labquest2",
       "id": "signal1",
-      "mode": {},
+      "model": {},
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",
