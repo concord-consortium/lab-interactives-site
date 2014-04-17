@@ -1,0 +1,24 @@
+{
+  "title": "Empty diffusion model",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/original/empty.json"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-atom",
+      "text": "Add atoms",
+      "action": "var i = 5; while (i--) addRandomAtom();"
+    }
+  ],
+  "layout": {
+  }
+}

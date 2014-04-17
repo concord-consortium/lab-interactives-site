@@ -1,0 +1,56 @@
+{
+  "title": "Molekylær oversikt over faste stoffer",
+  "publicationStatus": "public",
+  "subtitle": "Hvordan ser et fast stoff ut på molekylært nivå?",
+  "aspectRatio": 1.2,
+  "about": [
+    "Molekyler er i konstant bevegelse-til og med i et fast stoff! \"Merk to atomer,\" og",
+    "kjør modellen for å se hvordan molekylene i faste stoffer beveger seg i forhold til hverandre. Hvordan",
+    "vil du beskrive bevegelsene og forholdet mellom molekylene i faste stoffer?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page4/page4$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": true
+      }
+    }
+  ],
+  "components": [
+{
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Merk to atomer",
+      "action": "markAtoms(randomAtoms(2));"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Vis tiltrekninger",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Følg et tilfeldig atom",
+      "action": "traceAtom(randomAtoms(1));"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Stopp følg",
+      "action": "untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "show-attractions"
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "title": "Hva er en kjemisk reaksjon?",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+    "En kjemisk reaksjon kan forekomme på tre måter:",
+    "",
+    "- Et kjemisk bånd skapes.",
+    "- Et kjemisk bånd brytes.",
+    "- Et eller flere elektroner overføres mellom atomer eller molekyler.",
+    "",
+    "Utforsk hvilke reaksjoner i hvilke kjemiske bånd som blir skapt og brutt i denne modellen.",
+    "Trykk Start, prøv å varm opp og kjøl ned atomer, for å se hvordan temperatur påvirker ",
+    "balansen mellom å skape og bryte bånd."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "reactionsExplanationFlat.png": "reactionsExplanationFlat.svg"
+        }
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "bondEnergy": {
+            "1-1": 2,
+            "2-2": 4
+          },
+          "activationEnergy": {
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      }
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredTemperature",
+      "property": "temperature"
+    }
+  ],
+  "components": [
+    {
+      "id": "heat",
+      "type": "button",
+      "action": [
+        "if (get('temperature') > 100000) {",
+        "  setComponentDisabled('heat', true);",
+        "  return;",
+        "}",
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 1.1, vy: props.vy * 1.1});",
+        "  }",
+        "});"
+      ],
+      "text": "Varm opp"
+    },
+    {
+      "id": "cool",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 0.9, vy: props.vy * 0.9});",
+        "  }",
+        "});",
+        "if (get('temperature') < 100000) {",
+        "  setComponentDisabled('heat', false);",
+        "}"
+      ],
+      "text": "Kjøl ned"
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "filteredTemperature",
+      "title": "Temperature",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 100000,
+          "label": "high"
+        }
+      ],
+      "min": 0,
+      "max": 100000
+    }
+  ],
+  "template": [
+    {
+      "id": "right-lower",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "model.bottom",
+      "align": "center"
+    },
+    {
+      "id": "right-upper",
+      "top": "model.top",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "right-lower.top",
+      "align": "center"
+    }
+  ],
+  "layout": {
+    "right-upper": ["thermometer"],
+    "right-lower": ["heat", "cool"]
+  }
+}
