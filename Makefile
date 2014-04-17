@@ -278,8 +278,6 @@ public/vendor: \
 	public/vendor/shutterbug/README.md \
 	public/vendor/shutterbug/LICENSE.md \
 	public/vendor/lab-energy2d-java \
-	public/vendor/lab-sensor-applet-interface-dist \
-	public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js \
 	public/vendor/iframe-phone/iframe-phone.js \
 	public/vendor/chosen/chosen.jquery.min.js \
 	public/vendor/lab-grapher/lab-grapher.css \
@@ -462,18 +460,6 @@ public/vendor/shutterbug/LICENSE.md: public/vendor/shutterbug \
 	vendor/shutterbug/LICENSE.md
 	cp vendor/shutterbug/LICENSE.md public/vendor/shutterbug
 
-public/vendor/lab-sensor-applet-interface-dist: vendor/lab-sensor-applet-interface-dist
-	mkdir -p public/vendor/lab-sensor-applet-interface-dist
-	cp -r vendor/lab-sensor-applet-interface-dist/* public/vendor/lab-sensor-applet-interface-dist/
-
-public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js: \
-	public/vendor/sensor-labquest-2-interface \
-	vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js
-	cp vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js public/vendor/sensor-labquest-2-interface/
-
-public/vendor/sensor-labquest-2-interface:
-	mkdir -p public/vendor/sensor-labquest-2-interface
-
 public/vendor/iframe-phone/iframe-phone.js: \
 	public/vendor/iframe-phone \
 	vendor/iframe-phone/dist/iframe-phone.js
@@ -509,13 +495,7 @@ vendor/jquery-ui/dist/jquery-ui.min.js: vendor/jquery-ui
 vendor/jquery-ui:
 	git submodule update --init --recursive
 
-vendor/lab-sensor-applet-interface-dist:
-	git submodule update --init --recursive
-
 vendor/lab-energy2d-java:
-	git submodule update --init --recursive
-
-vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js:
 	git submodule update --init --recursive
 
 vendor/shutterbug:
