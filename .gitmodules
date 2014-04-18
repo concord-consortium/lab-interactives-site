@@ -37,9 +37,6 @@
 [submodule "vendor/codemirror"]
 	path = vendor/codemirror
 	url = git://github.com/marijnh/CodeMirror.git
-[submodule "vendor/jquery-ui"]
-	path = vendor/jquery-ui
-	url = git://github.com/jquery/jquery-ui.git
 [submodule "vendor/tinysort"]
 	path = vendor/tinysort
 	url = git://github.com/Sjeiti/TinySort.git
@@ -92,3 +89,6 @@
 [submodule "vendor/lab-energy2d-java"]
 	path = vendor/lab-energy2d-java
 	url = https://github.com/concord-consortium/lab-energy2d-java.git
+[submodule "vendor/components-jqueryui"]
+	path = vendor/components-jqueryui
+	url = https://github.com/components/jqueryui.git

@@ -130,14 +130,6 @@ clean-finish:
 	# Remove Node modules.
 	rm -rf node_modules
 	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
-	# Remove generated products in vendor libraries
-	rm -f vendor/jquery/dist/jquery*.js
-	rm -f vendor/jquery-ui/dist/jquery-ui*.js
-	# hack to always download a new copy of grunt-contrib-jshint
-	# because of packaging issues with an unresolved jshint depedency when
-	# an older version of jshint is installed
-	if [ -d vendor/jquery/node_modules/grunt-contrib-jshint ]; then rm -rf vendor/jquery/node_modules/grunt-contrib-jshint; fi
-	if [ -d vendor/jquery-ui/node_modules/grunt-contrib-jshint ]; then rm -rf vendor/jquery-ui/node_modules/grunt-contrib-jshint; fi
 
 # public dir cleanup.
 .PHONY: clean-public
@@ -334,22 +326,27 @@ public/vendor/jquery-context-menu:
 	cp vendor/jquery-context-menu/src/jquery.contextMenu.css public/vendor/jquery-context-menu
 
 public/vendor/jquery/jquery.min.js: \
-	vendor/jquery/dist/jquery.min.js \
 	public/vendor/jquery
-	cp vendor/jquery/dist/jquery*.js public/vendor/jquery
+	cp vendor/jquery/dist/jquery.js public/vendor/jquery
+	cp vendor/jquery/dist/jquery.min.js public/vendor/jquery
 	cp vendor/jquery/dist/jquery.min.map public/vendor/jquery
 	cp vendor/jquery/MIT-LICENSE.txt public/vendor/jquery
-	cp vendor/jquery/README.md public/vendor/jquery
 
 public/vendor/jquery:
 	mkdir -p public/vendor/jquery
 
 public/vendor/jquery-ui/jquery-ui.min.js: \
-	vendor/jquery-ui/dist/jquery-ui.min.js \
+	vendor/components-jqueryui \
 	public/vendor/jquery-ui
-	cp -r vendor/jquery-ui/dist/* public/vendor/jquery-ui
-	cp -r vendor/jquery-ui/themes/base/images public/vendor/jquery-ui
-	cp vendor/jquery-ui/MIT-LICENSE.txt public/vendor/jquery-ui
+	cp vendor/components-jqueryui/MIT-LICENSE.txt public/vendor/jquery-ui
+	mkdir -p public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/ui/jquery-ui.js public/vendor/jquery-ui
+	cp vendor/components-jqueryui/ui/i18n/jquery-ui-i18n.js public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/ui/minified/jquery-ui.min.js public/vendor/jquery-ui
+	cp vendor/components-jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/themes/base/jquery-ui.css public/vendor/jquery-ui
+	cp vendor/components-jqueryui/themes/base/minified/jquery-ui.min.css public/vendor/jquery-ui
+	cp -r vendor/components-jqueryui/themes/base/images public/vendor/jquery-ui
 
 public/vendor/jquery-ui:
 	mkdir -p public/vendor/jquery-ui
@@ -479,21 +476,11 @@ public/vendor/lab-grapher:
 public/favicon.ico:
 	cp -f src/favicon.ico public/favicon.ico
 
-vendor/jquery/dist/jquery.min.js: vendor/jquery
-	cd vendor/jquery; npm install; \
-	 npm install grunt-cli; \
-	 ./node_modules/grunt-cli/bin/grunt
-
 vendor/jquery:
-	git submodule update --init --recursive
+	git submodule update
 
-vendor/jquery-ui/dist/jquery-ui.min.js: vendor/jquery-ui
-	cd vendor/jquery-ui; npm install; \
-	npm install grunt-cli; \
-	./node_modules/grunt-cli/bin/grunt build
-
-vendor/jquery-ui:
-	git submodule update --init --recursive
+vendor/components-jqueryui:
+	git submodule update
 
 vendor/lab-energy2d-java:
 	git submodule update --init --recursive
