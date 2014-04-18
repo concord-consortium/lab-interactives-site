@@ -258,7 +258,7 @@
       }]);
     }
 
-    if (SITE_CONFIG.STATIC || !SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
+    if (!SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
       $codapLink.hide();
       $codapStagingLink.hide();
     } else {
@@ -516,11 +516,7 @@
       disableOriginalModelLink();
       disableJsonModelLink();
     }
-    if (SITE_CONFIG.STATIC) {
-      $originalImportLink.hide();
-    } else {
-      $originalImportLink.show();
-    }
+    $originalImportLink.show();
   }
 
   function setupSelectGroups(){

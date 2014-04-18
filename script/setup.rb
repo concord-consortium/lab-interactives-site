@@ -58,7 +58,6 @@ def render_file(filename, locals)
           LAB_ENV: "#{lab_env}",
           EMBEDDABLE_PAGE: "#{embeddable_page}",
           SITE_ENV: "#{CONFIG[:environment]}",
-          STATIC: #{!!(ENV['LAB_STATIC'] || CONFIG[:jsconfig][:static])},
           DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}",
         };
       </script>
