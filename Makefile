@@ -110,26 +110,11 @@ clean:
 	rm -rf .bundle
 	# install/update Ruby Gems
 	bundle install --binstubs
-	$(MAKE) clean-finish
-
-# Like clean without installing development-related Ruby Gems,intended
-# to make testing faster on a continuous integration server.
-# Minimal project build and run tests: make clean-for-tests; make test-src
-.PHONY: clean-for-tests
-clean-for-tests:
-	ruby script/check-development-dependencies.rb
-	# install/update Ruby Gems
-	bundle install --binstubs --without development app
-	$(MAKE) clean-finish
-
-# public dir cleanup.
-.PHONY: clean-finish
-clean-finish:
 	mkdir -p public
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
-	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
+	$(MAKE) prepare-submodules
 
 # public dir cleanup.
 .PHONY: clean-public
@@ -141,6 +126,10 @@ clean-public:
 clean-archives:
 	rm -rf version
 	rm -rf public/version
+
+.PHONY: prepare-submodules
+prepare-submodules:
+	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
 
 %.min.js: %.js
 	@rm -f $@
