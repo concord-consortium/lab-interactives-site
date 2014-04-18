@@ -1,0 +1,28 @@
+<svg x="0px" y="0px" width="80.45714285714286px" height="80.45714285714286px"
+  viewBox="0 0 32 32" xml:space="preserve">
+  <style type="text/css">
+<![CDATA[
+  text {
+    font-family: "Lato", helvetica, sans-serif;
+    font-size: 25.6px;
+    font-weight: bold;
+    fill: #222;
+  }
+  .shadow {
+    stroke: rgba(255, 255, 255, 0.7);
+    stroke-width: 3px;
+    }
+]]>
+  </style>
+  <defs>
+    <radialGradient id="grad" cx="50%" cy="47%" r="53%" fx="35%" fy="30%">
+      <stop stop-color="#f7ffff" offset="0%"></stop>
+      <stop stop-color="#f5d7d7" offset="40%"></stop>
+      <stop stop-color="#ba8484" offset="80%"></stop>
+      <stop stop-color="#f5d7d7" offset="100%"></stop>
+    </radialGradient>
+  </defs>
+  <circle fill="url(#grad)" cx="16" cy="16" r="16" fill-opacity="1"/>
+  <text class="shadow" text-anchor="middle" x="16" y="16" dy="0.31em">-</text>
+  <text text-anchor="middle" x="16" y="16" dy="0.31em">-</text>
+</svg>
