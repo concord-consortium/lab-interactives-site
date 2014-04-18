@@ -2,13 +2,13 @@
 # environment can be 'development' or 'production'
 :environment: development
 # use the lab_root_url to override the default lab urls used in
-# the embeddable-*.html files.
+# the embeddable-*.html files, e.g.:
 # :lab_root_url:
-#   :production:  //lab-framework.concord.org/lab
-#   :staging:     //lab-framework.staging.concord.org/lab
-#   :development: //lab-framework.dev.concord.org/lab
+#   :production:  //lab-framework-s3.concord.org/version/<ver>/lab
+#   :staging:     //lab-framework-s3.concord.org/version/<ver>/lab
+#   :development: //lab-framework-s3.concord.org/branch/<branch>/lab
+#   :default:     //lab-framework-s3.concord.org/branch/<branch>/lab
 #   :local:       //localhost:9191/lab
-#   :default:     //lab-framework.concord.org/lab
 :jsconfig:
   # Used both by application.js (SITE_CONFIG) and to set Lab.config.dataGamesProxyPrefix.
   :dataGamesProxyPrefix: ""

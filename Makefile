@@ -3,9 +3,9 @@
 # Utilities
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
-MARKDOWN_COMPILER = bin/kramdown
+MARKDOWN_COMPILER = kramdown
 
-SASS_COMPILER = ./bin/sass -I src -I public -r ./src/helpers/sass/lab_fontface.rb
+SASS_COMPILER = sass -I src -I public -r ./src/helpers/sass/lab_fontface.rb
 
 GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
@@ -40,14 +40,8 @@ DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*
 .PHONY: all
 all: \
 	vendor/d3/d3.js \
-	node_modules \
-	bin
+	node_modules
 	$(MAKE) public
-
-# install Ruby Gem development dependencies
-.PHONY: bin
-bin:
-	bundle install --binstubs --quiet
 
 # clean, make
 .PHONY: everything
@@ -108,12 +102,12 @@ clean:
 	# necessary set of gems for running tests using the arguments: --without development app
 	# Would be nice if bundle install had a --withall option to cancel this persistence.
 	rm -rf .bundle
-	# install/update Ruby Gems
-	bundle install --binstubs
 	mkdir -p public
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
+	# install/update Ruby Gems
+	bundle install
 	$(MAKE) prepare-submodules
 
 # public dir cleanup.
