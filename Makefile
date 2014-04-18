@@ -34,6 +34,8 @@ vpath %.coffee src
 MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard *.md)) public/examples.html
 DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*.md))
 
+CURRENT_CONFIG_FILE := $(shell script/branch-config-file.rb)
+
 # default target executed when running make. Run the $(MAKE) public task rather than simply
 # declaring a dependency on 'public' because 'bundle install' and 'npm install' might update some
 # sources, and we want to recompute stale dependencies after that.
@@ -72,26 +74,26 @@ src: \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
-public/interactives.html: config/config.yml interactives.haml
+public/interactives.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb default > $@
-public/interactives-production.html: config/config.yml interactives.haml
+public/interactives-production.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb production > $@
-public/interactives-staging.html: config/config.yml interactives.haml
+public/interactives-staging.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb staging > $@
-public/interactives-dev.html: config/config.yml interactives.haml
+public/interactives-dev.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb development > $@
-public/interactives-local.html: config/config.yml interactives.haml
+public/interactives-local.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb local > $@
 
-public/embeddable.html: config/config.yml embeddable.haml
+public/embeddable.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb default > $@
-public/embeddable-production.html: config/config.yml embeddable.haml
+public/embeddable-production.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb production > $@
-public/embeddable-staging.html: config/config.yml embeddable.haml
+public/embeddable-staging.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb staging > $@
-public/embeddable-dev.html: config/config.yml embeddable.haml
+public/embeddable-dev.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb development > $@
-public/embeddable-local.html: config/config.yml embeddable.haml
+public/embeddable-local.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb local > $@
 
 .PHONY: clean
