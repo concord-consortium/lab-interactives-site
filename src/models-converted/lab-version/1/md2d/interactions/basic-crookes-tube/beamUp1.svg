@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="700px" height="600px">
+  width="462px" height="77px" viewbox="0 0 462 77" preserveAspectRatio="XMinYMin meet">
 <defs>
   <filter id="largeBlur" filterUnits="userSpaceOnUse">
     <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
