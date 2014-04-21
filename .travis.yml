@@ -25,6 +25,7 @@ before_script:
 - travis_retry npm install
 - make prepare-submodules
 script: make public
+after_success: script/s3-deploy.sh
 env:
   global:
   - secure: OrtynMchJnZefWOowzS0oGATN5kB9X+HveWWwH/cjO9NiuIOzkBGbSwRTtnCB6UU8VXDkEIsMQyQoMtjw11hSOv2/89raKMmloa/Dc5ZVa+F3EG/v/JWHAzIMnInjtvG3x9ncUiRcqXTWFLwzxppr3A17bVUJ4r9if4fsQdV7+k=
