@@ -22,7 +22,6 @@ def render_file(filename, locals)
     :lab_root_url => lab_root_url,
     :lab_js_url => lab_root_url + (if lab_env == :production then "/lab.min.js" else "/lab.js" end),
     :lab_css_url => lab_root_url + "/lab.css",
-    :data_games_prefix => CONFIG[:dataGamesProxyPrefix],
     :embeddable_page => embeddable_page,
     :lab_js_dependencies => case CONFIG[:environment]
       when 'production'
