@@ -1,12 +1,12 @@
 {
-  "title": "Molekylær oversikt over væsker",
+  "title": "Visning av en vÃ¦ske pÃ¥ molekylnivÃ¥.",
   "publicationStatus": "public",
-  "subtitle": "Explore how molecules in a liquid move.",
+  "subtitle": "Utforsk hvordan molekylene i en vÃ¦ske beveger seg.",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyler er i konstant bevegelse. \"Merk to atomer,\" og kjør modellen for å se",
+    "Molekyler er i konstant bevegelse. Klikk pÃ¥ \"Merk to atomer,\" og kjÃ¸r modellen for Ã¥ se",
     "hvordan molekylene beveger seg i forhold til hverandre. Hvordan forklarer bevegelsen",
-    "av molekyler at væsker får samme form som deres beholder?"
+    "av molekyler at vÃ¦sker fÃ¥r samme form som deres beholder?"
   ],
   "models": [
     {
@@ -35,13 +35,13 @@
     {
       "type": "button",
       "id": "trace-atom",
-      "text": "Følg et tilfeldig atom",
+      "text": "FÃ¸lg et tilfeldig atom",
       "action": "traceAtom(randomAtoms(1));"
     },
     {
       "type": "button",
       "id": "untrace-atom",
-      "text": "Stopp følg",
+      "text": "Stopp fÃ¸lg",
       "action": "untraceAtom();"
     }
   ],
