@@ -254,7 +254,7 @@
           "width": 600,
           "height":400
         },
-        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "#" + interactiveUrl
+        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "?codap=true#" + interactiveUrl
       }]);
     }
 

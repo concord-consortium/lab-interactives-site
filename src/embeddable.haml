@@ -29,8 +29,13 @@
           }
         });
 
+        if (document.location.search && (document.location.search.indexOf("codap=true") != -1)) {
+          Lab.config.codap = true;
+          // for older versions of lab set the dataGamesProxyPrefix to any string
+          Lab.config.dataGamesProxyPrefix = "BogusPrefix";
+        }
+
         Lab.config.rootUrl              = "#{lab_root_url}";
-        Lab.config.dataGamesProxyPrefix = "#{data_games_prefix}";
         Lab.config.versionedHome        = function (labVersion) {
           // Ignore labVersion argument, use version of the Lab Interactives Site instead.
           var protocol = window.location.protocol;
