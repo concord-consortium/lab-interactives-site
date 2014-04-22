@@ -16,9 +16,6 @@
 [submodule "vendor/jquery"]
 	path = vendor/jquery
 	url = git://github.com/jquery/jquery.git
-[submodule "vendor/mathjax"]
-	path = vendor/mathjax
-	url = git://github.com/mathjax/MathJax.git
 [submodule "vendor/d3-plugins"]
 	path = vendor/d3-plugins
 	url = git://github.com/d3/d3-plugins.git
