@@ -58,9 +58,6 @@
 [submodule "vendor/jquery-selectBoxIt"]
 	path = vendor/jquery-selectBoxIt
 	url = git://github.com/gfranko/jquery.selectBoxIt.js.git
-[submodule "vendor/fonts/Font-Awesome"]
-	path = vendor/fonts/Font-Awesome
-	url = git://github.com/FortAwesome/Font-Awesome.git
 [submodule "vendor/fingerprintjs"]
 	path = vendor/fingerprintjs
 	url = https://github.com/Valve/fingerprintjs
