@@ -1,7 +1,6 @@
 ---
 # environment can be 'development' or 'production'.
 :environment: production
-:dataGamesProxyPrefix: "DataGames/Games/concord/lab/"
 # use the lab_root_url to override the default lab urls used in
 # the embeddable-*.html files, e.g.:
 # :lab_root_url:

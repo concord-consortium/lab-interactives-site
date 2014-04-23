@@ -57,7 +57,7 @@ namespace :deploy do
   task :update do
     checkout
     bundle_install
-    run "cd /var/www/interactives; make clean-public; make"
+    run "cd /var/www/interactives; make clean-public; DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/ make"
     archive_public_dir
     create_standalone
     restart
@@ -67,7 +67,7 @@ namespace :deploy do
   task :clean_and_update do
     checkout
     bundle_install
-    run "cd /var/www/interactives; make clean; make"
+    run "cd /var/www/interactives; make clean; DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/ make"
     archive_public_dir
     create_standalone
     restart

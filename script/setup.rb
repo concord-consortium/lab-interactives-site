@@ -56,7 +56,7 @@ def render_file(filename, locals)
           LAB_ENV: "#{lab_env}",
           EMBEDDABLE_PAGE: "#{embeddable_page}",
           SITE_ENV: "#{CONFIG[:environment]}",
-          DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:dataGamesProxyPrefix]}",
+          DATA_GAMES_PROXY_PREFIX: "#{ENV['DATA_GAMES_PROXY_PREFIX']}",
         };
       </script>
       HEREDOC
