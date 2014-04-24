@@ -34,10 +34,10 @@ if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
 
   echo "- generate archive _site/version/$SITE_VERSION.tar.gz"
   tar -czf _site/version/$SITE_VERSION.tar.gz --directory=_site/version/ $SITE_VERSION
-  s3cmd sync -c config/s3cmd --delete-removed --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' _site/ s3://interactives-s3.concord.org/
+  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' _site/ s3://interactives-s3.concord.org/
 else
   echo "deploying $TRAVIS_BRANCH branch: updating branch/$TRAVIS_BRANCH"
   mkdir -p _site/branch
   mv public _site/branch/$TRAVIS_BRANCH
-  s3cmd sync -c config/s3cmd --delete-removed --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' _site/ s3://interactives-s3.concord.org/
+  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' _site/ s3://interactives-s3.concord.org/
 fi
