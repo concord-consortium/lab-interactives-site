@@ -21,7 +21,9 @@ rvm:
 - 2.0.0
 before_install:
 - sudo apt-get install libicu-dev
-- sudo apt-get install s3cmd
+- wget https://github.com/s3tools/s3cmd/archive/v1.5.0-beta1.tar.gz
+- tar xzf v1.5.0-beta1.tar.gz
+- cd s3cmd-1.5.0-beta1; sudo python setup.py install; cd ..
 bundler_args: --without development
 before_script:
 - travis_retry npm install
