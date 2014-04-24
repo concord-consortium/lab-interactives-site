@@ -21,6 +21,7 @@ rvm:
 - 2.0.0
 before_install:
 - sudo apt-get install libicu-dev
+- sudo apt-get install python-dateutil
 - git clone https://github.com/s3tools/s3cmd.git
 - cd s3cmd; sudo python setup.py install; cd ..
 bundler_args: --without development
