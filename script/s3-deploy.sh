@@ -33,7 +33,9 @@ if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
   LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > _site/version/$SITE_VERSION/embeddable.html
 
   echo "- generate archive _site/version/$SITE_VERSION.tar.gz"
-  tar -czf _site/version/$SITE_VERSION.tar.gz --directory=_site/version/ $SITE_VERSION
+  tar -cf _site/version/$SITE_VERSION.tar --directory=_site/version/ $SITE_VERSION
+  # Divide tar and gzipping so we can pass --no-name argument to gzip.
+  gzip --no-name _site/version/$SITE_VERSION.tar
 else
   echo "deploying $TRAVIS_BRANCH branch: updating branch/$TRAVIS_BRANCH"
   mkdir -p _site/branch
@@ -42,10 +44,10 @@ else
 fi
 
 echo "- gzip HTML, JS, CSS and JSON files"
-find _site/ -type f -iname '*.html' -exec gzip {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.js' -exec gzip {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.css' -exec gzip {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.json' -exec gzip {} \; -exec mv {}.gz {} \;
+find _site/ -type f -iname '*.html' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+find _site/ -type f -iname '*.js' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+find _site/ -type f -iname '*.css' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+find _site/ -type f -iname '*.json' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
 
 echo "- sync gzipped and non-gzipped content"
 # Sync non-gzipped content and prepare regexp for gzipped content sync.
