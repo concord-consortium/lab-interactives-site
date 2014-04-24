@@ -3,9 +3,9 @@
 # Utilities
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
-MARKDOWN_COMPILER = bin/kramdown
+MARKDOWN_COMPILER = kramdown
 
-SASS_COMPILER = ./bin/sass -I src -I public -r ./src/helpers/sass/lab_fontface.rb
+SASS_COMPILER = sass -I src -I public -r ./src/helpers/sass/lab_fontface.rb
 
 GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
@@ -34,20 +34,16 @@ vpath %.coffee src
 MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard *.md)) public/examples.html
 DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*.md))
 
+CURRENT_CONFIG_FILE := $(shell script/branch-config-file.rb)
+
 # default target executed when running make. Run the $(MAKE) public task rather than simply
 # declaring a dependency on 'public' because 'bundle install' and 'npm install' might update some
 # sources, and we want to recompute stale dependencies after that.
 .PHONY: all
 all: \
 	vendor/d3/d3.js \
-	node_modules \
-	bin
+	node_modules
 	$(MAKE) public
-
-# install Ruby Gem development dependencies
-.PHONY: bin
-bin:
-	bundle install --binstubs --quiet
 
 # clean, make
 .PHONY: everything
@@ -78,26 +74,26 @@ src: \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
-public/interactives.html: config/config.yml interactives.haml
+public/interactives.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb default > $@
-public/interactives-production.html: config/config.yml interactives.haml
+public/interactives-production.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb production > $@
-public/interactives-staging.html: config/config.yml interactives.haml
+public/interactives-staging.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb staging > $@
-public/interactives-dev.html: config/config.yml interactives.haml
+public/interactives-dev.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb development > $@
-public/interactives-local.html: config/config.yml interactives.haml
+public/interactives-local.html: $(CURRENT_CONFIG_FILE) interactives.haml
 	script/generate-interactives-html.rb local > $@
 
-public/embeddable.html: config/config.yml embeddable.haml
+public/embeddable.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb default > $@
-public/embeddable-production.html: config/config.yml embeddable.haml
+public/embeddable-production.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb production > $@
-public/embeddable-staging.html: config/config.yml embeddable.haml
+public/embeddable-staging.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb staging > $@
-public/embeddable-dev.html: config/config.yml embeddable.haml
+public/embeddable-dev.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb development > $@
-public/embeddable-local.html: config/config.yml embeddable.haml
+public/embeddable-local.html: $(CURRENT_CONFIG_FILE) embeddable.haml
 	script/generate-embeddable-html.rb local > $@
 
 .PHONY: clean
@@ -108,36 +104,13 @@ clean:
 	# necessary set of gems for running tests using the arguments: --without development app
 	# Would be nice if bundle install had a --withall option to cancel this persistence.
 	rm -rf .bundle
-	# install/update Ruby Gems
-	bundle install --binstubs
-	$(MAKE) clean-finish
-
-# Like clean without installing development-related Ruby Gems,intended
-# to make testing faster on a continuous integration server.
-# Minimal project build and run tests: make clean-for-tests; make test-src
-.PHONY: clean-for-tests
-clean-for-tests:
-	ruby script/check-development-dependencies.rb
-	# install/update Ruby Gems
-	bundle install --binstubs --without development app
-	$(MAKE) clean-finish
-
-# public dir cleanup.
-.PHONY: clean-finish
-clean-finish:
 	mkdir -p public
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
-	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
-	# Remove generated products in vendor libraries
-	rm -f vendor/jquery/dist/jquery*.js
-	rm -f vendor/jquery-ui/dist/jquery-ui*.js
-	# hack to always download a new copy of grunt-contrib-jshint
-	# because of packaging issues with an unresolved jshint depedency when
-	# an older version of jshint is installed
-	if [ -d vendor/jquery/node_modules/grunt-contrib-jshint ]; then rm -rf vendor/jquery/node_modules/grunt-contrib-jshint; fi
-	if [ -d vendor/jquery-ui/node_modules/grunt-contrib-jshint ]; then rm -rf vendor/jquery-ui/node_modules/grunt-contrib-jshint; fi
+	# install/update Ruby Gems
+	bundle install
+	$(MAKE) prepare-submodules
 
 # public dir cleanup.
 .PHONY: clean-public
@@ -149,6 +122,10 @@ clean-public:
 clean-archives:
 	rm -rf version
 	rm -rf public/version
+
+.PHONY: prepare-submodules
+prepare-submodules:
+	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
 
 %.min.js: %.js
 	@rm -f $@
@@ -267,10 +244,8 @@ public/vendor: \
 	public/vendor/modernizr \
 	public/vendor/sizzle \
 	public/vendor/hijs \
-	public/vendor/mathjax \
 	public/vendor/fonts \
 	public/vendor/codemirror \
-	public/vendor/dsp.js \
 	public/vendor/requirejs \
 	public/vendor/text \
 	public/vendor/domReady \
@@ -279,19 +254,11 @@ public/vendor: \
 	public/vendor/shutterbug/README.md \
 	public/vendor/shutterbug/LICENSE.md \
 	public/vendor/lab-energy2d-java \
-	public/vendor/lab-sensor-applet-interface-dist \
-	public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js \
 	public/vendor/iframe-phone/iframe-phone.js \
 	public/vendor/chosen/chosen.jquery.min.js \
 	public/vendor/lab-grapher/lab-grapher.css \
 	public/favicon.ico
 
-
-public/vendor/dsp.js:
-	mkdir -p public/vendor/dsp.js
-	cp vendor/dsp.js/dsp.js public/vendor/dsp.js
-	cp vendor/dsp.js/LICENSE public/vendor/dsp.js/LICENSE
-	cp vendor/dsp.js/README public/vendor/dsp.js/README
 
 public/vendor/d3: vendor/d3
 	mkdir -p public/vendor/d3
@@ -343,22 +310,27 @@ public/vendor/jquery-context-menu:
 	cp vendor/jquery-context-menu/src/jquery.contextMenu.css public/vendor/jquery-context-menu
 
 public/vendor/jquery/jquery.min.js: \
-	vendor/jquery/dist/jquery.min.js \
 	public/vendor/jquery
-	cp vendor/jquery/dist/jquery*.js public/vendor/jquery
+	cp vendor/jquery/dist/jquery.js public/vendor/jquery
+	cp vendor/jquery/dist/jquery.min.js public/vendor/jquery
 	cp vendor/jquery/dist/jquery.min.map public/vendor/jquery
 	cp vendor/jquery/MIT-LICENSE.txt public/vendor/jquery
-	cp vendor/jquery/README.md public/vendor/jquery
 
 public/vendor/jquery:
 	mkdir -p public/vendor/jquery
 
 public/vendor/jquery-ui/jquery-ui.min.js: \
-	vendor/jquery-ui/dist/jquery-ui.min.js \
+	vendor/components-jqueryui \
 	public/vendor/jquery-ui
-	cp -r vendor/jquery-ui/dist/* public/vendor/jquery-ui
-	cp -r vendor/jquery-ui/themes/base/images public/vendor/jquery-ui
-	cp vendor/jquery-ui/MIT-LICENSE.txt public/vendor/jquery-ui
+	cp vendor/components-jqueryui/MIT-LICENSE.txt public/vendor/jquery-ui
+	mkdir -p public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/ui/jquery-ui.js public/vendor/jquery-ui
+	cp vendor/components-jqueryui/ui/i18n/jquery-ui-i18n.js public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/ui/minified/jquery-ui.min.js public/vendor/jquery-ui
+	cp vendor/components-jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js public/vendor/jquery-ui/i18n
+	cp vendor/components-jqueryui/themes/base/jquery-ui.css public/vendor/jquery-ui
+	cp vendor/components-jqueryui/themes/base/minified/jquery-ui.min.css public/vendor/jquery-ui
+	cp -r vendor/components-jqueryui/themes/base/images public/vendor/jquery-ui
 
 public/vendor/jquery-ui:
 	mkdir -p public/vendor/jquery-ui
@@ -393,17 +365,6 @@ public/vendor/hijs:
 	cp vendor/hijs/hijs.js public/vendor/hijs
 	cp vendor/hijs/LICENSE public/vendor/hijs
 	cp vendor/hijs/README.md public/vendor/hijs
-
-public/vendor/mathjax:
-	mkdir -p public/vendor/mathjax
-	cp vendor/mathjax/MathJax.js public/vendor/mathjax
-	cp vendor/mathjax/LICENSE public/vendor/mathjax
-	cp vendor/mathjax/README.md public/vendor/mathjax
-	cp -R vendor/mathjax/jax public/vendor/mathjax
-	cp -R vendor/mathjax/extensions public/vendor/mathjax
-	cp -R vendor/mathjax/images public/vendor/mathjax
-	cp -R vendor/mathjax/fonts public/vendor/mathjax
-	cp -R vendor/mathjax/config public/vendor/mathjax
 
 public/vendor/fonts: $(FONT_FOLDERS)
 	mkdir -p public/vendor/fonts
@@ -469,18 +430,6 @@ public/vendor/shutterbug/LICENSE.md: public/vendor/shutterbug \
 	vendor/shutterbug/LICENSE.md
 	cp vendor/shutterbug/LICENSE.md public/vendor/shutterbug
 
-public/vendor/lab-sensor-applet-interface-dist: vendor/lab-sensor-applet-interface-dist
-	mkdir -p public/vendor/lab-sensor-applet-interface-dist
-	cp -r vendor/lab-sensor-applet-interface-dist/* public/vendor/lab-sensor-applet-interface-dist/
-
-public/vendor/sensor-labquest-2-interface/sensor-labquest-2-interface.js: \
-	public/vendor/sensor-labquest-2-interface \
-	vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js
-	cp vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js public/vendor/sensor-labquest-2-interface/
-
-public/vendor/sensor-labquest-2-interface:
-	mkdir -p public/vendor/sensor-labquest-2-interface
-
 public/vendor/iframe-phone/iframe-phone.js: \
 	public/vendor/iframe-phone \
 	vendor/iframe-phone/dist/iframe-phone.js
@@ -500,29 +449,13 @@ public/vendor/lab-grapher:
 public/favicon.ico:
 	cp -f src/favicon.ico public/favicon.ico
 
-vendor/jquery/dist/jquery.min.js: vendor/jquery
-	cd vendor/jquery; npm install; \
-	 npm install grunt-cli; \
-	 ./node_modules/grunt-cli/bin/grunt
-
 vendor/jquery:
-	git submodule update --init --recursive
+	git submodule update
 
-vendor/jquery-ui/dist/jquery-ui.min.js: vendor/jquery-ui
-	cd vendor/jquery-ui; npm install; \
-	npm install grunt-cli; \
-	./node_modules/grunt-cli/bin/grunt build
-
-vendor/jquery-ui:
-	git submodule update --init --recursive
-
-vendor/lab-sensor-applet-interface-dist:
-	git submodule update --init --recursive
+vendor/components-jqueryui:
+	git submodule update
 
 vendor/lab-energy2d-java:
-	git submodule update --init --recursive
-
-vendor/sensor-labquest-2-interface/dist/sensor-labquest-2-interface.js:
 	git submodule update --init --recursive
 
 vendor/shutterbug:

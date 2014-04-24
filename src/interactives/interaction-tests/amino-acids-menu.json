@@ -19,7 +19,7 @@
       "id": "label1",
       "type": "text",
       "text": [
-        "###Right click an amino acid to bring the amino acids menu.###",
+        "###Click or touch an amino acid to bring the amino acids menu.###",
         "Then compare it with screenshots. To collapse or expand amino acids group click one",
         "of the headers (hydrophilic or hydrophobic)."
       ]

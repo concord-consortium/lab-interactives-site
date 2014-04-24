@@ -46,9 +46,9 @@ rm version/$version/public/embeddable-staging.html
 rm version/$version/public/embeddable-dev.html
 rm version/$version/public/embeddable-local.html
 
-echo "- generate HTML pages with correct Lab root URL and STATIC=true"
+echo "- generate HTML pages with correct Lab root URL"
 
-LAB_ROOT_URL="lab" LAB_STATIC=true script/generate-interactives-html.rb default > version/$version/public/interactives.html
+LAB_ROOT_URL="lab" script/generate-interactives-html.rb default > version/$version/public/interactives.html
 LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > version/$version/public/embeddable.html
 
 echo "- generate $archivename archive"
@@ -56,8 +56,3 @@ echo "- generate $archivename archive"
 mv version/$version/public/ version/$version/$version/
 tar -zcf version/$archivename --directory=version/$version/ $version
 mv version/$version/$version/ version/$version/public/
-
-echo "- generate HTML pages with correct Lab root URL and STATIC=false"
-
-LAB_ROOT_URL="lab" script/generate-interactives-html.rb default > version/$version/public/interactives.html
-LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > version/$version/public/embeddable.html

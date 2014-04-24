@@ -1,5 +1,7 @@
 require "bundler/capistrano"
-require "./script/setup"
+require 'yaml'
+
+CONFIG = YAML.load_file("config/config.yml")
 
 set :stages, CONFIG[:deploy][:targets].collect { |target| target[:name] }
 set :default_stage, "lab-dev"
@@ -57,7 +59,7 @@ namespace :deploy do
   task :update do
     checkout
     bundle_install
-    run "cd /var/www/interactives; make clean-public; make"
+    run "cd /var/www/interactives; make clean-public; GA_ACCOUNT_ID=UA-6899787-28 DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/ make"
     archive_public_dir
     create_standalone
     restart
@@ -67,7 +69,7 @@ namespace :deploy do
   task :clean_and_update do
     checkout
     bundle_install
-    run "cd /var/www/interactives; make clean; make"
+    run "cd /var/www/interactives; make clean; GA_ACCOUNT_ID=UA-6899787-28 DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/ make"
     archive_public_dir
     create_standalone
     restart

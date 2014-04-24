@@ -155,10 +155,6 @@
     "pinned": [
       1,
       1
-    ],
-    "draggableWhenStopped": [
-      0,
-      0
     ]
   },
   "obstacles": {

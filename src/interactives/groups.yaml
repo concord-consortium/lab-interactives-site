@@ -310,10 +310,6 @@
   :name: "Performance Benchmarks"
   :category: Benchmarks
 
-- :path: solar-system
-  :name: "Solar System"
-  :category: Tests
-
 - :path: energy2d/htb
   :name: "Energy2D: Heat Transfer"
   :category: Curriculum

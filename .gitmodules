@@ -16,12 +16,6 @@
 [submodule "vendor/jquery"]
 	path = vendor/jquery
 	url = git://github.com/jquery/jquery.git
-[submodule "vendor/mathjax"]
-	path = vendor/mathjax
-	url = git://github.com/mathjax/MathJax.git
-[submodule "vendor/dsp.js"]
-	path = vendor/dsp.js
-	url = git://github.com/concord-consortium/dsp.js.git
 [submodule "vendor/d3-plugins"]
 	path = vendor/d3-plugins
 	url = git://github.com/d3/d3-plugins.git
@@ -40,9 +34,6 @@
 [submodule "vendor/codemirror"]
 	path = vendor/codemirror
 	url = git://github.com/marijnh/CodeMirror.git
-[submodule "vendor/jquery-ui"]
-	path = vendor/jquery-ui
-	url = git://github.com/jquery/jquery-ui.git
 [submodule "vendor/tinysort"]
 	path = vendor/tinysort
 	url = git://github.com/Sjeiti/TinySort.git
@@ -64,9 +55,6 @@
 [submodule "vendor/jquery-selectBoxIt"]
 	path = vendor/jquery-selectBoxIt
 	url = git://github.com/gfranko/jquery.selectBoxIt.js.git
-[submodule "vendor/fonts/Font-Awesome"]
-	path = vendor/fonts/Font-Awesome
-	url = git://github.com/FortAwesome/Font-Awesome.git
 [submodule "vendor/fingerprintjs"]
 	path = vendor/fingerprintjs
 	url = https://github.com/Valve/fingerprintjs
@@ -79,9 +67,6 @@
 [submodule "vendor/lab-sensor-applet-interface"]
 	path = vendor/lab-sensor-applet-interface
 	url = git://github.com/concord-consortium/lab-sensor-applet-interface.git
-[submodule "vendor/lab-sensor-applet-interface-dist"]
-	path = vendor/lab-sensor-applet-interface-dist
-	url = git://github.com/concord-consortium/lab-sensor-applet-interface-dist.git
 [submodule "vendor/seedrandom"]
 	path = vendor/seedrandom
 	url = https://github.com/davidbau/seedrandom.git
@@ -92,12 +77,12 @@
 	path = vendor/chosen
 	url = https://github.com/harvesthq/chosen.git
 	branch = gh-pages
-[submodule "vendor/sensor-labquest-2-interface"]
-	path = vendor/sensor-labquest-2-interface
-	url = https://github.com/concord-consortium/sensor-labquest-2-interface.git
 [submodule "vendor/iframe-phone"]
 	path = vendor/iframe-phone
 	url = https://github.com/concord-consortium/iframe-phone.git
 [submodule "vendor/lab-energy2d-java"]
 	path = vendor/lab-energy2d-java
 	url = https://github.com/concord-consortium/lab-energy2d-java.git
+[submodule "vendor/components-jqueryui"]
+	path = vendor/components-jqueryui
+	url = https://github.com/components/jqueryui.git

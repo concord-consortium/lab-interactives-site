@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'fileutils'
 require 'yaml'
-require 'optparse'
 
 PROJECT_ROOT = File.expand_path('../..',  __FILE__)                if !defined? PROJECT_ROOT
 SRC_PATH  = File.join(PROJECT_ROOT, 'src')                         if !defined? SRC_PATH
@@ -23,7 +22,6 @@ def render_file(filename, locals)
     :lab_root_url => lab_root_url,
     :lab_js_url => lab_root_url + (if lab_env == :production then "/lab.min.js" else "/lab.js" end),
     :lab_css_url => lab_root_url + "/lab.css",
-    :data_games_prefix => CONFIG[:jsconfig][:dataGamesProxyPrefix],
     :embeddable_page => embeddable_page,
     :lab_js_dependencies => case CONFIG[:environment]
       when 'production'
@@ -58,36 +56,24 @@ def render_file(filename, locals)
           LAB_ENV: "#{lab_env}",
           EMBEDDABLE_PAGE: "#{embeddable_page}",
           SITE_ENV: "#{CONFIG[:environment]}",
-          STATIC: #{!!(ENV['LAB_STATIC'] || CONFIG[:jsconfig][:static])},
-          DATA_GAMES_PROXY_PREFIX: "#{CONFIG[:jsconfig][:dataGamesProxyPrefix]}",
+          DATA_GAMES_PROXY_PREFIX: "#{ENV['DATA_GAMES_PROXY_PREFIX']}",
         };
       </script>
       HEREDOC
   })
 end
 
-begin
-  CONFIG = YAML.load_file(File.join(CONFIG_PATH, 'config.yml'))
-rescue Errno::ENOENT
-  msg = <<-HEREDOC
-
-*** missing config/config.yml
-
-    cp config/config.sample.yml config/config.yml
-
-    and edit appropriately ...
-
-  HEREDOC
-  raise msg
-end
+# Find config appropriate for current branch.
+branch_config = `script/branch-config-file.rb`
+CONFIG = YAML.load_file(branch_config)
 
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
-  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/lab",
-  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/lab",
-  :staging     => config_lab_root_url[:staging]     || "//lab-s3.concord.org/version/1.0.0-pre.3/lab",
-  :development => config_lab_root_url[:development] || "//lab-s3.concord.org/branch/master/lab",
+  :default     => config_lab_root_url[:default]     || "//lab-framework-s3.concord.org/version/1.0.0/lab",
+  :production  => config_lab_root_url[:production]  || "//lab-framework-s3.concord.org/version/1.0.0/lab",
+  :staging     => config_lab_root_url[:staging]     || "//lab-framework-s3.concord.org/version/1.0.0/lab",
+  :development => config_lab_root_url[:development] || "//lab-framework-s3.concord.org/branch/master/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
 }
 
@@ -100,11 +86,11 @@ EMBEDDABLE_PAGE = {
 }
 
 # setup partial for Google Analytics
-if CONFIG[:google_analytics] && CONFIG[:google_analytics][:account_id]
+if ENV['GA_ACCOUNT_ID']
   ANALYTICS = <<-HEREDOC
   <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '#{CONFIG[:google_analytics][:account_id]}']);
+    _gaq.push(['_setAccount', '#{ENV['GA_ACCOUNT_ID']}']);
     _gaq.push(['_setAllowAnchor', true]);
     (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -117,26 +103,13 @@ else
   ANALYTICS = ""
 end
 
-# setup partial for fontface
-if CONFIG[:jsconfig] && CONFIG[:jsconfig][:fontface]
-  FONTFACE = CONFIG[:jsconfig][:fontface]
-else
-  FONTFACE = 'Open Sans'
-end
-
-FONTFACE_LINK = case FONTFACE
-when "Lato"
+FONTFACE = 'Lato'
+FONTFACE_LINK =
   <<-HEREDOC
 <link href='//fonts.googleapis.com/css?family=Lato:300italic,700italic,300,400,400italic,700' rel='stylesheet' type='text/css'>
   HEREDOC
-else          # default is "Open Sans"
-  <<-HEREDOC
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300italic,400,300,700&amp;subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'>
-  HEREDOC
-end
 
 # setup partials for 'production' (minimized resources) or 'development'
-
 LAB_JS_ADDITIONAL_DEPENDENCIES = case CONFIG[:environment]
 when 'production'
   <<-HEREDOC

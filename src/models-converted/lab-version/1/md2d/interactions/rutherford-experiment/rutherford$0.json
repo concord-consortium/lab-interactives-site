@@ -46,85 +46,86 @@
     "electricFieldDensity": 40,
     "electricFieldColor": "auto",
     "showAtomTrace": false,
-    "images": [],
+    "images": [
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 2.03,
+        "imageY": 1.94
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 3.63,
+        "imageY": 2.23
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 3.21,
+        "imageY": 1.15
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 2.3,
+        "imageY": 2.73
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 3.69,
+        "imageY": 1.61
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 3.34,
+        "imageY": 2.91
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 2.36,
+        "imageY": 1.39
+      },
+      {
+        "imageUri": "negative-atom.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "visible": true,
+        "imageX": 2.87,
+        "imageY": 2.43
+      }
+    ],
     "imageMapping": {},
     "textBoxes": [
       {
         "text": "+",
         "x": 2.92,
         "y": 1.84,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 2.03,
-        "y": 1.94,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 3.63,
-        "y": 2.23,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 3.21,
-        "y": 1.15,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 2.3,
-        "y": 2.73,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 3.69,
-        "y": 1.61,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 3.34,
-        "y": 2.91,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 2.36,
-        "y": 1.39,
-        "layer": 1,
-        "color": "rgb(255,255,255)",
-        "fontSize": 0.14,
-        "anchor": "upper-left"
-      },
-      {
-        "text": "+",
-        "x": 2.87,
-        "y": 2.43,
         "layer": 1,
         "color": "rgb(255,255,255)",
         "fontSize": 0.14,
@@ -186,7 +187,7 @@
     "color": [
       -13618945,
       -9066941,
-      -9092186,
+      -65536,
       -2539040,
       -855310
     ]

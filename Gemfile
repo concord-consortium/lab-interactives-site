@@ -3,10 +3,12 @@ source "http://rubygems.org"
 gem "haml",               "~> 4.0.0"
 
 # Adds Hash.from_xml method used in Energy2D importer
-gem 'active_support',     "~> 3"
+gem 'activesupport',     "~> 3"
 gem 'i18n',               "~> 0.6.4"
 gem "gitlab-grit",        "~> 2.6.0"
 gem "shutterbug",         "~> 0.2.1"
+gem "s3_website",  :git => 'git://github.com/concord-consortium/s3_website.git',
+                   :branch => 'optimize-diff-calculation'
 
 group :app do
   gem "rack",               "~> 1.5.2"

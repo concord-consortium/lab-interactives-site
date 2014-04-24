@@ -19,6 +19,7 @@
       $selectInteractive = $("#select-interactive"),
       $selectInteractiveGroups = $("#select-interactive-groups"),
       $selectInteractiveSize = $("#select-interactive-size"),
+      $selectLabEnvironment = $("#select-lab-environment"),
 
       $showEditor = $("#show-editor"),
       $showModelEditor = $("#show-model-editor"),
@@ -253,11 +254,11 @@
           "width": 600,
           "height":400
         },
-        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "#" + interactiveUrl
+        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "?codap=true#" + interactiveUrl
       }]);
     }
 
-    if (SITE_CONFIG.STATIC || !SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
+    if (!SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
       $codapLink.hide();
       $codapStagingLink.hide();
     } else {
@@ -337,6 +338,16 @@
   }
 
   $selectInteractiveSize.change(selectInteractiveSizeHandler);
+
+  function selectLabEnvironmentHandler() {
+    var val = $selectLabEnvironment.val();
+    var newPage = "interactives" + (val ? "-" : "") + val + ".html";
+    var newHref = window.location.href.replace(/interactives-?[a-z]*\.html/, newPage);
+    window.location = newHref;
+  }
+  // Set Lab environment select based on the current URL (interactives.html page version).
+  $selectLabEnvironment.val(window.location.href.match(/interactives-?([a-z]*)\.html/)[1]);
+  $selectLabEnvironment.change(selectLabEnvironmentHandler);
 
   function setupSelectList() {
     if (chosenApplied) {
@@ -505,11 +516,7 @@
       disableOriginalModelLink();
       disableJsonModelLink();
     }
-    if (SITE_CONFIG.STATIC) {
-      $originalImportLink.hide();
-    } else {
-      $originalImportLink.show();
-    }
+    $originalImportLink.show();
   }
 
   function setupSelectGroups(){

@@ -1,32 +1,34 @@
-# black list wip branches, however if pull requests are created for one then
-# travis should build it
 branches:
   except:
-    - /^(wip|WIP)(-|_).*$/
+  - /^(wip|WIP)(-|_).*$/
 notifications:
   irc:
     channels:
-      - "irc.freenode.org#ccdevs"
+    - irc.freenode.org#ccdevs
     on_success: change
     on_failure: always
   email:
     recipients:
-      - stephen.bannasch@gmail.com
-      - sfentress@concord.org
-      - rpk@pobox.com
-      - janikpiotrek@gmail.com
-      - scytacki@concord.org
+    - stephen.bannasch@gmail.com
+    - sfentress@concord.org
+    - rpk@pobox.com
+    - janikpiotrek@gmail.com
+    - scytacki@concord.org
     on_success: change
     on_failure: always
-install: sudo apt-get install libicu-dev
 language: ruby
 rvm:
-  - "2.0.0"
+- 2.0.0
+before_install: sudo apt-get install libicu-dev
+bundler_args: --without development
 before_script:
-  - cp config/config.sample.yml config/config.yml
-  - travis_retry bundle install --binstubs
-  - make clean-for-tests
-  # see: http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-script: "make test-src"
+- travis_retry npm install
+- make prepare-submodules
+script: make public
+after_success: script/s3-deploy.sh
+env:
+  - DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/
+  global:
+  - secure: OrtynMchJnZefWOowzS0oGATN5kB9X+HveWWwH/cjO9NiuIOzkBGbSwRTtnCB6UU8VXDkEIsMQyQoMtjw11hSOv2/89raKMmloa/Dc5ZVa+F3EG/v/JWHAzIMnInjtvG3x9ncUiRcqXTWFLwzxppr3A17bVUJ4r9if4fsQdV7+k=
+  - secure: QyVpE9/A3LNNsHfrxuJhI49aaz4bDUW4HNvJuexlRy1x90jleezKgSqZu20BE6XfIRzcnitIiJV0o3aFg4Q9aHtN5uhjUOwcup8ONN3E+TZbrKtRJI+zzvsLaZH/Aqrd1vhg7bac5bm9bXDWNgLHjf8jfd4GxXd64TW6g+eQ2vg=
+  - secure: FWaxc/JRzvNOM7CJ9H03CrbjJ+VW9Q77SxtfsxlyYi4PYq/SbItpganKbBkFobJ/9sBRaChDDpY7n0Iye50E4MasI+YgZYQdiAFcVTf69/vwlKceZWY8DWqnsX+XKVqi8qU6WCtUQxo2WlOfL18ESbNa0YhlvJSxx1daP7NyzFo=

@@ -123,14 +123,9 @@ $(function () {
     });
 
     function modelTypeCheck(i) {
-      // Metadata doesn't contain information about model type, so do some ugly tests.
-      if (MD2DOnly) {
-        var k = i.groupKey;
-        if (k.indexOf("solar-system") === -1 && k.indexOf("energy2d") === -1) {
-          return true;
-        } else {
-          return false;
-        }
+      // Metadata doesn't contain information about model type.
+      if (MD2DOnly && i.groupKey.indexOf("energy2d") !== -1) {
+        return false;
       }
       return true;
     }
