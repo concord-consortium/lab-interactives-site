@@ -1,5 +1,7 @@
 require "bundler/capistrano"
-require "./script/setup"
+require 'yaml'
+
+CONFIG = YAML.load_file("config/config.yml")
 
 set :stages, CONFIG[:deploy][:targets].collect { |target| target[:name] }
 set :default_stage, "lab-dev"
