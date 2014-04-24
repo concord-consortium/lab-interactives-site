@@ -28,8 +28,8 @@ bundler_args: --without development
 before_script:
 - travis_retry npm install
 - make prepare-submodules
-script: make public
-after_success: travis_wait 40 script/s3-deploy.sh
+- make public
+script: script/s3-deploy.sh
 env:
   global:
   - DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/
