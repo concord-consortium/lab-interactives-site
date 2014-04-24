@@ -47,24 +47,28 @@ find _site/ -type f -iname '*.js' -exec gzip {} \; -exec mv {}.gz {} \;
 find _site/ -type f -iname '*.css' -exec gzip {} \; -exec mv {}.gz {} \;
 find _site/ -type f -iname '*.json' -exec gzip {} \; -exec mv {}.gz {} \;
 
+echo "- sync gzipped and non-gzipped content"
+# Sync non-gzipped content and prepare regexp for gzipped content sync.
 if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
-  inc='^(?!(version/(?!'"$SITE_VERSION"')|branch/))'
-  echo "- sync gzipped content"
-  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' --exclude '*' \
-    --rinclude "$inc"'.+\.html' --rinclude "$inc"'.+\.js' --rinclude "$inc"'.+\.css' --rinclude "$inc"'.+\.json' \
-    _site/ s3://interactives-s3.concord.org/
-  echo "- sync non-gzipped content"
   s3cmd sync -c config/s3cmd --delete-removed --no-preserve --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' \
     --exclude '*.html' --exclude '*.js' --exclude '*.css' --exclude '*.json' \
-    _site/ s3://interactives-s3.concord.org/
+    _site/ s3://interactives-s3.concord.org/ &
+  inc='^(?!(version/(?!'"$SITE_VERSION"')|branch/))'
 else
-  inc='^branch/'"$TRAVIS_BRANCH"'/'
-  echo "- sync gzipped content"
-  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' --exclude '*' \
-    --rinclude "$inc"'.+\.html' --rinclude "$inc"'.+\.js' --rinclude "$inc"'.+\.css' --rinclude "$inc"'.+\.json' \
-    _site/ s3://interactives-s3.concord.org/
-  echo "- sync non-gzipped content"
   s3cmd sync -c config/s3cmd --delete-removed --no-preserve --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' \
     --exclude '*.html' --exclude '*.js' --exclude '*.css' --exclude '*.json' \
-    _site/ s3://interactives-s3.concord.org/
+    _site/ s3://interactives-s3.concord.org/ &
+  inc='^branch/'"$TRAVIS_BRANCH"'/'
 fi
+# Divide sync of gzipped content into multiple processes.
+s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' \
+  --exclude '*' --rinclude "$inc"'.+\.html' _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' \
+  --exclude '*' --rinclude "$inc"'.+\.js' _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' \
+  --exclude '*' --rinclude "$inc"'.+\.css' _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' \
+  --exclude '*' --rinclude "$inc"'.+\.json' _site/ s3://interactives-s3.concord.org/ &
+
+wait
+echo "sync finished"
