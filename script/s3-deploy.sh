@@ -38,6 +38,6 @@ if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
 else
   echo "deploying $TRAVIS_BRANCH branch: updating branch/$TRAVIS_BRANCH"
   mkdir -p _site/branch
-  mv public _site/branch/$TRAVIS_BRANCH
-  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' _site/ s3://interactives-s3.concord.org/
+  cp -R public _site/branch/$TRAVIS_BRANCH
+  s3cmd sync -c config/s3cmd --delete-removed --no-preserve --exclude '*' --rinclude '^branch/'"$TRAVIS_BRANCH"'/' _site/ s3://interactives-s3.concord.org/
 fi
