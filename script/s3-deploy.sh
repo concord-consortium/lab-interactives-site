@@ -7,7 +7,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-if [ "$TRAVIS_BRANCH" = "master" ]; then
+# TODO: CHANGE BACK TO MASTER!
+if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
   SITE_VERSION=`cat site-version`
   echo "deploying master branch (production): updating root dir, version/$SITE_VERSION and version/$SITE_VERSION.tar.gz"
   echo "- copy public to _site"
@@ -33,13 +34,10 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
 
   echo "- generate archive _site/version/$SITE_VERSION.tar.gz"
   tar -czf _site/version/$SITE_VERSION.tar.gz --directory=_site/version/ $SITE_VERSION
-  export SITE_VERSION
+  s3cmd sync -c config/s3cmd --delete-removed --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' _site/ s3://interactives-s3.concord.org/
 else
   echo "deploying $TRAVIS_BRANCH branch: updating branch/$TRAVIS_BRANCH"
   mkdir -p _site/branch
-  DEPLOY_DIR=branch/$TRAVIS_BRANCH
-  mv public _site/$DEPLOY_DIR
-  export DEPLOY_DIR
+  mv public _site/branch/$TRAVIS_BRANCH
+  s3cmd sync -c config/s3cmd --delete-removed --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' _site/ s3://interactives-s3.concord.org/
 fi
-
-disable_parallel_processing=true bundle exec s3_website push --site _site --headless --config_dir config
