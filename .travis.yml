@@ -29,7 +29,7 @@ before_script:
 - travis_retry npm install
 - make prepare-submodules
 - make public
-script: script/s3-deploy.sh
+script: travis_wait 40 ./script/s3-deploy.sh
 env:
   global:
   - DATA_GAMES_PROXY_PREFIX=DataGames/Games/concord/lab/

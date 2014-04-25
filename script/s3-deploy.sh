@@ -44,28 +44,33 @@ else
 fi
 
 echo "- gzip HTML, JS, CSS and JSON files"
-find _site/ -type f -iname '*.html' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.js' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.css' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
-find _site/ -type f -iname '*.json' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+# find _site/ -type f -iname '*.html' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+# find _site/ -type f -iname '*.js' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+# find _site/ -type f -iname '*.css' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
+# find _site/ -type f -iname '*.json' -exec gzip --no-name {} \; -exec mv {}.gz {} \;
 
 echo "- sync gzipped and non-gzipped content"
 # Sync non-gzipped content and prepare regexp for gzipped content sync.
 if [ "$TRAVIS_BRANCH" = "s3cmd-upload" ]; then
-  s3cmd sync -c config/s3cmd -M --delete-removed --no-preserve --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' \
+  s3cmd sync -c config/s3cmd -q --no-mime-magic --delete-removed --no-preserve --rexclude '^(version/(?!'"$SITE_VERSION"')|branch/)' \
     --exclude '*.html' --exclude '*.js' --exclude '*.css' --exclude '*.json' \
     _site/ s3://interactives-s3.concord.org/ &
   inc='^(?!(version/(?!'"$SITE_VERSION"')|branch/))'
 else
-  s3cmd sync -c config/s3cmd -M --delete-removed --no-preserve --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' \
+  s3cmd sync -c config/s3cmd -q --no-mime-magic --delete-removed --no-preserve --rexclude '^(?!branch/'"$TRAVIS_BRANCH"'/)' \
     --exclude '*.html' --exclude '*.js' --exclude '*.css' --exclude '*.json' \
     _site/ s3://interactives-s3.concord.org/ &
   inc='^branch/'"$TRAVIS_BRANCH"'/'
 fi
 # Sync gziped content.
-s3cmd sync -c config/s3cmd -M --delete-removed --no-preserve --add-header 'Content-Encoding:gzip' \
-  --exclude '*' --rinclude "$inc"'.+\.html'  --rinclude "$inc"'.+\.js' --rinclude "$inc"'.+\.css' --rinclude "$inc"'.+\.json' \
-  _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd -q --delete-removed --no-preserve \
+  --exclude '*' --rinclude "$inc"'.+\.html' --mime-type=text/html _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd -q --delete-removed --no-preserve \
+  --exclude '*' --rinclude "$inc"'.+\.js' --mime-type=application/javascript _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd -q --delete-removed --no-preserve \
+  --exclude '*' --rinclude "$inc"'.+\.css' --mime-type=text/css _site/ s3://interactives-s3.concord.org/ &
+s3cmd sync -c config/s3cmd -q --delete-removed --no-preserve \
+  --exclude '*' --rinclude "$inc"'.+\.json' --mime-type=application/json _site/ s3://interactives-s3.concord.org/ &
 
 wait
 echo "sync finished"
