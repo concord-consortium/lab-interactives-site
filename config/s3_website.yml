@@ -4,7 +4,7 @@ s3_bucket: interactives-s3.concord.org
 s3_endpoint: us-east-1
 gzip: true
 
-<% if ENV['TRAVIS_BRANCH'] == 'master' %>
+<% if ENV['TRAVIS_BRANCH'] == 'fast-diff' %>
 # In this case we are going to deploy this branch to the top level of the domain
 # and version/<SITE_VERSION>, so we need to ignore the old versions and branch folders.
 ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>/)|branch/)
