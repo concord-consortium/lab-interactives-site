@@ -18,9 +18,16 @@ GIT
       thor (~> 0.15)
 
 GIT
-  remote: git://github.com/concord-consortium/s3_website.git
-  revision: b22c7e80878d19b889be76f7a51083f55276c1bd
-  branch: optimize-diff-calculation
+  remote: git://github.com/concord-consortium/filey-diff.git
+  revision: ec81afd14b1c0508cf24c2d4f4eb44debb48b8a7
+  branch: WIP-fast-diff
+  specs:
+    filey-diff (1.4.3)
+
+GIT
+  remote: git://github.com/pjanik/s3_website.git
+  revision: 0f8ed188d822ec4b4292fbd991012da0d980edc7
+  branch: WIP-fast-diff
   specs:
     s3_website (1.7.0)
       aws-sdk (~> 1)
@@ -37,10 +44,9 @@ GEM
   specs:
     activesupport (3.0.0)
     archive-tar-minitar (0.5.2)
-    aws-sdk (1.38.0)
+    aws-sdk (1.39.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-      uuidtools (~> 2.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (3.1.8)
@@ -88,7 +94,6 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.9.0)
-    filey-diff (1.4.3)
     fog (1.12.1)
       builder
       excon (~> 0.23.0)
@@ -210,7 +215,6 @@ GEM
     tilt (1.4.1)
     travis-lint (1.7.0)
       hashr (~> 0.0.22)
-    uuidtools (2.1.4)
     wdm (0.1.0)
     yajl-ruby (1.1.0)
     zopfli (0.0.3)
@@ -223,6 +227,7 @@ DEPENDENCIES
   bourbon (~> 3.1.1)
   capistrano (~> 2.15.5)
   chef (~> 11.6.0)
+  filey-diff!
   fog (~> 1.12.1)
   gitlab-grit (~> 2.6.0)
   guard (~> 1.8.2)
