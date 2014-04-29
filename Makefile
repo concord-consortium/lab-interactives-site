@@ -5,7 +5,7 @@ JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
 MARKDOWN_COMPILER = kramdown
 
-SASS_COMPILER = sass -I src -I public -r ./src/helpers/sass/lab_fontface.rb
+SASS_COMPILER = sass -I src -I public
 
 GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
