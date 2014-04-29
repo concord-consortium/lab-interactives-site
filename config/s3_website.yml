@@ -10,7 +10,7 @@ gzip:
   - .json
   - .e2d
 
-<% if ENV['TRAVIS_BRANCH'] == 'fast-diff' %>
+<% if ENV['TRAVIS_BRANCH'] == 'master' %>
 # In this case we are going to deploy this branch to the top level of the domain
 # and version/<SITE_VERSION>, so we need to ignore the old versions and branch folders.
 ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>/)|branch/)

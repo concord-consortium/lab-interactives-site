@@ -7,7 +7,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-if [ "$TRAVIS_BRANCH" = "fast-diff" ]; then
+if [ "$TRAVIS_BRANCH" = "master" ]; then
   SITE_VERSION=`cat site-version`
   echo "deploying master branch (production): updating root dir, version/$SITE_VERSION and version/$SITE_VERSION.tar.gz"
   echo "- copy public to _site"
