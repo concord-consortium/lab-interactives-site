@@ -99,7 +99,6 @@ else
   ANALYTICS = ""
 end
 
-FONTFACE = 'Lato'
 FONTFACE_LINK =
   <<-HEREDOC
 <link href='//fonts.googleapis.com/css?family=Lato:300italic,700italic,300,400,400italic,700' rel='stylesheet' type='text/css'>
