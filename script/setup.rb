@@ -22,6 +22,7 @@ def render_file(filename, locals)
     :lab_root_url => lab_root_url,
     :lab_js_url => lab_root_url + (if lab_env == :production then "/lab.min.js" else "/lab.js" end),
     :lab_css_url => lab_root_url + "/lab.css",
+    :fallback_fonts_from_lab => lab_env == :local,
     :embeddable_page => embeddable_page,
     :lab_js_dependencies => case CONFIG[:environment]
       when 'production'
@@ -45,11 +46,6 @@ def render_file(filename, locals)
       <script src='#{lab_root_url}/vendor/tinysort/jquery.tinysort.js' type='text/javascript'></script>
         HEREDOC
       end,
-    :lab_css_dependencies => <<-HEREDOC,
-      <link href='#{lab_root_url}/vendor/jquery-ui/jquery-ui.css' rel='stylesheet' type='text/css'>
-      <link href='#{lab_root_url}/vendor/jquery-context-menu/jquery.contextMenu.css' rel='stylesheet' type='text/css'>
-      <link href='#{lab_root_url}/vendor/jquery-selectBoxIt/jquery.selectBoxIt.css' rel='stylesheet' type='text/css'>
-      HEREDOC
     :js_site_config => <<-HEREDOC,
       <script>
         var SITE_CONFIG = {

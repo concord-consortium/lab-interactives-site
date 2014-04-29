@@ -4,6 +4,8 @@
     %meta{:content => "text/html;charset=utf-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %title Lab Interactive Browser
+    - if fallback_fonts_from_lab
+      %link{:href => "#{lab_root_url}/lab-fonts.css", :rel => "stylesheet", :type => "text/css"}
     = FONTFACE_LINK
     %link{:href => "vendor/jquery-ui/jquery-ui.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "vendor/codemirror/lib/codemirror.css", :rel => "stylesheet", :type => "text/css"}/
