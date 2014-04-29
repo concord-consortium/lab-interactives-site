@@ -93,10 +93,10 @@ Here is a list of projects and resources included in the in the `vendor/` direct
 30. [seedrandom](https://github.com/davidbau/seedrandom): [BSD](http://www.opensource.org/licenses/BSD-2-Clause)
 31. [chosen](https://github.com/harvesthq/chosen): [MIT](http://www.opensource.org/licenses/MIT)
 
-In addition there are three fontface directories in `vendor/fonts` that are distributed
-under compatible open source licenses:
+In addition there is one fontface directory in `vendor/fonts` that is distributed
+under a compatible open source license:
 
-1.  [Open Sans](http://www.google.com/webfonts/specimen/Open+Sans): [Apache 2.0](http://www.opensource.org/licenses/Apache-2.0)
+1.  [Lato](http://www.google.com/webfonts/specimen/Lato): [SIL Open Font License 1.1](http://opensource.org/licenses/OFL-1.1)
 
 The Sass mixins in the directories: `src/sass/bourbon` and `src/sass/neat` are used to produce some
 of the CSS used in the Lab project and are distributed under the MIT license.
