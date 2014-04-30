@@ -25,8 +25,8 @@ GIT
     filey-diff (1.4.3)
 
 GIT
-  remote: git://github.com/pjanik/s3_website.git
-  revision: 0f8ed188d822ec4b4292fbd991012da0d980edc7
+  remote: git://github.com/concord-consortium/s3_website.git
+  revision: 5aa262240b52350a72fb57c2700e1ee8032aa098
   branch: WIP-fast-diff
   specs:
     s3_website (1.7.0)
