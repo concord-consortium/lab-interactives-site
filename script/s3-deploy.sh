@@ -32,7 +32,10 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > _site/version/$SITE_VERSION/embeddable.html
 
   echo "- generate archive _site/version/$SITE_VERSION.tar.gz"
-  tar -czf _site/version/$SITE_VERSION.tar.gz --directory=_site/version/ $SITE_VERSION
+  tar -cf _site/version/$SITE_VERSION.tar --directory=_site/version/ $SITE_VERSION
+  # Pass --no-name option so timestamp is not included in gzipped file and the S3_website diff
+  # can correctly detect whether this file has been changed or not.
+  gzip --no-name _site/version/$SITE_VERSION.tar
   export SITE_VERSION
 else
   echo "deploying $TRAVIS_BRANCH branch: updating branch/$TRAVIS_BRANCH"

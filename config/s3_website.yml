@@ -14,7 +14,7 @@ gzip:
 <% if ENV['TRAVIS_BRANCH'] == 'master' %>
 # In this case we are going to deploy this branch to the top level of the domain
 # and version/<SITE_VERSION>, so we need to ignore the old versions and branch folders.
-ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>/)|branch/)
+ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>(/|\.tar\.gz))|branch/)
 <% else %>
 # In this case we are going to deploy this code to a subfolder of the branch folder.
 # So ignore everything except this folder.
