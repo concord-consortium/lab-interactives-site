@@ -1,6 +1,6 @@
 s3_id: <%= ENV['S3_ACCESS_KEY_ID'] %>
 s3_secret: <%= ENV['S3_SECRET_KEY'] %>
-s3_bucket: interactives-s3.concord.org
+s3_bucket: lab.concord.org
 s3_endpoint: us-east-1
 gzip:
   - .html
@@ -21,7 +21,17 @@ ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>(/|\.tar
 ignore_on_server: ^(?!<%= Regexp.escape(ENV['DEPLOY_DIR']) %>/)
 <% end %>
 max_age:
-  "version/**/*": 300 # 5 minutes in seconds
-  "branch/**/*": 300  # 5 minutes in seconds
-# currently the production files at the root are not set with a max_age this is the
-# same as what is done currently.
+  # Default cache:
+  "*": 21600 # 6 hours in seconds
+  # Short cache for files often modified by authors:
+  "interactives.json": 300 # 5 minutes in seconds
+  "interactives/*": 300
+  "models/*": 300
+  "models-converted/*": 300
+  "version/**/interactives.json": 300
+  "version/**/interactives/*": 300
+  "version/**/models/*": 300
+  "version/**/models-converted/*": 300
+  "version/*.tar.gz": 300
+  # No cache in topic branches:
+  "branch/**/*": 0
