@@ -168,7 +168,7 @@
   },
   "exports": {
     "selectionComponents": ["propertiesGraph"],
-    "perRun": ["sensorType"],
+    "perRun": ["sensorName"],
     "perTick": ["sensorReading"]
   },
   "template": [
