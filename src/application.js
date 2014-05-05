@@ -225,7 +225,9 @@
         $codapLink = $("#codap-link"),
         $codapStagingLink = $("#codap-staging-link"),
         codapGameSpecification,
-        origin;
+        pathname,
+        origin,
+        url;
 
     origin = document.location.href.match(/(.*?\/\/.*?)\//)[1];
 
@@ -248,13 +250,16 @@
 
     if (SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
       // construct link to CODAP embeddable version of Interactive
+      pathname = window.location.pathname.replace(/interactives(-.+)?\.html/, SITE_CONFIG.EMBEDDABLE_PAGE);
+      url = SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + pathname + "?codap=true#" + interactiveUrl;
+      url = url.replace("//", "/");
       codapGameSpecification = JSON.stringify([{
         "name": $selectInteractive.find("option:selected").text(),
         "dimensions": {
           "width": 600,
-          "height":400
+          "height": 400
         },
-        "url": SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + SITE_CONFIG.EMBEDDABLE_PAGE + "?codap=true#" + interactiveUrl
+        "url": url
       }]);
     }
 
