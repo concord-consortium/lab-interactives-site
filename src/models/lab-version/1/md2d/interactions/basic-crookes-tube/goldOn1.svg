@@ -7,7 +7,7 @@
 <g id="GoldRightOnLower">
 	<g>
 		<g>
-			
+
 				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-794.1104" y1="721.1365" x2="-793.1104" y2="721.1365" gradientTransform="matrix(-1.0339 76.5126 -76.5126 -1.0339 54439.9062 61710.3867)">
 				<stop  offset="0" style="stop-color:#E4E5E6"/>
 				<stop  offset="0.2638" style="stop-color:#E2E3E4"/>
@@ -26,7 +26,7 @@
 				c-0.723,0-1.376-0.329-1.832-0.839c-0.458-0.51-0.734-1.202-0.734-1.959v-37.62c0-0.757,0.275-1.449,0.734-1.959
 				c0.456-0.51,1.109-0.839,1.832-0.839C55.028,221.948,55.029,221.948,55.03,221.948L55.03,221.948 M128.668,209.014h-88.5v61.467
 				h88.5V209.014"/>
-			
+
 				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-793.5034" y1="721.6707" x2="-792.5034" y2="721.6707" gradientTransform="matrix(3.6462 75.5037 -75.5037 3.6462 57518.5 57479.3789)">
 				<stop  offset="0" style="stop-color:#EDEDEE"/>
 				<stop  offset="0.108" style="stop-color:#DEDFE0"/>
@@ -35,7 +35,7 @@
 				<stop  offset="1" style="stop-color:#000000"/>
 			</linearGradient>
 			<polygon fill="url(#SVGID_2_)" points="147.668,258.481 128.668,270.481 128.668,209.014 147.668,197.014 			"/>
-			
+
 				<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-792.583" y1="719.9119" x2="-791.583" y2="719.9119" gradientTransform="matrix(-0.899 66.5305 -66.5305 -0.899 47277.7266 53568.3477)">
 				<stop  offset="0" style="stop-color:#D4D5D7"/>
 				<stop  offset="1" style="stop-color:#000000"/>
@@ -117,7 +117,7 @@
 				l-9.381,16.249c-0.096,0.165-0.096,0.367,0,0.528c0.096,0.165,0.271,0.265,0.459,0.265h18.76c0.188,0,0.365-0.103,0.461-0.265
 				C108.58,261.031,108.58,260.829,108.484,260.667z"/>
 			<polygon fill="#F2EA30" points="90.182,260.399 98.644,245.747 107.105,260.399 			"/>
-			<polygon fill="#010101" points="97.783,249.927 96.114,255.611 98.555,254.35 98.033,258.176 97.534,257.448 97.918,259.846 
+			<polygon fill="#010101" points="97.783,249.927 96.114,255.611 98.555,254.35 98.033,258.176 97.534,257.448 97.918,259.846
 				99.318,257.825 98.61,258.264 100.082,252.844 97.449,254.294 99.375,249.925 			"/>
 			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="53.827" y1="215.189" x2="66.765" y2="215.189"/>
 			<path fill="none" stroke="#000000" stroke-miterlimit="10" d="M102.159,215.189h10.351 M107.334,220.365v-10.351"/>
@@ -242,7 +242,7 @@
 	<clipPath id="SVGID_5_">
 		<use xlink:href="#SVGID_4_"  overflow="visible"/>
 	</clipPath>
-	
+
 		<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="181.9004" y1="192.323" x2="182.1379" y2="187.7717" gradientTransform="matrix(1 0 0 -1 0 271.48)">
 		<stop  offset="0" style="stop-color:#9E8657"/>
 		<stop  offset="1" style="stop-color:#FCDE8B"/>
@@ -257,9 +257,8 @@
 		c0,4.951-0.859,12.32-3.208,12.32c-2.351,0-3.198-7.37-3.198-12.32C182.088,76.856,182.936,69.486,185.286,69.486z M185.286,93.177
 		c0.791,0,2.272-3.906,2.272-11.372c0-7.464-1.481-11.371-2.272-11.371s-2.267,3.907-2.267,11.371
 		C183.02,89.271,184.495,93.177,185.286,93.177"/>
-	
+
 		<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="173.0381" y1="151.3777" x2="171.7717" y2="230.2259" gradientTransform="matrix(1 0 0 -1 0 271.48)">
-		<stop  offset="0" style="stop-color:#9E8657"/>
 		<stop  offset="0" style="stop-color:#9E8657"/>
 		<stop  offset="1" style="stop-color:#FCDE8B"/>
 	</linearGradient>
