@@ -10,4 +10,4 @@
 #   :default:     //lab-framework-s3.concord.org/branch/<branch>/lab
 #   :local:       //localhost:9191/lab
 :lab_root_url:
-  :default: //lab-framework.concord.org/version/1.0.1-pre.1/lab
+  :default: //lab-framework.concord.org/version/1.0.1-pre.2/lab
