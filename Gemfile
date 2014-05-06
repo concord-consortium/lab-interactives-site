@@ -7,10 +7,7 @@ gem 'activesupport',     "~> 3"
 gem 'i18n',               "~> 0.6.4"
 gem "gitlab-grit",        "~> 2.6.0"
 gem "shutterbug",         "~> 0.2.1"
-gem "s3_website",  :git => 'git://github.com/concord-consortium/s3_website.git',
-                   :branch => 'fast-diff'
-gem "filey-diff",  :git => 'git://github.com/concord-consortium/filey-diff.git',
-                   :branch => 'fast-diff'
+gem "s3_website",         "~> 1.7.5"
 
 group :app do
   gem "rack",               "~> 1.5.2"
