@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="700px" height="600px">
+  width="700px" height="170px" viewBox="0 0 700 170">
 <defs>
   <filter id="largeBlur" filterUnits="userSpaceOnUse">
     <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
@@ -14,7 +14,6 @@
   stroke="#00BF09"
   fill="none"
   stroke-width="6"
-  d="M0,98 C0,98 70,98 150,98 S350,0 350,0"
+  d="M0,85 C0,85 70,85 150,85 S350,-13 350,-13"
   style="filter:url(#largeBlur)" />
-
 </svg>
