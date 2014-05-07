@@ -28,10 +28,12 @@ max_age:
   "interactives/*": 300
   "models/*": 300
   "models-converted/*": 300
+  "locales/*": 300
   "version/**/interactives.json": 300
   "version/**/interactives/*": 300
   "version/**/models/*": 300
   "version/**/models-converted/*": 300
+  "version/**/locales/*": 300
   "version/*.tar.gz": 300
   # No cache in topic branches:
   "branch/**/*": 0
