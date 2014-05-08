@@ -1,8 +1,8 @@
 {
-  "title": "Diffusion over en permeabel membran",
+  "title": "Diffusion over ein permeabel membran",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Utveksling av gasser over en cellemembran",
+  "subtitle": "Utveksling av gassar over ein cellemembran",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,11 +10,11 @@
   "fontScale": 0.8,
   "helpOnLoad": false,
   "about": [
-    	"Cellemembraner er sammensatt av to lag fosfolipider (et lipid-dobbeltlag). Noen molekyler kan passere denne membranen direkte, uten å bruke spesielle kanaler.",
+    	"Cellemembranar er samansette av to lag fosfolipid (eit lipid-dobbeltlag). Somme molekyl kan passere denne membranen direkte, utan å bruke spesielle kanalar.",
     	"",
-    	"Oksygen og karbondioksid er to molekyler som fritt kan passere gjennom cellemembranen. I aerobe celler er oksygen nødvendig for at cellen skal fungere, og karbondioksid er et avfallsstoff. Dermed “ønsker” cellen at oksygen skal komme inn, og at karbondioksid skal forsvinne. Men molekyler beveger seg ikke bare i en retning, de diffunderer tilfeldig gjennom membranen. ",
+    	"Oksygen og karbondioksid er to molekyl som fritt kan passere gjennom cellemembranen. I aerobe celler treng ein oksygen for at cella skal fungere, og karbondioksid er eit avfallsstoff. Dermed “ønskjer” cella at oksygen skal kome inn, og at karbondioksid skal forsvinne. Men molekyl går ikkje berre i ei retning, dei diffunderer tilfeldig gjennom membranen. ",
     	"",
-    	"Arranger modellen med et høyt oksygeninnhold og lavt karbondioksidinnhold utenfor cellen, og lavt oksygeninnhold og høyt innhold av karbondioksid innenfor cellen. I hvilken retning går strømmen av oksygen- og karbondioksidmolekyler? "
+    	"Arranger modellen med eit høgt oksygeninnhald og eit lågt karbondioksidinnhald utanfor cella, og lågt oksygeninnhald og høgt innhald av karbondioksid innanfor cella. I kva retning går straumen av oksygen- og karbondioksidmolekyl? "
   ],
   "models": [
     {
@@ -175,7 +175,7 @@
     {
       "id": "inside-above-label",
       "type": "text",
-      "text": "Inne i cellen",
+      "text": "Inne i cella",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -183,7 +183,7 @@
     {
       "id": "outside-above-label",
       "type": "text",
-      "text": "Utenfor cellen",
+      "text": "Utanfor cella",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -191,7 +191,7 @@
     {
       "id": "inside-right-label",
       "type": "text",
-      "text": "Inne i cellen",
+      "text": "Inne i cella",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -199,7 +199,7 @@
     {
       "id": "outside-right-label",
       "type": "text",
-      "text": "Utenfor cellen",
+      "text": "Utanfor cella",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -287,11 +287,11 @@
           "value": 0
         },
         {
-          "text": "Lav",
+          "text": "Låg",
           "value": 10
         },
         {
-          "text": "Høy",
+          "text": "Høg",
           "value": 50
         }
       ],
@@ -311,11 +311,11 @@
           "value": 0
         },
         {
-          "text": "Lav",
+          "text": "Låg",
           "value": 10
         },
         {
-          "text": "Høy",
+          "text": "Høg",
           "value": 50
         }
       ],
@@ -335,11 +335,11 @@
           "value": 0
         },
         {
-          "text": "Lav",
+          "text": "Låg",
           "value": 10
         },
         {
-          "text": "Høy",
+          "text": "Høg",
           "value": 50
         }
       ],
@@ -359,11 +359,11 @@
           "value": 0
         },
         {
-          "text": "Lav",
+          "text": "Låg",
           "value": 10
         },
         {
-          "text": "Høy",
+          "text": "Høg",
           "value": 50
         }
       ],
