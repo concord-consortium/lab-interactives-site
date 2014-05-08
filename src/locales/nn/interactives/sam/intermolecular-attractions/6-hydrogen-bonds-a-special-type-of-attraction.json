@@ -1,8 +1,8 @@
 {
-  "title": "Hydrogenbindinger: En spesiell tiltrekningstype",
+  "title": "Hydrogenbindingar: Ein spesiell tiltrekkingstype",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Utforsk hvordan polare molekyler påvirker hverandre via hydrogenbindinger.",
+  "subtitle": "Utforsk korleis polare molekyl påverkar kvarandre via hydrogenbindingar.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,10 +10,10 @@
   "fontScale": 0.99,
   "helpOnLoad": false,
   "about": [
-    "Utforsk hydrogenbindinger som oppstår mellom polare molekyler, som vann. Hydrogenbindingene er vist som prikkede linjer.",
+    "Utforsk hydrogenbindingar som oppstår mellom polare molekyl, som vatn. Hydrogenbindingane er viste som prikka liner.",
     "",
-    "Vis delladningene og kjør modellen. Hvor oppstår hydrogenbindingene? Prøv å endre temperaturen",
-    "i modellen. Hvordan forklarer mønsteret av hydrogenbindinger strukturen hos iskrystaller? "
+    "Vis delladingane og køyr modellen. Kor oppstår hydrogenbindingane? Prøv å endre temperaturen i modellen",
+    "Korleis forklarer mønsteret av hydrogenbindingar strukturen hjå iskrystallar? "
   ],
   "models": [
     {
@@ -37,7 +37,7 @@
     {
       "id": "show_bonds",
       "type": "checkbox",
-      "text": "Vis hydrogenbindinger",
+      "text": "Vis hydrogenbindingar",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -49,7 +49,7 @@
     {
       "id": "show_charge",
       "type": "checkbox",
-      "text": "Vis delladninger",
+      "text": "Vis delladningar",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -61,7 +61,7 @@
     {
       "id": "slow_motion2",
       "type": "checkbox",
-      "text": "Sakte bevegelse",
+      "text": "Sakte rørsle",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
