@@ -1,8 +1,8 @@
 {
-  "title": "Mutasjoner",
+  "title": "Mutasjonar",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Utforsk hvordan endringer i DNA-sekvensen kan endre aminosyrene som inngår i et protein.",
+  "subtitle": "Utforsk korleis endringar i DNA-sekvensen kan endre aminosyrene som inngår i eit protein.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,11 +10,11 @@
   "fontScale": 0.75,
   "helpOnLoad": false,
   "about": [
-    "Mutasjoner er feil i DNA-sekvensen. Bruk **Endre DNA-** knappen for å endre hele sekvensen, eller klikk på et enkelt nukleotid for å gjøre en insettings-, slettings- eller substitusjonsmutasjon. Hva gjør endringen i DNA-sekvensen med det resulterende proteinet?",
+    "Mutasjonar er feil i DNA-sekvensen. Bruk Endre DNA- knappen for å endre heile sekvensen, eller klikk på eit einskild nukleotid for å gjere ein innsetjings-, slettings- eller substitusjonsmutasjon. Kva gjer endringa i DNA-sekvensen med det resulterande proteinet?",
     "",
-    "Du kan raskt hoppe mellom DNA-sekvensen og det ferdige proteinet ved å bruke knappene **Vis DNA** og  **Vis protein**.",
+    "Du kan raskt hoppe mellom DNA-sekvensen og det ferdige proteinet ved å bruke knappane **Vis DNA** og  **Vis protein**.",
     "",
-    "Er noen mutasjonstyper mer skadelig enn andre?"
+    "Er somme mutasjonstypar meir skadelege enn andre?"
   ],
   "models": [
     {
@@ -94,7 +94,7 @@
       "id": "next-state",
       "type": "button",
       "action": "animateToNextDNAState();",
-      "text": "Fortsett et steg",
+      "text": "Fortsett eit steg",
       "width": "",
       "height": "",
       "disabled": false,
@@ -137,7 +137,7 @@
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
       ],
-      "text": "Start/fortsett kjøringen",
+      "text": "Start/fortsett kjøyringa",
       "width": "",
       "height": "",
       "disabled": false,
@@ -146,7 +146,7 @@
     {
       "id": "label",
       "type": "text",
-      "text": "Klikk på et nukleotid for å gjøre en mutasjon, eller ",
+      "text": "Klikk på eit nukleotid for å gjere ein mutasjon, eller ",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
