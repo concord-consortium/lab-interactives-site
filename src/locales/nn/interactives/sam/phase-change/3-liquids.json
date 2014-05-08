@@ -1,12 +1,12 @@
 {
-  "title": "MolekylÊr oversikt over vÊsker",
+  "title": "Vising av ei v√¶ske p√• molekylniv√•",
   "publicationStatus": "public",
-  "subtitle": "Explore how molecules in a liquid move.",
+  "subtitle": "Utforsk korleis molekyla i ei v√¶ske beveger seg.",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyler er i konstant bevegelse. \"Merk to atomer,\" og kj¯r modellen for Â se",
-    "hvordan molekylene beveger seg i forhold til hverandre. Hvordan forklarer bevegelsen",
-    "av molekyler at vÊsker fÂr samme form som deres beholder?"
+    "Molekyl er i konstant bevegelse. \"Merk to atom,\" og k√∏yr modellen for √• sj√• ",
+    "korleis molekyla beveger seg i h√∏ve til kvarandre. Korleis forklarer r√∏rsla ",
+    "av molekyl at v√¶sker f√•r same form som behaldaren deira?"
   ],
   "models": [
     {
@@ -23,25 +23,25 @@
     {
       "type": "button",
       "id": "mark-two-atoms",
-      "text": "Merk to atomer",
+      "text": "Merk to atom",
       "action": "markAtoms(randomAtoms(2));"
     },
     {
       "type": "checkbox",
       "id": "show-attractions",
-      "text": "Vis tiltrekninger",
+      "text": "Vis tiltrekkingar",
       "property": "showVDWLines"
     },
     {
       "type": "button",
       "id": "trace-atom",
-      "text": "F¯lg et tilfeldig atom",
+      "text": "F√∏lg eit tilfeldig atom",
       "action": "traceAtom(randomAtoms(1));"
     },
     {
       "type": "button",
       "id": "untrace-atom",
-      "text": "Stopp f¯lg",
+      "text": "Stopp f√∏lg",
       "action": "untraceAtom();"
     }
   ],
