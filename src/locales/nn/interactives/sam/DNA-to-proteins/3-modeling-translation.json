@@ -1,8 +1,8 @@
 {
-  "title": "En modell av translasjon",
+  "title": "Ein modell av translasjon",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Utforsk hvordan et protein lages fra en mRNA-sekvens.",
+  "subtitle": "Utforsk korleis ein lagar eit protein frå ein mRNA-sekvens.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,11 +10,11 @@
   "fontScale": 0.8,
   "helpOnLoad": false,
   "about": [
-    "Translasjon, eller det å lage et protein, skjer i ribosomene. Aminosyrer blir fraktet til ribosomene av tRNA.",
+    "Translasjon, eller det å lage eit protein, skjer i ribosomane. Aminosyrer blir frakta til ribosomane av tRNA.",
     "",
-    "tRNA stilles opp sammen med mRNA som har de samme nukleotidene. På denne måten blir den riktige aminosyren lagt til i proteinet. ",
+    "tRNA blir stilt opp saman med mRNA som har dei same nukleotidane. På denne måten blir den riktige aminosyra lagt til i proteinet. ",
     "",
-    "Kan du se hva tRNA-kodonet for hver av nukleotide-triplettene til mRNAet er? "
+    "Kan du sjå kva tRNA-kodonet for kvar av nukleotide-triplettane til mRNAet er? "
 
   ],
   "models": [
@@ -74,7 +74,7 @@
     {
       "id": "label4",
       "type": "text",
-      "text": "for å lage protein fra mRNA, eller",
+      "text": "for å lage protein frå mRNA, eller",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -86,7 +86,7 @@
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
       ],
-      "text": "Start/fortsett kjøringen",
+      "text": "Start/hald fram med køyringa",
       "width": "",
       "height": "",
       "disabled": false,
