@@ -125,5 +125,7 @@
       "text": "Reset",
       "action": "reloadModel();"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/2-comparing-dipole-dipole-to-london-dispersion.json"
 }

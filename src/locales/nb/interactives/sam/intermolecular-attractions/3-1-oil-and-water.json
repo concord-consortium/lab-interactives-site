@@ -54,13 +54,25 @@
       }
     }
   ],
-  "propertiesToRetain": [],
-  "parameters": [],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "propertiesToRetain": [
+
+  ],
+  "parameters": [
+
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "shake",
@@ -78,5 +90,7 @@
       "shake"
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/3-1-oil-and-water.json"
 }

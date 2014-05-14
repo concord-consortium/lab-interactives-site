@@ -52,5 +52,7 @@
       "untrace-atom",
       "show-attractions"
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/2-two-types-of-gases.json"
 }

@@ -210,5 +210,6 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/2-temperature.json"
 }

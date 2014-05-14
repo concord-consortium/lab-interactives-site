@@ -54,7 +54,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -110,11 +112,19 @@
       ]
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "remove-obstacle",
@@ -256,5 +266,7 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/2-temperature.json"
 }

@@ -97,7 +97,13 @@
     }
   ],
   "layout": {
-    "right": ["reaction-complete"],
-    "bottom": ["temperature-slider"]
-  }
+    "right": [
+      "reaction-complete"
+    ],
+    "bottom": [
+      "temperature-slider"
+    ]
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/3-temperature-and-reaction-rate.json"
 }

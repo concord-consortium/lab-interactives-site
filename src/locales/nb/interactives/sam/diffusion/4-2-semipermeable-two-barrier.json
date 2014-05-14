@@ -15,7 +15,9 @@
       "type": "md2d",
       "id": "model1",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/semipermeable/semipermeable-twobarrier$0.json",
-      "onLoad": [],
+      "onLoad": [
+
+      ],
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -24,7 +26,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -60,11 +64,19 @@
       ]
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "barrier-height",
@@ -73,7 +85,9 @@
       "max": 1,
       "steps": 50,
       "title": "Porestørrelse",
-      "labels": [],
+      "labels": [
+
+      ],
       "width": "auto",
       "height": "auto",
       "property": "poreSize",
@@ -99,7 +113,11 @@
       "barrier-height",
       "trace-atom"
     ],
-    "right": []
+    "right": [
+
+    ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json"
 }

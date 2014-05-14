@@ -48,25 +48,25 @@
     {
       "name": "leftConcentrationO2",
       "value": [
-      "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
+        "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     },
     {
       "name": "leftConcentrationCO2",
       "value": [
-      "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
+        "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     },
     {
       "name": "rightConcentrationO2",
       "value": [
-      "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
+        "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     },
     {
       "name": "rightConcentrationCO2",
       "value": [
-      "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
+        "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     }
   ],
@@ -124,22 +124,30 @@
     {
       "name": "initialLeftCO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialLeftO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialRightCO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "initialRightO2",
       "initialValue": 0,
-      "onChange": [ "set('setCountTrigger',get('setCountTrigger')+1);"]
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
     },
     {
       "name": "markingAtoms",
@@ -352,6 +360,7 @@
       ]
     ],
     "below": [
+
     ],
     "above-left": [
       "inside-above-label"
@@ -412,5 +421,6 @@
       "height": "model.height",
       "align": "center"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/5-permeable-membrane.json"
 }

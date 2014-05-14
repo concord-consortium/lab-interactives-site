@@ -98,5 +98,7 @@
       "top": "model.bottom",
       "left": "left.left"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/emission-spectrometer.json"
 }

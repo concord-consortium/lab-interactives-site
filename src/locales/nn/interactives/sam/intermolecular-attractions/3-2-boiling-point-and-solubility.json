@@ -49,5 +49,7 @@
       "cool",
       "heat"
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/3-2-boiling-point-and-solubility.json"
 }

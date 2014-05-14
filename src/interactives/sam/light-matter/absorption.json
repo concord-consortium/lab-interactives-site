@@ -85,5 +85,6 @@
       "enable-light-source"
     ]
   },
-  "template": "left-right-bottom"
+  "template": "left-right-bottom",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/absorption.json"
 }

@@ -111,5 +111,6 @@
       "property": "volume",
       "displayValue": "return format('.2f')(value)"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/6-number-volume-relationship.json"
 }

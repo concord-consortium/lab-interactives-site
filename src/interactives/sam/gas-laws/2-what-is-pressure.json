@@ -137,5 +137,6 @@
         "show-velocity"
       ]
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/2-what-is-pressure.json"
 }

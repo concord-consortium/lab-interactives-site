@@ -64,7 +64,9 @@
       ]
     }
   ],
-  "outputs": [],
+  "outputs": [
+
+  ],
   "filteredOutputs": [
     {
       "name": "averageTemperature",
@@ -75,7 +77,9 @@
       "unitType": "temperature"
     }
   ],
-  "helpTips": [],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
   "components": [
     {
@@ -210,5 +214,7 @@
       ]
     ]
   },
-  "template": "left-right-bottom"
+  "template": "left-right-bottom",
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/sun-on-ground.json"
 }

@@ -31,7 +31,13 @@
       "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.json",
       "importedFrom": "imports/legacy-mw-content/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.mml",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "x": 2.7,
+            "backgroundColor": "#f8f8f8"
+          }
+        ]
       },
       "onLoad": [
         "onClick('background', function (x, y) {",
@@ -73,15 +79,6 @@
             "default": 10
           }
         }
-      },
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "textBoxes": [
-          {
-            "x": 2.7,
-            "backgroundColor": "#f8f8f8"
-          }
-        ]
       }
     }
   ],
@@ -130,6 +127,9 @@
     }
   ],
   "layout": {
-    "bottom": ["element-pulldown"]
-  }
+    "bottom": [
+      "element-pulldown"
+    ]
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/7-polymers-monomers.json"
 }

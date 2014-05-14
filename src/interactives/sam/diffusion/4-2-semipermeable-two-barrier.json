@@ -80,5 +80,6 @@
     "right": [
 
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json"
 }

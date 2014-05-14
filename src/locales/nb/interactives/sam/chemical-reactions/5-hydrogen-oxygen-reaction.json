@@ -85,10 +85,14 @@
   ],
   "layout": {
     "bottom": [
-      "slow-motion-checkbox", "heat-button", "cool-button"
+      "slow-motion-checkbox",
+      "heat-button",
+      "cool-button"
     ],
     "right": [
       "thermometer"
     ]
-  }
+  },
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/5-hydrogen-oxygen-reaction.json"
 }

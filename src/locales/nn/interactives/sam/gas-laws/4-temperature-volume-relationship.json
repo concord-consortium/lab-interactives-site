@@ -68,5 +68,7 @@
       "property": "volume",
       "displayValue": "return format('.2f')(value)"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/4-temperature-volume-relationship.json"
 }

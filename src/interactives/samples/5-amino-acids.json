@@ -176,5 +176,6 @@
         "random-protein-button"
       ]
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
 }

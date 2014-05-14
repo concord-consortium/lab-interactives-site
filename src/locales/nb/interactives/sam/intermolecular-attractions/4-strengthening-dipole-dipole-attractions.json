@@ -136,5 +136,7 @@
       "text": "Reset",
       "action": "reloadModel();"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/4-strengthening-dipole-dipole-attractions.json"
 }

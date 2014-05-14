@@ -89,33 +89,41 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "userSelectedElement",
       "initialValue": 0
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
   "helpTips": [
     {
       "component": "",
       "text": [
- "###Utfordring 1: bygg en homopolymer###",
-    "",
-    "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
-    "i *Polymeriserings-reaksjonskammeret*.",
-    "- Klikk på play-knappen for å starte reaksjonen.",
-    "",
-    "###Utfordring 2: Bygg en heteropolymer###",
-    "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
-    "- Klikk på play-knappen for å starte reaksjonen."
+        "###Utfordring 1: bygg en homopolymer###",
+        "",
+        "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
+        "i *Polymeriserings-reaksjonskammeret*.",
+        "- Klikk på play-knappen for å starte reaksjonen.",
+        "",
+        "###Utfordring 2: Bygg en heteropolymer###",
+        "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
+        "- Klikk på play-knappen for å starte reaksjonen."
       ]
     }
   ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "element-pulldown",
@@ -147,5 +155,7 @@
       "element-pulldown"
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/7-polymers-monomers.json"
 }

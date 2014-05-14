@@ -92,5 +92,7 @@
       "padding-top": "0.25em",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/1-dropping-dye.json"
 }

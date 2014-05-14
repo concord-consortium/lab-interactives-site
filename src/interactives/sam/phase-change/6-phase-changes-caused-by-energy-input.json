@@ -91,5 +91,6 @@
       "bar-graph"
     ]
   },
-  "template": "narrow-right"
+  "template": "narrow-right",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/6-phase-changes-caused-by-energy-input.json"
 }

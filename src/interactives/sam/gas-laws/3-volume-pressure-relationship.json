@@ -102,5 +102,6 @@
       "bar-graph"
     ]
   },
-  "template": "narrow-right"
+  "template": "narrow-right",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/3-volume-pressure-relationship.json"
 }

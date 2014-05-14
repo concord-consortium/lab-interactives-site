@@ -118,7 +118,14 @@
     }
   ],
   "layout": {
-    "right-upper": ["thermometer"],
-    "right-lower": ["heat", "cool"]
-  }
+    "right-upper": [
+      "thermometer"
+    ],
+    "right-lower": [
+      "heat",
+      "cool"
+    ]
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/1-what-is-a-chemical-reaction.json"
 }

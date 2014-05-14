@@ -76,5 +76,6 @@
     "right": [
 
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/4-semipermeable.json"
 }

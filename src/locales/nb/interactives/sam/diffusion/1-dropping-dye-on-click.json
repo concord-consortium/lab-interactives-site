@@ -38,7 +38,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -51,11 +53,19 @@
       "onChange": ""
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "trace",
@@ -95,5 +105,7 @@
       "padding-top": "0.25em",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/1-dropping-dye-on-click.json"
 }

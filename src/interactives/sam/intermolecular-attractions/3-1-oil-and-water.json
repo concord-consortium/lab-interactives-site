@@ -59,5 +59,6 @@
     "bottom": [
       "shake"
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/3-1-oil-and-water.json"
 }

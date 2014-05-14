@@ -26,13 +26,25 @@
       }
     }
   ],
-  "propertiesToRetain": [],
-  "parameters": [],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "propertiesToRetain": [
+
+  ],
+  "parameters": [
+
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "show_bonds",
@@ -122,5 +134,7 @@
       "slow_motion2"
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json"
 }

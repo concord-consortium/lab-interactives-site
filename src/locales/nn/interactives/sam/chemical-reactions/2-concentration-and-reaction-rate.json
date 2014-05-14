@@ -107,9 +107,16 @@
     }
   ],
   "layout": {
-    "right": ["reaction-complete"],
+    "right": [
+      "reaction-complete"
+    ],
     "bottom": [
-      ["add2", "add10"]
+      [
+        "add2",
+        "add10"
+      ]
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/2-concentration-and-reaction-rate.json"
 }
