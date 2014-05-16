@@ -78,6 +78,5 @@
       "bar-graph"
     ]
   },
-  "template": "narrow-right",
-  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/5-temperature-pressure-relationship.json"
+  "template": "narrow-right"
 }

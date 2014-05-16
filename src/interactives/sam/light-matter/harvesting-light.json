@@ -50,6 +50,5 @@
   ],
   "layout": {
   },
-  "template": "left-right-bottom",
-  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/harvesting-light.json"
+  "template": "left-right-bottom"
 }

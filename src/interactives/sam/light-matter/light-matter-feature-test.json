@@ -66,6 +66,5 @@
       "ke-shading"
     ]
   },
-  "template": "left-right-bottom",
-  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/light-matter-feature-test.json"
+  "template": "left-right-bottom"
 }
