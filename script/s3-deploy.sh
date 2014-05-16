@@ -7,8 +7,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-echo "running ./script/popluate-standalone.sh script"
-sh ./script/popluate-standalone.sh
+echo "running ./script/populate-standalone.sh script"
+sh ./script/populate-standalone.sh
 
 if [ "$TRAVIS_BRANCH" = "master" ]; then
   SITE_VERSION=`cat site-version`

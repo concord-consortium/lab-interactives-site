@@ -38,4 +38,4 @@ for vendor_folder_to_copy in $VENDOR_FOLDERS; do
 done
 
 tar -zcf public/standalone/lab-interactive.tar.gz --directory=public/standalone/ lab-interactive
-rm -rf lab-interactive
+rm -rf public/standalone/lab-interactive
