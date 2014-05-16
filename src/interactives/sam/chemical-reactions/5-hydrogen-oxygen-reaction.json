@@ -85,7 +85,9 @@
   ],
   "layout": {
     "bottom": [
-      "slow-motion-checkbox", "heat-button", "cool-button"
+      "slow-motion-checkbox",
+      "heat-button",
+      "cool-button"
     ],
     "right": [
       "thermometer"

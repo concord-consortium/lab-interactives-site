@@ -4,7 +4,7 @@
   "subtitle": "Undersøk korleis molekyl i ein gass beveger seg i høve til kvarandre.",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyl er i konstant rørsle. \"Merk to atomar,\" og kjøyr modellen for å sjå,
+    "Molekyl er i konstant rørsle. \"Merk to atomar,\" og kjøyr modellen for å sjå",
     "korleis molekyla beveger seg i høve til kvarandre. Korleis forandrar avstanden mellom ",
     "gassmolekyl seg over tid?"
   ],
@@ -52,5 +52,7 @@
       "untrace-atom",
       "show-attractions"
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/2-two-types-of-gases.json"
 }

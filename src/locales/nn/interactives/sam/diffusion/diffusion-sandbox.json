@@ -231,5 +231,7 @@
       "align": "center",
       "fontScale": 0.6
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/diffusion-sandbox.json"
 }

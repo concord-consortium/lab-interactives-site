@@ -15,9 +15,13 @@
     }
   ],
   "components": [
+
   ],
   "layout": {
     "bottom": [
+
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/introducing-light-and-photons.json"
 }

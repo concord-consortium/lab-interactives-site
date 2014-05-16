@@ -10,7 +10,7 @@
   "fontScale": 0.6,
   "helpOnLoad": false,
   "about": [
-	"Forklar kva rolle hydrofobi og hydrofili har ved proteinfalding. Generer ein tilfeldig peptidstreng og sjå korleis han faldar seg saman i eit vatnmiljø. Bytt miljø og sjå kva som skjer om peptidet er i olje eller i vakuum i staden for i vatn."
+    "Forklar kva rolle hydrofobi og hydrofili har ved proteinfalding. Generer ein tilfeldig peptidstreng og sjå korleis han faldar seg saman i eit vatnmiljø. Bytt miljø og sjå kva som skjer om peptidet er i olje eller i vakuum i staden for i vatn."
   ],
   "models": [
     {
@@ -23,7 +23,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "solvent",
@@ -31,11 +33,19 @@
       "onChange": "setSolvent(value);"
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "show-labels",
@@ -226,5 +236,7 @@
       ]
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
 }

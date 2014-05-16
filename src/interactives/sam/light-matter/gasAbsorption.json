@@ -165,32 +165,37 @@
       ]
     ],
     "bottom": [
-      ["enable-light-source", "stop-model"],
-      ["select-light-source-frequency"]
+      [
+        "enable-light-source",
+        "stop-model"
+      ],
+      [
+        "select-light-source-frequency"
+      ]
     ]
   },
   "template": [
-      {
-        "id": "left",
-        "top": "model.top",
-        "height": "model.height",
-        "right": "model.left",
-        "padding-right": "0.5em"
-      },
-      {
-        "id": "right",
-        "top": "model.top",
-        "height": "model.height",
-        "left": "model.right",
-        "padding-left": "1em",
-        "padding-right": "0.5em"
-      },
-      {
-        "id": "bottom",
-        "top": "model.bottom",
-        "left": "model.left",
-        "width": "model.width",
-        "align": "center"
-      }
-    ]
+    {
+      "id": "left",
+      "top": "model.top",
+      "height": "model.height",
+      "right": "model.left",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
 }

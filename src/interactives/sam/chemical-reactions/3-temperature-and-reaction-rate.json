@@ -97,7 +97,11 @@
     }
   ],
   "layout": {
-    "right": ["reaction-complete"],
-    "bottom": ["temperature-slider"]
+    "right": [
+      "reaction-complete"
+    ],
+    "bottom": [
+      "temperature-slider"
+    ]
   }
 }

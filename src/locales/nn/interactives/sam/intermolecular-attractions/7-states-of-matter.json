@@ -101,5 +101,7 @@
         "temperature-slider"
       ]
     ]
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/7-states-of-matter.json"
 }

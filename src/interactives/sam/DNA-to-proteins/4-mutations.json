@@ -135,5 +135,6 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/4-mutations.json"
 }

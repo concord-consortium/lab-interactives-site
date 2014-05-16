@@ -10,11 +10,11 @@
   "fontScale": 0.8,
   "helpOnLoad": false,
   "about": [
-    	"Cellemembraner er sammensatt av to lag fosfolipider (et lipid-dobbeltlag). Noen molekyler kan passere denne membranen direkte, uten å bruke spesielle kanaler.",
-    	"",
-    	"Oksygen og karbondioksid er to molekyler som fritt kan passere gjennom cellemembranen. I aerobe celler er oksygen nødvendig for at cellen skal fungere, og karbondioksid er et avfallsstoff. Dermed “ønsker” cellen at oksygen skal komme inn, og at karbondioksid skal forsvinne. Men molekyler beveger seg ikke bare i en retning, de diffunderer tilfeldig gjennom membranen. ",
-    	"",
-    	"Arranger modellen med et høyt oksygeninnhold og lavt karbondioksidinnhold utenfor cellen, og lavt oksygeninnhold og høyt innhold av karbondioksid innenfor cellen. I hvilken retning går strømmen av oksygen- og karbondioksidmolekyler? "
+    "Cellemembraner er sammensatt av to lag fosfolipider (et lipid-dobbeltlag). Noen molekyler kan passere denne membranen direkte, uten å bruke spesielle kanaler.",
+    "",
+    "Oksygen og karbondioksid er to molekyler som fritt kan passere gjennom cellemembranen. I aerobe celler er oksygen nødvendig for at cellen skal fungere, og karbondioksid er et avfallsstoff. Dermed “ønsker” cellen at oksygen skal komme inn, og at karbondioksid skal forsvinne. Men molekyler beveger seg ikke bare i en retning, de diffunderer tilfeldig gjennom membranen. ",
+    "",
+    "Arranger modellen med et høyt oksygeninnhold og lavt karbondioksidinnhold utenfor cellen, og lavt oksygeninnhold og høyt innhold av karbondioksid innenfor cellen. I hvilken retning går strømmen av oksygen- og karbondioksidmolekyler? "
   ],
   "models": [
     {
@@ -33,7 +33,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "setCountTrigger",
@@ -167,10 +169,16 @@
       ]
     }
   ],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "inside-above-label",
@@ -408,7 +416,9 @@
         "select-right-concentration-co2"
       ]
     ],
-    "below": [],
+    "below": [
+
+    ],
     "above-left": [
       "inside-above-label"
     ],
@@ -468,5 +478,7 @@
       "height": "model.height",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/5-permeable-membrane.json"
 }

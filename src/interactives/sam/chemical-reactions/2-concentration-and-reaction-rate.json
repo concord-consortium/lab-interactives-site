@@ -107,9 +107,14 @@
     }
   ],
   "layout": {
-    "right": ["reaction-complete"],
+    "right": [
+      "reaction-complete"
+    ],
     "bottom": [
-      ["add2", "add10"]
+      [
+        "add2",
+        "add10"
+      ]
     ]
   }
 }

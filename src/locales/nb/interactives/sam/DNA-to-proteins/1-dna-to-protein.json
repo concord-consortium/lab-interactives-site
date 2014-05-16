@@ -31,13 +31,25 @@
       }
     }
   ],
-  "propertiesToRetain": [],
-  "parameters": [],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "propertiesToRetain": [
+
+  ],
+  "parameters": [
+
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "transcribe",
@@ -248,5 +260,7 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }

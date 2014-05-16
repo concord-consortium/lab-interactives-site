@@ -239,7 +239,11 @@
     }
   ],
   "layout": {
-    "right-upper": ["reaction-complete"],
-    "right-lower": ["model-pulldown"]
+    "right-upper": [
+      "reaction-complete"
+    ],
+    "right-lower": [
+      "model-pulldown"
+    ]
   }
 }

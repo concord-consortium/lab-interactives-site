@@ -25,7 +25,10 @@
       "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/catalysis/catalysis$0.json",
       "importedFrom": "imports/legacy-mw-content/sam-activities/chemical-reactions/catalysis/catalysis$0.mml",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "formulaA2andB2to2AB.gif": "formulaA2andB2to2AB.svg"
+        }
       },
       "modelOptions": {
         "chemicalReactions": {
@@ -49,12 +52,6 @@
             "1+2-3": 0.01,
             "2+1-3": 0.01
           }
-        }
-      },
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "imageMapping": {
-          "formulaA2andB2to2AB.gif": "formulaA2andB2to2AB.svg"
         }
       }
     }
@@ -124,7 +121,13 @@
     }
   ],
   "layout": {
-    "right": ["reaction-complete"],
-    "bottom": ["slow-motion", "add-catalyst"]
-  }
+    "right": [
+      "reaction-complete"
+    ],
+    "bottom": [
+      "slow-motion",
+      "add-catalyst"
+    ]
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/6-catalysis.json"
 }

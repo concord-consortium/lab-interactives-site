@@ -50,5 +50,7 @@
     "bottom": [
       "epsilon-slider"
     ]
-  }
+  },
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/5-interatomic-interactions-and-states.json"
 }

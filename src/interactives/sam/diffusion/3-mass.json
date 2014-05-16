@@ -243,5 +243,6 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/3-mass.json"
 }

@@ -20,5 +20,6 @@
       "text": "Start heating",
       "action": ""
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/7-latent-heat.json"
 }

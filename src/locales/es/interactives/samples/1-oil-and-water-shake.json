@@ -60,5 +60,7 @@
     "bottom": [
       "shake"
     ]
-  }
+  },
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/samples/1-oil-and-water-shake.json"
 }

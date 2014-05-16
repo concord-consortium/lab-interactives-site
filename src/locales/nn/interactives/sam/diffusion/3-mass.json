@@ -55,7 +55,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "gasElementType",
@@ -121,11 +123,19 @@
       ]
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "mass-pulldown",
@@ -292,5 +302,7 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/3-mass.json"
 }

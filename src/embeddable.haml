@@ -60,6 +60,14 @@
               // However it's used by the Selenium tests (see lab-selenium-tests repository).
               $("#interactive-container").addClass("interactive-rendered");
             });
+            if (controller.i18n) {
+              // "interactiveRequested" event was added at the same time as i18n support.
+              // i18n support will be released in Lab 1.1 and when it's done, we can remove
+              // this 'if' statement.
+              controller.on("interactiveRequested.application", function(newUrl) {
+                window.location.hash = newUrl;
+              });
+            }
           },
           redirect: function(path){
             // Let our parent know we are redirecting

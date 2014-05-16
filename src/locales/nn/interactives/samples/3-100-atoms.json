@@ -27,7 +27,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "charge",
@@ -51,11 +53,19 @@
       "onChange": "setElementProperties(2, { epsilon: -value });"
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "charged-box",
@@ -150,5 +160,7 @@
       ]
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/samples/3-100-atoms.json"
 }

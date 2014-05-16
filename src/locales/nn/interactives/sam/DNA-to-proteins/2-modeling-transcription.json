@@ -31,13 +31,25 @@
       }
     }
   ],
-  "propertiesToRetain": [],
-  "parameters": [],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "propertiesToRetain": [
+
+  ],
+  "parameters": [
+
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "begin",
@@ -151,5 +163,7 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/2-modeling-transcription.json"
 }

@@ -20,5 +20,7 @@
     }
   ],
   "layout": {
-  }
+  },
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/empty.json"
 }

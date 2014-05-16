@@ -134,5 +134,7 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/excited-states-and-photons-page-2.json"
 }

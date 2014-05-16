@@ -12,5 +12,7 @@
         "controlButtons": "play_reset"
       }
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/samples/2-simple-gas.json"
 }

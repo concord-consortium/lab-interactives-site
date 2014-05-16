@@ -111,5 +111,6 @@
         "temperature-slider"
       ]
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/samples/3-100-atoms.json"
 }

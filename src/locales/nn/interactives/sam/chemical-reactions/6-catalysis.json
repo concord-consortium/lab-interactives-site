@@ -19,10 +19,10 @@
     "",
     "##Eksperimenter med modellen##",
     "",
-  "1. Køyr modelen og sjå kva som skjer utan ein katalysator.",
-        "2. Sett modellen på pause.",
-        "3. Legg til 3–4 katalysatorar ved å klikke på knappen.",
-        "4. Køyr modellen igjen, og observer korleis katalysatorane påverkar reaksjonen."
+    "1. Køyr modelen og sjå kva som skjer utan ein katalysator.",
+    "2. Sett modellen på pause.",
+    "3. Legg til 3–4 katalysatorar ved å klikke på knappen.",
+    "4. Køyr modellen igjen, og observer korleis katalysatorane påverkar reaksjonen."
   ],
   "models": [
     {
@@ -62,7 +62,9 @@
       }
     }
   ],
-  "propertiesToRetain": [],
+  "propertiesToRetain": [
+
+  ],
   "parameters": [
     {
       "name": "slowMotion",
@@ -89,7 +91,9 @@
       "unitAbbreviation": "%"
     }
   ],
-  "filteredOutputs": [],
+  "filteredOutputs": [
+
+  ],
   "helpTips": [
     {
       "component": "",
@@ -104,7 +108,9 @@
     }
   ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "reaction-complete",
@@ -157,5 +163,7 @@
       "add-catalyst"
     ]
   },
-  "template": "simple"
+  "template": "simple",
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/6-catalysis.json"
 }

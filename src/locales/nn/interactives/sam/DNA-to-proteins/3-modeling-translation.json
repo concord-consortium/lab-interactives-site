@@ -15,7 +15,6 @@
     "tRNA blir stilt opp saman med mRNA som har dei same nukleotidane. På denne måten blir den riktige aminosyra lagt til i proteinet. ",
     "",
     "Kan du sjå kva tRNA-kodonet for kvar av nukleotide-triplettane til mRNAet er? "
-
   ],
   "models": [
     {
@@ -32,13 +31,25 @@
       }
     }
   ],
-  "propertiesToRetain": [],
-  "parameters": [],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
+  "propertiesToRetain": [
+
+  ],
+  "parameters": [
+
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+
+  ],
+  "helpTips": [
+
+  ],
   "hideExportDataControl": false,
-  "dataSets": [],
+  "dataSets": [
+
+  ],
   "components": [
     {
       "id": "translate",
@@ -139,5 +150,7 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "lang": "nn-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/3-modeling-translation.json"
 }

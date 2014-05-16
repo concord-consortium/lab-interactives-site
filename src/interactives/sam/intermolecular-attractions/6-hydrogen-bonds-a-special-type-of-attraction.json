@@ -72,5 +72,6 @@
       "show_charge",
       "slow_motion2"
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json"
 }
