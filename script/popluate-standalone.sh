@@ -11,12 +11,17 @@ fi
 
 mkdir -p public/standalone/lab-interactive
 
-lab_url=`script/lab-root-url.rb $lab_env`
-echo "- download the $lab_env archive at $lab_url.tar.gz and uncompress to public/standalone/lab-interactive"
+if [ -f lab.tar.gz ];
+then
+  echo "- lab.tar.gz archive found"
+else
+  lab_url=`script/lab-root-url.rb $lab_env`
+  echo "- download the $lab_env archive at $lab_url.tar.gz"
+  curl -O $lab_url.tar.gz
+fi
 
-curl -O $lab_url.tar.gz
+echo "- uncompress lab archive to public/standalone/lab-interactive"
 tar xzf lab.tar.gz -C public/standalone/lab-interactive
-rm lab.tar.gz
 
 echo "- copy necessary files from public to public/standalone/"
 

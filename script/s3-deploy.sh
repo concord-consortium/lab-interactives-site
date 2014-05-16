@@ -7,6 +7,9 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
+echo "running ./script/popluate-standalone.sh script"
+sh ./script/popluate-standalone.sh
+
 if [ "$TRAVIS_BRANCH" = "master" ]; then
   SITE_VERSION=`cat site-version`
   echo "deploying master branch (production): updating root dir, version/$SITE_VERSION and version/$SITE_VERSION.tar.gz"
@@ -17,11 +20,17 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   echo "- move public to _site/version/$SITE_VERSION"
   mv public _site/version/$SITE_VERSION
 
-  lab_url=`script/lab-root-url.rb`
-  echo "- download the default Lab archive at $lab_url.tar.gz and uncompress to _site/version/$SITE_VERSION"
-  curl -O $lab_url.tar.gz
+  if [ -f lab.tar.gz ];
+  then
+    echo "- lab.tar.gz archive found"
+  else
+    lab_url=`script/lab-root-url.rb`
+    echo "- download the default Lab archive at $lab_url.tar.gz"
+    curl -O $lab_url.tar.gz
+  fi
+
+  echo "- uncompress lab archive to _site/version/$SITE_VERSION"
   tar xzf lab.tar.gz -C _site/version/$SITE_VERSION
-  rm lab.tar.gz
 
   echo "- remove unnecessary HTML pages"
   rm _site/version/$SITE_VERSION/interactives*.html
@@ -44,5 +53,8 @@ else
   mv public _site/$DEPLOY_DIR
   export DEPLOY_DIR
 fi
+
+# It was downloaded either by ./script/popluate-standalone.sh or this script.
+rm lab.tar.gz
 
 disable_parallel_processing=true bundle exec s3_website push --site _site --headless --config_dir config
