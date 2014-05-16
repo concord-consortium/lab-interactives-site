@@ -2,14 +2,14 @@
   "title": "Diffusjon og temperatur",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Hvordan påvirker temperaturen diffusjonsfarten?",
+  "subtitle": "Korleis påverkar temperaturen diffusjonsfarta?",
   "category": "",
   "subCategory": "",
   "screenshot": "",
   "aspectRatio": 1.7,
   "fontScale": 1,
   "helpOnLoad": false,
-  "about": "Utforsk hvilken rolle temperaturen spiller for farten på diffusjonen. Still inn temperaturen, fjern sperringen, og mål hvor lang tid det tar før de blå molekylene når gass-sensoren. Når gass-sensoren har oppdaget tre blå molekyler, stopper forsøket. Sammenlign diffusjonsfarten ved lav, middels og høy temperatur. Spor et enkeltatom for å se hvilken vei det tar.",
+  "about": "Utforsk kva rolle temperaturen spelar for farta på diffusjonen. Still inn temperaturen, fjern sperringa, og mål kor lang tid det tek før dei blå molekyla når gass-sensoren. Når gass-sensoren har oppdaga tre blå molekyl, stoppar forsøket. Samanlikn diffusjonsfarta ved låg, middels og høg temperatur. Spor eit enkeltatom for å sjå kva veg det tek.",
   "models": [
     {
       "type": "md2d",
@@ -85,7 +85,7 @@
       "name": "experimentTime",
       "initialValue": 0,
       "onChange": "",
-      "label": "Forsøkets varighet",
+      "label": "Kor lenge forsøket varar.",
       "unitType": "time"
     },
     {
@@ -121,14 +121,14 @@
       "type": "button",
       "action": [
         "if (isStopped()) {",
-        "  alert('Start simuleringen før du fjerner sperringen.');",
+        "  alert('Start simuleringen før du fjerner sperringa.');",
         "} else if (getNumberOfObstacles() > 0) { ",
         "  removeObstacle(0); ",
         "  set('timeBarrierRemoved', get('time'));",
         "  set('experimentRunning', true)",
         "}"
       ],
-      "text": "Fjern sperringen",
+      "text": "Fjern sperringa",
       "width": "",
       "height": "",
       "disabled": false,
@@ -168,7 +168,7 @@
       "labels": [
         {
           "value": 0,
-          "label": "Lav"
+          "label": "Låg"
         },
         {
           "value": 2,
@@ -176,7 +176,7 @@
         },
         {
           "value": 4,
-          "label": "Høy"
+          "label": "Høg"
         }
       ],
       "width": "auto",

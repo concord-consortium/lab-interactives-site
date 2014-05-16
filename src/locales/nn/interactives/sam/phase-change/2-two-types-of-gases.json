@@ -1,12 +1,12 @@
 {
-  "title": "Molekylær oversikt over gasser",
+  "title": "Vising av ein gass på molekylnivå",
   "publicationStatus": "public",
-  "subtitle": "Undersøk hvordan molekyler i en gass beveger seg i forhold til hverandre.",
+  "subtitle": "Undersøk korleis molekyl i ein gass beveger seg i høve til kvarandre.",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyler er i konstant bevegelse. \"Merk to atomer,\" og kjør modellen for å se",
-    "hvordan molekylene beveger seg i forhold til hverandre. Hvordan forandrer avstanden mellom ",
-    "gassmolekyler seg over tid?"
+    "Molekyl er i konstant rørsle. \"Merk to atomar,\" og kjøyr modellen for å sjå,
+    "korleis molekyla beveger seg i høve til kvarandre. Korleis forandrar avstanden mellom ",
+    "gassmolekyl seg over tid?"
   ],
   "models": [
     {
@@ -23,19 +23,19 @@
     {
       "type": "button",
       "id": "mark-two-atoms",
-      "text": "Merk to atomer",
+      "text": "Merk to atom",
       "action": "markAtoms(randomAtoms(2));"
     },
     {
       "type": "checkbox",
       "id": "show-attractions",
-      "text": "Vis tiltrekninger",
+      "text": "Vis tiltrekkingar",
       "property": "showVDWLines"
     },
     {
       "type": "button",
       "id": "trace-atom",
-      "text": "Følg et tilfeldig atom",
+      "text": "Følgje eit tilfeldig atom",
       "action": "traceAtom(randomAtoms(1));"
     },
     {

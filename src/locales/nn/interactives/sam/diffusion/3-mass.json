@@ -2,14 +2,14 @@
   "title": "Diffusjon og molekylmasse",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Hvordan påvirker molekylmassen farten på diffusjonen?",
+  "subtitle": "Korleis påverkar molekylmassen farta på diffusjonen?",
   "category": "",
   "subCategory": "",
   "screenshot": "",
   "aspectRatio": 1.7,
   "fontScale": 1,
   "helpOnLoad": false,
-  "about": "Utforsk hvilken rolle molekylmassen spiller for farten på diffusjonen. Velg hvilken masse molekylene bak sperringen skal ha. Fjern sperringen, og mål hvor lang tid det tar før molekylene når gass-sensoren. Når gass-sensoren har oppdaget tre molekyler, stopper forsøket. Sammenlign diffusjonsfarten for de lette, de tyngre og de tyngste molekylene. Spor et enkeltatom for å se hvilken vei det tar.",
+  "about": "Utforsk kva rolle molekylmassen spelar for farta på diffusjonen. Vel kva masse molekyla bak sperringa skal ha. Fjern sperringa, og mål kor lang tid det tek før molekyla når gass-sensoren. Når gass-sensoren har oppdaga tre molekyl, stoppar forsøket. Samanlikn diffusjonsfarta for dei lette, dei tyngre og dei tyngste molekyla. Spor eit enkeltatom for å sjå kva veg det tek.",
   "models": [
     {
       "type": "md2d",
@@ -96,7 +96,7 @@
       "name": "experimentTime",
       "initialValue": 0,
       "onChange": "",
-      "label": "Forsøkets varighet",
+      "label": "Kor lenge forsøket varar",
       "unitType": "time"
     },
     {
@@ -142,7 +142,7 @@
           "value": 2
         },
         {
-          "text": "Høy",
+          "text": "Høg",
           "value": 3
         }
       ],
@@ -154,7 +154,7 @@
     {
       "id": "trace-atom",
       "type": "checkbox",
-      "text": "Spor et molekyl",
+      "text": "Spor eit molekyl",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -168,14 +168,14 @@
       "type": "button",
       "action": [
         "if (isStopped()) {",
-        "  alert('Start simuleringen før du fjerner sperringen.');",
+        "  alert('Start simuleringen før du fjerner sperringa.');",
         "} else if (getNumberOfObstacles() > 0) { ",
         "  removeObstacle(0); ",
         "  set('timeBarrierRemoved', get('time'));",
         "  set('experimentRunning', true)",
         "}"
       ],
-      "text": "Fjern sperringen",
+      "text": "Fjern sperringa",
       "width": "",
       "height": "",
       "disabled": false,

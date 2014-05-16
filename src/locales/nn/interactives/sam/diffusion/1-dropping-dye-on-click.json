@@ -1,8 +1,8 @@
 {
-  "title": "Diffusjon av en dråpe",
+  "title": "Diffusjon av ein drope",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Tilfør en fargedråpe i beholderen, og se hvodan den diffunderer gjennom vannet.",
+  "subtitle": "Tilfør ein fargedrope i behaldaren, og sjå korleis han diffunderer gjennom vatnet.",
   "category": "Biology",
   "subCategory": "Molecular biology",
   "screenshot": "http://screenshots.lab.concord.org/1-dropping-dye-on-click.png",
@@ -10,8 +10,8 @@
   "fontScale": 1,
   "helpOnLoad": false,
   "about": [
-    "Klikk på simuleringen for å tilsette en fargedråpe. Se hvordan molekylene beveger seg gjennnom vannet.",
-    "Spor et enkeltatom for å se hvordan det beveger seg gjennom væsken."
+    "Klikk på simuleringa for å tilsetje ein fargedrope. Sjå korleis molekyla beveger seg gjennnom vatnet.",
+    "Spor eit enkeltatom for å sjå korleis det beveger seg gjennom væska."
   ],
   "models": [
     {
@@ -74,7 +74,7 @@
         "  traceAtom(atomID);",
         "});"
       ],
-      "text": "Spor et tilfeldig molekyl",
+      "text": "Spor eit tilfeldig molekyl",
       "width": "",
       "height": "",
       "disabled": false,

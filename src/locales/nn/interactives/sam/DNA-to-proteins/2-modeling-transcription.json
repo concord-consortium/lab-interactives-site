@@ -1,8 +1,8 @@
 {
-  "title": "En modell av transkripsjon",
+  "title": "Ein modell av transkripsjon",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Undersøk hvordan en mRNA-kopi blir laget av DNA.",
+  "subtitle": "Undersøk korleis ein mRNA-kopi blir laga av DNA.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,11 +10,11 @@
   "fontScale": 0.8,
   "helpOnLoad": false,
   "about": [
-    "En streng av DNA blir brukt som et mønster for å lage en nRNA-kopi. Denne prosessen blir kalt transkripsjon. En mRNA-kopi må lages fordi DNA ikke kan forlate kjernen.",
+    "Ein streng av DNA blir brukt som eit mønster for å lage ein nRNA-kopi. Denne prosessen kallar vi transkripsjon. Vi må lage ein mRNA-kopi fordi DNA ikkje kan forlate kjernen.",
     "",
-    "Spesielle proteiner splitter DNA-spiralen slik at samhørende nukleotider kan binde seg til DNA-sekvensen. Det er helt bestemte nukleotider som hører sammen i par.",
+    "Spesielle proteinar splittar DNA-spiralen slik at samhøyrande nukleotidar kan binde seg til DNA-sekvensen. Det er heilt bestemte nukleotidar som høyrer saman i par.",
     "",
-    "Bruk knappene **A**, **U**, **G** and **C** for å plassere riktig mRNA-nukleotid sammen med hver DNA-nukleotid. "
+    "Bruk knappane **A**, **U**, **G** and **C** for å plassere riktig mRNA-nukleotid saman med kvar DNA-nukleotid. "
   ],
   "models": [
     {
@@ -43,7 +43,7 @@
       "id": "begin",
       "type": "button",
       "action": "animateToDNAState('transcription:0');",
-      "text": "Forbered for transkripsjon",
+      "text": "Førebu for transkripsjon",
       "width": "",
       "height": "",
       "disabled": false,
@@ -110,7 +110,7 @@
     {
       "id": "label1B",
       "type": "text",
-      "text": "for å splitte opp DNA-strengene.",
+      "text": "for å splitte opp DNA-strengane.",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -118,7 +118,7 @@
     {
       "id": "label2",
       "type": "text",
-      "text": "Klikk deretter på knappen som representerer den riktige **samhørende** RNA-nukleotiden for å fortsette til neste steg i transkripsjonsprosessen:",
+      "text": "Klikk deretter på knappen som representerer den riktige **samhøyrande** RNA-nukleotiden for å halde fram til neste steg i transkripsjonsprosessen:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""

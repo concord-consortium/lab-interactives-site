@@ -1,15 +1,15 @@
 {
-  "title": "Diffusjon over en semipermeabel membran",
+  "title": "Diffusjon over ein semipermeabel membran",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Hvordan påvirker porestørrelsen diffusjonen av forskjellige molekyler?",
+  "subtitle": "Korleis påverkar porestorleiken diffusjonen av ulike molekyl?",
   "category": "",
   "subCategory": "",
   "screenshot": "",
   "aspectRatio": 1.2,
   "fontScale": 1,
   "helpOnLoad": false,
-  "about": "Biologiske membraner er selektivt permeable. Det betyr at noen molekyler kommer gjennom, andre gjør det ikke. En måte dette styres på, er med porestørrelsen. Endre porestørrelsen med glidebryteren, slik at membranens permeabilitet for ulike typer molekyler endres. Spor et enkeltmolekyl og se hvilken vei det tar.",
+  "about": "Biologiske membranar er selektivt permeable. Det vil seie at somme molekyl kjem gjennom, andre gjer det ikkje. Ein måte dette blir styrt på, er med porestorleiken. Endre porestorleiken med glidebrytaren, slik at permeabilitet til membranen for ulike typar molekyl blir endra. Spor eit enkeltmolekyl og sjå kva veg det tek.",
   "models": [
     {
       "type": "md2d",
@@ -68,7 +68,7 @@
       "min": 0,
       "max": 1,
       "steps": 50,
-      "title": "Porestørrelse",
+      "title": "Porestorleik",
       "labels": [],
       "width": "auto",
       "height": "auto",
@@ -80,7 +80,7 @@
     {
       "id": "trace-atom",
       "type": "checkbox",
-      "text": "Spor et molekyl",
+      "text": "Spor eit molekyl",
       "textOn": "right",
       "width": "auto",
       "height": "auto",

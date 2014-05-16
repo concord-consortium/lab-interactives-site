@@ -1,8 +1,8 @@
 {
-  "title": "Fra DNA til protein",
+  "title": "Frå DNA til protein",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Utforsk hvordan koden som er innbakt i DNA oversettes til protein.",
+  "subtitle": "Utforsk korleis koden som er bakt inn i DNA blir omsett til protein.",
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
@@ -10,11 +10,11 @@
   "fontScale": 0.65,
   "helpOnLoad": false,
   "about": [
-    "Klikk **Transkriber** for å zoome inn i cellekjernen og se hvordan kromosomet vikler seg ut, og se DNA-strengene. DNA-et deler seg, og en mRNA-streng lages av nukleotider, med DNA som mal.",
+    "Klikk **Transkriber** for å zoome inn i cellekjerna og sjå korleis kromosomet viklar seg ut, og sjå DNA-strengane. DNA-et delar seg, og ein mRNA-streng blir laga av nukleotidar, med DNA som mal.",
     "",
-    "Klikk **Translasjon** for å se hvordan mRNA drar fra kjernen til cytoplasmaet og fester seg til et ribosom. tRNA-molekyler frakter inn aminosyrer, og aminosyrene blir lenket sammen i riktig rekkefølge ved hjelp av samhørende nukleotider.",
+    "Klikk **Translasjon** for å sjå korleis mRNA dreg frå kjerna til cytoplasmaet og festar seg til eit ribosom. tRNA-molekyl fraktar inn aminosyrer, og aminosyrene blir lenkja saman i rett rekkjefølgje ved hjelp av samhøyrande nukleotidar.",
     "",
-    "Etter translasjonen (oversettelsen) kan du granske proteinet og se hvordan sekvensen av aminosyrer har foldet seg."
+    "Etter translasjonen (omsetjinga) kan du granske proteinet og sjå korleis sekvensen av aminosyrer har falda seg."
   ],
   "models": [
     {
@@ -98,7 +98,7 @@
         "  translateDNAStep();",
         "}"
       ],
-      "text": "Oversett steg for steg",
+      "text": "Omsett steg for steg",
       "width": "",
       "height": "",
       "disabled": false,
@@ -115,7 +115,7 @@
     {
       "id": "label2",
       "type": "text",
-      "text": "for å se hele mRNA-strengen bli laget, eller",
+      "text": "for å sjå heile mRNA-strengen bli laga, eller",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -131,7 +131,7 @@
     {
       "id": "label4",
       "type": "text",
-      "text": "for å generere hele proteinet fra mRNA, eller",
+      "text": "for å generere heile proteinet frå mRNA, eller",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -186,7 +186,7 @@
       "id": "next-state",
       "type": "button",
       "action": "animateToNextDNAState();",
-      "text": "Fortsett et steg",
+      "text": "Hald fram eit steg",
       "width": "",
       "height": "",
       "disabled": false,

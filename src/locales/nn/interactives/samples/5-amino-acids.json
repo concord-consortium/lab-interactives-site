@@ -1,8 +1,8 @@
 {
-  "title": "Proteinfolding",
+  "title": "Proteinfalding",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Hvordan foldes proteiner til stabile strukturer?",
+  "subtitle": "Korleis foldas proteiner til stabile strukturer?",
   "category": "Biology",
   "subCategory": "Molecular biology",
   "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
@@ -10,7 +10,7 @@
   "fontScale": 0.6,
   "helpOnLoad": false,
   "about": [
-	"Forklar hvilken rolle hydrofobi og hydrofili har ved proteinfolding. Generer en tilfeldig peptidstreng og se hvordan den folder sammen seg i et vannmiljø. Bytt miljø og se hva som skjer hvis peptidet er i olje eller i vakuum i stedet for i vann."
+	"Forklar kva rolle hydrofobi og hydrofili har ved proteinfalding. Generer ein tilfeldig peptidstreng og sjå korleis han faldar seg saman i eit vatnmiljø. Bytt miljø og sjå kva som skjer om peptidet er i olje eller i vakuum i staden for i vatn."
   ],
   "models": [
     {
@@ -56,12 +56,12 @@
       "labelOn": "top",
       "options": [
         {
-          "text": "Velg løsningsstoff",
+          "text": "Velg løysningsstoff",
           "selected": true,
           "disabled": true
         },
         {
-          "text": "Vacuum",
+          "text": "Vakuum",
           "value": "vacuum"
         },
         {
@@ -69,7 +69,7 @@
           "value": "oil"
         },
         {
-          "text": "Vann",
+          "text": "Vatn",
           "value": "water"
         }
       ],
@@ -85,12 +85,12 @@
       "labelOn": "top",
       "options": [
         {
-          "text": "Velg fargekoder for aminosyrene",
+          "text": "Velg fargekodar for aminosyrane",
           "selected": true,
           "disabled": true
         },
         {
-          "text": "Ingen av delene",
+          "text": "Ingen av delane",
           "value": "none"
         },
         {
@@ -122,7 +122,7 @@
         "  }",
         "});"
       ],
-      "text": "Bare hydrofobisk",
+      "text": "Berre hydrofobisk",
       "width": "",
       "height": "",
       "disabled": false,
@@ -139,7 +139,7 @@
         "  }",
         "});"
       ],
-      "text": "Bare hydrofilt",
+      "text": "Berre hydrofilt",
       "width": "",
       "height": "",
       "disabled": false,
@@ -207,7 +207,7 @@
       "id": "random-protein-button",
       "type": "button",
       "action": "generateRandomProtein(40);",
-      "text": "Generer et tilfeldig protein",
+      "text": "Generer eit tilfeldig protein",
       "width": "",
       "height": "",
       "disabled": false,

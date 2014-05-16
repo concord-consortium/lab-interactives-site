@@ -10,19 +10,19 @@
   "fontScale": 1,
   "helpOnLoad": true,
   "about": [
-    "Nedenfor er en modell som inneholder reaktanter som reagerer med hverandre:",
+    "Under her er det ein modell som inneheld reaktantar som reagerer med kvarandre:",
     "",
     "###A₂ + B₂ --> 2 AB###",
     "",
-    "I dette tilfellet er modellen innstilt med høy aktiveringsenergi. Prøv å kjør",
-    "reaksjonen med og uten katalysator, slik at du ser hvilken effekt katalysatorer har på kjemiske reaksjoner.",
+    "I dette tilfellet er modellen innstilt med høg aktiveringsenergi. Prøv å køyre ",
+    "reaksjonen med og utan katalysator, slik at du ser kva effekt katalysatorar har på kjemiske reaksjonar.",
     "",
     "##Eksperimenter med modellen##",
     "",
-  "1. Kjør modellen og se hva som skjer uten en katalysator.",
+  "1. Køyr modelen og sjå kva som skjer utan ein katalysator.",
         "2. Sett modellen på pause.",
-        "3. Legg til 3–4 katalysatorer ved å klikke på knappen.",
-        "4. Kjør modellen igjen, og observer hvordan katalysatorene påvirker reaksjonen."
+        "3. Legg til 3–4 katalysatorar ved å klikke på knappen.",
+        "4. Køyr modellen igjen, og observer korleis katalysatorane påverkar reaksjonen."
   ],
   "models": [
     {
@@ -96,10 +96,10 @@
       "text": [
         "##Eksperimenter med modellen##",
         "",
-        "1. Kjør modellen og se hva som skjer uten en katalysator.",
+        "1. Køyr modelen og sjå kva som skjer utan ein katalysator.",
         "2. Sett modellen på pause.",
-        "3. Legg til 3–4 katalysatorer ved å klikke på knappen.",
-        "4. Kjør modellen igjen, og observer hvordan katalysatorene påvirker reaksjonen."
+        "3. Legg til 3–4 katalysatorar ved å klikke på knappen.",
+        "4. Køyr modellen igjen, og observer korleis katalysatorane påverkar reaksjonen."
       ]
     }
   ],
@@ -128,7 +128,7 @@
     {
       "id": "slow-motion",
       "type": "checkbox",
-      "text": "Sakte bevegelse",
+      "text": "Sakte rørsle",
       "textOn": "right",
       "width": "auto",
       "height": "auto",

@@ -1,12 +1,12 @@
 {
-  "title": "Molekylær oversikt over faste stoffer",
+  "title": "Vising av eit fast stoff på molekylnivå",
   "publicationStatus": "public",
-  "subtitle": "Hvordan ser et fast stoff ut på molekylært nivå?",
+  "subtitle": "Korleis ser eit fast stoff ut på molekylært nivå?",
   "aspectRatio": 1.2,
   "about": [
-    "Molekyler er i konstant bevegelse-til og med i et fast stoff! \"Merk to atomer,\" og",
-    "kjør modellen for å se hvordan molekylene i faste stoffer beveger seg i forhold til hverandre. Hvordan",
-    "vil du beskrive bevegelsene og forholdet mellom molekylene i faste stoffer?"
+    "Molekyler er i konstant bevegelse - til og med i eit fast stoff! \"Merk to atom,\" og",
+    "køyr modellen for å sjå korleis molekyla i faste stoff beveger seg i høve til kvarandre. Korleis ",
+    "vil du skildre rørslene og tilhøvet mellom molekyla i faste stoff?"
   ],
   "models": [
     {
@@ -23,19 +23,19 @@
 {
       "type": "button",
       "id": "mark-two-atoms",
-      "text": "Merk to atomer",
+      "text": "Merk to atom",
       "action": "markAtoms(randomAtoms(2));"
     },
     {
       "type": "checkbox",
       "id": "show-attractions",
-      "text": "Vis tiltrekninger",
+      "text": "Vis tiltrekkingar",
       "property": "showVDWLines"
     },
     {
       "type": "button",
       "id": "trace-atom",
-      "text": "Følg et tilfeldig atom",
+      "text": "Følg eit tilfeldig atom",
       "action": "traceAtom(randomAtoms(1));"
     },
     {

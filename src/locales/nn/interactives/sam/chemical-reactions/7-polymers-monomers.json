@@ -1,5 +1,5 @@
 {
-  "title": "Polymerer og monomerer",
+  "title": "Polymerar og monomerar",
   "publicationStatus": "public",
   "labEnvironment": "production",
   "subtitle": "",
@@ -10,25 +10,25 @@
   "fontScale": 1,
   "helpOnLoad": false,
   "about": [
-    "Karbohydrater, proteiner og nukleinsyrer er bygd opp av små molekyler som er",
-    "forbundet med hverandre med sterke kovalente bindinger. De små molekylene kalles",
-    "monomerer (*mono* betyr en, eller enkel), og de er koplet sammen i lange kjeder",
-    "kalt polymerer (*poly* betyr mange, eller flere). Hver enkelt type makromolekyl,",
-    "unntatt lipider, er laget av forskjellige sett av monomerer som ligner hverandre i",
-    "sammensetning og størrelse. Lipider er ikke polymerer, fordi de ikke er bygd av monomerer",
-    "(enheter med omtrent lik sammensetning).",
+    "Karbohydratar, proteinar og nukleinsyrer er bygde opp av små molekyl som er ",
+    "bundne saman med kvarandre med sterke kovalente bindingar. Dei små molekyla kallar vi ",
+    "monomerar (*mono* betyr ein, eller enkel), og dei er kopla saman i lange kjeder",
+    "kalla polymerar (*poly* betyr mange, eller fleire). Kvar einskild type makromolekyl, ",
+    "unnateke lipidar, er laga av ulike sett av monomerar som liknar kvarandre i ",
+    "samansetjing og storleik. Lipidar er ikkje polymerar, fordi dei ikkje er bygde av monomerar ",
+    "(einingar med om lag lik samansetjing).",
     "",
-    "Bruk modellen nedenfor til å bygge to typer polymerer. Utfordringen er å skape",
-    "en kjede med identiske enheter (en homopolymer) og en kjede med ulike enheter (en heteropolymer).",
+    "Bruk modellen under til å byggje to typar polymerar. Utfordringa er å skape ",
+    "ei kjede med identiske einingar (ein homopolymer) og ei kjede med ulike einingar (ein heteropolymer).",
     "",
-    "###Utfordring 1: bygg en homopolymer###",
+    "###Utfordring 1: bygg ein homopolymer###",
     "",
-    "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
+    "- Vel ein av monomerane og legg til om lag 15 monomerar ved å klikke kor som helst ",
     "i *Polymeriserings-reaksjonskammeret*.",
     "- Klikk på play-knappen for å starte reaksjonen.",
     "",
-    "###Utfordring 2: Bygg en heteropolymer###",
-    "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
+    "###Utfordring 2: Bygg ein heteropolymer###",
+    "- Start på nytt, og legg til om lag 5 av kvar av monomerane i reaksjonskammeret.",
     "- Klikk på play-knappen for å starte reaksjonen."
   ],
   "models": [
@@ -102,14 +102,14 @@
     {
       "component": "",
       "text": [
- "###Utfordring 1: bygg en homopolymer###",
+ "###Utfordring 1: bygg ein homopolymer###",
     "",
-    "- Velg en av monomerene og legg til omtrent 15 monomerer ved å klikke hvorsomhelst ",
+    "- Vel ein av monomerane og legg til om lag 15 monomerar ved å klikke kor som helst ",
     "i *Polymeriserings-reaksjonskammeret*.",
     "- Klikk på play-knappen for å starte reaksjonen.",
     "",
-    "###Utfordring 2: Bygg en heteropolymer###",
-    "- Start på nytt, og legg til omtrent 5 av hver av monomerene i reaksjonskammeret.",
+    "###Utfordring 2: Bygg ein heteropolymer###",
+    "- Start på nytt, og legg til om lag 5 av kvar av monomerane i reaksjonskammeret.",
     "- Klikk på play-knappen for å starte reaksjonen."
       ]
     }
@@ -120,7 +120,7 @@
     {
       "id": "element-pulldown",
       "type": "pulldown",
-      "label": "Klikk på bakgrunnen for å legge til",
+      "label": "Klikk på bakgrunnen for å leggje til ",
       "labelOn": "right",
       "options": [
         {
