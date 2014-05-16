@@ -1,197 +1,99 @@
-��{
-
+{
   "title": "Diffusjon av ein drope",
-
   "publicationStatus": "public",
-
   "labEnvironment": "production",
-
   "subtitle": "Tilfør ein fargedrope i behaldaren, og sjå korleis han diffunderer gjennom vatnet.",
-
   "category": "Biology",
-
   "subCategory": "Molecular biology",
-
   "screenshot": "http://screenshots.lab.concord.org/1-dropping-dye-on-click.png",
-
   "aspectRatio": 1.25,
-
   "fontScale": 1,
-
   "helpOnLoad": false,
-
   "about": [
-
     "Klikk på simuleringa for å tilsetje ein fargedrope. Sjå korleis molekyla beveger seg gjennnom vatnet.",
-
     "Spor eit enkeltatom for å sjå korleis det beveger seg gjennom væska."
-
   ],
-
   "models": [
-
     {
-
       "type": "md2d",
-
       "id": "model1",
-
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
-
       "onLoad": [
-
         "function onClickHandler(x, y) {",
-
         "  start();",
-
         "  batch(function() {",
-
         "    var atomsToMark = atomsWithinCircle(x, y, 0.5);",
-
         "    markAtoms(atomsToMark);",
-
         "  });",
-
         "}",
-
         "onClick('background', onClickHandler);",
-
         "onClick('atom', onClickHandler);"
-
       ],
-
       "viewOptions": {
-
         "controlButtons": "play_reset",
-
         "showClock": true,
-
         "imageMapping": {
-
           "waterDyeKey.png": "waterDyeKey.svg"
-
         }
-
       }
-
     }
-
   ],
-
   "propertiesToRetain": [],
-
   "parameters": [
-
     {
-
       "name": "tracedAtom",
-
       "initialValue": -99,
-
       "onChange": ""
-
     },
-
     {
-
       "name": "wasMarked",
-
       "initialValue": 0,
-
       "onChange": ""
-
     }
-
   ],
-
   "outputs": [],
-
   "filteredOutputs": [],
-
   "helpTips": [],
-
   "hideExportDataControl": false,
-
   "dataSets": [],
-
   "components": [
-
     {
-
       "id": "trace",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  var atomID = randomAtoms(1);",
-
         "  var tracedAtomID = get('tracedAtom');",
-
         "  if (tracedAtomID != -99) {",
-
         "    setAtomProperties(tracedAtomID, {element: 0, marked: get('wasMarked')}, false, false);",
-
         "  }",
-
         "  setAtomProperties(atomID, {element: 1}, false, false);",
-
         "  set({tracedAtom: atomID});",
-
         "  set({wasMarked: getAtomProperties(atomID).marked});",
-
         "  setAtomProperties(atomID, {marked: 0}, false, false);",
-
         "  traceAtom(atomID);",
-
         "});"
-
       ],
-
       "text": "Spor eit tilfeldig molekyl",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     }
-
   ],
-
   "layout": {
-
     "under-model": [
-
       "trace"
-
     ]
-
   },
-
   "template": [
-
     {
-
       "id": "under-model",
-
       "top": "model.bottom",
-
       "left": "model.left",
-
       "width": "model.width",
-
       "padding-top": "0.25em",
-
       "align": "center"
-
     }
-
   ]
-
 }

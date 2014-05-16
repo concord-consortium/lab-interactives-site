@@ -1,459 +1,230 @@
-��{
-
+{
   "title": "Proteinfalding",
-
   "publicationStatus": "public",
-
   "labEnvironment": "production",
-
   "subtitle": "Korleis foldas proteiner til stabile strukturer?",
-
   "category": "Biology",
-
   "subCategory": "Molecular biology",
-
   "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
-
   "aspectRatio": 1.3,
-
   "fontScale": 0.6,
-
   "helpOnLoad": false,
-
   "about": [
-
 	"Forklar kva rolle hydrofobi og hydrofili har ved proteinfalding. Generer ein tilfeldig peptidstreng og sjå korleis han faldar seg saman i eit vatnmiljø. Bytt miljø og sjå kva som skjer om peptidet er i olje eller i vakuum i staden for i vatn."
-
   ],
-
   "models": [
-
     {
-
       "type": "md2d",
-
       "id": "amino-acids$0",
-
       "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
-
       "viewOptions": {
-
         "controlButtons": "play_reset_step",
-
         "showClock": false
-
       }
-
     }
-
   ],
-
   "propertiesToRetain": [],
-
   "parameters": [
-
     {
-
       "name": "solvent",
-
       "initialValue": "water",
-
       "onChange": "setSolvent(value);"
-
     }
-
   ],
-
   "outputs": [],
-
   "filteredOutputs": [],
-
   "helpTips": [],
-
   "hideExportDataControl": false,
-
   "dataSets": [],
-
   "components": [
-
     {
-
       "id": "show-labels",
-
       "type": "checkbox",
-
       "text": "Bruk tre-bokstavkode",
-
       "textOn": "right",
-
       "width": "auto",
-
       "height": "auto",
-
       "property": "useThreeLetterCode",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "select-solvent",
-
       "type": "pulldown",
-
       "label": "",
-
       "labelOn": "top",
-
       "options": [
-
         {
-
           "text": "Velg løysningsstoff",
-
           "selected": true,
-
           "disabled": true
-
         },
-
         {
-
           "text": "Vakuum",
-
           "value": "vacuum"
-
         },
-
         {
-
           "text": "Olje",
-
           "value": "oil"
-
         },
-
         {
-
           "text": "Vatn",
-
           "value": "water"
-
         }
-
       ],
-
       "property": "solvent",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "select-color-scheme",
-
       "type": "pulldown",
-
       "label": "",
-
       "labelOn": "top",
-
       "options": [
-
         {
-
           "text": "Velg fargekodar for aminosyrane",
-
           "selected": true,
-
           "disabled": true
-
         },
-
         {
-
           "text": "Ingen av delane",
-
           "value": "none"
-
         },
-
         {
-
           "text": "Ladd",
-
           "value": "charge"
-
         },
-
         {
-
           "text": "Hydrofobisk",
-
           "value": "hydrophobicity"
-
         },
-
         {
-
           "text": "Ladd og hydrofobisk",
-
           "value": "chargeAndHydro"
-
         }
-
       ],
-
       "property": "aminoAcidColorScheme",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "phobic-button",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
-
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
-
         "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
-
         "  }",
-
         "});"
-
       ],
-
       "text": "Berre hydrofobisk",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "philic-button",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
-
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
-
         "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
-
         "  }",
-
         "});"
-
       ],
-
       "text": "Berre hydrofilt",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "mostly-phobic-button",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
-
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
-
         "  var phobic, philic;",
-
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
-
         "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
-
         "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
-
         "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
-
         "  }",
-
         "});"
-
       ],
-
       "text": "Mest hydrofobisk",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "mostly-philic-button",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
-
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
-
         "  var phobic, philic;",
-
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
-
         "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
-
         "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
-
         "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
-
         "  }",
-
         "});"
-
       ],
-
       "text": "Mest hydrofilt",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "random-button",
-
       "type": "button",
-
       "action": [
-
         "batch(function () {",
-
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
-
         "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
-
         "  }",
-
         "});"
-
       ],
-
       "text": "Tilfeldig blanding",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "random-protein-button",
-
       "type": "button",
-
       "action": "generateRandomProtein(40);",
-
       "text": "Generer eit tilfeldig protein",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     }
-
   ],
-
   "layout": {
-
     "bottom": [
-
       [
-
         "show-labels",
-
         "select-color-scheme",
-
         "select-solvent"
-
       ],
-
       [
-
         "random-protein-button"
-
       ]
-
     ]
-
   },
-
   "template": "simple"
-
 }

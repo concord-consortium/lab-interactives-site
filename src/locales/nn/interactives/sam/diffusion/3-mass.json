@@ -1,590 +1,296 @@
-��{
-
+{
   "title": "Diffusjon og molekylmasse",
-
   "publicationStatus": "public",
-
   "labEnvironment": "production",
-
   "subtitle": "Korleis påverkar molekylmassen farta på diffusjonen?",
-
   "category": "",
-
   "subCategory": "",
-
   "screenshot": "",
-
   "aspectRatio": 1.7,
-
   "fontScale": 1,
-
   "helpOnLoad": false,
-
-  "about": "Utforsk kva rolle molekylmassen spelar for farta på diffusjonen. Vel kva masse molekyla bak sperringa skal ha. Fjern sperringa, og mål kor lang tid det tek før molekyla når gass-sensoren. Når gass-sensoren har oppdaga tre molekyl, stoppar forsøket. Samanlikn diffusjonsfarta for dei lette, dei tyngre og dei tyngste molekyla. Spor eit enkeltatom for å sjå kva veg det tek.
+  "about": "Utforsk kva rolle molekylmassen spelar for farta på diffusjonen. Vel kva masse molekyla bak sperringa skal ha. Fjern sperringa, og mål kor lang tid det tek før molekyla når gass-sensoren. Når gass-sensoren har oppdaga tre molekyl, stoppar forsøket. Samanlikn diffusjonsfarta for dei lette, dei tyngre og dei tyngste molekyla. Spor eit enkeltatom for å sjå kva veg det tek.",
   "models": [
-
     {
-
       "type": "md2d",
-
       "id": "model1",
-
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/DiffusionTemp/DiffusionMass.json",
-
       "onLoad": [
-
         "onPropertyChange('time', function(t) {",
-
         "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, get('gasElementType'));",
-
         "  var nNewAtomsInTarget   = 0;",
-
         "  var nAtomsInTargetTotal = get('nAtomsInTargetTotal')",
-
         "  for(var i = 0; i < atoms.length; i++) {",
-
         "    if (!getAtomProperties(atoms[i]).pinned) { ",
-
         "      setAtomProperties(atoms[i], {pinned: 1});",
-
         "      nNewAtomsInTarget++;",
-
         "    }",
-
         "  }",
-
         "  set('nAtomsInTargetTotal', nAtomsInTargetTotal + nNewAtomsInTarget);",
-
         "  set('experimentTime', get('experimentRunning') ? t - get('timeBarrierRemoved') : 0);",
-
         "});"
-
       ],
-
       "viewOptions": {
-
         "controlButtons": "play",
-
         "textBoxes": [
-
           {
-
             "text": "Gass-sensor",
-
             "x": 6.8,
-
             "y": 0.2,
-
             "rotate": -90,
-
             "width": 2,
-
             "textAlign": "center",
-
             "frame": "rectangle",
-
             "fontSize": 0.19,
-
             "strokeOpacity": 0,
-
             "backgroundColor": "rgba(145,83,205,0.5)",
-
             "layer": 1
-
           }
-
         ]
-
       },
-
       "modelOptions": {
-
         "unitsScheme": "mks",
-
         "timeStep": 1.5,
-
         "timeStepsPerTick": 75
-
       }
-
     }
-
   ],
-
   "propertiesToRetain": [],
-
   "parameters": [
-
     {
-
       "name": "gasElementType",
-
       "initialValue": 2,
-
       "onChange": [
-
         "for (var i = 0; i < 17; i++) {",
-
         "  setAtomProperties(i, {element: value});",
-
         "}",
-
         "setTemperatureOfAtoms([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],500);"
-
       ]
-
     },
-
     {
-
       "name": "tracedAtom",
-
       "initialValue": -99,
-
       "onChange": ""
-
     },
-
     {
-
       "name": "nAtomsInTargetTotal",
-
       "initialValue": 0,
-
       "onChange": "if (value >= 3) { stop() }"
-
     },
-
     {
-
       "name": "wasMarked",
-
       "initialValue": 0,
-
       "onChange": ""
-
     },
-
     {
-
       "name": "timeBarrierRemoved",
-
       "initialValue": 0,
-
       "onChange": ""
-
     },
-
     {
-
       "name": "experimentRunning",
-
       "initialValue": false,
-
       "onChange": ""
-
     },
-
     {
-
       "name": "experimentTime",
-
       "initialValue": 0,
-
       "onChange": "",
-
       "label": "Kor lenge forsøket varar",
-
       "unitType": "time"
-
     },
-
     {
-
       "name": "selectedTemperature",
-
       "initialValue": 2,
-
       "onChange": [
-
         "var targets = [100, 250, 500, 1500, 2000];",
-
         "set('targetTemperature', targets[value]);"
-
       ]
-
     },
-
     {
-
       "name": "tracingAtom",
-
       "initialValue": false,
-
       "onChange": [
-
         "if (!value) {",
-
         "  untraceAtom();",
-
         "} else {",
-
         "  var idx = randomInteger(18);",
-
         "  traceAtom(idx);",
-
         "  set('tracedAtom',idx);",
-
         "}"
-
       ]
-
     }
-
   ],
-
   "outputs": [],
-
   "filteredOutputs": [],
-
   "helpTips": [],
-
   "hideExportDataControl": false,
-
   "dataSets": [],
-
   "components": [
-
     {
-
       "id": "mass-pulldown",
-
       "type": "pulldown",
-
       "label": "Molekylmasse",
-
       "labelOn": "top",
-
       "options": [
-
         {
-
           "text": "Lav",
-
           "value": 0
-
         },
-
         {
-
           "text": "Middels",
-
           "value": 2
-
         },
-
         {
-
           "text": "Høg",
-
           "value": 3
-
         }
-
       ],
-
       "property": "gasElementType",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "trace-atom",
-
       "type": "checkbox",
-
       "text": "Spor eit molekyl",
-
       "textOn": "right",
-
       "width": "auto",
-
       "height": "auto",
-
       "property": "tracingAtom",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "remove-obstacle",
-
       "type": "button",
-
       "action": [
-
         "if (isStopped()) {",
-
         "  alert('Start simuleringen før du fjerner sperringa.');",
-
         "} else if (getNumberOfObstacles() > 0) { ",
-
         "  removeObstacle(0); ",
-
         "  set('timeBarrierRemoved', get('time'));",
-
         "  set('experimentRunning', true)",
-
         "}"
-
       ],
-
       "text": "Fjern sperringa",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "reset-barrier",
-
       "type": "button",
-
       "action": [
-
         "reloadModel();"
-
       ],
-
       "text": "Nullstill forsøket",
-
       "width": "",
-
       "height": "",
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "temperature-slider",
-
       "type": "slider",
-
       "min": 0,
-
       "max": 4,
-
       "steps": 4,
-
       "title": "Temperatur",
-
       "labels": [
-
         {
-
           "value": 0,
-
           "label": "Lav"
-
         },
-
         {
-
           "value": 2,
-
           "label": "Middels"
-
         },
-
         {
-
           "value": 4,
-
           "label": "Høy"
-
         }
-
       ],
-
       "width": "auto",
-
       "height": "auto",
-
       "property": "selectedTemperature",
-
       "retainProperty": true,
-
       "disabled": false,
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "thermometer",
-
       "type": "barGraph",
-
       "property": "targetTemperature",
-
       "min": 0,
-
       "max": 2500,
-
       "title": "Termometer",
-
       "titleOn": "right",
-
       "labels": 0,
-
       "units": false,
-
       "gridLines": 10,
-
       "labelFormat": "0.1f",
-
       "barWidth": "2em",
-
       "height": "100%",
-
       "barColor": "#e23c34",
-
       "fillColor": "#fff",
-
       "tooltip": ""
-
     },
-
     {
-
       "id": "experiment-time",
-
       "type": "numericOutput",
-
       "property": "experimentTime",
-
       "label": "",
-
       "units": "",
-
       "orientation": "horizontal",
-
       "width": "auto",
-
       "height": "auto",
-
       "displayValue": "return format('.1f')(value)",
-
       "tooltip": ""
-
     }
-
   ],
-
   "layout": {
-
     "bottom": [
-
       [
-
         "mass-pulldown",
-
         "temperature-slider",
-
         "experiment-time"
-
       ],
-
       [
-
         "remove-obstacle",
-
         "reset-barrier"
-
       ],
-
       [
-
         "trace-atom"
-
       ]
-
     ],
-
     "right": [
-
       "thermometer"
-
     ]
-
   },
-
   "template": [
-
     {
-
       "id": "top",
-
       "bottom": "model.top",
-
       "width": "interactive.width"
-
     },
-
     {
-
       "id": "right",
-
       "top": "model.top",
-
       "left": "model.right",
-
       "height": "model.height",
-
       "padding-left": "1em",
-
       "padding-right": "0.5em"
-
     },
-
     {
-
       "id": "bottom",
-
       "top": "model.bottom",
-
       "width": "interactive.width",
-
       "padding-top": "0.5em",
-
       "align": "center"
-
     }
-
   ]
-
 }
