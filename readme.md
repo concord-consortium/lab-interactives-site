@@ -66,4 +66,4 @@ If you think you'd like to contribute to Lab Interactives Site as an external de
 - [Project Configuration](developer-doc/configuration.md)
 - [Deployment](developer-doc/deployment.md)
 - [Working with different Lab Framework versions](developer-doc/lab-framework-versions.md)
-
+- [Localization](developer-doc/localization.md)
