@@ -30,7 +30,7 @@
   	</textarea>
   	<script>
   	  (function (){
-        var template_html, 
+        var template_html,
             interactive,
             promises = [],
             hash = window.location.hash;
@@ -58,6 +58,8 @@
         }));
         $.getJSON("../" + window.location.hash.substring(1)).done(function(results){
           	interactive = results;
+            // Remove reference to i18nMetadata, as we don't have to support language switching.
+            delete interactive.i18nMetadata;
           	console.log("found " + interactive.models.length + " models");
           	$.each(interactive.models, function(index, model){
           		if(model.url){
@@ -74,10 +76,10 @@
 	          var interactive_def,
 	      	      inlined,
 	      	      blob, blob_url;
-	      	  interactive_def = "window.INTERACTIVE=" + 
-	      	    JSON.stringify(interactive, null, 2) + 
+	      	  interactive_def = "window.INTERACTIVE=" +
+	      	    JSON.stringify(interactive, null, 2) +
 	      	    ";"
-	      	  inlined = template_html.replace("// SPOT_TO_PUT_INLINE_INTERACTIVE_AND_MODEL", 
+	      	  inlined = template_html.replace("// SPOT_TO_PUT_INLINE_INTERACTIVE_AND_MODEL",
 	      	  	"window.INTERACTIVE=" + JSON.stringify(interactive, null, 2) + ";");
 	      	  // The following injection is so the sharing URL points back to the current
 	      	  // interactive site. The homEmbeddablePath is being abused a little bit here.
@@ -98,7 +100,7 @@
 
   	  // possible improvements:
 
-  	  // use blob urls with a dynamically created link with a download attribute so the 
+  	  // use blob urls with a dynamically created link with a download attribute so the
   	  // user just needs to click the link to save the constructed template.html
 
   	  // use a javascript zip library to constructure a full zip file client side that includes
