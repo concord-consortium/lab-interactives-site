@@ -1,5 +1,14 @@
 # Deployment
 
+## Deploying content to S3
+
+The travis-ci config in the .travis.yml file will try to deploy every travis build to an S3 bucket.
+This done mostly by `script/s3-deploy.sh`. It uses s3_website which is configured by
+`config/s3_website.yml`
+
+The S3 bucket name is defined in config/s3_website.yml. The AWS identify info is in secure
+variables in the `.travis.yml` file.
+
 ## Deploying static content to a Github gh-pages branch
 
 Github's [github:pages](http://pages.github.com/) feature supports sharing any content in
