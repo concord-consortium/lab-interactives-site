@@ -1,9 +1,8 @@
 # Lab Interactives Site
 
-Set of interactives built using the [Lab Framework](http://lab-framework.concord.org) from the [Concord Consortium](http://www.concord.org). This site is deployed in the following places:
+Set of interactives built using the [Lab Framework](http://lab-framework.concord.org) from the [Concord Consortium](http://www.concord.org). This site is deployed to:
 
-- **[lab.concord.org](http://lab.concord.org)** _(production)_
-- **[lab.dev.concord.org](http://lab.dev.concord.org)** _(development)_
+**[lab.concord.org](http://lab.concord.org)**
 
 ## Licensing
 
@@ -35,11 +34,10 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 
 1. Clone the git repository
 2. `cd lab-interactives-site`
-3. `cp config/config.sample.yml config/config.yml`
-4. `make everything`
-5. open another new terminal and run `rackup`
-6. open http://localhost:9292
-7. (optional) open a new terminal and run `guard`
+3. `make everything`
+4. open another new terminal and run `rackup`
+5. open http://localhost:9292
+6. (optional) open a new terminal and run `guard`
 
 It is recommended that you review the [initial setup details](developer-doc/initial-setup-details.md).
 They describe what each of the steps above does.
