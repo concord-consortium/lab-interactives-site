@@ -121,6 +121,7 @@
       "min": 1,
       "max": 12,
       "steps": 11,
+      "displayValue": "return format('f')(value)",
       "width": "40%",
       "labels": [
         {
@@ -141,7 +142,7 @@
     {
       "type": "text",
       "id": "label-atom-mass",
-      "text": "Atom mass:"
+      "text": "Atom mass (u):"
     },
     {
       "type": "text",
@@ -297,10 +298,10 @@
   "layout": {
     "bottom": [
       ["send-neg-particle", "send-pos-particle"],
-      ["send-mystery-particle", "enable-slow-motion"],
       ["label-atom-mass","set-atom-mass"],
+      ["send-mystery-particle"],
       ["label-plate-charge", "set-charge-on-plates"],
-      ["enable-super-plates"]
+      ["enable-super-plates", "enable-slow-motion"]
     ]
   },
   "template": [
