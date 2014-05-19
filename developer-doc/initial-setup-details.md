@@ -4,12 +4,11 @@ The readme contains the following steps for initial setup:
 
 1. Clone the git repository
 2. `cd lab-interactives-site`
-3. `cp config/config.sample.yml config/config.yml`
-4. `make everything`
-5. open another new terminal and run `rackup config.ru`
-6. open http://localhost:9292
-7. (optional) open a new terminal and run `guard`
-8. (optional) `cp -vn script/post-commit .git/hooks/`
+3. `make everything`
+4. open another new terminal and run `rackup config.ru`
+5. open http://localhost:9292
+6. (optional) open a new terminal and run `guard`
+7. (optional) `cp -vn script/post-commit .git/hooks/`
 
 ### 1. Clone the git repository
 
@@ -39,12 +38,7 @@ If you do end up having to install a new version of Ruby with RVM change out of 
 
     cd ..; cd lab
 
-### 3. `cp config/config.sample.yml config/config.yml`
-
-Copy the sample project configuration file to `config/config.yml`
-You can examine it and edit it if you want: [project configuration documentation](developer-doc/configuration.md)
-
-### 4. `make everything`
+### 3. `make everything`
 
 This will download and install all the dependencies and build the whole project for the first time.
 When `make everything` is run on a freshly cloned repository it performs the following tasks:
@@ -67,27 +61,23 @@ When `make everything` is run on a freshly cloned repository it performs the fol
 
 4.  Generates the `public` directory:
 
-5.  Generates the Java resources in the `public/jnlp` directory:
-
 You should now be able to open the file: `public/index.html` in a browser however most things won't work correctly.
 This is because of the limitation of the `file` protocol in browsers. Continue on to see about setting up the server.
 
-### 5. open another new terminal and run `rackup config.ru`
+### 4. open another new terminal and run `rackup config.ru`
 
 Startup the Rack-based Lab server for local development. This is simple rack application that mainly just serves
-the files in public. It does contain 2 dynamic extensions:
+the files in public. It does contain a dynamic extension:
 
-- an [embedded Jnlp service](developer-doc/jnlp-rack-app.md) which handles serving jar and jnlp files in an optimized way
 - a [shutterbug](https://github.com/concord-consortium/shutterbug) service so you can take snapshots locally
 
-Alternatively you can use `python -m SimpleHTTPServer` to run a python server. Currently it won't handle the applets
-and jnlps correctly and it won't support snapshots, but you might not need those features.
+Alternatively you can use `python -m SimpleHTTPServer` to run a python server. Currently it won't handle the applets and it won't support snapshots, but you might not need those features.
 
-### 6. open http://localhost:9292
+### 5. open http://localhost:9292
 
 Now that the files in public are built and a server is running you can view the Lab site locally.
 
-### 7. (optional) open a new terminal and run `guard`
+### 6. (optional) open a new terminal and run `guard`
 
 Start watching the `src/` and `test/` directories with [Guard](dependencies.md#guard) and when files are
 changed automatically generate the JavaScript Lab modules, the examples, and run the tests.

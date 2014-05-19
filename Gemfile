@@ -17,7 +17,6 @@ group :app do
   gem 'neat',               "~> 1.2.0"
   gem 'kramdown',           "~> 1.3.0"
   gem "mustache",           "~> 0.99.4"
-  gem "rack-livereload",    "~> 0.3.15"
 end
 
 def darwin_only(require_as)
@@ -33,17 +32,8 @@ def windows_only(require_as)
 end
 
 group :development do
-
   gem "fog",                "~> 1.12.1"
-
-  gem "chef",               "~> 11.6.0"
-
-  # gem "librarian-chef"
-  # work-around bug in version 0.1.0 of librarian
-  # see: https://github.com/applicationsonline/librarian/pull/145
-  gem 'librarian', :git => 'git://github.com/applicationsonline/librarian.git', :ref => 'b1fc0cc3'
-  gem "librarian-chef", :git => 'git://github.com/applicationsonline/librarian-chef.git', :ref => '040490c4'
-
+  gem "rack-livereload",    "~> 0.3.15"
   gem "rack-nocache",       "~> 0.1.0"
 
   # http://about.travis-ci.org/docs/user/travis-lint/
@@ -62,15 +52,4 @@ group :development do
   gem 'wdm',        "~> 0.1.0", :require => windows_only('wdm')
   # Growl Notification Transport Protocol (used by guard)
   gem 'ruby_gntp',  "~> 0.3.4"
-
-  # deployment related ...
-  gem "thor",               "~> 0.18.1"
-  gem "capistrano",         "~> 2.15.5"
-  gem "rvm-capistrano",     "~> 1.4.0"
-
-  # debuggers
-  gem "pry"
-  gem "pry-nav"
-  gem "pry-stack_explorer"
-
 end
