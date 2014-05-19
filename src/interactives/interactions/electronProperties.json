@@ -2,38 +2,19 @@
   "title": "electronProperties",
   "publicationStatus": "draft",
   "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.1451942740286298,
+  "fontScale": 1.0089285714285714,
+  "helpOnLoad": false,
   "about": "",
-  "aspectRatio": 1.2,
-  "fontScale": 1,
   "models": [
     {
       "type": "md2d",
       "id": "electronProperties$0",
       "url": "models-converted/lab-version/1/md2d/interactions/exploring-electrons/electronProperties$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/exploring-electrons/electronProperties$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "images": [
-          {
-            "imageUri": "plate_pos.png",
-            "imageHostIndex": 0,
-            "imageHostType": "",
-            "imageLayer": 1,
-            "imageLayerPosition": 1,
-            "imageX": 1,
-            "imageY": 2
-          },
-          {
-            "imageUri": "plate_neg.png",
-            "imageHostIndex": 0,
-            "imageHostType": "",
-            "imageLayer": 1,
-            "imageLayerPosition": 1,
-            "imageX": 1,
-            "imageY": 2
-          }
-        ]
-      },
       "onLoad": [
         "var radius = getElementProperties(2).radius,",
         "    xMax = get('viewPortWidth') + get('viewPortX') + radius,",
@@ -69,122 +50,33 @@
         "  }",
         "});",
         "set('plateChargeProxy',8);"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "images": [
+          {
+            "imageUri": "plate_pos.png",
+            "imageHostIndex": 0,
+            "imageHostType": "",
+            "imageLayer": 1,
+            "imageLayerPosition": 1,
+            "imageX": 1,
+            "imageY": 2
+          },
+          {
+            "imageUri": "plate_neg.png",
+            "imageHostIndex": 0,
+            "imageHostType": "",
+            "imageLayer": 1,
+            "imageLayerPosition": 1,
+            "imageX": 1,
+            "imageY": 2
+          }
+        ]
+      }
     }
   ],
-  "components": [
-    {
-      "type": "button",
-      "id": "send-pos-particle",
-      "text": "Send + particle",
-      "action": [
-        "if (getNumberOfAtoms()>0) {",
-        "  untraceAtom(0);",
-        "  removeAtom(0);",
-        "}",
-        "addAtom({element: 2, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: 1});",
-        "start();",
-        "traceAtom(0);"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "send-neg-particle",
-      "text": "Send - particle",
-      "action": [
-        "if (getNumberOfAtoms()>0) {",
-        "  untraceAtom(0);",
-        "  removeAtom(0);",
-        "}",
-        "addAtom({element: 2, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: -1});",
-        "start();",
-        "traceAtom(0);"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "send-mystery-particle",
-      "text": "Send cathode ray particle from Crookes tube",
-      "action": [
-        "if (getNumberOfAtoms()>0) {",
-        "  untraceAtom(0);",
-        "  removeAtom(0);",
-        "}",
-        "addAtom({element: 0, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: -1});",
-        "start();",
-        "traceAtom(0);"
-      ]
-    },
-    {
-      "type": "slider",
-      "id": "set-atom-mass",
-      "min": 1,
-      "max": 12,
-      "steps": 11,
-      "displayValue": "return format('f')(value)",
-      "width": "40%",
-      "labels": [
-        {
-          "value": 1,
-          "label": "Hydrogen"
-        },
-        {
-          "value": 7,
-          "label": "Lithium"
-        },
-        {
-          "value": 12,
-          "label": "Carbon"
-        }
-      ],
-      "property": "mysteryMass"
-    },
-    {
-      "type": "text",
-      "id": "label-atom-mass",
-      "text": "Atom mass (u):"
-    },
-    {
-      "type": "text",
-      "id": "label-plate-charge",
-      "text": "Charge on plates:"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable-slow-motion",
-      "text": "Slow motion",
-      "property": "isSlowMotionEnabled"
-    },
-    {
-      "type": "slider",
-      "id": "set-charge-on-plates",
-      "min": -20,
-      "max": 20,
-      "steps": 20,
-      "width": "40%",
-      "labels": [
-        {
-          "value": -20,
-          "label": "Very high +/-"
-        },
-        {
-          "value": 20,
-          "label": "Very high -/+"
-        },
-        {
-          "value": 0,
-          "label": "None"
-        }
-      ],
-      "property": "plateChargeProxy"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable-super-plates",
-      "text": "Increase charge on plates 1000x",
-      "property": "superChargePlates"
-    }
-  ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "mysteryMass",
@@ -295,13 +187,185 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "send-pos-particle",
+      "type": "button",
+      "action": [
+        "if (getNumberOfAtoms()>0) {",
+        "  untraceAtom(0);",
+        "  removeAtom(0);",
+        "}",
+        "addAtom({element: 2, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: 1});",
+        "start();",
+        "traceAtom(0);"
+      ],
+      "text": "Send + charged atom",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "send-neg-particle",
+      "type": "button",
+      "action": [
+        "if (getNumberOfAtoms()>0) {",
+        "  untraceAtom(0);",
+        "  removeAtom(0);",
+        "}",
+        "addAtom({element: 2, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: -1});",
+        "start();",
+        "traceAtom(0);"
+      ],
+      "text": "Send - charged atom",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "send-mystery-particle",
+      "type": "button",
+      "action": [
+        "if (getNumberOfAtoms()>0) {",
+        "  untraceAtom(0);",
+        "  removeAtom(0);",
+        "}",
+        "addAtom({element: 0, x: 0.5, y: get('particleY'), vx: 0.001, vy: 0, charge: -1});",
+        "start();",
+        "traceAtom(0);"
+      ],
+      "text": "Send cathode ray particle from Crookes tube",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "set-atom-mass",
+      "type": "slider",
+      "min": 1,
+      "max": 12,
+      "steps": 11,
+      "title": "",
+      "labels": [
+        {
+          "value": 1,
+          "label": "Hydrogen"
+        },
+        {
+          "value": 7,
+          "label": "Lithium"
+        },
+        {
+          "value": 12,
+          "label": "Carbon"
+        }
+      ],
+      "width": "40%",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "mysteryMass",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "label-atom-mass",
+      "type": "text",
+      "text": "Atom mass (amu):",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "label-plate-charge",
+      "type": "text",
+      "text": "Charge on plates:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "enable-slow-motion",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "isSlowMotionEnabled",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "set-charge-on-plates",
+      "type": "slider",
+      "min": -20,
+      "max": 20,
+      "steps": 20,
+      "title": "",
+      "labels": [
+        {
+          "value": -20,
+          "label": "Very high +/-"
+        },
+        {
+          "value": 20,
+          "label": "Very high -/+"
+        },
+        {
+          "value": 0,
+          "label": "None"
+        }
+      ],
+      "width": "40%",
+      "height": "auto",
+      "property": "plateChargeProxy",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "enable-super-plates",
+      "type": "checkbox",
+      "text": "Increase charge on plates 1000x",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "superChargePlates",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
   "layout": {
     "bottom": [
-      ["send-neg-particle", "send-pos-particle"],
-      ["label-atom-mass","set-atom-mass"],
-      ["send-mystery-particle"],
-      ["label-plate-charge", "set-charge-on-plates"],
-      ["enable-super-plates", "enable-slow-motion"]
+      [
+        "send-mystery-particle"
+      ],
+      [
+        "label-atom-mass",
+        "set-atom-mass"
+      ],
+      [
+        "send-neg-particle",
+        "send-pos-particle"
+      ],
+      [
+        "label-plate-charge",
+        "set-charge-on-plates"
+      ],
+      [
+        "enable-super-plates",
+        "enable-slow-motion"
+      ]
     ]
   },
   "template": [
