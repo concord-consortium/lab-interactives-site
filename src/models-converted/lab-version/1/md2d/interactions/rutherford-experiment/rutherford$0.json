@@ -13,6 +13,7 @@
   "realisticDielectricEffect": true,
   "solventForceFactor": 1.25,
   "solventForceType": 0,
+  "lennardJonesForces": false,
   "additionalSolventForceMult": 4,
   "additionalSolventForceThreshold": 10,
   "polarAAEpsilon": -2,
@@ -280,71 +281,72 @@
     },
     "forceVectorsDirectionOnly": false
   },
-  "pairwiseLJProperties": [
-    {
-      "element1": 0,
-      "element2": 3,
-      "sigma": 0.25836063385009767,
-      "epsilon": 0
-    }
-  ],
   "elements": {
     "mass": [
       20,
       40,
       60,
       80,
-      600
+      1
     ],
     "sigma": [
       0.07,
       0.14,
       0.21,
       0.11599999999999999,
-      0.3
+      3
     ],
     "epsilon": [
       -0.00009999999747378752,
       -0.1,
       -0.1,
       -0.1,
-      -0.1
+      0
     ],
     "color": [
       -13618945,
       -9066941,
       -65536,
       -2539040,
-      -855310
+      -16777216
     ]
   },
   "atoms": {
     "x": [
+      3.11,
       3.11
     ],
     "y": [
+      1.97,
       1.97
     ],
     "vx": [
+      0,
       0
     ],
     "vy": [
+      0,
       0
     ],
     "charge": [
-      1
+      1,
+      0
     ],
     "friction": [
+      0,
       0
     ],
     "element": [
-      3
+      3,
+      4
     ],
     "pinned": [
+      1,
       1
     ],
     "visible": [
-      false
+      false,
+      true
     ]
   },
   "shapes": {
