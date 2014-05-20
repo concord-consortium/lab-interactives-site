@@ -143,7 +143,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -157,7 +157,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -171,7 +171,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -185,7 +185,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -199,7 +199,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -213,7 +213,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -227,7 +227,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -241,7 +241,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       },
       {
         "text": "+",
@@ -255,7 +255,7 @@
         "strokeOpacity": 1,
         "strokeColor": "#000000",
         "rotate": 0,
-        "fontSize": 0.14
+        "fontSize": 0.2
       }
     ],
     "xlabel": false,
