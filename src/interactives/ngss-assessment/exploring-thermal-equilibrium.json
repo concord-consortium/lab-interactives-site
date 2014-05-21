@@ -1,0 +1,202 @@
+{
+  "title": "Exploring Thermal Equilibrium",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.55,
+  "fontScale": 0.85,
+  "about": [
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/ngss-assessment/exploring-thermal-equilibrium/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "var smallAtoms = [];",
+        "var largeAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 2) {",
+        "    smallAtoms.push(i);",
+        "  } else {",
+        "    largeAtoms.push(i);",
+        "  }",
+        "}",
+        "set('smallAtomsIndices', smallAtoms);",
+        "set('largeAtomsIndices', largeAtoms);",
+        "setComponentDisabled('heat-small', false);",
+        "setComponentDisabled('heat-large', false);",
+        "setComponentDisabled('cool-small', false);",
+        "setComponentDisabled('cool-large', false);",
+        "setComponentDisabled('withdraw-barrier', false);",
+        "onStart(function () {",
+        "  setComponentDisabled('heat-small', true);",
+        "  setComponentDisabled('heat-large', true);",
+        "  setComponentDisabled('cool-small', true);",
+        "  setComponentDisabled('cool-large', true);",
+        "});",
+        "onStop(function () {",
+        "  if (getNumberOfObstacles() === 0) return;",
+        "  setComponentDisabled('heat-small', false);",
+        "  setComponentDisabled('heat-large', false);",
+        "  setComponentDisabled('cool-small', false);",
+        "  setComponentDisabled('cool-large', false);",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "smallAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "largeAtomsIndices",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "largeAtomsTemp",
+      "label": "Temperature of Large Atoms",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return 0.04 * getTemperatureOfAtoms(get('largeAtomsIndices'));"
+      ]
+    },
+    {
+      "name": "smallAtomsTemp",
+      "label": "Temperature of Small Atoms",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return 0.04 * getTemperatureOfAtoms(get('smallAtomsIndices'));"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "largeAtomsTempAvg",
+      "property": "largeAtomsTemp",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "smallAtomsTempAvg",
+      "property": "smallAtomsTemp",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "withdraw-barrier",
+      "text": "Withdraw the barrier",
+      "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0); setComponentDisabled('withdraw-barrier', true); };"
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 300,
+      "title": "Temperature of Large Atoms",
+      "property": "largeAtomsTempAvg",
+      "units": true
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph2",
+      "min": 0,
+      "max": 300,
+      "title": "Temperature of Small Atoms",
+      "property": "smallAtomsTempAvg",
+      "units": true
+    },
+    {
+      "type": "button",
+      "id": "heat-small",
+      "text": "Heat small atoms",
+      "action": "if (get('smallAtomsTemp') < 240) { addKEToAtoms(2, get('smallAtomsIndices')); repaint(); }"
+    },
+    {
+      "type": "button",
+      "id": "cool-small",
+      "text": "Cool small atoms",
+      "action": "addKEToAtoms(-2, get('smallAtomsIndices')); repaint();"
+    },
+    {
+      "type": "button",
+      "id": "heat-large",
+      "text": "Heat large atoms",
+      "action": "if (get('largeAtomsTemp') < 240) { addKEToAtoms(1, get('largeAtomsIndices')); repaint(); }"
+    },
+    {
+      "type": "button",
+      "id": "cool-large",
+      "text": "Cool large atoms",
+      "action": "addKEToAtoms(-1, get('largeAtomsIndices')); repaint();"
+    }
+  ],
+  "layout": {
+    "left": [
+      "bar-graph2"
+    ],
+    "right": [
+      "bar-graph"
+    ],
+    "left-model": [
+      ["heat-small"],
+      ["cool-small"]
+    ],
+    "right-model": [
+      ["heat-large"],
+      ["cool-large"]
+    ],
+    "bottom": [
+      "withdraw-barrier"
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "interactive.height",
+      "padding-right": "0.5em",
+      "align": "right",
+      "min-width": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "interactive.height",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    },
+    {
+      "id": "left-model",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-left": "1.25em",
+      "align": "left"
+    },
+    {
+      "id": "right-model",
+      "top": "model.bottom",
+      "right": "model.right",
+      "padding-right": "1.25em",
+      "align": "right"
+    },
+    {
+      "id": "bottom",
+      "top": "right-model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    }
+  ]
+}

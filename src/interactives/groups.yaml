@@ -110,6 +110,10 @@
   :name: "Interactions Project"
   :category: Curriculum
 
+- :path: ngss-assessment
+  :name: "NGSS Assessment"
+  :category: Curriculum
+
 - :path: rites
   :name: "RITES"
   :category: Curriculum
