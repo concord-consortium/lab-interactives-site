@@ -1,13 +1,13 @@
 {
-  "title": "Charged and Neutral Atoms (conceptual version)",
+  "title": "Ladede og nøytrale atomer (konseptuell versjon)",
   "publicationStatus": "sample",
-  "subtitle": "Explore Coulomb and intermolecular attractions.",
+  "subtitle": "Utforsk Coulomb og intramolekylære tiltrekninger.",
   "about": [
-    "There are two kinds of attractive forces shown in this model: Coulomb forces (the attraction between ions)",
-    "and Van der Waals forces (an additional attractive force between all atoms).",
+    "Det er to typer tiltrekningskraft i denne modellen: Coulombkrefter (tiltrekningen mellom ioner)",
+    "og Van der Waals-krefter (en tiltrekningskraft som eksiterer mellom alle atomer).",
     "",
-    "What kinds of patterns tend to form with charged and neutral atoms? How does changing the Van der Waals",
-    "attraction or charging the atoms affect the melting and boiling point of the substance?"
+    "Hvilke mønstre viser seg gjerne med ladede og nøytrale atomer? Hvis du endrer Van der Waals-",
+    "tiltrekningen eller lader atomene, hva har det å si for smelte- og kokepunktet for stoffet?"
   ],
   "models": [
     {
@@ -46,7 +46,7 @@
     {
       "type": "checkbox",
       "id": "charged-box",
-      "text": "Charge",
+      "text": "Lad",
       "property": "charge"
     },
     {
@@ -58,15 +58,15 @@
       "labels": [
         {
           "value": 0.075,
-          "label": "Weak"
+          "label": "Svak"
         },
         {
           "value": 0.3,
-          "label": "Strong"
+          "label": "Sterk"
         }
       ],
       "steps": 199,
-      "title": "Van der Waals attraction",
+      "title": "Van der Waals tiltrekningskraft",
       "property": "epsilon"
     },
     {
@@ -78,7 +78,7 @@
       "labels": [
         {
           "value": 10,
-          "label": "Low"
+          "label": "Lav"
         },
         {
           "value": 2500,
@@ -86,11 +86,11 @@
         },
         {
           "value": 5000,
-          "label": "High"
+          "label": "Høy"
         }
       ],
       "steps": 499,
-      "title": "Temperature",
+      "title": "Temperatur",
       "property": "targetTemperature"
     },
     {
@@ -98,7 +98,7 @@
       "id": "thermometer",
       "property": "temperature",
       "labels": 0,
-      "title": "Thermometer",
+      "title": "Termometer",
       "min": 0,
       "max": 5000
     }
