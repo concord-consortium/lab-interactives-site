@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<language>UTF-8</language>
+<page_title>Electrostatics: Charges and Forces</page_title>
+<text>        
+   
+  
+
+</text>
+<section start="0" end="18">
+<paragraph start="0" end="9">
+<Alignment>1</Alignment>
+<content start="0" end="1">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="1" end="2">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="2" end="3">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="3" end="4">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="4" end="5">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="5" end="6">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="6" end="7">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="7" end="8">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>50.0</width>
+<height>20.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="8" end="9">
+</content>
+
+</paragraph>
+<paragraph start="9" end="13">
+<Alignment>1</Alignment>
+<content start="9" end="10">
+<icon><class>org.concord.modeler.text.LineIcon</class><width>250.0</width><height>40</height><arcwidth>10</arcwidth><archeight>10</archeight><cornerarc>5</cornerarc><title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;center&gt;
+      &lt;font color=&quot;#222222&quot; face=&quot;Verdana&quot; size=&quot;5&quot;&gt;&lt;b&gt;&lt;a href=&quot;script:mw2d:1:load goldleaf.mml;set %charge -0.1;script:textbox:9:load goldleaf.html;&quot;&gt;Gold 
+      leaf&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+    &lt;/center&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title><bgcolor>-333334</bgcolor></icon></content>
+
+<content start="10" end="11">
+<icon><class>org.concord.modeler.text.LineIcon</class><width>250.0</width><height>40</height><arcwidth>10</arcwidth><archeight>10</archeight><cornerarc>5</cornerarc><title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;center&gt;
+      &lt;font color=&quot;#222222&quot; face=&quot;Verdana&quot; size=&quot;5&quot;&gt;&lt;b&gt;&lt;a href=&quot;sscript:mw2d:1:load pithball.mml;set %charge -1;script:textbox:9:load pithball.html;&quot;&gt;Pithball&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+    &lt;/center&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title><bgcolor>-333301</bgcolor></icon></content>
+
+<content start="11" end="12">
+<icon><class>org.concord.modeler.text.LineIcon</class><width>250.0</width><height>40</height><arcwidth>10</arcwidth><archeight>10</archeight><cornerarc>5</cornerarc><title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;center&gt;
+      &lt;font color=&quot;#222222&quot; face=&quot;Verdana&quot; size=&quot;5&quot;&gt;&lt;b&gt;&lt;a href=&quot;script:mw2d:1:load needle.mml;set %charge -1;script:textbox:9:load needle.html;&quot;&gt;Needle&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+    &lt;/center&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title><bgcolor>-34</bgcolor></icon></content>
+
+<content start="12" end="13">
+</content>
+
+</paragraph>
+<paragraph start="13" end="16">
+<Alignment>1</Alignment>
+<content start="13" end="14">
+<component><class>org.concord.modeler.PageTextBox</class>
+<width>350.0</width>
+<height>250.0</height>
+<title>&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body bgcolor=&quot;#cccccc&quot; marginwidth=&quot;5&quot; marginheight=&quot;5&quot; face=&quot;Verdana&quot;&gt;
+    &lt;p align=&quot;center&quot;&gt;
+      &lt;input type=&quot;submit&quot; selfscript=&quot;enablecomponent 0 false;enablecomponent 2 false;enablecomponent 3 false;&quot; value=&quot;Charge&quot; script=&quot;script:mw2d:1:stop immediately;
+show selectionhalo off;
+set %dy %ellipse[1].y-%line[0].y2-0.6;
+select line 0;
+move (0, %dy);
+select textbox 0-11;
+move (0, %dy);
+select line none;
+select textbox none;
+delay 0.5;
+select atom not 10;
+charge %charge;
+select atom none;
+attach textbox 0 to atom 0;
+attach textbox 2 to atom 20;
+attach textbox 4 to atom 4;
+attach textbox 6 to atom 16;
+attach textbox 8 to atom 8;
+attach textbox 10 to atom 12;
+run;
+delay 0.5;
+select line 0;
+move (0, -%dy);
+select textbox 1,3,5,7,9,11;
+move (0, -%dy);
+select line none;
+select textbox none;
+show selectionhalo on;&quot;&gt;
+      &lt;input type=&quot;submit&quot; selfscript=&quot;enablecomponent 0 true;enablecomponent 2 true;enablecomponent 3 true;&quot; script=&quot;script:mw2d:1:reset;&quot; value=&quot;Reset&quot;&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;group1&quot; script=&quot;script:mw2d:1:set %charge -0.1;&quot; checked=&quot;checked&quot;&gt;
+      Less charges &lt;input name=&quot;group1&quot; type=&quot;radio&quot; script=&quot;script:mw2d:1:set %charge -0.2&quot;&gt; 
+      More charges
+    &lt;/p&gt;
+    &lt;p&gt;
+      Click the &amp;quot;Charge&amp;quot; button to start the experiment.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</title>
+<opaque>false</opaque>
+</component></content>
+
+<content start="14" end="15">
+<component><class>org.concord.mw2d.activity.AtomContainer</class>
+<resource>page3$0.mml</resource><menubar>false</menubar><statusbar>false</statusbar><border>none</border><recorderless>true</recorderless>
+</component></content>
+
+<content start="15" end="16">
+</content>
+
+</paragraph>
+<paragraph start="16" end="17">
+<content start="16" end="17">
+</content>
+
+</paragraph>
+<paragraph start="17" end="18">
+</paragraph>
+</section>
+</document>

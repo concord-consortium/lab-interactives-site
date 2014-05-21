@@ -1,0 +1,121 @@
+{
+  "title": "Needle",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.725,
+  "fontScale": 0.8,
+  "about": [
+    ""
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "needle",
+      "url": "models-converted/lab-version/1/md2d/itsi/electrostatics/needle.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/electrostatics/needle.mml",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "chargeLevel",
+      "initialValue": -1
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "charge-button",
+      "text": "Charge",
+      "action": [
+        "stop();",
+        "setComponentDisabled('charge-button', true);",
+        "setComponentDisabled('charge-radio', true);",
+        "var atomsToCharge = [24, 38, 42, 55];",
+        "var textBoxesToMove =     [0, 2, 4, 6, 8,10];",
+        "var textBoxDestinations = [1,19,24,38,42,55];",
+        "var rodProps = getLineProperties(0), bulbProps = getShapeProperties(1);",
+        "var newY = bulbProps.y + bulbProps.height + 0.06;",
+        "var oldY = rodProps.y1;",
+        "var newCharge = get('chargeLevel');",
+        "batch(function() {",
+        "  setLineProperties(0, {y1: newY, y2: newY});",
+        "  for (var i = 0; i < getNumberOfTextBoxes(); i++) {",
+        "    setTextBoxProperties(i, {y: newY + 0.09 });",
+        "  }",
+        "});",
+        "setTimeout(function() {",
+        "  batch(function() {",
+        "    for (var i = 0; i < atomsToCharge.length; i++) {",
+        "      setAtomProperties(atomsToCharge[i], {charge: newCharge}, false, false);",
+        "    }",
+        "    for (var i = 0; i < textBoxesToMove.length; i++) {",
+        "      setTextBoxProperties(textBoxesToMove[i], {hostType: 'Atom', hostIndex: textBoxDestinations[i]});",
+        "    }",
+        "  });",
+        "  start();",
+        "}, 500);",
+        "setTimeout(function() {",
+        "  batch(function() {",
+        "    setLineProperties(0, {y1: oldY, y2: oldY});",
+        "    for (var i = 0; i < getNumberOfTextBoxes(); i++) {",
+        "      if (textBoxesToMove.indexOf(i) != -1) { continue; }",
+        "      setTextBoxProperties(i, {y: oldY + 0.09 });",
+        "    }",
+        "  });",
+        "}, 1000);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-button",
+      "text": "Reset",
+      "action": [
+        "reloadInteractive();"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "charge-text",
+      "text": "Click the \"Charge\" button to start the experiment."
+    },
+    {
+      "id": "charge-radio",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "Starting position:",
+      "labelOn": "right",
+      "property": "chargeLevel",
+      "options": [
+        {
+          "text": "Less charges",
+          "value": -1
+        },
+        {
+          "text": "More charges",
+          "value": -2
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      ["charge-button","reset-button"],
+      ["charge-radio"],
+      ["charge-text"]
+    ]
+  },
+  "template":[
+    {
+      "id": "left",
+      "padding-right": "0.5em",
+      "right": "model.left",
+      "top": "model.top"
+    }
+  ]
+}

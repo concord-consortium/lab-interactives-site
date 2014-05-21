@@ -1,0 +1,127 @@
+{
+  "title": "Pithball",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.725,
+  "fontScale": 0.8,
+  "about": [
+    ""
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pithball",
+      "url": "models-converted/lab-version/1/md2d/itsi/electrostatics/pithball.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/electrostatics/pithball.mml",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "chargeLevel",
+      "initialValue": -1
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "charge-button",
+      "text": "Charge",
+      "action": [
+        "stop();",
+        "setComponentDisabled('charge-button', true);",
+        "setComponentDisabled('charge-radio', true);",
+        "var atomsToCharge = [1,2];",
+        "var textBoxesToMove =     [0,1];",
+        "var textBoxDestinations = [1,2];",
+        "var rodProps = getLineProperties(2), bulbProps = getAtomProperties(1);",
+        "var newX = bulbProps.x - bulbProps.radius/2;",
+        "var newY = bulbProps.y + 0.06;",
+        "var dx = newX - rodProps.x2;",
+        "var dy = newY - rodProps.y2;",
+        "var newCharge = get('chargeLevel');",
+        "batch(function() {",
+        "  setLineProperties(2, {y1: rodProps.y1+dy, y2: rodProps.y2+dy, x1: rodProps.x1+dx, x2: rodProps.x2+dx });",
+        "  var props;",
+        "  for (var i = 0; i < getNumberOfTextBoxes(); i++) {",
+        "    props = getTextBoxProperties(i);",
+        "    setTextBoxProperties(i, {y: props.y+dy, x: props.x+dx });",
+        "  }",
+        "});",
+        "setTimeout(function() {",
+        "  batch(function() {",
+        "    for (var i = 0; i < atomsToCharge.length; i++) {",
+        "      setAtomProperties(atomsToCharge[i], {charge: newCharge}, false, false);",
+        "    }",
+        "    for (var i = 0; i < textBoxesToMove.length; i++) {",
+        "      setTextBoxProperties(textBoxesToMove[i], {hostType: 'Atom', hostIndex: textBoxDestinations[i]});",
+        "    }",
+        "  });",
+        "}, 500);",
+        "setTimeout(function() {",
+        "  batch(function() {",
+        "    var props = getLineProperties(2);",
+        "    setLineProperties(2, {x1: props.x1-1, x2: props.x2-1 });",
+        "    for (var i = 0; i < getNumberOfTextBoxes(); i++) {",
+        "      if (textBoxesToMove.indexOf(i) != -1) { continue; }",
+        "      props = getTextBoxProperties(i);",
+        "      setTextBoxProperties(i, {x: props.x-2 });",
+        "    }",
+        "  });",
+        "  start();",
+        "}, 1000);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-button",
+      "text": "Reset",
+      "action": [
+        "reloadInteractive();"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "charge-text",
+      "text": "Click the \"Charge\" button to start the experiment."
+    },
+    {
+      "id": "charge-radio",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "Starting position:",
+      "labelOn": "right",
+      "property": "chargeLevel",
+      "options": [
+        {
+          "text": "Less charges",
+          "value": -1
+        },
+        {
+          "text": "More charges",
+          "value": -2
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      ["charge-button","reset-button"],
+      ["charge-radio"],
+      ["charge-text"]
+    ]
+  },
+  "template":[
+    {
+      "id": "left",
+      "padding-right": "0.5em",
+      "right": "model.left",
+      "top": "model.top"
+    }
+  ]
+}
