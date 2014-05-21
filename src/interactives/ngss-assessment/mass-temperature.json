@@ -1,0 +1,123 @@
+{
+  "title": "The Effect of Mass on Temperature Change",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.55,
+  "fontScale": 0.85,
+  "about": [
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "large-solid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature/large-solid.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": "setComponentDisabled('add-energy', false);",
+      "parameters": [
+        {
+          "name": "max-energy-added-count",
+          "initialValue": 20
+        }
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "small-solid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature/small-solid.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": "setComponentDisabled('add-energy', false);",
+      "parameters": [
+        {
+          "name": "max-energy-added-count",
+          "initialValue": 10
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "energy-added-count",
+      "initialValue": 0
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "tempAvg",
+      "property": "temperature",
+      "unitType": "temperature"
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "min": 0,
+      "max": 800,
+      "title": "Temperature",
+      "property": "tempAvg",
+      "units": true
+    },
+    {
+      "id": "model-select",
+      "type": "radio",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Large solid",
+          "action": "loadModel('large-solid');",
+          "selected": true
+        },
+        {
+          "text": "Small solid (half-size)",
+          "action": "loadModel('small-solid');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-energy",
+      "text": "Add energy",
+      "action": [
+        "start();",
+        "addKEToAtoms(0.9);",
+        "set('energy-added-count', get('energy-added-count') + 1);",
+        "if (get('energy-added-count') >= get('max-energy-added-count')) {",
+        "  setComponentDisabled('add-energy', true);",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "energy-added-count",
+      "property": "energy-added-count",
+      "label": "Energy added"
+    },
+    {
+      "type": "text",
+      "id": "times-label",
+      "text": "times."
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "text": "This button adds the same fixed amount of energy to the solid with each click."
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      ["model-select"],
+      ["add-energy", "energy-added-count", "times-label"],
+      ["button-label"]
+    ]
+  }
+}
