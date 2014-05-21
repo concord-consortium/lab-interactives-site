@@ -32,19 +32,7 @@
         "setComponentDisabled('cool-small', false);",
         "setComponentDisabled('cool-large', false);",
         "setComponentDisabled('withdraw-barrier', false);",
-        "onStart(function () {",
-        "  setComponentDisabled('heat-small', true);",
-        "  setComponentDisabled('heat-large', true);",
-        "  setComponentDisabled('cool-small', true);",
-        "  setComponentDisabled('cool-large', true);",
-        "});",
-        "onStop(function () {",
-        "  if (getNumberOfObstacles() === 0) return;",
-        "  setComponentDisabled('heat-small', false);",
-        "  setComponentDisabled('heat-large', false);",
-        "  setComponentDisabled('cool-small', false);",
-        "  setComponentDisabled('cool-large', false);",
-        "});"
+        "start();"
       ]
     }
   ],
@@ -93,7 +81,16 @@
       "type": "button",
       "id": "withdraw-barrier",
       "text": "Withdraw the barrier",
-      "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0); setComponentDisabled('withdraw-barrier', true); };"
+      "action": [
+        "if (getNumberOfObstacles() > 0) {",
+        "  removeObstacle(0);",
+        "  setComponentDisabled('withdraw-barrier', true);",
+        "  setComponentDisabled('heat-small', true);",
+        "  setComponentDisabled('heat-large', true);",
+        "  setComponentDisabled('cool-small', true);",
+        "  setComponentDisabled('cool-large', true);",
+        "}"
+      ]
     },
     {
       "type": "barGraph",
