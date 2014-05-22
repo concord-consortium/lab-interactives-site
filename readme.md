@@ -59,6 +59,18 @@ If you think you'd like to contribute to Lab Interactives Site as an external de
 4. Create your changes on a topic branch. Please include tests if you can. When your commits are ready
    push your topic branch to your fork and send a pull request.
 
+## `src/models`, `src/models-converted` and `imports` directories
+
+* [`src/models`](https://github.com/concord-consortium/lab-interactives-site/tree/master/src/models) should be a default directory for models that are created or updated manually by authors.
+
+* [`src/models-converted`](https://github.com/concord-consortium/lab-interactives-site/tree/master/src/models-converted) should contain only models that are created using automated conversion tool, for example [MML Converter](http://lab-framework.concord.org/mml-converter.html).
+  If you modify model JSON after conversion, such model should be moved to `src/models`! You should assume that each model that lives in `src/models-converted` may be
+  converted again in the future (e.g. when MML Converter is updated). In such case you would lose your manual tweaks.
+
+* [`imports`](https://github.com/concord-consortium/lab-interactives-site/tree/master/imports) should contain original models (e.g. `.MML` and `.E2D` files) that are related to JSONs in `src/models-converted` 
+  and **optionally** models related to JSONs in `src/models` (if author thinks it may be useful in the future).
+
+
 ## More Documentation
 
 - [Project Configuration](developer-doc/configuration.md)
