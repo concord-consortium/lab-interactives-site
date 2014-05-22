@@ -36,7 +36,7 @@
 
       "id": "model1",
 
-      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
+      "url": "locales/nn/models/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
 
       "onLoad": [
 
