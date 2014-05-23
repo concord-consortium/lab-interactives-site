@@ -11,7 +11,7 @@
     {
       "type": "md2d",
       "id": "needle",
-      "url": "models-converted/lab-version/1/md2d/itsi/electrostatics/needle.json",
+      "url": "models/lab-version/1/md2d/itsi/electrostatics/needle.json",
       "importedFrom": "imports/legacy-mw-content/itsi/electrostatics/needle.mml",
       "viewOptions": {
         "controlButtons": ""
