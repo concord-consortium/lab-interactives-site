@@ -1,0 +1,21 @@
+{
+  "title": "Making a Model of Methane",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.30,
+  "fontScale": 0.85,
+  "about": [
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models-converted/lab-version/1/md2d/ngss-assessment/methane-reaction/methane-reaction.json",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": []
+    }
+  ],
+  "layout": {}
+}
