@@ -319,20 +319,20 @@
    <void method="put"> 
     <string>date</string> 
     <object class="java.util.Date"> 
-     <long>1401065793000</long> 
+     <long>1401050217000</long> 
     </object> 
    </void> 
    <void method="put"> 
     <string>url</string> 
-    <string>/Users/ddamelin/Development/lab-interactives-site/imports/legacy-mw-content/ngss-assessment/methane-reaction/methane-reaction.mml</string> 
+    <string>/Users/ddamelin/Development/lab-interactives-site/imports/legacy-mw-content/assessment/methane-reaction.mml</string> 
    </void> 
    <void method="put"> 
     <string>size</string> 
-    <long>105557</long> 
+    <long>84839</long> 
    </void> 
    <void method="put"> 
     <string>codebase</string> 
-    <string>/Users/ddamelin/Development/lab-interactives-site/imports/legacy-mw-content/ngss-assessment/methane-reaction</string> 
+    <string>/Users/ddamelin/Development/lab-interactives-site/imports/legacy-mw-content/assessment</string> 
    </void> 
   </void> 
   <void property="quantumRule"> 
@@ -381,7 +381,7 @@
        <byte>41</byte> 
       </void> 
       <void property="x"> 
-       <double>143.0</double> 
+       <double>138.0</double> 
       </void> 
       <void property="x12"> 
        <float>-1.5</float> 
@@ -1810,13 +1810,6 @@
         <int>64</int> 
        </object> 
       </void> 
-      <void property="font"> 
-       <object class="java.awt.Font"> 
-        <string>ArialMT</string> 
-        <int>0</int> 
-        <int>14</int> 
-       </object> 
-      </void> 
       <void property="layer"> 
        <int>1</int> 
       </void> 
@@ -1827,10 +1820,10 @@
        <string>Drag items from here</string> 
       </void> 
       <void property="x"> 
-       <double>-8.0</double> 
+       <double>-3.0</double> 
       </void> 
       <void property="y"> 
-       <double>1.0</double> 
+       <double>2.0</double> 
       </void> 
      </object> 
     </void> 
@@ -1846,10 +1839,10 @@
        </object> 
       </void> 
       <void property="font"> 
-       <object class="java.awt.Font"> 
+       <object id="Font0" class="java.awt.Font"> 
         <string>Arial</string> 
-        <int>0</int> 
-        <int>14</int> 
+        <int>1</int> 
+        <int>12</int> 
        </object> 
       </void> 
       <void property="layer"> 
@@ -1865,7 +1858,7 @@
        <double>189.0</double> 
       </void> 
       <void property="y"> 
-       <double>74.0</double> 
+       <double>60.0</double> 
       </void> 
      </object> 
     </void> 
@@ -1881,11 +1874,7 @@
        </object> 
       </void> 
       <void property="font"> 
-       <object class="java.awt.Font"> 
-        <string>ArialMT</string> 
-        <int>0</int> 
-        <int>14</int> 
-       </object> 
+       <object idref="Font0"/> 
       </void> 
       <void property="layer"> 
        <int>1</int> 
@@ -1897,10 +1886,10 @@
        <string>after reaction</string> 
       </void> 
       <void property="x"> 
-       <double>422.0</double> 
+       <double>421.0</double> 
       </void> 
       <void property="y"> 
-       <double>75.0</double> 
+       <double>60.0</double> 
       </void> 
      </object> 
     </void> 
@@ -2780,13 +2769,6 @@
         </void> 
        </object> 
       </void> 
-      <void property="font"> 
-       <object class="java.awt.Font"> 
-        <string>ArialMT</string> 
-        <int>0</int> 
-        <int>14</int> 
-       </object> 
-      </void> 
       <void property="layer"> 
        <int>1</int> 
       </void> 
@@ -2794,15 +2776,14 @@
        <byte>70</byte> 
       </void> 
       <void property="text"> 
-       <string>Use the appropriate atoms and/or molecules from the left to
-show the reaction of methane with water to form hydrogen 
-and carbon monoxide below.</string> 
+       <string>Use the appropriate atoms and/or molecules from the left to show the reaction
+of methane with water to form hydrogen and carbon monoxide below.</string> 
       </void> 
       <void property="x"> 
-       <double>167.0</double> 
+       <double>152.0</double> 
       </void> 
       <void property="y"> 
-       <double>8.0</double> 
+       <double>7.0</double> 
       </void> 
      </object> 
     </void> 
