@@ -461,26 +461,26 @@
       },
       {
         "text": "Drag items from here",
-        "x": -0.03,
-        "y": 3.98,
+        "x": -0.08,
+        "y": 3.99,
         "layer": 1,
-        "fontSize": 0.12,
+        "fontSize": 0.14,
         "anchor": "upper-left"
       },
       {
         "text": "before reaction",
         "x": 1.89,
-        "y": 3.4,
+        "y": 3.26,
         "layer": 1,
-        "fontSize": 0.12,
+        "fontSize": 0.14,
         "anchor": "upper-left"
       },
       {
         "text": "after reaction",
-        "x": 4.21,
-        "y": 3.4,
+        "x": 4.22,
+        "y": 3.25,
         "layer": 1,
-        "fontSize": 0.12,
+        "fontSize": 0.14,
         "anchor": "upper-left"
       },
       {
@@ -734,12 +734,12 @@
         "anchor": "upper-left"
       },
       {
-        "text": "Use the appropriate atoms and/or molecules from the left to show the reaction\nof methane with water to form hydrogen and carbon monoxide below.",
-        "x": 1.52,
-        "y": 3.93,
+        "text": "Use the appropriate atoms and/or molecules from the left to\nshow the reaction of methane with water to form hydrogen \nand carbon monoxide below.",
+        "x": 1.67,
+        "y": 3.92,
         "layer": 1,
         "frame": "rounded rectangle",
-        "fontSize": 0.12,
+        "fontSize": 0.14,
         "backgroundColor": "rgb(255,255,192)",
         "anchor": "upper-left"
       }
@@ -1502,13 +1502,13 @@
   },
   "lines": {
     "x1": [
-      1.3725
+      1.4225
     ],
     "y1": [
       4
     ],
     "x2": [
-      1.3875
+      1.4375
     ],
     "y2": [
       0.06
