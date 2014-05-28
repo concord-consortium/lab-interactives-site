@@ -12,7 +12,12 @@
       "id": "model",
       "url": "models-converted/lab-version/1/md2d/ngss-assessment/methane-reaction/methane-reaction.json",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "",
+        "imageMapping": {
+          "H.png": "H.svg",
+          "O.png": "O.svg",
+          "C.png": "C.svg"
+        }
       },
       "onLoad": []
     }
