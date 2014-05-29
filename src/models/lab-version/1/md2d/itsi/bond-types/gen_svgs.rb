@@ -6,7 +6,7 @@ end
 
 def content(opts)
   c = <<EOF
-<svg width="175" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="175" height="100" viewBox="0 0 175 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
     <title>Charges</title>
     <defs>
