@@ -322,18 +322,18 @@
     }
   ],
   "layout": {
-    "right-inside": [
+    "right-outside": [
       [
-        "inside-right-label"
+        "outside-right-label"
       ],
       [
         "left-concentration-O2",
         "left-concentration-CO2"
       ]
     ],
-    "right-outside": [
+    "right-inside": [
       [
-        "outside-right-label"
+        "inside-right-label"
       ],
       [
         "right-concentration-O2",
@@ -359,10 +359,10 @@
     "below": [
     ],
     "above-left": [
-      "inside-above-label"
+      "outside-above-label"
     ],
     "above-right": [
-      "outside-above-label"
+      "inside-above-label"
     ],
     "above-center": [
       "membrane-above-label"
@@ -415,15 +415,15 @@
       "align": "center"
     },
     {
-      "id": "right-inside",
+      "id": "right-outside",
       "left": "model.right",
       "top": "above-right.top",
       "height": "model.height",
       "align": "center"
     },
     {
-      "id": "right-outside",
-      "left": "right-inside.right",
+      "id": "right-inside",
+      "left": "right-outside.right",
       "top": "above-right.top",
       "height": "model.height",
       "align": "center"
