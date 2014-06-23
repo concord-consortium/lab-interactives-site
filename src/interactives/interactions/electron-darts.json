@@ -1,0 +1,103 @@
+{
+  "title": "The Quantum Basics of Electrons: Probability Distribution",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "fontScale": 0.8,
+  "aspectRatio": 0.9,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electron-darts",
+      "url": "models/lab-version/1/md2d/interactions/electron-darts/electronDarts.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": [
+        "function throwDart(){",
+        "  var randomAngle = 2 * Math.PI * Math.random(),",
+        "      randomDistance;",
+        "  // Keep distance within target",
+        "  do{",
+        "    randomDistance = -1 * Math.log(Math.random());",
+        "  }",
+        "  while(randomDistance >= 1.25)",
+        "  // console.time('addShape');",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.03,",
+        "    height: 0.03,",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    x: get('viewPortWidth') / 2 + randomDistance * Math.cos(randomAngle),",
+        "    y: get('viewPortHeight') / 2 + randomDistance * Math.sin(randomAngle),",
+        "    fence: 0,",
+        "    color: 'rgb(0,0,255)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 2,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "  // console.timeEnd('addShape');",
+        "};",
+        "onPropertyChange('time',function(time){",
+        "  var totalDarts = get('dartsPerTick');",
+        "  for(var d = 0; d < totalDarts; d++){",
+        "    throwDart();",
+        "  };",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "darts",
+      "initialValue": 0
+    },
+    {
+      "name": "dartsPerTick",
+      "initialValue": 1
+    }
+  ],
+  "outputs": [],
+  "components": [
+    { "id": "step",
+      "type": "button",
+      "text": "Throw a dart",
+      "action": "set('dartsPerTick', 2);tick();"
+    },
+    { "id": "play",
+      "type": "button",
+      "text": "Continually throw darts",
+      "action": "set('dartsPerTick', 5);start();"
+    },
+    { "id": "pause",
+      "type": "button",
+      "text": "Stop throwing",
+      "action": "stop();"
+    },
+    { "id": "reset",
+      "type": "button",
+      "text": "Remove darts",
+      "action": "reloadModel();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["step","play","pause","reset"]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}
