@@ -46,8 +46,21 @@
     "electricFieldDensity": 18,
     "electricFieldColor": "auto",
     "showAtomTrace": false,
-    "images": [],
-    "imageMapping": {},
+    "images": [
+      {
+        "imageUri": "DartBoard.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 1,
+        "imageX": 0.9,
+        "imageY": 3.1,
+        "visible": true
+      }
+    ],
+    "imageMapping": {
+      "DartBoard.png": "DartBoard.svg"
+    },
     "textBoxes": [
       {
         "text": "Simulating dart hits",
@@ -139,98 +152,54 @@
     ]
   },
   "atoms": {
-    "x": [
-      2
-    ],
-    "y": [
-      2
-    ],
-    "vx": [
-      0
-    ],
-    "vy": [
-      0
-    ],
-    "charge": [
-      0
-    ],
-    "friction": [
-      0
-    ],
-    "element": [
-      1
-    ],
-    "pinned": [
-      1
-    ],
-    "draggableWhenStopped": [
-      0
-    ]
+    "x": [],
+    "y": [],
+    "vx": [],
+    "vy": [],
+    "charge": [],
+    "friction": [],
+    "element": [],
+    "pinned": [],
+    "draggableWhenStopped": []
   },
   "shapes": {
     "type": [
-      "ellipse",
-      "ellipse",
       "ellipse"
     ],
     "x": [
-      1.5,
-      1,
       0.4
     ],
     "y": [
-      1.5,
-      1,
       0.3999999999999999
     ],
     "height": [
-      1,
-      2,
       3.2
     ],
     "width": [
-      1,
-      2,
       3.2
     ],
     "fence": [
-      0,
-      0,
       0
     ],
     "color": [
-      "transparent",
-      "transparent",
       "radial rgba(0,153,255,0.7254901960784313) 0% rgb(244,245,239) 100%"
     ],
     "lineColor": [
-      "black",
-      "rgb(204,204,204)",
       "black"
     ],
     "lineWeight": [
-      2,
-      20,
       0
     ],
     "lineDashes": [
-      "none",
-      "none",
       "none"
     ],
     "layer": [
-      2,
-      2,
-      2
+      1
     ],
     "layerPosition": [
-      1,
-      2,
-      3
+      1
     ],
     "visible": [
-      1,
-      1,
       0
     ]
   },

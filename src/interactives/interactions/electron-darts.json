@@ -43,7 +43,7 @@
         "  // End the interactive after a certain time",
         "  if(time > 1000){",
         "    stop();",
-        "    setShapeProperties(2, {visible: 1});",
+        "    setShapeProperties(0, {visible: 1});",
         "    setTextBoxProperties(2, {text: savedText});",
         "    setTextBoxProperties(1, {text: ''});",
         "  }",
