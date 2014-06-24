@@ -201,7 +201,7 @@
     "color": [
       "transparent",
       "transparent",
-      "radial rgb(244,245,239) 0% rgba(0,153,255,0.7254901960784313) 100%"
+      "radial rgba(0,153,255,0.7254901960784313) 0% rgb(244,245,239) 100%"
     ],
     "lineColor": [
       "black",
@@ -219,14 +219,14 @@
       "none"
     ],
     "layer": [
-      1,
       2,
-      1
+      2,
+      2
     ],
     "layerPosition": [
       1,
-      22,
-      23
+      2,
+      3
     ],
     "visible": [
       1,
