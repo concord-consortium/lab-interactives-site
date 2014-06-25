@@ -51,8 +51,10 @@
     "textBoxes": [
       {
         "text": "",
-        "x": -1.47,
-        "y": 1.7,
+        "x": 0.05,
+        "y": 3.2,
+        "width": 2.9,
+        "textAlign": "center",
         "layer": 1,
         "frame": "rectangle",
         "fontSize": 0.12,
@@ -62,8 +64,10 @@
       },
       {
         "text": "",
-        "x": 3.18,
-        "y": 1.69,
+        "x": 4.6,
+        "y": 3.2,
+        "width": 2.9,
+        "textAlign": "center",
         "layer": 1,
         "frame": "rectangle",
         "fontSize": 0.12,
