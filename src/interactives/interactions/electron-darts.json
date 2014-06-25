@@ -1,10 +1,19 @@
 {
-  "title": "The Quantum Basics of Electrons: Probability Distribution",
+  "title": "Understanding Probability Maps",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
-  "fontScale": 0.8,
-  "aspectRatio": 0.9,
+  "subtitle": "Using a color to estimate the next dart throw.",
+  "about": [
+    "As in most dart games the best shot is a bulls-eye (right in the center).",
+    "However, it can be hard to get the dart to land there. Because, everyone ",
+    "aims for the center any random dart throw is more likely to be near the ",
+    "center, and less likely to be far away.",
+    "",
+    "Use the controls to throw lots of darts and observe the pattern they make.",
+    "This is similar to how we understand the position of electrons around an ",
+    "atoms's nucleus—more likely in some places and less likely in others."
+  ],
+  "aspectRatio": 0.8015151515151515,
+  "fontScale": 1.0302457466918715,
   "models": [
     {
       "type": "md2d",
@@ -44,8 +53,8 @@
         "  if(time > 1000){",
         "    stop();",
         "    setShapeProperties(0, {visible: 1});",
-        "    setTextBoxProperties(2, {text: savedText});",
-        "    setTextBoxProperties(1, {text: ''});",
+        "//    setTextBoxProperties(2, {text: savedText});",
+        "    setTextBoxProperties(1, {text: savedText, color: 'rgb(0,153,0)', x: 0.02});",
         "  }",
         "  else{",
         "    var totalDarts = get('dartsPerTick');",
@@ -96,7 +105,14 @@
   ],
   "layout": {
     "bottom": [
-      ["step","play","pause","reset"]
+      [
+        "step",
+        "play"
+      ],
+      [
+        "pause",
+        "reset"
+      ]
     ]
   },
   "template": [
