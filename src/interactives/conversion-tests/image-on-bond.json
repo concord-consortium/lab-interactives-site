@@ -1,0 +1,15 @@
+{
+  "title": "Image On Bond",
+  "publicationStatus": "draft",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "imageOnBond$0",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/image-on-bond/imageOnBond$0.json",
+      "importedFrom": "imports/legacy-mw-content/conversion-and-physics-examples/image-on-bond/imageOnBond$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_pause_reset"
+      }
+    }
+  ]
+}
