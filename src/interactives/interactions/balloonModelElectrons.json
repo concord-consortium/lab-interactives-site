@@ -1,5 +1,5 @@
 {
-  "title": "balloonModelElectrons",
+  "title": "Electrostatics: Polarization",
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
@@ -10,11 +10,190 @@
       "url": "models-converted/lab-version/1/md2d/interactions/charged-balloon-and-wall/balloonModelElectrons$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charged-balloon-and-wall/balloonModelElectrons$0.mml",
       "viewOptions": {
-        "controlButtons": "play_reset"
-      }
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "Balloon.png": "Balloon.svg"
+        }
+      },
+      "onLoad": [
+        "// Build clouds",
+        "var cloudsNeedUpdating = false,",
+        "  cloudRadius = 0.15;",
+        "for (var i = 0; i <= 39; i++) {",
+        "  var atom = getAtomProperties(i);",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    x: atom.x - cloudRadius,",
+        "    y: atom.y - cloudRadius,",
+        "    height: cloudRadius * 2,",
+        "    width: cloudRadius * 2,",
+        "    fence: 0,",
+        "    color: 'radial rgba(255,0,0,0.8) 50% rgba(255,0,0,0) 100%',",
+        "    lineColor: 'black',",
+        "    lineWeight: 0,",
+        "    lineDashes: 'none',",
+        "    layer: 2,",
+        "    layerPosition:2,",
+        "    visible: 0,",
+        "  });",
+        "}",
+        "function setElectronCloudVisibility(visibility) {",
+        "  cloudsNeedUpdating = !!visibility;",
+        "  var numberOfShapes = getNumberOfShapes();",
+        "  for (var i = 0; i <= 39; i++) {",
+        "    setShapeProperties(numberOfShapes - 40 + i, {",
+        "      visible: visibility",
+        "    });",
+        "  }",
+        "}",
+        "function updateElectronClouds() {",
+        "  if(cloudsNeedUpdating === true){",
+        "     var numberOfShapes = getNumberOfShapes(),",
+        "       chargeSource = getAtomProperties(86),",
+        "       balloonCharge = get('balloon-charge');",
+        "     for (var i = 0; i <= 39; i++) {",
+        "       var atom = getAtomProperties(i),",
+        "         rotation = Math.atan2(chargeSource.y - atom.y, chargeSource.x - atom.x),",
+        "         distanceSquared = (chargeSource.x - atom.x) * (chargeSource.x - atom.x) + (chargeSource.y - atom.y) * (chargeSource.y - atom.y);",
+        "       setShapeProperties(numberOfShapes - 40 + i, {",
+        "         x: atom.x - cloudRadius + Math.min(0.2 * cloudRadius, Math.max(-0.2 * cloudRadius, balloonCharge * 0.005 / distanceSquared)) * Math.cos(rotation),",
+        "         y: atom.y - cloudRadius + Math.min(0.2 * cloudRadius, Math.max(-0.2 * cloudRadius, balloonCharge * 0.005 / distanceSquared)) * Math.sin(rotation),",
+        "       });",
+        "     }",
+        "  }",
+        "}",
+        "function setAtomRange(start, end, properties) {",
+        "  for (var i = start; i <= end; i++) {",
+        "    setAtomProperties(i, properties);",
+        "  }",
+        "}",
+        "function setWallAtomVisibility(visibility) {",
+        "  setAtomRange(0, 39, {",
+        "    visible: visibility",
+        "  });",
+        "}",
+        "function setWallElectronVisibility(visibility) {",
+        "  setAtomRange(40, 79, {",
+        "    visible: visibility",
+        "  });",
+        "}",
+        "function setBalloonAtomVisibility(visibility) {",
+        "  setAtomRange(86, 90, {",
+        "    visible: visibility",
+        "  });",
+        "}",
+        "function setBalloonAtomCharge(charge) {",
+        "  setAtomRange(86, 90, {",
+        "    charge: charge",
+        "  });",
+        "}",
+        "function updateBalloonCharge(){",
+        "  setBalloonAtomCharge(get('balloon-charge'));",
+        "}",
+        "function updateShowAtoms(){",
+        "  if(get('show-atoms') === true){",
+        "    setBalloonAtomVisibility(1);",
+        "    setWallAtomVisibility(1);",
+        "    if(get('show-electrons') === true){",
+        "      setWallElectronVisibility(1);",
+        "      setElectronCloudVisibility(0);",
+        "    } else {",
+        "      setWallElectronVisibility(0);",
+        "      setElectronCloudVisibility(1);",
+        "    }",
+        "    setImageProperties(0, {imageX: 0.06});",
+        "    setTextBoxProperties(0, {x: 0.06});",
+        "  } else {",
+        "    setBalloonAtomVisibility(0);",
+        "    setWallAtomVisibility(0);",
+        "    setWallElectronVisibility(0);",
+        "    setElectronCloudVisibility(0);",
+        "    setImageProperties(0, {imageX: 10});",
+        "    setTextBoxProperties(0, {x: 10});",
+        "  }",
+        "}",
+        "// Make the balloon float",
+        "function floatBalloon(){",
+        "  setAtomProperties(93, {vy: getAtomProperties(93).vy + 0.0001});",
+        "}",
+        "onPropertyChange('time', function(time){",
+        "  console.time('test');console.timeEnd('test')",
+        "  batch(updateElectronClouds);",
+        "});",
+        "onPropertyChange('balloon-charge', function(){",
+        "  batch(updateBalloonCharge);",
+        "  batch(updateElectronClouds);",
+        "});",
+        "onPropertyChange('show-atoms', function(value){",
+        "  batch(updateShowAtoms);",
+        "  batch(updateElectronClouds);",
+        "  setComponentDisabled('select-electron-view', !value);",
+        "});",
+        "onPropertyChange('show-electrons', function(value){",
+        "  batch(updateShowAtoms);",
+        "  batch(updateElectronClouds);",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "balloon-charge",
+      "initialValue": 0
+    },
+    {
+      "name": "show-atoms",
+      "initialValue": false
+    },
+    {
+      "name": "show-electrons",
+      "initialValue": true
     }
   ],
   "components": [
+    {
+      "type": "slider",
+      "id": "set-balloon-charge",
+      "property": "balloon-charge",
+      "min": -2,
+      "max": 2,
+      "value": 0,
+      "steps": 30,
+      "title": "Balloon Charge",
+      "labels": [
+        {
+          "value": -2,
+          "label": "Negative"
+        },
+        {
+          "value": 2,
+          "label": "Positive"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "select-show-atoms",
+      "property": "show-atoms",
+      "text": "Show atoms"
+    },
+    {
+      "id": "select-electron-view",
+      "type": "radio",
+      "orientation": "horizontal",
+      "disabled": true,
+      "options": [
+        {
+          "text": "Show individual electrons",
+          "action": "set('show-electrons', true);",
+          "selected": true
+        },
+        {
+          "text": "Show electron clouds",
+          "action": "set('show-electrons', false);"
+        }
+      ]
+    }
   ],
   "layout": {
     "bottom": [
