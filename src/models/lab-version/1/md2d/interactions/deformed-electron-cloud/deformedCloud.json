@@ -46,34 +46,39 @@
     "electricFieldDensity": 18,
     "electricFieldColor": "auto",
     "showAtomTrace": false,
-    "images": [],
+    "images": [
+      {
+        "imageUri": "Negative.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "imageLayerPosition": 0,
+        "imageX": 0.05,
+        "imageY": 3.15,
+        "visible": false
+      },
+      {
+        "imageUri": "Negative.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "imageLayerPosition": 0,
+        "imageX": 4.65,
+        "imageY": 3.15,
+        "visible": false
+      }
+    ],
     "imageMapping": {},
     "textBoxes": [
       {
-        "text": "",
-        "x": 0.05,
-        "y": 3.2,
-        "width": 2.9,
+        "text": "Neutral atom with 1 proton and 1 electron",
+        "x": 0.6,
+        "y": 2.5,
+        "width": 3.5,
         "textAlign": "center",
-        "layer": 1,
-        "frame": "rectangle",
-        "fontSize": 0.12,
-        "backgroundColor": "rgb(255,255,255)",
         "anchor": "upper-left",
-        "rotate": 90
-      },
-      {
-        "text": "",
-        "x": 4.6,
-        "y": 3.2,
-        "width": 2.9,
-        "textAlign": "center",
         "layer": 1,
-        "frame": "rectangle",
-        "fontSize": 0.12,
-        "backgroundColor": "rgb(255,255,255)",
-        "anchor": "upper-left",
-        "rotate": 90
+        "fontSize": 0.16
       }
     ],
     "xlabel": false,
@@ -160,7 +165,7 @@
     ],
     "color": [
       -16776961,
-      -2542797,
+      -13421607,
       -3355444,
       -16776961,
       -855310
@@ -194,42 +199,68 @@
   },
   "shapes": {
     "type": [
+      "rectangle",
+      "rectangle",
       "ellipse"
     ],
     "x": [
+      0.05,
+      4.65,
       1.7
     ],
     "y": [
+      0.05,
+      0.05,
       0.79
     ],
     "height": [
+      3.1,
+      3.1,
       1.5
     ],
     "width": [
+      0.2,
+      0.2,
       1.5
     ],
     "fence": [
+      0,
+      0,
       0
     ],
     "color": [
-      "radial rgba(0,0,255,0.5) 0% rgba(0,0,255,0) 100%"
+      "white",
+      "white",
+      "radial rgba(255, 51, 51, 0.5) 0% rgba(255, 51, 51, 0) 100%"
     ],
     "lineColor": [
+      "black",
+      "black",
       "black"
     ],
     "lineWeight": [
+      2,
+      2,
       0
     ],
     "lineDashes": [
+      "none",
+      "none",
       "none"
     ],
     "layer": [
+      1,
+      1,
       1
     ],
     "layerPosition": [
+      2,
+      3,
       1
     ],
     "visible": [
+      1,
+      1,
       1
     ]
   }
