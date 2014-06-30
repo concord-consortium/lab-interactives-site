@@ -65,7 +65,7 @@ set visible on;
 select element none;</script>
 <script2>set textbox[0].x 100;
 set image[0].x 100;
-select element 0, 3;
+select element 0, 2, 3;
 set visible off;
 select element none;</script2>
 <action>Execute MW script</action>

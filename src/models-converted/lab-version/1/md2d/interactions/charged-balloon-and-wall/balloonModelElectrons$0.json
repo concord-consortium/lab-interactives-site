@@ -66,6 +66,56 @@
         "imageX": 0.6481967213114751,
         "imageY": 2.9959016393442623,
         "visible": true
+      },
+      {
+        "imageUri": "Positive.png",
+        "imageHostIndex": 86,
+        "imageHostType": "Atom",
+        "imageLayer": 1,
+        "imageLayerPosition": 4,
+        "imageX": 1.938196721311475,
+        "imageY": 2.0259016393442626,
+        "visible": false
+      },
+      {
+        "imageUri": "Positive.png",
+        "imageHostIndex": 87,
+        "imageHostType": "Atom",
+        "imageLayer": 1,
+        "imageLayerPosition": 5,
+        "imageX": 1.9281967213114752,
+        "imageY": 2.1659016393442623,
+        "visible": false
+      },
+      {
+        "imageUri": "Positive.png",
+        "imageHostIndex": 88,
+        "imageHostType": "Atom",
+        "imageLayer": 1,
+        "imageLayerPosition": 6,
+        "imageX": 1.9081967213114752,
+        "imageY": 1.8859016393442625,
+        "visible": false
+      },
+      {
+        "imageUri": "Positive.png",
+        "imageHostIndex": 89,
+        "imageHostType": "Atom",
+        "imageLayer": 1,
+        "imageLayerPosition": 7,
+        "imageX": 1.9081967213114752,
+        "imageY": 2.2959016393442626,
+        "visible": false
+      },
+      {
+        "imageUri": "Positive.png",
+        "imageHostIndex": 90,
+        "imageHostType": "Atom",
+        "imageLayer": 1,
+        "imageLayerPosition": 8,
+        "imageX": 1.8681967213114752,
+        "imageY": 1.7559016393442624,
+        "visible": false
       }
     ],
     "imageMapping": {},
@@ -112,10 +162,10 @@
       50
     ],
     "sigma": [
-      0.05,
+      0.08,
       0.05,
       0.15,
-      0.2,
+      0.16,
       0.3
     ],
     "epsilon": [
@@ -126,10 +176,10 @@
       -0.1
     ],
     "color": [
-      -1,
+      -26215,
       -1,
       -103,
-      -3355444,
+      -6710785,
       -855310
     ]
   },
@@ -803,7 +853,7 @@
       2,
       2,
       2,
-      0,
+      1,
       2
     ],
     "pinned": [
@@ -995,7 +1045,7 @@
       0,
       0,
       0,
-      0,
+      1,
       0
     ]
   },

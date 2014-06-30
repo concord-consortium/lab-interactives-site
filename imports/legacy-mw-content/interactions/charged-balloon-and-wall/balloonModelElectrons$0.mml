@@ -5,7 +5,7 @@
    <double>0.08333333333333333</double>
   </void>
   <void property="sigma">
-   <double>5.0</double>
+   <double>8.0</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Element" id="Element1">
@@ -38,7 +38,7 @@
    <double>0.6666666666666666</double>
   </void>
   <void property="sigma">
-   <double>20.0</double>
+   <double>16.0</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Affinity" id="Affinity0">
@@ -420,7 +420,7 @@
    <void method="put">
     <string>date</string>
     <object class="java.util.Date">
-     <long>1403811330024</long>
+     <long>1404141657890</long>
     </object>
    </void>
    <void method="put">
@@ -429,15 +429,15 @@
    </void>
    <void method="put">
     <string>size</string>
-    <long>71512</long>
+    <long>71629</long>
    </void>
    <void method="put">
     <string>codebase</string>
-    <string>C:\Users\William\Downloads</string>
+    <string>C:\Users\William\VirtualBox VMs\Ubuntu\Shared</string>
    </void>
    <void method="put">
     <string>url</string>
-    <string>C:\Users\William\Downloads\balloonModelElectrons$0.mml</string>
+    <string>C:\Users\William\VirtualBox VMs\Ubuntu\Shared\balloonModelElectrons$0.mml</string>
    </void>
   </void>
   <void property="quantumRule">
@@ -457,16 +457,16 @@
   </void>
   <void property="elementColors">
    <void index="0">
-    <int>-1</int>
+    <int>-26215</int>
    </void>
    <void index="1">
     <int>-1</int>
    </void>
    <void index="2">
-    <int>-103</int>
+    <int>16777113</int>
    </void>
    <void index="3">
-    <int>-3355444</int>
+    <int>-6710785</int>
    </void>
   </void>
   <void property="forceFlavor">
@@ -2644,9 +2644,6 @@ with the balloon. </string>
   <void property="ry">
    <double>142.40983606557376</double>
   </void>
-  <void property="visible">
-   <boolean>false</boolean>
-  </void>
   <void property="vx">
    <double>5.357836338147252E-10</double>
   </void>
@@ -2670,9 +2667,6 @@ with the balloon. </string>
   <void property="ry">
    <double>128.40983606557376</double>
   </void>
-  <void property="visible">
-   <boolean>false</boolean>
-  </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="ID">
@@ -2689,9 +2683,6 @@ with the balloon. </string>
   </void>
   <void property="ry">
    <double>156.40983606557376</double>
-  </void>
-  <void property="visible">
-   <boolean>false</boolean>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2710,9 +2701,6 @@ with the balloon. </string>
   <void property="ry">
    <double>115.40983606557376</double>
   </void>
-  <void property="visible">
-   <boolean>false</boolean>
-  </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="ID">
@@ -2729,9 +2717,6 @@ with the balloon. </string>
   </void>
   <void property="ry">
    <double>169.40983606557376</double>
-  </void>
-  <void property="visible">
-   <boolean>false</boolean>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2755,6 +2740,9 @@ with the balloon. </string>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
+  <void property="ID">
+   <int>1</int>
+  </void>
   <void property="movable">
    <boolean>false</boolean>
   </void>
@@ -2766,9 +2754,6 @@ with the balloon. </string>
   </void>
   <void property="ry">
    <double>323.4098360655738</double>
-  </void>
-  <void property="visible">
-   <boolean>false</boolean>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -3145,3 +3130,95 @@ with the balloon. </string>
   </void>
  </object>
 </java>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.RadialBond$Delegate">
+  <void property="atom1">
+   <int>85</int>
+  </void>
+  <void property="atom2">
+   <int>89</int>
+  </void>
+  <void property="bondLength">
+   <double>134.73306943731373</double>
+  </void>
+  <void property="bondStrength">
+   <double>0.2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.RadialBond$Delegate">
+  <void property="atom1">
+   <int>85</int>
+  </void>
+  <void property="atom2">
+   <int>87</int>
+  </void>
+  <void property="bondLength">
+   <double>134.72935834479432</double>
+  </void>
+  <void property="bondStrength">
+   <double>0.2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.RadialBond$Delegate">
+  <void property="atom1">
+   <int>85</int>
+  </void>
+  <void property="atom2">
+   <int>88</int>
+  </void>
+  <void property="bondLength">
+   <double>132.74034804836094</double>
+  </void>
+  <void property="bondStrength">
+   <double>0.2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.RadialBond$Delegate">
+  <void property="atom1">
+   <int>85</int>
+  </void>
+  <void property="atom2">
+   <int>90</int>
+  </void>
+  <void property="bondLength">
+   <double>130.8166656049603</double>
+  </void>
+  <void property="bondStrength">
+   <double>0.2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.AngularBond$Delegate">
+  <void property="atom1">
+   <int>90</int>
+  </void>
+  <void property="atom2">
+   <int>80</int>
+  </void>
+  <void property="atom3">
+   <int>91</int>
+  </void>
+  <void property="bondAngle">
+   <double>2.4030352031083146</double>
+  </void>
+  <void property="bondStrength">
+   <double>50.0</double>
+  </void>
+ </object>
+</ja
