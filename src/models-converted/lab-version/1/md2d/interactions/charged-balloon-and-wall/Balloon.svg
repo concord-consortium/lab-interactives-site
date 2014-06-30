@@ -1,82 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="153"
-   height="224"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Balloon.svg"
-   inkscape:export-filename="C:\Users\William\Downloads\Balloon.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="2.6759572"
-     inkscape:cx="51.200585"
-     inkscape:cy="136.12383"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:snap-page="true"
-     inkscape:snap-nodes="true"
-     inkscape:object-paths="true"
-     inkscape:object-nodes="true"
-     inkscape:snap-smooth-nodes="true"
-     inkscape:snap-intersection-paths="true"
-     showguides="true"
-     inkscape:guide-bbox="true"
-     inkscape:window-width="1600"
-     inkscape:window-height="837"
-     inkscape:window-x="-8"
-     inkscape:window-y="1912"
-     inkscape:window-maximized="1">
-    <sodipodi:guide
-       orientation="0,1"
-       position="1.00083,112.93298"
-       id="guide3781" />
-  </sodipodi:namedview>
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-322.99133,-350.51682)">
-    <path
-       style="fill:#ffff80;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 392.37445,573.52291 12.58528,0 -2.24745,-6.65695 c 34.93999,-34.44938 72.0607,-64.84998 72.0607,-108.06835 0,-43.21838 -30.6054,-76.53079 -74.32807,-76.53079 -45.01489,0.20104 -76.03604,34.64093 -76.2344,79.31702 -0.19837,44.67609 35.57548,69.9269 70.19775,105.55965 z"
-       id="path3766"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccczczcc" />
-  </g>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" width="153" height="224" viewBox="0 0 153 224" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+ <metadata id="metadata7">
+
+  <rdf:RDF>
+
+   <cc:Work rdf:about="">
+
+    <dc:format>image/svg+xml</dc:format>
+
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+
+    <dc:title/>
+
+   </cc:Work>
+
+  </rdf:RDF>
+
+ </metadata>
+
+ <g id="layer1" transform="translate(-322.99133,-350.51682)">
+
+  <path id="path3766" stroke-linejoin="miter" d="m392.37,573.52,12.585,0-2.2474-6.657c34.94-34.449,72.061-64.85,72.061-108.07,0-43.218-30.605-76.531-74.328-76.531-45.015,0.20104-76.036,34.641-76.234,79.317-0.19837,44.676,35.575,69.927,70.198,105.56z" stroke="#000" stroke-linecap="butt" stroke-miterlimit="4" stroke-dasharray="none" stroke-width="2" fill="#ffff80"/>
+
+ </g>
+
 </svg>
+
