@@ -140,7 +140,8 @@
         "onPropertyChange('show-electrons', function(value){",
         "  batch(updateShowAtoms);",
         "  batch(updateElectronClouds);",
-        "});"
+        "});",
+        "setComponentDisabled('select-electron-view', true);"
       ]
     }
   ],
@@ -168,6 +169,7 @@
       "value": 0,
       "steps": 6,
       "title": "Balloon Charge",
+      "retainProperty": false,
       "labels": [
         {
           "value": -2,
@@ -181,12 +183,14 @@
     },
     {
       "type": "checkbox",
+      "retainProperty": false,
       "id": "select-show-atoms",
       "property": "show-atoms",
       "text": "Show atoms"
     },
     {
       "id": "select-electron-view",
+      "retainProperty": false,
       "type": "radio",
       "orientation": "horizontal",
       "disabled": true,
