@@ -253,6 +253,7 @@
       "max": 20,
       "id": "left-ke-display",
       "property": "left-ke",
+      "barColor": "#b2824a",
       "title": "KE of left object (J)",
       "height": "13em",
       "barWidth": "1em"
@@ -263,6 +264,7 @@
       "max": 20,
       "id": "right-ke-display",
       "property": "right-ke",
+      "barColor": "#27a5a2",
       "title": "KE of right object (J)",
       "height": "13em",
       "barWidth": "1em"
@@ -273,6 +275,7 @@
       "max": 20,
       "id": "total-ke-display",
       "property": "total-ke",
+      "barColor": "#7c7c7c",
       "title": "Total KE in system (J)",
       "height": "13em",
       "barWidth": "1em"
