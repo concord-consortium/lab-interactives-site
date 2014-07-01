@@ -1,0 +1,339 @@
+{
+  "title": "Collisions",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.5,
+  "fontScale": 0.75,
+  "about": [],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "collision$0",
+      "url": "models-converted/lab-version/1/md2d/interactions/collision/collision$0.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/collision/collision$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 2,
+        "modelSampleRate": 30
+      },
+      "onLoad": [
+        "onPropertyChange('time', function(time){",
+        "  setComponentDisabled('left-speed', true);",
+        "  setComponentDisabled('right-speed', true);",
+        "  setComponentDisabled('left-mass', true);",
+        "  setComponentDisabled('right-mass', true);",
+        "  setComponentDisabled('object-offset', true);",
+        "});",
+        "setComponentDisabled('left-speed', false);",
+        "setComponentDisabled('right-speed', false);",
+        "setComponentDisabled('left-mass', false);",
+        "setComponentDisabled('right-mass', false);",
+        "setComponentDisabled('object-offset', false);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "left-speed",
+      "initialValue": 1,
+      "onChange": "setAtomProperties(0, {vx: 2 * value});"
+    },
+    {
+      "name": "right-speed",
+      "initialValue": 1,
+      "onChange": "setAtomProperties(1, {vx: -2 * value});"
+    },
+    {
+      "name": "left-mass",
+      "initialValue": 3,
+      "onChange": "setElementProperties(3, {mass: 10 * value});"
+    },
+    {
+      "name": "right-mass",
+      "initialValue": 3,
+      "onChange": "setElementProperties(2, {mass: 10 * value});"
+    },
+    {
+      "name": "object-offset",
+      "initialValue": 0,
+      "onChange": "setAtomProperties(0, {y: 1.5 - 0.2 * value});setAtomProperties(1, {y: 1.5 + 0.2 * value});"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "left-ke",
+      "unitAbbreviation": "J",
+      "label": "KE of left object",
+      "value": [
+        "var props = getAtomProperties(0);",
+        "// KE = (1/2)mv^2",
+        "return 0.5 * 0.025 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+      ]
+    },
+    {
+      "name": "right-ke",
+      "unitAbbreviation": "J",
+      "label": "KE of right object",
+      "value": [
+        "var props = getAtomProperties(1);",
+        "// KE = (1/2)mv^2",
+        "return 0.5 * 0.025 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+      ]
+    },
+    {
+      "name": "total-ke",
+      "unitAbbreviation": "J",
+      "label": "Total KE in system",
+      "value": [
+        "return get('left-ke') + get('right-ke');"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "left-speed",
+      "min": 0.5,
+      "max": 2,
+      "value": 1,
+      "steps": 3,
+      "displayValue": "return format('.1f')(value)",
+      "labels": [
+        {
+          "value": 0.5,
+          "label": "0.5"
+        },
+        {
+          "value": 1.0,
+          "label": "1.0"
+        },
+        {
+          "value": 1.5,
+          "label": "1.5"
+        },
+        {
+          "value": 2.0,
+          "label": "2.0"
+        }
+      ],
+      "title": "Left object speed (m/s)",
+      "property": "left-speed",
+      "width": "11em"
+    },
+    {
+      "type": "slider",
+      "id": "right-speed",
+      "min": 0.5,
+      "max": 2,
+      "value": 1,
+      "steps": 3,
+      "displayValue": "return format('.1f')(value)",
+      "labels": [
+        {
+          "value": 0.5,
+          "label": "0.5"
+        },
+        {
+          "value": 1.0,
+          "label": "1.0"
+        },
+        {
+          "value": 1.5,
+          "label": "1.5"
+        },
+        {
+          "value": 2.0,
+          "label": "2.0"
+        }
+      ],
+      "title": "Right object speed (m/s)",
+      "property": "right-speed",
+      "width": "11em"
+    },
+    {
+      "type": "slider",
+      "id": "left-mass",
+      "min": 1,
+      "max": 5,
+      "value": 3,
+      "steps": 4,
+      "displayValue": "return format('.1f')(value)",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "value": 5,
+          "label": "5"
+        }
+      ],
+      "title": "Left object mass (kg)",
+      "property": "left-mass",
+      "width": "11em"
+    },
+    {
+      "type": "slider",
+      "id": "right-mass",
+      "min": 1,
+      "max": 5,
+      "value": 3,
+      "steps": 4,
+      "displayValue": "return format('.1f')(value)",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "value": 5,
+          "label": "5"
+        }
+      ],
+      "title": "Right object mass (kg)",
+      "property": "right-mass",
+      "width": "11em"
+    },
+    {
+      "type": "slider",
+      "id": "object-offset",
+      "min": -1,
+      "max": 1,
+      "value": 0,
+      "steps": 8, 
+      "labels": [
+        {
+          "value": -1,
+          "label": "Left above right"
+        },
+        {
+          "value": 0,
+          "label": "Head-on"
+        },
+        {
+          "value": 1,
+          "label": "Right above left"
+        }
+      ],
+      "title": "Vertical shift",
+      "property": "object-offset",
+      "width": "20em"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 20,
+      "id": "left-ke-display",
+      "property": "left-ke",
+      "title": "KE of left object (J)",
+      "height": "13em",
+      "barWidth": "1em"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 20,
+      "id": "right-ke-display",
+      "property": "right-ke",
+      "title": "KE of right object (J)",
+      "height": "13em",
+      "barWidth": "1em"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 20,
+      "id": "total-ke-display",
+      "property": "total-ke",
+      "title": "Total KE in system (J)",
+      "height": "13em",
+      "barWidth": "1em"
+    },
+    {
+      "type": "graph",
+      "id": "ke-plot",
+      "title": "",
+      "xlabel": "Time (s)",
+      "ylabel": "Kinetic Energy (J)",
+      "ymin": 0,
+      "ymax": 10,
+      "xmax": 10,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "properties": [
+        "left-ke",
+        "right-ke",
+        "total-ke"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "left": "model.right",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "0",
+      "height": "model.height",
+      "width": "model.width",
+      "left": "model.right",
+      "align": "center",
+      "padding-left": "1.5em"
+    }
+  ],
+  "layout": {
+    "bottom-left": [
+      ["left-speed", "right-speed"],
+      ["left-mass", "right-mass"],
+      ["object-offset"]
+    ],
+    "bottom-right": [
+      ["left-ke-display", "right-ke-display", "total-ke-display"]
+    ],
+    "right": [
+      "ke-plot"
+    ]
+  }
+}
