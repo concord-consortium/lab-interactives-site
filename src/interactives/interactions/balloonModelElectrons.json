@@ -123,10 +123,11 @@
         "}",
         "// Make the balloon float",
         "function floatBalloon(){",
-        "  setAtomProperties(93, {vy: getAtomProperties(93).vy + 0.0001});",
+        "  setAtomProperties(93, {vy: getAtomProperties(93).vy + 0.001});",
         "}",
         "onPropertyChange('time', function(time){",
         "  batch(updateElectronClouds);",
+        "  floatBalloon();",
         "});",
         "onPropertyChange('balloon-charge', function(){",
         "  batch(updateBalloonCharge);",
@@ -194,15 +195,15 @@
       "type": "radio",
       "orientation": "horizontal",
       "disabled": true,
+      "property": "show-electrons",
       "options": [
         {
           "text": "Show individual electrons",
-          "action": "set('show-electrons', true);",
-          "selected": true
+          "value": true
         },
         {
           "text": "Show electron clouds",
-          "action": "set('show-electrons', false);"
+          "value": false
         }
       ]
     }
