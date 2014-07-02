@@ -12,6 +12,9 @@
       "url": "models/lab-version/1/md2d/interactions/collision/Collision.json",
       "importedFrom": "imports/legacy-mw-content/interactions/collision/collision$0.mml",
       "viewOptions": {
+        "velocityVectors": {
+          "length": 9
+        },
         "controlButtons": "play_reset"
       },
       "modelOptions": {
