@@ -60,7 +60,7 @@
     {
       "name": "object-offset",
       "initialValue": 0,
-      "onChange": "setAtomProperties(0, {y: 1.5 - 0.2 * value});setAtomProperties(1, {y: 1.5 + 0.2 * value});"
+      "onChange": "setAtomProperties(0, {y: 1.5 - 0.17 * value});setAtomProperties(1, {y: 1.5 + 0.17 * value});"
     }
   ],
   "outputs": [
