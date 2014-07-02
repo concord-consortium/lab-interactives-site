@@ -1,0 +1,169 @@
+{
+  "title": "Pendulum",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+  ],
+  "aspectRatio": 1.5,
+  "fontScale": 0.8,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pendulumEnergy",
+      "url": "models/lab-version/1/md2d/interactions/pendulumEnergy.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "gridLines": true,
+        "showClock": true,
+        "velocityVectors": {
+          "length": 10
+        }
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 1,
+        "modelSampleRate": 60
+      },
+      "onLoad": [
+        "// Restore previous angle",
+        "onDrag('atom', function (x, y, d, i) {",
+        "  if(i === 1 && get('time') === 0){",
+        "    setAtomProperties(0, {x: 2.25, y: 2.25});",
+        "    var atom = getAtomProperties(1),",
+        "      angle = Math.min(Math.PI/2, Math.max(-Math.PI/2, Math.atan2(atom.x - 2.25, 2.25 - atom.y)));",
+        "    set('startingAngle', angle * rad2deg);",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "kineticEnergy",
+      "unitAbbreviation": "J",
+      "label": "Kinetic Energy",
+      "value": [
+        "var atom = getAtomProperties(1); return 0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy);"
+      ]
+    },
+    {
+      "name": "potentialEnergy",
+      "unitAbbreviation": "J",
+      "label": "Potental Energy",
+      "value": [
+        "var atom = getAtomProperties(1), pin = getAtomProperties(0), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * (bond.length - (pin.y - atom.y));"
+      ]
+    },
+    {
+      "name": "totalEnergy",
+      "unitAbbreviation": "J",
+      "label": "Total Energy",
+      "value": [
+        "var atom = getAtomProperties(1), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * bond.length * (1 - Math.cos(get('startingAngle') * deg2rad)) + get('minThermalEnergy');"
+      ]
+    },
+    {
+      "name": "thermalEnergy",
+      "unitAbbreviation": "J",
+      "label": "Thermal Energy",
+      "value": [
+        "return get('totalEnergy') - get('kineticEnergy') - get('potentialEnergy')"
+      ]
+    }
+  ],
+  "propertiesToRetain": [
+    "startingAngle"
+  ],
+  "parameters": [
+    {
+      "name": "startingAngle",
+      "initialValue": 45,
+      "onChange": "setAtomProperties(1, {x: 2.25 + Math.sin(value * deg2rad), y: 2.25 - Math.cos(value * deg2rad)});"
+    },
+    {
+      "name": "minThermalEnergy",
+      "initialValue": 0.1
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 2.5,
+      "id": "potentialEnergyGraph",
+      "property": "potentialEnergy",
+      "barColor": "#9fd988",
+      "title": "Potential Energy (J)",
+      "barWidth": "1em"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 2.5,
+      "id": "kineticEnergyGraph",
+      "property": "kineticEnergy",
+      "barColor": "#aa88d9",
+      "title": "Kinetic Energy (J)",
+      "barWidth": "1em"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 2.5,
+      "id": "thermalEnergyGraph",
+      "property": "thermalEnergy",
+      "barColor": "#d9af88",
+      "title": "Thermal Energy (J)",
+      "barWidth": "1em"
+    },
+    {
+      "type": "graph",
+      "id": "propertiesGraph",
+      "title": "Pendulum Angle",
+      "xlabel": "Time  (s)",
+      "ymin": 0,
+      "ymax": 2.5,
+      "xmax": 10,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "properties": [
+        "kineticEnergy",
+        "potentialEnergy",
+        "totalEnergy",
+        "thermalEnergy"
+      ],
+      "resetAxesOnReset": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "potentialEnergyGraph",
+      "kineticEnergyGraph",
+      "thermalEnergyGraph"
+    ],
+    "bottom": [
+      "propertiesGraph"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "bottom": "interactive.bottom"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "bottom": "interactive.bottom",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }
+  ]
+}
