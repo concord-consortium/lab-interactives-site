@@ -9,16 +9,16 @@
     {
       "type": "md2d",
       "id": "collision$0",
-      "url": "models-converted/lab-version/1/md2d/interactions/collision/collision$0.json",
+      "url": "models/lab-version/1/md2d/interactions/collision/Collision.json",
       "importedFrom": "imports/legacy-mw-content/interactions/collision/collision$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
       "modelOptions": {
         "unitsScheme": "mks",
-        "timeStepsPerTick": 167,
-        "timeStep": 2,
-        "modelSampleRate": 30
+        "timeStepsPerTick": 333,
+        "timeStep": 0.5,
+        "modelSampleRate": 60
       },
       "onLoad": [
         "onPropertyChange('time', function(time){",
@@ -50,12 +50,12 @@
     {
       "name": "left-mass",
       "initialValue": 3,
-      "onChange": "setElementProperties(3, {mass: 10 * value});"
+      "onChange": "setElementProperties(3, {mass: value});"
     },
     {
       "name": "right-mass",
       "initialValue": 3,
-      "onChange": "setElementProperties(2, {mass: 10 * value});"
+      "onChange": "setElementProperties(2, {mass: value});"
     },
     {
       "name": "object-offset",
@@ -71,7 +71,7 @@
       "value": [
         "var props = getAtomProperties(0);",
         "// KE = (1/2)mv^2",
-        "return 0.5 * 0.025 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+        "return 0.5 * 0.25 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
       ]
     },
     {
@@ -81,7 +81,7 @@
       "value": [
         "var props = getAtomProperties(1);",
         "// KE = (1/2)mv^2",
-        "return 0.5 * 0.025 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+        "return 0.5 * 0.25 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
       ]
     },
     {
@@ -255,8 +255,7 @@
       "property": "left-ke",
       "barColor": "#b2824a",
       "title": "KE of left object (J)",
-      "height": "13em",
-      "barWidth": "1em"
+      "height": "13em"
     },
     {
       "type": "barGraph",
@@ -266,8 +265,7 @@
       "property": "right-ke",
       "barColor": "#27a5a2",
       "title": "KE of right object (J)",
-      "height": "13em",
-      "barWidth": "1em"
+      "height": "13em"
     },
     {
       "type": "barGraph",
@@ -277,8 +275,7 @@
       "property": "total-ke",
       "barColor": "#7c7c7c",
       "title": "Total KE in system (J)",
-      "height": "13em",
-      "barWidth": "1em"
+      "height": "13em"
     },
     {
       "type": "graph",
@@ -287,7 +284,7 @@
       "xlabel": "Time (s)",
       "ylabel": "Kinetic Energy (J)",
       "ymin": 0,
-      "ymax": 10,
+      "ymax": 22,
       "xmax": 10,
       "xTickCount": 5,
       "yTickCount": 6,
@@ -313,16 +310,18 @@
       "id": "bottom-right",
       "top": "model.bottom",
       "left": "model.right",
-      "width": "model.width",
-      "align": "center"
+      "right": "interactive.right",
+      "align": "center",
+      "padding-left": "1.5em"
     },
     {
       "id": "right",
       "top": "0",
       "height": "model.height",
-      "width": "model.width",
+      "right": "interactive.right",
       "left": "model.right",
       "align": "center",
+      "padding-bottom": "0.5em",
       "padding-left": "1.5em"
     }
   ],
