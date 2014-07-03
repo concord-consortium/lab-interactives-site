@@ -43,27 +43,27 @@
     {
       "name": "left-speed",
       "initialValue": 1,
-      "onChange": "setAtomProperties(0, {vx: 2 * value});"
+      "onChange": "setAtomProperties(0, {vx: value});"
     },
     {
       "name": "right-speed",
       "initialValue": 1,
-      "onChange": "setAtomProperties(1, {vx: -2 * value});"
+      "onChange": "setAtomProperties(1, {vx: -value});"
     },
     {
       "name": "left-mass",
       "initialValue": 3,
-      "onChange": "setElementProperties(3, {mass: value});"
+      "onChange": "setElementProperties(3, {mass: 10 * value});"
     },
     {
       "name": "right-mass",
       "initialValue": 3,
-      "onChange": "setElementProperties(2, {mass: value});"
+      "onChange": "setElementProperties(2, {mass: 10 * value});"
     },
     {
       "name": "object-offset",
       "initialValue": 0,
-      "onChange": "setAtomProperties(0, {y: 1.5 - 0.17 * value});setAtomProperties(1, {y: 1.5 + 0.17 * value});"
+      "onChange": "setAtomProperties(0, {y: 0.75 - 0.085 * value});setAtomProperties(1, {y: 0.75 + 0.085 * value});"
     }
   ],
   "outputs": [
@@ -74,7 +74,7 @@
       "value": [
         "var props = getAtomProperties(0);",
         "// KE = (1/2)mv^2",
-        "return 0.5 * 0.25 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+        "return 0.5 * 0.1 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
       ]
     },
     {
@@ -84,7 +84,7 @@
       "value": [
         "var props = getAtomProperties(1);",
         "// KE = (1/2)mv^2",
-        "return 0.5 * 0.25 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
+        "return 0.5 * 0.1 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
       ]
     },
     {

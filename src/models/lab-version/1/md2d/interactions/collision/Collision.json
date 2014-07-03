@@ -1,8 +1,8 @@
 {
   "type": "md2d",
   "imagePath": "",
-  "width": 5,
-  "height": 3,
+  "width": 2.5,
+  "height": 1.5,
   "unitsScheme": "md2d",
   "lennardJonesForces": true,
   "coulombForces": true,
@@ -24,8 +24,8 @@
   "useQuantumDynamics": false,
   "useChemicalReactions": false,
   "viewOptions": {
-    "viewPortWidth": 5,
-    "viewPortHeight": 3,
+    "viewPortWidth": 2.5,
+    "viewPortHeight": 1.5,
     "viewPortZoom": 1,
     "viewPortX": 0,
     "viewPortY": 0,
@@ -76,15 +76,15 @@
     "mass": [
       20,
       40,
-      3,
-      3,
+      30,
+      30,
       600
     ],
     "sigma": [
       0.07,
       0.14,
-      0.4,
-      0.4,
+      0.2,
+      0.2,
       0.3
     ],
     "epsilon": [
@@ -104,12 +104,12 @@
   },
   "atoms": {
     "x": [
-      1.35,
-      3.65
+      0.675,
+      1.825
     ],
     "y": [
-      1.5,
-      1.5
+      0.75,
+      0.75
     ],
     "vx": [
       0.001,
