@@ -35,6 +35,10 @@
         "      angle = Math.min(Math.PI/2, Math.max(-Math.PI/2, Math.atan2(atom.x - 1.25, 1.25 - atom.y)));",
         "    set('startingAngle', angle * rad2deg);",
         "  }",
+        "});",
+        "// Disable atom dragging once started",
+        "onStart(function(){",
+        "  setAtomProperties(1, {draggableWhenStopped: 0});",
         "});"
       ]
     }
@@ -120,9 +124,10 @@
       "id": "propertiesGraph",
       "title": "Energy vs Time",
       "xlabel": "Time  (s)",
-      "ymin": -0.5,
-      "ymax": 3,
+      "ymin": -0.2,
+      "ymax": 2.8,
       "xmax": 8,
+      "autoScaleY": false,
       "xTickCount": 5,
       "yTickCount": 6,
       "xFormatter": ".2r",
@@ -132,8 +137,7 @@
         "potentialEnergy",
         "totalEnergy",
         "thermalEnergy"
-      ],
-      "resetAxesOnReset": false
+      ]
     }
   ],
   "layout": {
