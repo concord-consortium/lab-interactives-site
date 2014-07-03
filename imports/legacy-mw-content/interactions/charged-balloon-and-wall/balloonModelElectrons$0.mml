@@ -333,7 +333,7 @@
    <double>0.4166666666666667</double>
   </void>
   <void property="numberOfParticles">
-   <int>94</int>
+   <int>95</int>
   </void>
   <void property="obstacles">
    <void method="add">
@@ -420,7 +420,7 @@
    <void method="put">
     <string>date</string>
     <object class="java.util.Date">
-     <long>1404150881496</long>
+     <long>1404401421768</long>
     </object>
    </void>
    <void method="put">
@@ -429,7 +429,7 @@
    </void>
    <void method="put">
     <string>size</string>
-    <long>75720</long>
+    <long>76507</long>
    </void>
    <void method="put">
     <string>codebase</string>
@@ -2670,10 +2670,10 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>137.8196721311475</double>
+   <double>138.0</double>
   </void>
   <void property="ry">
-   <double>269.4098360655738</double>
+   <double>271.0</double>
   </void>
   <void property="vx">
    <double>-1.3327918102887847E-10</double>
@@ -2931,6 +2931,26 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
  </object>
+ <object class="org.concord.mw2d.models.Atom">
+  <void property="ID">
+   <int>1</int>
+  </void>
+  <void property="movable">
+   <boolean>false</boolean>
+  </void>
+  <void property="radical">
+   <boolean>false</boolean>
+  </void>
+  <void property="rx">
+   <double>140.8196721</double>
+  </void>
+  <void property="ry">
+   <double>13.0</double>
+  </void>
+  <void property="visible">
+   <boolean>false</boolean>
+  </void>
+ </object>
  <object class="org.concord.mw2d.models.MolecularModel$State">
   <void property="molecularTorque">
    <array class="org.concord.mw2d.models.MolecularTorque" length="1"/>
@@ -2939,7 +2959,7 @@ with the balloon. </string>
    <int>1</int>
   </void>
   <void property="numberOfBonds">
-   <int>20</int>
+   <int>21</int>
   </void>
  </object>
  <object class="org.concord.mw2d.models.RadialBond$Delegate">
@@ -3262,6 +3282,23 @@ with the balloon. </string>
   </void>
   <void property="bondStrength">
    <double>0.2</double>
+  </void>
+  <void property="style">
+   <byte>104</byte>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.RadialBond$Delegate">
+  <void property="atom1">
+   <int>93</int>
+  </void>
+  <void property="atom2">
+   <int>94</int>
+  </void>
+  <void property="bondLength">
+   <double>56.40983606557376</double>
+  </void>
+  <void property="bondStrength">
+   <double>0.001</double>
   </void>
   <void property="style">
    <byte>104</byte>
