@@ -1,0 +1,130 @@
+{
+  "title": "Electric Potential Energy and Charge Intensity",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.31,
+  "about": [],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electricPE2",
+      "url": "models/lab-version/1/md2d/interactions/electric-pe/electricPE.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
+      "viewOptions": {
+        "controlButtons": "",
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        }
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "left-particle-charge",
+      "initialValue": 2,
+      "onChange": "setAtomProperties(1, {charge: value});"
+    },
+    {
+      "name": "right-particle-charge",
+      "initialValue": -2,
+      "onChange": "setAtomProperties(0, {charge: value});"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "potential-energy",
+      "unitAbbreviation": "eV",
+      "label": "Potential Energy",
+      "value": [
+        "return pe();"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "orientation": "horizontal",
+      "id": "set-left-particle-charge",
+      "property": "left-particle-charge",
+      "label": "Left particle charge",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Positive",
+          "value": 2
+        },
+        {
+          "text": "Negative",
+          "value": -2
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "orientation": "horizontal",
+      "id": "set-right-particle-charge",
+      "property": "right-particle-charge",
+      "label": "Right particle charge",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Positive",
+          "value": 2
+        },
+        {
+          "text": "Negative",
+          "value": -2
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "select-show-forces",
+      "property": "showForceVectors",
+      "text": "Show forces"
+    },
+    {
+      "type": "checkbox",
+      "id": "select-show-electric-field",
+      "property": "showElectricField",
+      "text": "Show electric field"
+    },
+    {
+      "type": "barGraph",
+      "min": -2,
+      "max": 2,
+      "id": "potential-energy-graph",
+      "property": "potential-energy",
+      "barColor": "#4c952f",
+      "title": "Potential Energy (eV)"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "bottom": "interactive.bottom",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["set-left-particle-charge", "set-right-particle-charge"],
+      ["select-show-forces", "select-show-electric-field"]
+    ],
+    "right": [
+      ["potential-energy-graph"]
+    ]
+  }
+}
