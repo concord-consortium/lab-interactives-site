@@ -1,10 +1,15 @@
 {
-  "title": "Collisions",
+  "title": "Collisions and Kinetic Energy",
   "publicationStatus": "draft",
-  "subtitle": "",
+  "subtitle": "Energy exchange between colliding obstacles",
   "aspectRatio": 1.5,
   "fontScale": 0.75,
-  "about": [],
+  "about": [
+    "The energy of motion is called *kinetic energy*. The amount of kinetic energy ",
+    "an object has depends on its mass and speed. Objects that interact with each ",
+    "other can transfer energy between them. Uset the controls in this interactive to ",
+    "explore how this energy transfer occurs."
+  ],
   "models": [
     {
       "type": "md2d",
@@ -47,7 +52,7 @@
     },
     {
       "name": "right-speed",
-      "initialValue": 1,
+      "initialValue": 2,
       "onChange": "setAtomProperties(1, {vx: -value});"
     },
     {
@@ -70,7 +75,7 @@
     {
       "name": "left-ke",
       "unitAbbreviation": "J",
-      "label": "KE of left object",
+      "label": "KE of yellow object",
       "value": [
         "var props = getAtomProperties(0);",
         "// KE = (1/2)mv^2",
@@ -80,7 +85,7 @@
     {
       "name": "right-ke",
       "unitAbbreviation": "J",
-      "label": "KE of right object",
+      "label": "KE of blue object",
       "value": [
         "var props = getAtomProperties(1);",
         "// KE = (1/2)mv^2",
@@ -92,7 +97,7 @@
       "unitAbbreviation": "J",
       "label": "Total KE in system",
       "value": [
-        "return get('left-ke') + get('right-ke');"
+        "return (pe() + ke())/10;"
       ]
     }
   ],
@@ -231,7 +236,7 @@
       "min": -1,
       "max": 1,
       "value": 0,
-      "steps": 8, 
+      "steps": 8,
       "labels": [
         {
           "value": -1,
