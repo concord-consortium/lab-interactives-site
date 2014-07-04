@@ -1,9 +1,12 @@
 {
-  "title": "Electric Potential Energy and Charge Intensity",
+  "title": "Electric Potential Energy and Type of Charge",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "aspectRatio": 1.31,
-  "about": [],
+  "subtitle": "Compare the potential energy of oppositely or similarly charged particles.",
+  "aspectRatio": 1.35,
+  "about": [
+    "Set the charge of the particles and compare the potential energy of the electric field ",
+    "they generate. Try moving them closer and farther apart."
+   ],
   "models": [
     {
       "type": "md2d",
@@ -38,14 +41,19 @@
       "unitAbbreviation": "eV",
       "label": "Potential Energy",
       "value": [
-        "return pe();"
+        "return pe() + (get('left-particle-charge') != get('right-particle-charge') ? 10 : 0);"
       ]
     }
   ],
   "components": [
     {
+      "type": "text",
+      "id": "drag-inst",
+      "text": "Note: The charged objects are draggable."
+    },
+    {
       "type": "radio",
-      "orientation": "horizontal",
+      "orientation": "vertical",
       "id": "set-left-particle-charge",
       "property": "left-particle-charge",
       "label": "Left particle charge",
@@ -63,7 +71,7 @@
     },
     {
       "type": "radio",
-      "orientation": "horizontal",
+      "orientation": "vertical",
       "id": "set-right-particle-charge",
       "property": "right-particle-charge",
       "label": "Right particle charge",
@@ -93,12 +101,22 @@
     },
     {
       "type": "barGraph",
-      "min": -2,
-      "max": 2,
+      "min": 0,
+      "max": 10,
       "id": "potential-energy-graph",
       "property": "potential-energy",
       "barColor": "#4c952f",
-      "title": "Potential Energy (eV)"
+      "title": "Potential Energy",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 10,
+          "label": "high"
+        }
+      ]
     }
   ],
   "template": [
@@ -107,7 +125,8 @@
       "left": "model.left",
       "top": "model.bottom",
       "width": "model.width",
-      "align": "center"
+      "align": "left",
+      "padding-left": "5em"
     },
     {
       "id": "right",
@@ -121,7 +140,8 @@
   "layout": {
     "bottom": [
       ["set-left-particle-charge", "set-right-particle-charge"],
-      ["select-show-forces", "select-show-electric-field"]
+      ["select-show-forces", "select-show-electric-field"],
+      ["drag-inst"]
     ],
     "right": [
       ["potential-energy-graph"]
