@@ -41,7 +41,7 @@
       "unitAbbreviation": "eV",
       "label": "Potential Energy",
       "value": [
-        "return pe() + (get('left-particle-charge') != get('right-particle-charge') ? 10 : 0);"
+        "return pe() + (pe() < 0 ? 9 : 0);"
       ]
     }
   ],
@@ -102,7 +102,7 @@
     {
       "type": "barGraph",
       "min": 0,
-      "max": 10,
+      "max": 9,
       "id": "potential-energy-graph",
       "property": "potential-energy",
       "barColor": "#4c952f",
@@ -113,7 +113,7 @@
           "label": "low"
         },
         {
-          "value": 10,
+          "value": 9,
           "label": "high"
         }
       ]
