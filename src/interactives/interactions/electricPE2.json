@@ -1,9 +1,12 @@
 {
   "title": "Electric Potential Energy and Charge Intensity",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "aspectRatio": 1.31,
-  "about": [],
+  "subtitle": "Explore how charge and distance affect electric potential energy.",
+  "aspectRatio": 1.35,
+  "about": [
+    "Set the charge of the particles and compare the potential energy of the electric field ",
+    "they generate. Try moving them closer and farther apart."
+   ],
   "models": [
     {
       "type": "md2d",
@@ -38,11 +41,17 @@
       "unitAbbreviation": "eV",
       "label": "Potential Energy",
       "value": [
-        "return pe();"
+        "var peLimit = [[], [ 0, 2.27, 4.52, 6.78], [0, 4.52, 9.03, 13.53], [0, 6.78, 13.53, 20.29]];",
+        "return pe() + (pe() < 0 ? peLimit[Math.abs(get('left-particle-charge'))][Math.abs(get('right-particle-charge'))] : 0);"
       ]
     }
   ],
   "components": [
+    {
+      "type": "text",
+      "id": "drag-inst",
+      "text": "Note: The charged objects are draggable."
+    },
     {
       "type": "slider",
       "id": "set-left-particle-charge",
@@ -105,8 +114,18 @@
     },
     {
       "type": "barGraph",
-      "min": -4,
-      "max": 4,
+      "min": 0,
+      "max": 20,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 20,
+          "label": "high"
+        }
+      ],
       "id": "potential-energy-graph",
       "property": "potential-energy",
       "barColor": "#4c952f",
@@ -133,7 +152,8 @@
   "layout": {
     "bottom": [
       ["set-left-particle-charge", "set-right-particle-charge"],
-      ["select-show-forces", "select-show-electric-field"]
+      ["select-show-forces", "select-show-electric-field"],
+      ["drag-inst"]
     ],
     "right": [
       ["potential-energy-graph"]
