@@ -530,7 +530,7 @@
    <double>2.0E-5</double>
   </void>
   <void property="style">
-   <byte>102</byte>
+   <byte>106</byte>
   </void>
  </object>
 </java>

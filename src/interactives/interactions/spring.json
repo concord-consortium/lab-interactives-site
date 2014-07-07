@@ -22,7 +22,7 @@
             "x": 0.2,
             "y": 2.0,
             "layer": 1,
-            "fontSize": 0.12,
+            "fontSize": 0.16,
             "anchor": "upper-left"
           }
         ]
@@ -79,9 +79,6 @@
         "return get('totalEnergy') - get('kineticEnergy') - get('potentialEnergy');"
       ]
     }
-  ],
-  "propertiesToRetain": [
-    "startingDisplacement"
   ],
   "parameters": [
     {
