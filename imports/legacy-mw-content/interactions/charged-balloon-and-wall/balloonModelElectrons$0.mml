@@ -1721,7 +1721,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1744,7 +1744,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1767,7 +1767,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1790,7 +1790,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1813,7 +1813,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1836,7 +1836,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1859,7 +1859,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1882,7 +1882,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1905,7 +1905,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1928,7 +1928,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1951,7 +1951,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1974,7 +1974,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1997,7 +1997,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2020,7 +2020,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2043,7 +2043,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2066,7 +2066,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2089,7 +2089,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2112,7 +2112,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2135,7 +2135,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2158,7 +2158,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2181,7 +2181,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2204,7 +2204,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2227,7 +2227,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2250,7 +2250,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2273,7 +2273,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2296,7 +2296,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2319,7 +2319,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2342,7 +2342,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2365,7 +2365,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2388,7 +2388,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2411,7 +2411,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2434,7 +2434,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2460,7 +2460,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2483,7 +2483,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2506,7 +2506,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2529,7 +2529,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2552,7 +2552,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2575,7 +2575,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2598,7 +2598,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2621,7 +2621,7 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-1.0</double>
+   <double>-0.9</double>
   </void>
   <void property="friction">
    <float>0.1</float>
