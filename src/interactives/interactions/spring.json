@@ -127,9 +127,10 @@
     },
     {
       "type": "graph",
-      "id": "propertiesGraph",
+      "id": "energyGraph",
       "title": "Energy vs Time",
-      "xlabel": "Time  (s)",
+      "xlabel": "Time (s)",
+      "ylabel": "Energy (J)",
       "ymin": -0.2,
       "ymax": 8.5,
       "xmax": 8,
@@ -148,7 +149,7 @@
   ],
   "layout": {
     "right": [
-      "propertiesGraph"
+      "energyGraph"
     ],
     "bottom": [
       "potentialEnergyGraph",
