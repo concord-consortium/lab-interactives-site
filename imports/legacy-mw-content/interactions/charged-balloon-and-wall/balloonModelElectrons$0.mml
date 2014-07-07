@@ -34,6 +34,9 @@
   <void property="ID">
    <int>3</int>
   </void>
+  <void property="epsilon">
+   <double>0.20000000298023224</double>
+  </void>
   <void property="mass">
    <double>0.6666666666666666</double>
   </void>
@@ -63,7 +66,7 @@
       <object idref="Element3"/>
      </void>
     </object>
-    <double>0.1</double>
+    <double>0.1500000014901161</double>
    </void>
    <void method="put">
     <object class="org.concord.mw2d.models.Pair" id="Pair2">
@@ -85,7 +88,7 @@
       <object idref="Element3"/>
      </void>
     </object>
-    <double>0.1</double>
+    <double>0.1500000014901161</double>
    </void>
    <void method="put">
     <object class="org.concord.mw2d.models.Pair" id="Pair4">
@@ -96,7 +99,7 @@
       <object idref="Element3"/>
      </void>
     </object>
-    <double>0.1</double>
+    <double>0.1500000014901161</double>
    </void>
    <void method="put">
     <object class="org.concord.mw2d.models.Pair" id="Pair5">
@@ -158,7 +161,7 @@
       <object idref="Element4"/>
      </void>
     </object>
-    <double>0.1</double>
+    <double>0.1500000014901161</double>
    </void>
   </void>
   <void property="lbMixing">
@@ -420,7 +423,7 @@
    <void method="put">
     <string>date</string>
     <object class="java.util.Date">
-     <long>1404401421768</long>
+     <long>1404756112518</long>
     </object>
    </void>
    <void method="put">
@@ -429,7 +432,7 @@
    </void>
    <void method="put">
     <string>size</string>
-    <long>76507</long>
+    <long>72342</long>
    </void>
    <void method="put">
     <string>codebase</string>
@@ -508,6 +511,9 @@
       <void property="URI">
        <string>Balloon.png</string>
       </void>
+      <void property="angle">
+       <float>0.006653311</float>
+      </void>
       <void property="hostIndex">
        <int>9</int>
       </void>
@@ -521,10 +527,10 @@
        <byte>3</byte>
       </void>
       <void property="x">
-       <double>64.81967213114751</double>
+       <double>64.4414686748571</double>
       </void>
       <void property="y">
-       <double>30.409836065573757</double>
+       <double>30.656289979362043</double>
       </void>
      </object>
     </void>
@@ -549,10 +555,10 @@
        <boolean>false</boolean>
       </void>
       <void property="x">
-       <double>193.8196721311475</double>
+       <double>193.4402164665086</double>
       </void>
       <void property="y">
-       <double>127.40983606557376</double>
+       <double>128.1053867825258</double>
       </void>
      </object>
     </void>
@@ -577,10 +583,10 @@
        <boolean>false</boolean>
       </void>
       <void property="x">
-       <double>192.8196721311475</double>
+       <double>192.53373448092313</double>
       </void>
       <void property="y">
-       <double>113.40983606557376</double>
+       <double>114.09849614218632</double>
       </void>
      </object>
     </void>
@@ -605,10 +611,10 @@
        <boolean>false</boolean>
       </void>
       <void property="x">
-       <double>190.8196721311475</double>
+       <double>190.34676814028452</double>
       </void>
       <void property="y">
-       <double>141.40983606557376</double>
+       <double>142.08482096151602</double>
       </void>
      </object>
     </void>
@@ -633,10 +639,10 @@
        <boolean>false</boolean>
       </void>
       <void property="x">
-       <double>190.8196721311475</double>
+       <double>190.62044696494135</double>
       </void>
       <void property="y">
-       <double>100.40983606557376</double>
+       <double>101.08519646099012</double>
       </void>
      </object>
     </void>
@@ -661,10 +667,10 @@
        <boolean>false</boolean>
       </void>
       <void property="x">
-       <double>186.8196721311475</double>
+       <double>186.25989850479317</double>
       </void>
       <void property="y">
-       <double>154.40983606557376</double>
+       <double>155.05790364523017</double>
       </void>
      </object>
     </void>
@@ -774,7 +780,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -797,7 +803,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -820,7 +826,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -843,7 +849,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -866,7 +872,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -889,7 +895,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -912,7 +918,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -935,7 +941,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -958,7 +964,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -981,7 +987,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1004,7 +1010,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1027,7 +1033,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1050,7 +1056,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1073,7 +1079,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1096,7 +1102,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1119,7 +1125,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1142,7 +1148,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1165,7 +1171,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1188,7 +1194,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1211,7 +1217,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1234,7 +1240,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1257,7 +1263,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1280,7 +1286,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1303,7 +1309,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1326,7 +1332,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1349,7 +1355,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1375,7 +1381,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1401,7 +1407,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1427,7 +1433,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1453,7 +1459,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1479,7 +1485,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1505,7 +1511,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1531,7 +1537,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1557,7 +1563,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1583,7 +1589,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1609,7 +1615,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1632,7 +1638,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1655,7 +1661,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1678,7 +1684,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1701,7 +1707,7 @@ with the balloon. </string>
    <int>3</int>
   </void>
   <void property="charge">
-   <double>1.0</double>
+   <double>1.12</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -1721,720 +1727,720 @@ with the balloon. </string>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>258.66651235013535</double>
+   <double>258.46857951298074</double>
   </void>
   <void property="ry">
-   <double>74.7759196947867</double>
+   <double>73.15800739431491</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.0010132706317012622</double>
+   <double>-0.0019853332222998137</double>
   </void>
   <void property="vy">
-   <double>-0.009172716257848839</double>
+   <double>-0.014427979431020081</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>310.0229152727409</double>
+   <double>308.53824492116615</double>
   </void>
   <void property="ry">
-   <double>24.037647505533993</double>
+   <double>24.43921858201021</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.04203084735001656</double>
+   <double>0.007339047234536924</double>
   </void>
   <void property="vy">
-   <double>0.00416456907040136</double>
+   <double>3.733612390910859E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>340.1570007390739</double>
+   <double>338.69698187604945</double>
   </void>
   <void property="ry">
-   <double>22.075936494652808</double>
+   <double>23.55286642148396</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.00292748420297113</double>
+   <double>0.019513828378637244</double>
   </void>
   <void property="vy">
-   <double>-0.001145145130023695</double>
+   <double>0.0024395909396873207</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>286.9261202214972</double>
+   <double>286.5402984913702</double>
   </void>
   <void property="ry">
-   <double>75.53086959296117</double>
+   <double>43.84559558042496</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-4.623199305984569E-4</double>
+   <double>-0.0011746811590058596</double>
   </void>
   <void property="vy">
-   <double>0.0019949351801567053</double>
+   <double>0.0021092745059712046</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>310.20513937495826</double>
+   <double>308.67191305688766</double>
   </void>
   <void property="ry">
-   <double>86.54326449163612</double>
+   <double>85.21986032304712</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.015486364737931788</double>
+   <double>0.026516707774853314</double>
   </void>
   <void property="vy">
-   <double>0.002353844779548056</double>
+   <double>-4.3309241010599283E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>339.947809506393</double>
+   <double>331.9686228434404</double>
   </void>
   <void property="ry">
-   <double>87.00354225432261</double>
+   <double>84.20418162122007</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.009022230970895623</double>
+   <double>0.04040611404205559</double>
   </void>
   <void property="vy">
-   <double>0.0016711111473256923</double>
+   <double>-0.0027383105764450465</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>256.8407985090175</double>
+   <double>259.33010826264484</double>
   </void>
   <void property="ry">
-   <double>154.51637100969603</double>
+   <double>163.56266795865653</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.0016626143140047935</double>
+   <double>0.0025200393538141737</double>
   </void>
   <void property="vy">
-   <double>0.004572599313383448</double>
+   <double>0.04606040764840675</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>340.0460691728932</double>
+   <double>338.5340998876521</double>
   </void>
   <void property="ry">
-   <double>114.41721284898559</double>
+   <double>114.66338620635834</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.018600842061424164</double>
+   <double>0.01154444068556732</double>
   </void>
   <void property="vy">
-   <double>0.0011070299719244015</double>
+   <double>3.099529317444834E-6</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>300.2805332668816</double>
+   <double>301.68965926286546</double>
   </void>
   <void property="ry">
-   <double>144.55459226675316</double>
+   <double>114.70987380691433</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.022980283147878387</double>
+   <double>0.034518562445001094</double>
   </void>
   <void property="vy">
-   <double>-9.45990537347146E-4</double>
+   <double>-5.811025810824049E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>358.11747283281056</double>
+   <double>354.43793986888306</double>
   </void>
   <void property="ry">
-   <double>79.03474333945775</double>
+   <double>96.14204527296418</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.016603496799038938</double>
+   <double>-0.0034772983053417907</double>
   </void>
   <void property="vy">
-   <double>0.012892932144472376</double>
+   <double>-0.008689204398408385</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>299.9739911151615</double>
+   <double>271.5072895719131</double>
   </void>
   <void property="ry">
-   <double>113.45412885586043</double>
+   <double>111.78662183195799</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.02708299648254474</double>
+   <double>-0.03613547623018737</double>
   </void>
   <void property="vy">
-   <double>0.004498643851707089</double>
+   <double>0.01134638581975546</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>356.4831590054762</double>
+   <double>351.5597868052007</double>
   </void>
   <void property="ry">
-   <double>137.184079421072</double>
+   <double>132.55718074474305</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.013199609101810218</double>
+   <double>-0.006785605808476848</double>
   </void>
   <void property="vy">
-   <double>-0.015181088441313724</double>
+   <double>0.05391225384397591</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>258.2825033911756</double>
+   <double>255.4062946848317</double>
   </void>
   <void property="ry">
-   <double>125.30732707494448</double>
+   <double>125.81176925964965</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.0011104023458146637</double>
+   <double>0.0038418619267721207</double>
   </void>
   <void property="vy">
-   <double>0.0019408104423700437</double>
+   <double>-0.008931551884642284</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>310.05544744406615</double>
+   <double>320.2170692300561</double>
   </void>
   <void property="ry">
-   <double>173.98382535396695</double>
+   <double>163.58993101131668</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.0381803888752983</double>
+   <double>5.694452690678347E-4</double>
   </void>
   <void property="vy">
-   <double>0.0037737666823555865</double>
+   <double>-0.020293284755358333</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>339.90607375259776</double>
+   <double>317.0308492265142</double>
   </void>
   <void property="ry">
-   <double>145.84374466408863</double>
+   <double>133.36573190406284</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.03285580908286789</double>
+   <double>0.0037402268150256044</double>
   </void>
   <void property="vy">
-   <double>-0.0028696170824173968</double>
+   <double>0.013088707999297818</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>339.8072466712013</double>
+   <double>338.82944018964764</double>
   </void>
   <void property="ry">
-   <double>55.02735056321086</double>
+   <double>57.685691634124474</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.010736596381298714</double>
+   <double>-0.004207036181122563</double>
   </void>
   <void property="vy">
-   <double>2.155441426870798E-5</double>
+   <double>0.0012816357462080378</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>359.2970641897419</double>
+   <double>353.199847397959</double>
   </void>
   <void property="ry">
-   <double>230.85989919725924</double>
+   <double>223.66394346404954</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.008597939485386383</double>
+   <double>0.01645948567347568</double>
   </void>
   <void property="vy">
-   <double>0.0038212032097743607</double>
+   <double>-0.053983369399011515</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>340.0283145901511</double>
+   <double>349.7392561895205</double>
   </void>
   <void property="ry">
-   <double>173.49162573730604</double>
+   <double>163.29637360597894</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.030569459615348415</double>
+   <double>-7.271488256469582E-4</double>
   </void>
   <void property="vy">
-   <double>0.004410039381058868</double>
+   <double>-0.04649841249189743</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>357.94124601161917</double>
+   <double>319.19706462210456</double>
   </void>
   <void property="ry">
-   <double>181.31351196860402</double>
+   <double>186.62667387268874</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.005850399732951899</double>
+   <double>4.9336525271702575E-5</double>
   </void>
   <void property="vy">
-   <double>-0.0043174732536150765</double>
+   <double>-0.007645320768054063</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>260.16198742590643</double>
+   <double>278.25031159155753</double>
   </void>
   <void property="ry">
-   <double>224.96753383770917</double>
+   <double>205.93368249322268</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>6.573599330888364E-6</double>
+   <double>0.030143406076268222</double>
   </void>
   <void property="vy">
-   <double>-0.004697134525394178</double>
+   <double>-0.0022268493968395533</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>315.6564736463773</double>
+   <double>307.9966886900232</double>
   </void>
   <void property="ry">
-   <double>214.2174507927773</double>
+   <double>235.39888479828738</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.00391934810025788</double>
+   <double>0.0056490997397739525</double>
   </void>
   <void property="vy">
-   <double>-0.008321840602584238</double>
+   <double>-3.201794085458362E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>289.0676235763923</double>
+   <double>272.04158497913556</double>
   </void>
   <void property="ry">
-   <double>224.99589029448148</double>
+   <double>233.22269677381144</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.003522353367271489</double>
+   <double>-0.02291018511515143</double>
   </void>
   <void property="vy">
-   <double>-0.036465141788873764</double>
+   <double>0.004957987230248978</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>310.13959435745306</double>
+   <double>302.0375964226198</double>
   </void>
   <void property="ry">
-   <double>262.43301234561886</double>
+   <double>263.5702663787335</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.012382052178144472</double>
+   <double>-0.011626926828810788</double>
   </void>
   <void property="vy">
-   <double>0.0031909960903659866</double>
+   <double>0.0015826045078572134</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>270.03523393252243</double>
+   <double>278.73308955503046</double>
   </void>
   <void property="ry">
-   <double>294.9564908133844</double>
+   <double>294.8744302288751</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.031981357442571905</double>
+   <double>0.027015616525395462</double>
   </void>
   <void property="vy">
-   <double>1.1716654726738417E-4</double>
+   <double>4.8562737240728186E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>309.75929338452</double>
+   <double>301.64032653851245</double>
   </void>
   <void property="ry">
-   <double>294.53120888584004</double>
+   <double>293.2602684969083</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.019297990674508988</double>
+   <double>0.03628679693078389</double>
   </void>
   <void property="vy">
-   <double>8.869765225007632E-4</double>
+   <double>-0.005263036510461442</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>340.00690231524993</double>
+   <double>338.6594226125173</double>
   </void>
   <void property="ry">
-   <double>262.9608412944296</double>
+   <double>263.42456288716994</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.024843364751044116</double>
+   <double>0.01200412004237924</double>
   </void>
   <void property="vy">
-   <double>-0.005202355413917604</double>
+   <double>0.0016078913638285408</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>330.16369513151164</double>
+   <double>331.74066512652786</double>
   </void>
   <void property="ry">
-   <double>296.1375984716408</double>
+   <double>295.2584281379008</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.011557635201533408</double>
+   <double>0.032234397975452876</double>
   </void>
   <void property="vy">
-   <double>-0.0013038716336455165</double>
+   <double>4.081050123145182E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>290.82448380311683</double>
+   <double>302.01513339828773</double>
   </void>
   <void property="ry">
-   <double>194.99125137779257</double>
+   <double>206.1939627354631</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-4.7960210506188577E-4</double>
+   <double>0.032563775588870365</double>
   </void>
   <void property="vy">
-   <double>0.0055069932176715</double>
+   <double>0.0025792768372636067</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>261.50354453397557</double>
+   <double>278.4021090149691</double>
   </void>
   <void property="ry">
-   <double>95.06474923007907</double>
+   <double>84.40312357494707</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.006109429862416551</double>
+   <double>-0.052701761041726275</double>
   </void>
   <void property="vy">
-   <double>0.04351782047347796</double>
+   <double>-0.002718356646969208</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>283.1106190360491</double>
+   <double>260.12642185130767</double>
   </void>
   <void property="ry">
-   <double>47.64435251171115</double>
+   <double>43.54390658167534</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.002437793864546433</double>
+   <double>2.6744595698094696E-4</double>
   </void>
   <void property="vy">
-   <double>0.0031352115242137503</double>
+   <double>-0.01861635135273354</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>356.99119196093</double>
+   <double>353.93034216015593</double>
   </void>
   <void property="ry">
-   <double>32.40263745483133</double>
+   <double>44.28144289054996</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.031647208474014296</double>
+   <double>0.007743578880046062</double>
   </void>
   <void property="vy">
-   <double>0.03413663835987836</double>
+   <double>-0.0208044814442593</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
@@ -2443,203 +2449,203 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>309.96659706922486</double>
+   <double>308.7652309042468</double>
   </void>
   <void property="ry">
-   <double>53.23147576011994</double>
+   <double>55.35935856973318</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.0011802890619094647</double>
+   <double>-0.04221457305350935</double>
   </void>
   <void property="vy">
-   <double>2.2500586626813775E-4</double>
+   <double>9.814652235796203E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>280.0315744760887</double>
+   <double>291.38267844625096</double>
   </void>
   <void property="ry">
-   <double>173.39753055559365</double>
+   <double>163.56475543104727</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.028640863176906315</double>
+   <double>-1.162006605013453E-4</double>
   </void>
   <void property="vy">
-   <double>0.0045111151830934835</double>
+   <double>-0.0013571558204308787</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>258.10320670692244</double>
+   <double>258.9844001312995</double>
   </void>
   <void property="ry">
-   <double>194.99372517971125</double>
+   <double>193.36600278268148</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.010586480703802796</double>
+   <double>8.783566496139619E-4</double>
   </void>
   <void property="vy">
-   <double>0.05411778065675672</double>
+   <double>0.02378068615793707</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>280.64370946016055</double>
+   <double>271.3045647669239</double>
   </void>
   <void property="ry">
-   <double>140.55155474052788</double>
+   <double>144.2414898236207</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.0427721371984532</double>
+   <double>0.03127694501458251</double>
   </void>
   <void property="vy">
-   <double>0.020527656778771563</double>
+   <double>-0.0020485963878994046</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>258.31923121000733</double>
+   <double>260.991294791637</double>
   </void>
   <void property="ry">
-   <double>255.1296037215526</double>
+   <double>253.50939336941505</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.0024624659578961934</double>
+   <double>-5.746585886042872E-4</double>
   </void>
   <void property="vy">
-   <double>-0.014547287404341906</double>
+   <double>0.016191879030305965</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>280.15348301439656</double>
+   <double>260.18410056781454</double>
   </void>
   <void property="ry">
-   <double>267.295711317683</double>
+   <double>277.1405569188624</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.026794628026711526</double>
+   <double>-8.220198104659904E-4</double>
   </void>
   <void property="vy">
-   <double>0.006212502349239398</double>
+   <double>-0.028672118596174898</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>339.89455862746814</double>
+   <double>338.2404412139781</double>
   </void>
   <void property="ry">
-   <double>204.8758157104313</double>
+   <double>202.43001615672287</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.026449022756389363</double>
+   <double>0.021987309656228294</double>
   </void>
   <void property="vy">
-   <double>2.310073600002474E-4</double>
+   <double>0.005597945934778603</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>339.7564715357424</double>
+   <double>338.2362279400058</double>
   </void>
   <void property="ry">
-   <double>236.08103948442258</double>
+   <double>237.14240900079506</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>-0.011631917571615455</double>
+   <double>0.034094464641800035</double>
   </void>
   <void property="vy">
-   <double>0.0012274541650237228</double>
+   <double>-0.006244708511318627</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
   <void property="charge">
-   <double>-0.9</double>
+   <double>-1.0</double>
   </void>
   <void property="friction">
    <float>0.1</float>
   </void>
   <void property="rx">
-   <double>354.306636698861</double>
+   <double>352.8491453497325</double>
   </void>
   <void property="ry">
-   <double>274.37282425309724</double>
+   <double>283.2511673530185</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>0.001780827560782823</double>
+   <double>-0.010792987714150803</double>
   </void>
   <void property="vy">
-   <double>0.003725113086407432</double>
+   <double>0.03665277277381798</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2650,16 +2656,16 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>140.8196721311475</double>
+   <double>139.7100379113079</double>
   </void>
   <void property="ry">
-   <double>252.40983606557376</double>
+   <double>252.65089671814653</double>
   </void>
   <void property="vx">
-   <double>3.8797609920755744E-10</double>
+   <double>1.8176959425301857E-4</double>
   </void>
   <void property="vy">
-   <double>2.110854514987212E-10</double>
+   <double>-3.3120512271259453E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2670,16 +2676,16 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>138.0</double>
+   <double>142.71628468547297</double>
   </void>
   <void property="ry">
-   <double>271.0</double>
+   <double>269.64862822626657</double>
   </void>
   <void property="vx">
-   <double>-1.3327918102887847E-10</double>
+   <double>-0.0013022538645233027</double>
   </void>
   <void property="vy">
-   <double>-3.2253730994333923E-10</double>
+   <double>4.674400153665245E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2690,16 +2696,16 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>135.8196721311475</double>
+   <double>143.8764151250023</double>
   </void>
   <void property="ry">
-   <double>281.4098360655738</double>
+   <double>281.76321806852224</double>
   </void>
   <void property="vx">
-   <double>-1.1754073776695788E-10</double>
+   <double>0.0011283159587912003</double>
   </void>
   <void property="vy">
-   <double>-1.348827777440567E-11</double>
+   <double>1.58820934671611E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2710,16 +2716,16 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>138.8196721311475</double>
+   <double>138.420004569379</double>
   </void>
   <void property="ry">
-   <double>297.4098360655738</double>
+   <double>297.10073690941414</double>
   </void>
   <void property="vx">
-   <double>1.3607082643596955E-10</double>
+   <double>0.0010524472862846336</double>
   </void>
   <void property="vy">
-   <double>1.9785395299702892E-10</double>
+   <double>2.002000290250993E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2730,16 +2736,16 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>135.8196721311475</double>
+   <double>137.7373491627307</double>
   </void>
   <void property="ry">
-   <double>311.4098360655738</double>
+   <double>311.40345583622974</double>
   </void>
   <void property="vx">
-   <double>3.002099561199959E-10</double>
+   <double>0.0011254644008543988</double>
   </void>
   <void property="vy">
-   <double>1.4907144296375123E-10</double>
+   <double>-2.510459188256943E-5</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2753,45 +2759,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>73.81967213114751</double>
+   <double>73.44272088320565</double>
   </void>
   <void property="ry">
-   <double>142.40983606557376</double>
-  </void>
-  <void property="visible">
-   <boolean>false</boolean>
-  </void>
-  <void property="vx">
-   <double>2.818780144882438E-10</double>
-  </void>
-  <void property="vy">
-   <double>6.003357061435284E-11</double>
-  </void>
- </object>
- <object class="org.concord.mw2d.models.Atom">
-  <void property="ID">
-   <int>2</int>
-  </void>
-  <void property="friction">
-   <float>0.1</float>
-  </void>
-  <void property="radical">
-   <boolean>false</boolean>
-  </void>
-  <void property="rx">
-   <double>208.8196721311475</double>
-  </void>
-  <void property="ry">
-   <double>142.40983606557376</double>
+   <double>142.20719317619825</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
   </void>
   <void property="vx">
-   <double>5.357836338147252E-10</double>
+   <double>1.0239001091697323E-4</double>
   </void>
   <void property="vy">
-   <double>-1.3131389670191554E-10</double>
+   <double>2.2261552637128427E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2805,13 +2785,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>207.8196721311475</double>
+   <double>208.4402164665086</double>
   </void>
   <void property="ry">
-   <double>128.40983606557376</double>
+   <double>143.1053867825258</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>4.4314242021038304E-5</double>
+  </void>
+  <void property="vy">
+   <double>-3.658609968893108E-5</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2825,13 +2811,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>205.8196721311475</double>
+   <double>207.53373448092313</double>
   </void>
   <void property="ry">
-   <double>156.40983606557376</double>
+   <double>129.09849614218632</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>3.102880673999614E-5</double>
+  </void>
+  <void property="vy">
+   <double>-5.8303714317882575E-5</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2845,13 +2837,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>205.8196721311475</double>
+   <double>205.34676814028452</double>
   </void>
   <void property="ry">
-   <double>115.40983606557376</double>
+   <double>157.08482096151602</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>2.145195930808701E-5</double>
+  </void>
+  <void property="vy">
+   <double>2.393747914054726E-5</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2865,13 +2863,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>201.8196721311475</double>
+   <double>205.62044696494135</double>
   </void>
   <void property="ry">
-   <double>169.40983606557376</double>
+   <double>116.08519646099012</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>7.046067641390626E-5</double>
+  </void>
+  <void property="vy">
+   <double>-7.896626896696818E-6</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2885,13 +2889,45 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>140.8196721311475</double>
+   <double>201.25989850479317</double>
   </void>
   <void property="ry">
-   <double>236.40983606557376</double>
+   <double>170.05790364523017</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>7.784034822707857E-5</double>
+  </void>
+  <void property="vy">
+   <double>-8.71384403236658E-5</double>
+  </void>
+ </object>
+ <object class="org.concord.mw2d.models.Atom">
+  <void property="ID">
+   <int>2</int>
+  </void>
+  <void property="friction">
+   <float>0.1</float>
+  </void>
+  <void property="radical">
+   <boolean>false</boolean>
+  </void>
+  <void property="rx">
+   <double>139.81582487153716</double>
+  </void>
+  <void property="ry">
+   <double>236.64937580753548</double>
+  </void>
+  <void property="visible">
+   <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>1.7472116858448022E-4</double>
+  </void>
+  <void property="vy">
+   <double>2.1467217258430265E-4</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">
@@ -2922,13 +2958,19 @@ with the balloon. </string>
    <boolean>false</boolean>
   </void>
   <void property="rx">
-   <double>140.8196721311475</double>
+   <double>140.9271428120376</double>
   </void>
   <void property="ry">
-   <double>69.40983606557376</double>
+   <double>69.65433560199168</double>
   </void>
   <void property="visible">
    <boolean>false</boolean>
+  </void>
+  <void property="vx">
+   <double>-1.0254032233016183E-4</double>
+  </void>
+  <void property="vy">
+   <double>8.469853298306805E-5</double>
   </void>
  </object>
  <object class="org.concord.mw2d.models.Atom">

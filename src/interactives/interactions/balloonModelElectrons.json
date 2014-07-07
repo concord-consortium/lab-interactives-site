@@ -88,7 +88,7 @@
         "function updateBalloonCharge(){",
         "  var charge = get('balloon-charge');",
         "  setAtomRange(86, 86 + Math.max(2 * Math.abs(charge) - 2, 0), {",
-        "    charge: charge / 2",
+        "    charge: charge * 0.3",
         "  });",
         "  setImageRange(2, 2 + Math.max(2 * Math.abs(charge) - 2, 0), {",
         "    visible: true,",
