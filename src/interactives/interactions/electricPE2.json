@@ -20,7 +20,18 @@
         "forceVectors": {
           "length": 17
         }
-      }
+      },
+      "onLoad": [
+        "onDrag('atom', function (x, y, d, i) {",
+        "  var atomToAvoid = getAtomProperties(1 - i),",
+        "   distToAtom = Math.sqrt((atomToAvoid.x - x) * (atomToAvoid.x - x) + (atomToAvoid.y - y) * (atomToAvoid.y - y)),",
+        "   minDist = getElementProperties(atomToAvoid.element).sigma;",
+        "  if(distToAtom < minDist && distToAtom > 0){",
+        "    // Avoid the special divide-by-zero case",
+        "    setAtomProperties(i, {x: minDist * (x - atomToAvoid.x) / distToAtom + atomToAvoid.x, y: minDist * (y - atomToAvoid.y) / distToAtom + atomToAvoid.y});",
+        "  }",
+        "});"
+      ]
     }
   ],
   "parameters": [
