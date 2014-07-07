@@ -52,7 +52,7 @@
       "unitAbbreviation": "eV",
       "label": "Potential Energy",
       "value": [
-        "var peLimit = [[], [ 0, 2.27, 4.52, 6.78], [0, 4.52, 9.03, 13.53], [0, 6.78, 13.53, 20.29]];",
+        "var peLimit = [[0, 0, 0, 0], [ 0, 2.27, 4.52, 6.78], [0, 4.52, 9.03, 13.53], [0, 6.78, 13.53, 20.29]];",
         "return pe() + (pe() < 0 ? peLimit[Math.abs(get('left-particle-charge'))][Math.abs(get('right-particle-charge'))] : 0);"
       ]
     }
