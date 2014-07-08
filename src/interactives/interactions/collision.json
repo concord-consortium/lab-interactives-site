@@ -298,6 +298,11 @@
       "yTickCount": 6,
       "xFormatter": ".2r",
       "yFormatter": ".2s",
+      "dataColors": [
+        [255, 140, 4],
+        [12, 123, 121],
+        [124, 124, 124]
+      ],
       "properties": [
         "left-ke",
         "right-ke",

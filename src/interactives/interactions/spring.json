@@ -136,6 +136,12 @@
       "yTickCount": 6,
       "xFormatter": ".2r",
       "yFormatter": ".2s",
+      "dataColors": [
+        [129, 78, 198],
+        [112, 198, 78],
+        [124, 124, 124],
+        [198, 136, 78]
+      ],
       "properties": [
         "kineticEnergy",
         "potentialEnergy",
