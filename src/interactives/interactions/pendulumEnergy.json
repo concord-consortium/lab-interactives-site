@@ -146,17 +146,24 @@
       "xFormatter": ".2r",
       "yFormatter": ".2s",
       "dataColors": [
-        [129, 78, 198],
         [112, 198, 78],
-        [124, 124, 124],
-        [198, 136, 78]
+        [129, 78, 198],
+        [198, 136, 78],
+        [124, 124, 124]
       ],
       "properties": [
-        "kineticEnergy",
         "potentialEnergy",
-        "totalEnergy",
-        "thermalEnergy"
-      ]
+        "kineticEnergy",
+        "thermalEnergy",
+        "totalEnergy"
+      ],
+      "legendLabels": [
+        "Potental Energy",
+        "Kinetic Energy",
+        "Thermal Energy",
+        "Total Energy"
+      ],
+      "legendVisible": true
     }
   ],
   "layout": {

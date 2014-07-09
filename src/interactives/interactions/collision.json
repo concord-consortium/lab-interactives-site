@@ -307,7 +307,13 @@
         "left-ke",
         "right-ke",
         "total-ke"
-      ]
+      ],
+      "legendLabels": [
+        "KE of left object",
+        "KE of right object",
+        "Total Kinetic Energy"
+      ],
+      "legendVisible": true
     }
   ],
   "template": [
