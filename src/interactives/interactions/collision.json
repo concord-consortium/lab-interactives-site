@@ -299,9 +299,9 @@
       "xFormatter": ".2r",
       "yFormatter": ".2s",
       "dataColors": [
-        [255, 140, 4],
-        [12, 123, 121],
-        [124, 124, 124]
+        "#e69230",
+        "#1ad4d3",
+        "#7c7c7c"
       ],
       "properties": [
         "left-ke",

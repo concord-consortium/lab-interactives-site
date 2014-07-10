@@ -146,10 +146,10 @@
       "xFormatter": ".2r",
       "yFormatter": ".2s",
       "dataColors": [
-        [112, 198, 78],
-        [129, 78, 198],
-        [198, 136, 78],
-        [124, 124, 124]
+        "#70c64e",
+        "#814ec6",
+        "#c6884e",
+        "#7c7c7c"
       ],
       "properties": [
         "potentialEnergy",
