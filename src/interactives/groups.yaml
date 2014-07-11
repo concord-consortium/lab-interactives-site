@@ -98,6 +98,10 @@
   :name: "ITSI: Reaction Kinetics"
   :category: Curriculum
 
+- :path: itsi/sensor
+  :name: "ITSI: Sensor"
+  :category: Curriculum
+
 - :path: itsi/states-of-matter
   :name: "ITSI: States of Matter"
   :category: Curriculum

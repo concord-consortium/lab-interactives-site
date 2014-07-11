@@ -1,0 +1,106 @@
+{
+  "title": "Temperature Prediction",
+  "publicationStatus": "draft",
+  "labEnvironment": "development",
+  "subtitle": "Draw a prediction of temperature.",
+  "about": "",
+  "aspectRatio": "1.75",
+  "fontscale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "viewPortWidth": 0,
+        "viewPortHeight": 0,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets": [
+    {
+      "name": "prediction-dataset",
+      "properties": [
+        "time",
+        "temperature"
+      ],
+      "streamDataFromModel": false,
+      "clearOnModelReset": false,
+      "initialData": {
+        "time": [],
+        "temperature": []
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "time",
+      "initialValue": 0
+    },
+    {
+      "name": "temperature",
+      "initialValue": 0
+    }
+  ],
+  "components": [
+    {
+      "type": "graph",
+      "id": "predictionGraph",
+      "dataSet": "prediction-dataset",
+      "title": "",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (degC)",
+      "ymin":  0,
+      "ymax": 40,
+      "xmin":  0,
+      "xmax": 30,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "temperature"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "enableSelectionButton": false,
+      "enableDrawButton": true,
+      "resetAxesOnReset": false
+    },
+    {
+      "type": "button",
+      "id": "clear-button",
+      "text": "Clear",
+      "tooltip": "Clear the prediction.",
+      "action": [
+        "clearDataSet('prediction-dataset');"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.top",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "2.5em",
+      "width": "interactive.width",
+      "padding-right": "1em"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "height": "2em",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["predictionGraph"],
+    "below": ["clear-button"]
+  }
+}
