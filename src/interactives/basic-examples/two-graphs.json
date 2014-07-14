@@ -1,0 +1,144 @@
+{
+  "title": "Example Prediction",
+  "publicationStatus": "draft",
+  "labEnvironment": "development",
+  "subtitle": "Draw a prediction and see your prediction in the sensor graph.",
+  "about": "",
+  "aspectRatio": "1.75",
+  "fontscale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "viewPortWidth": 0,
+        "viewPortHeight": 0,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets": [
+    {
+      "name": "prediction-dataset",
+      "properties": [
+        "time",
+        "prediction",
+        "sensor"
+      ],
+      "streamDataFromModel": false,
+      "clearOnModelReset": false,
+      "initialData": {
+        "time": [],
+        "prediction": [],
+        "sensor": []
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "graph",
+      "id": "predictionGraph",
+      "dataSet": "prediction-dataset",
+      "title": "Prediction Graph",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (degC)",
+      "ymin":  0,
+      "ymax": 40,
+      "xmin":  0,
+      "xmax": 30,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "prediction"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "enableSelectionButton": false,
+      "enableDrawButton": true,
+      "resetAxesOnReset": false
+    },
+    {
+      "type": "button",
+      "id": "clear-button",
+      "text": "Clear",
+      "tooltip": "Clear the prediction.",
+      "action": [
+        "clearDataSet('prediction-dataset');"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "sensorGraph",
+      "dataSet": "prediction-dataset",
+      "title": "'Sensor' Graph",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (degC)",
+      "ymin":  0,
+      "ymax": 40,
+      "xmin":  0,
+      "xmax": 30,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "prediction",
+        "sensor"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "enableSelectionButton": false,
+      "enableDrawButton": true,
+      "resetAxesOnReset": false
+    },
+    {
+      "type": "button",
+      "id": "clear-button",
+      "text": "Clear",
+      "tooltip": "Clear the prediction.",
+      "action": [
+        "clearDataSet('prediction-dataset');"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "above-left",
+      "top": "model.top",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "left": "interactive.left",
+      "padding-bottom": "2.5em",
+      "width": "interactive.width/2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "above-right",
+      "top": "model.top",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "right": "interactive.right",
+      "padding-bottom": "2.5em",
+      "width": "interactive.width/2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "height": "2em",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above-left": ["predictionGraph"],
+    "above-right": ["sensorGraph"],
+    "below": ["clear-button"]
+  }
+}
