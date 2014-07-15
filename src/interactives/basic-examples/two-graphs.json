@@ -61,6 +61,7 @@
       ],
       "enableSelectionButton": false,
       "enableDrawButton": true,
+      "drawProperty": "prediction",
       "resetAxesOnReset": false
     },
     {
@@ -95,6 +96,7 @@
       ],
       "enableSelectionButton": false,
       "enableDrawButton": true,
+      "drawProperty": "sensor",
       "resetAxesOnReset": false
     },
     {
