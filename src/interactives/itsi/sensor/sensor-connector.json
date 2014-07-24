@@ -1,0 +1,142 @@
+{
+      "title": "ITSI: Sensor Connector",
+      "publicationStatus": "draft",
+      "subtitle": "Collect temperature data from a sensor.",
+      "about": "",
+      "aspectRatio": "1.75",
+      "fontscale": 0.9,
+      "models": [
+        {
+          "type": "sensor-connector",
+          "id": "signal1",
+          "model": {},
+          "viewOptions": {
+            "controlButtons": "reset",
+            "controlButtonStyle": "text",
+            "showClock": true
+          },
+          "onLoad": [
+            "function setGraphRange() {",
+            "  if (!get('isNewRunInProgress')) {",
+            "    syncAxisRangesToPropertyRanges('sensorGraph');",
+            "  }",
+            "  resetGraphSelection('sensorGraph');",
+            "}",
+            "function setButtonState() {",
+            "  setComponentDisabled('start-button', !get('isPlayable'));",
+            "  setComponentDisabled('stop-button', get('isStopped'));",
+            "}",
+            "onPropertyChange('canControl', setButtonState);",
+            "onPropertyChange('isPlayable', setButtonState);",
+            "onPropertyChange('isStopped', setButtonState);",
+            "onPropertyChange('hasPlayed', setButtonState);",
+            "setButtonState();",
+            "onPropertyChange('collectionTime', setGraphRange);"
+          ]
+        }
+      ],
+      "dataSets": [
+        {
+          "name": "sensor-dataset",
+          "properties": [
+            "time",
+            "prediction",
+            "sensorReading"
+          ],
+          "streamDataFromModel": true,
+          "clearOnModelReset": true,
+          "initialData": {
+            "time": [],
+            "prediction": [],
+            "sensorReading": []
+          }
+        }
+      ],
+      "parameters": [
+        {
+          "name": "isNewRunInProgress",
+          "initialValue": false
+        },
+        {
+          "name": "experimentDuration",
+          "initialValue": 20,
+          "onChange": "set('collectionTime', value*1.1);"
+        },
+        {
+          "name": "durationEnabled",
+          "initialValue": true
+        }
+      ],
+      "components": [
+        {
+          "type": "graph",
+          "id": "sensorGraph",
+          "dataSet": "sensor-dataset",
+          "title": "Sensor Reading",
+          "xlabel": "Time (s)",
+          "ylabel": "Temperature (degC)",
+          "ymin":  0,
+          "ymax": 40,
+          "xmin":  0,
+          "xmax": 30,
+          "xTickCount": 5,
+          "xFormatter": ".2s",
+          "yFormatter": ".2s",
+          "properties": [
+            "prediction",
+            "sensorReading"
+          ],
+          "xProperty": [
+            "time"
+          ],
+          "enableSelectionButton": false,
+          "enableDrawButton": false,
+          "drawProperty": "sensor",
+          "resetAxesOnReset": false,
+          "dataColors": [
+            "#a00000",
+            "#2ca000",
+            "#2c00a0"
+          ]
+        },
+        {
+          "type": "button",
+          "id": "start-button",
+          "text": "Start",
+          "tooltip": "Start the experiment run.",
+          "action": [
+            "start();",
+            "setComponentDisabled('start-button', true);"
+          ]
+        },
+        {
+          "type": "button",
+          "id": "stop-button",
+          "text": "Stop",
+          "tooltip": "Stop the experiment run.",
+          "action": "stop();"
+        }
+      ],
+      "template": [
+        {
+          "id": "above",
+          "top": "model.bottom",
+          "padding-top": "0em",
+          "bottom": "below.top",
+          "padding-bottom": "2.5em",
+          "width": "interactive.width",
+          "padding-right": "1em"
+        },
+        {
+          "id": "below",
+          "width": "interactive.width",
+          "height": "2em",
+          "align": "center",
+          "bottom": "interactive.bottom"
+        }
+      ],
+      "layout": {
+        "above": ["sensorGraph"],
+        "below": ["stop-button", "start-button"]
+      }
+    }
