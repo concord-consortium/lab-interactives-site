@@ -39,15 +39,17 @@
         {
           "name": "sensor-dataset",
           "properties": [
-            "time",
+            "predictionTime",
             "prediction",
+            "time",
             "sensorReading"
           ],
           "streamDataFromModel": true,
           "clearOnModelReset": true,
           "initialData": {
-            "time": [],
+            "predictionTime": [],
             "prediction": [],
+            "time": [],
             "sensorReading": []
           }
         }
@@ -87,6 +89,7 @@
             "sensorReading"
           ],
           "xProperty": [
+            "predictionTime",
             "time"
           ],
           "enableSelectionButton": false,
