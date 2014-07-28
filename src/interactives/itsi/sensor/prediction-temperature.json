@@ -1,8 +1,7 @@
 {
-  "title": "Temperature Prediction",
+  "title": "ITSI: Prediction for Sensor Connector",
   "publicationStatus": "draft",
-  "labEnvironment": "development",
-  "subtitle": "Draw a prediction of temperature.",
+  "subtitle": "Draw a prediction.",
   "about": "",
   "aspectRatio": "1.75",
   "fontscale": 0.9,
@@ -25,13 +24,13 @@
     {
       "name": "prediction-dataset",
       "properties": [
-        "time",
+        "predictionTime",
         "prediction"
       ],
       "streamDataFromModel": false,
       "clearOnModelReset": false,
       "initialData": {
-        "time": [],
+        "predictionTime": [],
         "prediction": []
       }
     }
@@ -55,11 +54,16 @@
         "prediction"
       ],
       "xProperty": [
-        "time"
+        "predictionTime"
       ],
       "enableSelectionButton": false,
       "enableDrawButton": true,
-      "resetAxesOnReset": false
+      "resetAxesOnReset": false,
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
+      ]
     },
     {
       "type": "button",
