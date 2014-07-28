@@ -13,15 +13,9 @@
           "viewOptions": {
             "controlButtons": "reset",
             "controlButtonStyle": "text",
-            "showClock": true
+            "showClock": false
           },
           "onLoad": [
-            "function setGraphRange() {",
-            "  if (!get('isNewRunInProgress')) {",
-            "    syncAxisRangesToPropertyRanges('sensorGraph');",
-            "  }",
-            "  resetGraphSelection('sensorGraph');",
-            "}",
             "function setButtonState() {",
             "  setComponentDisabled('start-button', !get('isPlayable'));",
             "  setComponentDisabled('stop-button', get('isStopped'));",
@@ -30,8 +24,7 @@
             "onPropertyChange('isPlayable', setButtonState);",
             "onPropertyChange('isStopped', setButtonState);",
             "onPropertyChange('hasPlayed', setButtonState);",
-            "setButtonState();",
-            "onPropertyChange('collectionTime', setGraphRange);"
+            "setButtonState();"
           ]
         }
       ],
@@ -54,21 +47,7 @@
           }
         }
       ],
-      "parameters": [
-        {
-          "name": "isNewRunInProgress",
-          "initialValue": false
-        },
-        {
-          "name": "experimentDuration",
-          "initialValue": 20,
-          "onChange": "set('collectionTime', value*1.1);"
-        },
-        {
-          "name": "durationEnabled",
-          "initialValue": true
-        }
-      ],
+      "parameters": [],
       "components": [
         {
           "type": "graph",
