@@ -9,7 +9,9 @@
         {
           "type": "sensor-connector",
           "id": "signal1",
-          "model": {},
+          "model": {
+            "useRandomClientId": true
+          },
           "viewOptions": {
             "controlButtons": "reset",
             "controlButtonStyle": "text",
