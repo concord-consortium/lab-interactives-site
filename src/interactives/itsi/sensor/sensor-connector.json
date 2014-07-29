@@ -19,8 +19,8 @@
           },
           "onLoad": [
             "function setButtonState() {",
-            "  setComponentDisabled('start-button', !get('isPlayable'));",
-            "  setComponentDisabled('stop-button', get('isStopped'));",
+            "  setComponentDisabled('start-button', !get('canControl') || !get('isPlayable'));",
+            "  setComponentDisabled('stop-button', !get('canControl') || get('isStopped'));",
             "}",
             "onPropertyChange('canControl', setButtonState);",
             "onPropertyChange('isPlayable', setButtonState);",
