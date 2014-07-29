@@ -37,3 +37,7 @@ max_age:
   "version/*.tar.gz": 300
   # No cache in topic branches:
   "branch/**/*": 0
+  # No cache for staging page, so devs can quickly update lab framework
+  "embeddable-staging.html": 0
+  # Shorter cache for production page, to reduce lab framework update delay
+  "embeddable.html": 3600 # 1 hour in seconds
