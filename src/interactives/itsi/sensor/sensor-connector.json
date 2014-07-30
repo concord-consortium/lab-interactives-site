@@ -57,7 +57,6 @@
           "dataSet": "sensor-dataset",
           "title": "Sensor Reading",
           "xlabel": "Time (s)",
-          "ylabel": "Temperature (degC)",
           "ymin":  0,
           "ymax": 40,
           "xmin":  0,
@@ -66,20 +65,20 @@
           "xFormatter": ".2s",
           "yFormatter": ".2s",
           "properties": [
-            "prediction",
-            "sensorReading"
+            "sensorReading",
+            "prediction"
           ],
           "xProperty": [
-            "predictionTime",
-            "time"
+            "time",
+            "predictionTime"
           ],
           "enableSelectionButton": false,
           "enableDrawButton": false,
           "drawProperty": "sensor",
           "resetAxesOnReset": false,
           "dataColors": [
-            "#a00000",
             "#2ca000",
+            "#a00000",
             "#2c00a0"
           ]
         },
