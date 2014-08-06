@@ -70,6 +70,10 @@
   :name: "ITSI: Energy2D"
   :category: Curriculum
 
+- :path: itsi/energy-levels
+  :name: "ITSI: Energy Levels"
+  :category: Curriculum
+
 - :path: itsi/gas-laws
   :name: "ITSI: Gas Laws"
   :category: Curriculum
