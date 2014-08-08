@@ -30,6 +30,11 @@
           ]
         }
       ],
+      "propertiesToRetain": [
+        "clientId",
+        "clientName",
+        "useRandomClientId"
+      ],
       "dataSets": [
         {
           "name": "sensor-dataset",
