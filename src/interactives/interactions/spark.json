@@ -1,0 +1,111 @@
+
+{
+  "title": "Van der Graaf (VDG) discharge",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.35,
+  "about": [
+    ""
+   ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "spark",
+      "url": "models/lab-version/1/md2d/interactions/spark/spark.json",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "imageMapping": {
+          "Wand.png": "Wand.svg"
+        }
+      },
+      "onLoad": [
+        "start();",
+        "var pinned = 1;",
+        "onDrag('atom', function (x, y, d, i) {",
+        "  if(i === 3){",
+        "    pinned = 0;",
+        "  }",
+        "});",
+        "onPropertyChange('time', function(time) {",
+        "  setAtomProperties(3, {pinned: pinned});",
+        "  pinned = 1;",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "left-particle-charge",
+      "initialValue": 2,
+      "onChange": ";"
+    },
+    {
+      "name": "right-particle-charge",
+      "initialValue": -2,
+      "onChange": ";"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "potential-energy",
+      "unitAbbreviation": "eV",
+      "label": "Potential Energy",
+      "value": [
+        "return pe();"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-charge",
+      "action": "addAtom({x: 1.9, y: 0.555, charge: -1, friction: 0.096, element: 1, draggableWhenStopped: 0});",
+      "text": "Add negative charge to the VDG"
+    },
+    {
+      "type": "barGraph",
+      "min": -85,
+      "max": -50,
+      "id": "potential-energy-graph",
+      "property": "potential-energy",
+      "barColor": "#4c952f",
+      "title": "Potential Energy",
+      "labels": [
+        {
+          "value": -85,
+          "label": "low"
+        },
+        {
+          "value": -50,
+          "label": "high"
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "1em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "bottom": "interactive.bottom",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["add-charge"]
+    ],
+    "right": [
+      ["potential-energy-graph"]
+    ]
+  }
+}

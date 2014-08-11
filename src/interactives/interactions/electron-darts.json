@@ -1,0 +1,128 @@
+{
+  "title": "Understanding Probability Maps",
+  "publicationStatus": "draft",
+  "subtitle": "Using a color to estimate the next dart throw.",
+  "about": [
+    "As in most dart games the best shot is a bulls-eye (right in the center).",
+    "However, it can be hard to get the dart to land there. Because, everyone ",
+    "aims for the center any random dart throw is more likely to be near the ",
+    "center, and less likely to be far away.",
+    "",
+    "Use the controls to throw lots of darts and observe the pattern they make.",
+    "This is similar to how we understand the position of electrons around an ",
+    "atoms's nucleus—more likely in some places and less likely in others."
+  ],
+  "aspectRatio": 0.8015151515151515,
+  "fontScale": 1.0302457466918715,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electron-darts",
+      "url": "models/lab-version/1/md2d/interactions/electron-darts/electronDarts.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": [
+        "// Hide the green text",
+        "var savedText = getTextBoxProperties(2).text;",
+        "setTextBoxProperties(2, {text: ''});",
+        "function throwDart(){",
+        "  var randomAngle = 2 * Math.PI * Math.random(),",
+        "      randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.03,",
+        "    height: 0.03,",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    fence: 0,",
+        "    color: 'rgb(0,0,255)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "};",
+        "onPropertyChange('time',function(time){",
+        "  // End the interactive after a certain time",
+        "  if(time > 1000){",
+        "    stop();",
+        "    setShapeProperties(0, {visible: 1});",
+        "//    setTextBoxProperties(2, {text: savedText});",
+        "    setTextBoxProperties(1, {text: savedText, color: 'rgb(0,153,0)', x: 0.02});",
+        "  }",
+        "  else{",
+        "    var totalDarts = get('dartsPerTick');",
+        "    batch(function(){",
+        "    // console.time('addDarts');",
+        "      for(var d = 0; d < totalDarts; d++){",
+        "        throwDart();",
+        "      };",
+        "    // console.timeEnd('addDarts');",
+        "    });",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "darts",
+      "initialValue": 0
+    },
+    {
+      "name": "dartsPerTick",
+      "initialValue": 1
+    }
+  ],
+  "outputs": [],
+  "components": [
+    { "id": "step",
+      "type": "button",
+      "text": "Throw a dart",
+      "action": "set('dartsPerTick', 1);tick();"
+    },
+    { "id": "play",
+      "type": "button",
+      "text": "Continually throw darts",
+      "action": "set('dartsPerTick', 10);start();"
+    },
+    { "id": "pause",
+      "type": "button",
+      "text": "Stop throwing",
+      "action": "stop();"
+    },
+    { "id": "reset",
+      "type": "button",
+      "text": "Remove darts",
+      "action": "reloadModel();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "step",
+        "play"
+      ],
+      [
+        "pause",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}
