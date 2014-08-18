@@ -38,6 +38,10 @@
   :name: "Inquiry Space"
   :category: Curriculum
 
+- :path: interactions
+  :name: "Interactions Project"
+  :category: Curriculum
+
 - :path: itsi/atoms-and-energy
   :name: "ITSI: Atoms and Energy"
   :category: Curriculum
@@ -114,10 +118,6 @@
   :name: "ITSI: Stoichiometry"
   :category: Curriculum
 
-- :path: interactions
-  :name: "Interactions Project"
-  :category: Curriculum
-
 - :path: ngss-assessment
   :name: "NGSS Assessment"
   :category: Curriculum
@@ -144,6 +144,10 @@
 
 - :path: jsmol
   :name: "JSmol Interactives"
+  :category: Curriculum
+
+- :path: DNA-protein-variations
+  :name: "DNA and Protein Variations"
   :category: Curriculum
 
 - :path: basic-examples
