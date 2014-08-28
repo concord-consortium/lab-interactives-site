@@ -9,6 +9,7 @@
     "How does the orientation of the arrow change as the charged object is moved around?",
     "Use the *Trace force vectors* checkbox to help characterize the direction of force arrow when the charged object is in different positions."
   ],
+  "helpOnLoad": true,
   "models": [
     {
       "type": "md2d",
@@ -94,19 +95,19 @@
       "type": "checkbox",
       "id": "toggle-show-force-on-object",
       "property": "show-force-on-object",
-      "text": "Show force on draggable object"
+      "text": "Show direction of force on draggable object"
     },
     {
       "type": "checkbox",
       "id": "toggle-show-force-on-VDG",
       "property": "show-force-on-VDG",
-      "text": "Show force on VDG"
+      "text": "Show direction of force on VDG"
     },
     {
       "type": "checkbox",
       "id": "toggle-trace-force-vectors",
       "property": "trace-force-vectors",
-      "text": "Trace force vectors"
+      "text": "Trace force pointers"
     },
     {
       "type": "text",
@@ -128,6 +129,14 @@
         "    setImageProperties(i, { visible: false });",
         "  }",
         "});"
+      ]
+    }
+  ],
+  "helpTips": [
+    {
+      "text": [
+        "Drag the charged object around and observe the direction of the force. ",
+        "Use the trace button to track the pattern of forces around the object."
       ]
     }
   ],
