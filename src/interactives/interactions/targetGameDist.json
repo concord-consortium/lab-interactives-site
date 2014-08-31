@@ -46,7 +46,10 @@
         "  for (var i = 0; i < 6; i++) {",
         "    target = getObstacleProperties(i);",
         "    if (atomsWithinRect(target.x - collisionPadding, target.y - collisionPadding, target.width + 2*collisionPadding, target.height + 2*collisionPadding).length > 0) {",
-        "      alert('You hit a barrier. Try again.');",
+        "      if (get('error-triggered') == false) {",
+        "        alert('You hit a barrier. Try again.');",
+        "        set('error-triggered',true);",
+        "      }",
         "      stop();",
         "    }",
         "  }",
@@ -90,7 +93,10 @@
         "  for (var i = 0; i < 6; i++) {",
         "    target = getObstacleProperties(i);",
         "    if (atomsWithinRect(target.x - collisionPadding, target.y - collisionPadding, target.width + 2*collisionPadding, target.height + 2*collisionPadding).length > 0) {",
-        "      alert('You hit a barrier. Try again.');",
+        "      if (get('error-triggered') == false) {",
+        "        alert('You hit a barrier. Try again.');",
+        "        set('error-triggered',true);",
+        "      }",
         "      stop();",
         "    }",
         "  }",
@@ -109,6 +115,10 @@
     }
   ],
   "parameters":[
+    {
+      "name": "error-triggered",
+      "initialValue": false
+    }
   ],
   "components": [
     {

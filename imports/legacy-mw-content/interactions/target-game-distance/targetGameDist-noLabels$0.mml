@@ -760,7 +760,7 @@ endif;</string>
        <float>40.0</float>
       </void>
       <void property="layer">
-       <int>1</int>
+       <int>2</int>
       </void>
       <void property="layerPosition">
        <byte>3</byte>
@@ -803,7 +803,7 @@ endif;</string>
        <float>16.0</float>
       </void>
       <void property="layer">
-       <int>1</int>
+       <int>2</int>
       </void>
       <void property="layerPosition">
        <byte>4</byte>
