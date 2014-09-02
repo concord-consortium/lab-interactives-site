@@ -2,7 +2,7 @@
   "title": "DNA to Protein",
   "publicationStatus": "public",
   "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
-  "aspectRatio": 1.2,
+  "aspectRatio": 1.05,
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
@@ -178,10 +178,24 @@
   "template": [
     {
       "id": "model-bottom",
-      "left": "model.left",
+      "left": "interactive.left",
+      "height": "0.25 * interactive.height",
       "top": "model.bottom",
-      "width": "model.width",
-      "align": "center"
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
