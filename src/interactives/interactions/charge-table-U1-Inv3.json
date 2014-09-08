@@ -1,0 +1,89 @@
+{
+  "title": "Table: Interacting with netural objects",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to collect data so that you can determine how charged rods interact",
+    " with neutral objects."
+  ],
+  "aspectRatio": "1.864",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Charge on Rod",
+        "Neutral Object",
+        "Observation: How did the charged rod and neutral object interact?"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": true,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Charge on Rod",
+          "format": "r"
+        },
+        {
+          "name": "Neutral Object",
+          "format": "r"
+        },
+        {
+          "name": "Observation: How did the charged rod and neutral object interact?",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Clear table",
+      "action": "clearDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
