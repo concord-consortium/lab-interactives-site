@@ -27,6 +27,7 @@
       "name": "table-dataset",
       "properties": [
         "Type of Rod",
+        "Rubbing Material",
         "Observation: Does it attract or repel?",
         "Interpretation: Charge of rod"
       ]
@@ -45,6 +46,10 @@
       "propertyColumns": [
         {
           "name": "Type of Rod",
+          "format": "r"
+        },
+        {
+          "name": "Rubbing Material",
           "format": "r"
         },
         {
