@@ -1,0 +1,97 @@
+{
+  "title": "Table: Moving a bottle with your hand",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to collect data about your experiment with a charged and uncharged bottle."
+  ],
+  "aspectRatio": "2.08",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Experiment",
+        "Is the bottle charged?",
+        "Is your hand charged?",
+        "Observation: How did your hand and the bottle interact?"
+      ],
+      "initialData": {
+        "Experiment": ["Bottle not rubbed with fur","Bottle after it's been rubbed with fur"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Experiment",
+          "format": "r"
+        },
+        {
+          "name": "Is the bottle charged?",
+          "format": "r"
+        },
+        {
+          "name": "Is your hand charged?",
+          "format": "r"
+        },
+        {
+          "name": "Observation: How did your hand and the bottle interact?",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
