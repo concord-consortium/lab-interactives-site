@@ -1,0 +1,102 @@
+{
+  "title": "Table: Mixing liquids",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to collect data about your liquid mixing experiments."
+  ],
+  "aspectRatio": "2.05",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Experiment",
+        "Volume of cylinder 1",
+        "Volume of cylinder 2",
+        "Calculated volume of cylinder 1 + cylinder 2",
+        "Observed volume of mixture of cylinder 1 & 2"
+      ],
+      "initialData": {
+        "Experiment": ["Part 1: Water and water","Part 2: Ethanol and ethanol","Part 3: Water and ethanol"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Experiment",
+          "format": "r"
+        },
+        {
+          "name": "Volume of cylinder 1",
+          "format": "r"
+        },
+        {
+          "name": "Volume of cylinder 2",
+          "format": "r"
+        },
+        {
+          "name": "Calculated volume of cylinder 1 + cylinder 2",
+          "format": "r"
+        },
+        {
+          "name": "Observed volume of mixture of cylinder 1 & 2",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
