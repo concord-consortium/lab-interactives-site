@@ -19,7 +19,8 @@
       "id": "parachute-model",
       "url": "models-converted/lab-version/1/md2d/inquiry-space/parachute/parachute$0.json",
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "play_reset_step",
+        "controlButtonStyle": "video",
         "imageMapping": {
           "parachute700.png": "parachute700.svg",
           "parachute800.png": "parachute800.svg",
@@ -39,17 +40,11 @@
         "  setComponentAttributes('distance-graph', {'xmax': get('experimentDuration')*1.1});",
         "  setComponentAttributes('vel-graph', {'xmax': get('experimentDuration')*1.1});",
         "}",
-        "function setButtonState() {",
-        "  setComponentDisabled('start-button', get('hasPlayed'));",
-        "  setComponentDisabled('stop-button', get('isStopped'));",
-        "  setComponentDisabled('new-run-button', !get('hasPlayed'));",
-        "  setComponentDisabled('analyze-data-button', !(get('hasPlayed') && get('isStopped') && canExportData() && isUnexportedDataPresent()));",
+        "function setControlState() {",
         "  setComponentDisabled('mass-slider', !get('isStopped'));",
         "  setComponentDisabled('resistance-slider', !get('isStopped'));",
         "}",
-        "onPropertyChange('isPlayable', setButtonState);",
-        "onPropertyChange('isStopped', setButtonState);",
-        "onPropertyChange('hasPlayed', setButtonState);",
+        "onPropertyChange('isStopped', setControlState);",
         "onPropertyChange('experimentDuration', setGraphRange);",
         "onPropertyChange('durationEnabled', function(){ setComponentDisabled('duration-slider', !(get('durationEnabled'))); });",
         "var counter = 0;",
@@ -79,9 +74,7 @@
         "   lastVy = Math.round(props.vy*sigDig)/sigDig;",
         "});",
         "setGraphRange();",
-        "setButtonState();",
-        "setComponentDisabled('stop-button', true);",
-        "setComponentDisabled('start-button', false);",
+        "setControlState();",
         "setTextBoxProperties(0, { x: 10 });"
        ]
     }
@@ -142,44 +135,8 @@
       "vel"
     ]
   },
-  "hideExportDataControl": true,
+  "propertiesToRetain": [],
   "components": [
-    {
-      "type": "button",
-      "id": "start-button",
-      "text": "Start",
-      "tooltip": "Start the experiment run.",
-      "action": [
-        "start();",
-        "setComponentDisabled('start-button', true);"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "stop-button",
-      "text": "Stop",
-      "tooltip": "Stop the experiment run.",
-      "action": "stop();"
-    },
-    {
-      "type": "button",
-      "id": "new-run-button",
-      "text": "New Run",
-      "tooltip": "Set up a new experiment run.",
-      "action": [
-        "reloadModel({ propertiesToRetain: [], cause: 'new-run' });"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "analyze-data-button",
-      "text": "Analyze Data",
-      "tooltip": "Put data from the experiment run into DataGames.",
-      "action": [
-        "exportData();",
-        "setComponentDisabled('analyze-data-button', !isUnexportedDataPresent());"
-      ]
-    },
     {
       "type": "slider",
       "id": "mass-slider",
@@ -235,12 +192,6 @@
       ["vel-graph"]
     ],
     "bottom": [
-      [
-        "start-button",
-        "stop-button",
-        "analyze-data-button",
-        "new-run-button"
-      ],
       [
         "mass-slider",
         "resistance-slider"

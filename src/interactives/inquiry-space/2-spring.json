@@ -18,8 +18,8 @@
       "id": "spring-mass",
       "url": "models-converted/lab-version/1/md2d/inquiry-space/pendulum/spring-mass$0.json",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "play_reset_step",
+        "controlButtonStyle": "video",
         "gridLines": true,
         "showClock": true,
         "velocityVectors": {
@@ -39,12 +39,6 @@
         "function resetDisplacement() {",
         "  set({startingDisplacement: get('startingDisplacement')});",
         "}",
-        "function setButtonState() {",
-        "  setComponentDisabled('start-button', get('hasPlayed'));",
-        "  setComponentDisabled('stop-button', get('isStopped'));",
-        "  setComponentDisabled('new-run-button', !get('hasPlayed'));",
-        "  setComponentDisabled('analyze-data-button', !(get('hasPlayed') && get('isStopped') && canExportData() && isUnexportedDataPresent()));",
-        "}",
         "function stopMotion() {",
         "  stop();",
         "  setAtomProperties(1, { vx: 0, vy: 0 });",
@@ -54,21 +48,14 @@
         "onPropertyChange('gravitationalField', resetDisplacement);",
         "onPropertyChange('damping', resetDisplacement);",
         "onPropertyChange('startingDisplacement', stopMotion);",
-        "onPropertyChange('isPlayable', setButtonState);",
-        "onPropertyChange('isStopped', setButtonState);",
-        "onPropertyChange('hasPlayed', setButtonState);",
-        "setButtonState();",
         "callEvery(1, function() {",
         "   if ((Math.floor(getTime()) >= get('experimentDuration')) && get('durationEnabled')) {",
         "     stop();",
-        "     setComponentDisabled('start-button',true);",
         "   }",
         "});",
         "onPropertyChange('experimentDuration', setGraphRange);",
         "onPropertyChange('durationEnabled', function(){ setComponentDisabled('duration-slider', !(get('durationEnabled'))); });",
-        "setGraphRange();",
-        "setComponentDisabled('stop-button', true);",
-        "setComponentDisabled('start-button', false);"
+        "setGraphRange();"
       ]
     }
   ],
@@ -146,47 +133,8 @@
       "initialValue": 0
     }
   ],
-  "hideExportDataControl": true,
+  "propertiesToRetain": ["gravity", "ballMass", "springConstant", "startingDisplacement", "damping","experimentDuration", "durationEnabled"],
   "components": [
-    {
-      "type": "button",
-      "id": "start-button",
-      "text": "Start",
-      "tooltip": "Start the experiment run.",
-      "action": [
-        "start();",
-        "setComponentDisabled('start-button', true);"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "stop-button",
-      "text": "Stop",
-      "tooltip": "Stop the experiment run.",
-      "action": "stop();"
-    },
-    {
-      "type": "button",
-      "id": "new-run-button",
-      "text": "New Run",
-      "tooltip": "Set up a new experiment run.",
-      "action": [
-        "reloadModel({",
-        "  propertiesToRetain: ['gravity', 'ballMass', 'springConstant', 'startingDisplacement', 'damping','experimentDuration', 'durationEnabled'],",
-        "  cause: 'new-run'",
-        "});"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "analyze-data-button",
-      "text": "Analyze Data",
-      "tooltip": "Put data from the experiment run into DataGames.",
-      "action": [
-        "exportData();",
-        "setComponentDisabled('analyze-data-button', !isUnexportedDataPresent());"
-      ]
-    },
     {
       "type": "slider",
       "id": "duration-slider",
@@ -357,10 +305,6 @@
     ],
     "bottom": [
       [
-        "start-button",
-        "stop-button",
-        "analyze-data-button",
-        "new-run-button",
         "duration-slider",
         "duration-enabled-checkbox"
       ],
