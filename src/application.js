@@ -224,9 +224,7 @@
     var $embeddableLink = $("#embeddable-link"),
         $codapLink = $("#codap-link"),
         $codapStagingLink = $("#codap-staging-link"),
-        codapGameSpecification,
-        pathname,
-        url;
+        codapGameSpecification;
 
     setupNextPreviousInteractive();
 
@@ -245,33 +243,23 @@
       $jsonModelLink.attr("title", "View model JSON in another window");
     }
 
-    if (SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      // construct link to CODAP embeddable version of Interactive
-      pathname = window.location.pathname.replace(/interactives(-.+)?\.html/, SITE_CONFIG.EMBEDDABLE_PAGE);
-      url = SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + pathname + "?codap=true#" + interactiveUrl;
-      url = url.replace("//", "/");
-      codapGameSpecification = JSON.stringify([{
-        "name": $selectInteractive.find("option:selected").text(),
-        "dimensions": {
-          "width": 600,
-          "height": 400
-        },
-        "url": url
-      }]);
-    }
+    // encode small JSON hash to be passed as query parameter to CODAP
+    codapGameSpecification = encodeURIComponent(JSON.stringify([{
+      "name": $selectInteractive.find("option:selected").text(),
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "url": document.location.origin + '/' + SITE_CONFIG.EMBEDDABLE_PAGE + '?codap=true' + hash
+    }]));
 
-    if (!SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      $codapLink.hide();
-      $codapStagingLink.hide();
-    } else {
-      $codapLink.show();
-      $codapLink.attr("href", encodeURI("http://is.codap.concord.org/dg?moreGames=" + codapGameSpecification));
-      $codapLink.attr("title", "Run this Interactive inside CODAP");
+    $codapLink.attr("href",
+      "http://codap.concord.org/releases/latest/?moreGames=" + codapGameSpecification);
+    $codapLink.attr("title", "Run this Interactive inside CODAP");
 
-      $codapStagingLink.show();
-      $codapStagingLink.attr("href", encodeURI("http://is-test.codap.concord.org/dg?moreGames=" + codapGameSpecification));
-      $codapStagingLink.attr("title", "Run this Interactive inside the CODAP staging server");
-    }
+    $codapStagingLink.attr("href",
+      "http://codap.concord.org/releases/staging/?moreGames=" + codapGameSpecification);
+    $codapStagingLink.attr("title", "Run this Interactive inside the CODAP staging server");
 
     setupOriginalImportLinks();
     setupExtras();

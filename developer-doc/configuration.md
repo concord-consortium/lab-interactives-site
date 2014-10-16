@@ -29,4 +29,3 @@ Build process will look for `config/<branch-name>.yml` file and when it can't fi
 They are mostly related to depoyment process. They are set in [`.travis.yml`](https://github.com/concord-consortium/lab-interactives-site/blob/master/.travis.yml) file (some as secure variables).
 
 - `GA_ACCOUNT_ID` - when set, it enables embedding google analytics script into the head of the HTML pages.
-- `DATA_GAMES_PROXY_PREFIX` - necessary to support CODAP (Common Online Data Analysis Platform).
