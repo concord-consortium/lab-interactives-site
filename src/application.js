@@ -224,7 +224,8 @@
     var $embeddableLink = $("#embeddable-link"),
         $codapLink = $("#codap-link"),
         $codapStagingLink = $("#codap-staging-link"),
-        codapGameSpecification;
+        codapGameSpecification,
+        url;
 
     setupNextPreviousInteractive();
 
@@ -244,13 +245,22 @@
     }
 
     // encode small JSON hash to be passed as query parameter to CODAP
+
+    // construct url to interactive, to be passed to CODAP
+    // (need origin *and* the pathname up to the interactives.html part so that we retain branch,
+    // as in: http://lab.concord.org/branch/<branchname>/interactives.html#<interactive>)
+    url = document.location.origin +
+      document.location.pathname.replace(/interactives(-.+)?\.html/, SITE_CONFIG.EMBEDDABLE_PAGE) +
+     '?codap=true' +
+     hash;
+
     codapGameSpecification = encodeURIComponent(JSON.stringify([{
       "name": $selectInteractive.find("option:selected").text(),
       "dimensions": {
         "width": 600,
         "height": 400
       },
-      "url": document.location.origin + '/' + SITE_CONFIG.EMBEDDABLE_PAGE + '?codap=true' + hash
+      "url": url
     }]));
 
     $codapLink.attr("href",
