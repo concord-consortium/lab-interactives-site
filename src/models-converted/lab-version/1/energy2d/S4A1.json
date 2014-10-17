@@ -121,7 +121,7 @@
         "y": 2.0500002,
         "width": 4.9,
         "height": 4.7,
-        "thermal_conductivity": 1,
+        "thermal_conductivity": 5,
         "specific_heat": 1000,
         "density": 1,
         "transmission": 0,

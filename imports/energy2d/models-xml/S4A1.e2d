@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <state>
+<links>
+</links>
 <model>
 <timestep>0.25</timestep>
-<measurement_interval>100</measurement_interval>
 <viewupdate_interval>10</viewupdate_interval>
-<stoptime>1800.0</stoptime><sun_angle>1.5707964</sun_angle>
+<sun_angle>1.5707964</sun_angle>
 <solar_power_density>2000.0</solar_power_density>
 <solar_ray_count>24</solar_ray_count>
 <solar_ray_speed>0.1</solar_ray_speed>
 <photon_emission_interval>20</photon_emission_interval>
-<background_conductivity>1.0</background_conductivity>
+<gravitational_acceleration>9.8</gravitational_acceleration>
+<thermophoretic_coefficient>0.0</thermophoretic_coefficient><particle_drag>0.01</particle_drag><particle_hardness>0.0010</particle_hardness><z_heat_diffusivity>0.0</z_heat_diffusivity><background_conductivity>1.0</background_conductivity>
 <background_density>1.0</background_density>
 <background_specific_heat>1000.0</background_specific_heat>
 <background_viscosity>2.0E-4</background_viscosity>
-<thermal_buoyancy>2.5E-4</thermal_buoyancy>
+<thermal_expansion_coefficient>2.5E-4</thermal_expansion_coefficient>
 <buoyancy_approximation>0</buoyancy_approximation>
 <boundary>
 <flux_at_border upper="0.0" lower="0.0" left="0.0" right="0.0"/>
+<mass_flow_at_border upper="0" lower="0" left="0" right="0"/>
 </boundary>
 <structure>
-<part><rectangle x="0.0" y="0.0" width="10.0" height="2.0"/><thermal_conductivity>1.0</thermal_conductivity>
+<part>
+<rectangle x="0.0" y="0.0" width="10.0" height="2.0"/><thermal_conductivity>1.0</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -37,11 +42,13 @@
 <filled>false</filled>
 <draggable>false</draggable>
 </part>
-<part><rectangle x="0.0" y="7.0" width="10.0" height="1.0"/><thermal_conductivity>1.0E-9</thermal_conductivity>
+<part>
+<rectangle x="0.0" y="7.0" width="10.0" height="1.0"/><thermal_conductivity>1.0E-9</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -55,11 +62,13 @@
 <label>Insulator</label>
 <draggable>false</draggable>
 </part>
-<part><rectangle x="0.0" y="6.8" width="10.0" height="0.2"/><thermal_conductivity>1.0</thermal_conductivity>
+<part>
+<rectangle x="0.0" y="6.8" width="10.0" height="0.2"/><thermal_conductivity>1.0</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>30.0</temperature>
@@ -68,11 +77,14 @@
 <label>%temperature</label>
 <draggable>false</draggable>
 </part>
-<part><rectangle x="5.0666647" y="2.0500002" width="4.9" height="4.7"/><thermal_conductivity>1.0</thermal_conductivity>
+<part>
+<rectangle x="5.0666647" y="2.0500002" width="4.9" height="4.7"/><thermal_conductivity>5.0</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>1.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -87,31 +99,37 @@
 <label>Solid</label>
 <draggable>false</draggable>
 </part>
-<part><rectangle x="-10.0" y="6.0" width="5.0" height="0.8"/><thermal_conductivity>0.08</thermal_conductivity>
+<part>
+<rectangle x="-10.0" y="6.0" width="5.0" height="0.8"/><thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 </part>
-<part><rectangle x="10.0" y="6.0" width="5.0" height="0.8"/><thermal_conductivity>0.08</thermal_conductivity>
+<part>
+<rectangle x="10.0" y="6.0" width="5.0" height="0.8"/><thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 </part>
-<part><rectangle x="4.666666" y="1.9833333" width="0.4" height="4.766667"/><thermal_conductivity>1.0E-9</thermal_conductivity>
+<part>
+<rectangle x="4.666666" y="1.9833333" width="0.4" height="4.766667"/><thermal_conductivity>1.0E-9</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -124,11 +142,13 @@
 </texture>
 <draggable>false</draggable>
 </part>
-<part><rectangle x="-0.0333333" y="8.05" width="10.016666" height="2.05"/><thermal_conductivity>1.0E-9</thermal_conductivity>
+<part>
+<rectangle x="-0.0333333" y="8.05" width="10.016666" height="2.05"/><thermal_conductivity>1.0E-9</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>25.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
+<scattering>false</scattering>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -137,18 +157,22 @@
 <draggable>false</draggable>
 </part>
 </structure>
-</model>
+<environment>
+</environment>
 <sensor>
 <thermometer label="T1" x="2.1833334" y="1.7666668"/>
 <thermometer label="T2" x="7.75" y="1.7666665"/>
 </sensor>
+<controller>
+</controller>
+</model>
 <view>
+<snap_to_grid>true</snap_to_grid>
 <grid_size>10</grid_size>
 <ruler>true</ruler>
-<rainbow>true</rainbow>
-<rainbow_x>0.0</rainbow_x><rainbow_y>0.0</rainbow_y><rainbow_w>0.0</rainbow_w><rainbow_h>0.0</rainbow_h><minimum_temperature>0.0</minimum_temperature>
+<color_palette_type>0</color_palette_type>
+<color_palette_x>0.0</color_palette_x><color_palette_y>0.0</color_palette_y><color_palette_w>0.0</color_palette_w><color_palette_h>0.0</color_palette_h><minimum_temperature>0.0</minimum_temperature>
 <maximum_temperature>50.0</maximum_temperature>
-<graph_xlabel>Time</graph_xlabel><text string="Air" name="Arial" size="14" style="0" color="ffffff" x="2.0" y="5.5"/>
-<text string="This model automatically stops at half an hour." name="Arial" size="14" style="0" color="ffffff" x="2.0" y="1.0"/>
+<graph_xlabel>Time</graph_xlabel><graph_ylabel>Temperature (℃)</graph_ylabel><text string="Air" face="Arial" size="14" style="0" color="ffffff" x="2.0" y="5.5"/>
 </view>
 </state>
