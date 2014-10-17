@@ -22,7 +22,8 @@
       "importedFrom": "imports/energy2d/models-xml/S4C1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": "callAt(1500, function() { stop(); });"
     }
   ],
   "parameters": [
