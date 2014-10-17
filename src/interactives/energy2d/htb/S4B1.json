@@ -22,7 +22,8 @@
       "importedFrom": "imports/energy2d/models-xml/S4B1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": "callAt(1500, function() { stop(); });"
     }
   ],
   "parameters": [
@@ -35,6 +36,11 @@
     }
   ],
   "components": [
+    {
+      "type": "text",
+      "id": "label",
+      "text": "This model automatically stops at half an hour."
+    },
     {
       "type": "radio",
       "id": "pick-heater-temperature",
@@ -76,7 +82,10 @@
     }
   ],
   "layout": {
-    "bottom": [ "pick-heater-temperature" ],
+    "bottom": [
+      [ "label" ],
+      [ "pick-heater-temperature" ]
+    ],
     "right": [ "graph" ]
   },
   "template": "wide-right"
