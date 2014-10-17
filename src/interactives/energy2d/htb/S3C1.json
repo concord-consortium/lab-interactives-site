@@ -1,5 +1,5 @@
 {
-  "title": "Conduction 3C: The effect of wall thickness",
+  "title": "Conduction 3C: The effect of wall thickness!",
   "publicationStatus": "public",
   "subtitle": "Which wall loses thermal energy more quickly, thick or thin?",
   "about": [
@@ -23,6 +23,7 @@
       "id": "S3C1",
       "url": "models-converted/lab-version/1/energy2d/S3C1.json",
       "importedFrom": "imports/energy2d/models-xml/S3C1.e2d",
+      "onLoad": "callAt(4000, function() { stop(); });",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -37,7 +38,7 @@
       "ylabel": "Temperature (°C)",
       "ymin": -5,
       "ymax": 55,
-      "xmax": 3600,
+      "xmax": 4100,
       "xTickCount": 5,
       "xFormatter": ".2s",
       "yFormatter": ".2s",
