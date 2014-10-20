@@ -23,7 +23,8 @@
       "importedFrom": "imports/energy2d/models-xml/S3D1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": "callAt(1800, function() { stop(); });"
     }
   ],
   "parameters": [
@@ -95,8 +96,8 @@
       "ymax": 55,
       "xmax": 2000,
       "xTickCount": 5,
-      "xFormatter": ".2s",
-      "yFormatter": ".2s",
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
       "xProperty": "time",
       "properties": [
         "sensor-0"
