@@ -1,5 +1,5 @@
 {
-  "title": "Energy Detective 7B: Where is the most heat lost?",
+  "title": "Energy Detective 6B: Where is the most heat lost?",
   "publicationStatus": "draft",
   "subtitle": "Use the temperature difference across walls to find the ones most poorly insulated.",
   "about": [
@@ -15,8 +15,8 @@
     {
       "type": "energy2d",
       "id": "S7B1",
-      "url": "models-converted/lab-version/1/energy2d/S7B1.json",
-      "importedFrom": "imports/energy2d/models-xml/S7B1.e2d",
+      "url": "models-converted/lab-version/1/energy2d/S6B1.json",
+      "importedFrom": "imports/energy2d/models-xml/S6B1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

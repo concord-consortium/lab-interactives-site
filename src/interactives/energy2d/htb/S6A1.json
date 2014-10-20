@@ -1,5 +1,5 @@
 {
-  "title": "Energy Detective 7A: Well and poorly-insulated houses",
+  "title": "Energy Detective 6A: Well and poorly-insulated houses",
   "publicationStatus": "draft",
   "subtitle": "Compare how much more heat a poorly-insulated house needs with a well-insulated one.",
   "about": [
@@ -15,8 +15,8 @@
     {
       "type": "energy2d",
       "id": "S7A1",
-      "url": "models-converted/lab-version/1/energy2d/S7A1.json",
-      "importedFrom": "imports/energy2d/models-xml/S7A1.e2d",
+      "url": "models-converted/lab-version/1/energy2d/S6A1.json",
+      "importedFrom": "imports/energy2d/models-xml/S6A1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
