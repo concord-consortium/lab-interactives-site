@@ -160,8 +160,8 @@
 <environment>
 </environment>
 <sensor>
-<thermometer label="T1" x="2.1833334" y="1.7666668"/>
-<thermometer label="T2" x="7.75" y="1.7666665"/>
+<thermometer label="T1" x="2.1833334" y="1.7"/>
+<thermometer label="T2" x="7.75" y="1.7"/>
 </sensor>
 <controller>
 </controller>

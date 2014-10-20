@@ -246,13 +246,13 @@
     {
       "type": "thermometer",
       "x": 2.2,
-      "y": 1.7,
+      "y": 1.9,
       "label": "T1"
     },
     {
       "type": "thermometer",
       "x": 7.7000003,
-      "y": 1.7,
+      "y": 1.9,
       "label": "T2"
     }
   ]
