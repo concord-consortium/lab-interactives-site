@@ -110,7 +110,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "cccccc",
         "label": "",
         "texture": true,
         "draggable": false
@@ -135,7 +135,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "cccccc",
         "label": "",
         "texture": true,
         "draggable": false
@@ -159,7 +159,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "cccccc",
         "label": "",
         "texture": true,
         "draggable": false
@@ -184,7 +184,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "333333",
         "label": "House A",
         "texture": true,
         "draggable": false
@@ -209,7 +209,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "333333",
         "label": "House B",
         "texture": true,
         "draggable": false
@@ -234,7 +234,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "cccccc",
         "label": "",
         "texture": true,
         "draggable": false
@@ -284,7 +284,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "808080",
         "label": "",
         "texture": true,
         "draggable": false
@@ -309,7 +309,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "808080",
         "label": "",
         "texture": true,
         "draggable": false
@@ -334,7 +334,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "808080",
         "label": "",
         "texture": true,
         "draggable": false
@@ -359,7 +359,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "ffffff",
+        "color": "cccccc",
         "label": "",
         "texture": false,
         "draggable": false
@@ -408,7 +408,7 @@
         "wind_angle": 0,
         "visible": true,
         "filled": true,
-        "color": "auto",
+        "color": "808080",
         "label": "",
         "texture": true,
         "draggable": false

@@ -65,7 +65,7 @@
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 <texture><texture_fg>-1000000</texture_fg>
-<texture_bg>-7f7f80</texture_bg>
+<texture_bg>-333334</texture_bg>
 <texture_style>12</texture_style>
 <texture_width>12</texture_width>
 <texture_height>12</texture_height>
@@ -86,7 +86,7 @@
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 <texture><texture_fg>-1000000</texture_fg>
-<texture_bg>-7f7f80</texture_bg>
+<texture_bg>-333334</texture_bg>
 <texture_style>12</texture_style>
 <texture_width>12</texture_width>
 <texture_height>12</texture_height>
@@ -108,7 +108,7 @@
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 <texture><texture_fg>-1000000</texture_fg>
-<texture_bg>-7f7f80</texture_bg>
+<texture_bg>-333334</texture_bg>
 <texture_style>7</texture_style>
 <texture_width>4</texture_width>
 <texture_height>4</texture_height>
@@ -173,7 +173,7 @@
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
 <texture><texture_fg>-1000000</texture_fg>
-<texture_bg>-7f7f80</texture_bg>
+<texture_bg>-333334</texture_bg>
 <texture_style>12</texture_style>
 <texture_width>12</texture_width>
 <texture_height>12</texture_height>
@@ -272,7 +272,7 @@
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
 <constant_temperature>false</constant_temperature>
-<color>ffffff</color>
+<color>cccccc</color>
 <draggable>false</draggable>
 </part>
 <part>
