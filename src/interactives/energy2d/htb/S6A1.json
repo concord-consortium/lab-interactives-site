@@ -1,6 +1,7 @@
 {
   "title": "Energy Detective 6A: Well and poorly-insulated houses",
   "publicationStatus": "draft",
+  "aspectRatio": 1,
   "subtitle": "Compare how much more heat a poorly-insulated house needs with a well-insulated one.",
   "about": [
     "You can select one of two houses, A and B, which have identical shape as shown in the model but different quality of construction.",
@@ -24,57 +25,13 @@
   ],
   "parameters": [
     {
-      "name": "house-a-or-b",
-      "label": "House A or B",
-      "value": "return getPart(0).conductivity === 0.001 ? 'A' : 'B';",
-      "onChange": [
-        "if (value === 'B') {",
-        "  getPart(0).conductivity = 0.005;",
-        "  getPart(1).conductivity = 0.005;",
-        "  getPart(2).conductivity = 0.005;",
-        "  getPart(4).conductivity = 0.005;",
-        "  getPart(5).conductivity = 0.005;",
-        "  getPart(0).conductivity = 0.005;",
-        "  getPart(3).label = 'House B';",
-        "} else {",
-        "  getPart(0).conductivity = 0.001;",
-        "  getPart(1).conductivity = 0.001;",
-        "  getPart(2).conductivity = 0.001;",
-        "  getPart(4).conductivity = 0.001;",
-        "  getPart(5).conductivity = 0.001;",
-        "  getPart(0).conductivity = 0.001;",
-        "  getPart(3).label = 'House A';",
-        "};"
-      ],
-      "initialValue": "A"
-    },
-    {
       "name": "heater-power",
       "label": "Heater power",
-      "value": "getPart(0).power;",
-      "onChange": "getPart(0).power = value;",
+      "onChange": "getPart(0).power = getPart(1).power = value;",
       "initialValue": 2
     }
   ],
   "components": [
-    {
-      "type": "radio",
-      "id": "select-house",
-      "label": "Select house:",
-      "labelOn": "left",
-      "orientation": "horizontal",
-      "property": "house-a-or-b",
-      "options": [
-        {
-          "text": "A",
-          "value": "A"
-        },
-        {
-          "text": "B",
-          "value": "B"
-        }
-      ]
-    },
     {
       "type": "radio",
       "id": "pick-heater-power",
@@ -99,28 +56,76 @@
     },
     {
       "type": "graph",
-      "id": "graph",
+      "id": "graph-left",
       "title": "Temperature Probes: T1 and T2",
       "xlabel": "Time (s)",
       "ylabel": "Temperature (°C)",
       "ymin": 0,
-      "ymax": 35,
-      "xmax": 1000000,
+      "ymax": 25,
+      "xmax": 5000000,
       "xTickCount": 5,
+      "yTickCount": 5,
       "xFormatter": ".2s",
       "yFormatter": ".2s",
       "xProperty": "time",
       "properties": [
         "sensor-0", "sensor-1"
       ]
+    },
+    {
+      "type": "graph",
+      "id": "graph-right",
+      "title": "Temperature Probes: T3 and T4",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (°C)",
+      "ymin": 0,
+      "ymax": 25,
+      "xmax": 5000000,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "xProperty": "time",
+      "properties": [
+        "sensor-2", "sensor-3"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom1",
+      "top": "model.bottom",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    },
+    {
+      "id": "bottom2",
+      "top": "bottom1.bottom",
+      "bottom": "interactive.bottom",
+      "width": "interactive.width * 0.48",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "bottom3",
+      "top": "bottom1.bottom",
+      "bottom": "interactive.bottom",
+      "right": "interactive.right",
+      "width": "interactive.width * 0.48",
+      "padding-top": "0.5em",
+      "padding-right": "0.1em"
     }
   ],
   "layout": {
-    "bottom": [
-      [ "select-house" ],
-      [ "pick-heater-power" ]
-    ],
-    "right": [ "graph" ]
-  },
-  "template": "wide-right"
+    "bottom1": [ "pick-heater-power" ],
+    "bottom2": [ "graph-left" ],
+    "bottom3": [ "graph-right" ]
+  }
 }
