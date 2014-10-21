@@ -4,12 +4,8 @@
   "aspectRatio": 1,
   "subtitle": "Compare how much more heat a poorly-insulated house needs with a well-insulated one.",
   "about": [
-    "You can select one of two houses, A and B, which have identical shape as shown in the model but different quality of construction.",
-    "The yellow object in the middle of the house is a heater. Unlike the previous models, the temperature coloring is initially turned off.",
-    "You may turn it on using the **Heat map** radio button if it helps your diagnosis.",
-    "",
-    "**Your task is to find which house requires higher power to heat.** Tryto maintain a temperature near the window",
-    "at about 20°C. Note that the heater has two power levels and can also be turned off and on as the model runs."
+    "Compare the heating needs of these two houses, which have identical shapes but different",
+    "construction quality. Which house has better insulation? How can you tell?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S7A.html",
   "models": [
