@@ -1,14 +1,19 @@
 {
-  "title": "electronProperties",
-  "publicationStatus": "draft",
-  "subtitle": "",
+  "title": "Exploring Electron Properties",
+  "publicationStatus": "public",
+  "subtitle": "Compare cathode ray particles and charged atoms.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
   "aspectRatio": 1.1451942740286298,
   "fontScale": 1.0089285714285714,
   "helpOnLoad": false,
-  "about": "",
+  "about": [
+    "J.J. Thomson discovered electrons by studying cathode rays, which were actually ",
+    "streams of electrons. Use this simulation to compare the behavior of charged atoms ",
+    "and cathode ray particles (electrons). Why did Thomson think the cathode ray particles ",
+    "could not be some type of charged atom?"
+  ],
   "models": [
     {
       "type": "md2d",

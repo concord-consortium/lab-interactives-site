@@ -1,8 +1,12 @@
 {
-  "title": "crookesElectrodes",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "title": "Crookes Tube",
+  "publicationStatus": "public",
+  "subtitle": "Simulating J.J. Thomson's discovery of the electron.",
+  "about": [
+    "Connect the two electrodes to a high voltage source and see them produce cathode rays. ",
+    "J.J. Thomson used a similar experimental setup to discover the first sub-atomic particle. ",
+    "See what you can determine about the stream of particles that were called cathode rays."
+  ],
   "models": [
     {
       "type": "md2d",
