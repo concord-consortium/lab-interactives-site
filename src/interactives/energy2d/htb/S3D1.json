@@ -45,43 +45,43 @@
       "property": "heater-temperature",
       "options": [
         {
-          "text": "10",
+          "text": "10 °C",
           "value": 10
         },
         {
-          "text": "20",
+          "text": "20 °C",
           "value": 20
         },
         {
-          "text": "30",
+          "text": "30 °C",
           "value": 30
         },
         {
-          "text": "40",
+          "text": "40 °C",
           "value": 40
         },
         {
-          "text": "50",
+          "text": "50 °C",
           "value": 50
         },
         {
-          "text": "60",
+          "text": "60 °C",
           "value": 60
         },
         {
-          "text": "70",
+          "text": "70 °C",
           "value": 70
         },
         {
-          "text": "80",
+          "text": "80 °C",
           "value": 80
         },
         {
-          "text": "90",
+          "text": "90 °C",
           "value": 90
         },
         {
-          "text": "100",
+          "text": "100 °C",
           "value": 100
         }
       ]
@@ -89,7 +89,7 @@
     {
       "type": "graph",
       "id": "graph",
-      "title": "Temperature Probes: T1, T2",
+      "title": "Temperature Probes: T1",
       "xlabel": "Time (s)",
       "ylabel": "Temperature (°C)",
       "ymin": -5,
