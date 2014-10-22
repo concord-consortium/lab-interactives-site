@@ -111,7 +111,7 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "%thermal_energy",
+        "label": "    Low conductivity, low heat capacity",
         "texture": true,
         "draggable": false
       },
@@ -186,7 +186,7 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "%thermal_energy",
+        "label": "   High conductiivty, low heat capacity",
         "texture": true,
         "draggable": false
       },
@@ -261,7 +261,7 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "%thermal_energy",
+        "label": "    High conductiivty, high heat capacity",
         "texture": true,
         "draggable": false
       }

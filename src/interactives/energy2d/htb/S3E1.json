@@ -16,7 +16,7 @@
     {
       "type": "energy2d",
       "id": "S3E1",
-      "url": "models-converted/lab-version/1/energy2d/S3E1.json",
+      "url": "models/lab-version/1/energy2d/S3E1-mod.json",
       "importedFrom": "imports/energy2d/models-xml/S3E1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -24,29 +24,6 @@
     }
   ],
   "components": [
-    {
-      "type": "text",
-      "id": "alternative-heat-maps-not-available",
-      "text": "(*Thermal energy heat map not implemented yet.*)"
-    },
-    {
-      "type": "pulldown",
-      "id": "heat-map-pulldown",
-      "label": "Heat map:",
-      "labelOn": "left",
-      "options": [
-        {
-          "text": "Temperature",
-          "action": "",
-          "disabled": true
-        },
-        {
-          "text": "Thermal energy",
-          "action": "",
-          "disabled": true
-        }
-      ]
-    },
     {
       "type": "graph",
       "id": "graph",
@@ -66,9 +43,6 @@
     }
   ],
   "layout": {
-    "bottom": [
-      [ "heat-map-pulldown", "alternative-heat-maps-not-available" ]
-    ],
     "right": [ "graph" ]
   },
   "template": "wide-right"
