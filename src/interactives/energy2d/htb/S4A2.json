@@ -31,21 +31,21 @@
     {
       "type": "radio",
       "id": "pick-heater-temperature",
-      "label": "Bottom heater temperature:",
+      "label": "Top heater temperature:",
       "labelOn": "left",
       "orientation": "horizontal",
       "property": "heater-temperature",
       "options": [
         {
-          "text": "10",
+          "text": "10 °C",
           "value": 10
         },
         {
-          "text": "30",
+          "text": "30 °C",
           "value": 30
         },
         {
-          "text": "50",
+          "text": "50 °C",
           "value": 50
         }
       ]
