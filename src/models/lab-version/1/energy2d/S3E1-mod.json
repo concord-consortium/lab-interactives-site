@@ -1,5 +1,6 @@
 {
   "type": "energy2d",
+  "font_scale": 1,
   "use_WebGL": false,
   "grid_width": 100,
   "grid_height": 100,
@@ -42,9 +43,9 @@
     "part": [
       {
         "shapeType": "rectangle",
-        "x": 0,
-        "y": 0,
-        "width": 0.02,
+        "x": -0.0005000001,
+        "y": -0.0010000011,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -67,9 +68,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.080000006,
-        "y": 0,
-        "width": 0.02,
+        "x": 0.086500004,
+        "y": 9.313226e-10,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -92,9 +93,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.020000001,
+        "x": 0.013,
         "y": 0.010000001,
-        "width": 0.06,
+        "width": 0.073,
         "height": 0.01,
         "thermal_conductivity": 0.1,
         "specific_heat": 1000,
@@ -111,15 +112,15 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "    Low conductivity, low heat capacity",
+        "label": "Low conductivity, low heat capacity",
         "texture": true,
         "draggable": false
       },
       {
         "shapeType": "rectangle",
-        "x": 0,
+        "x": -0.0005000001,
         "y": 0.07,
-        "width": 0.02,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -142,9 +143,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.080000006,
+        "x": 0.086500004,
         "y": 0.07,
-        "width": 0.02,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -167,9 +168,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.020000001,
+        "x": 0.013,
         "y": 0.08,
-        "width": 0.06,
+        "width": 0.073,
         "height": 0.01,
         "thermal_conductivity": 1,
         "specific_heat": 1000,
@@ -186,15 +187,15 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "   High conductiivty, low heat capacity",
+        "label": "High conductivity, low heat capacity",
         "texture": true,
         "draggable": false
       },
       {
         "shapeType": "rectangle",
-        "x": 0,
+        "x": -0.0005000001,
         "y": 0.035,
-        "width": 0.02,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -217,9 +218,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.080000006,
+        "x": 0.086500004,
         "y": 0.035,
-        "width": 0.02,
+        "width": 0.013,
         "height": 0.03,
         "thermal_conductivity": 0.08,
         "specific_heat": 1300,
@@ -242,9 +243,9 @@
       },
       {
         "shapeType": "rectangle",
-        "x": 0.020000001,
+        "x": 0.013,
         "y": 0.045,
-        "width": 0.06,
+        "width": 0.073,
         "height": 0.01,
         "thermal_conductivity": 1,
         "specific_heat": 1000,
@@ -261,7 +262,7 @@
         "visible": true,
         "filled": false,
         "color": "808080",
-        "label": "    High conductiivty, high heat capacity",
+        "label": "High conductivity, high heat capacity",
         "texture": true,
         "draggable": false
       }
@@ -270,20 +271,20 @@
   "sensors": [
     {
       "type": "thermometer",
-      "x": 0.09,
-      "y": 0.052000000000000005,
+      "x": 0.0925,
+      "y": 0.05,
       "label": "T2"
     },
     {
       "type": "thermometer",
-      "x": 0.09,
-      "y": 0.017000001,
+      "x": 0.0925,
+      "y": 0.015000002,
       "label": "T1"
     },
     {
       "type": "thermometer",
-      "x": 0.09,
-      "y": 0.08700000000000001,
+      "x": 0.0925,
+      "y": 0.085000004,
       "label": "T3"
     }
   ]

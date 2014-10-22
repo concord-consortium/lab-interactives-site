@@ -13,7 +13,7 @@
 <solar_ray_speed>0.1</solar_ray_speed>
 <photon_emission_interval>20</photon_emission_interval>
 <gravitational_acceleration>9.8</gravitational_acceleration>
-<thermophoretic_coefficient>0.0</thermophoretic_coefficient><particle_drag>0.01</particle_drag><particle_hardness>0.0010</particle_hardness><z_heat_diffusivity>0.0</z_heat_diffusivity><convective>false</convective>
+<thermophoretic_coefficient>0.0</thermophoretic_coefficient><particle_drag>0.01</particle_drag><particle_hardness>0.001</particle_hardness><z_heat_diffusivity>0.0</z_heat_diffusivity><convective>false</convective>
 <background_conductivity>1.0E-9</background_conductivity>
 <background_density>1.0</background_density>
 <background_specific_heat>100.0</background_specific_heat>
@@ -25,12 +25,14 @@
 </boundary>
 <structure>
 <part>
-<rectangle x="0.0" y="0.0" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="-5.000001E-4" y="-0.0010000011" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>50.0</temperature>
@@ -40,12 +42,14 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.080000006" y="0.0" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="0.086500004" y="9.313226E-10" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -60,7 +64,8 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.020000001" y="0.010000001" width="0.06" height="0.01"/><thermal_conductivity>0.1</thermal_conductivity>
+<rectangle x="0.013" y="0.010000001" width="0.073" height="0.01"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.1</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>1.0</density>
 <transmission>0.0</transmission>
@@ -82,12 +87,14 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.0" y="0.07" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="-5.000001E-4" y="0.07" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>50.0</temperature>
@@ -97,12 +104,14 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.080000006" y="0.07" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="0.086500004" y="0.07" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -117,7 +126,8 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.020000001" y="0.08" width="0.06" height="0.01"/><thermal_conductivity>1.0</thermal_conductivity>
+<rectangle x="0.013" y="0.08" width="0.073" height="0.01"/><elasticity>1.0</elasticity>
+<thermal_conductivity>1.0</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>1.0</density>
 <transmission>0.0</transmission>
@@ -139,12 +149,14 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.0" y="0.035" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="-5.000001E-4" y="0.035" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>50.0</temperature>
@@ -154,12 +166,14 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.080000006" y="0.035" width="0.02" height="0.03"/><thermal_conductivity>0.08</thermal_conductivity>
+<rectangle x="0.086500004" y="0.035" width="0.013" height="0.03"/><elasticity>1.0</elasticity>
+<thermal_conductivity>0.08</thermal_conductivity>
 <specific_heat>1300.0</specific_heat>
 <density>100.0</density>
 <transmission>0.0</transmission>
 <reflection>0.0</reflection>
 <scattering>false</scattering>
+<scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
 <temperature>0.0</temperature>
@@ -174,7 +188,8 @@
 <draggable>false</draggable>
 </part>
 <part>
-<rectangle x="0.020000001" y="0.045" width="0.06" height="0.01"/><thermal_conductivity>1.0</thermal_conductivity>
+<rectangle x="0.013" y="0.045" width="0.073" height="0.01"/><elasticity>1.0</elasticity>
+<thermal_conductivity>1.0</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>300.0</density>
 <transmission>0.0</transmission>
@@ -199,9 +214,9 @@
 <environment>
 </environment>
 <sensor>
-<thermometer label="T2" x="0.09" y="0.05"/>
-<thermometer label="T1" x="0.09" y="0.015000001"/>
-<thermometer label="T3" x="0.09" y="0.085"/>
+<thermometer label="T2" x="0.0925" y="0.048"/>
+<thermometer label="T1" x="0.0925" y="0.013000002"/>
+<thermometer label="T3" x="0.0925" y="0.083000004"/>
 </sensor>
 <controller>
 </controller>
@@ -210,12 +225,13 @@
 <grid>true</grid>
 <snap_to_grid>true</snap_to_grid>
 <grid_size>10</grid_size>
+<perimeter_step_size>0.05</perimeter_step_size>
 <color_palette_type>0</color_palette_type>
 <color_palette_x>0.0</color_palette_x><color_palette_y>0.0</color_palette_y><color_palette_w>0.0</color_palette_w><color_palette_h>0.0</color_palette_h><minimum_temperature>0.0</minimum_temperature>
 <maximum_temperature>100.0</maximum_temperature>
-<graph_xlabel>Time</graph_xlabel><graph_ylabel>Temperature (℃)</graph_ylabel><clock>false</clock>
-<text string="Material A: LOW CONDUCTIVITY, LOW HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.03" y="0.0935"/>
-<text string="Material B: HIGH CONDUCTIVITY, HIGH HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.03" y="0.0595"/>
-<text string="Material C: HIGH CONDUCTIVITY, LOW HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.0295" y="0.0245"/>
+<fan_rotation_speed_scale_factor>1.0</fan_rotation_speed_scale_factor><graph_xlabel>Time</graph_xlabel><graph_ylabel>Temperature (℃)</graph_ylabel><clock>false</clock>
+<text string="Material A: LOW CONDUCTIVITY, LOW HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.024" y="0.0935"/>
+<text string="Material B: HIGH CONDUCTIVITY, HIGH HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.024" y="0.0595"/>
+<text string="Material C: HIGH CONDUCTIVITY, LOW HEAT CAPACITY" face="Arial" size="12" style="0" color="ffffff" x="0.024" y="0.0245"/>
 </view>
 </state>
