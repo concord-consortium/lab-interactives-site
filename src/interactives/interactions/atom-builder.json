@@ -1,8 +1,8 @@
 {
   "title": "Atom and Ion Builder",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "subtitle": "Making atoms and ions.",
+  "about": "Explore how protons, neutrons, and electrons affect the type of atom and its charge.",
   "fontScale": 0.65,
   "aspectRatio": 2.0,
   "models": [
@@ -328,7 +328,7 @@
     },
     { "id": "instructions",
       "type": "div",
-      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affect the overall charge of the atom.</p>"
+      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affects the overall charge of the atom.</p>"
     }
   ],
   "layout": {
