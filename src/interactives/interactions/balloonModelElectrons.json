@@ -1,8 +1,11 @@
 {
-  "title": "Electrostatics: Polarization",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "title": "Sticking a Balloon to a Wall",
+  "publicationStatus": "public",
+  "subtitle": "How can a charged balloon stick to a neutral wall?",
+  "about": [
+    "Look at the atoms in the wall and see how the positive and negative parts of the ",
+    "atoms respond to and interact with a balloon with different types and amounts of charge."
+  ],
   "models": [
     {
       "type": "md2d",
@@ -10,7 +13,8 @@
       "url": "models-converted/lab-version/1/md2d/interactions/charged-balloon-and-wall/balloonModelElectrons$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charged-balloon-and-wall/balloonModelElectrons$0.mml",
       "viewOptions": {
-        "controlButtons": "play_reset",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "imageMapping": {
           "Balloon.png": "Balloon.svg",
           "Positive.png": "Positive.svg",
@@ -137,7 +141,8 @@
         "  batch(updateShowAtoms);",
         "  batch(updateElectronClouds);",
         "});",
-        "setComponentDisabled('select-electron-view', true);"
+        "setComponentDisabled('select-electron-view', true);",
+        "start();"
       ]
     }
   ],
