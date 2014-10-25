@@ -28,11 +28,11 @@
       "properties": [
         "Exp. #",
         "Object 1",
-        "Charge before rubbing",
-        "Charge after rubbing",
+        "Charge before rubbing 1",
+        "Charge after rubbing 1",
         "Object 2",
-        "Charge before rubbing",
-        "Charge after rubbing"
+        "Charge before rubbing 2",
+        "Charge after rubbing 1"
       ],
       "initialData": {
         "Exp. #": ["1","2","3","4","5","6"],
@@ -61,11 +61,11 @@
           "format": "r"
         },
         {
-          "name": "Charge before rubbing",
+          "name": "Charge before rubbing 1",
           "format": "r"
         },
         {
-          "name": "Charge after rubbing",
+          "name": "Charge after rubbing 1",
           "format": "r"
         },
         {
@@ -73,11 +73,11 @@
           "format": "r"
         },
         {
-          "name": "Charge before rubbing",
+          "name": "Charge before rubbing 2",
           "format": "r"
         },
         {
-          "name": "Charge after rubbing",
+          "name": "Charge after rubbing 2",
           "format": "r"
         }
      ]
