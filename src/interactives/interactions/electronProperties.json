@@ -58,6 +58,7 @@
       ],
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "images": [
           {
             "imageUri": "plate_pos.png",
