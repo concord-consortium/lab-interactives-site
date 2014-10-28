@@ -60,7 +60,7 @@
         },
         {
           "value": 50,
-          "label": "50.0"
+          "label": "50.0 C"
         }
       ],
       "steps": 50,
@@ -77,11 +77,11 @@
       "labels": [
         {
           "value": 0,
-          "label": 0.0
+          "label": "0.0"
         },
         {
           "value": 50,
-          "label": 50.0
+          "label": "50.0 C"
         }
       ],
       "steps": 50,
