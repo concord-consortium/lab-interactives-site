@@ -28,7 +28,7 @@
     {
       "type": "graph",
       "id": "graph",
-      "title": "Temperature Probes: T1, T2, T3, T3",
+      "title": "Temperature Probes: T1, T2, T3, T4",
       "xlabel": "Time (s)",
       "ylabel": "Temperature (°C)",
       "ymin": -5,
@@ -40,7 +40,14 @@
       "xProperty": "time",
       "properties": [
         "sensor-2", "sensor-3", "sensor-0", "sensor-1"
-      ]
+      ],
+      "legendLabels": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "legendVisible": true
     }
   ],
   "layout": {
