@@ -16,6 +16,7 @@
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)",
         "forceVectors": {

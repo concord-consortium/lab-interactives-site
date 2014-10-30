@@ -98,6 +98,7 @@
       ],
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)"
       }

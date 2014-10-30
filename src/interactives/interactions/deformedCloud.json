@@ -11,6 +11,7 @@
     "importedFrom": "imports/legacy-mw-content/interactions/deformed-electron-cloud/deformedCloud$0.mml",
     "viewOptions": {
       "controlButtons": "",
+      "enableKeyboardHandlers": false,
       "imageMapping": {
         "Positive.png": "Positive.svg",
         "Negative.png": "Negative.svg"

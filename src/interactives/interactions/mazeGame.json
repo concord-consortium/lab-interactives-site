@@ -14,6 +14,7 @@
       "importedFrom": "imports/legacy-mw-content/interactions/maze-game/mazeGame$0.mml",
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "imageMapping": {
           "target.png": "target.svg"
         },
