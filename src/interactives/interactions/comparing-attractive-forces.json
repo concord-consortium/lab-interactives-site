@@ -1,14 +1,16 @@
 {
   "title": "Comparing Attractive Forces",
   "publicationStatus": "public",
-  "subtitle": "Explore the difference in attractive forces between various molecules.",
+  "subtitle": "Explore different attractive forces between various molecules.",
   "about": [
-    "Explore the different strengths of dipole-dipole (polar) and London dispersion (non-polar)",
-    "attractions. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
+    "Intermolecular attractions are shown by dotted lines between the pairs of molecules.",
     "",
     "Choose a pair of molecules from the drop-down menu and \"pull\" on the star to separate the",
     "molecules. Which pair of molecules is the most difficult to pull apart? Think about what that ",
-    "means about the polarity of the molecules, and therefore the type of intermolecular forces they exhibit."
+    "means about the polarity of the molecules, and therefore the type of intermolecular forces they exhibit.",
+    "",
+    "",
+    "This interactive was developed in collaboration with the American Association of Chemistry Teachers."
   ],
   "models": [
     {
@@ -88,7 +90,7 @@
             "anchor": "upper-left"
           },
           {
-            "text": "What kind of attractions do H₂ molecules have for each other?\nPull the two molecules apart to test your idea.",
+            "text": "What kind of attractions do H₂ molecules have for each other?\nPull the two molecules apart to test your prediction.",
             "x": 0.16,
             "y": 1.7,
             "fontSize": 0.11,
@@ -153,7 +155,7 @@
             "anchor": "upper-left"
           },
           {
-            "text": "What kind of attractions do Br₂ molecules have for each other?\nPull the two molecules apart to test your idea.",
+            "text": "What kind of attractions do Br₂ molecules have for each other?\nPull the two molecules apart to test your prediction.",
             "x": 0.15,
             "y": 1.7,
             "fontSize": 0.11,
@@ -218,7 +220,7 @@
             "anchor": "upper-left"
           },
           {
-            "text": "What kind of attractions do HBr molecules have for each other?\nPull the two molecules apart to test your idea.",
+            "text": "What kind of attractions do HBr molecules have for each other?\nPull the two molecules apart to test your prediction.",
             "x": 0.13,
             "y": 1.7,
             "layer": 1,
@@ -283,7 +285,7 @@
             "anchor": "upper-left"
           },
           {
-            "text": "What kind of attractions do HBr and Br₂ have for each other?\nPull the two molecules apart to test your idea.",
+            "text": "What kind of attractions do HBr and Br₂ have for each other?\nPull the two molecules apart to test your prediction.",
             "x": 0.2,
             "y": 1.7,
             "layer": 1,
