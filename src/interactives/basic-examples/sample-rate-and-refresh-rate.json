@@ -8,6 +8,7 @@
     "See **[simulation-stepping](../../readme.html#md2d-simulation-stepping)** in readme for more details."
   ],
   "fontScale": 0.8,
+  "aspectRatio": 1.1,
   "models": [
     {
       "type": "md2d",
@@ -167,6 +168,67 @@
           "action": "set({ 'modelSampleRate' : 120 });"
         }
       ]
+    },
+    {
+      "type": "pulldown",
+      "id": "use-duration-pulldown",
+      "property": "useDuration",
+      "label": "useDuration",
+      "options": [
+        {
+          "text": "true",
+          "value": true
+        },
+        {
+          "text": "false",
+          "value": false
+        },
+        {
+          "text": "codap",
+          "value": "codap"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "requested-duration-slider",
+      "min": 1000,
+      "max": 20000,
+      "displayValue": "return value === false ? 'false' : format('.0f')(value);",
+      "labels": [
+        {
+          "value": 1000,
+          "label": "1000"
+        },
+        {
+          "value": 20000,
+          "label": "20000"
+        }
+      ],
+      "steps": 19,
+      "title": "requestedDuration",
+      "property": "requestedDuration"
+    },
+    {
+      "type": "button",
+      "id": "requested-duration-reset-button",
+      "text": "Reset requestedDuration",
+      "action": "set('requestedDuration', false);"
+    },
+    {
+      "type": "numericOutput",
+      "id": "actual-duration-output",
+      "property": "actualDuration",
+      "label": "actualDuration",
+      "orientation": "vertical",
+      "displayValue": "return value === Infinity ? 'forever' : format('.0f')(value);"
     }
-  ]
+  ],
+  "layout": {
+    "bottom": [
+      ["select-model", "calc-fps"],
+      [ "timestep-slider", "refreshrate-slider", "select-model-sample-rate"],
+      ["use-duration-pulldown", "requested-duration-slider", "actual-duration-output", "requested-duration-reset-button"]
+    ]
+  }
 }
