@@ -221,7 +221,7 @@
       "property": "actualDuration",
       "label": "actualDuration",
       "orientation": "vertical",
-      "displayValue": "return value === Infinity ? 'forever' : format('.0f')(value);"
+      "displayValue": "return value === Infinity ? 'Infinity' : format('.0f')(value);"
     }
   ],
   "layout": {
