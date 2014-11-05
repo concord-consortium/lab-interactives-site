@@ -114,6 +114,6 @@
       "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
-  "lang": "nb-NO",
+  "lang": "nn-NO",
   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/3-modeling-translation.json"
 }
