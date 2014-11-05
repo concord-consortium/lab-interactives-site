@@ -194,7 +194,7 @@
       "id": "requested-duration-slider",
       "min": 1000,
       "max": 20000,
-      "displayValue": "return value === false ? 'false' : format('.0f')(value);",
+      "displayValue": "return value === null ? 'null' : format('.0f')(value);",
       "labels": [
         {
           "value": 1000,
@@ -213,7 +213,7 @@
       "type": "button",
       "id": "requested-duration-reset-button",
       "text": "Reset requestedDuration",
-      "action": "set('requestedDuration', false);"
+      "action": "set('requestedDuration', null);"
     },
     {
       "type": "numericOutput",
