@@ -30,7 +30,7 @@
     "viewPortX": 0,
     "viewPortY": 0,
     "viewPortDrag": false,
-    "backgroundColor": "rgba(0,0,0,255)",
+    "backgroundColor": "rgb(255,255,255)",
     "showClock": false,
     "markColor": "#f8b500",
     "keShading": false,
@@ -54,10 +54,8 @@
         "x": 1.48,
         "y": 0.7,
         "layer": 1,
-        "frame": "rectangle",
         "fontSize": 0.12,
-        "color": "rgb(255,255,255)",
-        "backgroundColor": "rgb(0,0,0)",
+        "color": "rgb(0,0,0)",
         "anchor": "upper-left"
       },
       {
@@ -65,10 +63,8 @@
         "x": 2.62,
         "y": 0.7,
         "layer": 2,
-        "frame": "rectangle",
         "fontSize": 0.12,
-        "color": "rgb(255,255,255)",
-        "backgroundColor": "rgb(0,0,0)",
+        "color": "rgb(0,0,0)",
         "anchor": "upper-left"
       }
     ],
