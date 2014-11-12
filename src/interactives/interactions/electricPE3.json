@@ -2,7 +2,7 @@
   "title": "Conversion of Electric Potential Energy",
   "publicationStatus": "draft",
   "subtitle": "Explore how charge and distance affect electric potential energy.",
-  "aspectRatio": 1.35,
+  "aspectRatio": 1.6,
   "about": [
     "Set the charge of the particles and compare the potential energy of the electric field ",
     "they generate. Try moving them closer and farther apart. Then run the model and see how",
@@ -97,6 +97,7 @@
       "min": -3,
       "max": 3,
       "steps": 6,
+      "width": "45%",
       "title": "Left particle charge",
       "displayValue": "return format('d')(value)",
       "labels": [
@@ -121,6 +122,7 @@
       "min": -3,
       "max": 3,
       "steps": 6,
+      "width": "45%",
       "title": "Right particle charge",
       "displayValue": "return format('d')(value)",
       "labels": [
