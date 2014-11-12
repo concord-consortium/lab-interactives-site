@@ -34,14 +34,6 @@
         "  set('total-energy', get('potential-energy'));",
         "});",
         " ",
-        "onPropertyChange('left-particle-charge', function() {",
-        "  set('total-energy', get('potential-energy'));",
-        "});",
-        " ",
-        "onPropertyChange('right-particle-charge', function() {",
-        "  set('total-energy', get('potential-energy'));",
-        "});",
-        " ",
         "set('total-energy', get('potential-energy'));"
       ]
     }
@@ -50,12 +42,12 @@
     {
       "name": "left-particle-charge",
       "initialValue": 2,
-      "onChange": "setAtomProperties(1, {charge: value});"
+      "onChange": "setAtomProperties(1, {charge: value}); set('total-energy', get('potential-energy'));"
     },
     {
       "name": "right-particle-charge",
       "initialValue": -2,
-      "onChange": "setAtomProperties(0, {charge: value});"
+      "onChange": "setAtomProperties(0, {charge: value}); set('total-energy', get('potential-energy'));"
     },
     {
       "name": "total-energy",
@@ -77,7 +69,8 @@
       "unitAbbreviation": "J",
       "label": "Kinetic Energy",
       "value": [
-        "var atom = getAtomProperties(0); return 2 * (0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy));"
+        "var atom = getAtomProperties(0);",
+        "return 2 * (0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy));"
       ]
     },
     {
@@ -85,7 +78,9 @@
       "unitAbbreviation": "J",
       "label": "Thermal Energy",
       "value": [
-        "return get('total-energy') - get('potential-energy') - get('kinetic-energy');"
+        "var tot_e = get('total-energy'),",
+        "    th_e = tot_e - get('potential-energy') - get('kinetic-energy');",
+        "return Math.min(th_e, tot_e);"
       ]
     }
   ],
