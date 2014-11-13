@@ -8,15 +8,29 @@
     "type": "md2d",
     "id": "deformedCloud$0",
     "url": "models/lab-version/1/md2d/interactions/forming-molecule.json",
+    "modelOptions": {
+      "width": 6.9,
+      "atoms": {
+        "x": [
+          2.333,
+          4.567
+        ]
+      }
+    },
     "viewOptions": {
       "controlButtons": "reset",
-      "enableKeyboardHandlers": false
+      "enableKeyboardHandlers": false,
+      "viewPortWidth": 4.9,
+      "viewPortZoom": 1,
+      "viewPortX": 1
     },
     "onLoad": [
       "",
       "//Add electrons",
       "var atoms = [getAtomProperties(0), getAtomProperties(1)],",
       "    maxElectrons = 2;",
+      "//Push text box for view port",
+      "setTextBoxProperties(0, {x: 2.48});",
       "for (var e = 0; e < maxElectrons; e++) {",
       "  addShape({",
       "    type: 'ellipse',",
@@ -82,7 +96,7 @@
       "  setAtomProperties(1, {vx: -force});",
       "  forceText = force == 0 ? _pe > -1 ? 'Attractive' : 'Balanced' : force > 0 ? 'Attractive' : 'Repulsive',",
       "  fontSize  = Math.abs(force) > 0.0006 ? 0.22 : (force == 0 && _pe > -1) ? 0.1 : 0.14;",
-      "  forceTextX = fontSize == 0.14 ? 2.73 : fontSize == 0.1 ? 2.8 : 2.64",
+      "  forceTextX = fontSize == 0.14 ? 3.73 : fontSize == 0.1 ? 3.8 : 3.64",
       "  forceTextY = fontSize == 0.14 ? 0.7 : fontSize == 0.1 ? 0.65 : 0.79",
       "  setTextBoxProperties(1, {text: forceText, fontSize: fontSize, x: forceTextX, y: forceTextY});",
       "}",
@@ -91,8 +105,8 @@
       "  batch(updateVisualization);",
       "}, 50);",
       "onDrag('atom', function (x, y, d, i) {",
-      "  var minX = i == 0 ? 0 : getAtomProperties(0).x + 0.16,",
-      "      maxX = i == 1 ? 5 : getAtomProperties(1).x - 0.16,",
+      "  var minX = i == 0 ? 1.1 : getAtomProperties(0).x + 0.16,",
+      "      maxX = i == 1 ? 5.8 : getAtomProperties(1).x - 0.16,",
       "      newX = Math.max(Math.min(x, maxX), minX),",
       "      _pe = pe();",
       "  setAtomProperties(i, {x: newX});",
