@@ -31,7 +31,7 @@
       "    lineWeight: 0,",
       "    layer: 1,",
       "    layerPosition: 100,",
-      "    visible: 1",
+      "    visible: !get('viz')",
       "  });",
       "};",
       "function randomizeElectrons(){",
