@@ -13,7 +13,7 @@
       "enableKeyboardHandlers": false
     },
     "onLoad": [
-      "",
+      "setElementProperties(0, {color: -16776961});",
       "//Add electrons",
       "var atoms = [getAtomProperties(0), getAtomProperties(1)],",
       "    maxElectrons = 2;",
