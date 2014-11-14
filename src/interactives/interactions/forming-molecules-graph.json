@@ -213,6 +213,9 @@
       "xProperty": "dist",
       "properties": [
         "potentialEnergy"
+      ],
+      "dataColors": [
+        "#2ca000"
       ]
     },
     {
