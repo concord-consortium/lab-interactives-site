@@ -56,7 +56,7 @@
         "y": 0.7,
         "layer": 1,
         "fontSize": 0.14,
-        "color": "rgb(255,255,255)",
+        "color": "rgb(255,255,0)",
         "anchor": "upper-left"
       },
       {
@@ -65,7 +65,7 @@
         "y": 0.75,
         "layer": 1,
         "fontSize": 0.14,
-        "color": "rgb(255,255,255)",
+        "color": "rgb(255,255,0)",
         "anchor": "upper-left"
       },
       {
