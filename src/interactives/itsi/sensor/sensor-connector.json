@@ -13,21 +13,10 @@
             "useRandomClientId": true
           },
           "viewOptions": {
-            "controlButtons": "reset",
+            "controlButtons": "play_reset",
             "controlButtonStyle": "text",
             "showClock": false
-          },
-          "onLoad": [
-            "function setButtonState() {",
-            "  setComponentDisabled('start-button', !get('canControl') || !get('isPlayable'));",
-            "  setComponentDisabled('stop-button', !get('canControl') || get('isStopped'));",
-            "}",
-            "onPropertyChange('canControl', setButtonState);",
-            "onPropertyChange('isPlayable', setButtonState);",
-            "onPropertyChange('isStopped', setButtonState);",
-            "onPropertyChange('hasPlayed', setButtonState);",
-            "setButtonState();"
-          ]
+          }
         }
       ],
       "propertiesToRetain": [
@@ -86,45 +75,19 @@
             "#a00000",
             "#2c00a0"
           ]
-        },
-        {
-          "type": "button",
-          "id": "start-button",
-          "text": "Start",
-          "tooltip": "Start the experiment run.",
-          "action": [
-            "start();",
-            "setComponentDisabled('start-button', true);"
-          ]
-        },
-        {
-          "type": "button",
-          "id": "stop-button",
-          "text": "Stop",
-          "tooltip": "Stop the experiment run.",
-          "action": "stop();"
         }
       ],
       "template": [
         {
-          "id": "above",
+          "id": "below-model",
           "top": "model.bottom",
           "padding-top": "0em",
-          "bottom": "below.top",
-          "padding-bottom": "2.5em",
           "width": "interactive.width",
+          "bottom": "interactive.bottom",
           "padding-right": "1em"
-        },
-        {
-          "id": "below",
-          "width": "interactive.width",
-          "height": "2em",
-          "align": "center",
-          "bottom": "interactive.bottom"
         }
       ],
       "layout": {
-        "above": ["sensorGraph"],
-        "below": ["stop-button", "start-button"]
+        "below-model": ["sensorGraph"]
       }
     }
