@@ -1,0 +1,280 @@
+{
+  "title": "Non-Bonding",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 0.95,
+  "models": [{
+    "type": "md2d",
+    "id": "deformedCloud$0",
+    "url": "models/lab-version/1/md2d/interactions/forming-molecule.json",
+    "modelOptions": {
+      "width": 6.9,
+      "atoms": {
+        "x": [
+          2.333,
+          4.567
+        ]
+      }
+    },
+    "viewOptions": {
+      "controlButtons": "reset",
+      "enableKeyboardHandlers": false,
+      "viewPortWidth": 4.9,
+      "viewPortZoom": 1,
+      "viewPortX": 1
+    },
+    "onLoad": [
+      "",
+      "//Add electrons",
+      "var atoms = [getAtomProperties(0), getAtomProperties(1)],",
+      "    maxElectrons = 2;",
+      "//Push text box for view port",
+      "setTextBoxProperties(0, {x: 2.48});",
+      "for (var e = 0; e < maxElectrons; e++) {",
+      "  addShape({",
+      "    type: 'ellipse',",
+      "    width: 0.03,",
+      "    height: 0.03,",
+      "    x: atoms[e].x,",
+      "    y: atoms[e].y,",
+      "    fence: 0,",
+      "    color: 'rgb(255, 0, 0)',",
+      "    lineColor: 'black',",
+      "    lineDashes: 'none',",
+      "    lineWeight: 0,",
+      "    layer: 1,",
+      "    layerPosition: 100,",
+      "    visible: !get('viz')",
+      "  });",
+      "};",
+      "function randomizeElectrons(){",
+      "  var ellipse,",
+      "      randomAngle,",
+      "      randomDistance;",
+      "  for (var e = 0; e < maxElectrons; e++) {",
+      "    ellipse = getShapeProperties(e);",
+      "    randomAngle = 2 * Math.PI * Math.random();",
+      "    randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+      "    // Convert random angle and distance from polar",
+      "    // to rectangular coordinates",
+      "    setShapeProperties(getNumberOfShapes() - maxElectrons + e, {",
+      "      x: ellipse.x + ellipse.width * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+      "      y: ellipse.y + ellipse.height * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+      "    })",
+      "  }",
+      "}",
+      "function updateVisualization(){",
+      "  atoms = [getAtomProperties(0), getAtomProperties(1)];",
+      "  var distance  = atoms[1].x - atoms[0].x,",
+      "      closeness = (2 - Math.min(distance,2)) / 2,",
+      "      squeeze   = ((closeness < 0.4) ? 0.8 * closeness : 0.32 - (0.8 * (closeness - 0.4))) / (atoms[0].element == 0 ? 1 : 3),",
+      "      force     = atoms[0].ax,",
+      "      displacement = squeeze * 1.3,",
+      "      baseSize0 = getElementProperties(atoms[0].element).sigma * 10 + (atoms[0].element == 1 ? 1 : 0),",
+      "      baseSize1 = getElementProperties(atoms[1].element).sigma * 10 + (atoms[1].element == 1 ? 1 : 0),",
+      "      newWidth0 = baseSize0 + squeeze,",
+      "      newWidth1 = baseSize1 + squeeze,",
+      "      newHeight0 = baseSize0 - Math.abs(squeeze),",
+      "      newHeight1 = baseSize1 - Math.abs(squeeze),",
+      "      _pe = pe(),",
+      "      forceText, forceTextX, forceTextY, fontSize;",
+      "  setShapeProperties(0, {",
+      "    width: newWidth0,",
+      "    height: newHeight0,",
+      "    x: atoms[0].x - newWidth0 / 2 + displacement,",
+      "    y: atoms[0].y - newHeight0 / 2",
+      "  });",
+      "  setShapeProperties(1, {",
+      "    width: newWidth1,",
+      "    height: newHeight1,",
+      "    x: atoms[1].x - newWidth1 / 2 - displacement,",
+      "    y: atoms[1].y - newHeight1 / 2",
+      "  });",
+      "  if ((Math.abs(force) < 2.5e-6 && _pe < -0.38) || (Math.abs(force) < 1e-5 && _pe < -3)) force = 0;",
+      "  setAtomProperties(0, {vx: force});",
+      "  setAtomProperties(1, {vx: -force});",
+      "  forceText = force == 0 ? _pe > -0.38 ? 'Attractive' : 'Balanced' : force > 0 ? 'Attractive' : 'Repulsive';",
+      "  fontSize  = (force == 0 && _pe > -0.38) ? 0.1 : Math.abs(force) < 0.00002 ? 0.14 : Math.min(0.14 + (((Math.abs(force) - 0.00002) / 0.033)), 0.28);",
+      "  forceTextX = fontSize == 0.14 ? 3.73 : fontSize == 0.1 ? 3.8 : 3.73 - (fontSize - 0.14)/0.14*0.09;",
+      "  forceTextY = fontSize == 0.14 ? 0.7 : fontSize == 0.1 ? 0.65 : 0.7 + (fontSize - 0.14)/0.14*0.15;",
+      "  setTextBoxProperties(1, {text: forceText, fontSize: fontSize, x: forceTextX, y: forceTextY});",
+      "}",
+      "setInterval(function(){",
+      "  batch(randomizeElectrons);",
+      "  batch(updateVisualization);",
+      "}, 50);",
+      "onDrag('atom', function (x, y, d, i) {",
+      "  var minX = i == 0 ? 1.1 : getAtomProperties(0).x + 0.16,",
+      "      maxX = i == 1 ? 5.8 : getAtomProperties(1).x - 0.16,",
+      "      newX = Math.max(Math.min(x, maxX), minX),",
+      "      _pe = pe();",
+      "  setAtomProperties(i, {x: newX});",
+      "  setAtomProperties(0, {y: 1.5374090707241856});",
+      "  setAtomProperties(1, {y: 1.5374090707241856});",
+      "  if (_pe < 100) {",
+      "   atoms = [getAtomProperties(0), getAtomProperties(1)];",
+      "   set('dist', (atoms[1].x - atoms[0].x)*74);",
+      "   set('changable_pe', _pe); // really annoying: bargraph won't receive updates of potentialEnergy while stopped",
+      "  }",
+      "});",
+      "updateVisualization();"
+    ]
+  }],
+  "parameters": [
+    {
+      "name": "dist",
+      "initialValue": 250,
+      "onChange": "appendDataPropertiesToComponent('potentialEnergyGraph');"
+    },
+    {
+      "name": "changable_pe",
+      "initialValue": 0
+    },
+    {
+      "name": "elements",
+      "initialValue": 0,
+      "onChange": [
+        "setAtomProperties(0, {element: value});",
+        "setAtomProperties(1, {element: value});",
+        "if (get('viz')) {",
+        "  setTextBoxProperties(2, {text: value == 0 ? 'H' : 'He'});",
+        "  setTextBoxProperties(3, {text: value == 0 ? 'H' : 'He'});",
+        "}"
+      ]
+    },
+    {
+      "name": "viz",
+      "initialValue": 0,
+      "onChange": ["if (!value) {",
+                   "  setElementProperties(0, {sigma: 0.15});",
+                   "  setElementProperties(1, {sigma: 0.25});",
+                   "  setElementProperties(2, {sigma: 0.25});",
+                   "  setElementProperties(3, {sigma: 0.17});",
+                   "  for (var i = 0; i < 4; i++){",
+                   "    setShapeProperties(i, {visible: true});",
+                   "  }",
+                   "  for (var i = 2; i < 4; i++){",
+                   "    setTextBoxProperties(i, {layer: 2, text: ''});",
+                   "  }",
+                   "} else {",
+                   "  setElementProperties(0, {sigma: 1.2});",
+                   "  setElementProperties(1, {sigma: 2.4});",
+                   "  setElementProperties(2, {sigma: 2.15});",
+                   "  setElementProperties(3, {sigma: 1.44});",
+                   "  for (var i = 0; i < 4; i++){",
+                   "    setShapeProperties(i, {visible: false});",
+                   "  }",
+                   "  for (var i = 2; i < 4; i++){",
+                   "    var el = getAtomProperties([i-2]).element,",
+                   "        text = el == 0 ? 'H' :  'He';",
+                   "    setTextBoxProperties(i, {layer: 1, text: text});",
+                   "  }",
+                   "};"
+                  ]
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "min": -6,
+      "max": 6,
+      "barWidth": "1.6em",
+      "id": "potentialEnergyBar",
+      "property": "changable_pe",
+      "barColor": "#4c952f",
+      "title": "Potential Energy (J)"
+    },
+    {
+      "type": "graph",
+      "id": "potentialEnergyGraph",
+      "title": "",
+      "xlabel": "Distance (pm)",
+      "ylabel": "Potential Energy",
+      "ymin": -6,
+      "ymax": 6,
+      "xmax": 300,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "width": "70%",
+      "height": "100%",
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "lines": false,
+      "streamDataFromModel": false,
+      "xProperty": "dist",
+      "properties": [
+        "potentialEnergy"
+      ],
+      "dataColors": [
+        "#2ca000"
+      ]
+    },
+    {
+      "type": "radio",
+      "orientation": "vertical",
+      "id": "set-elements",
+      "property": "elements",
+      "label": "Compare element pairs:",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "H—H",
+          "value": 0
+        },
+        {
+          "text": "He—He",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "orientation": "vertical",
+      "id": "set-viz",
+      "property": "viz",
+      "label": "Visualization",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Electron cloud",
+          "value": 0
+        },
+        {
+          "text": "Spacefill",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": ["potentialEnergyBar", "potentialEnergyGraph"],
+    "wide-right": ["set-elements"],
+    "right-bottom": ["set-viz"]
+  },
+  "template": [
+    {
+      "id": "wide-right",
+      "left": "model.right",
+      "height": "model.height * 0.8",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "height": "model.height * 0.2",
+      "bottom": "model.bottom",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "right": "wide-right.right",
+      "height": "model.height",
+      "padding-top": "0.5em"
+    }
+  ]
+}
