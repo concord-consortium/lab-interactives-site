@@ -1,0 +1,92 @@
+{
+  "title": "Table: Recording diffusion speed of food coloring",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to collect data about your experiment with food coloring in water of various temperatures."
+  ],
+  "aspectRatio": "2.2",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Petri dish",
+        "Water temperature",
+        "Time"
+      ],
+      "initialData": {
+        "Petri dish": ["Dish 1","Dish 2","Dish 3"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Petri dish",
+          "format": "r"
+        },
+        {
+          "name": "Water temperature",
+          "format": "r"
+        },
+        {
+          "name": "Time",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
