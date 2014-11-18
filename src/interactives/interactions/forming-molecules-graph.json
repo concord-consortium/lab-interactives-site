@@ -125,7 +125,27 @@
     {
       "name": "dist",
       "initialValue": 250,
-      "onChange": "appendDataPropertiesToComponent('potentialEnergyGraph');"
+      "onChange": [
+        "appendDataPropertiesToComponent('potentialEnergyGraph');",
+        "resetAnnotations('potentialEnergyGraph');",
+        "addAnnotation('potentialEnergyGraph', {",
+        "  type: 'line',",
+        "  data: {",
+        "    x1: value,",
+        "    x2: value,",
+        "    stroke: 'rgb(120,200,120)'",
+        "  }",
+        "});",
+        "var _pe = pe();",
+        "addAnnotation('potentialEnergyGraph', {",
+        "  type: 'line',",
+        "  data: {",
+        "    y1: _pe,",
+        "    y2: _pe,",
+        "    stroke: 'rgb(120,200,120)'",
+        "  }",
+        "});"
+      ]
     },
     {
       "name": "changable_pe",
