@@ -1,12 +1,12 @@
 {
   "title": "Energy of a Pendulum",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "subtitle": "Energy conservation and transformation in a pendulum.",
   "about": [
-    "While a pendulum is swinging energy is constantly transforming from one type to another. ",
+    "While a pendulum is swinging, energy is constantly transforming from one type to another. ",
     "Try dragging the pendulum to set its initial height and observe the change from potential ",
     "energy to kinetic energy, and ultimately to thermal energy (an increase in the temperature ",
-    "of the ball and the air around the ball."
+    "of the ball and the air around the ball.)"
   ],
   "aspectRatio": 1.5,
   "fontScale": 0.8,
