@@ -21,10 +21,10 @@
         "var smallAtoms = [];",
         "var largeAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
-        "  if (getAtomProperties(i).element == 2) {",
-        "    largeAtoms.push(i);",
-        "  } else {",
+        "  if (getAtomProperties(i).x < 1.0) {",
         "    smallAtoms.push(i);",
+        "  } else {",
+        "    largeAtoms.push(i);",
         "  }",
         "}",
         "set('smallAtomsIndices', smallAtoms);",
@@ -82,8 +82,8 @@
       "type": "barGraph",
       "id": "bar-graph",
       "min": 0,
-      "max": 300,
-      "title": "Temperature of Blue Molecules",
+      "max": 200,
+      "title": "Temperature of Molecules on Right",
       "property": "largeAtomsTempAvg",
       "units": true
     },
@@ -91,15 +91,15 @@
       "type": "barGraph",
       "id": "bar-graph2",
       "min": 0,
-      "max": 300,
-      "title": "Temperature of Green Molecules",
+      "max": 200,
+      "title": "Temperature of Molecules on Left",
       "property": "smallAtomsTempAvg",
       "units": true
     },
     {
       "type": "button",
       "id": "heat-small",
-      "text": "Heat green molecules",
+      "text": "Heat left molecules",
       "action": [
         "addKEToAtoms(2, get('smallAtomsIndices'));",
         "repaint();",
@@ -110,7 +110,7 @@
     {
       "type": "button",
       "id": "cool-small",
-      "text": "Cool green molecules",
+      "text": "Cool left molecules",
       "action": [
         "addKEToAtoms(-2, get('smallAtomsIndices'));",
         "repaint();",
@@ -121,7 +121,7 @@
     {
       "type": "button",
       "id": "heat-large",
-      "text": "Heat blue molecules",
+      "text": "Heat right molecules",
       "action": [
         "addKEToAtoms(1, get('largeAtomsIndices'));",
         "repaint();",
@@ -132,7 +132,7 @@
     {
       "type": "button",
       "id": "cool-large",
-      "text": "Cool blue molecules",
+      "text": "Cool right molecules",
       "action": [
         "addKEToAtoms(-1, get('largeAtomsIndices'));",
         "repaint();",
