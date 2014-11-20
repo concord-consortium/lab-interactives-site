@@ -1,0 +1,82 @@
+{
+  "title": "Heat and Temperature 7: Thermal Radiation",
+  "publicationStatus": "draft",
+  "aspectRatio": 1.725,
+  "subtitle": "Heat and Temperature 7: Thermal Radiation",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page7$0.json",
+      "url": "models-converted/lab-version/1/md2d/itsi/heatv2/heat_itsi_models/page7$0.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heatv2/heat_itsi_models/page7$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {}
+    }
+  ],
+  "outputs": [
+    {
+      "name": "element0Temp",
+      "value": "return getTemperatureOfAtoms(atomsWithinRect(0,0,get('width')*2/3,get('height')*2/3,0));"
+    }
+  ],
+  "components": [
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "KE shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "type": "button",
+      "id": "heat-right-button",
+      "text": "Heat the yellow atoms",
+      "action": "addKEToAtoms(50, atomsWithinRect(get('width')/2, get('height')/2, get('width'), get('height'), 3));"
+    },
+    {
+      "id": "elem-0-bar",
+      "type": "barGraph",
+      "property": "element0Temp",
+      "min": 0,
+      "max": 1000,
+      "title": "Temperature of smaller atoms (K)",
+      "titleOn": "right",
+      "labels": 6,
+      "units": false,
+      "gridLines": 11,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "100%",
+      "barColor": "#ff0000",
+      "fillColor": "#fff",
+      "tooltip": ""
+    }
+  ],
+  "template": [
+    {
+      "id": "below",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "on-left",
+      "right": "model.left",
+      "top": "model.top",
+      "height": "model.height",
+      "align": "center"
+    }
+  ],
+  "layout": {
+    "below": ["ke-shading", "heat-right-button"],
+    "on-left":  ["elem-0-bar"]
+  }
+}
