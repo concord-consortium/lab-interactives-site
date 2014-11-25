@@ -1,0 +1,82 @@
+{
+  "title": "Exploring Molecular Views",
+  "publicationStatus": "draft",
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "http://resources.models.concord.org/jsmol/embeddable.html"
+      },
+      "viewOptions": {
+        "aspectRatio": 1.8,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "molecule_num",
+      "initialValue": "models/exploring-views/water.xyz",
+      "onChange": "post('jsmolScript', 'm0: load '+value+'; rotate BEST; translate Z -45%; '+get('viz')+'; ');"
+    },
+    {
+      "name": "viz",
+      "initialValue": "wireframe 0.10; cpk 0.25;",
+      "onChange": "post('jsmolScript', 'm0: '+value+';');"
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "mol",
+      "property": "molecule_num",
+      "label": "Molecule",
+      "options": [
+        {
+          "text": "Water",
+          "value": "models/exploring-views/water.xyz"
+        },
+        {
+          "text": "Methane",
+          "value": "models/exploring-views/methane.mol"
+        },
+        {
+          "text": "Nitrogen triiodide ",
+          "value": "models/exploring-views/NI3.mol"
+        },
+        {
+          "text": "Propane",
+          "value": "models/exploring-views/propane.xyz"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "view",
+      "property": "viz",
+      "label": "View",
+      "options": [
+        {
+          "text": "Ball and stick ",
+          "value": "wireframe 0.10; cpk 0.25;"
+        },
+        {
+          "text": "Spacefill",
+          "value": "cpk"
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width"
+    }
+  ],
+  "layout": {
+    "bottom": ["mol", "view"]
+  }
+}
