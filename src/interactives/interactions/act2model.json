@@ -1,8 +1,14 @@
 {
   "title": "Visualizing Electric Fields and Forces",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore how electric fields relate to forces on charged objects.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.18,
+  "fontScale": 1,
+  "helpOnLoad": false,
   "about": [
     "Control the polarity of the stationary charged object and observe how the charge affects the electric field around it.",
     "Add a second charged object and move it around the stationary object.",
@@ -14,6 +20,10 @@
       "id": "act2model$0",
       "url": "models-converted/lab-version/1/md2d/interactions/distance-and-force/act2model$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/distance-and-force/act2model$0.mml",
+      "onLoad": [
+        "setAtomProperties(0,{charge: 2});",
+        "set('showElectricField',true);"
+      ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -22,63 +32,116 @@
         "forceVectors": {
           "length": 9
         }
-      },
-      "onLoad": [
-        "setAtomProperties(0,{charge: 2});",
-        "set('showElectricField',true);"
-      ]
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
-    {
+    {   
       "name": "show-second-atom",
       "initialValue": false,
       "onChange": [
         "if (value) {",
-        "  setAtomProperties(1, {charge: 2, visible: true});",
-        "} else {",
-        "  setAtomProperties(1, {charge: 0, visible: false});",
+        "  addAtom({ element:2,",
+        "                 x: getAtomProperties(0).vx,",
+        "                 y: getAtomProperties(0).vy,",
+        "                 charge:2,",
+        "                 vx: 0,",
+        "                 vy: 0});",
+        "} else {","setAtomProperties(0,{vx:getAtomProperties(1).x , vy:getAtomProperties(1).y});",
+                  
+        "  removeAtom(1);",
         "}"
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
   "components": [
     {
-      "type": "checkbox",
       "id": "select-show-forces",
+      "type": "checkbox",
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "showForceVectors",
-      "text": "Show forces"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "checkbox",
       "id": "select-show-electric-field",
-      "property": "showElectricField",
-      "text": "Show electric field"
-    },
-    {
       "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showElectricField",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
       "id": "select-show-second-atom",
+      "type": "checkbox",
+      "text": "Show second object",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "show-second-atom",
-      "text": "Show second object"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "text",
       "id": "label-set-charge",
-      "text": "Change the charge on the **center object**"
+      "type": "text",
+      "text": "Change the charge on the **center object**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "set-charge-negative",
+      "type": "button",
       "action": "setAtomProperties(0,{charge: -2});",
-      "text": "Negative (-)"
+      "text": "Negative (-)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     },
     {
-      "type": "button",
       "id": "set-charge-positive",
+      "type": "button",
       "action": "setAtomProperties(0,{charge: 2});",
-      "text": "Positive (+)"
+      "text": "Positive (+)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": ""
     }
   ],
+  "layout": {
+    "bottom": [
+      [
+        "label-set-charge"
+      ],
+      [
+        "set-charge-negative",
+        "set-charge-positive"
+      ],
+      [
+        "select-show-second-atom",
+        "select-show-electric-field",
+        "select-show-forces"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "bottom",
@@ -87,12 +150,5 @@
       "width": "model.width",
       "align": "center"
     }
-  ],
-  "layout": {
-    "bottom": [
-      ["label-set-charge"],
-      ["set-charge-negative","set-charge-positive"],
-      ["select-show-second-atom","select-show-electric-field","select-show-forces"]
-    ]
-  }
+  ]
 }
