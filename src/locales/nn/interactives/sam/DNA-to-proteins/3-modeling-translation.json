@@ -1,21 +1,15 @@
 {
   "title": "Ein modell av translasjon",
   "publicationStatus": "public",
-  "labEnvironment": "production",
   "subtitle": "Utforsk korleis ein lagar eit protein frå ein mRNA-sekvens.",
-  "category": "",
-  "subCategory": "",
-  "screenshot": "",
-  "aspectRatio": 1.3,
-  "fontScale": 0.8,
-  "helpOnLoad": false,
   "about": [
     "Translasjon, eller det å lage eit protein, skjer i ribosomane. Aminosyrer blir frakta til ribosomane av tRNA.",
     "",
-    "tRNA blir stilt opp saman med mRNA som har dei same nukleotidane. På denne måten blir den riktige aminosyra lagt til i proteinet. ",
+    "tRNA blir stilt opp saman med mRNA som har dei same nukleotidane. På denne måten blir den riktige aminosyra lagt til i proteinet.",
     "",
-    "Kan du sjå kva tRNA-kodonet for kvar av nukleotide-triplettane til mRNAet er? "
+    "Kan du se hva tRNA-kodonet for hver av nukleotide-triplettene til mRNAet er?"
   ],
+  "fontScale": 0.8,
   "models": [
     {
       "type": "md2d",
@@ -31,100 +25,55 @@
       }
     }
   ],
-  "propertiesToRetain": [
-
-  ],
-  "parameters": [
-
-  ],
-  "outputs": [
-
-  ],
-  "filteredOutputs": [
-
-  ],
-  "helpTips": [
-
-  ],
-  "hideExportDataControl": false,
-  "dataSets": [
-
-  ],
   "components": [
     {
-      "id": "translate",
       "type": "button",
+      "id": "translate",
+      "text": "Translater",
       "action": [
         "if (get('DNAState') === 'translation-end') set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
-      ],
-      "text": "Translater",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
+      "type": "button",
       "id": "translate-step",
-      "type": "button",
-      "action": "translateDNAStep();",
       "text": "Translater steg for steg",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "translateDNAStep();"
     },
     {
+      "type": "text",
       "id": "label3",
-      "type": "text",
-      "text": "Klikk",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "Klikk"
     },
     {
+      "type": "text",
       "id": "label4",
-      "type": "text",
-      "text": "for å lage protein frå mRNA, eller",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "for å lage protein frå mRNA, eller"
     },
     {
-      "id": "start",
       "type": "button",
+      "id": "start",
+      "text": "Start/hald fram med køyringa",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
-      ],
-      "text": "Start/hald fram med køyringa",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "stop",
       "type": "button",
+      "id": "stop",
+      "text": "Stopp",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
-      ],
-      "text": "Stopp",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "reset",
       "type": "button",
-      "action": "reloadModel();",
+      "id": "reset",
       "text": "Start på nytt",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "reloadModel();"
     }
   ],
   "layout": {
@@ -145,10 +94,24 @@
   "template": [
     {
       "id": "model-bottom",
-      "left": "model.left",
+      "left": "interactive.left",
+      "height": "0.2 * interactive.height",
       "top": "model.bottom",
-      "width": "model.width",
-      "align": "center"
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
   "lang": "nn-NO",
