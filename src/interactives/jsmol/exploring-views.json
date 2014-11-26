@@ -11,7 +11,8 @@
       "viewOptions": {
         "aspectRatio": 1.8,
         "controlButtons": ""
-      }
+      },
+      "onLoad": "post('jsmolScript', 'm0: set background [x000000]');"
     }
   ],
   "parameters": [
@@ -22,7 +23,7 @@
     },
     {
       "name": "viz",
-      "initialValue": "wireframe 0.10; cpk 0.25;",
+      "initialValue": "wireframe 0.15; cpk 20%;",
       "onChange": "post('jsmolScript', 'm0: '+value+';');"
     }
   ],
@@ -59,7 +60,7 @@
       "options": [
         {
           "text": "Ball and stick ",
-          "value": "wireframe 0.10; cpk 0.25;"
+          "value": "wireframe 0.15; cpk 20%;"
         },
         {
           "text": "Spacefill",
