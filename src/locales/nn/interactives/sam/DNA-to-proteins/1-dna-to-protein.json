@@ -1,14 +1,11 @@
 {
   "title": "Frå DNA til protein",
   "publicationStatus": "public",
-  "labEnvironment": "production",
   "subtitle": "Utforsk korleis koden som er bakt inn i DNA blir omsett til protein.",
+  "aspectRatio": 1.05,
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
-  "aspectRatio": 1.2,
-  "fontScale": 0.65,
-  "helpOnLoad": false,
   "about": [
     "Klikk **Transkriber** for å zoome inn i cellekjerna og sjå korleis kromosomet viklar seg ut, og sjå DNA-strengane. DNA-et delar seg, og ein mRNA-streng blir laga av nukleotidar, med DNA som mal.",
     "",
@@ -16,6 +13,7 @@
     "",
     "Etter translasjonen (omsetjinga) kan du granske proteinet og sjå korleis sekvensen av aminosyrer har falda seg."
   ],
+  "fontScale": 0.65,
   "models": [
     {
       "type": "md2d",
@@ -31,59 +29,33 @@
       }
     }
   ],
-  "propertiesToRetain": [
-
-  ],
-  "parameters": [
-
-  ],
-  "outputs": [
-
-  ],
-  "filteredOutputs": [
-
-  ],
-  "helpTips": [
-
-  ],
-  "hideExportDataControl": false,
-  "dataSets": [
-
-  ],
   "components": [
     {
-      "id": "transcribe",
       "type": "button",
+      "id": "transcribe",
+      "text": "Transkriber",
       "action": [
         "if (DNAStateAfter('transcription-end'))",
         "  set('DNAState', 'dna');",
         "animateToDNAState('transcription-end');"
-      ],
-      "text": "Transkriber",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "transcribe-step",
       "type": "button",
+      "id": "transcribe-step",
+      "text": "Transkriber steg for steg",
       "action": [
         "if (DNAStateBefore ('dna')) {",
         "  animateToDNAState('transcription:1');",
         "} else { ",
         "  transcribeDNAStep();",
         "}"
-      ],
-      "text": "Transkriber steg for steg",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "translate",
       "type": "button",
+      "id": "translate",
+      "text": "Translater",
       "action": [
         "if (DNAStateBefore('transcription-end')) {",
         "  alert('Translation can only occur after transcription is complete.');",
@@ -92,16 +64,12 @@
         "if (get('DNAState') === 'translation-end')",
         "  set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
-      ],
-      "text": "Translasjon",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "translate-step",
       "type": "button",
+      "id": "translate-step",
+      "text": "Translater steg for steg",
       "action": [
         "if (DNAStateBefore('transcription-end')) {",
         "  alert('Translation can only occur after transcription is complete.');",
@@ -109,120 +77,75 @@
         "} else {",
         "  translateDNAStep();",
         "}"
-      ],
-      "text": "Omsett steg for steg",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
+      "type": "text",
       "id": "label1",
-      "type": "text",
-      "text": "Klikk",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "Klikk"
     },
     {
+      "type": "text",
       "id": "label2",
-      "type": "text",
-      "text": "for å sjå heile mRNA-strengen bli laga, eller",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "for å sjå heile mRNA-strengen bli laga, eller"
     },
     {
+      "type": "text",
       "id": "label3",
-      "type": "text",
-      "text": "Klikk",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "Klikk"
     },
     {
+      "type": "text",
       "id": "label4",
-      "type": "text",
-      "text": "for å generere heile proteinet frå mRNA, eller",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
+      "text": "for å generere heile proteinet frå mRNA, eller"
     },
     {
-      "id": "start",
       "type": "button",
+      "id": "start",
+      "text": "Start/gjenoppta modellen",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
-      ],
-      "text": "Start/gjenoppta modellen",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
-      "id": "stop",
       "type": "button",
+      "id": "stop",
+      "text": "Stopp",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
-      ],
-      "text": "Stopp",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
+      "type": "button",
       "id": "reset",
-      "type": "button",
-      "action": "reloadModel();",
       "text": "Nullstill",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "reloadModel();"
     },
     {
+      "type": "button",
       "id": "prev-state-jump",
-      "type": "button",
-      "action": "jumpToPrevDNAState();",
       "text": "<< Hopp",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "jumpToPrevDNAState();"
     },
     {
+      "type": "button",
       "id": "next-state",
-      "type": "button",
-      "action": "animateToNextDNAState();",
       "text": "Hald fram eit steg",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "animateToNextDNAState();"
     },
     {
+      "type": "button",
       "id": "next-state-jump",
-      "type": "button",
-      "action": "jumpToNextDNAState();",
       "text": "Hopp >>",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "jumpToNextDNAState();"
     },
     {
-      "id": "dna-dialog",
       "type": "button",
-      "action": "openDNADialog();",
+      "id": "dna-dialog",
       "text": "Rediger DNA",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": ""
+      "action": "openDNADialog();"
     }
   ],
   "layout": {
@@ -255,12 +178,26 @@
   "template": [
     {
       "id": "model-bottom",
-      "left": "model.left",
+      "left": "interactive.left",
+      "height": "0.25 * interactive.height",
       "top": "model.bottom",
-      "width": "model.width",
-      "align": "center"
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
-  "lang": "nn-NO",
-  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+   "lang": "nn-NO", 
+   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json" 
 }
