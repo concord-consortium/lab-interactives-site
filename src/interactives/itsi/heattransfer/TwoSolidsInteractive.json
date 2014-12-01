@@ -1,0 +1,203 @@
+{
+  "title": "Two Solid Crystals - GRASP",
+  "publicationStatus": "draft",
+  "subtitle": "Atoms are mostly bonded in all directions.",
+  "about": "Two crystals with different starting temperatures, constrained at the bottom.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "two-solid-crystals",
+      "url": "models/lab-version/1/md2d/ngss-assessment/exploring-thermal-equilibrium/TwoSolidCrystals.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "modelTimeLabel": true
+      },
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x < 2.0) {",
+        "    leftAtoms.push(i);",
+        "  } else {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);",
+
+        "start();"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "leftAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "rightAtomsIndices",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "rightAtomsTemp",
+      "label": "Temperature of Molecules on Right",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return 0.04 * getTemperatureOfAtoms(get('rightAtomsIndices'));"
+      ]
+    },
+    {
+      "name": "leftAtomsTemp",
+      "label": "Temperature of Molecules on Left",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return 0.04 * getTemperatureOfAtoms(get('leftAtomsIndices'));"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "rightAtomsTempAvg",
+      "property": "rightAtomsTemp",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg",
+      "property": "leftAtomsTemp",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 300,
+      "title": "Temperature of Molecules on Right",
+      "property": "rightAtomsTempAvg",
+      "units": true
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph2",
+      "min": 0,
+      "max": 300,
+      "title": "Temperature of Molecules on Left",
+      "property": "leftAtomsTempAvg",
+      "units": true
+    },
+    {
+      "type": "button",
+      "id": "heat-left",
+      "text": "Heat left",
+      "action": [
+        "addKEToAtoms(4, get('leftAtomsIndices'));",
+        "repaint();",
+        "if (get('leftAtomsTemp') > 290) setComponentDisabled('heat-left', true);",
+        "if (get('leftAtomsTemp') > 10) setComponentDisabled('cool-left', false);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "cool-left",
+      "text": "Cool left",
+      "action": [
+        "addKEToAtoms(-4, get('leftAtomsIndices'));",
+        "repaint();",
+        "if (get('leftAtomsTemp') <= 290) setComponentDisabled('heat-left', false);",
+        "if (get('leftAtomsTemp') <= 10) setComponentDisabled('cool-left', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "heat-right",
+      "text": "Heat right",
+      "action": [
+        "addKEToAtoms(4, get('rightAtomsIndices'));",
+        "repaint();",
+        "if (get('rightAtomsTemp') > 290) setComponentDisabled('heat-right', true);",
+        "if (get('rightAtomsTemp') > 10) setComponentDisabled('cool-right', false);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "cool-right",
+      "text": "Cool right",
+      "action": [
+        "addKEToAtoms(-4, get('rightAtomsIndices'));",
+        "repaint();",
+        "if (get('rightAtomsTemp') <= 290) setComponentDisabled('heat-right', false);",
+        "if (get('rightAtomsTemp') <= 10) setComponentDisabled('cool-right', true);"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show-ke",
+      "text": "K. E. Shading",
+      "property": "keShading"
+    }
+  ],
+  "layout": {
+    "left": [
+      "bar-graph2"
+    ],
+    "right": [
+      "bar-graph"
+    ],
+    "left-model": [
+      ["heat-left"],
+      ["cool-left"]
+    ],
+    "right-model": [
+      ["heat-right"],
+      ["cool-right"]
+    ],
+    "bottom": [
+     ["show-ke"]
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "interactive.height",
+      "padding-right": "0.5em",
+      "align": "right",
+      "min-width": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "interactive.height",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    },
+    {
+      "id": "left-model",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-left": "1.25em",
+      "align": "left"
+    },
+    {
+      "id": "right-model",
+      "top": "model.bottom",
+      "right": "model.right",
+      "padding-right": "1.25em",
+      "align": "right"
+    },
+    {
+      "id": "bottom",
+      "top": "right-model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    }
+  ]
+}
