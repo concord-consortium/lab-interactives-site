@@ -1,74 +1,152 @@
-  {
-    "title": "Forming a Molecular Bond",
-    "publicationStatus": "draft",
-    "subtitle": "",
-    "about": "",
-    "aspectRatio": 1.6,
-    "models": [{
-      "type": "md2d",
-      "id": "forming-molecular-bond",
-      "url": "models/lab-version/1/md2d/interactions/forming-molecular-bond.json",
-      "viewOptions": {
-        "controlButtons": "play_reset_tick"
-      },
-      "onLoad": [
-        "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });"
-      ]
-    }],
-    "outputs": [
-      {
-        "name": "element1KE",
-        "value": "return atomsKe([0,1]);"
-      },
-      {
-        "name": "element2KE",
-        "value": "return atomsKe([2]);"
-      }
-    ],
-    "parameters": [
-      {
-        "name": "fakeTotalEnergy",
-        "initialValue": 0
-      }
-    ],
-    "components": [{
-        "type": "graph",
-        "id": "energyGraph",
-        "title": "Energies: \"Hydrogen\" kinetic, \"Helium\" kinetic, potential, total",
-        "xlabel": "Time (ps)",
-        "ylabel": "Energy (eV)",
-        "ymin": -0.2,
-        "ymax": 0.2,
-        "xmax": 20,
-        "xTickCount": 4,
-        "yTickCount": 5,
-        "xFormatter": ".2r",
-        "yFormatter": ".2s",
-        "autoScaleX": true,
-        "autoScaleY": true,
-        "streamDataFromModel": true,
-        "xProperty": "displayTime",
-        "properties": [
-          "element1KE",
-          "element2KE",
-          "potentialEnergy",
-          "totalEnergy"
-        ],
-        "dataColors": [
-          "#2ca000",
-          "#00a02c",
-          "#ff0000",
-          "#0000ff"
-        ]
-      }
-    ],
-    "layout": {
-      "right": ["energyGraph"]
+{
+  "title": "Forming a Molecular Bond",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.7,
+  "models": [{
+    "type": "md2d",
+    "id": "forming-molecular-bond",
+    "url": "models/lab-version/1/md2d/interactions/forming-molecular-bond.json",
+    "viewOptions": {
+      "controlButtons": "",
+      "textBoxes": [{
+        "text": "Place a non-reactive atom so the molecule stays bonded",
+        "x": 10.55,
+        "y": 11.45,
+        "layer": 1,
+        "frame": "rounded rectangle",
+        "fontSize": 0.035,
+        "backgroundColor": "rgb(255,255,255)",
+        "anchor": "upper-left"
+      }]
     },
-    "template": [{
+    "onLoad": [
+      "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
+      "setComponentDisabled('go-button', false);",
+      "setComponentDisabled('add-atom-button', false);",
+      "onPropertyChange('numberOfElement1AtomsInView', function() {",
+      "  if (get('numberOfElement1AtomsInView') < 2) {",
+      "    stop();",
+      "  }",
+      "});"
+    ]
+  }],
+  "outputs": [
+    {
+      "name": "element1KE",
+      "value": "return atomsKe([0,1]);"
+    },
+    {
+      "name": "element2KE",
+      "value": "return atomsKe([2]);"
+    },
+    {
+      "name": "numberOfElement1AtomsInView",
+      "value": [
+        "var radius = Math.max(getElementProperties(1).sigma, getElementProperties(1).sigma) / 2;",
+        "var left = get('viewPortX') - radius;",
+        "var bottom = get('viewPortY') - radius;",
+        "var width = get('viewPortWidth') + 2*radius;",
+        "var height = get('viewPortHeight') + 2*radius;",
+        "return atomsWithinRect(left, bottom, width, height).filter(function(x) { return x < 2; }).length;"
+      ]
+    }
+  ],
+  "components": [{
+      "type": "graph",
+      "id": "energyGraph",
+      "title": "Energies",
+      "xlabel": "Time (ps)",
+      "ylabel": "Energy (eV)",
+      "ymin": -5,
+      "ymax": 5,
+      "xmax": 0.3000001,
+      "width": "15em",
+      "xTickCount": 6,
+      "yTickCount": 10,
+      "xFormatter": "r",
+      "yFormatter": ".1r",
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "streamDataFromModel": true,
+      "xProperty": "displayTime",
+      "properties": [
+        "element1KE",
+        "element2KE",
+        "potentialEnergy",
+        "totalEnergy"
+      ],
+      "dataColors": [
+        "#00ff00",
+        "#ff00ff",
+        "#0000ff",
+        "#000000"
+      ]
+    },
+    {
+      "id": "element2KEGraph",
+      "type": "barGraph",
+      "property": "element2KE",
+      "title": "KE of non-reactive atom",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0 eV"
+        },
+        {
+          "value": 1,
+          "label": "1 eV"
+        },
+        {
+          "value": 2,
+          "label": "2 eV"
+        }
+      ],
+      "min": 0,
+      "max": 2
+    },
+    {
+      "type": "button",
+      "id": "go-button",
+      "text": "Go",
+      "action": [
+        "start();",
+        "setComponentDisabled('go-button', true);",
+        "setComponentDisabled('add-atom-button', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-atom-button",
+      "text": "Add a nonreactive atom",
+      "action": [
+        "addAtom({element: 2, x: 11, y: 10.6});",
+        "setComponentDisabled('add-atom-button', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-button",
+      "text": "Reset",
+      "action": "reloadModel();"
+    }
+  ],
+  "layout": {
+    "right": ["energyGraph", "element2KEGraph"],
+    "bottom": ["go-button", "add-atom-button", "reset-button"]
+  },
+  "template": [
+    {
       "id": "right",
       "height": "model.height",
-      "width": "model.width",
+      "width": "1.6 * model.width",
       "left": "model.right"
-  }]
+    },
+    {
+      "id": "bottom",
+      "width": "interactive.width",
+      "top": "model.bottom"
+    }
+  ]
 }
