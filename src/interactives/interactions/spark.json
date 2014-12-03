@@ -16,20 +16,61 @@
         "controlButtons": "reset",
         "enableKeyboardHandlers": false,
         "imageMapping": {
-          "Wand.png": "Wand.svg"
+          "Wand.png": "Wand.svg",
+          "electron.png": "electron.svg"
         }
       },
       "onLoad": [
         "start();",
-        "var pinned = 1;",
+        "var pinned = 1,",
+        "    dSq = Math.pow(getAtomProperties(1).x - getAtomProperties(0).x, 2) + Math.pow(getAtomProperties(1).y - getAtomProperties(0).y, 2),",
+        "    imageTicks = [-1,-1,-1,-1,-1],",
+        "    electronPath = [0,0];",
+        "for (var i = 1; i < 23; i++) { ",
+        "  electronPath.push(i*-0.02); electronPath.push(i*-0.02);",
+        "}",
+        "for (var i = 1; i < 25; i++) { ",
+        "  electronPath.push(-0.44); electronPath.push(-0.44 + (i*-0.02));",
+        "}",
+        "for (var i = 1; i < 23; i++) { ",
+        "  electronPath.push(-0.44 + (i*-0.005)); electronPath.push(-0.92 + (i*-0.02));",
+        "}",
+        "for (var i = 1; i < 35; i++) { ",
+        "  electronPath.push(-0.55 + (i*-0.015)); electronPath.push(-1.36 + (i*-0.02));",
+        "}",
         "onDrag('atom', function (x, y, d, i) {",
-        "  if(i === 3){",
+        "  if(i === 1){",
         "    pinned = 0;",
         "  }",
+        "  dSq = Math.pow(getAtomProperties(1).x - getAtomProperties(0).x, 2) + Math.pow(getAtomProperties(1).y - getAtomProperties(0).y, 2);",
         "});",
         "onPropertyChange('time', function(time) {",
-        "  setAtomProperties(3, {pinned: pinned});",
+        "  setAtomProperties(1, {pinned: pinned});",
         "  pinned = 1;",
+        "  ",
+        "  var wandAtoms = atomsWithinCircle(getAtomProperties(1).x, getAtomProperties(1).y, 0.15, 0),",
+        "      numVDGAtoms  = atomsWithinCircle(getAtomProperties(0).x, getAtomProperties(0).y, 0.25, 0).length,",
+        "      delta, i, ii, electron, nextAvailableImage;",
+        "  delta = numVDGAtoms == 0 ? 0 : dSq * (0.75 + numVDGAtoms/4)",
+        "  set('fake_pe', numVDGAtoms + delta);",
+        "  for (i = 0, ii = wandAtoms.length; i <  ii; i++) {",
+        "    electron = getAtomProperties(wandAtoms[i]);",
+        "    removeAtom(wandAtoms[i], {silent: true});",
+        "    nextAvailableImage = imageTicks.indexOf(-1);",
+        "    setImageProperties(nextAvailableImage+1, {visible: true});",
+        "    imageTicks[nextAvailableImage] = 0;",
+        "  }",
+        "  ",
+        "  for (i = 0, ii = imageTicks.length; i <  ii; i++) {",
+        "    if (imageTicks[i] > -1 && imageTicks[i]*2 < electronPath.length) {",
+        "      setImageProperties(i+1, {imageX: getAtomProperties(1).x + electronPath[imageTicks[i]*2] - 0.13, imageY: getAtomProperties(1).y + electronPath[imageTicks[i]*2 + 1] + 0.13});",
+        "      if (imageTicks[i]*2 < electronPath.length) {",
+        "        imageTicks[i]++;",
+        "      }",
+        "    } else {",
+        "      imageTicks[i] = -1;",
+        "    }",
+        "  }",
         "});"
       ]
     }
@@ -44,53 +85,48 @@
       "name": "right-particle-charge",
       "initialValue": -2,
       "onChange": ";"
-    }
-  ],
-  "outputs": [
+    },
     {
-      "name": "potential-energy",
-      "unitAbbreviation": "eV",
-      "label": "Potential Energy",
-      "value": [
-        "return pe();"
-      ]
+      "name": "fake_pe",
+      "initialValue": 0
     }
+
   ],
   "components": [
     {
       "type": "button",
       "id": "add-charge",
       "action": [
-        "var numAtoms = atomsWithinCircle(getAtomProperties(0).x, getAtomProperties(0).y, 0.3),",
+        "var numAtoms = atomsWithinCircle(getAtomProperties(0).x, getAtomProperties(0).y, 0.3).length,",
         "    added = false,",
         "    count = 0,",
         "    angle, x, y;",
-        "if (numAtoms >= 9) return;",
+        "if (numAtoms >= 6) return;",
         "while (!added && count++ < 10) {",
         " angle = Math.random() * 360;",
         " x = getAtomProperties(0).x + Math.sin(angle) * 0.23;",
         " y = getAtomProperties(0).y + Math.cos(angle) * 0.23;",
-        " added = addAtom({x: x, y: y, charge: -1, friction: 0.096, element: 1, draggableWhenStopped: 0});",
+        " added = addAtom({x: x, y: y, charge: -1, friction: 0.7, element: 0, draggableWhenStopped: 0});",
         "}"
       ],
       "text": "Add negative charge to the VDG"
     },
     {
       "type": "barGraph",
-      "min": -85,
-      "max": -50,
+      "min": 0,
+      "max": 10,
       "id": "potential-energy-graph",
-      "property": "potential-energy",
+      "property": "fake_pe",
       "barColor": "#4c952f",
       "title": "Potential Energy",
       "labels": [
         {
-          "value": -85,
-          "label": "low"
+          "value": 10,
+          "label": "high"
         },
         {
-          "value": -50,
-          "label": "high"
+          "value": 0,
+          "label": "low"
         }
       ]
     }
