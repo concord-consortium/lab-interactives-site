@@ -11,12 +11,19 @@
       "id": "chargeballs$0",
       "url": "models-converted/lab-version/1/md2d/interactions/opposites-attract/chargeballs$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/opposites-attract/chargeballs$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
      }
     }
   ],
+  "exports": {
+    "perRun": ["potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "text",

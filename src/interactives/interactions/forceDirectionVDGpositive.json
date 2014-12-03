@@ -20,6 +20,9 @@
         "controlButtons": "reset",
         "enableKeyboardHandlers": false
       },
+      "modelOptions": {
+        "useDuration": false
+      },
       "onLoad": [
           "setAtomProperties(1, { charge: 1 });",
           "function updateVectors() {",
@@ -91,6 +94,10 @@
       "onChange": []
     }
   ],
+  "exports": {
+    "perRun": ["potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "checkbox",

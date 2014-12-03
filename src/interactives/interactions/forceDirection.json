@@ -14,6 +14,9 @@
       "id": "forceDirection",
       "url": "models/lab-version/1/md2d/interactions/forceDirection.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction/forceDirection$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "reset",
         "enableKeyboardHandlers": false
@@ -101,6 +104,10 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": ["object-charge", "potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "button",

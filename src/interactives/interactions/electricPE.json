@@ -13,6 +13,9 @@
       "id": "electricPE2",
       "url": "models/lab-version/1/md2d/interactions/electric-pe/electricPE.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -57,6 +60,10 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": ["left-particle-charge", "right-particle-charge", "potential-energy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "text",

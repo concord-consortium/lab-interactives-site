@@ -9,6 +9,9 @@
     "id": "deformedCloud$0",
     "url": "models/lab-version/1/md2d/interactions/deformed-electron-cloud/deformedCloud.json",
     "importedFrom": "imports/legacy-mw-content/interactions/deformed-electron-cloud/deformedCloud$0.mml",
+    "modelOptions": {
+        "useDuration": false
+    },
     "viewOptions": {
       "controlButtons": "",
       "enableKeyboardHandlers": false,
@@ -103,6 +106,10 @@
     "name": "right-charge",
     "initialValue": 0
   }],
+  "exports": {
+    "perRun": ["left-charge", "right-charge"],
+    "perTick": []
+  },
   "components": [{
     "type": "slider",
     "id": "left-charge-slider",

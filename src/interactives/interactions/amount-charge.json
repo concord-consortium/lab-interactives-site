@@ -14,6 +14,9 @@
       "id": "amount-charge$0",
       "url": "models-converted/lab-version/1/md2d/interactions/charge-intensity-and-force/amount-charge$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -43,6 +46,10 @@
       "onChange": "setAtomProperties(0,{charge: value});"
     }
   ],
+  "exports": {
+    "perRun": ["left-particle-charge", "right-particle-charge", "potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "slider",

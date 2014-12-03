@@ -17,6 +17,9 @@
       "type": "md2d",
       "id": "instructions",
       "url": "models/lab-version/1/md2d/interactions/comparing-imf/instructions.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -42,6 +45,9 @@
       "type": "md2d",
       "id": "npPulling-H",
       "url": "models/lab-version/1/md2d/interactions/comparing-imf/npPulling-H.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -107,6 +113,9 @@
       "type": "md2d",
       "id": "npPulling-Br",
       "url": "models/lab-version/1/md2d/interactions/comparing-imf/npPulling-Br.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -172,6 +181,9 @@
       "type": "md2d",
       "id": "polarPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-imf/polarPulling.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -237,6 +249,9 @@
       "type": "md2d",
       "id": "polarNpPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-imf/polarNpPulling.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -299,6 +314,10 @@
       "onLoad": "start();"
     }
   ],
+  "exports": {
+    "perRun": ["potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "pulldown",

@@ -14,6 +14,9 @@
       "id": "act2model$0",
       "url": "models-converted/lab-version/1/md2d/interactions/distance-and-force/act2model$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/distance-and-force/act2model$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -42,6 +45,10 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": ["show-second-atom", "potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "checkbox",
