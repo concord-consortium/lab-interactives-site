@@ -56,11 +56,11 @@
       "labels": [
         {
           "value": 0,
-          "label": "0.0"
+          "label": "0.0°C"
         },
         {
           "value": 50,
-          "label": "50.0"
+          "label": "50.0°C"
         }
       ],
       "steps": 50,
@@ -77,11 +77,11 @@
       "labels": [
         {
           "value": 0,
-          "label": 0.0
+          "label": "0.0°C"
         },
         {
           "value": 50,
-          "label": 50.0
+          "label": "50.0°C"
         }
       ],
       "steps": 50,
@@ -102,7 +102,12 @@
       "xProperty": "time",
       "properties": [
         "sensor-1", "sensor-0"
-      ]
+      ],
+      "legendLabels": [
+      	"T1",
+      	"T2"
+      ],
+      "legendVisible": true
     }
   ],
   "layout": {

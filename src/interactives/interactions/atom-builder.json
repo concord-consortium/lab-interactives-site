@@ -1,8 +1,8 @@
 {
   "title": "Atom and Ion Builder",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "subtitle": "Making atoms and ions.",
+  "about": "Explore how protons, neutrons, and electrons affect the type of atom and its charge.",
   "fontScale": 0.65,
   "aspectRatio": 2.0,
   "models": [
@@ -12,7 +12,8 @@
       "url": "models/lab-version/1/md2d/interactions/atom-builder/atom-builder.json",
       "importedFrom": "imports/legacy-mw-content/interactions/atom-builder/atomBuilderIons$0.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
         "start();",
@@ -328,7 +329,7 @@
     },
     { "id": "instructions",
       "type": "div",
-      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affect the overall charge of the atom.</p>"
+      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affects the overall charge of the atom.</p>"
     }
   ],
   "layout": {

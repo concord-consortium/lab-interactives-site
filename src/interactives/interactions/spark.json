@@ -14,6 +14,7 @@
       "url": "models/lab-version/1/md2d/interactions/spark/spark.json",
       "viewOptions": {
         "controlButtons": "reset",
+        "enableKeyboardHandlers": false,
         "imageMapping": {
           "Wand.png": "Wand.svg"
         }
@@ -59,7 +60,19 @@
     {
       "type": "button",
       "id": "add-charge",
-      "action": "addAtom({x: 1.9, y: 0.555, charge: -1, friction: 0.096, element: 1, draggableWhenStopped: 0});",
+      "action": [
+        "var numAtoms = atomsWithinCircle(getAtomProperties(0).x, getAtomProperties(0).y, 0.3),",
+        "    added = false,",
+        "    count = 0,",
+        "    angle, x, y;",
+        "if (numAtoms >= 9) return;",
+        "while (!added && count++ < 10) {",
+        " angle = Math.random() * 360;",
+        " x = getAtomProperties(0).x + Math.sin(angle) * 0.23;",
+        " y = getAtomProperties(0).y + Math.cos(angle) * 0.23;",
+        " added = addAtom({x: x, y: y, charge: -1, friction: 0.096, element: 1, draggableWhenStopped: 0});",
+        "}"
+      ],
       "text": "Add negative charge to the VDG"
     },
     {

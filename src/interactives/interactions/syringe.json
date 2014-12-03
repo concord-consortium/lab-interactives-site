@@ -16,7 +16,8 @@
       "id": "syringe$0",
       "url": "models/lab-version/1/md2d/interactions/syringe.json",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
         "setImageProperties(0, { visible: false });",

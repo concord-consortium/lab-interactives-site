@@ -17,7 +17,8 @@
       "url": "models/lab-version/1/md2d/interactions/forceDirectionVDG.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction-VDG-negative/forceDirectionVDG$0.mml",
       "viewOptions": {
-        "controlButtons": "reset"
+        "controlButtons": "reset",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
           "function updateVectors() {",

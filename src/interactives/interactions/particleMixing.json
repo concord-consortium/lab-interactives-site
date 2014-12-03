@@ -17,7 +17,8 @@
       "url": "models-converted/lab-version/1/md2d/interactions/mixing-liquids/particleMixing$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
         "setComponentDisabled('add-columnB',false);",

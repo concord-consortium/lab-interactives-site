@@ -1,0 +1,127 @@
+{
+  "title": "Energy Detective 6A: Well and poorly-insulated houses",
+  "publicationStatus": "draft",
+  "aspectRatio": 1,
+  "subtitle": "Compare how much more heat a poorly-insulated house needs with a well-insulated one.",
+  "about": [
+    "Compare the heating needs of these two houses, which have identical shapes but different",
+    "construction quality. Which house has better insulation? How can you tell?"
+  ],
+  "importedFrom": "imports/energy2d/content-htb/S7A.html",
+  "models": [
+    {
+      "type": "energy2d",
+      "id": "S7A1",
+      "url": "models-converted/lab-version/1/energy2d/S6A1.json",
+      "importedFrom": "imports/energy2d/models-xml/S6A1.e2d",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "heater-power",
+      "label": "Heater power",
+      "onChange": "getPart(0).power = getPart(1).power = value;",
+      "initialValue": 2
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "pick-heater-power",
+      "label": "Heater power:",
+      "labelOn": "left",
+      "orientation": "horizontal",
+      "property": "heater-power",
+      "options": [
+        {
+          "text": "Off",
+          "value": 0
+        },
+        {
+          "text": "Low",
+          "value": 2
+        },
+        {
+          "text": "High",
+          "value": 5
+        }
+       ]
+    },
+    {
+      "type": "graph",
+      "id": "graph-left",
+      "title": "Temperature Probes: T1 and T2",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (°C)",
+      "ymin": 0,
+      "ymax": 25,
+      "xmax": 5000000,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "xProperty": "time",
+      "properties": [
+        "sensor-0", "sensor-1"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "graph-right",
+      "title": "Temperature Probes: T3 and T4",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (°C)",
+      "ymin": 0,
+      "ymax": 25,
+      "xmax": 5000000,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "xProperty": "time",
+      "properties": [
+        "sensor-2", "sensor-3"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom1",
+      "top": "model.bottom",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    },
+    {
+      "id": "bottom2",
+      "top": "bottom1.bottom",
+      "bottom": "interactive.bottom",
+      "width": "interactive.width * 0.48",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "bottom3",
+      "top": "bottom1.bottom",
+      "bottom": "interactive.bottom",
+      "right": "interactive.right",
+      "width": "interactive.width * 0.48",
+      "padding-top": "0.5em",
+      "padding-right": "0.1em"
+    }
+  ],
+  "layout": {
+    "bottom1": [ "pick-heater-power" ],
+    "bottom2": [ "graph-left" ],
+    "bottom3": [ "graph-right" ]
+  }
+}

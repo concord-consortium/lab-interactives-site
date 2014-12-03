@@ -1,5 +1,5 @@
 {
-  "title": "Energy Detective 7C: Vertical temperature gradients",
+  "title": "Energy Detective 6C: Vertical temperature gradients",
   "publicationStatus": "draft",
   "subtitle": "How does a ceiling effect the range of temperatures in a house?",
   "about": [
@@ -14,8 +14,8 @@
     {
       "type": "energy2d",
       "id": "S7C1",
-      "url": "models-converted/lab-version/1/energy2d/S7C1.json",
-      "importedFrom": "imports/energy2d/models-xml/S7C1.e2d",
+      "url": "models-converted/lab-version/1/energy2d/S6C1.json",
+      "importedFrom": "imports/energy2d/models-xml/S6C1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
       }

@@ -17,6 +17,7 @@
       "importedFrom": "imports/legacy-mw-content/interactions/target-game-charge-magnitude/targetGameCharge$0.mml",
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)",
         "forceVectors": {

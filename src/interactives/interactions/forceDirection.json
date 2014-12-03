@@ -15,7 +15,8 @@
       "url": "models/lab-version/1/md2d/interactions/forceDirection.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction/forceDirection$0.mml",
       "viewOptions": {
-        "controlButtons": "reset"
+        "controlButtons": "reset",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
           "function updateVectors() {",

@@ -12,8 +12,9 @@
       "url": "models-converted/lab-version/1/md2d/interactions/opposites-attract/chargeballs$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/opposites-attract/chargeballs$0.mml",
       "viewOptions": {
-        "controlButtons": ""
-      }
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+     }
     }
   ],
   "components": [

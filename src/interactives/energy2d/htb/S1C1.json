@@ -31,16 +31,82 @@
       "importedFrom": "imports/energy2d/models-xml/S1C1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        " function setControlsDisabled(value) {",
+        "  setComponentDisabled('cases-pulldown', value);",
+        "  setComponentDisabled('left-part-buttons', value);",
+        "  setComponentDisabled('right-part-buttons', value);",
+        "}",
+        "setControlsDisabled(false);",
+        "onStart(function () { setControlsDisabled(true); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "simulation-started",
+      "onChange": [
+        "setComponentDisabled('cases-pulldown', value);",
+        "setComponentDisabled('left-part-buttons', value);",
+        "setComponentDisabled('right-part-buttons', value);"
+      ],
+      "initialValue": false
     },
     {
-      "type": "energy2d",
-      "id": "S1C2",
-      "url": "models-converted/lab-version/1/energy2d/S1C2.json",
-      "importedFrom": "imports/energy2d/models-xml/S1C2.e2d",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      }
+      "name": "right-block-specific-heat",
+      "label": "Right block specific heat",
+      "unitAbbreviation": "kg · °C",
+      "onChange": "getPart(1).specific_heat = value;",
+      "initialValue": 2000
+    },
+    {
+      "name": "right-block-size",
+      "onChange": [
+        "var part = getPart(1), sensor = getSensor(1);",
+        "switch(value) {",
+        "case 50:",
+        "  part.width = 0.15;",
+        "  part.x = 0.5;",
+        "  sensor.x = 0.575;",
+        "  break;",
+        "case 100:",
+        "  part.width = 0.3;",
+        "  part.x = 0.5;",
+        "  sensor.x = 0.65;",
+        "  break;",
+        "case 150:",
+        "  part.width = 0.45;",
+        "  part.x = 0.5;",
+        "  sensor.x = 0.725;",
+        "  break;",
+        "}"
+      ],
+      "initialValue": 100
+    },
+    {
+      "name": "left-block-size",
+      "onChange": [
+        "var part = getPart(0), sensor = getSensor(0);",
+        "switch(value) {",
+        "case 50:",
+        "  part.width = 0.15;",
+        "  part.x = 0.35;",
+        "  sensor.x = 0.425;",
+        "  break;",
+        "case 100:",
+        "  part.width = 0.3;",
+        "  part.x = 0.2;",
+        "  sensor.x = 0.35;",
+        "  break;",
+        "case 150:",
+        "  part.width = 0.45;",
+        "  part.x = 0.05;",
+        "  sensor.x = 0.275;",
+        "  break;",
+        "}"
+      ],
+      "initialValue": 100
     }
   ],
   "components": [
@@ -49,14 +115,15 @@
       "id": "cases-pulldown",
       "label": "Cases:",
       "labelOn": "left",
+      "property": "right-block-specific-heat",
       "options": [
         {
           "text": "The left side has lower specific heat.",
-          "action": "loadModel('S1C1');"
+          "value": 2000
         },
         {
           "text": "The right side has lower specific heat.",
-          "action": "loadModel('S1C2');"
+          "value": 500
         }
       ]
     },
@@ -71,34 +138,19 @@
       "label": "Left",
       "labelOn": "left",
       "orientation": "horizontal",
+      "property": "left-block-size",
       "options": [
         {
           "text": "50%",
-          "action": [
-            "var part = getPart(0), sensor = getSensor(0)",
-            "part.width = 0.15;",
-            "part.x = 0.35;",
-            "sensor.x = 0.425;"
-          ]
+          "value": 50
         },
         {
           "text": "100%",
-          "action": [
-            "var part = getPart(0), sensor = getSensor(0)",
-            "part.width = 0.3;",
-            "part.x = 0.2;",
-            "sensor.x = 0.35;"
-          ],
-          "selected": true
+          "value": 100
         },
         {
           "text": "150%",
-          "action": [
-            "var part = getPart(0), sensor = getSensor(0)",
-            "part.width = 0.45;",
-            "part.x = 0.05;",
-            "sensor.x = 0.275;"
-          ]
+          "value": 150
         }
       ]
     },
@@ -108,34 +160,19 @@
       "label": "Right",
       "labelOn": "left",
       "orientation": "horizontal",
+      "property": "right-block-size",
       "options": [
         {
           "text": "50%",
-          "action": [
-            "var part = getPart(1), sensor = getSensor(1)",
-            "part.width = 0.15;",
-            "part.x = 0.5;",
-            "sensor.x = 0.575;"
-          ]
+          "value": 50
         },
         {
           "text": "100%",
-          "action": [
-            "var part = getPart(1), sensor = getSensor(1)",
-            "part.width = 0.3;",
-            "part.x = 0.5;",
-            "sensor.x = 0.65;"
-          ],
-          "selected": true
+          "value": 100
         },
         {
           "text": "150%",
-          "action": [
-            "var part = getPart(1), sensor = getSensor(1)",
-            "part.width = 0.45;",
-            "part.x = 0.5;",
-            "sensor.x = 0.725;"
-          ]
+          "value": 150
         }
       ]
     },
@@ -154,7 +191,12 @@
       "xProperty": "time",
       "properties": [
         "sensor-1", "sensor-0"
-      ]
+      ],
+      "legendLabels": [
+        "T2",
+        "T1"
+      ],
+      "legendVisible": true
     }
   ],
   "layout": {

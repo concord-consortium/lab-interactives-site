@@ -21,7 +21,8 @@
       "url": "models/lab-version/1/md2d/interactions/electron-darts/electronDarts.json",
       "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
       },
       "onLoad": [
         "// Hide the green text",

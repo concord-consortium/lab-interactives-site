@@ -1,0 +1,429 @@
+{
+  "title": "Atom and Ion Builder (with table)",
+  "publicationStatus": "public",
+  "subtitle": "Making atoms and ions.",
+  "about": "Create multiple versions of helium atoms and record the number of protons, electrons, and neutrons in the table.",
+  "fontScale": 0.65,
+  "aspectRatio": 1.8,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "atom-builder",
+      "url": "models/lab-version/1/md2d/interactions/atom-builder/atom-builder.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/atom-builder/atomBuilderIons$0.mml",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": [
+        "start();",
+        "callEvery(100, function() {",
+        "  batch(function() {",
+        "    var numElectrons = get('numElectrons');",
+        "    var centralEllipseProperties = getShapeProperties(1);",
+        "    var r = centralEllipseProperties.width / 2;",
+        "    var cx = centralEllipseProperties.x;",
+        "    var cy = centralEllipseProperties.y;",
+        "    var dist, angle, x, y;",
+        "    ",
+        "    for (var i = 0; i < numElectrons; i++) {",
+        "      dist = r * Math.random();",
+        "      angle = 2 * Math.PI * Math.random();",
+        "      x = cx + r + Math.cos(angle) * dist;",
+        "      y = cy + r + Math.sin(angle) * dist;",
+        "      ",
+        "      setShapeProperties(i + 2, { x: x, y: y });",
+        "    }",
+        "  });",
+        "});",
+        "function setCentralEllipseAlpha(alpha) {",
+        "  setShapeProperties(1, { color: 'radial rgba(255,0,0,' + alpha + ') 0% rgba(255,0,0,0) 100%' });",
+        "}",
+        "",
+        "function adjustCentralEllipse() {",
+        "  batch(function() {",
+        "    var numElectrons = get('numElectrons');",
+        "    var numProtons = get('numProtons');",
+        "    var alpha, w;",
+        "    ",
+        "    if (numElectrons === 0) {",
+        "      setCentralEllipseAlpha(0);",
+        "    } else {",
+        "      alpha = 0.8 * (75 + 15 * numElectrons) / 255;",
+        "      setCentralEllipseAlpha(alpha);",
+        "      w = 1.48 + 0.07 * (numElectrons - numProtons);",
+        "      if (numElectrons > 2) {",
+        "        w += 0.4;",
+        "      }",
+        "      setShapeProperties(1, { width: w, height: w, x: 1.8 - w / 2, y: 1.45 - w / 2 });",
+        "    }",
+        "  });",
+        "}",
+        "onPropertyChange('numElectrons', adjustCentralEllipse);",
+        "onPropertyChange('numProtons',   adjustCentralEllipse);",
+        "",
+        "function setButtonState() {",
+        "  var numElectrons = get('numElectrons');",
+        "  var numProtons = get('numProtons');",
+        "  var numNeutrons = get('numNeutrons');",
+        "  ",
+        "  setComponentDisabled('add-electron',    numElectrons >= 10);",
+        "  setComponentDisabled('remove-electron', numElectrons <=  0);",
+        "  setComponentDisabled('add-proton',      numProtons   >= 10);",
+        "  setComponentDisabled('remove-proton',   numProtons   <=  1);",
+        "  setComponentDisabled('add-neutron',     numNeutrons  >= 12);",
+        "  setComponentDisabled('remove-neutron',  numNeutrons  <=  0);",
+        "  setComponentDisabled('reset', numElectrons === 1 && numProtons === 1 && numNeutrons === 0 );",
+        "}",
+        "onPropertyChange('numElectrons', setButtonState);",
+        "onPropertyChange('numProtons',   setButtonState);",
+        "onPropertyChange('numNeutrons',  setButtonState);",
+        "setButtonState();",
+        "function adjustChart() {",
+        "  batch(function() {",
+        "    var numElectrons = get('numElectrons');",
+        "    var numProtons = get('numProtons');",
+        "    var numNeutrons = get('numNeutrons');",
+        "",
+        "    for (var i = 0; i < 10; i++) {",
+        "      setImageProperties(i, { visible: i < numElectrons });",
+        "    }",
+        "    for (; i < 20; i++) {",
+        "      setImageProperties(i, { visible: i - 10 < numProtons });",
+        "    }",
+        "    for (; i < 32; i++) {",
+        "      setImageProperties(i, { visible: i - 20 < numNeutrons });",
+        "    }",
+        "  });",
+        "}",
+        "",
+        "onPropertyChange('numElectrons', adjustChart);",
+        "onPropertyChange('numProtons', adjustChart);",
+        "onPropertyChange('numNeutrons', adjustChart);",
+        "adjustChart();",
+        "onPropertyChange('elementSymbol', function() {",
+        "  setTextBoxProperties(0, { text: get('elementSymbol') });",
+        "});",
+        "onPropertyChange('elementName', function() {",
+        "  setTextBoxProperties(1, { text: get('elementName') });",
+        "});",
+        "onPropertyChange('numElectrons', function() {",
+        "  setTextBoxProperties(2, { text: '# of electrons = ' + get('numElectrons') });",
+        "});",
+        "onPropertyChange('numProtons', function() {",
+        "  setTextBoxProperties(3, { text: '# of protons = ' + get('numProtons') });",
+        "});",
+        "onPropertyChange('totalCharge', function() {",
+        "  var charge = get('totalCharge');",
+        "  var color = charge < 0 ? '#FF0000' : charge > 0 ? '#0000FF' : '#666666';",
+        "  setTextBoxProperties(4, { ",
+        "    text: 'overall charge = ' + charge,",
+        "    color: color",
+        "  });",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "numElectrons",
+      "initialValue": 1,
+      "onChange": [
+        "var numElectronsRequested = value;",
+        "var numElectrons = getNumberOfShapes() - 2;",
+        "",
+        "if (numElectronsRequested === numElectrons) {",
+        "  return;",
+        "}",
+        "",
+        "if (numElectronsRequested > 10) {",
+        "  numElectronsRequested = 10;",
+        "} else if (numElectronsRequested < 0) {",
+        "  numElectronsRequested = 0;",
+        "}",
+        "",
+        "for (; numElectrons < numElectronsRequested; numElectrons++) {",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.05,",
+        "    height: 0.05,",
+        "    x: 1.06,",
+        "    y: 0.71,",
+        "    fence: 0,",
+        "    color: 'rgb(255,0,0)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 2,",
+        "    layerPosition: 14,",
+        "    visible: 1",
+        "  });",
+        "}",
+        "",
+        "for (; numElectrons > numElectronsRequested; numElectrons--) {",
+        "  removeShape(numElectrons + 1);",
+        "}",
+        "",
+        "set('numElectrons', numElectrons);"
+      ]
+    },
+    {
+      "name": "numProtons",
+      "initialValue": 1,
+      "onChange": [
+        "var numProtonsRequested = value;",
+        "var numProtons = getNumberOfAtoms(function(atom) { return atom.element === 1; });",
+        "var angle, i;",
+        "",
+        "if (numProtonsRequested === numProtons) {",
+        "  return;",
+        "}",
+        "",
+        "if (numProtonsRequested > 10) {",
+        "  numProtonsRequested = 10;",
+        "} else if (numProtonsRequested < 1) {",
+        "  numProtonsRequested = 1;",
+        "}",
+        "",
+        "for (; numProtons < numProtonsRequested; numProtons++) {",
+        "  angle = 2 * Math.PI * Math.random();",
+        "  addAtom({ element: 1, x: 1.8 + Math.cos(angle), y: 1.45 + Math.sin(angle) });",
+        "  i = getNumberOfAtoms() - 1;",
+        "  addRadialBond({ atom1: 0, atom2: i, length: 0.001414, strength: 1000 });",
+        "  minimizeEnergy();",
+        "}",
+        "",
+        "i = 0;",
+        "while (numProtons > numProtonsRequested) {",
+        "  if (getAtomProperties(i).element === 1) {",
+        "    // causes atom indices to shift down, so don't increment i yet",
+        "    removeAtom(i); ",
+        "    numProtons--;",
+        "  } else {",
+        "    i++;",
+        "  }",
+        "}",
+        "",
+        "set('numProtons', numProtons);"
+      ]
+    },
+    {
+      "name": "numNeutrons",
+      "initialValue": 0,
+      "onChange": [
+        "var numNeutronsRequested = value;",
+        "var numNeutrons = getNumberOfAtoms(function(atom) { return atom.element === 2; });",
+        "var angle, i;",
+        "",
+        "if (numNeutronsRequested === numNeutrons) {",
+        "  return;",
+        "}",
+        "",
+        "if (numNeutronsRequested > 12) {",
+        "  numNeutronsRequested = 12;",
+        "} else if (numNeutronsRequested < 0) {",
+        "  numNeutronsRequested = 0;",
+        "}",
+        "",
+        "for (; numNeutrons < numNeutronsRequested; numNeutrons++) {",
+        "  angle = 2 * Math.PI * Math.random();",
+        "  addAtom({ element: 2, x: 1.8 + Math.cos(angle), y: 1.45 + Math.sin(angle) });",
+        "  i = getNumberOfAtoms() - 1;",
+        "  addRadialBond({ atom1: 0, atom2: i, length: 0.001414, strength: 1000 });",
+        "  minimizeEnergy();",
+        "}",
+        "",
+        "i = 0;",
+        "while (numNeutrons > numNeutronsRequested) {",
+        "  if (getAtomProperties(i).element === 2) {",
+        "    // causes atom indices to shift down, so don't increment i yet",
+        "    removeAtom(i); ",
+        "    numNeutrons--;",
+        "  } else {",
+        "    i++;",
+        "  }",
+        "}",
+        "",
+        "set('numNeutrons', numNeutrons);"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "totalCharge",
+      "label": "Total Charge",
+      "value": "return get('numProtons') - get('numElectrons');"
+    },
+    {
+      "name": "elementSymbol",
+      "label": "Symbol of the element",
+      "value": [
+        "switch (get('numProtons')) {",
+        "  case  1: return 'H';",
+        "  case  2: return 'He';",
+        "  case  3: return 'Li';",
+        "  case  4: return 'Be';",
+        "  case  5: return 'B';",
+        "  case  6: return 'C';",
+        "  case  7: return 'N';",
+        "  case  8: return 'O';",
+        "  case  9: return 'F';",
+        "  case 10: return 'Ne';",
+        "}"
+      ]
+    },
+    {
+      "name": "elementName",
+      "label": "Name of the element",
+      "value": [
+        "switch (get('numProtons')) {",
+        "  case  1: return 'Hydrogen';",
+        "  case  2: return 'Helium';",
+        "  case  3: return 'Lithium';",
+        "  case  4: return 'Beryllium';",
+        "  case  5: return 'Boron';",
+        "  case  6: return 'Carbon';",
+        "  case  7: return 'Nitrogen';",
+        "  case  8: return 'Oxygen';",
+        "  case  9: return 'Fluorine';",
+        "  case 10: return 'Neon';",
+        "}"
+      ]
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Number of protons",
+        "Number of electrons",
+        "Number of neutrons"
+      ],
+      "initialData": {
+        "Number of protons": [" "," "," "," "]
+      }
+    }
+  ],
+  "components": [
+    { "id": "reset",
+      "type": "button",
+      "text": "reset to neutral hydrogen",
+      "action": "set('numNeutrons', 0); set('numProtons', 1); set('numElectrons', 1);"
+    },
+    { "id": "add-electron",
+      "type": "button",
+      "text": "add electron",
+      "action": "set('numElectrons', get('numElectrons') + 1);"
+    },
+    { "id": "remove-electron",
+      "type": "button",
+      "text": "remove electron",
+      "action": "set('numElectrons', get('numElectrons') - 1);"
+    },
+    { "id": "add-proton",
+      "type": "button",
+      "text": "add proton",
+      "action": "set('numProtons', get('numProtons') + 1);"
+    },
+    { "id": "remove-proton",
+      "type": "button",
+      "text": "remove proton",
+      "action": "set('numProtons', get('numProtons') - 1);"
+    },
+    { "id": "add-neutron",
+      "type": "button",
+      "text": "add neutron",
+      "action": "set('numNeutrons', get('numNeutrons') + 1);"
+    },
+    { "id": "remove-neutron",
+      "type": "button",
+      "text": "remove neutron",
+      "action": "set('numNeutrons', get('numNeutrons') - 1);"
+    },
+    { "id": "instructions",
+      "type": "div",
+      "content": "As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affects the overall charge of the atom."
+    },
+    { "id": "record-data-text",
+      "type": "div",
+      "content": "Record different combinations of protons, neutrons and electrons that make a helium atom."
+    },
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": true,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Number of protons",
+          "format": "r"
+        },
+        {
+          "name": "Number of electrons",
+          "format": "r"
+        },
+        {
+          "name": "Number of neutrons",
+          "format": "r"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "right1": [
+      "add-electron",
+      "add-proton",
+      "add-neutron"
+    ],
+    "right2": [
+     "remove-electron",
+     "remove-proton",
+     "remove-neutron"
+    ],
+    "bottom": [
+      ["reset"],
+      ["record-data-text"],
+      ["table1"]
+    ],
+    "very-bottom": [
+      "instructions"
+    ]
+  },
+  "template": [
+    {
+      "id": "right1",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "model.width * 0.30",
+      "padding-left": "0.1em",
+      "padding-right": "0.1em"
+    },
+    {
+      "id": "right2",
+      "top": "model.top",
+      "left": "right1.right",
+      "width": "model.width * 0.35",
+      "padding-left": "0.1em",
+      "padding-right": "0.1em"
+    },
+    {
+      "id": "bottom",
+      "top": "right1.bottom",
+      "left": "model.right",
+      "width": "right1.width + right2.width*1.25",
+      "padding-left": "0.1em",
+      "padding-right": "0.1em",
+      "padding-bottom": "0.1em"
+    },
+    {
+      "id": "very-bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "padding-top": "0.5em"
+    }
+  ]
+}

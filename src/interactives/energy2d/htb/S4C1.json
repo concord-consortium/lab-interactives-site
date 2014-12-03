@@ -22,7 +22,8 @@
       "importedFrom": "imports/energy2d/models-xml/S4C1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": "callAt(1500, function() { stop(); });"
     }
   ],
   "parameters": [
@@ -67,8 +68,8 @@
       "ymax": 35,
       "xmax": 1800,
       "xTickCount": 5,
-      "xFormatter": ".2s",
-      "yFormatter": ".2s",
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
       "xProperty": "time",
       "properties": [
         "sensor-0", "sensor-1"

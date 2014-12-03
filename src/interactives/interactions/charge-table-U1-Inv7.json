@@ -1,0 +1,114 @@
+{
+  "title": "Table: Comparing the charge of objects after rubbing them together",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to collect data so that you can look for patterns in how objects",
+    " become charged when rubbed together."
+  ],
+  "aspectRatio": "1.63",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Exp. #",
+        "Object 1",
+        "Charge before rubbing 1",
+        "Charge after rubbing 1",
+        "Object 2",
+        "Charge before rubbing 2",
+        "Charge after rubbing 2"
+      ],
+      "initialData": {
+        "Exp. #": ["1","2","3","4","5","6"],
+        "Object 1": ["Teflon rod","Glass rod","Plastic bottle","Plastic bottle"],
+        "Object 2": ["Fur","Silk","Fur","Silk","Fur","Silk"]
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Exp. #",
+          "format": "r"
+        },
+        {
+          "name": "Object 1",
+          "format": "r"
+        },
+        {
+          "name": "Charge before rubbing 1",
+          "format": "r"
+        },
+        {
+          "name": "Charge after rubbing 1",
+          "format": "r"
+        },
+        {
+          "name": "Object 2",
+          "format": "r"
+        },
+        {
+          "name": "Charge before rubbing 2",
+          "format": "r"
+        },
+        {
+          "name": "Charge after rubbing 2",
+          "format": "r"
+        }
+     ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Clear table",
+      "action": "clearDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}

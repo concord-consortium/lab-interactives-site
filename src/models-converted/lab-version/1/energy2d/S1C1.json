@@ -61,7 +61,7 @@
         "visible": true,
         "filled": false,
         "color": "auto",
-        "label": "%area",
+        "label": "%specific_heat",
         "texture": false,
         "draggable": true
       },
@@ -86,7 +86,7 @@
         "visible": true,
         "filled": false,
         "color": "auto",
-        "label": "%area",
+        "label": "%specific_heat",
         "texture": false,
         "draggable": true
       }

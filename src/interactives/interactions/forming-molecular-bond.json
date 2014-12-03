@@ -1,0 +1,74 @@
+  {
+    "title": "Forming a Molecular Bond",
+    "publicationStatus": "draft",
+    "subtitle": "",
+    "about": "",
+    "aspectRatio": 1.6,
+    "models": [{
+      "type": "md2d",
+      "id": "forming-molecular-bond",
+      "url": "models/lab-version/1/md2d/interactions/forming-molecular-bond.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_tick"
+      },
+      "onLoad": [
+        "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });"
+      ]
+    }],
+    "outputs": [
+      {
+        "name": "element1KE",
+        "value": "return atomsKe([0,1]);"
+      },
+      {
+        "name": "element2KE",
+        "value": "return atomsKe([2]);"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "fakeTotalEnergy",
+        "initialValue": 0
+      }
+    ],
+    "components": [{
+        "type": "graph",
+        "id": "energyGraph",
+        "title": "Energies: \"Hydrogen\" kinetic, \"Helium\" kinetic, potential, total",
+        "xlabel": "Time (ps)",
+        "ylabel": "Energy (eV)",
+        "ymin": -0.2,
+        "ymax": 0.2,
+        "xmax": 20,
+        "xTickCount": 4,
+        "yTickCount": 5,
+        "xFormatter": ".2r",
+        "yFormatter": ".2s",
+        "autoScaleX": true,
+        "autoScaleY": true,
+        "streamDataFromModel": true,
+        "xProperty": "displayTime",
+        "properties": [
+          "element1KE",
+          "element2KE",
+          "potentialEnergy",
+          "totalEnergy"
+        ],
+        "dataColors": [
+          "#2ca000",
+          "#00a02c",
+          "#ff0000",
+          "#0000ff"
+        ]
+      }
+    ],
+    "layout": {
+      "right": ["energyGraph"]
+    },
+    "template": [{
+      "id": "right",
+      "height": "model.height",
+      "width": "model.width",
+      "left": "model.right"
+  }]
+}

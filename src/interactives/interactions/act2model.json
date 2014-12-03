@@ -16,6 +16,7 @@
       "importedFrom": "imports/legacy-mw-content/interactions/distance-and-force/act2model$0.mml",
       "viewOptions": {
         "controlButtons": "",
+        "enableKeyboardHandlers": false,
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)",
         "forceVectors": {

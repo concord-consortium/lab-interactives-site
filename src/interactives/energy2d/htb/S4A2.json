@@ -1,0 +1,76 @@
+{
+  "title": "Convection 4A2: Natural convection",
+  "publicationStatus": "draft",
+  "subtitle": "Which mechanism transfers heat more quickly, conduction or convection?",
+  "about": [
+    "Run the model and compare heat moving downward by convection (left-hand) to heat moving",
+    "by conduction (right-hand). Which is faster?"
+  ],
+  "importedFrom": "imports/energy2d/content-htb/S4A.html",
+  "models": [
+    {
+      "type": "energy2d",
+      "id": "S4A1",
+      "url": "models-converted/lab-version/1/energy2d/S4A2.json",
+      "importedFrom": "imports/energy2d/models-xml/S4A2.e2d",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "heater-temperature",
+      "label": "Heater temperature",
+      "value": "getPart(2).temperature;",
+      "onChange": "getPart(2).temperature = value;",
+      "initialValue": 30
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "pick-heater-temperature",
+      "label": "Top heater temperature:",
+      "labelOn": "left",
+      "orientation": "horizontal",
+      "property": "heater-temperature",
+      "options": [
+        {
+          "text": "10 °C",
+          "value": 10
+        },
+        {
+          "text": "30 °C",
+          "value": 30
+        },
+        {
+          "text": "50 °C",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "graph",
+      "title": "Temperature Probes: T1 and T2",
+      "xlabel": "Time (s)",
+      "ylabel": "Temperature (°C)",
+      "ymin": -2,
+      "ymax": 20,
+      "xmax": 1800,
+      "xTickCount": 5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
+      "xProperty": "time",
+      "properties": [
+        "sensor-0", "sensor-1"
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [ "pick-heater-temperature" ],
+    "right": [ "graph" ]
+  },
+  "template": "wide-right"
+}

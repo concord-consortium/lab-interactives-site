@@ -22,7 +22,8 @@
       "importedFrom": "imports/energy2d/models-xml/S4B1.e2d",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": "callAt(1500, function() { stop(); });"
     }
   ],
   "parameters": [
@@ -44,15 +45,15 @@
       "property": "heater-temperature",
       "options": [
         {
-          "text": "10",
+          "text": "10 °C",
           "value": 10
         },
         {
-          "text": "30",
+          "text": "30 °C",
           "value": 30
         },
         {
-          "text": "50",
+          "text": "50 °C",
           "value": 50
         }
       ]
@@ -67,8 +68,8 @@
       "ymax": 20,
       "xmax": 1800,
       "xTickCount": 5,
-      "xFormatter": ".2s",
-      "yFormatter": ".2s",
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
       "xProperty": "time",
       "properties": [
         "sensor-0", "sensor-1"
@@ -76,7 +77,9 @@
     }
   ],
   "layout": {
-    "bottom": [ "pick-heater-temperature" ],
+    "bottom": [
+      [ "pick-heater-temperature" ]
+    ],
     "right": [ "graph" ]
   },
   "template": "wide-right"

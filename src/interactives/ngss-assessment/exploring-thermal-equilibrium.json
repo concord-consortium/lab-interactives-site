@@ -1,10 +1,13 @@
 {
   "title": "Exploring Thermal Equilibrium",
-  "publicationStatus": "draft",
-  "subtitle": "",
+  "publicationStatus": "public",
+  "subtitle": "Mixing substances and observing heat transfer.",
   "aspectRatio": 1.55,
   "fontScale": 0.85,
   "about": [
+    "Set the temperature of the substances on either side of the barrier and then allow them to mix. ",
+    "Notice what happens to the kinetic energy of the molecules and the temperatures of ",
+    "each substance."
   ],
   "models": [
     {

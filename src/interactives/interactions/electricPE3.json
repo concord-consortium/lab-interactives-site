@@ -1,0 +1,221 @@
+{
+  "title": "Conversion of Electric Potential Energy",
+  "publicationStatus": "draft",
+  "subtitle": "Explore how charge and distance affect electric potential energy.",
+  "aspectRatio": 1.6,
+  "about": [
+    "Set the charge of the particles and compare the potential energy of the electric field ",
+    "they generate. Try moving them closer and farther apart. Then run the model and see how",
+    "that energy is converted into thermal energy."
+   ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electricPE",
+      "url": "models/lab-version/1/md2d/interactions/electric-pe/electricPE.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        }
+      },
+      "onLoad": [
+        "onDrag('atom', function (x, y, d, i) {",
+        "  var atomToAvoid = getAtomProperties(1 - i),",
+        "   distToAtom = Math.sqrt((atomToAvoid.x - x) * (atomToAvoid.x - x) + (atomToAvoid.y - y) * (atomToAvoid.y - y)),",
+        "   minDist = getElementProperties(atomToAvoid.element).sigma;",
+        "  if(distToAtom < minDist && distToAtom > 0){",
+        "    // Avoid the special divide-by-zero case",
+        "    setAtomProperties(i, {x: minDist * (x - atomToAvoid.x) / distToAtom + atomToAvoid.x, y: minDist * (y - atomToAvoid.y) / distToAtom + atomToAvoid.y});",
+        "  }",
+        "  set('total-energy', get('potential-energy'));",
+        "});",
+        " ",
+        "set('total-energy', get('potential-energy'));"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "left-particle-charge",
+      "initialValue": 2,
+      "onChange": "setAtomProperties(1, {charge: value}); set('total-energy', get('potential-energy'));"
+    },
+    {
+      "name": "right-particle-charge",
+      "initialValue": -2,
+      "onChange": "setAtomProperties(0, {charge: value}); set('total-energy', get('potential-energy'));"
+    },
+    {
+      "name": "total-energy",
+      "initialValue": 0
+    }
+  ],
+  "outputs": [
+    {
+      "name": "potential-energy",
+      "unitAbbreviation": "eV",
+      "label": "Potential Energy",
+      "value": [
+        "var peLimit = [[0, 0, 0, 0], [ 0, 2.27, 4.52, 6.78], [0, 4.52, 9.03, 13.53], [0, 6.78, 13.53, 20.29]];",
+        "return pe() + (pe() < 0 ? peLimit[Math.abs(get('left-particle-charge'))][Math.abs(get('right-particle-charge'))] : 0);"
+      ]
+    },
+    {
+      "name": "kinetic-energy",
+      "unitAbbreviation": "J",
+      "label": "Kinetic Energy",
+      "value": [
+        "var atom = getAtomProperties(0);",
+        "return 2 * (0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy));"
+      ]
+    },
+    {
+      "name": "thermal-energy",
+      "unitAbbreviation": "J",
+      "label": "Thermal Energy",
+      "value": [
+        "var tot_e = get('total-energy'),",
+        "    th_e = tot_e - get('potential-energy') - get('kinetic-energy');",
+        "return Math.min(th_e, tot_e);"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "drag-inst",
+      "text": "Note: The charged objects are draggable."
+    },
+    {
+      "type": "slider",
+      "id": "set-left-particle-charge",
+      "property": "left-particle-charge",
+      "min": -3,
+      "max": 3,
+      "steps": 6,
+      "width": "45%",
+      "title": "Left particle charge",
+      "displayValue": "return format('d')(value)",
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "set-right-particle-charge",
+      "property": "right-particle-charge",
+      "min": -3,
+      "max": 3,
+      "steps": 6,
+      "width": "45%",
+      "title": "Right particle charge",
+      "displayValue": "return format('d')(value)",
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "select-show-forces",
+      "property": "showForceVectors",
+      "text": "Show forces"
+    },
+    {
+      "type": "checkbox",
+      "id": "select-show-electric-field",
+      "property": "showElectricField",
+      "text": "Show electric field"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 20,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 20,
+          "label": "high"
+        }
+      ],
+      "id": "potential-energy-graph",
+      "property": "potential-energy",
+      "barColor": "#4c952f",
+      "title": "Potential Energy (eV)"
+    },
+    {
+      "type": "barGraph",
+      "min": 0,
+      "max": 20,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 20,
+          "label": "high"
+        }
+      ],
+      "id": "thermal-energy-graph",
+      "property": "thermal-energy",
+      "barColor": "#95602f",
+      "title": "Thermal Energy (eV)"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "bottom": "interactive.bottom",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["set-left-particle-charge", "set-right-particle-charge"],
+      ["select-show-forces", "select-show-electric-field"],
+      ["drag-inst"]
+    ],
+    "right": [
+      ["potential-energy-graph", "thermal-energy-graph"]
+    ]
+  }
+}

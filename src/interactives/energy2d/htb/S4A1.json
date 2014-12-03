@@ -1,5 +1,5 @@
 {
-  "title": "Convection 4A: Natural convection",
+  "title": "Convection 4A1: Natural convection",
   "publicationStatus": "draft",
   "subtitle": "Which mechanism transfers heat more quickly, conduction or convection?",
   "about": [
@@ -46,15 +46,15 @@
       "property": "heater-temperature",
       "options": [
         {
-          "text": "10",
+          "text": "10 °C",
           "value": 10
         },
         {
-          "text": "30",
+          "text": "30 °C",
           "value": 30
         },
         {
-          "text": "50",
+          "text": "50 °C",
           "value": 50
         }
       ]
@@ -69,8 +69,8 @@
       "ymax": 20,
       "xmax": 1800,
       "xTickCount": 5,
-      "xFormatter": ".2s",
-      "yFormatter": ".2s",
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
       "xProperty": "time",
       "properties": [
         "sensor-0", "sensor-1"
