@@ -1,9 +1,9 @@
 {
   "title": "Energy of a Spring",
-  "publicationStatus": "draft",
-  "subtitle": "Energy conservation and transformation in a pendulum.",
+  "publicationStatus": "public",
+  "subtitle": "Energy conservation and transformation in a spring.",
   "about": [
-    ""
+    "Explore the conversion of energy between elastic potential, kinetic, and thermal energy."
   ],
   "aspectRatio": 1.5,
   "fontScale": 0.8,

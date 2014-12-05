@@ -1,12 +1,14 @@
 
 {
   "title": "Van der Graaf (VDG) discharge",
-  "publicationStatus": "draft",
-  "subtitle": "",
+  "publicationStatus": "public",
+  "subtitle": "Explore electric potential energy and sparks.",
   "aspectRatio": 1.35,
   "about": [
-    ""
+    "Charge up the Van der Graaf generator and drag the discharge wand close enough to form a spark. ",
+    "What happens to the electric potential energy when you charge the Van der Graaf and when the spark occurs?"
    ],
+  "helpOnLoad": true,
   "models": [
     {
       "type": "md2d",
@@ -128,6 +130,13 @@
           "value": 0,
           "label": "low"
         }
+      ]
+    }
+  ],
+  "helpTips": [
+    {
+      "text": [
+        "Charge up the Van der Graaf generator, and then drag the wand around by the head of the wand."
       ]
     }
   ],

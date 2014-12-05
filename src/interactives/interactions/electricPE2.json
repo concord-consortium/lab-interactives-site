@@ -1,11 +1,11 @@
 {
   "title": "Electric Potential Energy and Charge Intensity",
-  "publicationStatus": "draft",
-  "subtitle": "Explore how charge and distance affect electric potential energy.",
+  "publicationStatus": "public",
+  "subtitle": "Compare the potential energy of particles with varying amount of charge.",
   "aspectRatio": 1.35,
   "about": [
     "Set the charge of the particles and compare the potential energy of the electric field ",
-    "they generate. Try moving them closer and farther apart."
+    "they generate. Try moving them closer and farther apart and changing the amount of charge each particle has."
    ],
   "models": [
     {
