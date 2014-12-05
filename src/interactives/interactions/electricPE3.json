@@ -23,6 +23,11 @@
         }
       },
       "onLoad": [
+        "setAtomProperties(1, {element: 2});",
+        "function setInitialSpeed() {",
+        "  setAtomProperties(0, {vx: 0, vy: 0});",
+        "  setAtomProperties(1, {vx: 0, vy: 0});",
+        "}",
         "onDrag('atom', function (x, y, d, i) {",
         "  var atomToAvoid = getAtomProperties(1 - i),",
         "   distToAtom = Math.sqrt((atomToAvoid.x - x) * (atomToAvoid.x - x) + (atomToAvoid.y - y) * (atomToAvoid.y - y)),",
@@ -31,9 +36,11 @@
         "    // Avoid the special divide-by-zero case",
         "    setAtomProperties(i, {x: minDist * (x - atomToAvoid.x) / distToAtom + atomToAvoid.x, y: minDist * (y - atomToAvoid.y) / distToAtom + atomToAvoid.y});",
         "  }",
+        "  setInitialSpeed();",
         "  set('total-energy', get('potential-energy'));",
         "});",
         " ",
+        "setInitialSpeed();",
         "set('total-energy', get('potential-energy'));"
       ]
     }
