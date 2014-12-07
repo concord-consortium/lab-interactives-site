@@ -14,6 +14,7 @@
       if (!Modernizr.svg) { window.location = 'browser-upgrade.html'; }
     = lab_js_dependencies
     = ANALYTICS
+    %script{:src => 'vendor/shutterbug/shutterbug.js', :type => 'text/javascript'}
   %body
     #interactive-container{:tabindex => 0}
 
@@ -36,6 +37,6 @@
           // However it's used by the Selenium tests (see lab-selenium-tests repository).
           $("#interactive-container").addClass("interactive-rendered");
         });
+        // Enables shutterbug iframe-iframe communication.
+        Shutterbug.enable("#interactive-container");
       }());
-
-    = LAB_SHUTTERBUG_EMBEDDABLE

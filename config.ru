@@ -1,6 +1,4 @@
 require 'rack-livereload'
-require 'shutterbug'
-
 require "./script/setup"
 
 ENVIRONMENT = CONFIG[:environment]
@@ -8,10 +6,6 @@ puts "environment: #{ENVIRONMENT}"
 
 use Rack::ConditionalGet
 use Rack::ContentLength
-
-# Shutterbug adds these:
-# shutterbug/shutterbug.js shutterbug/get_png/SHA1
-use Shutterbug::Rackapp
 
 Rack::Mime::MIME_TYPES.merge!({
   ".ttf" => "font/ttf",

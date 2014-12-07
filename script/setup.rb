@@ -132,16 +132,3 @@ else
 <script src='vendor/chosen/chosen.jquery.min.js' type='text/javascript'></script>
   HEREDOC
 end
-
-LAB_SHUTTERBUG = <<-HEREDOC
-<script src='vendor/shutterbug/shutterbug.js' type='text/javascript'></script>
-  HEREDOC
-LAB_SHUTTERBUG_EMBEDDABLE = LAB_SHUTTERBUG + <<-HEREDOC
-<script>
-  $(window).load(function () {
-    if (typeof Shutterbug !== 'undefined') {
-      window.shutterbug = new Shutterbug("#interactive-container", "#image_output") };
-    }
-  );
-</script>
-  HEREDOC

@@ -66,10 +66,7 @@ This is because of the limitation of the `file` protocol in browsers. Continue o
 
 ### 4. open another new terminal and run `rackup config.ru`
 
-Startup the Rack-based Lab server for local development. This is simple rack application that mainly just serves
-the files in public. It does contain a dynamic extension:
-
-- a [shutterbug](https://github.com/concord-consortium/shutterbug) service so you can take snapshots locally
+Startup the Rack-based Lab server for local development. This is simple rack application that mainly just serves the files in public.
 
 Alternatively you can use `python -m SimpleHTTPServer` to run a python server. Currently it won't handle the applets and it won't support snapshots, but you might not need those features.
 

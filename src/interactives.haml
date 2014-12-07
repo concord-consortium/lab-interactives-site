@@ -18,6 +18,7 @@
     = lab_js_dependencies
     = LAB_JS_ADDITIONAL_DEPENDENCIES
     = ANALYTICS
+    %script{:src => 'vendor/shutterbug/shutterbug.js', :type => 'text/javascript'}
   %body
     #header
       %a#logo{:href => "http://www.concord.org/"}
@@ -204,7 +205,6 @@
 
     = js_site_config
     %script{:src => lab_js_url, :type => "text/javascript"}
-    = LAB_SHUTTERBUG
     %script{:src => "embeddable.js", :type => "text/javascript"}
     %script{:src => "application.js", :type => "text/javascript"}
 

@@ -12,7 +12,6 @@
       interactives,
       groups,
       parentPhone,
-      shutterbug,
 
       $content = $("#content"),
       $interactiveTitle = $("#interactive-title"),
@@ -293,9 +292,6 @@
     // data table not working in iframe embedding mode yet
     $("#model-datatable").hide();
 
-    if (typeof Shutterbug !== 'undefined') {
-      shutterbug = new Shutterbug("#iframe-interactive","#image_output");
-    }
     setupCodeEditor();
     setupModelCodeEditor();
     setupSnapshotButton();
@@ -766,8 +762,8 @@
     }
     $('#export_interactive').on('click', function(e) {
       e.preventDefault();
-      if (typeof shutterbug !== 'undefined') {
-        shutterbug.getDomSnapshot();
+      if (typeof Shutterbug !== 'undefined') {
+        Shutterbug.snapshot("#iframe-interactive", "#image_output");
       }
     });
   }

@@ -11,8 +11,6 @@ GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
 FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 
-SHUTTERBUG_GEM := $(shell bundle show shutterbug)
-
 # targets
 
 INTERACTIVE_FILES := $(shell find src/models src/interactives -name '*.json' -exec echo {} \; | sed s'/src\/\(.*\)/public\/\1/' )
@@ -250,9 +248,7 @@ public/vendor: \
 	public/vendor/text \
 	public/vendor/domReady \
 	public/vendor/fingerprintjs \
-	public/vendor/shutterbug/shutterbug.js \
-	public/vendor/shutterbug/README.md \
-	public/vendor/shutterbug/LICENSE.md \
+	public/vendor/shutterbug \
 	public/vendor/lab-energy2d-java \
 	public/vendor/iframe-phone/iframe-phone.js \
 	public/vendor/chosen/chosen.jquery.min.js \
@@ -417,18 +413,7 @@ public/vendor/fingerprintjs:
 
 public/vendor/shutterbug:
 	mkdir -p public/vendor/shutterbug
-
-public/vendor/shutterbug/shutterbug.js: public/vendor/shutterbug \
-	vendor/shutterbug/shutterbug.js
-	sed -e s'/CONVERT_PATH/shutterbug\/make_snapshot/' vendor/shutterbug/shutterbug.js > public/vendor/shutterbug/shutterbug.js
-
-public/vendor/shutterbug/README.md: public/vendor/shutterbug \
-	vendor/shutterbug/README.md
-	cp vendor/shutterbug/README.md public/vendor/shutterbug
-
-public/vendor/shutterbug/LICENSE.md: public/vendor/shutterbug \
-	vendor/shutterbug/LICENSE.md
-	cp vendor/shutterbug/LICENSE.md public/vendor/shutterbug
+	cp vendor/shutterbug.js/dist/shutterbug.js public/vendor/shutterbug/
 
 public/vendor/iframe-phone/iframe-phone.js: \
 	public/vendor/iframe-phone \
@@ -457,21 +442,6 @@ vendor/components-jqueryui:
 
 vendor/lab-energy2d-java:
 	git submodule update --init --recursive
-
-vendor/shutterbug:
-	mkdir -p vendor/shutterbug
-
-vendor/shutterbug/shutterbug.js: vendor/shutterbug \
-	$(SHUTTERBUG_GEM)/lib/shutterbug/handlers/shutterbug.js
-	cp $(SHUTTERBUG_GEM)/lib/shutterbug/handlers/shutterbug.js vendor/shutterbug
-
-vendor/shutterbug/README.md: vendor/shutterbug \
-	$(SHUTTERBUG_GEM)/README.md
-	cp $(SHUTTERBUG_GEM)/README.md vendor/shutterbug
-
-vendor/shutterbug/LICENSE.md: vendor/shutterbug \
-	$(SHUTTERBUG_GEM)/LICENSE.md
-	cp $(SHUTTERBUG_GEM)/LICENSE.md vendor/shutterbug
 
 # ------------------------------------------------
 #
