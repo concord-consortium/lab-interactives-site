@@ -224,7 +224,6 @@
         $codapLink = $("#codap-link"),
         $codapStagingLink = $("#codap-staging-link"),
         codapGameSpecification,
-        pathname,
         url;
 
     setupNextPreviousInteractive();
@@ -244,33 +243,32 @@
       $jsonModelLink.attr("title", "View model JSON in another window");
     }
 
-    if (SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      // construct link to CODAP embeddable version of Interactive
-      pathname = window.location.pathname.replace(/interactives(-.+)?\.html/, SITE_CONFIG.EMBEDDABLE_PAGE);
-      url = SITE_CONFIG.DATA_GAMES_PROXY_PREFIX + pathname + "?codap=true#" + interactiveUrl;
-      url = url.replace("//", "/");
-      codapGameSpecification = JSON.stringify([{
-        "name": $selectInteractive.find("option:selected").text(),
-        "dimensions": {
-          "width": 600,
-          "height": 400
-        },
-        "url": url
-      }]);
-    }
+    // encode small JSON hash to be passed as query parameter to CODAP
 
-    if (!SITE_CONFIG.DATA_GAMES_PROXY_PREFIX) {
-      $codapLink.hide();
-      $codapStagingLink.hide();
-    } else {
-      $codapLink.show();
-      $codapLink.attr("href", encodeURI("http://is.codap.concord.org/dg?moreGames=" + codapGameSpecification));
-      $codapLink.attr("title", "Run this Interactive inside CODAP");
+    // construct url to interactive, to be passed to CODAP
+    // (need origin *and* the pathname up to the interactives.html part so that we retain branch,
+    // as in: http://lab.concord.org/branch/<branchname>/interactives.html#<interactive>)
+    url = document.location.origin +
+      document.location.pathname.replace(/interactives(-.+)?\.html/, SITE_CONFIG.EMBEDDABLE_PAGE) +
+     '?codap=true' +
+     hash;
 
-      $codapStagingLink.show();
-      $codapStagingLink.attr("href", encodeURI("http://is-test.codap.concord.org/dg?moreGames=" + codapGameSpecification));
-      $codapStagingLink.attr("title", "Run this Interactive inside the CODAP staging server");
-    }
+    codapGameSpecification = encodeURIComponent(JSON.stringify([{
+      "name": $selectInteractive.find("option:selected").text(),
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "url": url
+    }]));
+
+    $codapLink.attr("href",
+      "http://codap.concord.org/releases/latest/?moreGames=" + codapGameSpecification);
+    $codapLink.attr("title", "Run this Interactive inside CODAP");
+
+    $codapStagingLink.attr("href",
+      "http://codap.concord.org/releases/staging/?moreGames=" + codapGameSpecification);
+    $codapStagingLink.attr("title", "Run this Interactive inside the CODAP staging server");
 
     setupOriginalImportLinks();
     setupExtras();

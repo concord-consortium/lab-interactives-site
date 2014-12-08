@@ -17,6 +17,9 @@
       "type": "md2d",
       "id": "page1$0",
       "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page1/page1$0.json",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -35,7 +38,12 @@
       }
     }
   ],
+  "exports": {
+    "perRun": ["potentialEnergy"],
+    "perTick": []
+  },
   "components": [
 
   ]
+
 }

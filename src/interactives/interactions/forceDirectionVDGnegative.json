@@ -16,6 +16,9 @@
       "id": "forceDirectionVDG",
       "url": "models/lab-version/1/md2d/interactions/forceDirectionVDG.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction-VDG-negative/forceDirectionVDG$0.mml",
+      "modelOptions": {
+        "useDuration": false
+      },
       "viewOptions": {
         "controlButtons": "reset",
         "enableKeyboardHandlers": false
@@ -90,6 +93,10 @@
       "onChange": []
     }
   ],
+  "exports": {
+    "perRun": ["potentialEnergy"],
+    "perTick": []
+  },
   "components": [
     {
       "type": "checkbox",
