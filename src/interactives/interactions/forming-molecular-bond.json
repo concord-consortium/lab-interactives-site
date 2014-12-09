@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
-  "aspectRatio": 1.7,
+  "aspectRatio": 1.5,
   "models": [{
     "type": "md2d",
     "id": "forming-molecular-bond",
@@ -14,11 +14,13 @@
         "text": "Place a non-reactive atom so the molecule stays bonded",
         "x": 10.55,
         "y": 11.45,
+        "width": 0.75,
         "layer": 1,
         "frame": "rounded rectangle",
-        "fontSize": 0.035,
+        "fontSize": 0.06,
         "backgroundColor": "rgb(255,255,255)",
-        "anchor": "upper-left"
+        "anchor": "upper-left",
+        "textAlign": "center"
       }]
     },
     "onLoad": [
@@ -62,7 +64,7 @@
       "ymin": -5,
       "ymax": 5,
       "xmax": 0.3000001,
-      "width": "15em",
+      "width": "18em",
       "xTickCount": 6,
       "yTickCount": 10,
       "xFormatter": "r",
@@ -78,33 +80,18 @@
         "totalEnergy"
       ],
       "dataColors": [
-        "#00ff00",
-        "#ff00ff",
-        "#0000ff",
-        "#000000"
-      ]
-    },
-    {
-      "id": "element2KEGraph",
-      "type": "barGraph",
-      "property": "element2KE",
-      "title": "KE of non-reactive atom",
-      "labels": [
-        {
-          "value": 0,
-          "label": "0 eV"
-        },
-        {
-          "value": 1,
-          "label": "1 eV"
-        },
-        {
-          "value": 2,
-          "label": "2 eV"
-        }
+        "#c194ff",
+        "#814ec6",
+        "#70c64e",
+        "#7c7c7c"
       ],
-      "min": 0,
-      "max": 2
+      "legendLabels": [
+        "KE of reactive atoms",
+        "KE of non-reactive atom",
+        "Potential Energy",
+        "Total Energy"
+      ],
+      "legendVisible": false
     },
     {
       "type": "button",
@@ -133,15 +120,15 @@
     }
   ],
   "layout": {
-    "right": ["energyGraph", "element2KEGraph"],
+    "right": ["energyGraph"],
     "bottom": ["go-button", "add-atom-button", "reset-button"]
   },
   "template": [
     {
       "id": "right",
       "height": "model.height",
-      "width": "1.6 * model.width",
-      "left": "model.right"
+      "left": "model.right",
+      "padding-left": "0.5em"
     },
     {
       "id": "bottom",
