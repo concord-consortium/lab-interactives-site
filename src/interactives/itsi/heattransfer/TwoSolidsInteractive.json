@@ -29,6 +29,7 @@
       ]
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "leftAtomsIndices",
@@ -140,6 +141,9 @@
     }
   ],
   "layout": {
+    "bottom": [
+     ["show-ke"]
+    ],
     "left": [
       "bar-graph2"
     ],
@@ -153,17 +157,22 @@
     "right-model": [
       ["heat-right"],
       ["cool-right"]
-    ],
-    "bottom": [
-     ["show-ke"]
     ]
   },
   "template": [
     {
+      "id": "bottom",
+      "top": "right-model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    },
+    {
       "id": "left",
       "top": "model.top",
       "right": "model.left",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-right": "0.5em",
       "align": "right",
       "min-width": "6em"
@@ -172,7 +181,7 @@
       "id": "right",
       "top": "model.top",
       "left": "model.right",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-left": "0.5em",
       "padding-right": "0.5em",
       "min-width": "6em"
@@ -190,14 +199,6 @@
       "right": "model.right",
       "padding-right": "1.25em",
       "align": "right"
-    },
-    {
-      "id": "bottom",
-      "top": "right-model.bottom",
-      "left": "model.left",
-      "width": "model.width",
-      "align": "center",
-      "padding-top": "0.5em"
     }
   ]
 }
