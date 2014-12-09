@@ -9,9 +9,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    x="0px"
    y="0px"
-   width="24.97142857142857px"
-   height="24.97142857142857px"
-   viewBox="0 0 32 32"
+   width="19px"
+   height="19px"
+   viewBox="0 0 24 24"
    xml:space="preserve"
    id="svg3203"
    version="1.1"
@@ -78,11 +78,5 @@
        y="16"
        dy="-2.0773526e-28"
        id="text3222"
-       style="text-anchor:middle" />
-<text
-       x="16"
-       y="16"
-       dy="-2.0773526e-28"
-       id="text3224"
        style="text-anchor:middle" />
 </g></svg>

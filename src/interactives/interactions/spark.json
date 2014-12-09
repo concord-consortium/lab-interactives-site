@@ -38,7 +38,7 @@
         "  electronPath.push(-0.44 + (i*-0.005)); electronPath.push(-0.92 + (i*-0.02));",
         "}",
         "for (var i = 1; i < 35; i++) { ",
-        "  electronPath.push(-0.55 + (i*-0.015)); electronPath.push(-1.36 + (i*-0.02));",
+        "  electronPath.push(-0.55 + (i*-0.012)); electronPath.push(-1.36 + (i*-0.02));",
         "}",
         "onDrag('atom', function (x, y, d, i) {",
         "  if(i === 1){",
