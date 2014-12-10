@@ -76,6 +76,7 @@
       "    y: atoms[1].y - newHeight / 2",
       "  });",
       "  if (Math.abs(force) < 2.5e-6) force = 0;",
+      "  if (force == 0 && distance > 1.66) force = 2e-6;",
       "  setAtomProperties(0, {vx: force});",
       "  setAtomProperties(1, {vx: -force});",
       "  forceText = force == 0 ? _pe > -1 ? 'Attractive' : 'Balanced' : force > 0 ? 'Attractive' : 'Repulsive';",

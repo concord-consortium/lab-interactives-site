@@ -95,6 +95,7 @@
       "    y: atoms[1].y - newHeight1 / 2",
       "  });",
       "  if ((Math.abs(force) < 2.5e-6 && _pe < -0.38) || (Math.abs(force) < 2.2e-5 && _pe < -3)) force = 0;",
+      "  if (Math.abs(force) < 2.5e-6 && _pe > -0.38) force = 1e-6;",
       "  setAtomProperties(0, {vx: force});",
       "  setAtomProperties(1, {vx: -force});",
       "  forceText = force == 0 ? _pe > -0.38 ? 'Attractive' : 'Balanced' : force > 0 ? 'Attractive' : 'Repulsive';",
