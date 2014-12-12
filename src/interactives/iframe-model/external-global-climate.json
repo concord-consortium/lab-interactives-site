@@ -11,26 +11,7 @@
       "modelOptions":{
         "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html",
         "albedo": 0,
-        "sunBrightness": 200,
-        "outputs": {
-          "year": {
-              "label": "Year",
-              "format": "d",
-              "unitName": "Year"
-            },
-            "temperatureChange": {
-              "label": "Temperature Change",
-              "format": "3.1f",
-              "unitName": "degrees Celsius",
-              "unitAbbreviation": "°C"
-            },
-            "co2Concentration": {
-              "label": "CO₂ Concentration",
-              "format": "3.0f",
-              "unitName": "",
-              "unitAbbreviation": ""
-            }
-        }
+        "sunBrightness": 200
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -38,7 +19,30 @@
     }
   ],
   "aspectRatio": 1.25,
-  "parameters": [
+  "outputs": [
+    {
+      "name": "year",
+      "label": "Year",
+      "format": "d",
+      "unitName": "Year",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "temperatureChange",
+      "label": "Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('temperatureChange');"
+    },
+    {
+      "name": "co2Concentration",
+      "label": "CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('co2Concentration');"
+    }
   ],
   "components": [
     {
