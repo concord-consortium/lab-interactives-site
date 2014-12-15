@@ -1,0 +1,198 @@
+{
+  "type": "md2d",
+  "imagePath": "",
+  "width": 22,
+  "height": 22,
+  "unitsScheme": "md2d",
+  "lennardJonesForces": true,
+  "coulombForces": true,
+  "temperatureControl": false,
+  "gravitationalField": false,
+  "timeStep": 0.01,
+  "dielectricConstant": 1,
+  "realisticDielectricEffect": true,
+  "solventForceFactor": 1.25,
+  "solventForceType": 0,
+  "additionalSolventForceMult": 4,
+  "additionalSolventForceThreshold": 10,
+  "polarAAEpsilon": -2,
+  "viscosity": 1,
+  "timeStepsPerTick": 100,
+  "DNAState": "dna",
+  "DNA": "",
+  "DNAMutations": true,
+  "useQuantumDynamics": false,
+  "useChemicalReactions": true,
+  "skipPECheckOnAddAtom": false,
+  "viewOptions": {
+    "viewPortZoom": 1.5,
+    "viewPortDrag": false,
+    "viewPortX": 10.6,
+    "viewPortY": 10.7,
+    "viewPortWidth": 1.5,
+    "viewPortHeight": 1,
+    "backgroundColor": "#eeeeee",
+    "showClock": true,
+    "markColor": "#f8b500",
+    "keShading": false,
+    "chargeShading": false,
+    "useThreeLetterCode": true,
+    "aminoAcidColorScheme": "hydrophobicity",
+    "showChargeSymbols": true,
+    "showVDWLines": false,
+    "VDWLinesCutoff": "medium",
+    "showVelocityVectors": false,
+    "showForceVectors": false,
+    "showElectricField": false,
+    "electricFieldDensity": 18,
+    "electricFieldColor": "auto",
+    "showAtomTrace": false,
+    "images": [],
+    "imageMapping": {},
+    "textBoxes": [],
+    "xlabel": false,
+    "ylabel": false,
+    "xunits": false,
+    "yunits": false,
+    "controlButtons": "play_reset_tick",
+    "gridLines": false,
+    "atomNumbers": false,
+    "enableAtomTooltips": false,
+    "enableKeyboardHandlers": true,
+    "atomTraceColor": "#6913c5",
+    "velocityVectors": {
+      "color": "#000",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectors": {
+      "color": "#169C30",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectorsDirectionOnly": false
+  },
+  "atoms": {
+    "x": [
+      10.848516,
+      10.9,
+      11.5
+    ],
+    "y": [
+      11.02586,
+      11,
+      11.0
+    ],
+    "element": [
+      1,
+      1,
+      0
+    ],
+    "vx": [
+      0,
+      0,
+      -0.02
+    ],
+    "vy": [
+      0,
+      0,
+      0
+    ],
+    "charge": [
+      0,
+      0,
+      0
+    ],
+    "friction": [
+      0,
+      0,
+      0
+    ],
+    "pinned": [
+      0,
+      0,
+      0
+    ],
+    "draggableWhenStopped": [
+      0,
+      0,
+      0
+    ]
+  },
+  "elements": {
+    "mass": [
+      10,
+      10,
+      10,
+      10,
+      120
+    ],
+    "sigma": [
+      0.1,
+      0.06,
+      0.12,
+      0.12,
+      0.3
+    ],
+    "epsilon": [
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1
+    ],
+    "color": [
+      -3343365,
+      -1,
+      -26215,
+      -14535681,
+      -855310
+    ]
+  },
+  "radialBonds": {
+    "atom1": [
+      1
+    ],
+    "atom2": [
+      0
+    ],
+    "length": [
+      0.074
+    ],
+    "strength": [
+      821
+    ],
+    "type": [
+      101
+    ]
+  },
+  "pairwiseLJProperties": [],
+  "chemicalReactions": {
+    "updateInterval": 0.01,
+    "createAngularBonds": true,
+    "noLoops": false,
+    "valenceElectrons": [
+      8,
+      1,
+      1,
+      1
+    ],
+    "bondEnergy": {
+      "default": 6,
+      "0-0": 0,
+      "1-1": 4.5,
+      "2-2": 5.2,
+      "3-3": 1.7
+    },
+    "activationEnergy": {
+      "default": 0
+    },
+    "bondProbability": {
+      "default": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

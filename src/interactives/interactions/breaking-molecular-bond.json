@@ -1,0 +1,235 @@
+{
+  "title": "Breaking a Molecular Bond",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.3,
+  "models": [{
+    "type": "md2d",
+    "id": "forming-molecular-bond",
+    "url": "models/lab-version/1/md2d/interactions/breaking-molecular-bond.json",
+    "viewOptions": {
+      "controlButtons": "play_reset_step"
+    },
+    "onLoad": [
+      "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
+      "onPropertyChange('numberOfElement1AtomsInView', function() {",
+      "  if (get('numberOfElement1AtomsInView') < 2) {",
+      "    stop();",
+      "  }",
+      "});"
+    ]
+  }],
+  "parameters": [
+    {
+      "name": "mass",
+      "initialValue": 10,
+      "onChange": "setElementProperties(2,{mass: value});"
+    },
+    {
+      "name": "velocity",
+      "initialValue": 0.005,
+      "onChange": "setAtomProperties(2,{vx: -value});"
+    },
+    {
+      "name": "molecule",
+      "initialValue": 1,
+      "onChange": [
+        "var length, strength, x1, y1;",
+        "if (value == 1) {",
+        "  length = 0.074;",
+        "  strength = 821;",
+        "  x1 = 10.9;",
+        "  y1 = 11;",
+        "} else if (value == 2) {",
+        "  length = 0.121;",
+        "  strength = 355;",
+        "  x1 = 11;",
+        "  y1 = 10.9;",
+        "} else if (value == 3) {",
+        "  length = 0.145;",
+        "  strength = 80;",
+        "  x1 = 11;",
+        "  y1 = 10.9;",
+        "}",
+        "setAtomProperties(0,{element: value});",
+        "setAtomProperties(1,{element: value, x: x1, y: y1});",
+        "setRadialBondProperties(0, {length: length, strength: strength})"
+      ]
+    },
+    {
+      "name": "slow-motion",
+      "initialValue": false,
+      "onChange": "if (value) set('timeStep', 0.003); else set('timeStep', 0.01);"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "element1KE",
+      "value": "return atomsKe([0,1]);"
+    },
+    {
+      "name": "element2KE",
+      "value": "return atomsKe([2]);"
+    },
+    {
+      "name": "numberOfElement1AtomsInView",
+      "value": [
+        "var radius = Math.max(getElementProperties(1).sigma, getElementProperties(1).sigma) / 2;",
+        "var left = get('viewPortX') - radius;",
+        "var bottom = get('viewPortY') - radius;",
+        "var width = get('viewPortWidth') + 2*radius;",
+        "var height = get('viewPortHeight') + 2*radius;",
+        "return atomsWithinRect(left, bottom, width, height).filter(function(x) { return x < 2; }).length;"
+      ]
+    }
+  ],
+  "components": [{
+      "type": "graph",
+      "id": "energyGraph",
+      "title": "Energies",
+      "xlabel": "Time (ps)",
+      "ylabel": "Energy (eV)",
+      "ymin": -5,
+      "ymax": 5,
+      "xmax": 0.3000001,
+      "width": "18em",
+      "xTickCount": 6,
+      "yTickCount": 10,
+      "xFormatter": "r",
+      "yFormatter": ".1r",
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "streamDataFromModel": true,
+      "xProperty": "displayTime",
+      "properties": [
+        "element1KE",
+        "element2KE",
+        "potentialEnergy",
+        "totalEnergy"
+      ],
+      "dataColors": [
+        "#c194ff",
+        "#814ec6",
+        "#70c64e",
+        "#7c7c7c"
+      ],
+      "legendLabels": [
+        "KE of reactive atoms",
+        "KE of non-reactive atom",
+        "Potential Energy",
+        "Total Energy"
+      ],
+      "legendVisible": false
+    },
+    {
+      "id": "molecule-header",
+      "type": "text",
+      "text": "Select molecule to break",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "molecule-selector",
+      "type": "radio",
+      "label": " ",
+      "property": "molecule",
+      "options": [
+        {
+          "text": "Hydrogen",
+          "value": 1
+        },
+        {
+          "text": "Oxygen",
+          "value": 2
+        },
+        {
+          "text": "Nitrogen",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "third-atom-header",
+      "type": "text",
+      "text": "Set energy of non-bonded atom",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "type": "slider",
+      "id": "mass-slider",
+      "displayValue": "return format('1f')(value)",
+      "min": 1,
+      "max": 20,
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 20,
+          "label": "20"
+        }
+      ],
+      "steps": 19,
+      "title": "Mass (u)",
+      "property": "mass",
+      "width": "13em"
+    },
+    {
+      "type": "slider",
+      "id": "velocity-slider",
+      "displayValue": "return format('.3f')(value)",
+      "min": 0.005,
+      "max": 0.05,
+      "labels": [
+        {
+          "value": 0.005,
+          "label": "0.005"
+        },
+        {
+          "value": 0.05,
+          "label": "0.05"
+        }
+      ],
+      "steps": 9,
+      "title": "Velocity (nm/fs)",
+      "property": "velocity",
+      "width": "13em"
+    },
+    {
+      "type": "checkbox",
+      "id": "slow-motion-checkbox",
+      "text": "Slow motion",
+      "property": "slow-motion"
+    }
+  ],
+  "layout": {
+    "right": ["energyGraph"],
+    "bottom-left": [["molecule-header"],["molecule-selector"], ["slow-motion-checkbox"]],
+    "bottom-right": [["third-atom-header"],["mass-slider"],["velocity-slider"]]
+  },
+  "template": [
+    {
+      "id": "right",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom-left",
+      "width": "interactive.width/2.7",
+      "top": "model.bottom",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom-right",
+      "width": "interactive.width/2",
+      "top": "model.bottom",
+      "left": "bottom-left.right"
+    }
+  ]
+}
