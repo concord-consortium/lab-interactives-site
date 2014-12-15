@@ -9,7 +9,7 @@
     "id": "forming-molecular-bond",
     "url": "models/lab-version/1/md2d/interactions/breaking-molecular-bond.json",
     "viewOptions": {
-      "controlButtons": "play_reset_step"
+      "controlButtons": "play_reset"
     },
     "onLoad": [
       "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
@@ -17,6 +17,14 @@
       "  if (get('numberOfElement1AtomsInView') < 2) {",
       "    stop();",
       "  }",
+      "});",
+      "setComponentDisabled('molecule-selector', false);",
+      "setComponentDisabled('mass-slider', false);",
+      "setComponentDisabled('velocity-slider', false);",
+      "onStart(function() {",
+        "setComponentDisabled('molecule-selector', true);",
+        "setComponentDisabled('mass-slider', true);",
+        "setComponentDisabled('velocity-slider', true);",
       "});"
     ]
   }],
