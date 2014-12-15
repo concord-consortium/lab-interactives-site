@@ -25,10 +25,10 @@
   "useChemicalReactions": true,
   "skipPECheckOnAddAtom": false,
   "viewOptions": {
-    "viewPortZoom": 1.5,
+    "viewPortZoom": 1.3,
     "viewPortDrag": false,
-    "viewPortX": 10.6,
-    "viewPortY": 10.7,
+    "viewPortX": 10.4,
+    "viewPortY": 10.6,
     "viewPortWidth": 1.5,
     "viewPortHeight": 1,
     "backgroundColor": "#eeeeee",
@@ -128,9 +128,9 @@
       120
     ],
     "sigma": [
-      0.1,
+      0.08,
       0.06,
-      0.12,
+      0.115,
       0.12,
       0.3
     ],

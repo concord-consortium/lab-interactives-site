@@ -32,7 +32,7 @@
     {
       "name": "mass",
       "initialValue": 10,
-      "onChange": "setElementProperties(2,{mass: value});"
+      "onChange": "setElementProperties(0,{mass: value});"
     },
     {
       "name": "velocity",
@@ -43,24 +43,30 @@
       "name": "molecule",
       "initialValue": 1,
       "onChange": [
-        "var length, strength, x1, y1;",
+        "var length, strength, x0, y0, x1, y1;",
         "if (value == 1) {",
         "  length = 0.074;",
         "  strength = 821;",
+        "  x0 = 10.848516;",
+        "  y0 = 11.02586;",
         "  x1 = 10.9;",
-        "  y1 = 11;",
+        "  y1 = 10.97;",
         "} else if (value == 2) {",
         "  length = 0.121;",
         "  strength = 355;",
-        "  x1 = 11;",
-        "  y1 = 10.9;",
+        "  x0 = 10.868516;",
+        "  y0 = 11.05586;",
+        "  x1 = 10.95;",
+        "  y1 = 10.97;",
         "} else if (value == 3) {",
         "  length = 0.145;",
         "  strength = 80;",
-        "  x1 = 11;",
-        "  y1 = 10.9;",
+        "  x0 = 10.858516;",
+        "  y0 = 11.08586;",
+        "  x1 = 10.95;",
+        "  y1 = 10.97;",
         "}",
-        "setAtomProperties(0,{element: value});",
+        "setAtomProperties(0,{element: value, x: x0, y: y0});",
         "setAtomProperties(1,{element: value, x: x1, y: y1});",
         "setRadialBondProperties(0, {length: length, strength: strength})"
       ]
@@ -169,20 +175,20 @@
     {
       "type": "slider",
       "id": "mass-slider",
-      "displayValue": "return format('1f')(value)",
+      "displayValue": "return format('.1f')(value)",
       "min": 1,
-      "max": 20,
+      "max": 30,
       "labels": [
         {
           "value": 1,
           "label": "1"
         },
         {
-          "value": 20,
-          "label": "20"
+          "value": 30,
+          "label": "30"
         }
       ],
-      "steps": 19,
+      "steps": 58,
       "title": "Mass (u)",
       "property": "mass",
       "width": "13em"
