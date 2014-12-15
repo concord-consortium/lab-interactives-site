@@ -1,0 +1,92 @@
+{
+  "title": "Table: Testing gases with glowing and flaming splints",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to record observations of both a flaming and glowing splint with various gases."
+  ],
+  "aspectRatio": "2",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Test Tube",
+        "What happened when a small flame was placed in the test tube?",
+        "What happened when a glowing splint was placed in the test tube?"
+      ],
+      "initialData": {
+        "Test Tube": ["X","Y","Z"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Test Tube",
+          "format": "r"
+        },
+        {
+          "name": "What happened when a small flame was placed in the test tube?",
+          "format": "r"
+        },
+        {
+          "name": "What happened when a glowing splint was placed in the test tube?",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}

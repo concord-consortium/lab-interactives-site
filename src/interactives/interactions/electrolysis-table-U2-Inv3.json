@@ -1,0 +1,92 @@
+{
+  "title": "Table: Testing gases electrolysis experiment",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to record observations of both a flaming and glowing splint with gases from an electrolysis experiment."
+  ],
+  "aspectRatio": "2.2",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Test",
+        "Gas from negative (-) terminal",
+        "Gas from positive (+) terminal"
+      ],
+      "initialData": {
+        "Test": ["Small flame","Glowing splint"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Test",
+          "format": "r"
+        },
+        {
+          "name": "Gas from negative (-) terminal",
+          "format": "r"
+        },
+        {
+          "name": "Gas from positive (+) terminal",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
