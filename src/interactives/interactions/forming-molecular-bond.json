@@ -11,11 +11,11 @@
     "viewOptions": {
       "controlButtons": "",
       "textBoxes": [{
-        "text": "Place a non-reactive atom so the molecule stays bonded",
+        "text": "",
         "x": 10.55,
         "y": 11.45,
         "width": 0.75,
-        "layer": 1,
+        "layer": 2,
         "frame": "rounded rectangle",
         "fontSize": 0.06,
         "backgroundColor": "rgb(255,255,255)",
@@ -27,6 +27,7 @@
       "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
       "setComponentDisabled('go-button', false);",
       "setComponentDisabled('add-atom-button', false);",
+      "setTextBoxProperties(0, {text: 'Try to form a molecule with and without a third atom'});",
       "onPropertyChange('numberOfElement1AtomsInView', function() {",
       "  if (get('numberOfElement1AtomsInView') < 2) {",
       "    stop();",
@@ -34,6 +35,18 @@
       "});"
     ]
   }],
+  "parameters": [
+    {
+      "name": "slow-motion",
+      "initialValue": false,
+      "onChange": "if (value) set('timeStep', 0.003); else set('timeStep', 0.01);"
+    },
+    {
+      "name": "show-forces",
+      "initialValue": false,
+      "onChange": "set('showForceVectors', value);"
+    }
+  ],
   "outputs": [
     {
       "name": "element1KE",
@@ -55,6 +68,32 @@
       ]
     }
   ],
+  "filteredOutputs": [
+    {
+      "name": "element1KE_AVG",
+      "unitType": "energy",
+      "property": "element1KE",
+      "period": 10
+    },
+    {
+      "name": "element2KE_AVG",
+      "unitType": "energy",
+      "property": "element2KE",
+      "period": 10
+    },
+    {
+      "name": "potentialEnergy_AVG",
+      "unitType": "energy",
+      "property": "potentialEnergy",
+      "period": 10
+    },
+    {
+      "name": "totalEnergy_AVG",
+      "unitType": "energy",
+      "property": "totalEnergy",
+      "period": 10
+    }
+  ],
   "components": [{
       "type": "graph",
       "id": "energyGraph",
@@ -74,10 +113,10 @@
       "streamDataFromModel": true,
       "xProperty": "displayTime",
       "properties": [
-        "element1KE",
-        "element2KE",
-        "potentialEnergy",
-        "totalEnergy"
+        "element1KE_AVG",
+        "element2KE_AVG",
+        "potentialEnergy_AVG",
+        "totalEnergy_AVG"
       ],
       "dataColors": [
         "#c194ff",
@@ -109,7 +148,8 @@
       "text": "Add a nonreactive atom",
       "action": [
         "addAtom({element: 2, x: 11, y: 10.6});",
-        "setComponentDisabled('add-atom-button', true);"
+        "setComponentDisabled('add-atom-button', true);",
+        "setTextBoxProperties(0, {text: 'Place the new atom where you think it will help the other atoms form a bond'});"
       ]
     },
     {
@@ -117,11 +157,23 @@
       "id": "reset-button",
       "text": "Reset",
       "action": "reloadModel();"
+    },
+    {
+      "type": "checkbox",
+      "id": "slow-motion-checkbox",
+      "text": "Slow motion",
+      "property": "slow-motion"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-forces-checkbox",
+      "text": "Show forces",
+      "property": "show-forces"
     }
   ],
   "layout": {
     "right": ["energyGraph"],
-    "bottom": ["go-button", "add-atom-button", "reset-button"]
+    "bottom": [["go-button", "add-atom-button", "reset-button"],["slow-motion-checkbox", "show-forces-checkbox"]]
   },
   "template": [
     {

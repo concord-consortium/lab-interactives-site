@@ -66,9 +66,9 @@
       "length": 2
     },
     "forceVectors": {
-      "color": "#169C30",
+      "color": "rgb(255,255,0)",
       "width": 0.01,
-      "length": 2
+      "length": 1.2
     },
     "forceVectorsDirectionOnly": false
   },
