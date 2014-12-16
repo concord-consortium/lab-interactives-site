@@ -9,9 +9,14 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html",
+        "url": "http://localhost:8000/global-climate/lab-embeddable.html",
         "albedo": 0,
-        "sunBrightness": 200
+        "sunBrightness": 200,
+        "animRate": 60,
+        "showGases": true,
+        "showRays": true,
+        "showHeat": true,
+        "hide90": false
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -85,16 +90,17 @@
       "type": "slider",
       "id": "speedSlider",
       "title": "Simulation Speed",
-      "min": 0.1,
-      "max": 1,
+      "min": 20,
+      "max": 60,
       "steps": 10,
+      "property": "animRate",
       "labels": [
         {
-          "value": 0.1,
+          "value": 20,
           "label": "slowest"
         },
         {
-          "value": 1,
+          "value": 60,
           "label": "fastest"
         }
       ],
@@ -103,17 +109,20 @@
     {
       "type": "checkbox",
       "id": "showGasesCheckbox",
-      "text": "Show Gases"
+      "text": "Show Gases",
+      "property": "showGases"
     },
     {
       "type": "checkbox",
       "id": "showRaysCheckbox",
-      "text": "Show Rays"
+      "text": "Show Rays",
+      "property": "showRays"
     },
     {
       "type": "checkbox",
       "id": "showHeatCheckbox",
-      "text": "Show Heat"
+      "text": "Show Heat",
+      "property": "showHeat"
     },
     {
       "type": "button",
@@ -125,7 +134,7 @@
       "type": "button",
       "id": "removeCo2Button",
       "text": "Remove CO₂",
-      "action": "removeCO2();"
+      "action": "subtractCO2();"
     },
     {
       "type": "numericOutput",
@@ -188,25 +197,25 @@
       "type": "button",
       "id": "removeCloudButton",
       "text": "Remove Cloud",
-      "action": "removeCloud();"
+      "action": "subtractCloud();"
     },
     {
       "type": "button",
       "id": "followEnergyButton",
       "text": "Follow Energy Packet",
-      "action": ""
+      "action": "addSunraySpotlight();"
     },
     {
       "type": "button",
       "id": "followCo2Button",
       "text": "Follow CO₂",
-      "action": ""
+      "action": "addCO2Spotlight();"
     },
     {
       "type": "button",
       "id": "hide90Button",
       "text": "Hide 90% of Elements",
-      "action": ""
+      "action": "set('hide90', !get('hide90'));"
     },
     {
       "type": "button",
