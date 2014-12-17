@@ -10,7 +10,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "http://localhost:8000/global-climate/lab-embeddable.html",
+        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html",
         "albedo": 0,
         "sunBrightness": 200,
         "animRate": 60,
