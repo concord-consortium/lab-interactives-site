@@ -148,7 +148,7 @@
     {
       "type": "slider",
       "id": "speedSlider",
-      "title": "Simulation Speed",
+      "title": "Simulation speed",
       "min": 20,
       "max": 60,
       "steps": 10,
@@ -166,21 +166,26 @@
       "width": "10em"
     },
     {
+      "type": "text",
+      "id": "showLabel",
+      "text": "Show:"
+    },
+    {
       "type": "checkbox",
       "id": "showGasesCheckbox",
-      "text": "Show Gases",
+      "text": "Gases",
       "property": "showGases"
     },
     {
       "type": "checkbox",
       "id": "showRaysCheckbox",
-      "text": "Show Rays",
+      "text": "Rays",
       "property": "showRays"
     },
     {
       "type": "checkbox",
       "id": "showHeatCheckbox",
-      "text": "Show Heat",
+      "text": "Heat",
       "property": "showHeat"
     },
     {
@@ -229,7 +234,7 @@
     {
       "type": "slider",
       "id": "sunBrightnessSlider",
-      "title": "Sun Brightness",
+      "title": "Sun brightness",
       "min": 0,
       "max": 200,
       "steps": 11,
@@ -249,13 +254,13 @@
     {
       "type": "button",
       "id": "addCloudButton",
-      "text": "Add Cloud",
+      "text": "Add cloud",
       "action": "addCloud();"
     },
     {
       "type": "button",
       "id": "removeCloudButton",
-      "text": "Remove Cloud",
+      "text": "Remove cloud",
       "action": "subtractCloud();"
     },
     {
@@ -303,13 +308,15 @@
       ],
       [
         "speedSlider",
+        "albedoSlider",
+        "sunBrightnessSlider",
+        "showLabel",
         "showGasesCheckbox",
         "showRaysCheckbox",
         "showHeatCheckbox"
       ],
       [
-        "albedoSlider",
-        "sunBrightnessSlider",
+        "eruptButton",
         "addCo2Button",
         "removeCo2Button",
         "addCloudButton",
@@ -317,7 +324,8 @@
       ],
       [
         "followEnergyButton",
-        "followCO2Button"
+        "followCO2Button",
+        "hide90Button"
       ]
     ]
   },
