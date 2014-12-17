@@ -3,6 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "This is an AgentScript model created by the HAS project",
   "about": "",
+  "aspectRatio": 1.25,
   "models": [
     {
       "type": "iframe-model",
@@ -15,15 +16,60 @@
         "animRate": 60,
         "showGases": true,
         "showRays": true,
-        "showHeat": true,
-        "hide90": false
+        "showHeat": true
       },
       "viewOptions": {
         "controlButtons": "play_reset"
       }
     }
   ],
-  "aspectRatio": 1.25,
+  "parameters": [
+    {
+      "name": "hide90",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('hide90');",
+        "  setComponentAttributes('hide90Button', {text: 'Show all elements'});",
+        "} else {",
+        "  post('showAll');",
+        "  setComponentAttributes('hide90Button', {text: 'Hide 90% of elements'});",
+        "}"
+      ]
+    },
+    {
+      "name": "followEnergy",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addSunraySpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
+        "}"
+      ]
+    },
+    {
+      "name": "followCO2",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addCO2Spotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
+        "}"
+      ]
+    }
+  ],
   "outputs": [
     {
       "name": "year",
@@ -202,19 +248,25 @@
     {
       "type": "button",
       "id": "followEnergyButton",
-      "text": "Follow Energy Packet",
-      "action": "addSunraySpotlight();"
+      "text": "Follow energy packet",
+      "action": [
+        "set('followCO2', false);",
+        "set('followEnergy', !get('followEnergy'));"
+      ]
     },
     {
       "type": "button",
-      "id": "followCo2Button",
+      "id": "followCO2Button",
       "text": "Follow CO₂",
-      "action": "addCO2Spotlight();"
+      "action": [
+        "set('followEnergy', false);",
+        "set('followCO2', !get('followCO2'));"
+      ]
     },
     {
       "type": "button",
       "id": "hide90Button",
-      "text": "Hide 90% of Elements",
+      "text": "Hide 90% of elements",
       "action": "set('hide90', !get('hide90'));"
     },
     {
@@ -252,7 +304,7 @@
       ],
       [
         "followEnergyButton",
-        "followCo2Button"
+        "followCO2Button"
       ]
     ]
   },
