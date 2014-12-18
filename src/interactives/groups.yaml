@@ -146,6 +146,10 @@
   :name: "JSmol Interactives"
   :category: Curriculum
 
+- :path: global-climate
+  :name: "Global Climate Interactives"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum
