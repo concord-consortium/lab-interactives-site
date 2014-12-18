@@ -25,12 +25,12 @@
     {
       "name": "table-dataset",
       "properties": [
-        "Test",
+        "Type of test",
         "Gas from negative (-) terminal",
         "Gas from positive (+) terminal"
       ],
       "initialData": {
-        "Test": ["Small flame","Glowing splint"]
+        "Type of test": ["Small flame","Glowing splint"]
       }
 
     }
@@ -47,7 +47,7 @@
       "width": "interactive.width",
       "propertyColumns": [
         {
-          "name": "Test",
+          "name": "Type of test",
           "format": "r"
         },
         {
