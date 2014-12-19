@@ -1,5 +1,5 @@
 {
-  "title": "Global Climate Variant 3",
+  "title": "Global Climate Variant 5",
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
@@ -16,63 +16,16 @@
         "showGases": true,
         "showRays": true,
         "showHeat": true,
-        "includeWaterVapor": false,
-        "oceanAbsorbtionChangable": true,
-        "useFixedTemperature": true,
-        "initialTemperature": 10,
-        "fixedTemperature": 10,
-        "oceanTemperature": 10,
-        "nCO2Emission": 0.5,
-        "keyLabels": [
-          "solar radiation",
-          "infrared radiation",
-          "carbon dioxide",
-          "heat"
-        ]
+        "humanEmissionRate": 0.5,
+        "albedo": 0.55,
+        "nCO2Emission": 0.1,
+        "oceanCO2Absorbtion": 0.7
       },
       "viewOptions": {
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "onPropertyChange('spotlightActive', function() {",
-        "  if (get('spotlightActive')) return;",
-        "  // Agent may leave model area what causes spotlight deactivation.",
-        "  // Ensure buttons are in sync with actual spotlight state.",
-        "  if (get('followEnergy')) set('followEnergy', false);",
-        "  if (get('followCO2'))    set('followCO2', false);",
-        "});"
-      ]
-    }
-  ],
-  "parameters": [
-    {
-      "name": "followEnergy",
-      "initialValue": false,
-      "onChange": [
-        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
-        "// called before iframe can register its methods (before iframe communication is started).",
-        "if (value) {",
-        "  post('addSunraySpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
-        "} else {",
-        "  post('removeSpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
-        "}"
-      ]
-    },
-    {
-      "name": "followCO2",
-      "initialValue": false,
-      "onChange": [
-        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
-        "// called before iframe can register its methods (before iframe communication is started).",
-        "if (value) {",
-        "  post('addCO2Spotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
-        "} else {",
-        "  post('removeSpotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
-        "}"
+        "post('step', 50);"
       ]
     }
   ],
@@ -119,13 +72,21 @@
       "unitName": "",
       "unitAbbreviation": "",
       "value": "return iframeOutput('oceanCO2Concentration');"
+    },
+    {
+      "name": "vaporConcentration",
+      "label": "Vapor Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('vaporConcentration');"
     }
   ],
   "components": [
       {
       "type": "graph",
       "id": "temperatureGraph",
-      "title": "Temp. Change: Air (red), Ocean (blue)",
+      "title": "Temperature Change",
       "xlabel": "Time (year)",
       "ylabel": "Temperature (°C)",
       "xmin": 2014,
@@ -135,7 +96,7 @@
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["temperatureChange", "oceanTemperatureChange"],
+      "properties": ["temperatureChange"],
       "xProperty": "year",
       "resetAxesOnReset": true,
       "height": "100%",
@@ -147,7 +108,7 @@
     {
       "type": "graph",
       "id": "co2Graph",
-      "title": "Air CO₂ (red), Ocean CO₂ (green)",
+      "title": "Air CO₂ (red), Ocean CO₂ (green), Vapor (blue)",
       "xlabel": "Time (year)",
       "ylabel": "Concentration",
       "xmin": 2014,
@@ -157,13 +118,14 @@
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["airCO2Concentration", "oceanCO2Concentration"],
+      "properties": ["airCO2Concentration", "oceanCO2Concentration", "vaporConcentration"],
       "xProperty": "year",
       "resetAxesOnReset": true,
       "height": "100%",
       "dataColors": [
         "#aa2222",
-        "#22aa22"
+        "#22aa22",
+        "#2222aa"
       ]
     },
     {
@@ -188,23 +150,35 @@
     },
     {
       "type": "slider",
-      "id": "tempSlider",
-      "title": "Temperature",
+      "id": "emissionSlider",
+      "title": "Human emissions (% of 2010 levels)",
       "min": 0,
-      "max": 20,
-      "steps": 100,
-      "property": "fixedTemperature",
+      "max": 1,
+      "steps": 10,
+      "property": "humanEmissionRate",
       "labels": [
         {
           "value": 0,
-          "label": "0°C"
+          "label": "0%"
         },
         {
-          "value": 20,
-          "label": "20°C"
+          "value": 0.25,
+          "label": "50%"
+        },
+        {
+          "value": 0.5,
+          "label": "100%"
+        },
+        {
+          "value": 0.75,
+          "label": "150%"
+        },
+        {
+          "value": 1,
+          "label": "200%"
         }
       ],
-      "width": "14em"
+      "width": "21em"
     },
     {
       "type": "text",
@@ -228,26 +202,6 @@
       "id": "showHeatCheckbox",
       "text": "Heat",
       "property": "showHeat"
-    },
-    {
-      "type": "button",
-      "id": "followEnergyButton",
-      "text": "Follow energy packet",
-      "action": [
-        "set('followCO2', false);",
-        "set('followEnergy', !get('followEnergy'));"
-      ],
-      "width": "13em"
-    },
-    {
-      "type": "button",
-      "id": "followCO2Button",
-      "text": "Follow CO₂",
-      "action": [
-        "set('followEnergy', false);",
-        "set('followCO2', !get('followCO2'));"
-      ],
-      "width": "10em"
     }
   ],
   "layout": {
@@ -258,14 +212,8 @@
       "co2Graph"
     ],
     "bottomLeft": [
-      [
-        "speedSlider",
-        "tempSlider"
-      ],
-      [
-        "followEnergyButton",
-        "followCO2Button"
-      ]
+      ["emissionSlider"],
+      ["speedSlider"]
     ],
     "bottomMiddle": [
       "showLabel"
@@ -280,7 +228,7 @@
     {
       "id": "rightTop",
       "left": "model.right",
-      "width": "0.6 * model.width",
+      "width": "0.7 * model.width",
       "height": "0.5 * interactive.height",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
@@ -289,7 +237,7 @@
       "id": "rightBottom",
       "left": "model.right",
       "top": "rightTop.bottom",
-      "width": "0.6 * model.width",
+      "width": "0.7 * model.width",
       "height": "0.5 * interactive.height",
       "padding-left": "0.5em"
     },

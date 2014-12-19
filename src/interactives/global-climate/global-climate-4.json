@@ -11,7 +11,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "http://concord-consortium.github.io/agentscript-models/lab-embeddable.html#ocean=true",
+        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html#ocean=true",
         "animRate": 60,
         "showGases": true,
         "showRays": true,
