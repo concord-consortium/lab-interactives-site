@@ -96,12 +96,12 @@
       "value": "return iframeOutput('temperatureChange');"
     },
     {
-      "name": "co2Concentration",
+      "name": "CO2Concentration",
       "label": "CO₂ Concentration",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
-      "value": "return iframeOutput('co2Concentration');"
+      "value": "return iframeOutput('CO2Concentration');"
     },
     {
       "name": "spotlightActive",
@@ -117,8 +117,8 @@
       "ylabel": "Temperature (°C)",
       "xmin": 2013,
       "xmax": 2020,
-      "ymin": -5,
-      "ymax": 10,
+      "ymin": -6,
+      "ymax": 12,
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
@@ -140,7 +140,7 @@
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["co2Concentration"],
+      "properties": ["CO2Concentration"],
       "xProperty": "year",
       "resetAxesOnReset": true,
       "height": "100%"
@@ -203,7 +203,7 @@
     {
       "type": "numericOutput",
       "id": "co2NumericOutput",
-      "property": "co2Concentration"
+      "property": "CO2Concentration"
     },
     {
       "type": "numericOutput",

@@ -33,10 +33,6 @@
   ],
   "outputs": [
     {
-      "name": "spotlightActive",
-      "value": "return iframeOutput('spotlightActive');"
-    },
-    {
       "name": "year",
       "label": "Year",
       "format": "d",

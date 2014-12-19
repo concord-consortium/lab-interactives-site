@@ -31,10 +31,6 @@
   ],
   "outputs": [
     {
-      "name": "spotlightActive",
-      "value": "return iframeOutput('spotlightActive');"
-    },
-    {
       "name": "year",
       "label": "Year",
       "format": "d",
@@ -48,14 +44,6 @@
       "unitName": "degrees Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
-    },
-    {
-      "name": "oceanTemperatureChange",
-      "label": "Ocean Temperature Change",
-      "format": "3.1f",
-      "unitName": "degrees Celsius",
-      "unitAbbreviation": "°C",
-      "value": "return iframeOutput('oceanTemperatureChange');"
     },
     {
       "name": "airCO2Concentration",
