@@ -26,7 +26,6 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "post('createCO2', 4);",
         "onPropertyChange('spotlightActive', function() {",
         "  if (get('spotlightActive')) return;",
         "  // Agent may leave model area what causes spotlight deactivation.",
@@ -90,12 +89,12 @@
       "value": "return iframeOutput('temperatureChange');"
     },
     {
-      "name": "co2Concentration",
+      "name": "CO2Concentration",
       "label": "CO₂ Concentration",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
-      "value": "return iframeOutput('co2Concentration');"
+      "value": "return iframeOutput('CO2Concentration');"
     }
   ],
   "components": [
@@ -105,10 +104,10 @@
       "title": "Temperature Change",
       "xlabel": "Time (year)",
       "ylabel": "Temperature (°C)",
-      "xmin": 2013,
-      "xmax": 2020,
-      "ymin": -5,
-      "ymax": 10,
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": -6,
+      "ymax": 12,
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
@@ -123,14 +122,14 @@
       "title": "CO₂ in Atmosphere",
       "xlabel": "Time (year)",
       "ylabel": "Concentration",
-      "xmin": 2013,
-      "xmax": 2020,
+      "xmin": 2014,
+      "xmax": 2022,
       "ymin": 0,
       "ymax": 100,
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["co2Concentration"],
+      "properties": ["CO2Concentration"],
       "xProperty": "year",
       "resetAxesOnReset": true,
       "height": "100%"
@@ -191,7 +190,8 @@
       "action": [
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
-      ]
+      ],
+      "width": "12em"
     },
     {
       "type": "button",
@@ -200,7 +200,8 @@
       "action": [
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
-      ]
+      ],
+      "width": "9em"
     },
     {
       "type": "button",
@@ -216,40 +217,53 @@
     "rightBottom": [
       "co2Graph"
     ],
-    "bottom": [
-      [
-        "speedSlider",
-        "showLabel",
-        "showGasesCheckbox",
-        "showRaysCheckbox",
-        "showHeatCheckbox"
-      ],
-      [
-        "eruptButton",
-        "removeCo2Button",
-        "followEnergyButton",
-        "followCO2Button"
-      ]
+    "bottomLeft": [
+      ["eruptButton", "removeCo2Button"],
+      ["followEnergyButton", "followCO2Button"],
+      ["speedSlider"]
+    ],
+    "bottomMiddle": [
+      "showLabel"
+    ],
+    "bottomRight": [
+      ["showGasesCheckbox"],
+      ["showRaysCheckbox"],
+      ["showHeatCheckbox"]
     ]
   },
   "template": [
     {
       "id": "rightTop",
       "left": "model.right",
-      "width": "0.5 * model.width",
-      "height": "0.5 * model.height"
+      "width": "0.7 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
     },
     {
       "id": "rightBottom",
       "left": "model.right",
       "top": "rightTop.bottom",
-      "width": "0.5 * model.width",
-      "height": "0.5 * model.height"
+      "width": "0.7 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "0.5em"
     },
     {
-      "id": "bottom",
+      "id": "bottomLeft",
       "top": "model.bottom",
-      "width": "interactive.width"
+      "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "model.right"
+    },
+    {
+      "id": "bottomMiddle",
+      "top": "model.bottom",
+      "right": "bottomRight.left",
+      "padding-top": "0.2em",
+      "padding-right": "0.2em"
     }
   ]
 }
