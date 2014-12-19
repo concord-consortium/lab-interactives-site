@@ -1,0 +1,315 @@
+{
+  "title": "Global Climate Variant 3",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.7,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "http://concord-consortium.github.io/agentscript-models/lab-embeddable.html#ocean=true",
+        "animRate": 60,
+        "showGases": true,
+        "showRays": true,
+        "showHeat": true,
+        "includeWaterVapor": false,
+        "oceanAbsorbtionChangable": true,
+        "useFixedTemperature": true,
+        "initialTemperature": 10,
+        "fixedTemperature": 10,
+        "oceanTemperature": 10,
+        "nCO2Emission": 0.5,
+        "keyLabels": [
+          "solar radiation",
+          "infrared radiation",
+          "carbon dioxide",
+          "heat"
+        ]
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "post('createCO2', 4);",
+        "onPropertyChange('spotlightActive', function() {",
+        "  if (get('spotlightActive')) return;",
+        "  // Agent may leave model area what causes spotlight deactivation.",
+        "  // Ensure buttons are in sync with actual spotlight state.",
+        "  if (get('followEnergy')) set('followEnergy', false);",
+        "  if (get('followCO2'))    set('followCO2', false);",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "followEnergy",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addSunraySpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
+        "}"
+      ]
+    },
+    {
+      "name": "followCO2",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addCO2Spotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "spotlightActive",
+      "value": "return iframeOutput('spotlightActive');"
+    },
+    {
+      "name": "year",
+      "label": "Year",
+      "format": "d",
+      "unitName": "Year",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "temperatureChange",
+      "label": "Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('temperatureChange');"
+    },
+    {
+      "name": "oceanTemperatureChange",
+      "label": "Ocean Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('oceanTemperatureChange');"
+    },
+    {
+      "name": "airCO2Concentration",
+      "label": "AIr CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('airCO2Concentration');"
+    },
+    {
+      "name": "oceanCO2Concentration",
+      "label": "Ocean CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('oceanCO2Concentration');"
+    }
+  ],
+  "components": [
+      {
+      "type": "graph",
+      "id": "temperatureGraph",
+      "title": "Temp. Change: Air (red), Ocean (blue)",
+      "xlabel": "Time (year)",
+      "ylabel": "Temperature (°C)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": -12,
+      "ymax": 12,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "properties": ["temperatureChange", "oceanTemperatureChange"],
+      "xProperty": "year",
+      "resetAxesOnReset": true,
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#2222aa"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "co2Graph",
+      "title": "Air CO₂ (red), Ocean CO₂ (green)",
+      "xlabel": "Time (year)",
+      "ylabel": "Concentration",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": 0,
+      "ymax": 30,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "properties": ["airCO2Concentration", "oceanCO2Concentration"],
+      "xProperty": "year",
+      "resetAxesOnReset": true,
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#22aa22"
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "speedSlider",
+      "title": "Simulation speed",
+      "min": 20,
+      "max": 60,
+      "steps": 10,
+      "property": "animRate",
+      "labels": [
+        {
+          "value": 20,
+          "label": "slow"
+        },
+        {
+          "value": 60,
+          "label": "fast"
+        }
+      ],
+      "width": "9em"
+    },
+    {
+      "type": "slider",
+      "id": "tempSlider",
+      "title": "Temperature",
+      "min": 0,
+      "max": 20,
+      "steps": 100,
+      "property": "fixedTemperature",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0°C"
+        },
+        {
+          "value": 20,
+          "label": "20°C"
+        }
+      ],
+      "width": "14em"
+    },
+    {
+      "type": "text",
+      "id": "showLabel",
+      "text": "Show:"
+    },
+    {
+      "type": "checkbox",
+      "id": "showGasesCheckbox",
+      "text": "Gases",
+      "property": "showGases"
+    },
+    {
+      "type": "checkbox",
+      "id": "showRaysCheckbox",
+      "text": "Rays",
+      "property": "showRays"
+    },
+    {
+      "type": "checkbox",
+      "id": "showHeatCheckbox",
+      "text": "Heat",
+      "property": "showHeat"
+    },
+    {
+      "type": "button",
+      "id": "followEnergyButton",
+      "text": "Follow energy packet",
+      "action": [
+        "set('followCO2', false);",
+        "set('followEnergy', !get('followEnergy'));"
+      ],
+      "width": "13em"
+    },
+    {
+      "type": "button",
+      "id": "followCO2Button",
+      "text": "Follow CO₂",
+      "action": [
+        "set('followEnergy', false);",
+        "set('followCO2', !get('followCO2'));"
+      ],
+      "width": "10em"
+    }
+  ],
+  "layout": {
+    "rightTop": [
+      "temperatureGraph"
+    ],
+    "rightBottom": [
+      "co2Graph"
+    ],
+    "bottomLeft": [
+      [
+        "speedSlider",
+        "tempSlider"
+      ],
+      [
+        "followEnergyButton",
+        "followCO2Button"
+      ]
+    ],
+    "bottomMiddle": [
+      "showLabel"
+    ],
+    "bottomRight": [
+      ["showGasesCheckbox"],
+      ["showRaysCheckbox"],
+      ["showHeatCheckbox"]
+    ]
+  },
+  "template": [
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "width": "0.6 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "top": "rightTop.bottom",
+      "width": "0.6 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "model.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "model.right"
+    },
+    {
+      "id": "bottomMiddle",
+      "top": "model.bottom",
+      "right": "bottomRight.left",
+      "padding-top": "0.2em",
+      "padding-right": "0.2em"
+    }
+  ]
+}
