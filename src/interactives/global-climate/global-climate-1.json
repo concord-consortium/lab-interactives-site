@@ -3,7 +3,8 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
-  "aspectRatio": 1.07,
+  "aspectRatio": 1.12,
+  "fontScale": 0.9,
   "models": [
     {
       "type": "iframe-model",
@@ -86,11 +87,11 @@
       "labels": [
         {
           "value": 20,
-          "label": "slowest"
+          "label": "slow"
         },
         {
           "value": 60,
-          "label": "fastest"
+          "label": "fast"
         }
       ],
       "width": "10em"
@@ -131,7 +132,8 @@
       "action": [
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
-      ]
+      ],
+      "width": "14em"
     },
     {
       "type": "button",
@@ -140,7 +142,8 @@
       "action": [
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
-      ]
+      ],
+      "width": "10em"
     },
     {
       "type": "button",
@@ -150,20 +153,36 @@
     }
   ],
   "layout": {
-    "bottom": [
-      [
-        "speedSlider",
-        "showLabel",
-        "showGasesCheckbox",
-        "showRaysCheckbox",
-        "showHeatCheckbox"
-      ],
-      [
-        "eruptButton",
-        "removeCo2Button",
-        "followEnergyButton",
-        "followCO2Button"
-      ]
+    "bottomLeft": [
+      ["speedSlider", "eruptButton", "removeCo2Button"],
+      ["followEnergyButton", "followCO2Button"]
+    ],
+    "bottomMiddle": [
+      "showLabel"
+    ],
+    "bottomRight": [
+      ["showGasesCheckbox"],
+      ["showRaysCheckbox"],
+      ["showHeatCheckbox"]
     ]
-  }
+  },
+  "template": [
+    {
+      "id": "bottomLeft",
+      "top": "model.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "model.right"
+    },
+    {
+      "id": "bottomMiddle",
+      "top": "model.bottom",
+      "right": "bottomRight.left",
+      "padding-top": "0.2em",
+      "padding-right": "0.2em"
+    }
+  ]
 }
