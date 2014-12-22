@@ -12,7 +12,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://resources.models.concord.org/jsmol/embeddable.html#moleculesCount=3",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
         "m0:molecule": "models/electron-geometry/co2.mol",
         "m1:molecule": "models/electron-geometry/bf3.pdb",
         "m2:molecule": "models/electron-geometry/methane.mol"

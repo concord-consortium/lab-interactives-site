@@ -19,7 +19,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://resources.models.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
         "m0:molecule": "jsmol/data/caffeine.mol",
         "m1:molecule": "jsmol/data/c60af.mol",
         "showAxes": true,

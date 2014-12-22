@@ -11,7 +11,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://resources.models.concord.org/jsmol/embeddable.html",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
         "molecule": "models/dna/dna1.pdb"
       },
       "viewOptions": {
