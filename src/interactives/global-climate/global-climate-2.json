@@ -3,6 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
+  "theme": "has",
   "aspectRatio": 1.55,
   "fontScale": 0.7,
   "models": [
@@ -145,11 +146,11 @@
       "labels": [
         {
           "value": 20,
-          "label": "slowest"
+          "label": "slow"
         },
         {
           "value": 60,
-          "label": "fastest"
+          "label": "fast"
         }
       ],
       "width": "10em"
