@@ -2,15 +2,12 @@
   "title": "Power and Energy 2A: Regulating temperature",
   "publicationStatus": "public",
   "subtitle": "Why does the temperature in a box change more dramatically than the temperature in the other?",
-  "about": [
-    "Two closed boxes have identical heaters but the heat capacity of the left-hand box is much greater",
-    "than the heat capacity of the right-hand box. The power switch controls both heaters.",
-    "",
-    "1. Run the model and use the graph to monitor the temperatures.",
-    "   When the **left-hand side box** reaches 5°C, turn off the power.",
-    "2. Try to keep the temperature in the **left-hand side box** between",
-    "   3 and 5°C by turning the power on and off.",
-    "3. Compare the shapes of the two temperature curves."
+   "about": [
+    "Two closed boxes have identical heaters. The left-hand box has a much lower specific heat capacity",
+    "than the right-hand box. Run the model and monitor the temperatures on the graph.",
+    "When the **left-hand side box** (T1) reaches 4°C, turn off the power. Try to keep the",
+    "temperature in the **left-hand side box** beteween 3°C and 4°C by turning the power on and off.",
+    "Compare the shapes of the two temperature curves. Which was steadier and which was more variable?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S2A.html",
   "models": [
