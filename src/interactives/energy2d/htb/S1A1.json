@@ -5,16 +5,9 @@
   "about": [
     "The model shows two contacting objects that have identical mass (*m*)",
     "and specific heat (*c*p) but different initial temperatures.",
-    "The amount of heat transferred between them measures the heat initially",
-    "stored in the warmer object.",
-    "",
-    "1.  Run the model and note the temperatures measured by the two thermometers.",
-    "2.  Wait until the temperatures of the two objects do not change any further.",
-    "3.  Note the final temperature of the two objects.",
-    "",
-    "Reset the model and change the initial temperatures of the two",
-    "objects using the sliders below the model. Repeat steps 1-3",
-    "for two more different temperature setups."
+    "Run the model and note the temperatures measured by the two thermometers.",
+    "Adjust each starting temperature with the sliders.",
+    "Can you predict the final temperature?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S1A.html",
   "models": [
