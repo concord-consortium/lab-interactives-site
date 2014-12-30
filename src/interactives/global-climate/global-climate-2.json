@@ -115,7 +115,8 @@
       "properties": ["temperatureChange"],
       "xProperty": "year",
       "resetAxesOnReset": true,
-      "height": "100%"
+      "height": "100%",
+      "syncXAxis": "co2Graph"
     },
     {
       "type": "graph",
@@ -133,7 +134,8 @@
       "properties": ["CO2Concentration"],
       "xProperty": "year",
       "resetAxesOnReset": true,
-      "height": "100%"
+      "height": "100%",
+      "syncXAxis": "temperatureGraph"
     },
     {
       "type": "slider",
@@ -192,7 +194,7 @@
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
       ],
-      "width": "12em"
+      "width": "12.5em"
     },
     {
       "type": "button",

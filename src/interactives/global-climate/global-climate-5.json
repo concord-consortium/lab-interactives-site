@@ -3,6 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
+  "theme": "has",
   "aspectRatio": 1.6,
   "fontScale": 0.7,
   "models": [
@@ -91,7 +92,8 @@
       "dataColors": [
         "#aa2222",
         "#2222aa"
-      ]
+      ],
+      "syncXAxis": "co2Graph"
     },
     {
       "type": "graph",
@@ -114,7 +116,8 @@
         "#aa2222",
         "#22aa22",
         "#2222aa"
-      ]
+      ],
+      "syncXAxis": "temperatureGraph"
     },
     {
       "type": "slider",
