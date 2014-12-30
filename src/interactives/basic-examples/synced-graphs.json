@@ -1,0 +1,113 @@
+{
+  "title": "Synced Graphs",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "simple-gas$0",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "graph",
+      "id": "graph1",
+      "title": "Graph 1 (Total Energy)",
+      "xlabel": "Time (s)",
+      "ylabel": "Total Energy (eV)",
+      "ymin": 2,
+      "ymax": 4,
+      "xmin": 0,
+      "xmax": 50000,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "totalEnergy"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "syncXAxis": ["graph2", "graph3"]
+    },
+    {
+      "type": "graph",
+      "id": "graph2",
+      "title": "Graph 2 (Kinetic Energy)",
+      "xlabel": "Time (s)",
+      "ylabel": "Kinetic Energy (eV)",
+      "ymin": -2,
+      "ymax": 4,
+      "xmin": 0,
+      "xmax": 50000,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "kineticEnergy"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "syncXAxis": ["graph1", "graph3"],
+      "syncYAxis": "graph3"
+    },
+    {
+      "type": "graph",
+      "id": "graph3",
+      "title": "Graph 3 (Potential Energy)",
+      "xlabel": "Time (s)",
+      "ylabel": "Potential Energy (eV)",
+      "ymin": -2,
+      "ymax": 4,
+      "xmin": 0,
+      "xmax": 50000,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "potentialEnergy"
+      ],
+      "xProperty": [
+        "time"
+      ],
+      "syncXAxis": ["graph1", "graph2"],
+      "syncYAxis": "graph2"
+    }
+  ],
+  "layout": {
+    "right":   [ "graph1" ],
+    "bottom1": [ "graph2" ],
+    "bottom2": [ "graph3" ]
+  },
+  "template": [
+    {
+      "id": "bottom1",
+      "left": "interactive.left",
+      "top": "model.bottom",
+      "width": "0.5 * interactive.width",
+      "height": "0.5 * interactive.height"
+    },
+    {
+      "id": "bottom2",
+      "right": "interactive.right",
+      "top": "model.bottom",
+      "width": "0.5 * interactive.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "1em"
+    },
+    {
+      "id": "right",
+      "bottom": "bottom2.top",
+      "left": "model.right",
+      "width": "0.5 * interactive.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "1em"
+    }
+  ]
+}
