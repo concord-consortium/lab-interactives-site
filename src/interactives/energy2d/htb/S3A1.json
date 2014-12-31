@@ -38,6 +38,12 @@
       "properties": [
         "sensor-2", "sensor-3", "sensor-0", "sensor-1"
       ],
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0",  
+        "#7c00a0"
+      ],
       "legendLabels": [
         "T1",
         "T2",
