@@ -204,7 +204,7 @@
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
       ],
-      "width": "9em"
+      "width": "9.5em"
     },
     {
       "type": "button",
