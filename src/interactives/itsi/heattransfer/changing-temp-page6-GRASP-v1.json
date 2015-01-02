@@ -12,45 +12,42 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1-GRASP.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
       "viewOptions": {
-        "controlButtons": "play_reset_step",
+        "controlButtons": "play_reset"
+        },
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "  if (getAtomProperties(i).element == 0) {",
         "    leftAtoms.push(i);",
-        "  } else {",
+        "  } else if(getAtomProperties(i).element == 2) {",
         "    rightAtoms.push(i);",
         "  }",
         "}",
         "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
+        "set('rightAtomsIndices', rightAtoms);"
       ]
-      }
-    },
+      },
     {
       "type": "md2d",
       "id": "thick-long-bar",
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option4-GRASP.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option4.mml",
       "viewOptions": {
-        "controlButtons": "play_reset_step",
+        "controlButtons": "play_reset"},
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "  if (getAtomProperties(i).element == 0) {",
         "    leftAtoms.push(i);",
-        "  } else { ",
+        "  } else if(getAtomProperties(i).element == 2) {",
         "    rightAtoms.push(i);",
         "  }",
         "}",
         "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
+        "set('rightAtomsIndices', rightAtoms);"   
       ]
-      }
     },
     {
       "type": "md2d",
@@ -58,31 +55,27 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option5-GRASP.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option5.mml",
       "viewOptions": {
-        "controlButtons": "play_reset_step",
+        "controlButtons": "play_reset"},
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "  if (getAtomProperties(i).element == 0) {",
         "    leftAtoms.push(i);",
-        "  } else {",
+        "  } else if(getAtomProperties(i).element == 2) {",
         "    rightAtoms.push(i);",
         "  }",
         "}",
         "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
+        "set('rightAtomsIndices', rightAtoms);"    
       ]
-      }
     }
   ],
   "parameters": [
-    {
-      "name": "is-slow-motion", 
-      "initialValue": false,
-      "onChange": [
-        "if (value) { set({timeStep: 0.2}) } else { set({timeStep: 1})};"
-      ]
+   {
+      "name": "speedSetting",
+      "onChange": "set({timeStep: value});",
+      "initialValue": 1.0
     },
     {
       "name": "leftAtomsIndices",
@@ -127,17 +120,36 @@
   "disabled": false,
   "tooltip": "",
   "components": [
+   {
+      "id": "select-speed",
+      "type": "radio",
+      "orientation": "horizontal",
+      "property": "speedSetting",
+      "label": "Speed:",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Fast",
+          "value": 1.0
+        },
+        {
+          "text": "Medium",
+          "value": 0.2
+        },        
+        {
+          "text": "Slow",
+          "value": 0.05
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
     {
       "type": "checkbox",
       "id": "show-ke",
       "text": "K. E. Shading",
       "property": "keShading"
-    },
-    {
-      "type": "checkbox",
-      "id": "slow-down",
-      "text": "Slow Speed",
-      "property": "is-slow-motion"
     },
     {
       "type": "text",
@@ -151,23 +163,25 @@
       "options": [
         {
           "text": "Vacuum",
+          "selected": true,
           "action": "loadModel('vacuum');"
         },
         {
           "text": "Thick long bar",
-          "action": "loadModel('thick-long-bar');"
+          "action": "loadModel('thick-long-bar');"          
         },
         {
           "text": "Thin long bar",
-          "action": "loadModel('thin-long-bar');"
+          "action": "loadModel('thin-long-bar');"         
         }
       ]
     }
   ],
   "layout": {
     "bottom": [
-      [ "show-ke", "slow-down"], ["instructions"],
-      [ "select-model-buttons" ]
+       ["instructions"],
+       ["select-model-buttons"],
+       ["show-ke", "select-speed"]
     ]
   },
   "template": [

@@ -6,28 +6,48 @@
   "aspectRatio": 1.6,
   "fontScale": 0.75,
   "models": [
-    {
+      {
       "type": "md2d",
-      "id": "thick-long-bar",
-      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option4-GRASP.json",
-      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option4.mml",
+      "id": "vacuum",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1-GRASP.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
       "viewOptions": {
-        "controlButtons": "play_reset_step",
+        "controlButtons": "play_reset"},
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "  if (getAtomProperties(i).element == 0) {",
         "    leftAtoms.push(i);",
-        "  } else { ",
+        "  } else if(getAtomProperties(i).element == 2) {",
         "    rightAtoms.push(i);",
         "  }",
         "}",
         "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
+        "set('rightAtomsIndices', rightAtoms);"
       ]
-      }
+    },
+    {
+      "type": "md2d",
+      "id": "thick-long-bar",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option4-GRASP.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option4.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+       },
+     "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+         "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"    
+      ]
     },
     {
       "type": "md2d",
@@ -35,54 +55,27 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option5-GRASP.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option5.mml",
       "viewOptions": {
-        "controlButtons": "play_reset_step",
+        "controlButtons": "play_reset"},
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
         "for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "  if (getAtomProperties(i).element == 0) {",
         "    leftAtoms.push(i);",
-        "  } else {",
+        "  } else if(getAtomProperties(i).element == 2) {",
         "    rightAtoms.push(i);",
         "  }",
         "}",
         "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
+        "set('rightAtomsIndices', rightAtoms);"      
       ]
-      }
-    },
-    {
-      "type": "md2d",
-      "id": "vacuum",
-      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1-GRASP.json",
-      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
-      "viewOptions": {
-        "controlButtons": "play_reset_step",
-      "onLoad": [
-        "var leftAtoms = [];",
-        "var rightAtoms = [];",
-        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
-        "  if (getAtomProperties(i).element == 0) {",
-        "    leftAtoms.push(i);",
-        "  } else {",
-        "    rightAtoms.push(i);",
-        "  }",
-        "}",
-        "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);",
-        "start();"        
-      ]
-      }
     }
   ],
   "parameters": [
     {
-      "name": "is-slow-motion", 
-      "initialValue": false,
-      "onChange": [
-        "if (value) { set({timeStep: 0.2}) } else { set({timeStep: 1})};"
-      ]
+      "name": "speedSetting",
+      "onChange": "set({timeStep: value});",
+      "initialValue": 1.0
     },
     {
       "name": "leftAtomsIndices",
@@ -99,7 +92,7 @@
       "label": "Temperature of Molecules on Right",
       "unitAbbreviation": "°C",
       "value": [
-        "return 10.0 * getTemperatureOfAtoms(get('rightAtomsIndices'));"
+        "return 0.1 * getTemperatureOfAtoms(get('rightAtomsIndices'));"
       ]      
     },
     {
@@ -107,7 +100,7 @@
       "label": "Temperature of Molecules on Left",
       "unitAbbreviation": "°C",
        "value": [
-        "return 400.0 * getTemperatureOfAtoms(get('leftAtomsIndices'));"
+        "return 0.1 * getTemperatureOfAtoms(get('leftAtomsIndices'));"
       ]     
     }
   ],
@@ -127,10 +120,35 @@
   "disabled": false,
   "tooltip": "",
   "components": [
-      {
+  {
+      "id": "select-speed",
+      "type": "radio",
+      "orientation": "horizontal",
+      "property": "speedSetting",
+      "label": "Speed:",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Fast",
+          "value": 1.0
+        },
+        {
+          "text": "Medium",
+          "value": 0.2
+        },        
+        {
+          "text": "Slow",
+          "value": 0.05
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
       "type": "barGraph",
       "id": "bar-graph",
-      "min": -200,
+      "min": 0,
       "max": 300,
       "title": "Temperature of Molecules on Right",
       "property": "rightAtomsTempAvg",
@@ -139,7 +157,7 @@
     {
       "type": "barGraph",
       "id": "bar-graph2",
-      "min": -200,
+      "min": 0,
       "max": 300,
       "title": "Temperature of Molecules on Left",
       "property": "leftAtomsTempAvg",
@@ -150,12 +168,6 @@
       "id": "show-ke",
       "text": "K. E. Shading",
       "property": "keShading"
-    },
-    {
-      "type": "checkbox",
-      "id": "slow-down",
-      "text": "Slow Speed",
-      "property": "is-slow-motion"
     },
     {
       "type": "text",
@@ -169,7 +181,8 @@
       "options": [
         {
           "text": "Vacuum",
-          "action": "loadModel('vacuum');"
+          "action": "loadModel('vacuum');",
+          "selected": true
         },
         {
           "text": "Thick long bar",
@@ -184,8 +197,9 @@
   ],
   "layout": {
     "bottom": [
-      [ "show-ke", "slow-down"], ["instructions"],
-      [ "select-model-buttons" ]
+      ["instructions"],
+      ["select-model-buttons"],
+      ["show-ke", "select-speed"]      
     ],
     "right": [
     "bar-graph"
