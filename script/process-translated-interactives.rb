@@ -3,10 +3,10 @@
 # This script sets "lang" and "i18nMetadata" in translated and original interactives.
 # Accepts two arguments: name of the directory inside 'locales' and language code, e.g.:
 # ruby process-translated.interactives.rb nn nn-NO
-
-require_relative 'setup.rb'
+require 'bundler/setup'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html
+require_relative 'setup.rb'
 
 Dir.chdir SRC_PATH
 

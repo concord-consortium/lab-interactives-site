@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
-
-require_relative 'setup.rb'
+require 'bundler/setup'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html
+require_relative 'setup.rb'
 
 INTERACTIVE_PATH = File.join(SRC_PATH, "interactives")
 

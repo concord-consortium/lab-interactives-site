@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'bundler/setup'
 require 'fog'
 require 'open-uri'
 require 'etc'

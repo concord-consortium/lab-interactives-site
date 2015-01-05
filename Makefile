@@ -3,9 +3,9 @@
 # Utilities
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
-MARKDOWN_COMPILER = kramdown
-
-SASS_COMPILER = sass -I src -I public
+MARKDOWN_COMPILER = bundle exec kramdown
+SASS_COMPILER = bundle exec sass -I src -I public
+HAML_COMPILER = bundle exec haml
 
 GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
@@ -450,10 +450,10 @@ vendor/lab-energy2d-java:
 # ------------------------------------------------
 
 test/%.html: test/%.html.haml
-	haml $< $@
+	$(HAML_COMPILER) $< $@
 
 public/%.html: src/%.html.haml script/setup.rb
-	haml -r ./script/setup.rb $< $@
+	$(HAML_COMPILER) -r ./script/setup.rb $< $@
 
 public/%.html: src/%.html
 	cp $< $@
@@ -530,4 +530,3 @@ c:
 .PHONY: int
 int:
 	@echo $(INTERACTIVE_FILES)
-

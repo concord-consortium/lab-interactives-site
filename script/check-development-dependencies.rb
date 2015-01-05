@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'bundler/setup'
 require 'json'
 
 @required_ruby_version = "2.0.0"
