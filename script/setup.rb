@@ -69,7 +69,7 @@ LAB_ROOT_URL = {
   :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/version/1.3.0/lab",
   :staging     => config_lab_root_url[:staging]     || "//lab-framework.concord.org/version/1.3.0/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.concord.org/branch/master/lab",
-  :local       => config_lab_root_url[:local]       || "//localhost:9191/lab",
+  :local       => config_lab_root_url[:local]       || "//localhost:9191/lab"
 }
 
 EMBEDDABLE_PAGE = {

@@ -1,22 +1,35 @@
 {
-  "title": "External Global Climate model",
+  "title": "Global Climate Variant 3",
   "publicationStatus": "draft",
-  "subtitle": "This is an AgentScript model created by the HAS project",
+  "subtitle": "",
   "about": "",
-  "aspectRatio": 1.25,
+  "theme": "has",
+  "aspectRatio": 1.6,
+  "fontScale": 0.7,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html",
-        "albedo": 0,
-        "sunBrightness": 200,
+        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html#ocean=true",
         "animRate": 60,
         "showGases": true,
         "showRays": true,
-        "showHeat": true
+        "showHeat": true,
+        "includeWaterVapor": false,
+        "oceanAbsorbtionChangable": true,
+        "useFixedTemperature": true,
+        "initialTemperature": 10,
+        "fixedTemperature": 10,
+        "oceanTemperature": 10,
+        "nCO2Emission": 0.5,
+        "keyLabels": [
+          "solar radiation",
+          "infrared radiation",
+          "carbon dioxide",
+          "heat"
+        ]
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -33,21 +46,6 @@
     }
   ],
   "parameters": [
-    {
-      "name": "hide90",
-      "initialValue": false,
-      "onChange": [
-        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
-        "// called before iframe can register its methods (before iframe communication is started).",
-        "if (value) {",
-        "  post('hide90');",
-        "  setComponentAttributes('hide90Button', {text: 'Show all elements'});",
-        "} else {",
-        "  post('showAll');",
-        "  setComponentAttributes('hide90Button', {text: 'Hide 90% of elements'});",
-        "}"
-      ]
-    },
     {
       "name": "followEnergy",
       "initialValue": false,
@@ -81,6 +79,10 @@
   ],
   "outputs": [
     {
+      "name": "spotlightActive",
+      "value": "return iframeOutput('spotlightActive');"
+    },
+    {
       "name": "year",
       "label": "Year",
       "format": "d",
@@ -96,54 +98,76 @@
       "value": "return iframeOutput('temperatureChange');"
     },
     {
-      "name": "CO2Concentration",
-      "label": "CO₂ Concentration",
+      "name": "oceanTemperatureChange",
+      "label": "Ocean Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('oceanTemperatureChange');"
+    },
+    {
+      "name": "airCO2Concentration",
+      "label": "AIr CO₂ Concentration",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
-      "value": "return iframeOutput('CO2Concentration');"
+      "value": "return iframeOutput('airCO2Concentration');"
     },
     {
-      "name": "spotlightActive",
-      "value": "return iframeOutput('spotlightActive');"
+      "name": "oceanCO2Concentration",
+      "label": "Ocean CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('oceanCO2Concentration');"
     }
   ],
   "components": [
-    {
+      {
       "type": "graph",
       "id": "temperatureGraph",
-      "title": "Temperature Change",
+      "title": "Temp. Change: Air (red), Ocean (blue)",
       "xlabel": "Time (year)",
       "ylabel": "Temperature (°C)",
-      "xmin": 2013,
-      "xmax": 2020,
-      "ymin": -6,
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["temperatureChange"],
+      "properties": ["temperatureChange", "oceanTemperatureChange"],
       "xProperty": "year",
       "resetAxesOnReset": true,
-      "height": "100%"
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#2222aa"
+      ],
+      "syncXAxis": "co2Graph"
     },
     {
       "type": "graph",
       "id": "co2Graph",
-      "title": "CO₂ in Atmosphere",
+      "title": "Air CO₂ (red), Ocean CO₂ (green)",
       "xlabel": "Time (year)",
       "ylabel": "Concentration",
-      "xmin": 2013,
-      "xmax": 2020,
+      "xmin": 2014,
+      "xmax": 2022,
       "ymin": 0,
-      "ymax": 100,
+      "ymax": 30,
       "xTickCount": 4,
       "yTickCount": 5,
       "xFormatter": "d",
-      "properties": ["CO2Concentration"],
+      "properties": ["airCO2Concentration", "oceanCO2Concentration"],
       "xProperty": "year",
       "resetAxesOnReset": true,
-      "height": "100%"
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#22aa22"
+      ],
+      "syncXAxis": "temperatureGraph"
     },
     {
       "type": "slider",
@@ -156,14 +180,34 @@
       "labels": [
         {
           "value": 20,
-          "label": "slowest"
+          "label": "slow"
         },
         {
           "value": 60,
-          "label": "fastest"
+          "label": "fast"
         }
       ],
-      "width": "10em"
+      "width": "9em"
+    },
+    {
+      "type": "slider",
+      "id": "tempSlider",
+      "title": "Temperature",
+      "min": 0,
+      "max": 20,
+      "steps": 100,
+      "property": "fixedTemperature",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0°C"
+        },
+        {
+          "value": 20,
+          "label": "20°C"
+        }
+      ],
+      "width": "14em"
     },
     {
       "type": "text",
@@ -190,87 +234,13 @@
     },
     {
       "type": "button",
-      "id": "addCo2Button",
-      "text": "Add CO₂",
-      "action": "addCO2();"
-    },
-    {
-      "type": "button",
-      "id": "removeCo2Button",
-      "text": "Remove CO₂",
-      "action": "subtractCO2();"
-    },
-    {
-      "type": "numericOutput",
-      "id": "co2NumericOutput",
-      "property": "CO2Concentration"
-    },
-    {
-      "type": "numericOutput",
-      "id": "temperatureNumericOutput",
-      "property": "temperatureChange",
-      "displayValue": "return format('3.1f')(value)"
-    },
-    {
-      "type": "slider",
-      "id": "albedoSlider",
-      "title": "Albedo",
-      "min": 0,
-      "max": 1,
-      "steps": 11,
-      "labels": [
-        {
-          "value": 0,
-          "label": "0"
-        },
-        {
-          "value": 1,
-          "label": "1"
-        }
-      ],
-      "width": "7em",
-      "property": "albedo"
-    },
-    {
-      "type": "slider",
-      "id": "sunBrightnessSlider",
-      "title": "Sun brightness",
-      "min": 0,
-      "max": 200,
-      "steps": 11,
-      "labels": [
-        {
-          "value": 0,
-          "label": "none"
-        },
-        {
-          "value": 200,
-          "label": "high"
-        }
-      ],
-      "width": "7em",
-      "property": "sunBrightness"
-    },
-    {
-      "type": "button",
-      "id": "addCloudButton",
-      "text": "Add cloud",
-      "action": "addCloud();"
-    },
-    {
-      "type": "button",
-      "id": "removeCloudButton",
-      "text": "Remove cloud",
-      "action": "subtractCloud();"
-    },
-    {
-      "type": "button",
       "id": "followEnergyButton",
       "text": "Follow energy packet",
       "action": [
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
-      ]
+      ],
+      "width": "13em"
     },
     {
       "type": "button",
@@ -279,19 +249,8 @@
       "action": [
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
-      ]
-    },
-    {
-      "type": "button",
-      "id": "hide90Button",
-      "text": "Hide 90% of elements",
-      "action": "set('hide90', !get('hide90'));"
-    },
-    {
-      "type": "button",
-      "id": "eruptButton",
-      "text": "Erupt!",
-      "action": "erupt();"
+      ],
+      "width": "10em"
     }
   ],
   "layout": {
@@ -301,53 +260,58 @@
     "rightBottom": [
       "co2Graph"
     ],
-    "belowModel": [
-      [
-        "co2NumericOutput",
-        "temperatureNumericOutput"
-      ],
+    "bottomLeft": [
       [
         "speedSlider",
-        "albedoSlider",
-        "sunBrightnessSlider",
-        "showLabel",
-        "showGasesCheckbox",
-        "showRaysCheckbox",
-        "showHeatCheckbox"
-      ],
-      [
-        "eruptButton",
-        "addCo2Button",
-        "removeCo2Button",
-        "addCloudButton",
-        "removeCloudButton"
+        "tempSlider"
       ],
       [
         "followEnergyButton",
-        "followCO2Button",
-        "hide90Button"
+        "followCO2Button"
       ]
+    ],
+    "bottomMiddle": [
+      "showLabel"
+    ],
+    "bottomRight": [
+      ["showGasesCheckbox"],
+      ["showRaysCheckbox"],
+      ["showHeatCheckbox"]
     ]
   },
   "template": [
     {
       "id": "rightTop",
       "left": "model.right",
-      "width": "0.5 * model.width",
-      "height": "0.5 * model.height"
+      "width": "0.6 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
     },
     {
       "id": "rightBottom",
       "left": "model.right",
       "top": "rightTop.bottom",
-      "width": "0.5 * model.width",
-      "height": "0.5 * model.height"
+      "width": "0.6 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "0.5em"
     },
     {
-      "id": "belowModel",
+      "id": "bottomLeft",
       "top": "model.bottom",
-      "width": "interactive.width",
-      "fontScale": 0.7
+      "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "model.right"
+    },
+    {
+      "id": "bottomMiddle",
+      "top": "model.bottom",
+      "right": "bottomRight.left",
+      "padding-top": "0.2em",
+      "padding-right": "0.2em"
     }
   ]
 }

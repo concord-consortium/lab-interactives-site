@@ -1,0 +1,253 @@
+{
+  "title": "Global Climate Variant 4",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "theme": "has",
+  "aspectRatio": 1.7,
+  "fontScale": 0.7,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "http://concord-consortium.github.io/agentscript-models/global-climate/lab-embeddable.html#ocean=true",
+        "animRate": 60,
+        "showGases": true,
+        "showRays": true,
+        "showHeat": true,
+        "oceanAbsorbtionChangable": true,
+        "useFixedTemperature": true,
+        "initialTemperature": 10,
+        "fixedTemperature": 10,
+        "oceanTemperature": 10,
+        "vaporPerDegreeModifier": 10
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "post('createVapor', 7);"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "label": "Year",
+      "format": "d",
+      "unitName": "Year",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "temperatureChange",
+      "label": "Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('temperatureChange');"
+    },
+    {
+      "name": "oceanTemperatureChange",
+      "label": "Ocean Temperature Change",
+      "format": "3.1f",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('oceanTemperatureChange');"
+    },
+    {
+      "name": "airCO2Concentration",
+      "label": "AIr CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('airCO2Concentration');"
+    },
+    {
+      "name": "oceanCO2Concentration",
+      "label": "Ocean CO₂ Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('oceanCO2Concentration');"
+    },
+    {
+      "name": "vaporConcentration",
+      "label": "Vapor Concentration",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('vaporConcentration');"
+    }
+  ],
+  "components": [
+      {
+      "type": "graph",
+      "id": "temperatureGraph",
+      "title": "Temp. Change: Air (red), Ocean (blue)",
+      "xlabel": "Time (year)",
+      "ylabel": "Temperature (°C)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": -12,
+      "ymax": 12,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "properties": ["temperatureChange", "oceanTemperatureChange"],
+      "xProperty": "year",
+      "resetAxesOnReset": true,
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#2222aa"
+      ],
+      "syncXAxis": "co2Graph"
+    },
+    {
+      "type": "graph",
+      "id": "co2Graph",
+      "title": "Air CO₂ (red), Ocean CO₂ (green), Vapor (blue)",
+      "xlabel": "Time (year)",
+      "ylabel": "Concentration",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ymin": 0,
+      "ymax": 30,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "properties": ["airCO2Concentration", "oceanCO2Concentration", "vaporConcentration"],
+      "xProperty": "year",
+      "resetAxesOnReset": true,
+      "height": "100%",
+      "dataColors": [
+        "#aa2222",
+        "#22aa22",
+        "#2222aa"
+      ],
+      "syncXAxis": "temperatureGraph"
+    },
+    {
+      "type": "slider",
+      "id": "speedSlider",
+      "title": "Simulation speed",
+      "min": 20,
+      "max": 60,
+      "steps": 10,
+      "property": "animRate",
+      "labels": [
+        {
+          "value": 20,
+          "label": "slow"
+        },
+        {
+          "value": 60,
+          "label": "fast"
+        }
+      ],
+      "width": "9em"
+    },
+    {
+      "type": "slider",
+      "id": "tempSlider",
+      "title": "Temperature",
+      "min": 0,
+      "max": 20,
+      "steps": 100,
+      "property": "fixedTemperature",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0°C"
+        },
+        {
+          "value": 20,
+          "label": "20°C"
+        }
+      ],
+      "width": "12em"
+    },
+    {
+      "type": "text",
+      "id": "showLabel",
+      "text": "Show:"
+    },
+    {
+      "type": "checkbox",
+      "id": "showGasesCheckbox",
+      "text": "Gases",
+      "property": "showGases"
+    },
+    {
+      "type": "checkbox",
+      "id": "showRaysCheckbox",
+      "text": "Rays",
+      "property": "showRays"
+    },
+    {
+      "type": "checkbox",
+      "id": "showHeatCheckbox",
+      "text": "Heat",
+      "property": "showHeat"
+    }
+  ],
+  "layout": {
+    "rightTop": [
+      "temperatureGraph"
+    ],
+    "rightBottom": [
+      "co2Graph"
+    ],
+    "bottomLeft": [
+      [
+        "speedSlider",
+        "tempSlider"
+      ]
+    ],
+    "bottomMiddle": [
+      "showLabel"
+    ],
+    "bottomRight": [
+      ["showGasesCheckbox"],
+      ["showRaysCheckbox"],
+      ["showHeatCheckbox"]
+    ]
+  },
+  "template": [
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "top": "rightTop.bottom",
+      "width": "0.7 * model.width",
+      "height": "0.5 * interactive.height",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "model.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "model.right"
+    },
+    {
+      "id": "bottomMiddle",
+      "top": "model.bottom",
+      "right": "bottomRight.left",
+      "padding-top": "0.2em",
+      "padding-right": "0.2em"
+    }
+  ]
+}
