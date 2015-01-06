@@ -7,11 +7,7 @@ Set of interactives built using the [Lab Framework](http://lab-framework.concord
 ## Licensing
 
 Lab Interactives Site is Copyright 2012 (c) by the Concord Consortium and is distributed under
-any of the following licenses:
-
-- [Simplified BSD](http://www.opensource.org/licenses/BSD-2-Clause),
-- [MIT](http://www.opensource.org/licenses/MIT), or
-- [Apache 2.0](http://www.opensource.org/licenses/Apache-2.0).
+the [MIT](http://www.opensource.org/licenses/MIT) license.
 
 The complete licensing details can be read [here](license.md).
 
@@ -67,7 +63,7 @@ If you think you'd like to contribute to Lab Interactives Site as an external de
   If you modify model JSON after conversion, such model should be moved to `src/models`! You should assume that each model that lives in `src/models-converted` may be
   converted again in the future (e.g. when MML Converter is updated). In such case you would lose your manual tweaks.
 
-* [`imports`](https://github.com/concord-consortium/lab-interactives-site/tree/master/imports) should contain original models (e.g. `.MML` and `.E2D` files) that are related to JSONs in `src/models-converted` 
+* [`imports`](https://github.com/concord-consortium/lab-interactives-site/tree/master/imports) should contain original models (e.g. `.MML` and `.E2D` files) that are related to JSONs in `src/models-converted`
   and **optionally** models related to JSONs in `src/models` (if author thinks it may be useful in the future).
 
 
