@@ -95,13 +95,12 @@
   ],
   "components": [
     {
-      "type": "slider",
       "id": "speedSlider",
-      "title": "Simulation speed",
+      "type": "slider",
       "min": 20,
       "max": 60,
       "steps": 10,
-      "property": "animRate",
+      "title": "Simulation speed",
       "labels": [
         {
           "value": 20,
@@ -112,62 +111,102 @@
           "label": "fast"
         }
       ],
-      "width": "10em"
+      "width": "10em",
+      "height": "auto",
+      "property": "animRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the speed of the model."
     },
     {
-      "type": "text",
       "id": "showLabel",
-      "text": "Show:"
+      "type": "text",
+      "text": "Show:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "checkbox",
       "id": "showGasesCheckbox",
+      "type": "checkbox",
       "text": "Gases",
-      "property": "showGases"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showGases",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing gases in the model."
     },
     {
-      "type": "checkbox",
       "id": "showRaysCheckbox",
-      "text": "Rays",
-      "property": "showRays"
-    },
-    {
       "type": "checkbox",
+      "text": "Rays",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showRays",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing radiation in the model."
+    },
+    {
       "id": "showHeatCheckbox",
+      "type": "checkbox",
       "text": "Heat",
-      "property": "showHeat"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showHeat",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing heat in the model."
     },
     {
-      "type": "button",
       "id": "removeCo2Button",
+      "type": "button",
+      "action": "subtractCO2();",
       "text": "Remove CO₂",
-      "action": "subtractCO2();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Remove carbon dioxide from the model."
     },
     {
-      "type": "button",
       "id": "followEnergyButton",
-      "text": "Follow energy packet",
+      "type": "button",
       "action": [
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
       ],
-      "width": "14em"
+      "text": "Follow energy packet",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Follow an energy packet from the Sun."
     },
     {
-      "type": "button",
       "id": "followCO2Button",
-      "text": "Follow CO₂",
+      "type": "button",
       "action": [
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
       ],
-      "width": "10em"
+      "text": "Follow CO₂",
+      "width": "10em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Follow a greenhouse gas in the model."
     },
     {
-      "type": "button",
       "id": "eruptButton",
+      "type": "button",
+      "action": "erupt();",
       "text": "Erupt!",
-      "action": "erupt();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Add carbon dioxide to the model."
     }
   ],
   "layout": {
