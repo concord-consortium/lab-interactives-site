@@ -1,8 +1,8 @@
 {
-  "title": "Global Climate Variant 2",
+  "title": "Climate Change 2",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "subtitle": "Atmosphere & Land Interactions With Graphs",
+  "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere. Graphs show the temperature change and relative level of carbon dioxide in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.55,
   "fontScale": 0.7,
