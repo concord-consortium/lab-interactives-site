@@ -138,61 +138,110 @@
         ]
     }
   ],
-  "components": [
-      {
-      "type": "graph",
+    "components": [
+    {
       "id": "temperatureGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "temperatureChange",
+        "oceanTemperatureChange"
+      ],
+      "xProperty": "year",
       "title": "Temp. Change: Air (red), Ocean (blue)",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
       "xlabel": "Time (year)",
-      "ylabel": "Temperature (°C)",
       "xmin": 2014,
       "xmax": 2022,
+      "ylabel": "Temperature (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
       "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
       "xFormatter": "d",
-      "properties": ["temperatureChange", "oceanTemperatureChange"],
-      "xProperty": "year",
-      "resetAxesOnReset": true,
-      "height": "100%",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+       "tooltip": [
+        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
+      ],
       "dataColors": [
         "#aa2222",
         "#2222aa"
       ],
-      "syncXAxis": "co2Graph"
+      "legendLabels": [],
+      "legendVisible": false
     },
     {
-      "type": "graph",
       "id": "co2Graph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "airCO2Concentration",
+        "oceanCO2Concentration"
+      ],
+      "xProperty": "year",
       "title": "Air CO₂ (red), Ocean CO₂ (green)",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
       "xlabel": "Time (year)",
-      "ylabel": "Concentration",
       "xmin": 2014,
       "xmax": 2022,
+      "ylabel": "Concentration",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
       "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
       "xFormatter": "d",
-      "properties": ["airCO2Concentration", "oceanCO2Concentration"],
-      "xProperty": "year",
-      "resetAxesOnReset": true,
-      "height": "100%",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": [
+        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
+      ],
       "dataColors": [
         "#aa2222",
         "#22aa22"
       ],
-      "syncXAxis": "temperatureGraph"
+      "legendLabels": [],
+      "legendVisible": false
     },
     {
-      "type": "slider",
       "id": "speedSlider",
-      "title": "Simulation speed",
+      "type": "slider",
       "min": 20,
       "max": 60,
       "steps": 10,
-      "property": "animRate",
+      "title": "Simulation speed",
       "labels": [
         {
           "value": 20,
@@ -203,16 +252,20 @@
           "label": "fast"
         }
       ],
-      "width": "9em"
+      "width": "9em",
+      "height": "auto",
+      "property": "animRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the speed of the model."
     },
     {
-      "type": "slider",
       "id": "tempSlider",
-      "title": "Temperature",
+      "type": "slider",
       "min": 0,
       "max": 20,
       "steps": 100,
-      "property": "fixedTemperature",
+      "title": "Temperature",
       "labels": [
         {
           "value": 0,
@@ -223,50 +276,82 @@
           "label": "20°C"
         }
       ],
-      "width": "14em"
+      "width": "14em",
+      "height": "auto",
+      "property": "fixedTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the temperature of the model."
     },
     {
-      "type": "text",
       "id": "showLabel",
-      "text": "Show:"
+      "type": "text",
+      "text": "Show:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
     },
     {
-      "type": "checkbox",
       "id": "showGasesCheckbox",
+      "type": "checkbox",
       "text": "Gases",
-      "property": "showGases"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showGases",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing gases in the model."
     },
     {
-      "type": "checkbox",
       "id": "showRaysCheckbox",
-      "text": "Rays",
-      "property": "showRays"
-    },
-    {
       "type": "checkbox",
-      "id": "showHeatCheckbox",
-      "text": "Heat",
-      "property": "showHeat"
+      "text": "Rays",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showRays",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing radiation in the model."
     },
     {
-      "type": "button",
+      "id": "showHeatCheckbox",
+      "type": "checkbox",
+      "text": "Heat",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showHeat",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Toggle showing heat in the model."
+    },
+    {
       "id": "followEnergyButton",
-      "text": "Follow energy packet",
+      "type": "button",
       "action": [
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
       ],
-      "width": "13em"
+      "text": "Follow energy packet",
+      "width": "13em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Follow an energy packet from the Sun."
     },
     {
-      "type": "button",
       "id": "followCO2Button",
-      "text": "Follow CO₂",
+      "type": "button",
       "action": [
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
       ],
-      "width": "10em"
+      "text": "Follow CO₂",
+      "width": "10em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Follow a greenhouse gas in the model."
     }
   ],
   "layout": {
