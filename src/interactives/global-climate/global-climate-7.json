@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "The Effect of Clouds",
   "helpOnLoad": true,
-  "about": "Clouds affect the temperature of Earth's atmosphere and surface. How clouds affect temperature is a balance between how much sunlight is reflected away from Earth's surface (a cooling effect) and how much outgoing infrared radiation is absorbed and re-radiated into the atmosphere (a warming effect. In this model, you can change the number of clouds. Graphs show the temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere.",
+  "about": "Clouds affect the temperature of Earth's atmosphere and surface. How clouds affect temperature is a balance between how much sunlight is reflected away from Earth's surface (a cooling effect) and how much outgoing infrared radiation is absorbed and re-radiated into the atmosphere (a warming effect. In this model, you can change the number of clouds. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.55,
   "fontScale": 0.7,
