@@ -1,8 +1,8 @@
 {
-  "title": "Global Climate Variant 5",
+  "title": "Climate Change 5",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "subtitle": "Changing Carbon Dioxide Emissions and the Effect on Temperature and Water Vapor",
+  "about": "In this model, you can explore the effect of changing human emissions of carbon dioxide on the temperature and amount of water vapor in the atmosphere. Graphs show the temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.6,
   "fontScale": 0.7,
