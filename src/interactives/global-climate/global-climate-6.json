@@ -2,6 +2,7 @@
   "title": "Climate Change 6",
   "publicationStatus": "draft",
   "subtitle": "The Effect of Albedo",
+  "helpOnLoad": true,
   "about": "Albedo describes how much sunlight is reflected back into space without being absorbed by the surface. Albedo varies greatly depending on the type of surface the sunlight hits. In this model, you can change the amount of ice covering the surface. Graphs show the temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and the amount of water vapor in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.6,
@@ -64,6 +65,21 @@
       "unitName": "",
       "unitAbbreviation": "",
       "value": "return iframeOutput('vaporConcentration');"
+    }
+  ],
+    "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "#How do I use this model?",
+        "---",
+        "The ice cover slider changes the amount of ice cover in the model.",
+        "",
+        "Change the ice cover, and watch the graphs to see what happens to the temperature, the amount of carbon dioxide in the air and the amount of water vapor in the air.",
+        "Make sure that you wait long enough to see the effect.",
+        "",
+        "You can hover over the controls for more information. Click to close this window."
+      ]
     }
   ],
   "components": [
