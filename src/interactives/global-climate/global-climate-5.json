@@ -2,6 +2,7 @@
   "title": "Climate Change 5",
   "publicationStatus": "draft",
   "subtitle": "Changing Carbon Dioxide Emissions and the Effect on Temperature and Water Vapor",
+  "helpOnLoad": true,
   "about": "In this model, you can explore the effect of changing human emissions of carbon dioxide on the temperature and amount of water vapor in the atmosphere. Graphs show the temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.6,
@@ -69,6 +70,24 @@
       "unitName": "",
       "unitAbbreviation": "",
       "value": "return iframeOutput('vaporConcentration');"
+    }
+  ],
+  "helpTips": [    
+    {
+      "component": "",
+      "text": [
+        "#How do I use this model?",
+        "---",
+        "The human emission slider controls how much carbon dioxide comes out of the factory.",
+        "",
+        "Zero percent (0%) means that there are no human emissions. One hundred percent (100%) means that human emissions are the same as in the year 2010.",
+        "Two hundred percent (200%) means that human emissions are double the 2010 level.",
+        "",
+        "Change the emissions level, and watch the graphs to see what happens to the temperature, amount of carbon dioxide in the air and water, and amount of water vapor in the air.",
+        "Make sure that you wait long enough to see the effect.",
+        "",
+        "You can hover over the controls for more information. Click to close this window."
+      ]
     }
   ],
   "components": [
