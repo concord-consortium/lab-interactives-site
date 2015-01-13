@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "The Effect of Albedo",
   "helpOnLoad": true,
-  "about": "Albedo describes how much sunlight is reflected back into space without being absorbed by the surface. Albedo varies greatly depending on the type of surface the sunlight hits. In this model, you can change the amount of ice covering the surface. Graphs show the temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and the amount of water vapor in the atmosphere.",
+  "about": "Albedo describes how much sunlight is reflected back into space without being absorbed by the surface. Albedo varies greatly depending on the type of surface the sunlight hits. In this model, you can change the amount of ice covering the surface. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and the amount of water vapor in the atmosphere.",
   "theme": "has",
   "aspectRatio": 1.6,
   "fontScale": 0.7,
