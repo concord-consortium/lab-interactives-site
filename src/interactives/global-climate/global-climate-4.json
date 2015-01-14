@@ -88,7 +88,7 @@
       "text": [
         "#How do I use this model?",
         "---",
-        "The temperature slider changes the temperature of the planet, affecting both the atmospheric and oceanic temperatures.",
+        "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
         "",
         "Change the temperature, and watch the graphs to see what happens to the amount of water vapor in the air.",
         "Also watch what happens to the amount of carbon dioxide in the air and ocean as the temperature changes.",
