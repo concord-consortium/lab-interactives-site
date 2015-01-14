@@ -138,7 +138,7 @@
         ]
     }
   ],
-    "components": [
+  "components": [
     {
       "id": "temperatureGraph",
       "type": "graph",
@@ -159,7 +159,7 @@
         "oceanTemperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temp. Change: Air (red), Ocean (blue)",
+      "title": "Temperature Change",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
@@ -177,15 +177,20 @@
       "yFormatter": ".2r",
       "lines": true,
       "bars": false,
-       "tooltip": [
+      "tooltip": [
         "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
       ],
       "dataColors": [
-        "#aa2222",
-        "#2222aa"
+        "#ff0000",
+        "#0000ff"
       ],
-      "legendLabels": [],
-      "legendVisible": false
+      "legendLabels": [
+      	"Air temperature",
+        "Ocean temperature"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false
     },
     {
       "id": "co2Graph",
@@ -207,7 +212,7 @@
         "oceanCO2Concentration"
       ],
       "xProperty": "year",
-      "title": "Air CO₂ (red), Ocean CO₂ (green)",
+      "title": "CO₂ Concentration",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
@@ -229,11 +234,16 @@
         "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
       ],
       "dataColors": [
-        "#aa2222",
-        "#22aa22"
+        "#009966",
+        "#0000ff"
       ],
-      "legendLabels": [],
-      "legendVisible": false
+      "legendLabels": [
+      	"CO₂ in Atmosphere",
+        "CO₂ in Ocean"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false
     },
     {
       "id": "speedSlider",
