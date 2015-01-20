@@ -1,0 +1,114 @@
+{
+  "title": "Exploring Molecular Views Plus Line",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": "",
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+      },
+      "onLoad": "post('jsmolScript', 'm0: set background [xffffff]');",
+      "viewOptions": {
+        "aspectRatio": 1.8,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "molecule_num",
+      "initialValue": "models/exploring-views/water.xyz",
+      "onChange": "post('jsmolScript', 'm0: load '+value+'; rotate BEST; translate Z -45%; '+get('viz')+'; ');"
+    },
+    {
+      "name": "viz",
+      "initialValue": "set ambientpercent 100; wireframe; cpk 0.22;  select all; color atoms white; color bonds black; set labeloffset 0 0; label %e;",
+      "onChange": "post('jsmolScript', 'm0: '+value+';');"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "mol",
+      "type": "pulldown",
+      "label": "Molecule",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Water",
+          "value": "models/exploring-views/water.xyz"
+        },
+        {
+          "text": "Methane",
+          "value": "models/exploring-views/methane.mol"
+        },
+        {
+          "text": "Nitrogen triiodide ",
+          "value": "models/exploring-views/NI3.mol"
+        },
+        {
+          "text": "Propane",
+          "value": "models/exploring-views/propane.xyz"
+        }
+      ],
+      "property": "molecule_num",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "view",
+      "type": "pulldown",
+      "label": "View",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Line drawing ",
+          "value": "set ambientpercent 100; wireframe; cpk 0.22;  select all; color atoms white; color bonds black; set labeloffset 0 0; label %e;"
+        },
+        {
+          "text": "Ball and stick ",
+          "value": "set ambientpercent 60; wireframe 0.15; cpk 20%; color atoms cpk; color bonds none; set labels off; "
+        },
+        {
+          "text": "Spacefill",
+          "value": "cpk 100%"
+        }
+      ],
+      "property": "viz",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mol",
+      "view"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width"
+    }
+  ]
+}
