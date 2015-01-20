@@ -35,7 +35,7 @@
         "if (DNAStateAfter('transcription-end'))",
         "  set('DNAState', 'dna');",
         "animateToDNAState('transcription-end');"
-      ],
+      ]
     },
     {
       "type": "button",
@@ -45,46 +45,46 @@
         "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
         "  set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
-      ],
+      ]
     },
     {
       "type": "button",
       "id": "reset",
       "text": "Start på nytt",
-      "action": "reloadModel();",
+      "action": "reloadModel();"
     },
     {
       "type": "button",
       "id": "stop",
-      "text": "Stop",
+      "text": "Stopp",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
-      ],
+      ]
     },
     {
       "type": "button",
       "id": "next-state",
       "text": "Fortsett et steg",
-      "action": "animateToNextDNAState();",
+      "action": "animateToNextDNAState();"
     },
     {
       "type": "button",
        "id": "dna-dialog",
       "text": "Endre DNA",
-       "action": "openDNADialog();",
+       "action": "openDNADialog();"
     },
     {
       "type": "button",
       "id": "show-protein",
       "text": "Vis protein",
-      "action": "set('DNAState', 'translation-end');",
+      "action": "set('DNAState', 'translation-end');"
     },
     {
       "type": "button",
       "id": "show-dna",
       "text": "Vis DNA",
-      "action": "set('DNAState', 'dna');",
+      "action": "set('DNAState', 'dna');"
     },
     {
       "type": "button",
@@ -93,17 +93,17 @@
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
-      ],
+      ]
     },
     {
       "type": "text",
       "id": "label",
-      "text": "Klikk på et nukleotid for å gjøre en mutasjon, eller ",
+      "text": "Klikk på et nukleotid for å gjøre en mutasjon, eller "
     },
     {
       "type": "text",
       "id": "buffer",
-      "text": "|",
+      "text": "|"
     }
   ],
   "layout": {
