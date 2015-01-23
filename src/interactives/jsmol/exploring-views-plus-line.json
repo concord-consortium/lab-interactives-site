@@ -17,7 +17,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+        "url": "http://models-resources.concord.org/jsmol/embeddable.html"
       },
       "onLoad": "post('jsmolScript', 'm0: set background [xffffff]');",
       "viewOptions": {
