@@ -190,11 +190,11 @@
       "yFormatter": ".2s",
       "xProperty": "time",
       "properties": [
-        "sensor-1", "sensor-0"
+        "sensor-0", "sensor-1"
       ],
       "legendLabels": [
-        "T2",
-        "T1"
+        "T1",
+        "T2"
       ],
       "legendVisible": true
     }
