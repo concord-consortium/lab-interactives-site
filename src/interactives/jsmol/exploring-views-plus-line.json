@@ -30,7 +30,7 @@
   "parameters": [
     {
       "name": "molecule_num",
-      "initialValue": "models/exploring-views/water.xyz",
+      "initialValue": "https://ngss-assessment-resources.concord.org/temp/1-3-cis-dimethylcyclohexane-eq.pdb",
       "onChange": "post('jsmolScript', 'm0: load '+value+'; rotate BEST; translate Z -45%; '+get('viz')+'; ');"
     },
     {
@@ -51,8 +51,8 @@
       "labelOn": "top",
       "options": [
         {
-          "text": "Water",
-          "value": "models/exploring-views/water.xyz"
+          "text": "Cyclohexane",
+          "value": "https://ngss-assessment-resources.concord.org/temp/1-3-cis-dimethylcyclohexane-eq.pdb"
         },
         {
           "text": "Methane",
@@ -88,7 +88,7 @@
         },
         {
           "text": "Spacefill",
-          "value": "cpk 100%"
+          "value": "set ambientpercent 60; cpk 100%; color atoms cpk; color bonds none; set labels off;"
         }
       ],
       "property": "viz",
