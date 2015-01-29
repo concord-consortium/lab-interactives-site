@@ -19,12 +19,11 @@
       "type": "md2d",
       "id": "making-breaking.json",
       "url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-energy.json",
+      "temperatureControl": true,
+      "targetTemperature": 3000,
       "viewOptions": {
         "controlButtons": "play_reset"
-      },
-      "onLoad": [
-        "setTemperatureOfAtoms([0,1,2,3,4,5,6,7,8,9], get('targetT'));"
-      ]
+      }
     }
   ],
   "parameters": [
@@ -34,11 +33,6 @@
       "onChange": [
         "setBondEnergy('1-1', get('dissociationEnergy'));"
       ]
-    },
-    {
-     "name": "targetT",
-     "initialValue": 3000,
-     "onChange": "setTemperatureOfAtoms([0,1,2,3,4,5,6,7,8,9], get('targetT'));"
     }
   ],
   "components": [
@@ -76,7 +70,7 @@
       "steps": 1000,
       "title": "Temperature",
       "width": "100%",
-      "property": "targetT"
+      "property": "targetTemperature"
     },
     {
       "type": "slider",

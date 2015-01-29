@@ -9,12 +9,11 @@
       "type": "md2d",
       "id": "dissociation-edited$0",
       "url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-rites.json",
+      "temperatureControl": true,
+      "targetTemperature": 3000,
       "viewOptions": {
         "controlButtons": "play_reset"
-      },
-      "onLoad": [
-        "setTemperatureOfAllAtoms(get('targetT'));"
-      ]
+      }
     }
   ],
   "parameters": [
@@ -25,11 +24,6 @@
         "setBondEnergy('1-1', value);"
       ],
       "unitAbbreviation": "eV"
-    },
-    {
-     "name": "targetT",
-     "initialValue": 3000,
-     "onChange": "setTemperatureOfAllAtoms(get('targetT'));"
     }
   ],
   "components": [
@@ -61,7 +55,7 @@
       ],
       "steps": 1000,
       "title": "Temperature",
-      "property": "targetT",
+      "property": "targetTemperature",
       "width": "100%"
     },
     {
