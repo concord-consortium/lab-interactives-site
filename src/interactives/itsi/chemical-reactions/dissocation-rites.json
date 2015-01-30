@@ -9,8 +9,10 @@
       "type": "md2d",
       "id": "dissociation-edited$0",
       "url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-rites.json",
-      "temperatureControl": true,
-      "targetTemperature": 3000,
+      "modelOptions": {
+        "temperatureControl": true,
+        "targetTemperature": 3000
+      },
       "viewOptions": {
         "controlButtons": "play_reset"
       }

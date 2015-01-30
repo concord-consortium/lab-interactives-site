@@ -19,8 +19,10 @@
       "type": "md2d",
       "id": "making-breaking.json",
       "url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-energy.json",
-      "temperatureControl": true,
-      "targetTemperature": 3000,
+      "modelOptions": {
+        "temperatureControl": true,
+        "targetTemperature": 3000
+      },
       "viewOptions": {
         "controlButtons": "play_reset"
       }
