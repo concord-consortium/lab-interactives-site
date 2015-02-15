@@ -34,7 +34,7 @@
     "backgroundColor": "#eeeeee",
     "showClock": true,
     "markColor": "#f8b500",
-    "keShading": true,
+    "keShading": false,
     "chargeShading": false,
     "useThreeLetterCode": true,
     "aminoAcidColorScheme": "hydrophobicity",
