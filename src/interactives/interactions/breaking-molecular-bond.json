@@ -51,14 +51,14 @@
         "  y1 = 10.97;",
         "} else if (value == 2) {",
         "  length = 0.121;",
-        "  strength = 355;",
+        "  strength = 936;",
         "  x0 = 10.868516;",
         "  y0 = 11.028;",
         "  x1 = 10.93;",
         "  y1 = 10.927;",
         "} else if (value == 3) {",
         "  length = 0.145;",
-        "  strength = 80;",
+        "  strength = 1779;",
         "  x0 = 10.858516;",
         "  y0 = 11.03586;",
         "  x1 = 10.95;",
@@ -189,7 +189,7 @@
       "steps": 18,
       "title": "Velocity (nm/fs)",
       "property": "velocity",
-      "width": "13em"
+      "width": "20em"
     },
     {
       "type": "checkbox",
@@ -207,22 +207,22 @@
   "layout": {
     "right": ["energyGraph"],
     "bottom-left": [["molecule-header"],["molecule-selector"]],
-    "bottom-right": [["third-atom-header"],["velocity-slider"],
-     ["slow-motion-checkbox",
-      "ke-shading"]]
+    "bottom-right": [["third-atom-header"],["velocity-slider"]],
+     "bottom-down": ["slow-motion-checkbox"],
+      "bottom-side": ["ke-shading"]
   },
   "template": [
     {
       "id": "right",
       "height": "model.height",
       "left": "model.right",
-      "padding-left": "0.5em"
+       "padding-left": "0.5em"
     },
     {
       "id": "bottom-left",
       "width": "interactive.width/2.3",
       "top": "model.bottom",
-      "padding-left": "0.5em",
+      "padding-left": "2.3em",
       "padding-top": "0.5em"
     },
     {
@@ -230,7 +230,22 @@
       "width": "interactive.width/2",
       "top": "model.bottom",
       "left": "bottom-left.right",
-      "padding-top": "0.5em"
+      "padding-top": "0.5em",
+        "padding-left": "0em"
+    },
+   {
+      "id": "bottom-down",
+      "top": "bottom-right.bottom",
+      "left": "bottom-left.right",
+      "padding-top": "0.5em",
+       "padding-left": "1em"
+    },
+   {
+      "id": "bottom-side",
+      "top": "bottom-right.bottom",
+      "left": "bottom-down.right",
+      "padding-top": "0.5em",
+        "padding-left": "1em"
     }
   ]
 }
