@@ -9,6 +9,7 @@
       "type": "md2d",
       "id": "simple-gas$0",
       "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
+      "helpIcon": true,
       "viewOptions": {
         "controlButtons": "play_reset_step"
       }
@@ -19,20 +20,23 @@
       "id": "text",
       "type": "text",
       "text": "Interactive components:",
-      "tooltip": "I'm a text component!"
+      "tooltip": "I'm a text component!",
+      "helpIcon": true
     },
     {
       "type": "button",
       "id": "button",
       "text": "Button",
       "action": "",
-      "tooltip": "I'm a button component!"
+      "tooltip": "I'm a button component!",
+      "helpIcon": true
     },
     {
       "type": "checkbox",
       "id": "checkbox",
       "text": "Checkbox",
-      "tooltip": "I'm a checkbox component!"
+      "tooltip": "I'm a checkbox component!",
+      "helpIcon": true
     },
     {
       "type": "slider",
@@ -52,7 +56,8 @@
         }
       ],
       "action": "",
-      "tooltip": "I'm a slider component!"
+      "tooltip": "I'm a slider component!",
+      "helpIcon": true
     },
     {
       "type": "pulldown",
@@ -67,7 +72,8 @@
           "action": ""
         }
       ],
-      "tooltip": "I'm a pulldown component!"
+      "tooltip": "I'm a pulldown component!",
+      "helpIcon": true
     },
     {
       "type": "radio",
@@ -82,21 +88,24 @@
           "action": ""
         }
       ],
-      "tooltip": "I'm a radio component!"
+      "tooltip": "I'm a radio component!",
+      "helpIcon": true
     },
     {
       "type": "numericOutput",
       "id": "numeric-output",
       "label": "Numeric output",
       "property": "time",
-      "tooltip": "I'm a numeric output component!"
+      "tooltip": "I'm a numeric output component!",
+      "helpIcon": true
     },
     {
       "type": "image",
       "id": "image",
-      "width": "10em",
+      "width": "7em",
       "src": "http://lab-framework.concord.org/lab/resources/layout/cc-logo.png",
-      "tooltip": "I'm an image component!"
+      "tooltip": "I'm an image component!",
+      "helpIcon": true
     },
     {
       "type": "graph",
@@ -115,14 +124,33 @@
       ],
       "width": "15em",
       "height": "9em",
-      "tooltip": "I'm a graph component!"
+      "tooltip": "I'm a graph component!",
+      "helpIcon": true
     },
     {
       "type": "barGraph",
       "id": "bar-graph",
       "property": "temperature",
       "height": "7em",
-      "tooltip": "I'm a bar graph component!"
+      "tooltip": "I'm a bar graph component!",
+      "helpIcon": true
+    },
+    {
+      "id": "table",
+      "type": "table",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": true,
+      "height": "7em",
+      "propertyColumns": [
+        {
+          "name": "col1",
+          "format": "r",
+          "editable": false
+        }
+      ],
+      "helpIcon": true
     }
   ],
   "helpTips": [
@@ -231,6 +259,14 @@
       ]
     },
     {
+      "component": "table",
+      "text": [
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
+        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+        "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      ]
+    },
+    {
       "text": [
         "This is the last help tip. When you click overlay once again, you will leave the help system."
       ]
@@ -261,7 +297,7 @@
       ["numeric-output"]
     ],
     "bottom": [
-      ["image", "graph", "bar-graph"]
+      ["image", "graph", "bar-graph", "table"]
     ]
   }
 }
