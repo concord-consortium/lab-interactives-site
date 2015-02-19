@@ -203,7 +203,8 @@
       ],
       "legendVisible": true,
       "syncXAxis": false,
-      "syncYAxis": false
+      "syncYAxis": false,
+      "helpIcon": true
     },
     {
       "id": "co2Graph",
