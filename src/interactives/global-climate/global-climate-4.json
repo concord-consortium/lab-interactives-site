@@ -95,7 +95,8 @@
         "Make sure that you wait long enough to see the effect.",
         "",
         "You can hover over the controls for more information. Click to close this window."
-      ]
+      ],
+      "showcase": true
     },
      {
       "component": [
