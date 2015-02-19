@@ -180,6 +180,7 @@
     },
     {
       "component": "graph",
+      "showcase": false,
       "text": [
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
         "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -188,6 +189,7 @@
     },
     {
       "component": "bar-graph",
+      "showcase": false,
       "text": [
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
         "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -203,15 +205,7 @@
       ]
     },
     {
-      "component": "button",
-      "text": [
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
-        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-        "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      ]
-    },
-    {
-      "component": "pulldown",
+      "component": ["button", "pulldown"],
       "text": [
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
         "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -252,6 +246,7 @@
     },
     {
       "component": "image",
+      "showcase": false,
       "text": [
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
         "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -260,6 +255,7 @@
     },
     {
       "component": "table",
+      "showcase": false,
       "text": [
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
         "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
