@@ -145,7 +145,8 @@
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
-      "syncYAxis": false
+      "syncYAxis": false,
+      "helpIcon": true
     },
     {
       "id": "co2Graph",
