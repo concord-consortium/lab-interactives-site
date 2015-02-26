@@ -104,7 +104,7 @@
       "ylabel": "Energy (eV)",
       "ymin": -5,
       "ymax": 5,
-      "xmax": 0.3000001,
+      "xmax": 0.13,
       "width": "18em",
       "xTickCount": 6,
       "yTickCount": 10,
@@ -173,7 +173,7 @@
     {
       "type": "slider",
       "id": "velocity-slider",
-      "displayValue": "return format('.3f')(value)",
+      "displayValue": "return format('.4f')(value)",
       "min": 0.014,
       "max": 0.020,
       "labels": [
