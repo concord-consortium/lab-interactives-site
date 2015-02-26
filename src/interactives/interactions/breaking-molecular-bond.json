@@ -34,7 +34,7 @@
     },
     {
       "name": "velocity",
-      "initialValue": 0.005,
+      "initialValue": 0.014,
       "onChange": "setAtomProperties(2,{vx: -value});"
     },
     {
@@ -44,29 +44,29 @@
         "var length, strength, x0, y0, x1, y1;",
         "if (value == 1) {",
         "  length = 0.074;",
-        "  strength = 821;",
         "  x0 = 10.848516;",
         "  y0 = 11.02586;",
         "  x1 = 10.9;",
         "  y1 = 10.97;",
+        "  setBondEnergy('1-1',4.52);",
         "} else if (value == 2) {",
         "  length = 0.121;",
-        "  strength = 355;",
         "  x0 = 10.868516;",
         "  y0 = 11.028;",
         "  x1 = 10.93;",
         "  y1 = 10.927;",
+        "  setBondEnergy('2-2',5.15);",
         "} else if (value == 3) {",
         "  length = 0.145;",
-        "  strength = 80;",
         "  x0 = 10.858516;",
         "  y0 = 11.03586;",
         "  x1 = 10.95;",
         "  y1 = 10.92;",
+        "  setBondEnergy('3-3',9.79);",
         "}",
         "setAtomProperties(0,{element: value, x: x0, y: y0});",
         "setAtomProperties(1,{element: value, x: x1, y: y1});",
-        "setRadialBondProperties(0, {length: length, strength: strength})"
+        "setRadialBondProperties(0, {length: length})"
       ]
     },
     {
@@ -174,47 +174,55 @@
       "type": "slider",
       "id": "velocity-slider",
       "displayValue": "return format('.3f')(value)",
-      "min": 0.005,
-      "max": 0.05,
+      "min": 0.014,
+      "max": 0.020,
       "labels": [
         {
-          "value": 0.005,
-          "label": "0.005"
+          "value": 0.014,
+          "label": "0.014"
         },
         {
-          "value": 0.05,
-          "label": "0.05"
+          "value": 0.020,
+          "label": "0.020"
         }
       ],
-      "steps": 18,
+      "steps": 26,
       "title": "Velocity (nm/fs)",
       "property": "velocity",
-      "width": "13em"
+      "width": "18em"
     },
     {
       "type": "checkbox",
       "id": "slow-motion-checkbox",
       "text": "Slow motion",
       "property": "slow-motion"
+    },
+     {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "kinetic energy shading",
+      "property": "keShading"
     }
-  ],
+   ],
   "layout": {
     "right": ["energyGraph"],
     "bottom-left": [["molecule-header"],["molecule-selector"]],
-    "bottom-right": [["third-atom-header"],["velocity-slider"],["slow-motion-checkbox"]]
+    "bottom-right": [["third-atom-header"],["velocity-slider"]],
+     "bottom-down": ["slow-motion-checkbox"],
+      "bottom-side": ["ke-shading"]
   },
   "template": [
     {
       "id": "right",
       "height": "model.height",
       "left": "model.right",
-      "padding-left": "0.5em"
+       "padding-left": "0.5em"
     },
     {
       "id": "bottom-left",
       "width": "interactive.width/2.3",
       "top": "model.bottom",
-      "padding-left": "0.5em",
+      "padding-left": "2.3em",
       "padding-top": "0.5em"
     },
     {
@@ -222,7 +230,22 @@
       "width": "interactive.width/2",
       "top": "model.bottom",
       "left": "bottom-left.right",
-      "padding-top": "0.5em"
+      "padding-top": "0.5em",
+        "padding-left": "0.5em"
+    },
+   {
+      "id": "bottom-down",
+      "top": "bottom-right.bottom",
+      "left": "bottom-left.right",
+      "padding-top": "0.5em",
+       "padding-left": "2.3em"
+    },
+   {
+      "id": "bottom-side",
+      "top": "bottom-right.bottom",
+      "left": "bottom-down.right",
+      "padding-top": "0.5em",
+        "padding-left": "1em"
     }
   ]
 }
