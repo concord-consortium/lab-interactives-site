@@ -88,17 +88,28 @@
       "text": [
         "#How do I use this model?",
         "---",
-        "The human emission slider controls how much carbon dioxide comes out of the factory.",
+        "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
         "",
-        "Zero percent (0%) means that there are no human emissions. One hundred percent (100%) means that human emissions are the same as in the year 2010.",
-        "Two hundred percent (200%) means that human emissions are double the 2010 level.",
-        "",
-        "Change the emissions level, and watch the graphs to see what happens to the temperature, amount of carbon dioxide in the air and water, and amount of water vapor in the air.",
-        "In the model, watch what happens to the amount of ice cover and number of clouds.",
+        "Change the temperature, and watch the graphs to see what happens to the amount of carbon dioxide in the ocean and atmosphere.",
         "Make sure that you wait long enough to see the effect.",
         "",
         "You can hover over the controls for more information. Click to close this window."
-      ]
+      ],
+      "showcase": true
+    },
+    {
+      "component": [
+        "temperatureGraph",
+        "co2Graph"
+      ],
+      "text": [
+        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph).",
+        "Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet.",
+        "---",
+        "Note: This model is a simplified representation of the climate system, and as such,",
+        "it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
+      ],
+      "showcase": false
     }
   ],
   "components": [
@@ -139,9 +150,7 @@
       "yFormatter": ".2r",
       "lines": true,
       "bars": false,
-      "tooltip": [
-        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
-      ],
+      "tooltip": "",
         "dataColors": [
         "#ff0000",
         "#0000ff"
@@ -151,7 +160,8 @@
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
-      "syncYAxis": false
+      "syncYAxis": false,
+      "helpIcon": true
     },
     {
       "id": "co2Graph",
@@ -192,9 +202,7 @@
       "yFormatter": ".2r",
       "lines": true,
       "bars": false,
-      "tooltip": [
-        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph). Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet. This model is a simplified representation of the climate system, and as such, it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
-      ],
+      "tooltip": "",
       "dataColors": [
         "#009966",
         "#0000ff",
