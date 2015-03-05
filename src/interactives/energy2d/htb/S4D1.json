@@ -3,11 +3,9 @@
   "publicationStatus": "public",
   "subtitle": "Where does the house lose energy?",
   "about": [
-    "The two rooms each have a heater at the bottom and **leaks** near the top.",
-    "",
-    "1.  Run the model and look for leaking energy.",
-    "2.  Click on the wall and roof elements to change the sizes and locations of the leaks.",
-    "3.  Note the convection pattern in each situation."
+	"The two rooms have a heater on the floor and “leaks” near the top. Run the model and look for leaking energy.",
+    "Click on the wall and roof elements to change the sizes and locations of the leaks.",
+   	"Compare leaks higher up with leaks lower down, or leaks in both locations."
   ],
   "importedFrom": "imports/energy2d/content-htb/S4D.html",
   "aspectRatio": 1.0,
