@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Which mechanism transfers heat more quickly, conduction or convection?",
   "about": [
-    "Run the model and compare heat moving downward by convection (left-hand) to heat moving",
+    "Run the model and compare heat moving **downward** by convection (left-hand) to heat moving",
     "by conduction (right-hand). Which is faster?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S4A.html",
