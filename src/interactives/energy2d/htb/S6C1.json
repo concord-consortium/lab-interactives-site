@@ -1,13 +1,11 @@
 {
   "title": "Energy Detective 6C: Vertical temperature gradients",
   "publicationStatus": "draft",
-  "subtitle": "How does a ceiling effect the range of temperatures in a house?",
+  "subtitle": "How does a ceiling affect the range of temperatures in a house?",
   "about": [
-    "This model shows the effect of natural convection in a house.",
-    "",
-    "1.  Run the model and note the steady temperatures of the three thermometers, T1, T2, and T3, when the ceiling is present.",
-    "2.  Click the ceiling (the green piece) and move it entirely outside of the house.",
-    "3.  Note how the temperatures of the three thermometers change."
+    "This model shows the effect of ceiling heights in a house where heat can circulate by natural convection.",
+    "Run the model and observe the three temperatures.",
+    "Then drag the ceiling (the green piece) entirely outside the house and note how the temperatures change."
   ],
   "importedFrom": "imports/energy2d/content-htb/S7C.html",
   "models": [
