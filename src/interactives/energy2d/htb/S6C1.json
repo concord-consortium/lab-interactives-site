@@ -1,6 +1,6 @@
 {
   "title": "Vertical temperature gradients",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "subtitle": "How does a ceiling affect the range of temperatures in a house?",
   "about": [
     "This model shows the effect of ceiling heights in a house where heat can circulate by natural convection.",
