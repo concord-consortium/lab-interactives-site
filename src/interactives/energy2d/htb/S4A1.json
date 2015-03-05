@@ -1,6 +1,6 @@
 {
   "title": "Convection: Natural convection",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "subtitle": "Which mechanism transfers heat more quickly, conduction or convection?",
   "about": [
     "This model has two compartments with a warm surface at the bottom. The right-hand side is a solid material that has the same conductivity as air.",
