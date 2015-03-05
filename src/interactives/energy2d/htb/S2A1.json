@@ -1,7 +1,7 @@
 {
   "title": "Maintaining steady temperature",
   "publicationStatus": "public",
-  "subtitle": "Why does the temperature in a box change more dramatically than the temperature in the other?",
+  "subtitle": "Why does the temperature in one box change more dramatically than the temperature in the other?",
    "about": [
     "Two closed boxes have identical heaters. The left-hand box has a much lower specific heat capacity",
     "than the right-hand box. Run the model and monitor the temperatures on the graph.",
