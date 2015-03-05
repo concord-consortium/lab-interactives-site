@@ -3,17 +3,9 @@
   "publicationStatus": "draft",
   "subtitle": "Which mechanism transfers heat more quickly, conduction or convection?",
   "about": [
-    "This model has two parts with a warm surface at the bottom. The right-hand side is a solid material",
-    "that happens to have the same conductivity as air. The left-hand side is just air. Warmer air heated",
-    "by the hot surface has a buoyant force upward.",
-    "",
-    "**Your task is to compare the rates of the heat flow from the bottom to the top in the two parts.**",
-    "",
-    "1.  Run the model and note the temperatures measured by the two thermometers.",
-    "2.  When the model stops, write the temperatures measured by the thermometers and the temperature at",
-    "    the bottom heater.",
-    "",
-    "Reset the model. Set the bottom temperature to be **Low** and **High** and repeat steps 1-2, respectively."
+    "This model has two compartments with a warm surface at the bottom. The right-hand side is a solid material that has the same conductivity as air.",
+    "The left-hand side is air. Warmer air heated by the hot surface has a buoyant force upward.",
+    "Run the model and compare heat moving by convection (left-hand) to heat moving by conduction (right-hand). Which is faster?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S4A.html",
   "models": [
