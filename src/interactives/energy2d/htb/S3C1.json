@@ -3,17 +3,15 @@
   "publicationStatus": "public",
   "subtitle": "Which wall loses thermal energy more quickly, thick or thin?",
   "about": [
-    "The rate of heat conduction depends on how far heat has to travel (*L*), as described below:",
+    "The rate of heat conduction depends on how far heat has to travel (*L*) as described below:",
     "",
     "Δ*Q*/Δ*t* = -<**k** *A*Δ*T*/*L*",
     "",
-    "(This formula says that the heat transfer rate is *inversely* proportional to the distance heat has to travel.)",
+    "(In other words, the heat transfer rate is inversely proportional to the distance heat has to travel.)",
     "",
-    "This model has two situations for you to compare. On the left are two separate heat sources with a constant temperature.",
-    "On the right are two separate objects with a thermometer that measures how much heat has been conducted. The upper test",
-    "piece is twice as long as the lower one. Both are made of the same material. This would be like a thick wall compared to a thin one. ",
-    "",
-    "1.  Run the model and note the temperatures measured by the two thermometers."
+	"On the left are two separate heat sources with a constant temperature. On the right are two separate objects with thermometers",
+    "that measure how much heat has been conducted. The upper test piece is twice as long as the lower one. Both are made of the same material.",
+	"Run the model and watch the changes of the temperatures in the graph. Which bar transfers heat the fastest? How can you tell?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S3C.html",
   "aspectRatio": 1.5,
