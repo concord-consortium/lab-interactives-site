@@ -39,10 +39,9 @@
       "legendLabels": [
         "T1",
         "T2",
-        "T3",
-        "T4"
+        "T3"
       ],
-      "legendVisible": true,
+      "legendVisible": true
   "layout": {
     "right": [ "graph" ]
   },
