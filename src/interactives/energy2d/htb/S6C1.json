@@ -35,9 +35,14 @@
       "xProperty": "time",
       "properties": [
         "sensor-2", "sensor-1", "sensor-0"
-      ]
-    }
-  ],
+      ],
+      "legendLabels": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "legendVisible": true,
   "layout": {
     "right": [ "graph" ]
   },
