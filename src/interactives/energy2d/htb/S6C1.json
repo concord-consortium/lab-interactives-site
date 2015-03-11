@@ -1,13 +1,22 @@
 {
   "title": "Vertical temperature gradients",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "How does a ceiling affect the range of temperatures in a house?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
   "about": [
     "This model shows the effect of ceiling heights in a house where heat can circulate by natural convection.",
     "Run the model and observe the three temperatures.",
     "Then drag the ceiling (the green piece) entirely outside the house and note how the temperatures change."
   ],
-  "importedFrom": "imports/energy2d/content-htb/S7C.html",
+  "theme": "",
   "models": [
     {
       "type": "energy2d",
@@ -19,31 +28,74 @@
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "importedFrom": "imports/energy2d/content-htb/S7C.html",
+  "dataSets": [],
   "components": [
     {
-      "type": "graph",
       "id": "graph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "sensor-2",
+        "sensor-1",
+        "sensor-0"
+      ],
+      "xProperty": "time",
       "title": "Temperature Probes: T1, T2 and T3",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
       "xlabel": "Time (s)",
+      "xmin": 0,
+      "xmax": 3600,
       "ylabel": "Temperature (°C)",
       "ymin": -2,
       "ymax": 20,
-      "xmax": 3600,
       "xTickCount": 5,
+      "yTickCount": 10,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
       "xFormatter": ".2s",
       "yFormatter": ".2s",
-      "xProperty": "time",
-      "properties": [
-        "sensor-2", "sensor-1", "sensor-0"
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
       ],
       "legendLabels": [
         "T1",
         "T2",
         "T3"
       ],
-      "legendVisible": true
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
   "layout": {
-    "right": [ "graph" ]
+    "right": [
+      "graph"
+    ]
   },
   "template": "wide-right"
 }
