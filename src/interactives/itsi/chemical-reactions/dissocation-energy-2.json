@@ -1,0 +1,124 @@
+{
+"title": "Making and Breaking Bonds: The Effect of Temperature",
+"publicationStatus": "draft",
+"labEnvironment": "production",
+"subtitle": "",
+"category": "",
+"subCategory": "",
+"screenshot": "",
+"aspectRatio": 1.725,
+"fontScale": 1,
+"lang": "en-US",
+"i18nMetadata": "",
+"helpOnLoad": false,
+"about": [
+"A chemical reaction can occur in three different ways:",
+"",
+"- A chemical bond is formed.",
+"- A chemical bond is broken.",
+"- One or more electrons are transferred between atoms or molecules.",
+"",
+"Explore reactions in which chemical bonds are formed and broken with this model.",
+"Press run, then try heating and cooling the atoms to see how temperature affects ",
+"the balance between bond formation and breaking."
+],
+"theme": "",
+"models": [
+{
+"type": "md2d",
+"id": "making-breaking.json",
+"url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-energy.json",
+"viewOptions": {
+"controlButtons": "play_reset"
+},
+"modelOptions": {
+"temperatureControl": true,
+"targetTemperature": 3000
+},
+"onLoad":[
+"setBondEnergy('1-1',0.94);"
+]
+}
+],
+"propertiesToRetain": [],
+"parameters": [],
+"outputs": [],
+"filteredOutputs": [],
+"helpTips": [],
+"dataSets": [],
+"components": [
+{
+"id": "title",
+"type": "text",
+"text": "Dissociation Energy: A₂ <--> 2A",
+"width": "auto",
+"height": "auto",
+"tooltip": ""
+},
+{
+"id": "ke-shading",
+"type": "checkbox",
+"text": "KE shading",
+"textOn": "right",
+"width": "auto",
+"height": "auto",
+"property": "keShading",
+"retainProperty": true,
+"disabled": false,
+"tooltip": ""
+},
+{
+"id": "temperature-slider",
+"type": "slider",
+"min": 200,
+"max": 15000,
+"steps": 1100,
+"title": "Temperature",
+"labels": [
+{
+"value": 200,
+"label": "Low"
+},
+{
+"value": 15000,
+"label": "High"
+}
+],
+"width": "140%",
+"height": "auto",
+"property": "targetTemperature",
+"retainProperty": true,
+"disabled": false,
+"tooltip": ""
+}
+],
+"layout": {
+"above": [
+"title"
+],
+"right": [
+[
+"temperature-slider"
+],
+[
+"ke-shading"
+]
+]
+},
+"template": [
+{
+"id": "above",
+"bottom": "model.top",
+"left": "model.left",
+"width": "model.width",
+"align": "center"
+},
+{
+"id": "right",
+"top": "model.top",
+"left": "model.right",
+"height": "model.height",
+"align": "center"
+}
+]
+}
