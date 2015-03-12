@@ -206,7 +206,7 @@
     }
   ],
   "layout": {
-    "right": [
+     "right": [
       [
         "run-model"
       ],
@@ -214,17 +214,15 @@
         "reset-model"
       ],
       [
-        "label-parents"
+        "label-parents",
+         "label-daughters"
       ],
       [
         "num-atoms-parent"
-      ],
-      [
-        "label-daughters"
-      ],
-      [
-        "num-atoms-child"
       ]
+    ],
+    "left": [
+    "num-atoms-child"
     ],
     "bottom": [
       [
@@ -238,6 +236,12 @@
       "id": "right",
       "left": "model.right",
       "top": "model.top"
+    },
+    {
+      "id": "left",
+      "right": "right.right",
+      "padding-top": "7.8em",
+      "padding-right": "3.4em"
     },
     {
       "id": "bottom",
