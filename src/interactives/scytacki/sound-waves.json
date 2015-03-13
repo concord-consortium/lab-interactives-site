@@ -1,0 +1,119 @@
+{
+  "title": "Sound Waves",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pressure-probe",
+      "url": "interactives/scytacki/sound-waves-model2.json",
+      "modelOptions": {
+        "targetTemperature": 4000
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "modelTimeLabel": true
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "soundAcc",
+      "initialValue": 0,
+      "onChange": [
+        "setObstacleProperties(0, { externalAx: value });"
+      ],
+      "label": "Sound Acc",
+      "unitAbbreviation": "pN/nm"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pressure1Instantaneous",
+      "unitType": "pressure",
+      "value": [
+        "return getObstacleProperties(1).westProbeValue;"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressure1Filtered",
+      "unitType": "pressure",
+      "property": "pressure1Instantaneous",
+      "type": "RunningAverage",
+      "period": 10000
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 100,
+      "max": 5000,
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 5000,
+          "label": "5000 K"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperature",
+      "property": "targetTemperature"
+    },
+    {
+      "id": "sound-acc-slider",
+      "type": "slider",
+      "min": -0.0001,
+      "max": 0.0001,
+      "steps": 6,
+      "title": "Pressure (picoNewton / nm)",
+      "labels": [
+        {
+          "value": -0.0001,
+          "label": "-0.0001"
+        },
+        {
+          "value": 0.0001,
+          "label": "0.0001"
+        }
+      ],
+      "width": "15em",
+      "height": "auto",
+      "displayValue": "return format('.2s')(value)",
+      "property": "soundAcc",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+
+    {
+      "type": "graph",
+      "id": "propertiesGraph",
+      "title": "Pressure",
+      "xmin": 0,
+      "xmax": 20,
+      "ymin": -1,
+      "ymax": 3,
+      "yTickCount": 5,
+      "xTickCount": 5,
+      "properties": [
+        "pressure1Filtered"
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "propertiesGraph"
+    ],
+    "bottom": [
+      "temperature-slider", "sound-acc-slider"
+    ]
+  },
+  "template": "wide-right"
+}
