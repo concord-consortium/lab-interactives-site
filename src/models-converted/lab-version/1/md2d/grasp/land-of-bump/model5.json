@@ -1,0 +1,49 @@
+{
+  "title": "Land of Bump - Model 5, Red Hots, Cool Blues, and Two Seperators",
+  "publicationStatus": "draft",
+  "subtitle": "Last Dance....",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.0,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,  
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty-atom",
+      "url": "models-converted/lab-version/1/md2d/grasp/land-of-bump/screen5.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "viewPortDrag": true,
+        "viewPortX": -1.8435754189944142,
+        "viewPortY": 1.899441340782124
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-atom",
+      "text": "Add a random atom",
+      "action": "addRandomAtom()"
+    }
+  ],
+  "layout": {
+    "right": [
+      
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "6em",
+      "left": "model.right",
+      "padding-left": "1em",
+      "align": "center"
+    }
+  ]
+}
