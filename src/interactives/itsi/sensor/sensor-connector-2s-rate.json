@@ -1,0 +1,109 @@
+{
+      "title": "ITSI: Sensor Connector 2s rate",
+      "publicationStatus": "draft",
+      "subtitle": "Collect temperature data from a sensor.",
+      "about": "",
+      "aspectRatio": "1.75",
+      "fontscale": 0.9,
+      "models": [
+        {
+          "type": "sensor-connector",
+          "id": "signal1",
+          "model": {
+            "useRandomClientId": true
+          },
+          "viewOptions": {
+            "controlButtons": "play_reset",
+            "controlButtonStyle": "text",
+            "showClock": false
+          },
+          "onLoad": [
+            "callAt(0,function() {",
+            "  appendDataPropertiesToComponent('sensorGraph');",
+            "});",
+            "// include some intermediate collection points so the user knows the sensor is working",
+            "// collect at 0.5s, 1s",
+            "callAt(0.5,function() {",
+            "  appendDataPropertiesToComponent('sensorGraph');",
+            "});",
+            "callAt(1,function() {",
+            "  appendDataPropertiesToComponent('sensorGraph');",
+            "});",
+            "callEvery(2, function() {",
+            "  appendDataPropertiesToComponent('sensorGraph');",
+            "});"
+          ]
+        }
+      ],
+      "propertiesToRetain": [
+        "clientId",
+        "clientName",
+        "useRandomClientId"
+      ],
+      "dataSets": [
+        {
+          "name": "sensor-dataset",
+          "properties": [
+            "predictionTime",
+            "prediction",
+            "time",
+            "sensorReading"
+          ],
+          "streamDataFromModel": false,
+          "clearOnModelReset": true,
+          "initialData": {
+            "predictionTime": [],
+            "prediction": [],
+            "time": [],
+            "sensorReading": []
+          }
+        }
+      ],
+      "parameters": [],
+      "components": [
+        {
+          "type": "graph",
+          "id": "sensorGraph",
+          "dataSet": "sensor-dataset",
+          "title": "Sensor Reading every 2 seconds",
+          "xlabel": "Time (s)",
+          "ymin":  0,
+          "ymax": 40,
+          "xmin":  0,
+          "xmax": 30,
+          "xTickCount": 5,
+          "xFormatter": ".2s",
+          "yFormatter": ".2s",
+          "properties": [
+            "sensorReading",
+            "prediction"
+          ],
+          "xProperty": [
+            "time",
+            "predictionTime"
+          ],
+          "enableSelectionButton": false,
+          "enableDrawButton": false,
+          "drawProperty": "sensor",
+          "resetAxesOnReset": false,
+          "dataColors": [
+            "#2ca000",
+            "#a00000",
+            "#2c00a0"
+          ]
+        }
+      ],
+      "template": [
+        {
+          "id": "below-model",
+          "top": "model.bottom",
+          "padding-top": "0em",
+          "width": "interactive.width",
+          "bottom": "interactive.bottom",
+          "padding-right": "1em"
+        }
+      ],
+      "layout": {
+        "below-model": ["sensorGraph"]
+      }
+    }

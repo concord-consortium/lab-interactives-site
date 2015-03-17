@@ -1,0 +1,23 @@
+{
+  "title": "Model Only Interactive",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "simple-gas$0",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "theme": "no-framing",
+  "aspectRatio": 1.6,
+  "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0,
+  "template": "model-only"
+}
