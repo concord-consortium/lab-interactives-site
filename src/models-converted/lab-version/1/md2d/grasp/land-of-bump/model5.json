@@ -1,7 +1,7 @@
 {
   "title": "Land of Bump - Model 5, Red Hots, Cool Blues, and Two Seperators",
   "publicationStatus": "draft",
-  "subtitle": "Last Dance....",
+  "subtitle": "Last Dance...",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -19,31 +19,12 @@
       "viewOptions": {
         "controlButtons": "play_reset",
         "viewPortDrag": true,
-        "viewPortX": -1.8435754189944142,
-        "viewPortY": 1.899441340782124
+        "viewPortX": -1.8,
+        "viewPortY": 1.8
       }
     }
   ],
-  "components": [
-    {
-      "type": "button",
-      "id": "add-atom",
-      "text": "Add a random atom",
-      "action": "addRandomAtom()"
-    }
-  ],
-  "layout": {
-    "right": [
-      
-    ]
-  },
-  "template": [
-    {
-      "id": "right",
-      "top": "6em",
-      "left": "model.right",
-      "padding-left": "1em",
-      "align": "center"
-    }
-  ]
+  "components": [],
+  "layout": {},
+  "template": "simple"
 }
