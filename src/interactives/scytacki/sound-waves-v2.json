@@ -1,0 +1,203 @@
+{
+  "title": "Sound Waves",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pressure-probe",
+      "url": "interactives/scytacki/sound-waves-model-v2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "modelTimeLabel": true
+      },
+      "modelOptions": {
+        "targetTemperature": 500
+      },
+      "onLoad": [
+        "set('speaker-initial-position',  getObstacleProperties(0).x);",
+        "set('receiver-initial-position', getObstacleProperties(1).x-1);",
+        "    ",
+        "var direction = 1,",
+        "    count     = 0;",
+        "    ",
+        "callEvery(60, function() {",
+        "    set('speaker-displacement',  getObstacleProperties(0).x - get('speaker-initial-position'));",
+        "    set('receiver-displacement', getObstacleProperties(1).x - get('receiver-initial-position'));",
+        "    if (!get('sound')) { return }",
+        "    var loc  = getObstacleProperties(0).x;",
+        "    if (direction == 1 && loc > get('volume')) {",
+        "        direction = -1;",
+        "    } else if (direction == -1 && loc < 0.1) {",
+        "        direction = 1;",
+        "        count++;",
+        "    }",
+        "    setObstacleProperties(0, { vx: (get('wavelength') * direction) });",
+        "    ",
+        "    if (count > 6) {",
+        "        count = 0;",
+        "        set('sound', false);",
+        "        setObstacleProperties(0, { vx: 0, x: 0 });",
+        "        callAt(getTime()+500, function() {",
+        "            set('targetTemperature', 1000);",
+        "            set('temperatureControl', true);",
+        "            callAt(getTime()+500, function() {",
+        "                set('targetTemperature', 500);",
+        "            });",
+        "        });",
+        "    }",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "sound",
+      "initialValue": false,
+      "onChange": "if (value) set('temperatureControl', false);"
+    },
+    {
+      "name": "volume",
+      "initialValue": 0.3
+    },
+    {
+      "name": "wavelength",
+      "initialValue": 0.001
+    },
+    {
+      "name": "speaker-initial-position",
+      "initialValue": 0,
+      "unitType": "length"
+    },
+    {
+      "name": "speaker-displacement",
+      "initialValue": 0,
+      "unitType": "length"
+    },
+    {
+      "name": "receiver-initial-position",
+      "initialValue": 0,
+      "unitType": "length"
+    },
+    {
+      "name": "receiver-displacement",
+      "initialValue": 1,
+      "unitType": "length"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pressure1Instantaneous",
+      "value": [
+        "return getObstacleProperties(1).westProbeValue;"
+      ],
+      "unitType": "pressure"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressure1Filtered",
+      "property": "pressure1Instantaneous",
+      "type": "RunningAverage",
+      "period": 10000,
+      "unitType": "pressure"
+    }
+  ],
+  "components": [
+    {
+      "id": "sound-control-1",
+      "type": "button",
+      "text": "Play quiet sound",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false,
+      "action": [
+        "set('volume', 0.3);",
+        "set('wavelength', 0.001);",
+        "set('sound', true);"
+      ]
+    },
+    {
+      "id": "sound-control-2",
+      "type": "button",
+      "text": "Play loud sound",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false,
+      "action": [
+        "set('volume', 0.6);",
+        "set('wavelength', 0.002);",
+        "set('sound', true);"
+      ]
+    },
+    {
+      "id": "propertiesGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "receiver-displacement",
+        "speaker-displacement"
+      ],
+      "xProperty": "displayTime",
+      "title": "Speaker and Receiver Displacement",
+      "lineWidth": 2,
+      "width": "32em",
+      "height": "11em",
+      "xlabel": "auto",
+      "xmin": 0,
+      "xmax": 20,
+      "ylabel": "auto",
+      "ymin": -1,
+      "ymax": 2,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
+      ],
+      "legendLabels": [
+        "Speaker Displacement",
+        "Receiver Displacement"
+      ],
+      "legendVisible": false,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+    ],
+    "bottom": [
+      ["propertiesGraph"],
+      ["sound-control-1", "sound-control-2"]
+    ]
+  }
+}
