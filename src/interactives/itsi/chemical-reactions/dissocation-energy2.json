@@ -25,9 +25,14 @@
       },
       "viewOptions": {
         "controlButtons": "play_reset"
+
       },
       "onLoad": 
-      "set({ bondEnergy: 450 });"        
+       
+      "bondEnergy" {
+		"default": 4,		
+		"1-1": 3		
+       },       
     }
   ],
    "parameters": [],
@@ -65,7 +70,11 @@
       ],
       "steps": 1000,
       "title": "Temperature",
+<<<<<<< HEAD
       "width": "auto",
+=======
+      "width": "100%",
+>>>>>>> b56b4f8... Final version
       "property": "targetTemperature"
     }
   ],
