@@ -26,11 +26,13 @@
       "viewOptions": {
         "controlButtons": "play_reset"
       },
-      "onLoad": 
-      "set({ bondEnergy: 450 });"        
+      "onLoad": [
+      "setBondEnergy('1-1',3 );"  
+      ] 
     }
   ],
-   "parameters": [],
+   "parameters": [
+  ],
   "components": [
     {
       "type": "text",
