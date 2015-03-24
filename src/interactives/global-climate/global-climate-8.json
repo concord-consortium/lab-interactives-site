@@ -3,7 +3,10 @@
   "publicationStatus": "draft",
   "subtitle": "Combining Positive and Negative Feedback to Make Predictions About Future Climate",
   "helpOnLoad": true,
-  "about": "In this model, you can explore how changing human emissions might affect the temperature in the future. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere. The amount of ice cover and number of clouds in the model change with temperature and water vapor levels.",
+  "about": ["In this model, you can explore how changing human emissions might affect the temperature in the future. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere. The amount of ice cover and number of clouds in the model change with temperature and water vapor levels.",
+  "",
+  "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
+  ],
   "theme": "has",
   "aspectRatio": 1.6,
   "fontScale": 0.7,
