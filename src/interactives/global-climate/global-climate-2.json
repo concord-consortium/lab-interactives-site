@@ -3,7 +3,10 @@
   "publicationStatus": "draft",
   "subtitle": "Atmosphere & Land Interactions With Graphs",
   "helpOnLoad": true,
-  "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere. Graphs show the temperature change and relative level of carbon dioxide in the atmosphere.",
+  "about": ["This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere. Graphs show the temperature change and relative level of carbon dioxide in the atmosphere.",
+  "",
+            "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
+  ],
   "theme": "has",
   "aspectRatio": 1.55,
   "fontScale": 0.7,
