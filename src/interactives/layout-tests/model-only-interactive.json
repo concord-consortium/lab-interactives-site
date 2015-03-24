@@ -14,6 +14,7 @@
       "onLoad": "start();"
     }
   ],
+  "theme": "no-framing",
   "aspectRatio": 1.6,
   "showTopBar": false,
   "showBottomBar": false,
