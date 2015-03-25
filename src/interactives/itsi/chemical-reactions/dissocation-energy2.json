@@ -26,6 +26,7 @@
       "viewOptions": {
         "controlButtons": "play_reset"
 
+
       },
       "onLoad": 
        
@@ -35,7 +36,8 @@
        },       
     }
   ],
-   "parameters": [],
+   "parameters": [
+  ],
   "components": [
     {
       "type": "text",
@@ -71,10 +73,14 @@
       "steps": 1000,
       "title": "Temperature",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "width": "auto",
 =======
       "width": "100%",
 >>>>>>> b56b4f8... Final version
+=======
+      "width": "auto",
+>>>>>>> 61c1359... onLoad section fixed
       "property": "targetTemperature"
     }
   ],
