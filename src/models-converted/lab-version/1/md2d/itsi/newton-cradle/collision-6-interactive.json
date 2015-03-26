@@ -1,0 +1,32 @@
+{
+  "title": "Six Particle Collisions",
+  "publicationStatus": "draft",
+  "subtitle": "Newton's Cradle without the pendula. Use the mouse to move the particles when stopped.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.666666666666667,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,  
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "collision-6-particles",
+      "url": "models-converted/lab-version/1/md2d/itsi/newton-cradle/collision-6-particles.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "viewPortDrag": true,
+        "viewPortX": 0,
+        "viewPortY": 0
+      }
+    }
+  ],
+  "components": [],
+  "layout": {},
+  "template": "simple"
+}
+
+
