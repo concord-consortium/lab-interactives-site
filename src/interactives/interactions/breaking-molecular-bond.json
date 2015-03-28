@@ -69,10 +69,14 @@
         "setRadialBondProperties(0, {length: length})"
       ]
     },
-    {
+     {
       "name": "slow-motion",
       "initialValue": false,
       "onChange": "if (value) set('timeStep', 0.003); else set('timeStep', 0.01);"
+    },
+    {
+      "name": "keShading",
+      "initialValue": false
     }
   ],
   "outputs": [
@@ -106,8 +110,8 @@
       "ymax": 5,
       "xmax": 0.13,
       "width": "18em",
-      "xTickCount": 6,
-      "yTickCount": 10,
+      "xTickCount": 0,
+      "yTickCount": 0,
       "xFormatter": "r",
       "yFormatter": ".1r",
       "autoScaleX": true,
