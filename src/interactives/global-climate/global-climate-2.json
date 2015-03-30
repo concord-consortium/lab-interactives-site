@@ -208,7 +208,7 @@
       "xlabel": "Time (year)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Concentration",
+      "ylabel": "Greenhouse gases in the model",
       "ymin": 0,
       "ymax": 100,
       "xTickCount": 4,
