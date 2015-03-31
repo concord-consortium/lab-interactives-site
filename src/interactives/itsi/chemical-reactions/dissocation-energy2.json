@@ -27,11 +27,7 @@
         "controlButtons": "play_reset"
       },
       "onLoad": 
-       
-      "bondEnergy" {
-		"default": 4,		
-		"1-1": 3		
-       },       
+       "setBondEnergy('1-1',4 );"      
     }
   ],
    "parameters": [
