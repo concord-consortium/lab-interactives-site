@@ -3,6 +3,8 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
+  "theme": "mhe",
+  "showTopBar": false,
   "aspectRatio": 1,
   "models": [
     {
@@ -160,7 +162,7 @@
       "xProperty": "displayTime",
       "title": "Speaker and Receiver Displacement",
       "lineWidth": 2,
-      "width": "32em",
+      "width": "100%",
       "height": "11em",
       "xlabel": "auto",
       "xmin": 0,
@@ -192,9 +194,15 @@
       "helpIcon": false
     }
   ],
+  "template": [
+    {
+      "id": "bottom",
+      "width": "model.width",
+      "top": "model.bottom",
+      "align": "center"
+    }
+  ],
   "layout": {
-    "right": [
-    ],
     "bottom": [
       ["propertiesGraph"],
       ["sound-control-1", "sound-control-2"]

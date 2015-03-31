@@ -1,0 +1,70 @@
+$main-color: rgb(0, 162, 222)
+
+@mixin mhe-button
+  border-radius: 0.4em
+  background-image: none
+  background-color: transparent
+  color: $main-color
+  border: 0.15em solid $main-color
+  box-shadow: none
+  text-shadow: none
+  &:hover
+    background-image: none
+    background-color: transparent
+    box-shadow: 0 0 0.3em #aaa
+  &:active
+    transform: translateX(0.08em) translateY(0.08em)
+    -webkit-transform: translateX(0.08em) translateY(0.08em)
+
+.lab-theme-mhe
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  background-image: none
+  background-color: #fff
+
+  &.lab-interactive-container
+    border-radius: 0
+    border: none
+
+  .ui-dialog-titlebar
+    background: #868686
+
+  #bottom-bar
+    border: none
+
+  .graph
+    .title
+      font-size: 1em
+    .background
+      background: none
+
+  #credits-link, #fullsize-link
+    // Use visibility hidden, as display: none would affect layout calculations.
+    visibility: hidden
+
+  .interactive-playback.video
+    box-shadow: none
+    // At some point in time playback controller position was broken and it's no longer centered. Fix it here,
+    // as otherwise it looks pretty bad when there are no credits and full-screen buttons around.
+    transform: translateX(-2.5em)
+    -webkit-transform: translateX(-2.5em)
+
+    & > button
+      @include mhe-button
+      padding: 0.15em 0 0 0
+      margin-left: 0.3em
+
+    i
+      color: $main-color
+      font-size: 1.5em
+      
+    .spacer
+      display: none
+
+  .interactive-button
+    & > button
+      @include mhe-button
+      line-height: 1.3em
+
+      &:focus
+        outline: none
+        
