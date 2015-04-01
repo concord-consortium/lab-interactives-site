@@ -7,7 +7,7 @@
     {
       "type": "md2d",
       "id": "pressure-probe",
-      "url": "interactives/scytacki/sound-waves-model2.json",
+      "url": "interactives/mhe/sound-waves/sound-waves-model2.json",
       "modelOptions": {
         "targetTemperature": 4000
       },

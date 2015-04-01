@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "pressure-probe",
-      "url": "interactives/scytacki/sound-waves-model-v2.json",
+      "url": "interactives/mhe/sound-waves/sound-waves-model-v2.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "modelTimeLabel": true
