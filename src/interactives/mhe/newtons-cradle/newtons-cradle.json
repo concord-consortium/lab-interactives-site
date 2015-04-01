@@ -1,0 +1,70 @@
+{
+  "title": "Newton's Cradle",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "aspectRatio": 1.35,
+  "showTopBar": false,
+  "about": "",
+  "theme": "mhe",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "cradle",
+      "url": "interactives/mhe/newtons-cradle/newtons-cradle-model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "angle",
+      "label": "Starting angle",
+      "unitAbbreviation": "°",
+      "onChange": [
+        "var a = getAtomProperties(0), angle = -value * deg2rad, len = getRadialBondProperties(0).length;",
+        "setAtomProperties(1, {x: a.x + Math.sin(angle) * len, y: a.y - Math.cos(angle) * len});"
+      ],
+      "initialValue": 45
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "angle-slider",
+      "min": 0,
+      "max": 90,
+      "width": "30em",
+      "tooltip": "Adjust angle of pendulum.",
+      "displayValue": "return format('f')(value)",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 90,
+          "label": "90"
+        }
+      ],
+      "steps": 90,
+      "title": "Starting angle (&deg;)",
+      "property": "angle"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "1em",
+      "padding-bottom": "1em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "angle-slider"
+    ]
+  }
+}
