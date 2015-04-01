@@ -25,6 +25,7 @@
       },
       "viewOptions": {
         "controlButtons": "play_reset"
+<<<<<<< HEAD
       }
     }
   ],
@@ -37,6 +38,15 @@
       ],
       "unitAbbreviation": "eV"
     }
+=======
+      },
+      "onLoad": [
+      "setBondEnergy('1-1',3 );"  
+      ] 
+    }
+  ],
+   "parameters": [
+>>>>>>> 69cb04ba05c924f07c894008a411db0f5582fb8b
   ],
   "components": [
     {
@@ -72,7 +82,11 @@
       ],
       "steps": 1000,
       "title": "Temperature",
+<<<<<<< HEAD
       "width": "100%",
+=======
+      "width": "auto",
+>>>>>>> 69cb04ba05c924f07c894008a411db0f5582fb8b
       "property": "targetTemperature"
     }
   ],
