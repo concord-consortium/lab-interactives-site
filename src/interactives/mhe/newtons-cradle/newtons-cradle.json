@@ -34,7 +34,7 @@
       "id": "angle-slider",
       "min": 0,
       "max": 90,
-      "width": "30em",
+      "width": "25em",
       "tooltip": "Adjust angle of pendulum.",
       "displayValue": "return format('f')(value)",
       "labels": [

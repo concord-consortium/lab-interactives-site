@@ -1,8 +1,8 @@
 {
   "type": "md2d",
   "imagePath": "",
-  "width": 8,
-  "height": 4,
+  "width": 6.6,
+  "height": 3.5,
   "unitsScheme": "md2d",
   "lennardJonesForces": true,
   "coulombForces": true,
@@ -24,11 +24,11 @@
   "useQuantumDynamics": false,
   "useChemicalReactions": false,
   "viewOptions": {
-    "viewPortWidth": 8,
-    "viewPortHeight": 4,
+    "viewPortWidth": 6.6,
+    "viewPortHeight": 3.5,
     "viewPortZoom": 1,
     "viewPortX": 0,
-    "viewPortY": 0,
+    "viewPortY": 0.7,
     "viewPortDrag": false,
     "backgroundColor": "#ffffff",
     "showClock": false,
@@ -113,21 +113,9 @@
       3.7,
       3.7,
       4.1,
-      4.1,
-      4.5,
-      4.5,
-      4.9,
-      4.9,
-      5.3,
-      5.3
+      4.1
     ],
     "y": [
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
       3,
       1,
       3,
@@ -149,21 +137,9 @@
       0,
       0,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "vy": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0,
       0,
       0,
@@ -185,21 +161,9 @@
       0,
       0,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "friction": [
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
       0.02,
       0.02,
       0.02,
@@ -221,21 +185,9 @@
       0,
       2,
       0,
-      2,
-      0,
-      2,
-      0,
-      2,
-      0,
       2
     ],
     "pinned": [
-      1,
-      0,
-      1,
-      0,
-      1,
-      0,
       1,
       0,
       1,
@@ -254,25 +206,16 @@
       2,
       4,
       6,
-      8,
-      10,
-      12,
-      14
+      8
     ],
     "atom2": [
       1,
       3,
       5,
       7,
-      9,
-      11,
-      13,
-      15
+      9
     ],
     "length": [
-      2,
-      2,
-      2,
       2,
       2,
       2,
@@ -284,9 +227,6 @@
       500000,
       500000,
       500000,
-      500000,
-      500000,
-      500000,
       500000
     ],
     "type": [
@@ -294,10 +234,7 @@
       105,
       105,
       105,
-      105,
-      105,
-      105,
-      101
+      105
     ]
   },
   "lines": {
@@ -308,7 +245,7 @@
       3.1
     ],
     "x2": [
-      6.5
+      5.1
     ],
     "y2": [
       3.1
