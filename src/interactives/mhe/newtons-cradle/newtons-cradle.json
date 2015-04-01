@@ -2,7 +2,7 @@
   "title": "Newton's Cradle",
   "publicationStatus": "public",
   "subtitle": "",
-  "aspectRatio": 1.35,
+  "aspectRatio": 1.25,
   "showTopBar": false,
   "about": "",
   "theme": "mhe",
@@ -50,6 +50,12 @@
       "steps": 90,
       "title": "Starting angle (&deg;)",
       "property": "angle"
+    },
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "Show kinetic energy",
+      "property": "keShading"
     }
   ],
   "template": [
@@ -64,7 +70,8 @@
   ],
   "layout": {
     "bottom": [
-      "angle-slider"
+      ["angle-slider"],
+      ["ke-shading"]
     ]
   }
 }
