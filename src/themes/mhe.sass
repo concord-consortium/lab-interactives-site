@@ -1,4 +1,7 @@
-$main-color: rgb(0, 162, 222)
+$main-color: #00A0E3 // #00a2de
+
+@mixin mhe-hover
+  box-shadow: 0 0 0.3em #aaa
 
 @mixin mhe-button
   border-radius: 0.4em
@@ -9,9 +12,9 @@ $main-color: rgb(0, 162, 222)
   box-shadow: none
   text-shadow: none
   &:hover
+    @include mhe-hover
     background-image: none
     background-color: transparent
-    box-shadow: 0 0 0.3em #aaa
   &:active
     transform: translateX(0.08em) translateY(0.08em)
     -webkit-transform: translateX(0.08em) translateY(0.08em)
@@ -24,6 +27,9 @@ $main-color: rgb(0, 162, 222)
   &.lab-interactive-container
     border-radius: 0
     border: none
+
+  #model-container:focus
+    outline: none
 
   .ui-dialog-titlebar
     background: #868686
@@ -67,4 +73,23 @@ $main-color: rgb(0, 162, 222)
 
       &:focus
         outline: none
-        
+
+
+  .interactive-slider
+    .container
+      margin-top: 0.3em
+      background: none
+
+    .ui-slider
+      border-color: $main-color
+
+    .ui-slider-handle
+      box-shadow: none
+      background: white
+      border: 0.2em solid $main-color
+
+      &:focus
+        outline: none
+
+      &:hover
+        @include mhe-hover
