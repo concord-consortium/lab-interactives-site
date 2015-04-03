@@ -1,5 +1,5 @@
 {
-  "title": "Heat Storage 1C: Heat storage depends on size",
+  "title": "Heat storage depends on size",
   "publicationStatus": "public",
   "subtitle": "Why does a bigger house need more energy to heat?",
   "about": [
@@ -7,20 +7,10 @@
     "",
     "**Q** = *c*p · **m**(*T*final - *T*initial)",
     "",
-    "**Note:** that the specific heats of the two rectangular objects are different. Your task is to change the size of one or both",
-    "objects—hence the mass—so that the equilibrium temperature will be approximately 25°C.",
-    "",
-    "1.  To change the size of an object, click and drag the small yellow rectangles at its edges.",
-    "2.  **Make sure that the objects still touch each other but do not overlap and there is a thermometer in each object.**",
-    "3.  Run the model and wait until the temperatures do not change any further.",
-    "4.  If the final temperatures are close to 25°C (within 1°C), note the sizes of the objects.",
-    "5.  Otherwise, Reset the model, resize the objects, and run the model again until the final temperatures",
-    "    are close to 25°C (within 1°C).",
-    "",
-    "You may use the grid and the ruler as visual assistance when you drag the rectangles.",
-    "",
-    "Use the drop-down menu under the model to change to a different setup of",
-    "specific heats and repeat the task."
+    "**Note:** The specific heats of the two objects are different.",
+	"",
+    "Run the model and note the temperatures measured by the two thermometers.",
+    "Adjust the size of each block with the buttons. See if you can make the equilibrium temperature end up close to 25 °C."
   ],
   "importedFrom": "imports/energy2d/content-htb/S1C.html",
   "models": [

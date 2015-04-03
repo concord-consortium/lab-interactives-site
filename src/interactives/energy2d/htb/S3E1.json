@@ -1,15 +1,10 @@
 {
-  "title": "Conduction 3E: Combine conductivity and heat capacity",
+  "title": "Conduction: Combine conductivity and heat capacity",
   "publicationStatus": "draft",
   "subtitle": "Which material provides the best insulation?",
   "about": [
-    "In this model, there are three test pieces made of materials that have different thermal conductivities and heat capacities.",
-    "",
-    "**Your task is to find out which material is the best insulator.**",
-    "",
-    "1.  Run the model and note the temperatures measured by the three thermometers.",
-    "2.  Choose **Thermal energy** from the **Heat map** drop-down list to switch the view from temperature distribution to thermal energy distribution.",
-    "    In the thermal energy view, you will see where the\n    energy goes."
+    "The three bars have different combinations of thermal conductivity and heat capacity.",
+   	"Run the model and watch the changing temperatures in the graph. Which material resists heat flow the most? The least? Why?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S3E.html",
   "models": [

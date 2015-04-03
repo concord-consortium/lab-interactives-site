@@ -1,14 +1,10 @@
 {
-  "title": "Energy Detective 6B: Where is the most heat lost?",
+  "title": "Where is the most heat lost?",
   "publicationStatus": "draft",
   "subtitle": "Use the temperature difference across walls to find the ones most poorly insulated.",
   "about": [
-    "This model house may have multiple locations that are poorly insulated.",
-    "",
-    "**Your task is to use the two thermometers at the upper-left corner to detect where the house loses the heat the most.**",
-    "",
-    "1.  Drag the thermometers around to record temperature data to help you find the energy-losing locations.",
-    "2.  There may be multiple locations that are poorly insulated. Compare your measurements and draw conclusions."
+    "This house may have multiple locations that are poorly insulated. Drag the thermometers around to examine the temperatures.",
+   	"Try to find the locations that are losing energy. Which elements have lower insulating values?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S7B.html",
   "models": [

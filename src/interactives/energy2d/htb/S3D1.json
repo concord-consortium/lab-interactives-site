@@ -1,17 +1,13 @@
 {
-  "title": "Conduction 3D: The effect of temperature difference",
+  "title": "Conduction: The effect of temperature difference",
   "publicationStatus": "public",
   "subtitle": "Does a hotter object lose heat more quickly?",
-  "about": [
-    "**Your task is to investigate how the amount of heat conducted through the test piece depends on the temperature of the heater on the left-hand side:**",
+   "about": [
+    "Investigate how the amount of heat conducted through the test piece depends on the temperature of the heater on the left-hand side:",
     "",
     "Δ*Q*/Δ*t* = -<**k** *A*Δ*T*/*L*",
     "",
-    "1.  Run the model until it stops (it will automatically stop after 30 minutes of model time).",
-    "2.  Note the change of the temperature over time in the graph.",
-    "3.  Write down the temperature of the heater and the temperature of the thermometer when the model stops.",
-    "4.  Use the drop-down menu below the model to change the heater temperature.",
-    "5.  Repeat 1-3 for two more different heater temperatures."
+ 	"Run the model until it stops. Try different temperatures for the heater. How does this affect the amount of conducted heat?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S3D.html",
   "aspectRatio": 1.4,

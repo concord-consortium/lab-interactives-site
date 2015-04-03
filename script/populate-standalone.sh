@@ -37,5 +37,10 @@ for vendor_folder_to_copy in $VENDOR_FOLDERS; do
 	cp -r public/vendor/$vendor_folder_to_copy public/standalone/lab-interactive/vendor/
 done
 
+echo "- copy CC themes from public to public/standalone/lab-interactive"
+
+mkdir -p public/standalone/lab-interactive/themes
+cp public/themes/cc-themes.css public/standalone/lab-interactive/themes/
+
 tar -zcf public/standalone/lab-interactive.tar.gz --directory=public/standalone/ lab-interactive
 rm -rf public/standalone/lab-interactive

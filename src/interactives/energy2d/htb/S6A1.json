@@ -1,11 +1,11 @@
 {
-  "title": "Energy Detective 6A: Well and poorly-insulated houses",
+  "title": "Well and poorly insulated houses",
   "publicationStatus": "draft",
   "aspectRatio": 1,
-  "subtitle": "Compare how much more heat a poorly-insulated house needs with a well-insulated one.",
+  "subtitle": "Compare how much more heat a poorly insulated house needs with a well-insulated one.",
   "about": [
     "Compare the heating needs of these two houses, which have identical shapes but different",
-    "construction quality. Which house has better insulation? How can you tell?"
+    "insulation quality. Which house has better insulation? How can you tell?"
   ],
   "importedFrom": "imports/energy2d/content-htb/S7A.html",
   "models": [
