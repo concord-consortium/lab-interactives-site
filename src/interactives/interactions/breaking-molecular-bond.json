@@ -99,7 +99,9 @@
   "components": [{
       "type": "graph",
       "id": "energyGraph",
+      "enableAxisScaling": false,
       "title": "Energies",
+      "hideAxisValues": true,
       "xlabel": "Time (ps)",
       "ylabel": "Energy (eV)",
       "ymin": -5,
