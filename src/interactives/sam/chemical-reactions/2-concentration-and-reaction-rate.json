@@ -15,6 +15,7 @@
     "",
     "Gauge the reaction rate by using the graph to see when the reaction reaches 80% completion."
   ],
+  "aspectRatio": 1.4,
   "models": [
     {
       "type": "md2d",
@@ -23,6 +24,7 @@
       "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset",
+        "showClock": true,
         "imageMapping": {
           "reactionGoalFlat.png": "reactionGoalFlat.svg"
         }
