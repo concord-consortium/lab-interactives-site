@@ -1,0 +1,231 @@
+{
+  "title": "Air Pollution 4",
+  "publicationStatus": "draft",
+  "subtitle": "Air Pollution",
+  "helpOnLoad": false,
+  "about": "TODO",
+  "theme": "has",
+  "aspectRatio": 1.3,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable-with-air-temp.html",
+        "includeSunlight": true,
+        "includeInversionLayer": true,
+        "windSpeed": 0,
+        "numCars": 2,
+        "numFactories": 2,
+        "sunlightAmount": 8,
+        "rainRate": 0,
+        "carPollutionRate": 200,
+        "factoryPollutionRate": 300
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": []
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "ticks",
+      "value": "return iframeOutput('ticks');"
+    },
+    {
+      "name": "primaryAQI",
+      "value": "return iframeOutput('primaryAQI');"
+    },
+    {
+      "name": "secondaryAQI",
+      "value": "return iframeOutput('secondaryAQI');"
+    }
+  ],
+  "helpTips": [
+    {
+      "component": "",
+      "text": ["#How do I use this model?",
+      "---",
+      "Press the **Erupt** button to release carbon dioxide.",
+      "",
+      "",
+      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
+      "in the atmosphere.",
+      "",
+      "",
+      "You can hover over the controls for more information. Click to close this window."
+       ]
+    }
+  ],
+  "components": [
+    {
+      "id": "aqiGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "primaryAQI",
+        "secondaryAQI"
+      ],
+      "xProperty": "ticks",
+      "title": "Primary (brown), Secondary (orange) Pollutants",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (ticks)",
+      "xmin": 0,
+      "xmax": 2100,
+      "ylabel": "AQI (Air Quality Index)",
+      "ymin": 0,
+      "ymax": 300,
+      "xTickCount": 4,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "0f",
+      "yFormatter": "0f",
+      "lines": true,
+      "bars": false,
+      "dataColors": [
+        "#664935",
+        "#F47921",
+        "#000000"
+      ],
+      "legendLabels": [
+          "Primary Pollutants",
+          "Secondary Pollutants"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "windSlider",
+      "type": "slider",
+      "min": -30,
+      "max": 30,
+      "steps": 61,
+      "title": "Wind",
+      "labels": [
+        {
+          "value": -30,
+          "label": "<i class='icon-arrow-left'></i>"
+        },
+        {
+          "value": 0,
+          "label": "None"
+        },
+        {
+          "value": 30,
+          "label": "<i class='icon-arrow-right'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "windSpeed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the speed and direction of the wind."
+    },
+    {
+      "id": "sunSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 10,
+      "steps": 10,
+      "title": "Sunlight",
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='icon-minus'></i>"
+        },
+        {
+          "value": 10,
+          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "sunlightAmount",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the amount of sunlight."
+    },
+    {
+      "id": "rainSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 6,
+      "steps": 6,
+      "title": "Rain",
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='icon-minus'></i>"
+        },
+        {
+          "value": 6,
+          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "rainRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the amount of rain."
+    }
+  ],
+  "layout": {
+    "bottomLeft": [
+      ["windSlider"]
+    ],
+    "topRight": [
+      ["aqiGraph"]
+    ],
+    "bottomRight": [
+      ["sunSlider"],
+      ["rainSlider"]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottomLeft",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "interactive.width / 2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "width": "interactive.width / 2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "topRight",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "model.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    }
+  ]
+}

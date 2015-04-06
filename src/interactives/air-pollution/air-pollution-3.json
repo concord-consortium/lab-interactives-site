@@ -1,0 +1,277 @@
+{
+  "title": "Air Pollution 3",
+  "publicationStatus": "draft",
+  "subtitle": "Air Pollution",
+  "helpOnLoad": false,
+  "about": "TODO",
+  "theme": "has",
+  "aspectRatio": 1.3,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable.html",
+        "includeSunlight": true,
+        "windSpeed": 0,
+        "numCars": 2,
+        "carPollutionRate": 100,
+        "numFactories": 1
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": []
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "ticks",
+      "value": "return iframeOutput('ticks');"
+    },
+    {
+      "name": "primaryAQI",
+      "value": "return iframeOutput('primaryAQI');"
+    },
+    {
+      "name": "secondaryAQI",
+      "value": "return iframeOutput('secondaryAQI');"
+    }
+  ],
+  "helpTips": [
+    {
+      "component": "",
+      "text": ["#How do I use this model?",
+      "---",
+      "Press the **Erupt** button to release carbon dioxide.",
+      "",
+      "",
+      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
+      "in the atmosphere.",
+      "",
+      "",
+      "You can hover over the controls for more information. Click to close this window."
+       ]
+    }
+  ],
+  "components": [
+    {
+      "id": "aqiGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "primaryAQI",
+        "secondaryAQI"
+      ],
+      "xProperty": "ticks",
+      "title": "Primary (brown), Secondary (orange) Pollutants",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (ticks)",
+      "xmin": 0,
+      "xmax": 2100,
+      "ylabel": "AQI (Air Quality Index)",
+      "ymin": 0,
+      "ymax": 300,
+      "xTickCount": 4,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "0f",
+      "yFormatter": "0f",
+      "lines": true,
+      "bars": false,
+      "dataColors": [
+        "#664935",
+        "#F47921",
+        "#000000"
+      ],
+      "legendLabels": [
+          "Primary Pollutants",
+          "Secondary Pollutants"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "windSlider",
+      "type": "slider",
+      "min": -100,
+      "max": 100,
+      "steps": 10,
+      "title": "Wind",
+      "labels": [
+        {
+          "value": -100,
+          "label": "<i class='icon-arrow-left'></i>"
+        },
+        {
+          "value": 0,
+          "label": "None"
+        },
+        {
+          "value": 100,
+          "label": "<i class='icon-arrow-right'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "windSpeed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the speed and direction of the wind."
+    },
+    {
+      "id": "carsSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 10,
+      "steps": 10,
+      "title": "Cars",
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='icon-truck'></i>"
+        },
+        {
+          "value": 10,
+          "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "numCars",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the number of cars."
+    },
+    {
+      "id": "factoriesSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 5,
+      "steps": 5,
+      "title": "Power Plants",
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='icon-building'></i>"
+        },
+        {
+          "value": 5,
+          "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "numFactories",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the number of power plants."
+    },
+    {
+      "id": "carPollutionControlSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 100,
+      "steps": 20,
+      "title": "Cars with pollution control devices:",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0%"
+        },
+        {
+          "value": 100,
+          "label": "100%"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "carPollutionControl",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the percentage of cars with pollution control devices."
+    },
+    {
+      "id": "factoryPollutionControlSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 100,
+      "steps": 20,
+      "title": "Power plants with pollution control devices:",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0%"
+        },
+        {
+          "value": 100,
+          "label": "100%"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "factoryPollutionControl",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the percentage of power plants with pollution control devices."
+    }
+  ],
+  "layout": {
+    "bottomLeft": [
+      ["windSlider"],
+      ["carsSlider"],
+      ["factoriesSlider"]
+    ],
+    "topRight": [
+      ["aqiGraph"]
+    ],
+    "bottomRight": [
+      ["carPollutionControlSlider"],
+      ["factoryPollutionControlSlider"]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottomLeft",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "interactive.width / 2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottomRight",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "width": "interactive.width / 2",
+      "padding-right": "1em"
+    },
+    {
+      "id": "topRight",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "model.height",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    }
+  ]
+}

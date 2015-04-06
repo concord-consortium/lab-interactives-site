@@ -150,6 +150,10 @@
   :name: "Global Climate Interactives"
   :category: Curriculum
 
+- :path: air-pollution
+  :name: "Air Pollution Interactives"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum
