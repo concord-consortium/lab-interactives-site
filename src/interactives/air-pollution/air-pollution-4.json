@@ -83,7 +83,7 @@
         "secondaryAQI"
       ],
       "xProperty": "ticks",
-      "title": "Primary (brown), Secondary (orange) Pollutants",
+      "title": "Air Pollutants",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
