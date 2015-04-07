@@ -1,0 +1,231 @@
+{
+  "title": "Air Pollution - Aerial",
+  "publicationStatus": "draft",
+  "subtitle": "Air Pollution - Aerial",
+  "helpOnLoad": false,
+  "about": "TODO",
+  "theme": "has",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/air-pollution-aerial/lab-embeddable.html"
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function updateWindSpeed() {",
+        "  var ns = get('windNorthSouth'), we = get('windWestEast'),",
+        "      mag = Math.sqrt(Math.pow(we, 2) + Math.pow(ns,2)),",
+        "      dir = (Math.atan2(ns, we) + 2*Math.PI) % (2*Math.PI),",
+        "      data = {magnitude: mag, direction: dir}",
+        "  console.log('Updating wind speed', we, ns, Math.atan2(ns, we), data);",
+        "  set('wind', data);",
+        "}",
+        "onPropertyChange('windNorthSouth', updateWindSpeed);",
+        "onPropertyChange('windWestEast', updateWindSpeed);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "windNorthSouth",
+      "initialValue": 0
+    },
+    {
+      "name": "windWestEast",
+      "initialValue": 0
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cityAQuality",
+      "value": "return iframeOutput('cityAQuality');"
+    },
+    {
+      "name": "cityBQuality",
+      "value": "return iframeOutput('cityBQuality');"
+    },
+    {
+      "name": "cityCQuality",
+      "value": "return iframeOutput('cityCQuality');"
+    }
+  ],
+  "helpTips": [
+    {
+      "component": "",
+      "text": ["#How do I use this model?",
+      "---",
+      "Click on the model to add up to four power plants.",
+      "",
+      "",
+      "Use the wind control to change the wind speed and direction.",
+      "",
+      "",
+      "You can hover over the controls for more information. Click to close this window."
+       ]
+    }
+  ],
+  "components": [
+    {
+      "id": "instructions",
+      "type": "text",
+      "text": "Click on the model to add up to four power plants.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "airQualityPlaceholder",
+      "type": "text",
+      "text": "Air Quality",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "windJoystickPlaceholder",
+      "type": "text",
+      "text": "Wind Joystick",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "westEastSlider",
+      "type": "slider",
+      "min": -30,
+      "max": 30,
+      "steps": 61,
+      "title": "Wind West/East",
+      "labels": [
+        {
+          "value": -30,
+          "label": "West"
+        },
+        {
+          "value": 30,
+          "label": "East"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "windWestEast",
+      "retainProperty": false,
+      "disabled": false,
+      "tooltip": "Wind West/East"
+    },
+    {
+      "id": "northSouthSlider",
+      "type": "slider",
+      "min": -30,
+      "max": 30,
+      "steps": 61,
+      "title": "Wind North/South",
+      "labels": [
+        {
+          "value": -30,
+          "label": "South"
+        },
+        {
+          "value": 30,
+          "label": "North"
+        }
+      ],
+      "width": "100%",
+      "height": "auto",
+      "property": "windNorthSouth",
+      "retainProperty": false,
+      "disabled": false,
+      "tooltip": "Wind North/South"
+    },
+    {
+      "id": "city-a-aq",
+      "type": "numericOutput",
+      "property": "cityAQuality",
+      "label": "City A",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "city-b-aq",
+      "type": "numericOutput",
+      "property": "cityBQuality",
+      "label": "City B",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "city-c-aq",
+      "type": "numericOutput",
+      "property": "cityCQuality",
+      "label": "City C",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "belowModel": [
+      ["instructions"]
+    ],
+    "rightTop": [
+      ["airQualityPlaceholder"],
+      ["city-a-aq"],
+      ["city-b-aq"],
+      ["city-c-aq"]
+    ],
+    "rightBottom": [
+      ["windJoystickPlaceholder"],
+      ["westEastSlider"],
+      ["northSouthSlider"]
+    ]
+  },
+  "template": [
+    {
+      "id": "belowModel",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "height": "1em",
+      "padding-left": "1em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "bottom": "model.bottom",
+      "width": "0.3 * model.width",
+      "height": "interactive.height / 2",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "top": "model.top",
+      "width": "0.3 * model.width",
+      "height": "interactive.height / 2",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    }
+  ]
+}
