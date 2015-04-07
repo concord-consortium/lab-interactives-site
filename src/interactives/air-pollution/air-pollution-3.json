@@ -18,6 +18,9 @@
         "windSpeed": 0,
         "numCars": 2,
         "carPollutionRate": 100,
+        "carPollutionControl": 0,
+        "factoryPollutionRate": 100,
+        "factoryPollutionControl": 0,
         "numFactories": 1
       },
       "viewOptions": {
