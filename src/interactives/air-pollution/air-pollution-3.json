@@ -85,7 +85,7 @@
       "height": "100%",
       "xlabel": "Time (ticks)",
       "xmin": 0,
-      "xmax": 2100,
+      "xmax": 2000,
       "ylabel": "AQI (Air Quality Index)",
       "ymin": 0,
       "ymax": 300,
