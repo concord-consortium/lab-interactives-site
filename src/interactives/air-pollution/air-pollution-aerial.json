@@ -13,34 +13,20 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//models-resources.concord.org/agentscript/air-pollution-aerial/lab-embeddable.html"
+        "url": "//models-resources.concord.org/agentscript/air-pollution-aerial/lab-embeddable.html",
+        "wind": {
+          "magnitude": 0,
+          "direction": 0
+        }
       },
       "viewOptions": {
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "function updateWindSpeed() {",
-        "  var ns = get('windNorthSouth'), we = get('windWestEast'),",
-        "      mag = Math.sqrt(Math.pow(we, 2) + Math.pow(ns,2)),",
-        "      dir = (Math.atan2(ns, we) + 2*Math.PI) % (2*Math.PI),",
-        "      data = {magnitude: mag, direction: dir}",
-        "  console.log('Updating wind speed', we, ns, Math.atan2(ns, we), data);",
-        "  set('wind', data);",
-        "}",
-        "onPropertyChange('windNorthSouth', updateWindSpeed);",
-        "onPropertyChange('windWestEast', updateWindSpeed);"
       ]
     }
   ],
   "parameters": [
-    {
-      "name": "windNorthSouth",
-      "initialValue": 0
-    },
-    {
-      "name": "windWestEast",
-      "initialValue": 0
-    }
   ],
   "outputs": [
     {
@@ -85,101 +71,72 @@
       "type": "text",
       "text": "Air Quality",
       "width": "auto",
-      "height": "auto",
+      "height": "0.7em",
       "tooltip": ""
     },
     {
-      "id": "windJoystickPlaceholder",
-      "type": "text",
-      "text": "Wind Joystick",
+      "id": "scale",
+      "type": "div",
+      "content": [
+        "<div id='air-quality-scale' style='width: 6em; height: 9.1em; padding: 0.5em; margin-left: 1em; border: 2px solid #BBBBBB;'>",
+        "  <div id='scale' style='height: 100%; width: 25%; background: #ff3232; background: -moz-linear-gradient(top,  #ff3232 0%, #edf72e 50%, #2aff00 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3232), color-stop(50%,#edf72e), color-stop(100%,#2aff00)); background: -webkit-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -o-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -ms-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: linear-gradient(to bottom,  #ff3232 0%,#edf72e 50%,#2aff00 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#2aff00',GradientType=0 );'></div>",
+        "  <span id='poor' style='position: absolute; top: 0.5em; left: 50%;'>Poor</span>",
+        "  <span id='fair' style='position: absolute; top: 45%; left: 50%;'>Fair</span>",
+        "  <span id='good' style='position: absolute; bottom: 0.5em; left: 50%;'>Good</span>",
+        "</div>"
+      ],
       "width": "auto",
       "height": "auto",
       "tooltip": ""
     },
     {
-      "id": "westEastSlider",
-      "type": "slider",
-      "min": -30,
-      "max": 30,
-      "steps": 61,
-      "title": "Wind West/East",
-      "labels": [
-        {
-          "value": -30,
-          "label": "West"
-        },
-        {
-          "value": 30,
-          "label": "East"
-        }
-      ],
-      "width": "100%",
+      "id": "windJoystick",
+      "type": "joystick",
+      "title": "Wind",
+      "property": "wind",
+      "scale": 30,
+      "width": "auto",
       "height": "auto",
-      "property": "windWestEast",
-      "retainProperty": false,
-      "disabled": false,
-      "tooltip": "Wind West/East"
-    },
-    {
-      "id": "northSouthSlider",
-      "type": "slider",
-      "min": -30,
-      "max": 30,
-      "steps": 61,
-      "title": "Wind North/South",
-      "labels": [
-        {
-          "value": -30,
-          "label": "South"
-        },
-        {
-          "value": 30,
-          "label": "North"
-        }
-      ],
-      "width": "100%",
-      "height": "auto",
-      "property": "windNorthSouth",
-      "retainProperty": false,
-      "disabled": false,
-      "tooltip": "Wind North/South"
+      "tooltip": "",
+      "displayValue":[
+        "var speed = Math.round(value.magnitude),",
+        "    out = '' + speed + ' MPH';",
+        "if (speed >= 1) {",
+        "  out += ' from the ' + getCardinalDirection(value.direction, true);",
+        "}",
+        "return out;"
+      ]
     },
     {
       "id": "city-a-aq",
-      "type": "numericOutput",
+      "type": "colorIndicator",
       "property": "cityAQuality",
-      "label": "City A",
-      "units": "",
-      "orientation": "horizontal",
+      "title": "City A",
       "width": "auto",
       "height": "auto",
-      "displayValue": "return format('f')(value)",
+      "colorValue": "return 'hsl('+value+',100%,50%)';",
       "tooltip": "",
       "helpIcon": false
     },
     {
       "id": "city-b-aq",
-      "type": "numericOutput",
+      "type": "colorIndicator",
       "property": "cityBQuality",
-      "label": "City B",
-      "units": "",
-      "orientation": "horizontal",
+      "title": "City B",
       "width": "auto",
       "height": "auto",
-      "displayValue": "return format('f')(value)",
+      "colorValue": "return 'hsl('+value+',100%,50%)';",
       "tooltip": "",
       "helpIcon": false
     },
     {
       "id": "city-c-aq",
-      "type": "numericOutput",
+      "type": "colorIndicator",
       "property": "cityCQuality",
-      "label": "City C",
-      "units": "",
-      "orientation": "horizontal",
+      "title": "City C",
       "width": "auto",
       "height": "auto",
-      "displayValue": "return format('f')(value)",
+      "colorValue": "return 'hsl('+value+',100%,50%)';",
       "tooltip": "",
       "helpIcon": false
     }
@@ -194,10 +151,11 @@
       ["city-b-aq"],
       ["city-c-aq"]
     ],
+    "rightRightTop": [
+      "scale"
+    ],
     "rightBottom": [
-      ["windJoystickPlaceholder"],
-      ["westEastSlider"],
-      ["northSouthSlider"]
+      ["windJoystick"]
     ]
   },
   "template": [
@@ -215,6 +173,15 @@
       "bottom": "model.bottom",
       "width": "0.3 * model.width",
       "height": "interactive.height / 2",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightRightTop",
+      "right": "interactive.right",
+      "top": "model.top",
+      "width": "0.3 * model.width",
+      "height": "interactive.height / 2",
+      "padding-top": "1.7em",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
     },
