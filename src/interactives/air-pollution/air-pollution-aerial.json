@@ -78,15 +78,17 @@
       "id": "scale",
       "type": "div",
       "content": [
-        "<div id='air-quality-scale' style='width: 6em; height: 9.1em; padding: 0.5em; margin-left: 1em; border: 2px solid #BBBBBB;'>",
-        "  <div id='scale' style='height: 100%; width: 25%; background: #ff3232; background: -moz-linear-gradient(top,  #ff3232 0%, #edf72e 50%, #2aff00 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3232), color-stop(50%,#edf72e), color-stop(100%,#2aff00)); background: -webkit-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -o-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -ms-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: linear-gradient(to bottom,  #ff3232 0%,#edf72e 50%,#2aff00 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#2aff00',GradientType=0 );'></div>",
-        "  <span id='poor' style='position: absolute; top: 0.5em; left: 50%;'>Poor</span>",
-        "  <span id='fair' style='position: absolute; top: 45%; left: 50%;'>Fair</span>",
-        "  <span id='good' style='position: absolute; bottom: 0.5em; left: 50%;'>Good</span>",
+        "<div style='width: 100%; height: 100%; text-align: right;'>",
+        "  <div style='width: 6em; height: 9.1em; padding: 0.5em; margin: auto 1em auto auto; border: 2px solid #BBBBBB; display: inline-block; position: relative;'>",
+        "    <div style='height: 100%; width: 25%; background: #ff3232; background: -moz-linear-gradient(top,  #ff3232 0%, #edf72e 50%, #2aff00 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3232), color-stop(50%,#edf72e), color-stop(100%,#2aff00)); background: -webkit-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -o-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -ms-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: linear-gradient(to bottom,  #ff3232 0%,#edf72e 50%,#2aff00 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#2aff00',GradientType=0 );'></div>",
+        "    <span style='position: absolute; top: 0.5em; left: 50%;'>Poor</span>",
+        "    <span style='position: absolute; top: 45%; left: 50%;'>Fair</span>",
+        "    <span style='position: absolute; bottom: 0.5em; left: 50%;'>Good</span>",
+        "  </div>",
         "</div>"
       ],
-      "width": "auto",
-      "height": "auto",
+      "width": "100%",
+      "height": "100%",
       "tooltip": ""
     },
     {
