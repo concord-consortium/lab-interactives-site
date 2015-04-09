@@ -67,10 +67,10 @@
       "tooltip": ""
     },
     {
-      "id": "airQualityPlaceholder",
+      "id": "airQualityTitle",
       "type": "text",
       "text": "Air Quality",
-      "width": "auto",
+      "width": "100%",
       "height": "0.7em",
       "tooltip": ""
     },
@@ -97,8 +97,8 @@
       "title": "Wind",
       "property": "wind",
       "scale": 30,
-      "width": "auto",
-      "height": "auto",
+      "width": "100%",
+      "height": "100%",
       "tooltip": "",
       "displayValue":[
         "var speed = Math.round(value.magnitude),",
@@ -148,7 +148,7 @@
       ["instructions"]
     ],
     "rightTop": [
-      ["airQualityPlaceholder"],
+      ["airQualityTitle"],
       ["city-a-aq"],
       ["city-b-aq"],
       ["city-c-aq"]
