@@ -5,8 +5,8 @@
   "helpOnLoad": false,
   "about": "TODO",
   "theme": "has",
-  "aspectRatio": 1.0,
-  "fontScale": 0.9,
+  "aspectRatio": 1.37,
+  "fontScale": 0.6,
   "models": [
     {
       "type": "iframe-model",
@@ -122,7 +122,8 @@
       "min": -100,
       "max": 100,
       "steps": 10,
-      "title": "Wind",
+      "title": "<span style='display: inline-block; width: 6.5em;'>Wind</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": -100,
@@ -150,7 +151,8 @@
       "min": 0,
       "max": 10,
       "steps": 10,
-      "title": "Cars",
+      "title": "<span style='display: inline-block; width: 6.5em;'>Cars</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -174,7 +176,8 @@
       "min": 0,
       "max": 5,
       "steps": 5,
-      "title": "Power Plants",
+      "title": "<span style='display: inline-block; width: 6.5em;'>Power Plants</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -198,7 +201,8 @@
       "min": 0,
       "max": 100,
       "steps": 10,
-      "title": "Temperature",
+      "title": "<span style='display: inline-block; width: 6.5em;'>Temperature</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -222,7 +226,8 @@
       "min": 0,
       "max": 10,
       "steps": 10,
-      "title": "Sunlight",
+      "title": "<span style='display: inline-block; width: 9.7em;'>Sunlight</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -246,7 +251,8 @@
       "min": 0,
       "max": 6,
       "steps": 6,
-      "title": "Rain",
+      "title": "<span style='display: inline-block; width: 9.7em;'>Rain</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -270,7 +276,8 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Car pollution",
+      "title": "<span style='display: inline-block; width: 9.7em;'>Car pollution</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -294,7 +301,8 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Power plant pollution",
+      "title": "<span style='display: inline-block; width: 9.7em;'>Power plant pollution</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -318,7 +326,8 @@
       "min": 0,
       "max": 100,
       "steps": 10,
-      "title": "Electric cars",
+      "title": "<span style='display: inline-block; width: 9.7em;'>Electric cars</span>",
+      "titlePosition": "left",
       "labels": [
         {
           "value": 0,
@@ -365,6 +374,8 @@
       "top": "model.bottom",
       "left": "model.left",
       "width": "interactive.width / 2",
+      "height": "15em",
+      "padding-top": "0.5em",
       "padding-right": "1em"
     },
     {
@@ -372,12 +383,14 @@
       "top": "model.bottom",
       "right": "interactive.right",
       "width": "interactive.width / 2",
+      "height": "15em",
+      "padding-top": "0.5em",
       "padding-right": "1em"
     },
     {
       "id": "topRight",
       "left": "model.right",
-      "width": "0.7 * model.width",
+      "width": "0.56 * model.width",
       "height": "model.height",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
