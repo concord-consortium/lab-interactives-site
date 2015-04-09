@@ -13,18 +13,58 @@
       "url": "interactives/mhe/newtons-cradle/newtons-cradle-model.json",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        "function resetBalls() {",
+        "  stop();",
+        "  for (var i = 0; i < 5; i++) {",
+        "    var a = getAtomProperties(i*2);",
+        "    setAtomProperties((i*2)+1, {x: a.x, y: 1, vx: 0, vy: 0, friction: 0.01});",
+        "  }",
+        "  var angle = get('angle') * -deg2rad, len = getRadialBondProperties(0).length, numLifted = get('numLifted');",
+        "  for (i = 0; i < numLifted; i++) {",
+        "    var a = getAtomProperties(i*2);",
+        "    setAtomProperties((i*2)+1, {x: a.x + Math.sin(angle) * len, y: a.y - Math.cos(angle) * len});",
+        "  }",
+        "}",
+        "onPropertyChange('angle', resetBalls);",
+        "onPropertyChange('numLifted', resetBalls);",
+        "resetBalls();",
+        "  ",
+        "callEvery(200, function() {",
+        "  var numLifed = get('numLifted'),",
+        "      dampenHeight = numLifed < 4 ? 1.1 : 1.2,",
+        "      highestBall = null;",
+        "  if (getAtomProperties(1).y > dampenHeight) {",
+        "    highestBall = 1;",
+        "  } else if (getAtomProperties(9).y > dampenHeight) {",
+        "    highestBall = 9;",
+        "  }",
+        " if (highestBall) {",
+        "   for (var i = 1; i < 10; i+=2) {",
+        "     if (Math.abs(highestBall - i) >= numLifed * 2) {",
+        "       setAtomProperties(i, {friction: 5});",
+        "     }",
+        "   }",
+        " } else {",
+        "   for (var i = 1; i < 10; i+=2) {",
+        "     setAtomProperties(i, {friction: 0.01});",
+        "   }",
+        " }",
+        "});"
+      ]
     }
   ],
   "parameters": [
     {
+      "name": "numLifted",
+      "label": "Balls lifted",
+      "initialValue": 2
+    },
+    {
       "name": "angle",
       "label": "Starting angle",
       "unitAbbreviation": "°",
-      "onChange": [
-        "var a = getAtomProperties(0), angle = -value * deg2rad, len = getRadialBondProperties(0).length;",
-        "setAtomProperties(1, {x: a.x + Math.sin(angle) * len, y: a.y - Math.cos(angle) * len});"
-      ],
       "initialValue": 45
     }
   ],
@@ -33,7 +73,7 @@
       "type": "slider",
       "id": "angle-slider",
       "min": 0,
-      "max": 90,
+      "max": 75,
       "width": "25em",
       "tooltip": "Adjust angle of pendulum.",
       "displayValue": "return format('f')(value)",
@@ -43,19 +83,50 @@
           "label": "0"
         },
         {
-          "value": 90,
-          "label": "90"
+          "value": 75,
+          "label": "75"
         }
       ],
-      "steps": 90,
+      "steps": 75,
       "title": "Starting angle (&deg;)",
       "property": "angle"
+    },
+    {
+      "type": "radio",
+      "id": "num-lifted-pulldown",
+      "label": "Number of balls to lift",
+      "property": "numLifted",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "1",
+          "value": 1
+        },
+        {
+          "text": "2",
+          "value": 2
+        },
+        {
+          "text": "3",
+          "value": 3
+        },
+        {
+          "text": "4",
+          "value": 4
+        }
+      ]
     },
     {
       "type": "checkbox",
       "id": "ke-shading",
       "text": "Show kinetic energy",
       "property": "keShading"
+    },
+    {
+      "type": "checkbox",
+      "id": "slow_motion",
+      "text": "Slow Motion",
+      "action": "if (value) { set({timeStep: 0.5}) } else { set({timeStep: 2})};"
     }
   ],
   "template": [
@@ -71,7 +142,8 @@
   "layout": {
     "bottom": [
       ["angle-slider"],
-      ["ke-shading"]
+      ["num-lifted-pulldown"],
+      ["ke-shading", "slow_motion"]
     ]
   }
 }
