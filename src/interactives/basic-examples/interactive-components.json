@@ -168,6 +168,16 @@
       "property": "targetTemperature"
     },
     {
+      "type": "spinner",
+      "id": "temperature-spinner",
+      "min": 10,
+      "max": 200,
+      "displayValue": "return format('f')(value)",
+      "steps": 19,
+      "title": "Target Temperature",
+      "property": "targetTemperature"
+    },
+    {
       "type": "slider",
       "id": "temperature-action-slider",
       "title": "Temperature (set via action)",
