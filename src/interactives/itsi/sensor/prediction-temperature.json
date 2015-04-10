@@ -1,5 +1,5 @@
 {
-  "title": "ITSI: Prediction for Sensor Connector",
+  "title": "ITSI: Temperature Prediction",
   "publicationStatus": "draft",
   "subtitle": "Draw a prediction.",
   "about": "",
@@ -13,6 +13,7 @@
         "url": ""
       },
       "viewOptions": {
+        "aspectRatio": 1000,
         "viewPortWidth": 0,
         "viewPortHeight": 0,
         "controlButtons": "",
@@ -78,7 +79,7 @@
   "template": [
     {
       "id": "above",
-      "top": "model.top",
+      "top": "model.bottom",
       "padding-top": "0em",
       "bottom": "below.top",
       "padding-bottom": "2.5em",
