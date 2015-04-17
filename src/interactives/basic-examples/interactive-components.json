@@ -172,9 +172,11 @@
       "id": "temperature-spinner",
       "min": 10,
       "max": 200,
-      "displayValue": "return format('f')(value)",
-      "steps": 19,
+      "displayValue": "return format('.f')(value)",
+      "width": "7.3em",
+      "steps": 380,
       "title": "Target Temperature",
+      "units": "K",
       "property": "targetTemperature"
     },
     {
