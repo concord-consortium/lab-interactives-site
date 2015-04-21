@@ -1,0 +1,87 @@
+{
+  "title": "Table: Explosion Observations",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to record observations of the various gases exploding."
+  ],
+  "aspectRatio": "2.1",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Balloon filled with the following gas",
+        "Observation describing what happened during the explosion"
+      ],
+      "initialData": {
+        "Balloon filled with the following gas": ["Hydrogen (H2) [Yellow balloon]","Oxygen (O2) [Green balloon]","Hydrogen (H2) + Oxygen (O2) [Pink balloon]"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Balloon filled with the following gas",
+          "format": "r"
+        },
+        {
+          "name": "Observation describing what happened during the explosion",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
