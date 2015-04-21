@@ -29,7 +29,7 @@
         "Observation describing what happened during the explosion"
       ],
       "initialData": {
-        "Balloon filled with the following gas": ["Hydrogen (H2) [Yellow balloon]","Oxygen (O2) [Green balloon]","Hydrogen (H2) + Oxygen (O2) [Pink balloon]"]
+        "Balloon filled with the following gas": ["Hydrogen (H₂) [Yellow balloon]","Oxygen (O₂) [Green balloon]","Hydrogen (H₂) + Oxygen (O₂) [Pink balloon]"]
       }
 
     }
