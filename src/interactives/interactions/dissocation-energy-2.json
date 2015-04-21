@@ -27,9 +27,10 @@
     {
       "type": "md2d",
       "id": "making-breaking.json",
-      "url": "models/lab-version/1/md2d/itsi/chemical-reactions/dissociation-energy2.json",
+      "url": "models/lab-version/1/md2d/interactions/dissociation-energy2.json",
       "viewOptions": {
-      "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "keShading": true
       },
       "modelOptions": {
         "temperatureControl": true,
