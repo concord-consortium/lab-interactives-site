@@ -357,3 +357,7 @@
 - :path: external-projects/lawrence-hall
   :name: "Lawrence Hall Interactives"
   :category: Curriculum
+
+- :path: external-projects/sri
+  :name: "Interactives for SRI"
+  :category: Curriculum
