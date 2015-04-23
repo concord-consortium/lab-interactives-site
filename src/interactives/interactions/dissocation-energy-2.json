@@ -6,7 +6,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.725,
+  "aspectRatio": 1.8,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -49,14 +49,6 @@
   "dataSets": [],
   "components": [
     {
-      "id": "title",
-      "type": "text",
-      "text": "Dissociation Energy: A₂ <--> 2A",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
-    },
-    {
       "id": "ke-shading",
       "type": "checkbox",
       "text": "KE shading",
@@ -94,9 +86,6 @@
     }
   ],
   "layout": {
-    "above": [
-      "title"
-     ],
     "right": [
       [
        "temperature-slider"
