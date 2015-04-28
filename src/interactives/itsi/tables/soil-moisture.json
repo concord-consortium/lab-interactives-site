@@ -1,0 +1,126 @@
+{
+  "title": "Table: Soil Moisture",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": "1.864",
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": [
+    "Use this table to collect data about soil moisture"
+  ],
+  "theme": "",
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 2000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [
+    {
+      "name": "table-dataset",
+      "properties": [
+        "　　　Description of Location　　　",
+        "Soil Moisture"
+      ],
+      "serializableProperties": "all",
+      "streamDataFromModel": true,
+      "clearOnModelReset": true,
+      "initialData": {
+        "　　　Description of Location　　　": [],
+        "Soil Moisture": []
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "title": null,
+      "dataSet": "table-dataset",
+      "addNewRows": true,
+      "visibleRows": 4,
+      "showBlankRow": true,
+      "indexColumn": false,
+      "propertyColumns": [
+        {
+          "name": "　　　Description of Location　　　",
+          "format": "r"
+        },
+        {
+          "name": "Soil Moisture",
+          "format": "r"
+        }
+      ],
+      "headerData": [
+        {
+          "name": "　　　Description of Location　　　",
+          "editable": true
+        },
+        {
+          "name": "Soil Moisture",
+          "editable": true
+        }
+      ],
+      "width": "100%",
+      "height": "100%",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "clear-dataset",
+      "type": "button",
+      "action": "clearDataSet('table-dataset');",
+      "text": "Clear table",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "above": [
+      "table1"
+    ],
+    "below": [
+      "clear-dataset"
+    ]
+  },
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ]
+}
