@@ -124,6 +124,8 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Wind</span>",
       "titlePosition": "left",
+      "fillColor": "#C8C8FF",
+      "fillToValue": 0,
       "labels": [
         {
           "value": -100,
@@ -153,6 +155,7 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Cars</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -178,6 +181,7 @@
       "steps": 5,
       "title": "<span style='display: inline-block; width: 6.5em;'>Power Plants</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -203,6 +207,7 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Temperature</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -228,6 +233,7 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 9.7em;'>Sunlight</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -253,6 +259,7 @@
       "steps": 6,
       "title": "<span style='display: inline-block; width: 9.7em;'>Rain</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -278,6 +285,7 @@
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Car pollution</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -303,6 +311,7 @@
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Power plant pollution</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
@@ -328,6 +337,7 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 9.7em;'>Electric cars</span>",
       "titlePosition": "left",
+      "fillColor": "#ff0000",
       "labels": [
         {
           "value": 0,
