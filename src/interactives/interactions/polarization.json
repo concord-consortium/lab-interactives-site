@@ -66,7 +66,6 @@
         "  setTextBoxProperties(1, {text: rightText, color: rightColor, x: rightX});",
         "}",
         "function getURI(dif) {",
-        "  dif = dif * 2;",
         "  return 'images/' + format('0.2f')(dif).replace('.','_').replace('-','neg') + '.svg';",
         "}",
         "function updateField() {",
@@ -232,7 +231,7 @@
       "left": "model.right",
       "height": "model.height/2.5",
       "padding-left": "0.7em",
-      "align": "center"
+      "align": "left"
     }
   ],
   "layout": {
