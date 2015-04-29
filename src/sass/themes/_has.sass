@@ -1,3 +1,5 @@
+@import 'sass/bourbon/bourbon'
+
 .lab-theme-has
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
   background-image: none
@@ -17,3 +19,32 @@
 
   .bar-graph
     background: none
+
+
+.interactive-playback
+
+  i
+    // HAS-climate blue
+    color: #165ba1
+    // Push play/pause icons upward because the more-saturated background of the HAS play/pause
+    // buttons push their apparent visual center up, compared to the default Lab theme which is
+    // so light at the top.
+    display: inline-block
+    margin-bottom: 0.3em
+
+  // HAS-climate orange
+  .spacer
+    @include linear-gradient(#F4DFC3, #F4B562, $fallback: #F4DFC3)
+
+  &.video
+    box-shadow: 0px 1px 1px rgba(244,160,49,0.4)
+
+  &.video > button
+    @include linear-gradient(#F4D5AB, #F4A031, $fallback: #eee)
+
+    &:hover
+      @include linear-gradient(#F4EADC, #F4D5AB, $fallback: #e6e6e6)
+
+    &:active
+      @include linear-gradient(#e6e6e6, #fff, $fallback: #f4f4f4)
+
