@@ -26,7 +26,17 @@
       },
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('showGasesCheckbox', value);",
+        "  setComponentDisabled('showRaysCheckbox', value);",
+        "  setComponentDisabled('showHeatCheckbox', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ]
     }
   ],
   "outputs": [

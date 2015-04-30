@@ -45,7 +45,17 @@
         "  // Ensure buttons are in sync with actual spotlight state.",
         "  if (get('followEnergy')) set('followEnergy', false);",
         "  if (get('followCO2'))    set('followCO2', false);",
-        "});"
+        "});",
+        "function disableComponents(value) {",
+        "  setComponentDisabled('showGasesCheckbox', value);",
+        "  setComponentDisabled('showRaysCheckbox', value);",
+        "  setComponentDisabled('showHeatCheckbox', value);",
+        "  setComponentDisabled('followEnergyButton', value);",
+        "  setComponentDisabled('followCO2Button', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
       ]
     }
   ],

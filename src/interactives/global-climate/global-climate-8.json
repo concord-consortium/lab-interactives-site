@@ -40,7 +40,15 @@
         "post('createCO2', 15);",
         "post('updateVapor');",
         "post('updateClouds');",
-        "post('updateIce');"
+        "post('updateIce');",
+        "function disableComponents(value) {",
+        "  setComponentDisabled('showGasesCheckbox', value);",
+        "  setComponentDisabled('showRaysCheckbox', value);",
+        "  setComponentDisabled('showHeatCheckbox', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
       ]
     }
   ],
