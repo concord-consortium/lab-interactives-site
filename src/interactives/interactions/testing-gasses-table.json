@@ -1,0 +1,92 @@
+{
+  "title": "Table: Testing air with burning and glowing splints",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to record observations of the effect of various gases on a burning splint and a glowing splint."
+  ],
+  "aspectRatio": "1.9",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Bottle filled with the following gas",
+        "Burning splint observations",
+        "Glowing splint observations"
+      ],
+      "initialData": {
+        "Bottle filled with the following gas": ["Air (N₂, O₂, and small amounts of other gases)","Oxygen (O₂)","Nitrogen (N₂)"]
+      }
+
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Bottle filled with the following gas",
+          "format": "r"
+        },
+        {
+          "name": "Burning splint observations",
+          "format": "r"
+        },
+        {
+          "name": "Glowing splint observations",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "clear-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["clear-dataset"]
+  }
+}
