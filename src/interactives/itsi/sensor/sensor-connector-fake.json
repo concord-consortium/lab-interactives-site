@@ -7,9 +7,9 @@
   "fontscale": 0.9,
   "models": [
     {
-  "type": "signal-generator",
-  "id": "signal1",
-  "url": "models/lab-version/1/signal-generator/signal-generator.json",
+      "type": "signal-generator",
+      "id": "signal1",
+      "url": "models/lab-version/1/signal-generator/signal-generator.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text",
@@ -29,7 +29,7 @@
         "predictionTime",
         "prediction",
         "time",
-        "sensorReading"
+        "signalValue"
       ],
       "streamDataFromModel": true,
       "clearOnModelReset": true,
@@ -37,7 +37,7 @@
         "predictionTime": [],
         "prediction": [],
         "time": [],
-        "sensorReading": []
+        "signalValue": []
       }
     }
   ],
@@ -57,7 +57,7 @@
       "xFormatter": ".2s",
       "yFormatter": ".2s",
       "properties": [
-        "sensorReading",
+        "signalValue",
         "prediction"
       ],
       "xProperty": [
