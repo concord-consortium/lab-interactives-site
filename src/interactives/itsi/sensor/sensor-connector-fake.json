@@ -1,0 +1,91 @@
+{
+  "title": "ITSI: Sensor Connector (fake sensor)",
+  "publicationStatus": "draft",
+  "subtitle": "Collect data from a fake sensor.",
+  "about": "",
+  "aspectRatio": "1.75",
+  "fontscale": 0.9,
+  "models": [
+    {
+  "type": "signal-generator",
+  "id": "signal1",
+  "url": "models/lab-version/1/signal-generator/signal-generator.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "showClock": false
+      }
+    }
+  ],
+  "propertiesToRetain": [
+    "clientId",
+    "clientName",
+    "useRandomClientId"
+  ],
+  "dataSets": [
+    {
+      "name": "sensor-dataset",
+      "properties": [
+        "predictionTime",
+        "prediction",
+        "time",
+        "sensorReading"
+      ],
+      "streamDataFromModel": true,
+      "clearOnModelReset": true,
+      "initialData": {
+        "predictionTime": [],
+        "prediction": [],
+        "time": [],
+        "sensorReading": []
+      }
+    }
+  ],
+  "parameters": [],
+  "components": [
+    {
+      "type": "graph",
+      "id": "sensorGraph",
+      "dataSet": "sensor-dataset",
+      "title": "Sensor Reading",
+      "xlabel": "Time (s)",
+      "ymin":  0,
+      "ymax": 40,
+      "xmin":  0,
+      "xmax": 30,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "sensorReading",
+        "prediction"
+      ],
+      "xProperty": [
+        "time",
+        "predictionTime"
+      ],
+      "enableSelectionButton": false,
+      "enableDrawButton": false,
+      "drawProperty": "sensor",
+      "resetAxesOnReset": false,
+      "dataColors": [
+        "#2ca000",
+        "#a00000",
+        "#2c00a0"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "below-model",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "width": "interactive.width",
+      "bottom": "interactive.bottom",
+      "padding-right": "1em"
+    }
+  ],
+  "layout": {
+    "below-model": ["sensorGraph"]
+  }
+}
