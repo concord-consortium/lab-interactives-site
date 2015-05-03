@@ -198,20 +198,13 @@
       "id": "slow-motion-checkbox",
       "text": "Slow motion",
       "property": "slow-motion"
-    },
-     {
-      "type": "checkbox",
-      "id": "ke-shading",
-      "text": "kinetic energy shading",
-      "property": "keShading"
     }
    ],
   "layout": {
     "right": ["energyGraph"],
     "bottom-left": [["molecule-header"],["molecule-selector"]],
     "bottom-right": [["third-atom-header"],["velocity-slider"]],
-     "bottom-down": ["slow-motion-checkbox"],
-      "bottom-side": ["ke-shading"]
+     "bottom-down": ["slow-motion-checkbox"]
   },
   "template": [
     {
