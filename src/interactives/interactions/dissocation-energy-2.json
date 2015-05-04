@@ -51,7 +51,7 @@
     {
       "id": "ke-shading",
       "type": "checkbox",
-      "text": "KE shading",
+      "text": "Kinetic energy shading",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -77,7 +77,7 @@
           "label": "High"
         }
       ],
-      "width": "140%",
+      "width": "auto",
       "height": "auto",
       "property": "targetTemperature",
       "retainProperty": true,
