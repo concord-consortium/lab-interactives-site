@@ -9,22 +9,25 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
-  "helpOnLoad": false,  
+  "helpOnLoad": false,
+  "theme": "no-framing",
+  "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0,
   "about": "",
   "models": [
     {
       "type": "md2d",
       "id": "empty-atom",
       "url": "models-converted/lab-version/1/md2d/grasp/land-of-bump/screen5.json",
+      "onLoad": "stop();",
       "viewOptions": {
-        "controlButtons": "play_reset",
-        "viewPortDrag": true,
-        "viewPortX": -1.8,
-        "viewPortY": 1.8
+        "viewPortX": 0.075,
+        "viewPortY": 3.6
       }
     }
   ],
   "components": [],
   "layout": {},
-  "template": "simple"
+  "template": "model-only"
 }
