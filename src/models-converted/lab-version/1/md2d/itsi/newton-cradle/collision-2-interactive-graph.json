@@ -1,0 +1,137 @@
+{
+  "title": "Two Particle Collision With Energy Graph",
+  "publicationStatus": "draft",
+  "subtitle": "Newton's Cradle without the pendula. Use the mouse to move the particles when stopped.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 2.4,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,  
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "collision-2-particles",
+      "url": "models-converted/lab-version/1/md2d/itsi/newton-cradle/collision-2-particles.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "viewPortDrag": true,
+        "viewPortX": 0,
+        "viewPortY": 0
+      },
+      "model-options": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 333,
+        "timeStep": 0.5,
+        "modelSampleRate": 60
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [
+    {
+      "name": "system-ke",
+      "value": [
+        "return ke();"
+      ],
+      "label": "Kinetic Energy",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "system-pe",
+      "value": [
+        "return pe();"
+      ],
+      "label": "Potential Energy",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "total-e",
+      "value": [
+        "return pe() + ke();"
+      ],
+      "label": "Total Energy",
+      "unitAbbreviation": "J"
+    }
+  ],
+  "components": [
+    {
+      "id": "ke-plot",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "system-ke",
+        "system-pe",
+        "total-e"
+      ],
+      "xProperty": "displayTime",
+      "title": "",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (s)",
+      "xmin": 0,
+      "xmax": 10,
+      "ylabel": "Energy (J)",
+      "ymin": -0.8,
+      "ymax": 0.8,
+      "xTickCount": 5,
+      "yTickCount":7,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#e69230",
+        "#1ad4d3",
+        "#7c7c7c"
+      ],
+      "legendLabels": [
+        "Kinetic Energy",
+        "Potential Energy",
+        "Total Energy"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "ke-plot"
+      ]
+    },
+  "template":  [
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "width": "model.width",
+      "left": "model.right",
+      "align": "center",
+      "padding-right": "1em",
+      "padding-left": "1.5em"
+    }
+  ]
+}
+
+
