@@ -1,0 +1,141 @@
+{
+  "title": "Making molecules",
+  "publicationStatus": "draft",
+  "subtitle": " Exploring polarization",
+  "about": [
+    "Choose a type of atom to add to the existing molecule, then click on one of ",
+    "the atoms in that molecule to see what affect it has on how the electric charge ",
+    "from the electrons gets distributed."
+  ],
+  "aspectRatio": 1.35,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable-polarization.html",
+        "molecule": "models/polarization/propane.mol"
+      },
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      },
+      "onLoad": [
+        "function updateView() {",
+        "  post('jsmolScript','surf = '+get('surface')+';');",
+        "  if (get('surface')) {",
+        "    post('jsmolScript', 'script models/polarization/create-isosurface.spt');",
+        "    updateOpacity();",
+        "  } else {",
+        "    post('jsmolScript', 'isosurface delete');",
+        "  }",
+        "}",
+        "function updateOpacity() {",
+        "  post('jsmolScript','transl = '+get('translucency')+';');",
+        "  if (get('translucency')) {",
+        "    post('jsmolScript', 'color isosurface opaque');",
+        "  } else {",
+        "    post('jsmolScript', 'color isosurface translucent');",
+        "  }",
+        "}",
+        "post('jsmolScript', 'script models/polarization/initialization.spt');",
+        "onPropertyChange('translucency', updateOpacity);",
+        "onPropertyChange('surface', updateView);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "translucency",
+      "initialValue": false
+    },
+    {
+      "name": "surface",
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "label1",
+      "text": "**Click on an atom of the molecule to change it to:**"
+    },
+    {
+      "type": "radio",
+      "id": "atom-type",
+      "options": [
+        {
+          "text": "oxygen",
+          "action": "post('jsmolScript', 'set picking assignAtom_O;');"
+        },
+        {
+          "text": "fluorine",
+          "action": "post('jsmolScript', 'set picking assignAtom_F;');"
+         },
+        {
+          "text": "nitrogen",
+          "action": "post('jsmolScript', 'set picking assignAtom_N;');"
+        },
+        {
+          "text": "carbon",
+          "action": "post('jsmolScript', 'set picking assignAtom_C;');"
+        },
+        {
+          "text": "hydrogen",
+          "action": "post('jsmolScript', 'set picking assignAtom_H;');"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "label2",
+      "text": "**Set surface features:**"
+    },
+    {
+      "type": "checkbox",
+      "id": "charge-surface",
+      "text": "show charge coloring on molecule surface",
+      "property": "surface"
+    },
+    {
+      "type": "checkbox",
+      "id": "surface-translucent",
+      "text": "make molecule surface opaque",
+      "property": "translucency"
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "reset",
+      "action": "reloadInteractive();"
+    }
+  ],
+  "template": [
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "width": "15em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "width": "15em",
+      "padding-left": "0.5em",
+      "padding-top": "0.5em"
+    }
+  ],
+  "layout": {
+    "right-top": [
+      ["label1"],
+      ["atom-type"]
+     ],
+    "right-bottom": [
+      ["label2"],
+      ["charge-surface"],
+      ["surface-translucent"],
+      ["reset"]
+    ]
+  }
+}
