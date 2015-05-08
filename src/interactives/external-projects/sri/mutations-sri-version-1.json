@@ -1,5 +1,5 @@
 {
-  "title": "Mutations",
+  "title": "Mutations (SRI - v1)",
   "publicationStatus": "public",
   "labEnvironment": "production",
   "subtitle": "Explore how changing the DNA sequence can change the amino acid sequence of a protein.",
@@ -20,7 +20,7 @@
     {
       "type": "md2d",
       "id": "page3$0",
-      "url": "models/lab-version/1/md2d/external-projects/sri/sri-mutations-model.json",
+      "url": "models/lab-version/1/md2d/external-projects/sri/dna-to-proteins-and-mutations.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
@@ -121,7 +121,7 @@
     {
       "id": "label",
       "type": "text",
-      "text": "Click on a nucleotide to perform a mutation",
+      "text": "Transcribe and translate the DNA, or skip to the protein if you wish",
       "width": "auto",
       "height": "auto",
       "tooltip": "",

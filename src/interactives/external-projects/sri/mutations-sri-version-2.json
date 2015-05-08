@@ -1,0 +1,170 @@
+{
+  "title": "Mutations (SRI - v2)",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore how changing the DNA sequence can change the amino acid sequence of a protein.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "helpOnLoad": false,
+  "about": [
+    "Mutations are mistakes in the DNA sequence. Click on an individual nucleotide to make an insertion, deletion or substitution mutation. How does changing the DNA sequence change the resulting protein?",
+    "",
+    "You can quickly jump to the final protein by using the **Skip to protein** button. To return to the original DNA sequence, click **Reset to DNA**.",
+    ""
+  ],
+  "theme": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models/lab-version/1/md2d/external-projects/sri/sri-mutations-model.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "CGTAAGATGAGATGTCGGAGGGACGACTGCAACAACCGTCGT",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "transcribe",
+      "type": "button",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ],
+      "text": "Transcribe",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "translate",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ],
+      "text": "Translate",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Reset to DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Pause",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-protein",
+      "type": "button",
+      "action": "set('DNAState', 'translation-end');",
+      "text": "Skip to protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Resume",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label",
+      "type": "text",
+      "text": "Click on a nucleotide to perform a mutation",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label"
+      ],
+      [
+        "transcribe",
+        "translate",
+        "show-protein"
+      ],
+      [
+        "stop",
+        "start",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.2 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "title": "DNA to Protein (SRI)",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
+  "category": "Biology",
+  "subCategory": "Genetics",
+  "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+  "aspectRatio": 1.1,
+  "fontScale": 0.65,
+  "helpOnLoad": false,
+  "about": [
+    "Click **Transcribe** to zoom into the cell nucleus and see the chromosome unravel to expose the strands of DNA. The DNA separates and an mRNA strand is created by matching complementary nucleotides.",
+    "",
+    "Click **Translate** to watch the mRNA leave the nucleus for the cytoplasm and attach to a ribosome. tRNA molecules bring in amino acids and the amino acids are added in the correct order by matching complementary nucleotides.",
+    "",
+    "After translation, inspect the protein to see how the amino acid sequence folded."
+  ],
+  "theme": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models/lab-version/1/md2d/external-projects/sri/dna-to-proteins-and-mutations.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "intro-cells"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "transcribe",
+      "type": "button",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ],
+      "text": "Transcribe",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "translate",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "}",
+        "if (get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ],
+      "text": "Translate",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "Click",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "to create full mRNA strand from DNA",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label3",
+      "type": "text",
+      "text": "Click",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label4",
+      "type": "text",
+      "text": "to generate full protein from mRNA",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label5",
+      "type": "text",
+      "text": " ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label6",
+      "type": "text",
+      "text": " ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },{
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Resume",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Pause",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "prev-state-jump",
+      "type": "button",
+      "action": "jumpToPrevDNAState();",
+      "text": "<< Jump back",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "next-state",
+      "type": "button",
+      "action": "animateToNextDNAState();",
+      "text": "Jump forward >>",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1",
+        "transcribe",
+        "label2"
+      ],
+      [
+        "label3",
+        "translate",
+        "label4"
+      ],
+      [
+        "label5"
+      ],
+      [
+        "label6"
+      ],
+      [
+        "prev-state-jump",
+        "next-state"
+      ],
+      [
+        "stop",
+        "start",
+        "reset"
+      ]
+
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.25 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ]
+}
