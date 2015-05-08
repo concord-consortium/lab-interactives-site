@@ -138,6 +138,20 @@ group :build do
       destination_path = "public/#{match[1]}"
       command("cp -f #{source_path} #{destination_path}")
     end
+
+    watch(/^src\/(interactives|embeddable)\.haml$/) do |match|
+      type = match[1]
+      [
+        ['default',''],
+        ['production','-production'],
+        ['staging','-staging'],
+        ['development', '-dev'],
+        ['local','-local']
+      ].each do |env|
+        command("script/generate-#{type}-html.rb #{env[0]} > public/#{type}#{env[1]}.html")
+      end
+      true
+    end
   end
 
   # , :api_version => '1.6', :port => '35728'
