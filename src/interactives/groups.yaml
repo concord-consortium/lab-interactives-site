@@ -142,6 +142,10 @@
   :name: "VISUAL: Plate Techtonics"
   :category: Curriculum
 
+- :path: grasp/land-of-bump
+  :name: "GRASP: Land of Bump"
+  :category: Curriculum
+
 - :path: jsmol
   :name: "JSmol Interactives"
   :category: Curriculum
