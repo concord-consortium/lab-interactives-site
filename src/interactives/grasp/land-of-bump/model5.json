@@ -22,8 +22,10 @@
       "url": "models-converted/lab-version/1/md2d/grasp/land-of-bump/screen5.json",
       "onLoad": "stop();",
       "viewOptions": {
-        "viewPortX": 0.075,
-        "viewPortY": 3.6
+        "viewPortX": 0.3,
+        "viewPortY": 3.8,
+        "viewPortWidth": 6.4,
+        "viewPortHeight": 6.4
       }
     }
   ],
