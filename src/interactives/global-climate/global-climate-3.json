@@ -8,7 +8,7 @@
             "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
            ],
   "theme": "has",
-  "aspectRatio": 1.6,
+  "aspectRatio": 1.49,
   "fontScale": 0.7,
   "models": [
     {
@@ -397,14 +397,12 @@
       "co2Graph"
     ],
     "bottomLeft": [
-      [
-        "speedSlider",
-        "tempSlider"
-      ],
+      ["tempSlider"],
       [
         "followEnergyButton",
         "followCO2Button"
-      ]
+      ],
+      ["speedSlider"]
     ],
     "bottomMiddle": [
       "showLabel"
@@ -419,7 +417,7 @@
     {
       "id": "rightTop",
       "left": "model.right",
-      "width": "0.6 * model.width",
+      "width": "0.7 * model.width",
       "height": "0.5 * interactive.height",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
@@ -428,7 +426,7 @@
       "id": "rightBottom",
       "left": "model.right",
       "top": "rightTop.bottom",
-      "width": "0.6 * model.width",
+      "width": "0.7 * model.width",
       "height": "0.5 * interactive.height",
       "padding-left": "0.5em"
     },

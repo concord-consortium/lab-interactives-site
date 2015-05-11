@@ -9,7 +9,7 @@
   ],      
   
   "theme": "has",
-  "aspectRatio": 1.7,
+  "aspectRatio": 1.6,
   "fontScale": 0.7,
   "models": [
     {
@@ -333,10 +333,8 @@
       "co2Graph"
     ],
     "bottomLeft": [
-      [
-        "speedSlider",
-        "tempSlider"
-      ]
+      ["tempSlider"],
+      ["speedSlider"]
     ],
     "bottomMiddle": [
       "showLabel"

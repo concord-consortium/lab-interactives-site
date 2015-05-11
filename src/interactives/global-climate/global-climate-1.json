@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere.",
   "theme": "has",
-  "aspectRatio": 1.12,
+  "aspectRatio": 1.05,
   "fontScale": 0.9,
   "models": [
     {
@@ -221,8 +221,9 @@
   ],
   "layout": {
     "bottomLeft": [
-      ["speedSlider", "eruptButton", "removeCo2Button"],
-      ["followEnergyButton", "followCO2Button"]
+      ["eruptButton", "removeCo2Button"],
+      ["followEnergyButton", "followCO2Button"],
+      ["speedSlider"]
     ],
     "bottomMiddle": [
       "showLabel"
