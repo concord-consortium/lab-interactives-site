@@ -44,17 +44,18 @@
   "helpTips": [
     {
       "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the **Erupt** button to release carbon dioxide.",
-      "",
-      "",
-      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
-      "in the atmosphere.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
+      "text": [
+        "#How do I use this model?",
+        "---",
+        "Press the play button to start the model.",
+        "",
+        "",
+        "Change the direction of the wind, the number of cars, and the number of power plants to see how it affects the level of pollutants over the city.",
+        "",
+        "",
+        "You can hover over the controls for more information. Click to close this window."
+      ],
+      "showcase": true
     }
   ],
   "components": [
