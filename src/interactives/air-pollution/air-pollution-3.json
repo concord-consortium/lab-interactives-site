@@ -1,9 +1,9 @@
 {
   "title": "Air Pollution 3",
   "publicationStatus": "draft",
-  "subtitle": "Air Pollution",
-  "helpOnLoad": false,
-  "about": "TODO",
+  "subtitle": "The Effect of Pollution Control Devices on Pollution Levels",
+  "helpOnLoad": true,
+  "about": "Explore the effects of pollution control devices on cars and power plants on the level of pollutants over a city.",
   "theme": "has",
   "aspectRatio": 1.3,
   "fontScale": 0.9,
@@ -50,12 +50,11 @@
       "component": "",
       "text": ["#How do I use this model?",
       "---",
-      "Press the **Erupt** button to release carbon dioxide.",
+      "Press the play button to start the model.",
       "",
       "",
-      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
-      "in the atmosphere.",
-      "",
+      "Change the number of cars and power plants with pollution control devices to explore the effect of pollution control",
+      "devices on the level of pollutants over a city.",
       "",
       "You can hover over the controls for more information. Click to close this window."
        ]
