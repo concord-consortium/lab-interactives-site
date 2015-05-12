@@ -1,9 +1,9 @@
 {
   "title": "Air Pollution 2",
   "publicationStatus": "draft",
-  "subtitle": "Air Pollution",
-  "helpOnLoad": false,
-  "about": "TODO",
+  "subtitle": "Formation of Secondary Pollutants",
+  "helpOnLoad": true,
+  "about": "Discover the combination of factors that cause smog (secondary pollutants, such as ozone) to develop over a city.",
   "theme": "has",
   "aspectRatio": 1.4,
   "fontScale": 0.9,
@@ -48,17 +48,18 @@
   "helpTips": [
     {
       "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the **Erupt** button to release carbon dioxide.",
-      "",
-      "",
-      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
-      "in the atmosphere.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
+      "text": [
+        "#How do I use this model?",
+        "---",
+        "Press the play button to start the model.",
+        "",
+        "",
+        "Change the wind speed and direction, amount of sunlight, and rain frequency to discover what conditions are favorable for smog formation.",
+        "",
+        "",
+        "You can hover over the controls for more information. Click to close this window."
+      ],
+      "showcase": true
     }
   ],
   "components": [
