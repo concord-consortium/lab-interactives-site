@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Air Pollution",
   "helpOnLoad": false,
-  "about": "TODO",
+  "about": "Explore some factors that affect the pollutant level over a city.",
   "theme": "has",
   "aspectRatio": 1.3,
   "fontScale": 0.9,
