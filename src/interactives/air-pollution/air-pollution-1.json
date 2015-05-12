@@ -2,7 +2,7 @@
   "title": "Air Pollution 1",
   "publicationStatus": "draft",
   "subtitle": "Wind, Geography, and Pollution Sources (with graph)",
-  "helpOnLoad": false,
+  "helpOnLoad": true,
   "about": "Explore some factors that affect the pollutant level over a city.",
   "theme": "has",
   "aspectRatio": 1.3,
