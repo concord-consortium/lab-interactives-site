@@ -221,6 +221,12 @@
       "text": "Image with relative URL (relative to model URL!):"
     },
     {
+      "id": "page-rel-path-label",
+      "type": "text",
+      "text": "Image with URL relative to the page:",
+      "width": "12em",
+    },
+    {
       "type": "image",
       "id": "image-relative-path",
       "height": "3em",
@@ -231,6 +237,13 @@
       "id": "image-absolute-path",
       "width": "10em",
       "src": "http://lab-framework.concord.org/lab/resources/layout/cc-logo.png"
+    },
+    {
+      "id": "image-page-relative-path",
+      "type": "image",
+      "src": "/resources/cc-logo.png",
+      "urlRelativeTo": "page",
+      "width": "10em",
     }
   ],
   "layout": {
@@ -259,6 +272,10 @@
       [
         "rel-path-label",
         "image-relative-path"
+      ],
+      [
+        "page-rel-path-label",
+        "image-page-relative-path"
       ]
     ],
     "right": [
