@@ -264,44 +264,42 @@
     "forceVectorsDirectionOnly": false
   },
   "pairwiseLJProperties": [
-
-  {
-  "element1": 0,
-  "element2": 2,
-  "sigma": 0.324,
-  "epsilon": -0.00505
-  },
-  {
-  "element1": 1,
-  "element2": 2,
-  "sigma": 0.324,
-  "epsilon": -0.00505
-  },
-   {
-  "element1": 0,
-  "element2": 1,
-  "sigma": 0.35,
-  "epsilon": -0.001
-  },
-  {
-  "element1": 0,
-  "element2": 3,
-  "sigma": 0.324,
-  "epsilon": -0.00505
-  },
-  {
-  "element1": 1,
-  "element2": 3,
-  "sigma": 0.324,
-  "epsilon": -0.00505
-  },
-  {
-  "element1": 2,
-  "element2": 3,
-  "sigma": 0.3,
-  "epsilon": -1
-  }
-
+    {
+    "element1": 0,
+    "element2": 2,
+    "sigma": 0.324,
+    "epsilon": -0.00505
+    },
+    {
+    "element1": 1,
+    "element2": 2,
+    "sigma": 0.324,
+    "epsilon": -0.00505
+    },
+     {
+    "element1": 0,
+    "element2": 1,
+    "sigma": 0.35,
+    "epsilon": -0.001
+    },
+    {
+    "element1": 0,
+    "element2": 3,
+    "sigma": 0.324,
+    "epsilon": -0.00505
+    },
+    {
+    "element1": 1,
+    "element2": 3,
+    "sigma": 0.324,
+    "epsilon": -0.00505
+    },
+    {
+    "element1": 2,
+    "element2": 3,
+    "sigma": 0.3,
+    "epsilon": -1
+    }
   ],
   "elements": {
     "mass": [

@@ -1,0 +1,70 @@
+{
+  "title": "Land of Bump - Model 3, Red Hots, Cool Blues Dance Together",
+  "publicationStatus": "draft",
+  "subtitle": "Dancing together...",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.0,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "theme": "no-framing",
+  "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0,
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty-atom",
+      "url": "models/lab-version/1/md2d/sensing-science/land-of-bump/screen3.json",
+      "onLoad": [
+        "var redAtoms = [];",
+        "var blueAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    redAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 1) {",
+        "    blueAtoms.push(i);",
+        "  }",
+        "}",
+        "set('redAtomsIndices', redAtoms);",
+        "set('blueAtomsIndices', blueAtoms);"
+      ],
+      "viewOptions": {
+        "viewPortX": 0.3,
+        "viewPortY": 3.8,
+        "viewPortWidth": 6.4,
+        "viewPortHeight": 6.4
+      }
+    }
+  ],
+    "parameters": [
+    {
+      "name": "redAtomsIndices",
+      "initialValue": []
+    },
+    {   "name": "blueAtomsIndices",
+       "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "temperature-red",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('redAtomsIndices'));"
+    },
+    {
+      "name": "temperature-blue",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('blueAtomsIndices'));"
+    }
+  ],
+  "components": [],
+  "layout": {},
+  "template": "model-only"
+}
