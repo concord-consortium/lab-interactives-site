@@ -1,7 +1,7 @@
 {
-  "title": "Land of Bump - Model 5, Red Hots, Cool Blues, and Two Seperators",
+  "title": "Land of Bump - Model 4, Red Hots, Cool Blues, and One Seperators",
   "publicationStatus": "draft",
-  "subtitle": "Last Dance...",
+  "subtitle": "First try with one separator...",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -19,7 +19,7 @@
     {
       "type": "md2d",
       "id": "empty-atom",
-      "url": "models/lab-version/1/md2d/sensing-science/land-of-bump/screen5.json",
+      "url": "models/lab-version/1/md2d/sensing-science/land-of-bump/screen4.json",
       "onLoad": [
         "var redAtoms = [];",
         "var blueAtoms = [];",
@@ -41,14 +41,13 @@
       }
     }
   ],
-  "parameters": [
+    "parameters": [
     {
       "name": "redAtomsIndices",
       "initialValue": []
     },
-    {
-      "name": "blueAtomsIndices",
-      "initialValue": []
+    {   "name": "blueAtomsIndices",
+       "initialValue": []
     }
   ],
   "outputs": [
