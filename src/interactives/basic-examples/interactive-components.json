@@ -224,7 +224,7 @@
       "id": "page-rel-path-label",
       "type": "text",
       "text": "Image with URL relative to the page:",
-      "width": "12em",
+      "width": "12em"
     },
     {
       "type": "image",
@@ -243,7 +243,7 @@
       "type": "image",
       "src": "/resources/cc-logo.png",
       "urlRelativeTo": "page",
-      "width": "10em",
+      "width": "10em"
     }
   ],
   "layout": {
