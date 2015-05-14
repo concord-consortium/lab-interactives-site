@@ -148,6 +148,7 @@
       "max": 10,
       "steps": 10,
       "title": "Cars",
+      "fillColor": "#743288",
       "labels": [
         {
           "value": 0,
@@ -172,6 +173,7 @@
       "max": 5,
       "steps": 5,
       "title": "Power Plants",
+      "fillColor": "#468732",
       "labels": [
         {
           "value": 0,
@@ -196,6 +198,7 @@
       "max": 100,
       "steps": 20,
       "title": "Cars with pollution control devices:",
+      "fillColor": "#b559a4",
       "labels": [
         {
           "value": 0,
@@ -220,6 +223,7 @@
       "max": 100,
       "steps": 20,
       "title": "Power plants with pollution control devices:",
+      "fillColor": "#59b46a",
       "labels": [
         {
           "value": 0,
