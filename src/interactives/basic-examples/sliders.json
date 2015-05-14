@@ -1,0 +1,182 @@
+{
+  "title": "Sliders",
+  "publicationStatus": "public",
+  "subtitle": "Examples of sliders",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "oilAndWaterMix",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/oilAndWaterMix.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "targetTemperature": 500
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-property-slider",
+      "title": "Temperature Property (with fillColor)",
+      "width": "20em",
+      "min": 1,
+      "max": 3000,
+      "steps": 30,
+      "fillColor": "#ff0000",
+      "labels": [
+        {
+          "value": 1,
+          "label": "0 K"
+        },
+        {
+          "value": 1500,
+          "label": "1500 K"
+        },
+        {
+          "value": 3000,
+          "label": "3000 K"
+        }
+      ],
+      "property": "targetTemperature"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-action-slider",
+      "title": "Temperature Action",
+      "width": "20em",
+      "min": 1,
+      "max": 3000,
+      "steps": 30,
+      "initialValue": 300,
+      "labels": [
+        {
+          "value": 1,
+          "label": "0 K"
+        },
+        {
+          "value": 1500,
+          "label": "1500 K"
+        },
+        {
+          "value": 3000,
+          "label": "3000 K"
+        }
+      ],
+      "action": "set({targetTemperature: value});"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-left-slider",
+      "title": "Temperature Property (title left)",
+      "width": "40em",
+      "min": 1,
+      "max": 3000,
+      "steps": 30,
+      "titlePosition": "left",
+      "labels": [
+        {
+          "value": 1,
+          "label": "0 K"
+        },
+        {
+          "value": 1500,
+          "label": "1500 K"
+        },
+        {
+          "value": 3000,
+          "label": "3000 K"
+        }
+      ],
+      "property": "targetTemperature"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-right-slider",
+      "title": "Temperature Property (title right)",
+      "width": "40em",
+      "min": 1,
+      "max": 3000,
+      "steps": 30,
+      "titlePosition": "right",
+      "labels": [
+        {
+          "value": 1,
+          "label": "0 K"
+        },
+        {
+          "value": 1500,
+          "label": "1500 K"
+        },
+        {
+          "value": 3000,
+          "label": "3000 K"
+        }
+      ],
+      "property": "targetTemperature"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-bottom-slider",
+      "title": "Temperature Property (title bottom, fillToValue 1500)",
+      "width": "20em",
+      "min": 1,
+      "max": 3000,
+      "steps": 30,
+      "titlePosition": "bottom",
+      "fillColor": "#FF0000",
+      "fillToValue": 1500,
+      "labels": [
+        {
+          "value": 1,
+          "label": "0 K"
+        },
+        {
+          "value": 1500,
+          "label": "1500 K"
+        },
+        {
+          "value": 3000,
+          "label": "3000 K"
+        }
+      ],
+      "property": "targetTemperature"
+    }
+
+
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "temperature-property-slider"
+      ],
+      [
+        "temperature-action-slider"
+      ],
+      [
+        "temperature-left-slider"
+      ],
+      [
+        "temperature-right-slider"
+      ],
+      [
+        "temperature-bottom-slider"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "padding-bottom": "1em"
+    }
+  ]
+}
