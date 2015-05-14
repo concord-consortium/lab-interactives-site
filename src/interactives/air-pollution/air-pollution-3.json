@@ -198,7 +198,7 @@
       "max": 100,
       "steps": 20,
       "title": "Cars with pollution control devices:",
-      "fillColor": "#b559a4",
+      "fillColor": "#d177c1",
       "labels": [
         {
           "value": 0,
@@ -223,7 +223,7 @@
       "max": 100,
       "steps": 20,
       "title": "Power plants with pollution control devices:",
-      "fillColor": "#59b46a",
+      "fillColor": "#77d288",
       "labels": [
         {
           "value": 0,
