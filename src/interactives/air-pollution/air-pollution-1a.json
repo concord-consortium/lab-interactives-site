@@ -4,7 +4,7 @@
   "subtitle": "Wind, Geography, and Pollution Sources (no graph)",
   "helpOnLoad": true,
   "about": "Explore some factors that affect the pollutant level over a city.",
-  "theme": "has",
+  "theme": ["has","no-slider-bar"],
   "aspectRatio": 0.98,
   "fontScale": 0.9,
   "models": [
