@@ -4,7 +4,7 @@
   "subtitle": "Air Pollution",
   "helpOnLoad": false,
   "about": "TODO",
-  "theme": ["has","no-slider-bar"],
+  "theme": ["has","has-air-pollution","no-slider-bar"],
   "aspectRatio": 1.37,
   "fontScale": 0.6,
   "models": [

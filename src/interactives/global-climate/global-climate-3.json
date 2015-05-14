@@ -7,7 +7,7 @@
   "",
             "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
            ],
-  "theme": "has",
+  "theme": ["has","has-global-climate"],
   "aspectRatio": 1.49,
   "fontScale": 0.7,
   "models": [
