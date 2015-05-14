@@ -150,6 +150,7 @@
       "max": 10,
       "steps": 10,
       "title": "Sunlight",
+      "fillColor": "#efa03d",
       "labels": [
         {
           "value": 0,
@@ -174,6 +175,7 @@
       "max": 6,
       "steps": 6,
       "title": "Rain",
+      "fillColor": "#52b6ca",
       "labels": [
         {
           "value": 0,
