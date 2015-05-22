@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Wind, Geography, and Pollution Sources (no graph)",
   "helpOnLoad": true,
-  "about": "Explore some factors that affect the pollutant level over a city.",
+  "about": "Explore some factors that affect the pollution levels over a city.",
   "theme": ["has","has-air-pollution","no-slider-bar"],
   "aspectRatio": 0.98,
   "fontScale": 0.9,
