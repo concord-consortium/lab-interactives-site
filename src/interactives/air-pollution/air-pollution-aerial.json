@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Aerial View",
   "helpOnLoad": true,
-  "about": "Explore the effect of wind and geography on pollutant flow.",
+  "about": "Explore the effect of wind and geography on regional air quality.",
   "theme": ["has","has-air-pollution"],
   "aspectRatio": 1.6,
   "fontScale": 0.8,
