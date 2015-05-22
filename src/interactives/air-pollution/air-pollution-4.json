@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Thermal Inversions",
   "helpOnLoad": true,
-  "about": "Explore the effect of thermal inversions on smog events.",
+  "about": "Use the model to create thermal inversions, and explore the effect of thermal inversions on smog events.",
   "theme": ["has","has-air-pollution","no-slider-bar"],
   "aspectRatio": 1.3,
   "fontScale": 0.9,
