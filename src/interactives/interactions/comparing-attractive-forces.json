@@ -300,7 +300,7 @@
             "anchor": "upper-left"
           },
           {
-            "text": "What kind of attractions do HBr and Br₂ have for each other?\nPull the two molecules apart to test your prediction.",
+            "text": "What kind of attractions do HBr and H₂ have for each other?\nPull the two molecules apart to test your prediction.",
             "x": 0.2,
             "y": 1.7,
             "layer": 1,
@@ -340,7 +340,7 @@
           "action": "loadModel('polarPulling');"
         },
         {
-          "text": "Pull apart Br₂ and HBr",
+          "text": "Pull apart H₂ and HBr",
           "action": "loadModel('polarNpPulling');"
         }
       ]
