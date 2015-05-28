@@ -167,10 +167,37 @@
       "helpIcon": false
     }
   ],
-  "layout": {
+ "layout": {
     "right": [
       "thermometer"
+    ],
+    "down": [
+        "cool",
+        "heat",
+        "temp-slider",
+        "slow-motion-checkbox"
+    ],
+    "bottom-right":[
+      "molecule-header",
+      "select-model"
     ]
   },
-  "template": "simple"
+  "template": [
+    { 
+     "id": "right",
+     "left": "model.right",
+     "height": "model.height"
+    },
+    {
+      "id": "down",
+      "top": "model.bottom",
+      "width": "model.width"
+    },
+    {
+      "id": "bottom-right",
+      "top": "down.bottom",
+      "width": "down.width",
+      "align": "left"
+    }
+ ]
 }
