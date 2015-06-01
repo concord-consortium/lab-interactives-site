@@ -199,7 +199,16 @@
       "max": 30,
       "title": "Potential Energy",
       "titleOn": "right",
-      "labels": 0,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 30,
+          "label": "high"
+        }
+      ],
       "units": false,
       "gridLines": 10,
       "labelFormat": "0.1f",
