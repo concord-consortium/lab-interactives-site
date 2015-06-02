@@ -31,7 +31,7 @@
     "viewPortY": 0,
     "viewPortDrag": false,
     "backgroundColor": "#eeeeee",
-    "showClock": true,
+    "showClock": false,
     "markColor": "#f8b500",
     "keShading": false,
     "chargeShading": true,
