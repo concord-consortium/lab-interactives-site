@@ -21,16 +21,20 @@
       "type": "md2d",
       "id": "polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/polar.json",
+      "onLoad": "set('targetTemperature', 580);",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       }
     },
     {
       "type": "md2d",
       "id": "non-polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/non-polar.json",
+      "onLoad": "set('targetTemperature', 580);",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
       "targetTemperature": 580
     }
@@ -53,7 +57,10 @@
       "type": "button",
       "action": [
         "adjustTemperature(0.9);",
-        "console.log(get('targetTemperature'));"
+        "console.log(get('targetTemperature'));",
+        "if (get('targetTemperature') < 4000) {",
+        "  setComponentDisabled('heat', false);",
+        "}"
       ],
       "text": "Cool",
       "width": "",
@@ -67,7 +74,11 @@
       "type": "button",
       "action": [
         "adjustTemperature(1.1);",
-        "console.log(get('targetTemperature'));"
+        "console.log(get('targetTemperature'));",
+        "if (get('targetTemperature') > 4000) {",
+        "  setComponentDisabled('heat', true);",
+        "  return;",
+        "}"
       ],
       "text": "Heat",
       "width": "",
@@ -80,9 +91,8 @@
       "id": "temp-slider",
       "type": "slider",
       "min": 100,
-      "max": 3000,
+      "max": 4000,
       "steps": 50,
-      "initialValue": 580,
       "title": "Temperature (K)",
       "titlePosition": "top",
       "labels": [
@@ -91,13 +101,13 @@
           "label": "100"
         },
         {
-          "value": 3000,
-          "label": "3000"
+          "value": 4000,
+          "label": "4000"
         }
       ],
+     "property": "targetTemperature",
       "width": "auto",
       "height": "auto",
-      "action": "set({targetTemperature: value});",
       "retainProperty": true,
       "disabled": false,
       "tooltip": "",
@@ -108,7 +118,7 @@
       "type": "barGraph",
       "property": "targetTemperature",
       "min": 100,
-      "max": 3000,
+      "max": 4000,
       "title": "Thermometer",
       "titleOn": "right",
       "labels": 0,
