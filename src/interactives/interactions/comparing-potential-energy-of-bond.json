@@ -55,7 +55,20 @@
       "type": "md2d",
       "id": "npPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling.json",
-      "onLoad": "start();",
+      "onLoad": [
+                "start();",
+			        	"callEvery(25, function() {",
+          			"var x1 = getAtomProperties(0).x;",
+      			  	"var y1 = getAtomProperties(0).y;",
+      			    "var x2 = getAtomProperties(3).x;",
+      				  "var y2 = getAtomProperties(3).y;",
+      				  "var distx = x1-x2;",
+      				  "var disty = y1-y2;",
+      				  "var distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "console.log(distance);",
+                "set('countPotential',  3*Math.pow(distance,2));",
+                "});"
+                ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -78,7 +91,20 @@
       "type": "md2d",
       "id": "polarPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling.json",
-      "onLoad": "start();",
+      "onLoad": [
+                "start();",
+			        	"callEvery(25, function() {",
+    		      	"var x1 = getAtomProperties(0).x;",
+			        	"var y1 = getAtomProperties(0).y;",
+	      		    "var x2 = getAtomProperties(3).x;",
+	        			"var y2 = getAtomProperties(3).y;",
+		        		"var distx = x1-x2;",
+		        		"var disty = y1-y2;",
+		        		"var distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "console.log(distance);",
+                "set('countPotential',  0.1*Math.pow(distance,6));",
+                "});"
+                ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -101,7 +127,20 @@
       "type": "md2d",
       "id": "npPullingBreakbond",
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling-break-bond.json",
-      "onLoad": "start();",
+      "onLoad": [
+                "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+			        	"callEvery(25, function() {",
+    		      	"var x1 = getAtomProperties(0).x;",
+			        	"var y1 = getAtomProperties(0).y;",
+			          "var x2 = getAtomProperties(1).x;",
+			        	"var y2 = getAtomProperties(1).y;",
+			        	"var distx = x1-x2;",
+		        		"var disty = y1-y2;",
+			         	"var distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "console.log(distance);",
+                "set('countPotential',  20*Math.pow(distance,2));",
+                "});"
+                ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -124,7 +163,19 @@
       "type": "md2d",
       "id": "polarPullingBreakbond",
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling-break-bond.json",
-      "onLoad": "start();",
+      "onLoad": [
+                "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+			        	"callEvery(25, function() {",
+            		"var x1 = getAtomProperties(0).x;",
+        				"var y1 = getAtomProperties(0).y;",
+        			  "var x2 = getAtomProperties(1).x;",
+        				"var y2 = getAtomProperties(1).y;",
+        				"var distx = x1-x2;",
+        				"var disty = y1-y2;",
+			        	"var distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "set('countPotential', Math.pow(distance,6));",
+                "});"
+                ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -145,7 +196,12 @@
     }
   ],
   "propertiesToRetain": [],
-  "parameters": [],
+  "parameters": [
+      {
+     	"name": "countPotential",
+      "initialValue": 5
+      }
+    ],
   "outputs": [],
   "filteredOutputs": [],
   "helpTips": [],
@@ -194,9 +250,9 @@
     {
       "id": "bargraph",
       "type": "barGraph",
-      "property": "potentialEnergy",
+      "property": "countPotential",
       "min": 0,
-      "max": 30,
+      "max": 100,
       "title": "Potential Energy",
       "titleOn": "right",
       "labels": [
@@ -205,7 +261,7 @@
           "label": "low"
         },
         {
-          "value": 30,
+          "value": 100,
           "label": "high"
         }
       ],
