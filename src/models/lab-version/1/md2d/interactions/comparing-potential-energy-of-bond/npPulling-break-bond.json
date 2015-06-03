@@ -16,7 +16,7 @@
   "additionalSolventForceMult": 4,
   "additionalSolventForceThreshold": 10,
   "polarAAEpsilon": -2,
-  "viscosity": 1,
+  "viscosity": 0.25,
   "timeStepsPerTick": 50,
   "DNAState": "dna",
   "DNA": "",
@@ -139,10 +139,10 @@
       0
     ],
     "friction": [
-      0,
-      0,
-      0
-    ],
+      0.96,
+      0.96,
+      0.96
+    ],  
     "visible": [
       1,
       1,
