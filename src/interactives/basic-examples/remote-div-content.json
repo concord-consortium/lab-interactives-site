@@ -1,0 +1,28 @@
+{
+  "title": "Remote Div Content",
+  "publicationStatus": "draft",
+  "subtitle": "Example of methods that a script can't call",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "main-model",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-ball-drop$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "showClock": false
+      },
+      "modelOptions": {
+        "unitsScheme": "mks"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "div",
+      "id": "remote-div",
+      "src": "interactives/basic-examples/remote-div-content.html",
+      "height": "4em"
+    }
+  ]
+}

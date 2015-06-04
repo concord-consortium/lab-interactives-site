@@ -1,0 +1,16 @@
+<div id="screen-1">
+  <div>Look at this cool ball!</div>
+  <div id="next-1" class="component clickable interactive-button component-spacing"><button>next</button></div>
+  </div>
+<div id="screen-2" style="display: none">
+  Notice how the ball moves?
+</div>
+<script>
+  console.log("included script");
+  $(function (){
+  	$('#next-1').click(function(){
+  		$('#screen-1').hide();
+  		$('#screen-2').show();
+  	})
+  })
+</script>
