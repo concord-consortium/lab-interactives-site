@@ -22,7 +22,7 @@
       "type": "div",
       "id": "remote-div",
       "src": "interactives/basic-examples/remote-div-content.html",
-      "height": "4em"
+      "height": "5em"
     }
   ]
 }

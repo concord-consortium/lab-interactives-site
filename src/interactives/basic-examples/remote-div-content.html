@@ -4,13 +4,27 @@
   </div>
 <div id="screen-2" style="display: none">
   Notice how the ball moves?
+  What happens if we give the ball a little push to the right.
+  <div id="add-shear" class="component clickable interactive-button component-spacing"><button>push right</button></div>
 </div>
+<div>
+  Time: <span id="current-time"></span>
 <script>
-  console.log("included script");
   $(function (){
-  	$('#next-1').click(function(){
-  		$('#screen-1').hide();
-  		$('#screen-2').show();
-  	})
+    $('#next-1').click(function(){
+      script.start();
+      $('#screen-1').hide();
+    	$('#screen-2').show();
+    })
+
+    $('#add-shear').click(function (){
+      var vx = script.getAtomProperties(0).vx;
+      script.setAtomProperties(0, {vx: vx + 1});
+    });
+
+    script.onPropertyChange("time", function (value){
+      $('#current-time').html("" + value.toFixed(2));
+    })
   })
+
 </script>
