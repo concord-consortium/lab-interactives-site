@@ -1,0 +1,213 @@
+{
+  "title": "Boiling point of polar & nonpolar",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.9,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": "",
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "polar",
+      "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/polar.json",
+      "onLoad": "set('targetTemperature', 580);",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "non-polar",
+      "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/non-polar.json",
+      "onLoad": "set('targetTemperature', 580);",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "targetTemperature": 580
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "slow-motion",
+      "initialValue": false,
+      "onChange": "if (value) set('timeStep', 0.2); else set('timeStep', 1);"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "cool",
+      "type": "button",
+      "action": [
+        "adjustTemperature(0.9);",
+        "console.log(get('targetTemperature'));",
+        "if (get('targetTemperature') < 4000) {",
+        "  setComponentDisabled('heat', false);",
+        "}"
+      ],
+      "text": "Cool",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "heat",
+      "type": "button",
+      "action": [
+        "adjustTemperature(1.1);",
+        "console.log(get('targetTemperature'));",
+        "if (get('targetTemperature') > 4000) {",
+        "  setComponentDisabled('heat', true);",
+        "  return;",
+        "}"
+      ],
+      "text": "Heat",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "temp-slider",
+      "type": "slider",
+      "min": 100,
+      "max": 4000,
+      "steps": 50,
+      "title": "Temperature (K)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 100,
+          "label": "100"
+        },
+        {
+          "value": 4000,
+          "label": "4000"
+        }
+      ],
+     "property": "targetTemperature",
+      "width": "auto",
+      "height": "auto",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "targetTemperature",
+      "min": 100,
+      "max": 4000,
+      "title": "Thermometer",
+      "titleOn": "right",
+      "labels": 10,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.0f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "slow-motion-checkbox",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slow-motion",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "molecule-header",
+      "type": "text",
+      "text": "Select model",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-model",
+      "type": "radio",
+      "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "polar",
+          "action": "loadModel('polar');",
+          "selected": true
+        },
+        {
+          "text": "non-polar",
+          "action": "loadModel('non-polar');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+ "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "down": [
+        "cool",
+        "heat",
+        "temp-slider",
+        "slow-motion-checkbox"
+    ],
+    "bottom-right":[
+      "molecule-header",
+      "select-model"
+    ]
+  },
+  "template": [
+    { 
+     "id": "right",
+     "left": "model.right",
+     "height": "model.height"
+    },
+    {
+      "id": "down",
+      "top": "model.bottom",
+      "width": "model.width"
+    },
+    {
+      "id": "bottom-right",
+      "top": "down.bottom",
+      "width": "down.width",
+      "align": "left"
+    }
+ ]
+}
