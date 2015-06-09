@@ -75,19 +75,19 @@
       {
         "text": "Keep throwing darts until you clearly see a \"blue cloud\" \nindicating where the darts will likely land.",
         "x": 0.12,
-        "y": 0.41,
+        "y": 0.58,
         "layer": 1,
         "color": "rgb(204,0,0)",
         "fontSize": 0.15,
         "anchor": "upper-left"
       },
       {
-        "text": "The blue haze indicates where the next dart throw will land - \nmore likely where the haze is dark, less likely where it is light.",
-        "x": 0.22,
-        "y": 3.53,
+        "text": "The blue haze indicates where the next dart\nthrow will land more likely where the haze is dark,\nless likely where it is light.",
+        "x": 0.12,
+        "y": 1.53,
         "layer": 1,
         "color": "rgb(0,153,0)",
-        "fontSize": 0.12,
+        "fontSize": 0.10,
         "anchor": "upper-left"
       }
     ],
