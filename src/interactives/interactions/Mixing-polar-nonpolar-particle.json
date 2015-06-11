@@ -13,8 +13,8 @@
   "models": [
     {
       "type": "md2d",
-      "id": "particleMixing$0",
-      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing$0.json",
+      "id": "particleMixing",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
       "viewOptions": {
         "controlButtons": "",
@@ -78,8 +78,8 @@
     },
     {
       "type": "md2d",
-      "id": "particleMixingDoubleEthanol$0",
-      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol$0.json",
+      "id": "particleMixingDoubleEthanol",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleEthanol$0.mml",
       "viewOptions": {
         "controlButtons": ""
@@ -141,8 +141,8 @@
     },
     {
       "type": "md2d",
-      "id": "particleMixingDoubleWater$0",
-      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater$0.json",
+      "id": "particleMixingDoubleWater",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleWater$0.mml",
       "viewOptions": {
         "controlButtons": ""
@@ -562,7 +562,7 @@
           "text": "Water + Ethanol",
           "action": [
                      "if(get('modelA')){",
-                     "  loadModel('particleMixing$0');}",
+                     "  loadModel('particleMixing');}",
                      "else{",
                      "  loadModel('water-ethanol');}"
                     ],
@@ -572,7 +572,7 @@
           "text": "Ethanol + Ethanol",
           "action": [
                      "if(get('modelA'))",
-                     "  loadModel('particleMixingDoubleEthanol$0');",
+                     "  loadModel('particleMixingDoubleEthanol');",
                      "else",
                      "  loadModel('ethanol-ethanol');"
                     ]
@@ -581,7 +581,7 @@
           "text": "Water + Water",
           "action": [
                      "if(get('modelA'))",
-                     "  loadModel('particleMixingDoubleWater$0');",
+                     "  loadModel('particleMixingDoubleWater');",
                      "else",
                      "  loadModel('water-water');"
                     ]
@@ -597,7 +597,7 @@
         {
           "text": "particle model",
           "action":[
-                     "loadModel('particleMixing$0');",
+                     "loadModel('particleMixing');",
                      "set('modelA',true);"
                   ],
           "selected": true
