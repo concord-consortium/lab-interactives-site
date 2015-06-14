@@ -7,7 +7,7 @@
   "lennardJonesForces": true,
   "coulombForces": true,
   "temperatureControl": true,
-  "gravitationalField": 4.0000000000000003e-7,
+  "gravitationalField": 1.6e-7,
   "timeStep": 1,
   "dielectricConstant": 1,
   "realisticDielectricEffect": true,
