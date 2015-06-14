@@ -6,7 +6,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 0.9,
+  "aspectRatio": 1,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -21,7 +21,7 @@
       "type": "md2d",
       "id": "polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/polar.json",
-      "onLoad": "set('targetTemperature', 580);",
+      "onLoad": "set('targetTemperature', 1100);",
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
@@ -31,12 +31,12 @@
       "type": "md2d",
       "id": "non-polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/non-polar.json",
-      "onLoad": "set('targetTemperature', 580);",
+      "onLoad": "set('targetTemperature', 1100);",
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
       },
-      "targetTemperature": 580
+      "targetTemperature": 1100
     }
   ],
   "propertiesToRetain": [],
@@ -98,11 +98,11 @@
       "labels": [
         {
           "value": 100,
-          "label": "100"
+          "label": "10"
         },
         {
           "value": 4000,
-          "label": "4000"
+          "label": "400"
         }
       ],
      "property": "targetTemperature",
@@ -117,11 +117,48 @@
       "id": "thermometer",
       "type": "barGraph",
       "property": "targetTemperature",
-      "min": 100,
-      "max": 4000,
-      "title": "Thermometer",
+      "min": -50,
+      "max": 4500,
+      "title": "Temperature (K)",
       "titleOn": "right",
-      "labels": 10,
+      "labels": [
+         {
+           "value": 500,
+           "label": 50
+        },
+        {
+           "value": 1000,
+           "label": 100
+        },
+        {
+           "value": 1500,
+           "label": 150
+        },
+        {
+           "value": 2000,
+           "label": 200
+        },
+        {
+           "value": 2500,
+           "label": 250
+        },
+        {
+           "value": 3000,
+           "label": 300
+        },
+        {
+           "value": 3500,
+           "label": 350
+        },
+        {
+           "value": 4000,
+           "label": 400
+        },
+        {
+           "value": 4500,
+           "label": 450
+        }
+      ],
       "units": false,
       "gridLines": 10,
       "labelFormat": "0.0f",
