@@ -17,7 +17,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -82,7 +83,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleEthanol$0.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
       },
       "onLoad": [
         "setComponentDisabled('add-columnB',false);",
@@ -145,7 +147,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleWater$0.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
       },
       "onLoad": [
         "setComponentDisabled('add-columnB',false);",
@@ -208,7 +211,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -247,7 +251,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Water.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -282,7 +287,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Ethanol-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -541,14 +547,6 @@
       ]
     },
     {
-      "type": "button",
-      "id": "reset",
-      "text": "Reset",
-      "action": [
-        "reloadModel();"
-      ]
-    },
-    {
       "id": "label-select-matter",
       "type": "text",
       "text": "**Select a model of matter:**",
@@ -668,8 +666,7 @@
         "add-columnA",
         "add-columnB",
         "cap-and-shake",
-        "stop-shaking",
-        "reset"
+        "stop-shaking"
       ]
     ]
   },
