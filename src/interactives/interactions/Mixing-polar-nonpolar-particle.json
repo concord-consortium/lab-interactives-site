@@ -549,6 +549,15 @@
       ]
     },
     {
+      "id": "label-select-matter",
+      "type": "text",
+      "text": "**Select a model of matter:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "type": "text",
       "id": "label-select-model",
       "text": "**Select liquids**"
@@ -647,9 +656,21 @@
   ],
   "layout": {
     "bottom": [
-      ["label-select-model"],
-      ["select-model"],
-      ["add-columnA", "add-columnB", "cap-and-shake", "stop-shaking", "reset"]
+      [
+        "label-select-matter",
+        "pulldown"
+      ],
+      [
+        "label-select-model",
+        "select-model"
+      ],
+      [
+        "add-columnA",
+        "add-columnB",
+        "cap-and-shake",
+        "stop-shaking",
+        "reset"
+      ]
     ]
   },
   "template": [
