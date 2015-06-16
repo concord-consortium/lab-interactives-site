@@ -21,7 +21,7 @@
       "type": "md2d",
       "id": "polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/polar.json",
-      "onLoad": "set('targetTemperature', 1100);",
+      "onLoad": "set('targetTemperature', 800);",
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
@@ -31,12 +31,11 @@
       "type": "md2d",
       "id": "non-polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/non-polar.json",
-      "onLoad": "set('targetTemperature', 1100);",
+      "onLoad": "set('targetTemperature', 800);",
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
-      },
-      "targetTemperature": 1100
+      }
     }
   ],
   "propertiesToRetain": [],
