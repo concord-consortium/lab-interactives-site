@@ -239,8 +239,8 @@
         "    setComponentDisabled('cap-and-shake',false);",
         "  }",
         "  if(get('Shakeliquid')){",
-        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.48)});",
-        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.48)});",
+        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.68)});",
+        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.68)});",
         "  }",
         "});"
       ]
@@ -275,8 +275,8 @@
         "     setComponentDisabled('cap-and-shake',false);",
         "  }",
         "  if(get('Shakeliquid')){",
-        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.48)});",
-        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.48)});",
+        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.68)});",
+        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.68)});",
         "  }",
         "});"
       ]
@@ -311,8 +311,8 @@
         "     setComponentDisabled('cap-and-shake',false);",
         "  }",
         "  if(get('Shakeliquid')){",
-        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.48)});",
-        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.48)});",
+        "    setShapeProperties(get('liquidA'),{y: (1.52*Math.random()+0.68)});",
+        "    setShapeProperties(get('liquidB'),{y: (1.52*Math.random()+0.68)});",
         "  }",
         "});"
       ]
@@ -429,7 +429,7 @@
         "   batch(function(){",
         "      if(get('isColumnADropped')){",
         "      setObstacleProperties(4, {visible:false}); ",
-        "      setShapeProperties(get('liquidB'),{y: 1.42,visible: true}); ",
+        "      setShapeProperties(get('liquidB'),{y: 1.60,visible: true}); ",
         "      set('isColumnBDropping',false);",
         "      set('isColumnBDropped',true); ",
         " } else {  ",
@@ -483,12 +483,12 @@
         "  batch(function(){",
         "      if(get('isColumnBDropped')){",
         "         setObstacleProperties(3, {visible:false}); ",
-        "         setShapeProperties(get('liquidA'),{y: 1.42,visible: true});  ",
+        "         setShapeProperties(get('liquidA'),{y: 1.60,visible: true});  ",
         "         set('isColumnADropping',false);",
         "         set('isColumnADropped',true); ",
         " } else {  ",
         "   setObstacleProperties(3, {visible:false}); ",
-        "   setShapeProperties(get('liquidA'),{y: 0.48,visible: true});",
+        "   setShapeProperties(get('liquidA'),{y: 0.66,visible: true});",
         "   set('isColumnADropping',false);",
         "   set('isColumnADropped',true);",
         "   }  ",
@@ -632,8 +632,12 @@
       ]
     },
     {
+      "component": "pulldown",
+      "text":  "First select a model of matter to explore."
+    },
+    {
       "component": "select-model",
-      "text":  "First select a pair of liquids to combine, and then note the volume of each liquid."
+      "text":  "Then select a pair of liquids to combine, and then note the volume of each liquid."
     },
     {
       "component": "add-columnA",
