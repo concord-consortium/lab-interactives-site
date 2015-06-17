@@ -38,19 +38,19 @@
     {
       "name": "table-dataset",
       "properties": [
-        "　　　Description of Location　　　",
+        "______Description of Location______",
         "Temperature",
-        "　Humidity　",
-        "　　Light　　"
+        "__Humidity__",
+        "____Light____"
       ],
       "serializableProperties": "all",
       "streamDataFromModel": true,
       "clearOnModelReset": true,
       "initialData": {
-        "　　　Description of Location　　　": ["",""],
+        "______Description of Location______": ["",""],
         "Temperature": [],
-        "　Humidity　": [],
-        "　　Light　　": []
+        "__Humidity__": [],
+        "____Light____": []
       }
     }
   ],
@@ -66,7 +66,7 @@
       "indexColumn": false,
       "propertyColumns": [
         {
-          "name": "　　　Description of Location　　　",
+          "name": "______Description of Location______",
           "format": "r"
         },
         {
@@ -74,17 +74,17 @@
           "format": "r"
         },
         {
-          "name": "　Humidity　",
+          "name": "__Humidity__",
           "format": "r"
         },
         {
-          "name": "　　Light　　",
+          "name": "____Light____",
           "format": "r"
         }
       ],
       "headerData": [
         {
-          "name": "　　　Description of Location　　　",
+          "name": "______Description of Location______",
           "editable": true
         },
         {
@@ -92,11 +92,11 @@
           "editable": true
         },
         {
-          "name": "　Humidity　",
+          "name": "__Humidity__",
           "editable": true
         },
         {
-          "name": "　　Light　　",
+          "name": "____Light____",
           "editable": true
         }
       ],
