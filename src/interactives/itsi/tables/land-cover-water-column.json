@@ -1,0 +1,194 @@
+{
+  "title": "Table: Temperature Humidity and Light",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": "1.864",
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": [
+    "Use this table to collect data from the WaterShed Tracker"
+  ],
+  "theme": "",
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 2000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [
+    {
+      "name": "table-dataset",
+      "properties": [
+        "index",
+        "index2",
+        "index3",
+        "____Land Cover____",
+        "Evapotranspiration",
+        "Runoff",
+        "Infiltration"
+      ],
+      "serializableProperties": "all",
+      "streamDataFromModel": true,
+      "clearOnModelReset": true,
+      "initialData": {
+        "index": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+        "index2": [ 1.1, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1, 12.1 ],
+        "index3": [ 1.2, 2.2, 3.2, 4.2, 5.2, 6.2, 7.2, 8.2, 9.2, 10.2, 11.2, 12.2 ],
+        "____Land Cover____": [
+          "LIR",
+          "HIR",
+          "Commercial",
+          "Grassland",
+          "Forest",
+          "Turf Grass",
+          "Pasture",
+          "Row Crops",
+          "Chaparral",
+          "Tall Grass Prairie",
+          "Short Grass Prairie",
+          "Desert"],
+        "Evapotranspiration": [],
+        "Runoff": [],
+        "Infiltration": []
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "title": null,
+      "dataSet": "table-dataset",
+      "addNewRows": true,
+      "visibleRows": 12,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "propertyColumns": [
+        {
+          "name": "index",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "____Land Cover____",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "Evapotranspiration",
+          "format": "r"
+        },
+        {
+          "name": "Runoff",
+          "format": "r"
+        },
+        {
+          "name": "Infiltration",
+          "format": "r"
+        }
+      ],
+      "headerData": [
+        {
+          "name": "index"
+        },
+        {
+          "name": "____Land Cover____"
+        },
+        {
+          "name": "Evapotranspiration"
+        },
+        {
+          "name": "Runoff"
+        },
+        {
+          "name": "Infiltration"
+        }
+      ],
+      "width": "100%",
+      "height": "100%",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "graph",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 10,
+      "xmin": 0,
+      "xmax": 12.5,
+      "xTickCount": 10,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Water (inch)",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 4,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [ "Evapotranspiration", "Runoff", "Infiltration"],
+      "legendVisible": true,
+      "xProperty": [
+        "index",
+        "index2",
+        "index3"
+      ],
+      "properties": [
+        "Evapotranspiration",
+        "Runoff",
+        "Infiltration"
+      ],
+      "width": "35em",
+      "height": "15em"
+    }
+  ],
+  "layout": {
+    "above": [
+      "table1"
+    ],
+    "below": [
+      "graph"
+    ]
+  },
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ]
+}
