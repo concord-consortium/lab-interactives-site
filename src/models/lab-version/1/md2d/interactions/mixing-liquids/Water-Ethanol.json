@@ -55,7 +55,7 @@
       {
         "text": "x",
         "x": 0.39,
-        "y": 1.8,
+        "y": 1.76,
         "anchor": "upper-left",
         "layer": 1,
         "backgroundColor": "white",
@@ -68,7 +68,7 @@
       {
         "text": "2x",
         "x": 3.5,
-        "y": 2.9,
+        "y": 2.72,
         "anchor": "upper-left",
         "layer": 1,
         "backgroundColor": "white",
@@ -376,7 +376,7 @@
       "rgb(155,155,155)",
       "rgba(0,128,255,0.5)",
       "rgba(255,88,88,0.5)",
-      "rgb(204, 102, 255)"
+      "rgba(148, 77, 148,0.5)"
     ],
     "lineColor": [
       "black",
@@ -391,7 +391,7 @@
       "black",
       "rgb(0,128,255)",
       "rgb(255,88,88)",
-      "rgb(204, 102, 255)"
+      "rgb(148, 77, 148)"
     ],
     "lineDashes": [
       "none",
