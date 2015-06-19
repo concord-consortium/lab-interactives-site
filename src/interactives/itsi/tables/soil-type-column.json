@@ -1,12 +1,12 @@
 {
-  "title": "Table: MMW Land Cover",
+  "title": "Table: MMW Soil Type",
   "publicationStatus": "draft",
   "labEnvironment": "production",
   "subtitle": "",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1,
+  "aspectRatio": 1.1,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -41,7 +41,7 @@
         "index",
         "index2",
         "index3",
-        "____Land Cover____",
+        "_______Soil_______",
         "Evapotranspiration",
         "Runoff",
         "Infiltration"
@@ -50,22 +50,14 @@
       "streamDataFromModel": true,
       "clearOnModelReset": true,
       "initialData": {
-        "index": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
-        "index2": [ 1.1, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1, 12.1 ],
-        "index3": [ 1.2, 2.2, 3.2, 4.2, 5.2, 6.2, 7.2, 8.2, 9.2, 10.2, 11.2, 12.2 ],
-        "____Land Cover____": [
-          "LIR",
-          "HIR",
-          "Commercial",
-          "Grassland",
-          "Forest",
-          "Turf Grass",
-          "Pasture",
-          "Row Crops",
-          "Chaparral",
-          "Tall Grass Prairie",
-          "Short Grass Prairie",
-          "Desert"],
+        "index": [ 1, 2, 3, 4],
+        "index2": [ 1.2, 2.2, 3.2, 4.2],
+        "index3": [ 1.4, 2.4, 3.4, 4.4],
+        "_______Soil_______": [
+          "Sand",
+          "Loam",
+          "Sandy Clay",
+          "Clay Loam"],
         "Evapotranspiration": [],
         "Runoff": [],
         "Infiltration": []
@@ -89,7 +81,7 @@
           "editable": false
         },
         {
-          "name": "____Land Cover____",
+          "name": "_______Soil_______",
           "format": "r",
           "editable": false
         },
@@ -111,7 +103,7 @@
           "name": "index"
         },
         {
-          "name": "____Land Cover____"
+          "name": "_______Soil_______"
         },
         {
           "name": "Evapotranspiration"
@@ -133,18 +125,18 @@
       "type": "graph",
       "dataSet": "table-dataset",
       "ymin": 0,
-      "ymax": 10,
+      "ymax": 8,
       "xmin": 0,
-      "xmax": 12.5,
-      "xTickCount": 10,
-      "yTickCount": 5,
+      "xmax": 4.9,
+      "xTickCount": 4,
+      "yTickCount": 8,
       "xFormatter": "d",
       "yFormatter": ".2s",
       "ylabel": "Water (inch)",
       "xlabel": "index",
       "lines": false,
       "bars": true,
-      "lineWidth": 4,
+      "lineWidth": 16,
       "enableAutoScaleButton": false,
       "enableAxisScaling": false,
       "autoScaleX": false,
@@ -162,7 +154,7 @@
         "Infiltration"
       ],
       "width": "35em",
-      "height": "15em"
+      "height": "20em"
     }
   ],
   "layout": {
