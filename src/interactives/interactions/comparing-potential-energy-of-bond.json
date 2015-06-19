@@ -97,8 +97,8 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
-                "set('breakEnergy',9);",
-                "set('potentialFactor',18);",
+                "set('breakEnergy',11);",
+                "set('potentialFactor',14);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
                 "var x1 = getAtomProperties(0).x,",
