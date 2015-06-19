@@ -55,7 +55,7 @@
       {
         "text": "x",
         "x": 0.39,
-        "y": 1.8,
+        "y": 1.76,
         "anchor": "upper-left",
         "layer": 1,
         "backgroundColor": "white",
@@ -68,7 +68,7 @@
       {
         "text": "2x",
         "x": 3.5,
-        "y": 2.9,
+        "y": 2.72,
         "anchor": "upper-left",
         "layer": 1,
         "backgroundColor": "white",
