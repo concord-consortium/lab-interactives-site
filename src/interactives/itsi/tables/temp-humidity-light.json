@@ -38,6 +38,7 @@
     {
       "name": "table-dataset",
       "properties": [
+        "index",
         "______Description of Location______",
         "Temperature",
         "__Humidity__",
@@ -47,6 +48,7 @@
       "streamDataFromModel": true,
       "clearOnModelReset": true,
       "initialData": {
+        "index": [1,2,3,4,5],
         "______Description of Location______": ["",""],
         "Temperature": [],
         "__Humidity__": [],
@@ -66,6 +68,10 @@
       "indexColumn": false,
       "propertyColumns": [
         {
+          "name": "index",
+          "format": "r"
+        },
+        {
           "name": "______Description of Location______",
           "format": "r"
         },
@@ -84,20 +90,19 @@
       ],
       "headerData": [
         {
-          "name": "______Description of Location______",
-          "editable": true
+          "name": "index"
         },
         {
-          "name": "Temperature",
-          "editable": true
+          "name": "______Description of Location______"
         },
         {
-          "name": "__Humidity__",
-          "editable": true
+          "name": "Temperature"
         },
         {
-          "name": "____Light____",
-          "editable": true
+          "name": "__Humidity__"
+        },
+        {
+          "name": "____Light____"
         }
       ],
       "width": "100%",
@@ -106,15 +111,132 @@
       "helpIcon": false
     },
     {
-      "id": "clear-dataset",
-      "type": "button",
-      "action": "clearDataSet('table-dataset');",
-      "text": "Clear table",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
+      "id": "graph-temp",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 10,
+      "xmin": 0,
+      "xmax": 5.5,
+      "xTickCount": 10,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Water (inch)",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 4,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [ ],
+      "legendVisible": false,
+      "xProperty": [
+        "index"
+      ],
+      "properties": [
+        "Temperature"
+      ],
+      "width": "10em",
+      "height": "15em"
+    },
+    {
+      "id": "graph-temp",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 60,
+      "xmin": 0,
+      "xmax": 5.5,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Temperature",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 4,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [ ],
+      "legendVisible": false,
+      "xProperty": [
+        "index"
+      ],
+      "properties": [
+        "Temperature"
+      ],
+      "width": "10em",
+      "height": "15em"
+    },
+    {
+      "id": "graph-humidity",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 100,
+      "xmin": 0,
+      "xmax": 5.5,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Relative Humidity",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 4,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [ ],
+      "legendVisible": false,
+      "xProperty": [
+        "index"
+      ],
+      "properties": [
+        "__Humidity__"
+      ],
+      "width": "10em",
+      "height": "15em"
+    },
+    {
+      "id": "graph-light",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 100,
+      "xmin": 0,
+      "xmax": 5.5,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Light",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 4,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [ ],
+      "legendVisible": false,
+      "xProperty": [
+        "index"
+      ],
+      "properties": [
+        "__Humidity__"
+      ],
+      "width": "10em",
+      "height": "15em"
     }
   ],
   "layout": {
@@ -122,7 +244,7 @@
       "table1"
     ],
     "below": [
-      "clear-dataset"
+      "graph-temp", "graph-humidity", "graph-light"
     ]
   },
   "template": [
