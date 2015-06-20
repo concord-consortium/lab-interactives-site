@@ -38,6 +38,7 @@
     {
       "name": "table-dataset",
       "properties": [
+        "index",
         "______Description of Location______",
         "Soil Moisture"
       ],
@@ -45,6 +46,7 @@
       "streamDataFromModel": true,
       "clearOnModelReset": true,
       "initialData": {
+        "index": [1,2,3,4,5,6,7,8,9],
         "______Description of Location______": [],
         "Soil Moisture": []
       }
@@ -58,9 +60,14 @@
       "dataSet": "table-dataset",
       "addNewRows": true,
       "visibleRows": 4,
-      "showBlankRow": true,
+      "showBlankRow": false,
       "indexColumn": false,
       "propertyColumns": [
+        {
+          "name": "index",
+          "format": "r",
+          "editable": false
+        },
         {
           "name": "______Description of Location______",
           "format": "r"
@@ -72,29 +79,51 @@
       ],
       "headerData": [
         {
-          "name": "______Description of Location______",
-          "editable": true
+          "name": "index"
         },
         {
-          "name": "Soil Moisture",
-          "editable": true
+          "name": "______Description of Location______"
+        },
+        {
+          "name": "Soil Moisture"
         }
       ],
       "width": "100%",
-      "height": "100%",
+      "height": "11em",
       "tooltip": "",
       "helpIcon": false
     },
     {
-      "id": "clear-dataset",
-      "type": "button",
-      "action": "clearDataSet('table-dataset');",
-      "text": "Clear table",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
+      "id": "graph",
+      "type": "graph",
+      "dataSet": "table-dataset",
+      "ymin": 0,
+      "ymax": 100,
+      "xmin": 0,
+      "xmax": 9.9,
+      "xTickCount": 10,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2s",
+      "ylabel": "Water (inch)",
+      "xlabel": "index",
+      "lines": false,
+      "bars": true,
+      "lineWidth": 16,
+      "enableAutoScaleButton": false,
+      "enableAxisScaling": false,
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "legendLabels": [],
+      "legendVisible": false,
+      "xProperty": [
+        "index"
+      ],
+      "properties": [
+        "Soil Moisture"
+      ],
+      "width": "35em",
+      "height": "15em"
     }
   ],
   "layout": {
@@ -102,7 +131,7 @@
       "table1"
     ],
     "below": [
-      "clear-dataset"
+      "graph"
     ]
   },
   "template": [
