@@ -105,7 +105,7 @@
       "yTickCount": 5,
       "xFormatter": "d",
       "yFormatter": ".2s",
-      "ylabel": "Water (inch)",
+      "ylabel": "Soil Moisture",
       "xlabel": "index",
       "lines": false,
       "bars": true,
