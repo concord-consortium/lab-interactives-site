@@ -115,38 +115,6 @@
       "type": "graph",
       "dataSet": "table-dataset",
       "ymin": 0,
-      "ymax": 10,
-      "xmin": 0,
-      "xmax": 5.5,
-      "xTickCount": 10,
-      "yTickCount": 5,
-      "xFormatter": "d",
-      "yFormatter": ".2s",
-      "ylabel": "Water (inch)",
-      "xlabel": "index",
-      "lines": false,
-      "bars": true,
-      "lineWidth": 4,
-      "enableAutoScaleButton": false,
-      "enableAxisScaling": false,
-      "autoScaleX": false,
-      "autoScaleY": false,
-      "legendLabels": [ ],
-      "legendVisible": false,
-      "xProperty": [
-        "index"
-      ],
-      "properties": [
-        "Temperature"
-      ],
-      "width": "10em",
-      "height": "15em"
-    },
-    {
-      "id": "graph-temp",
-      "type": "graph",
-      "dataSet": "table-dataset",
-      "ymin": 0,
       "ymax": 60,
       "xmin": 0,
       "xmax": 5.5,
@@ -233,7 +201,7 @@
         "index"
       ],
       "properties": [
-        "__Humidity__"
+        "____Light____"
       ],
       "width": "10em",
       "height": "15em"
