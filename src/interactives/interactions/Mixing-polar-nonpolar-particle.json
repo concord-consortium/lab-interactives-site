@@ -392,6 +392,10 @@
     {
       "name": "modelA",
       "initialValue": true
+    },
+    {
+      "name": "selectLiquid",
+      "initialValue": 1
     }
   ],
   "components": [
