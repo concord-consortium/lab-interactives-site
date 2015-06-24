@@ -22,6 +22,7 @@
         "enableKeyboardHandlers": false
       },
       "onLoad": [
+        "set('selectLiquid',1);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -87,6 +88,7 @@
         "controlButtonStyle": "text"
       },
       "onLoad": [
+         "set('selectLiquid',2);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -151,6 +153,7 @@
         "controlButtonStyle": "text"
       },
       "onLoad": [
+        "set('selectLiquid',3);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -216,6 +219,7 @@
         "enableKeyboardHandlers": false
       },
       "onLoad": [
+        "set('selectLiquid',1);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -256,6 +260,7 @@
         "enableKeyboardHandlers": false
       },
       "onLoad": [
+         "set('selectLiquid',3);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -292,6 +297,7 @@
         "enableKeyboardHandlers": false
       },
       "onLoad": [
+        "set('selectLiquid',2);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -604,15 +610,19 @@
         {
           "text": "particle model",
           "action":[
-                     "loadModel('particleMixing');",
-                     "set('modelA',true);"
+                    "if(get('selectLiquid')==1)loadModel('particleMixing');",
+                    "if(get('selectLiquid')==2)loadModel('particleMixingDoubleEthanol');",
+                    "if(get('selectLiquid')==3)loadModel('particleMixingDoubleWater');",
+                    "set('modelA',true);"
                   ],
           "selected": true
         },
         {
           "text": "continuous model",
           "action": [
-                      "loadModel('water-ethanol');",
+                      "if(get('selectLiquid')==1)loadModel('water-ethanol');",
+                      "if(get('selectLiquid')==2)loadModel('ethanol-ethanol');",
+                      "if(get('selectLiquid')==3)loadModel('water-water');",
                       "set('modelA',false);"
                     ]
         }
