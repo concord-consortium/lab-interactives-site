@@ -183,8 +183,8 @@
       0.42720018726587655
     ],
     "strength": [
-      20,
-      180
+      90,
+      20
     ],
     "type": [
       101,
@@ -207,8 +207,10 @@
       "2-2": 4,
       "3-3": 4
     },
-    "activationEnergy": {
-      "default": 0.2
+   "activationEnergy": {
+      "default": 0.2,
+      "1+2-2": 10,
+      "2+1-2": 10
     },
     "bondProbability": {
       "default": [
