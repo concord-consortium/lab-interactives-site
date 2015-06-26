@@ -1,5 +1,5 @@
 {
-  "title": "changing-temp-page5",
+  "title": "Heat and Temperature 5: Changing Temperature",
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
@@ -10,12 +10,8 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/largesolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/largesolid.mml",
       "viewOptions": {
-        "controlButtons": ""
-      },
-      "onLoad": [
-        "set({ temperatureControl: true });",
-        "set({ targetTemperature: 1 });"
-      ]
+        "controlButtons": "play_reset"
+      }
     },
     {
       "type": "md2d",
@@ -23,27 +19,40 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/smallsolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/smallsolid.mml",
       "viewOptions": {
-        "controlButtons": ""
-      },
-      "onLoad": [
-        "set({ temperatureControl: true });",
-        "set({ targetTemperature: 1 });"
-      ]
+        "controlButtons": "play_reset"
+      }
     }
   ],
+    "parameters": [
+    {
+      "name": "temperatureIncrement",
+      "initialValue": 5.0
+    },
+    {
+      "name": "modelChoice",
+      "initialValue": "largeModel",
+        "onChange": [
+          "switch(value) {",
+          "  case 'largeModel': loadModel('largesolid'); set({ temperatureControl: true }); set( {'temperatureIncrement': 5 }); break;",
+          "  case 'smallModel': loadModel('smallsolid'); set({ temperatureControl: true }); set( {'temperatureIncrement': 10 }); break;",
+          "}"
+      ]
+    }
+    ],
   "components": [
     {
       "type": "radio",
       "id": "select-model-buttons",
       "orientation": "horizontal",
+      "property": "modelChoice",
       "options": [
         {
           "text": "Large solid",
-          "action": "loadModel('largesolid');"
+          "value": "largeModel"
         },
         {
           "text": "Small solid (half size)",
-          "action": "loadModel('smallsolid');"
+          "value": "smallModel"
         }
       ]
     },
@@ -52,8 +61,8 @@
       "id": "add-energy",
       "text": "Add energy",
       "action": [
-        "start();",
-        "set({ targetTemperature: get('targetTemperature')*1.5 });"
+      "start();",
+        "set({ targetTemperature: get('targetTemperature') + 'temperatureIncrement' });"
       ]
     },
     {
