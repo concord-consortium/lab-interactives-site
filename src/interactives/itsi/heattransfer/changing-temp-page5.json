@@ -11,6 +11,9 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/largesolid.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "temperatureControl": false
       }
     },
     {
@@ -20,39 +23,45 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/smallsolid.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "temperatureControl": false
       }
     }
   ],
-    "parameters": [
+   "filteredOutputs": [
     {
-      "name": "temperatureIncrement",
-      "initialValue": 5.0
-    },
-    {
-      "name": "modelChoice",
-      "initialValue": "largeModel",
-        "onChange": [
-          "switch(value) {",
-          "  case 'largeModel': loadModel('largesolid'); set({ temperatureControl: true }); set( {'temperatureIncrement': 5 }); break;",
-          "  case 'smallModel': loadModel('smallsolid'); set({ temperatureControl: true }); set( {'temperatureIncrement': 10 }); break;",
-          "}"
-      ]
+      "name": "temperatureSmoothed",
+      "unitType": "temperature",
+      "property": "temperature",
+      "type": "RunningAverage",
+      "period": 2500
     }
+    ],
+    "parameters": [
+      {
+        "name": "temperatureIncrement",
+        "initialValue": 5.0
+      },
+      {
+        "name": "modelChoice",
+        "initialValue": "largeModel"
+      }
     ],
   "components": [
     {
       "type": "radio",
       "id": "select-model-buttons",
       "orientation": "horizontal",
-      "property": "modelChoice",
       "options": [
         {
           "text": "Large solid",
-          "value": "largeModel"
+          "action": "loadModel( 'largesolid');",
+          "selected": true
         },
         {
           "text": "Small solid (half size)",
-          "value": "smallModel"
+          "action": "loadModel( 'smallsolid');"
         }
       ]
     },
@@ -62,13 +71,13 @@
       "text": "Add energy",
       "action": [
       "start();",
-        "set({ targetTemperature: get('targetTemperature') + 'temperatureIncrement' });"
+        "addKEToAtoms(1);"
       ]
     },
     {
       "type": "barGraph",
       "id": "thermometer",
-      "property": "temperature",
+      "property": "temperatureSmoothed",
       "units": true,
       "labelFormat": "3r",
       "min": 0,
