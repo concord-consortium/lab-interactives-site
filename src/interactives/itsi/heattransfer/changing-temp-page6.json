@@ -6,6 +6,28 @@
   "aspectRatio": 2.1,
   "fontScale": 0.75,
   "models": [
+      {
+      "type": "md2d",
+      "id": "vacuum",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
+    },
     {
       "type": "md2d",
       "id": "thick-short-bar",
@@ -137,28 +159,6 @@
         "set('leftAtomsIndices', leftAtoms);",
         "set('rightAtomsIndices', rightAtoms);"
       ]
-    },
-    {
-      "type": "md2d",
-      "id": "vacuum",
-      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1.json",
-      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      },
-        "onLoad": [
-        "var leftAtoms = [];",
-        "var rightAtoms = [];",
-        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
-        "  if (getAtomProperties(i).element == 0) {",
-        "    leftAtoms.push(i);",
-        "  } else if(getAtomProperties(i).element == 2) {",
-        "    rightAtoms.push(i);",
-        "  }",
-        "}",
-        "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);"
-      ]
     }
   ],
     "parameters": [
@@ -228,7 +228,8 @@
       "options": [
         {
           "text": "Vacuum",
-          "action": "loadModel('vacuum');"
+          "action": "loadModel('vacuum');",
+          "selected": true
         },
         {
           "text": "Thick short bar",
