@@ -58,7 +58,8 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
-                "set('breakEnergy',7);",
+                "set('breakEnergy',10.5);",
+                "set('finalPotential',25.7);",
                 "set('potentialFactor',15);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
@@ -69,7 +70,7 @@
                 "    distx = x1-x2,",
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
-                "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
+                "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.167)+get('breakEnergy'));",
                 "});",
                 "});"
                 ],
@@ -97,8 +98,9 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
-                "set('breakEnergy',11);",
-                "set('potentialFactor',14);",
+                "set('breakEnergy',10);",
+                "set('finalPotential',25);",
+                "set('potentialFactor',8);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
                 "var x1 = getAtomProperties(0).x,",
@@ -108,7 +110,7 @@
                 "    distx = x1-x2,",
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
-                "set('countPotential', get('potentialFactor')*Math.pow(distance,0.5)+get('breakEnergy'));",
+                "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
                 "});",
                 "});"
                 ],
@@ -136,7 +138,7 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling-break-bond.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
-                "set('potentialFactor',22);",
+                "set('potentialFactor',35);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
                 "var x1 = getAtomProperties(0).x,",
@@ -147,7 +149,9 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
-                "set('breakEnergy', 10);}",
+                "set('breakEnergy', 15);}",
+                "else{",
+                "set('breakEnergy', -7.2);}",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -176,7 +180,7 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling-break-bond.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
-                "set('potentialFactor',22);",
+                "set('potentialFactor',50);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
                 "var x1 = getAtomProperties(0).x,",
@@ -187,7 +191,9 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
-                "set('breakEnergy', 20);}",
+                "set('breakEnergy', 12);}",
+                "else{",
+                "set('breakEnergy', -18);}",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -223,6 +229,10 @@
       },
       {
         "name": "potentialFactor",
+        "initialValue": 0
+      },
+      {
+        "name": "finalPotential",
         "initialValue": 0
       }
     ],
