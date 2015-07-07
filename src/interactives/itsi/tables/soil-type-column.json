@@ -1,18 +1,18 @@
 {
-  "title": "Table: Soil Moisture",
+  "title": "Table: MMW Soil Type",
   "publicationStatus": "draft",
   "labEnvironment": "production",
   "subtitle": "",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": "1.864",
+  "aspectRatio": 1.1,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
   "about": [
-    "Use this table to collect data about soil moisture"
+    "Use this table to collect data from the WaterShed Tracker"
   ],
   "theme": "",
   "models": [
@@ -39,16 +39,28 @@
       "name": "table-dataset",
       "properties": [
         "index",
-        "______Description of Location______",
-        "Soil Moisture"
+        "index2",
+        "index3",
+        "_______Soil_______",
+        "Evapotranspiration",
+        "Runoff",
+        "Infiltration"
       ],
       "serializableProperties": "all",
       "streamDataFromModel": true,
       "clearOnModelReset": true,
       "initialData": {
-        "index": [1,2,3,4,5,6,7,8,9],
-        "______Description of Location______": [],
-        "Soil Moisture": []
+        "index": [ 1, 2, 3, 4],
+        "index2": [ 1.2, 2.2, 3.2, 4.2],
+        "index3": [ 1.4, 2.4, 3.4, 4.4],
+        "_______Soil_______": [
+          "Sand",
+          "Loam",
+          "Sandy Clay",
+          "Clay Loam"],
+        "Evapotranspiration": [],
+        "Runoff": [],
+        "Infiltration": []
       }
     }
   ],
@@ -59,7 +71,7 @@
       "title": null,
       "dataSet": "table-dataset",
       "addNewRows": true,
-      "visibleRows": 4,
+      "visibleRows": 12,
       "showBlankRow": false,
       "indexColumn": false,
       "propertyColumns": [
@@ -69,11 +81,20 @@
           "editable": false
         },
         {
-          "name": "______Description of Location______",
+          "name": "_______Soil_______",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "Evapotranspiration",
           "format": "r"
         },
         {
-          "name": "Soil Moisture",
+          "name": "Runoff",
+          "format": "r"
+        },
+        {
+          "name": "Infiltration",
           "format": "r"
         }
       ],
@@ -82,14 +103,20 @@
           "name": "index"
         },
         {
-          "name": "______Description of Location______"
+          "name": "_______Soil_______"
         },
         {
-          "name": "Soil Moisture"
+          "name": "Evapotranspiration"
+        },
+        {
+          "name": "Runoff"
+        },
+        {
+          "name": "Infiltration"
         }
       ],
       "width": "100%",
-      "height": "11em",
+      "height": "100%",
       "tooltip": "",
       "helpIcon": false
     },
@@ -98,14 +125,14 @@
       "type": "graph",
       "dataSet": "table-dataset",
       "ymin": 0,
-      "ymax": 100,
+      "ymax": 8,
       "xmin": 0,
-      "xmax": 9.9,
-      "xTickCount": 10,
-      "yTickCount": 5,
+      "xmax": 4.9,
+      "xTickCount": 4,
+      "yTickCount": 8,
       "xFormatter": "d",
       "yFormatter": ".2s",
-      "ylabel": "Soil Moisture",
+      "ylabel": "Water (inch)",
       "xlabel": "index",
       "lines": false,
       "bars": true,
@@ -114,16 +141,20 @@
       "enableAxisScaling": false,
       "autoScaleX": false,
       "autoScaleY": false,
-      "legendLabels": [],
-      "legendVisible": false,
+      "legendLabels": [ "Evapotranspiration", "Runoff", "Infiltration"],
+      "legendVisible": true,
       "xProperty": [
-        "index"
+        "index",
+        "index2",
+        "index3"
       ],
       "properties": [
-        "Soil Moisture"
+        "Evapotranspiration",
+        "Runoff",
+        "Infiltration"
       ],
       "width": "35em",
-      "height": "15em"
+      "height": "20em"
     }
   ],
   "layout": {

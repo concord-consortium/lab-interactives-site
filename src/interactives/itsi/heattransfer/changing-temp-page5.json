@@ -1,6 +1,6 @@
 {
-  "title": "changing-temp-page5",
-  "publicationStatus": "draft",
+  "title": "Heat and Temperature 5: Changing Temperature",
+  "publicationStatus": "public",
   "subtitle": "",
   "about": "",
   "models": [
@@ -10,12 +10,11 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/largesolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/largesolid.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "play_reset"
       },
-      "onLoad": [
-        "set({ temperatureControl: true });",
-        "set({ targetTemperature: 1 });"
-      ]
+      "modelOptions": {
+        "temperatureControl": false
+      }
     },
     {
       "type": "md2d",
@@ -23,14 +22,32 @@
       "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/smallsolid.json",
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/smallsolid.mml",
       "viewOptions": {
-        "controlButtons": ""
+        "controlButtons": "play_reset"
       },
-      "onLoad": [
-        "set({ temperatureControl: true });",
-        "set({ targetTemperature: 1 });"
-      ]
+      "modelOptions": {
+        "temperatureControl": false
+      }
     }
   ],
+   "filteredOutputs": [
+    {
+      "name": "temperatureSmoothed",
+      "unitType": "temperature",
+      "property": "temperature",
+      "type": "RunningAverage",
+      "period": 2500
+    }
+    ],
+    "parameters": [
+      {
+        "name": "temperatureIncrement",
+        "initialValue": 5.0
+      },
+      {
+        "name": "modelChoice",
+        "initialValue": "largeModel"
+      }
+    ],
   "components": [
     {
       "type": "radio",
@@ -39,11 +56,12 @@
       "options": [
         {
           "text": "Large solid",
-          "action": "loadModel('largesolid');"
+          "action": "loadModel( 'largesolid');",
+          "selected": true
         },
         {
           "text": "Small solid (half size)",
-          "action": "loadModel('smallsolid');"
+          "action": "loadModel( 'smallsolid');"
         }
       ]
     },
@@ -52,14 +70,14 @@
       "id": "add-energy",
       "text": "Add energy",
       "action": [
-        "start();",
-        "set({ targetTemperature: get('targetTemperature')*1.5 });"
+      "start();",
+        "addKEToAtoms(1);"
       ]
     },
     {
       "type": "barGraph",
       "id": "thermometer",
-      "property": "temperature",
+      "property": "temperatureSmoothed",
       "units": true,
       "labelFormat": "3r",
       "min": 0,

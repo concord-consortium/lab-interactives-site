@@ -1,0 +1,129 @@
+{
+  "title": "Water 7",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1.2,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "http://concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "template": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json",
+        "rainProbability": 0,
+        "evapProbability": 0,
+        "rainCountOptions":  {
+          "x": 10,
+          "y": 5,
+          "dx": 50,
+          "dy": 30,
+          "debug": false
+        }
+      },
+      "viewOptions": {
+        "aspectRatio": 3,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "onPropertyChange('template', function() {",
+        "  reloadModel();",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('month') / 12;"
+    },
+    {
+      "name": "initialRainCount",
+      "value": [
+        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json') return 28;",
+        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json') return 1120;"
+      ]
+    },
+    {
+      "name": "rainCount",
+      "value": "return iframeOutput('rainCount') || get('initialRainCount');"
+    }
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "water-level-graph",
+      "type": "graph",
+      "properties": [
+        "rainCount"
+      ],
+      "xProperty": "year",
+      "title": "Water Level",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 10,
+      "ylabel": "Water Level",
+      "ymin": 0,
+      "ymax": 1200,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0000ff"
+      ]
+    },
+    {
+      "id": "template-pulldown",
+      "type": "pulldown",
+      "label": "Stream",
+      "labelOn": "left",
+      "property": "template",
+      "options": [
+        {
+          "text": "A",
+          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json"
+        },
+        {
+          "text": "B",
+          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-right",
+      "right": "model.right",
+      "top": "model.bottom",
+      "padding-right": "0.5em",
+      "padding-top": "1.5em"
+    },
+    {
+      "id": "bottom-left",
+      "left": "model.left",
+      "right": "bottom-right.left",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom"
+    },
+    {
+      "id": "right-padding",
+      "width": "0.7em",
+      "left": "model.right",
+      "top": "model.top"
+    }
+  ],
+  "layout": {
+    "bottom-left": ["water-level-graph"],
+    "bottom-right": ["template-pulldown"]
+  }
+}
