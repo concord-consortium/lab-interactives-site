@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<language>UTF-8</language>
+<page_title>ENERGY GAMES:  A molecular playground</page_title>
+<text> 
+
+</text>
+<section start="0" end="4">
+<paragraph start="0" end="2">
+<content start="0" end="1">
+<component><class>org.concord.mw2d.activity.AtomContainer</class>
+<resource>elastic_collision_model1$0.mml</resource><menubar>false</menubar></component></content>
+
+<content start="1" end="2">
+</content>
+
+</paragraph>
+<paragraph start="2" end="3">
+<LeftIndent>20.0</LeftIndent>
+<content start="2" end="3">
+</content>
+
+</paragraph>
+<paragraph start="3" end="4">
+</paragraph>
+</section>
+</document>

@@ -1,0 +1,26 @@
+{
+  "title": "Elastic Collision 1: Two atoms",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": ["This model shows the collision of two identical atoms.",
+            "The redness indicates the kinetic energy of each atom and the arrows indicate the direction and magnitude ",
+            "of the force between the atoms. If students carefully observe this model they will see that the forces ",
+            "between the atoms are attractive at moderate distances and repulsive when the atoms get too close together."],
+  "aspectRatio": 1.725,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "elastic-collisions$0",
+      "url": "models-converted/lab-version/1/md2d/itsi/elastic-collisions/elastic_collision_model1$0.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/elastic-collisions/elastic_collision_model1$0.mml",
+      "modelOptions": {},
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [ ],
+  "layout": {
+    "bottom": [ ]
+  }
+}

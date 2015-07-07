@@ -66,6 +66,10 @@
   :name: "ITSI: Dissolving"
   :category: Curriculum
 
+- :path: itsi/elastic-collisions
+  :name: "ITSI: Elastic Collisions"
+  :category: Curriculum
+
 - :path: itsi/electrostatics
   :name: "ITSI: Electrostatics"
   :category: Curriculum

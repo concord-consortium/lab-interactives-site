@@ -1,0 +1,97 @@
+{
+  "title": "Elastic Collision 2: Two atoms with energy graph",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": ["This model shows the collision of two identical atoms. ",
+            "It ALSO graphs the kinetic (red), potential (blue) and total (green) energies of each atom. ",
+            "The redness indicates the kinetic energy of each atom and the arrows indicate the direction ",
+            "and magnitude of the force between the atoms. Careful observation of the graph will reveal ",
+            "that energy is conserved and that there is an unexpected drop in the kinetic energy when ",
+            "the atoms collide as there is no speed, a factor in kinetic energy, at the point of collision."],
+  "aspectRatio": 1.725,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "elastic-collisions$0",
+      "url": "models-converted/lab-version/1/md2d/itsi/elastic-collisions/elastic_collision_model2$0.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/elastic-collisions/elastic_collision_model2$0.mml",
+      "modelOptions": {},
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "energiesGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "kineticEnergy",
+        "potentialEnergy",
+        "totalEnergy"
+      ],
+      "xProperty": "displayTime",
+      "title": "Energy of the System",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Model Time (ps)",
+      "xmin": 0,
+      "xmax": 15,
+      "ylabel": "eV",
+      "ymin": -0.2,
+      "ymax": 0.2,
+      "xTickCount": 10,
+      "yTickCount": 10,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
+      ],
+      "legendLabels": [
+        "KE",
+        "PE",
+        "TE"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em",
+      "width": "model.width",
+      "min-width": "6em"
+    }
+  ],
+  "layout": {
+    "right": [ "energiesGraph" ]
+  }
+}
