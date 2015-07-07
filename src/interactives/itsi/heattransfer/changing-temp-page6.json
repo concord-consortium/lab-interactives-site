@@ -1,11 +1,33 @@
 {
-  "title": "changing-temp-page6",
-  "publicationStatus": "draft",
+  "title": "Heat and Temperature 6: Heat Conduction",
+  "publicationStatus": "public",
   "subtitle": "",
   "about": "",
   "aspectRatio": 2.1,
   "fontScale": 0.75,
   "models": [
+      {
+      "type": "md2d",
+      "id": "vacuum",
+      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
+    },
     {
       "type": "md2d",
       "id": "thick-short-bar",
@@ -13,7 +35,20 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option2.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     },
     {
       "type": "md2d",
@@ -22,7 +57,20 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option3.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     },
     {
       "type": "md2d",
@@ -31,7 +79,20 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option4.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     },
     {
       "type": "md2d",
@@ -40,7 +101,20 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option5.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     },
     {
       "type": "md2d",
@@ -49,7 +123,20 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option6.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     },
     {
       "type": "md2d",
@@ -58,18 +145,70 @@
       "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option7.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
-    },
-    {
-      "type": "md2d",
-      "id": "vacuum",
-      "url": "models-converted/lab-version/1/md2d/itsi/heattransfer/option1.json",
-      "importedFrom": "imports/legacy-mw-content/itsi/heattransfer/option1.mml",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      }
+      },
+        "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
     }
   ],
+    "parameters": [
+    {
+      "name": "speedSetting",
+      "onChange": "set({timeStep: value});",
+      "initialValue": 1.0
+    },
+    {
+      "name": "leftAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "rightAtomsIndices",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "rightAtomsTemp",
+      "label": "Temperature of Molecules on Right",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return 0.1 * getTemperatureOfAtoms(get('rightAtomsIndices'));"
+      ]      
+    },
+    {
+      "name": "leftAtomsTemp",
+      "label": "Temperature of Molecules on Left",
+      "unitAbbreviation": "°C",
+       "value": [
+        "return 0.1 * getTemperatureOfAtoms(get('leftAtomsIndices'));"
+      ]     
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "rightAtomsTempAvg",
+      "property": "rightAtomsTemp",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg",
+      "property": "leftAtomsTemp",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "retainProperty": true,
+  "disabled": false,
+  "tooltip": "",
   "components": [
     {
       "type": "text",
@@ -89,7 +228,8 @@
       "options": [
         {
           "text": "Vacuum",
-          "action": "loadModel('vacuum');"
+          "action": "loadModel('vacuum');",
+          "selected": true
         },
         {
           "text": "Thick short bar",
@@ -124,14 +264,14 @@
       "xlabel": "Time  (ps)",
       "ylabel": "Temperature (°)",
       "ymin": 0,
-      "ymax": 1000,
+      "ymax": 200,
       "xmax": 40,
       "xTickCount": 5,
       "yTickCount": 6,
       "xFormatter": ".2r",
       "yFormatter": ".2s",
       "properties": [
-        "temperature"
+        "rightAtomsTempAvg","leftAtomsTempAvg"
       ]
     }
   ],

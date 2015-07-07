@@ -1,0 +1,37 @@
+{
+  "title": "Water 3",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 2.2,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "http://concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "template": "state/low-res/WaterModel-5-23-11-compareLayers.json",
+        "rainProbability": 1.0,
+        "evapProbability": 0
+      },
+      "viewOptions": {
+        "aspectRatio": 3,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+      ]
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+  ],
+  "helpTips": [
+  ],
+  "components": [
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "title": "Water 1",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 2,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "template": "state/low-res/WaterModel-WaterInTheWorld.json",
+        "rainProbability": 0.5,
+        "evapProbability": 20
+      },
+      "viewOptions": {
+        "aspectRatio": 3,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('followRainButton', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "followRain",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addRainSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Follow water droplet'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "followRainButton",
+      "type": "button",
+      "action": [
+        "set('followRain', !get('followRain'));"
+      ],
+      "text": "Follow water droplet",
+      "width": "14em"
+    }
+  ]
+}
