@@ -1,0 +1,55 @@
+{
+  "title": "Elastic Collision 3: Newton's Cradle with paired atoms transmitting energy",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": ["This is a curiosity; it shows that one can make a Newton's Cradle from atoms. ",
+            "It does illustrate how energy the energy of two atoms can be transmitted by ",
+            "collisions down a line of atoms. The reason it is a curiosity is that you never ",
+            "get atoms so perfectly aligned in the real world."],
+  "aspectRatio": 1.725,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "elastic-collisions$0",
+      "url": "models-converted/lab-version/1/md2d/itsi/elastic-collisions/elastic_collision_model3$0.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/elastic-collisions/elastic_collision_model3$0.mml",
+      "modelOptions": {},
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "KE Shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "KE Shading",
+      "helpIcon": false
+    },{
+      "id": "force-vector",
+      "type": "checkbox",
+      "text": "Force Vector",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Force Vector",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "ke-shading",
+      "force-vector"
+    ]
+  }
+}
