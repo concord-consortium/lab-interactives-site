@@ -77,6 +77,19 @@
       "syncXAxis": false,
       "syncYAxis": false,
       "helpIcon": false
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "KE Shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "KE Shading",
+      "helpIcon": false
     }
   ],
   "template": [
@@ -89,9 +102,18 @@
       "padding-right": "0.5em",
       "width": "model.width",
       "min-width": "6em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "1em",
+      "min-height": "1em"
     }
   ],
   "layout": {
-    "right": [ "energiesGraph" ]
+    "right": [ "energiesGraph" ],
+    "bottom": [ "ke-shading" ]
   }
 }
