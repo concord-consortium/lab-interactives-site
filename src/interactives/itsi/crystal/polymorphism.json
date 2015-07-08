@@ -30,12 +30,6 @@
     }
   ],
   "outputs": [
-    {
-      "name": "temperature-modified",
-      "unitAbbreviation": "°C",
-      "label": "Temperature",
-      "value": "return get('temperature') * 2 / 7;"
-    }
   ],
   "components": [
     {
@@ -57,25 +51,25 @@
       ]
     },
     {
-      "type": "button",
-      "id": "cool",
-      "text": "Cool",
-      "action": "adjustTemperature(0.9);"
-    },
-    {
-      "type": "button",
-      "id": "heat",
-      "text": "Heat",
-      "action": "adjustTemperature(1.1); limitHighTemperature(5000);"
-    },
-    {
-      "type": "barGraph",
-      "id": "thermometer",
-      "property": "temperature-modified",
-      "units": true,
-      "labelFormat": "3r",
+      "type": "slider",
+      "id": "temperature-slider",
       "min": 0,
-      "max": 200
+      "max": 5000,
+      "initialValue": 1000,
+      "displayValue": "return format('f')(value/10)",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0 K"
+        },
+        {
+          "value": 5000,
+          "label": "500 K"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperature",
+      "action": "set({ targetTemperature: value });"
     },
     {
       "type": "checkbox",
@@ -86,11 +80,10 @@
   ],
   "layout": {
     "right": [
-      "thermometer"
     ],
     "bottom": [
       [ "model-select" ],
-      [ "cool", "heat", "show-attractions" ]
+      [ "temperature-slider", "show-attractions" ]
     ]
   }
 }
