@@ -59,7 +59,7 @@
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
                 "set('breakEnergy',10.5);",
-                "set('finalPotential',25.7);",
+                "set('finalPotential',33);",
                 "set('potentialFactor',15);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
@@ -69,7 +69,7 @@
                 "    y2 = getAtomProperties(3).y,",
                 "    distx = x1-x2,",
                 "    disty = y1-y2,",
-                "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "    distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.19;",
                 "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.167)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -99,7 +99,7 @@
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
                 "set('breakEnergy',10);",
-                "set('finalPotential',25);",
+                "set('finalPotential',28.5);",
                 "set('potentialFactor',8);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
@@ -109,7 +109,7 @@
                 "    y2 = getAtomProperties(3).y,",
                 "    distx = x1-x2,",
                 "    disty = y1-y2,",
-                "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
+                "    distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
                 "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -220,7 +220,7 @@
   "propertiesToRetain": [],
   "parameters": [
       {
-     	"name": "countPotential",
+      "name": "countPotential",
         "initialValue": 17
       },
       {
