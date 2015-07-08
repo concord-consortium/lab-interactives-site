@@ -1,0 +1,91 @@
+{
+  "title": "Water 4",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1.8,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "template": "state/low-res/WaterModel-5-23-11-confinedAndUnconfined.json",
+        "rainProbability": 0.4,
+        "evapProbability": 20,
+        "controls": {
+          "removalWell": true,
+          "remove": "well"
+        }
+      },
+      "viewOptions": {
+        "aspectRatio": 3,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('followRainButton', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "followRain",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addRainSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Follow water droplet'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "followRainButton",
+      "type": "button",
+      "action": [
+        "set('followRain', !get('followRain'));"
+      ],
+      "text": "Follow water droplet",
+      "width": "14em"
+    },
+    {
+      "id": "rainSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "title": "Rain probability",
+      "width": "26.5em",
+      "steps": 50,
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='fa fa-sun-o'></i>"
+        },
+        {
+          "value": 1,
+          "label": "<i class='fa fa-umbrella'></i>"
+        }
+      ],
+      "property": "rainProbability"
+    }
+  ]
+}
