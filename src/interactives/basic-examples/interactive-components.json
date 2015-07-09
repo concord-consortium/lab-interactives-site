@@ -153,7 +153,7 @@
       "steps": 30,
       "labels": [
         {
-          "value": 1,
+          "value": "left",
           "label": "0 K"
         },
         {
@@ -161,7 +161,7 @@
           "label": "1500 K"
         },
         {
-          "value": 3000,
+          "value": "right",
           "label": "3000 K"
         }
       ],
