@@ -1,11 +1,11 @@
 {
-  "title": "Water 7",
+  "title": "Water 8",
   "publicationStatus": "draft",
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.2,
+  "aspectRatio": 1.3,
   "fontScale": 0.9,
   "models": [
     {
@@ -23,16 +23,17 @@
           "dx": 50,
           "dy": 30,
           "debug": false
+        },
+        "controls": {
+          "irrigationWell": true,
+          "remove": "well"
         }
       },
       "viewOptions": {
-        "aspectRatio": 3,
+        "aspectRatio": 3.25,
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "onPropertyChange('template', function() {",
-        "  reloadModel();",
-        "});"
       ]
     }
   ],
@@ -44,15 +45,8 @@
       "value": "return iframeOutput('month') / 12;"
     },
     {
-      "name": "initialRainCount",
-      "value": [
-        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json') return 28;",
-        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json') return 1120;"
-      ]
-    },
-    {
       "name": "rainCount",
-      "value": "return iframeOutput('rainCount') || get('initialRainCount');"
+      "value": "return iframeOutput('rainCount') || 28"
     }
   ],
   "helpTips": [
@@ -70,7 +64,7 @@
       "height": "100%",
       "xlabel": "Time (years)",
       "xmin": 0,
-      "xmax": 10,
+      "xmax": 40,
       "ylabel": "Water Level",
       "ymin": 0,
       "ymax": 1200,
@@ -81,37 +75,13 @@
       "dataColors": [
         "#0000ff"
       ]
-    },
-    {
-      "id": "template-pulldown",
-      "type": "pulldown",
-      "label": "Stream",
-      "labelOn": "left",
-      "property": "template",
-      "options": [
-        {
-          "text": "A",
-          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json"
-        },
-        {
-          "text": "B",
-          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
-        }
-      ]
     }
   ],
   "template": [
     {
-      "id": "bottom-right",
-      "right": "model.right",
-      "top": "model.bottom",
-      "padding-right": "0.5em",
-      "padding-top": "1.5em"
-    },
-    {
       "id": "bottom-left",
       "left": "model.left",
-      "right": "bottom-right.left",
+      "right": "model.right",
       "top": "model.bottom",
       "bottom": "interactive.bottom"
     },
@@ -123,7 +93,6 @@
     }
   ],
   "layout": {
-    "bottom-left": ["water-level-graph"],
-    "bottom-right": ["template-pulldown"]
+    "bottom-left": ["water-level-graph"]
   }
 }
