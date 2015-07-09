@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 2,
+  "aspectRatio": 2.1,
   "fontScale": 0.9,
   "models": [
     {
@@ -22,7 +22,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3,
+        "aspectRatio": 3.25,
         "controlButtons": "play_reset"
       },
       "onLoad": [

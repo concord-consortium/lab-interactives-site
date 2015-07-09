@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.8,
+  "aspectRatio": 1.9,
   "fontScale": 0.9,
   "models": [
     {
@@ -23,7 +23,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3,
+        "aspectRatio": 3.25,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -73,16 +73,16 @@
       "min": 0,
       "max": 1,
       "title": "Rain probability",
-      "width": "26.5em",
+      "width": "24.5em",
       "steps": 50,
       "labels": [
         {
-          "value": 0,
-          "label": "<i class='fa fa-sun-o'></i>"
+          "value": "left",
+          "label": "<i class='fa fa-sun-o' style='font-size: 1.5em; margin-right: 0.4em;'></i>"
         },
         {
-          "value": 1,
-          "label": "<i class='fa fa-umbrella'></i>"
+          "value": "right",
+          "label": "<i class='fa fa-umbrella' style='font-size: 1.5em;'></i>"
         }
       ],
       "property": "rainProbability"
