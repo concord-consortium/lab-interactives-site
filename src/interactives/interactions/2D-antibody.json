@@ -1,5 +1,5 @@
 {
-  "title": "Your Immune System",
+  "title": "2D Antibody",
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
@@ -8,7 +8,7 @@
     {
       "type": "md2d",
       "id": "instruction",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page8/instruction.json",
+      "url": "models/lab-version/1/md2d/interactions/2D-antibody/instruction.json",
       "viewOptions": {
         "controlButtons": "play",
         "imageMapping": {
@@ -20,7 +20,7 @@
     {
       "type": "md2d",
       "id": "antibodyDesign1",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page8/antibodyDesign1.json",
+      "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign1.json",
       "viewOptions": {
         "controlButtons": "play"
       },
@@ -29,7 +29,7 @@
     {
       "type": "md2d",
       "id": "antibodyDesign2",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page8/antibodyDesign2.json",
+      "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign2.json",
       "viewOptions": {
         "controlButtons": "play"
       },
@@ -38,7 +38,7 @@
     {
       "type": "md2d",
       "id": "antibodyDesign3",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page8/antibodyDesign3.json",
+      "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign3.json",
       "viewOptions": {
         "controlButtons": "play"
       },
@@ -47,7 +47,7 @@
     {
       "type": "md2d",
       "id": "antibodyDesign4",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page8/antibodyDesign4.json",
+      "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign4.json",
       "viewOptions": {
         "controlButtons": "play"
       },
