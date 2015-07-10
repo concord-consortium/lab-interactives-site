@@ -149,9 +149,11 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
+                "set('bondbreak',true);",
                 "set('breakEnergy', 15);}",
                 "else{",
                 "set('breakEnergy', -7.2);}",
+                "if(get('bondbreak')) setRadialBondProperties(1,{ strength: 90});",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -191,9 +193,11 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
+                "set('bondbreak',true);",
                 "set('breakEnergy', 12);}",
                 "else{",
                 "set('breakEnergy', -18);}",
+                "if(get('bondbreak')) setRadialBondProperties(1,{ strength: 60});",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -234,6 +238,10 @@
       {
         "name": "finalPotential",
         "initialValue": 0
+      },
+      {
+        "name": "bondbreak",
+        "initialValue": false
       }
     ],
   "outputs": [],
