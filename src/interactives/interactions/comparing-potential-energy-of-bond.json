@@ -138,6 +138,8 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling-break-bond.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+                "setPairwiseLJProperties(0, 1, { epsilon: -0.1 });",
+                "setPairwiseLJProperties(1, 2, { epsilon: -0.1 });",
                 "set('potentialFactor',35);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
@@ -149,11 +151,9 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
-                "set('bondbreak',true);",
                 "set('breakEnergy', 15);}",
                 "else{",
                 "set('breakEnergy', -7.2);}",
-                "if(get('bondbreak')) setRadialBondProperties(1,{ strength: 90});",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -182,6 +182,8 @@
       "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling-break-bond.json",
       "onLoad": [
                 "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+                "setPairwiseLJProperties(0, 1, { epsilon: -0.1 });",
+                "setPairwiseLJProperties(1, 2, { epsilon: -0.1 });",
                 "set('potentialFactor',50);",
                 "onDrag('atom',function(){",
                 "callEvery(25, function() {",
@@ -193,11 +195,9 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5);",
                 "if(getMoleculeAtoms(1).length==1){",
-                "set('bondbreak',true);",
                 "set('breakEnergy', 12);}",
                 "else{",
                 "set('breakEnergy', -18);}",
-                "if(get('bondbreak')) setRadialBondProperties(1,{ strength: 60});",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
                 "});",
                 "});"
@@ -238,10 +238,6 @@
       {
         "name": "finalPotential",
         "initialValue": 0
-      },
-      {
-        "name": "bondbreak",
-        "initialValue": false
       }
     ],
   "outputs": [],
