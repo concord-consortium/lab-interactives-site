@@ -1,0 +1,219 @@
+{
+  "title": "Water (master)",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1.3,
+  "fontScale": 0.8,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "template": "",
+        "rainProbability": 0.35,
+        "evapProbability": 10,
+        "rainCountOptions":  {
+          "x": 10,
+          "y": 5,
+          "dx": 50,
+          "dy": 30,
+          "debug": false
+        },
+        "controls": {
+          "irrigationWell": true,
+          "removalWell": true,
+          "water": true,
+          "draw": true,
+          "remove": true
+        }
+      },
+      "viewOptions": {
+        "aspectRatio": 3.25,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('followRainButton', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });",
+        "onPropertyChange('template', function() {",
+        "  reloadModel();",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "followRain",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addRainSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Follow water droplet'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('month') / 12;"
+    },
+    {
+      "name": "initialRainCount",
+      "value": [
+        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json') return 28;",
+        "if (get('template') === 'state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json') return 1120;",
+        "return 0;"
+      ]
+    },
+    {
+      "name": "rainCount",
+      "value": "return iframeOutput('rainCount') || get('initialRainCount');"
+    }
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "water-level-graph",
+      "type": "graph",
+      "properties": [
+        "rainCount"
+      ],
+      "xProperty": "year",
+      "title": "Water Level",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 40,
+      "ylabel": "Water Level",
+      "ymin": 0,
+      "ymax": 1200,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0000ff"
+      ]
+    },
+    {
+      "id": "followRainButton",
+      "type": "button",
+      "action": [
+        "set('followRain', !get('followRain'));"
+      ],
+      "text": "Follow water droplet",
+      "width": "14em"
+    },
+    {
+      "id": "templatePulldown",
+      "type": "pulldown",
+      "label": "Template",
+      "labelOn": "top",
+      "property": "template",
+      "options": [
+        {
+          "text": "None",
+          "value": ""
+        },
+        {
+          "text": "WaterModel-2PumpTypes-NoFile",
+          "value": "state/low-res/WaterModel-2PumpTypes-NoFile.json"
+        },
+        {
+          "text": "WaterModel-5-23-11-compareLayers",
+          "value": "state/low-res/WaterModel-5-23-11-compareLayers.json"
+        },
+        {
+          "text": "WaterModel-5-23-11-confinedAndUnconfined",
+          "value": "state/low-res/WaterModel-5-23-11-confinedAndUnconfined.json"
+        },
+        {
+          "text": "WaterModel-5-23-11-goodVbadAquifers-Aquifers-Example",
+          "value": "state/low-res/WaterModel-5-23-11-goodVbadAquifers-Aquifers-Example.json"
+        },
+        {
+          "text": "WaterModel-5-23-11-goodVbadAquifers-Example-Layers",
+          "value": "state/low-res/WaterModel-5-23-11-goodVbadAquifers-Example-Layers.json"
+        },
+        {
+          "text": "WaterModel-Gaining-Losing-Stream-StreamA",
+          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json"
+        },
+        {
+          "text": "WaterModel-Gaining-Losing-Stream-StreamB",
+          "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
+        },
+        {
+          "text": "WaterModel-WaterInTheWorld",
+          "value": "state/low-res/WaterModel-WaterInTheWorld.json"
+        }
+      ]
+    },
+    {
+      "id": "rainSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "title": "Rain probability",
+      "width": "98%",
+      "steps": 50,
+      "labels": [
+        {
+          "value": 0,
+          "label": "<i class='fa fa-sun-o' style='font-size: 1.5em;'></i>"
+        },
+        {
+          "value": 1,
+          "label": "<i class='fa fa-umbrella' style='font-size: 1.5em;'></i>"
+        }
+      ],
+      "property": "rainProbability"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-right",
+      "right": "model.right",
+      "top": "model.bottom",
+      "padding-right": "0.5em",
+      "padding-top": "1.5em"
+    },
+    {
+      "id": "bottom-left",
+      "left": "model.left",
+      "right": "bottom-right.left",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom"
+    },
+    {
+      "id": "right-padding",
+      "width": "0.7em",
+      "left": "model.right",
+      "top": "model.top"
+    }
+  ],
+  "layout": {
+    "bottom-left": ["water-level-graph"],
+    "bottom-right": [
+      ["followRainButton"],
+      ["templatePulldown"],
+      ["rainSlider"]
+    ]
+  }
+}
