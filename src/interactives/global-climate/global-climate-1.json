@@ -1,6 +1,6 @@
 {
   "title": "Climate Change 1",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "subtitle": "Atmosphere & Land Interactions Without Graphs",
   "helpOnLoad": true,
   "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere.",
