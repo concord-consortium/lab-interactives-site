@@ -1,6 +1,6 @@
 {
   "title": "Climate Change 2",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "subtitle": "Atmosphere & Land Interactions With Graphs",
   "helpOnLoad": true,
   "about": ["This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere. Graphs show the temperature change and relative level of carbon dioxide in the atmosphere.",
