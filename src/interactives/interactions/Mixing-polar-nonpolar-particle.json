@@ -1,0 +1,809 @@
+{
+  "title": "Mixing Liquids",
+  "publicationStatus": "public",
+  "subtitle": "Explore how liquids mix at the molecular level.",
+  "about": [
+    "How is it possible to mix two liquids together and for them to take up less volume than ",
+    "when they are separated? Does it always happen that the mixture takes up less space? How ",
+    "does thinking about liquids as being made of small particles help us understand our observations?"
+  ],
+  "helpOnLoad": true,
+  "aspectRatio": 0.9325,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "particleMixing",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": [
+        "set('selectLiquid',1);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "setTextBoxProperties(1, {x: 3.5});",
+        "setTextBoxProperties(3, {x: 1.225});",
+        "setTextBoxProperties(4, {x: 2.425});",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[2,3]);",
+        "set('indicesColumnC',[6,7,8]);",
+        "set('indicesColumnD',[4,5,9]);",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',true);",
+        "start();",
+        "var timeStepsPerTick = get('timeStepsPerTick'),",
+        "    columnBIndices   = getAtomsWithinShape(get('indicesColumnB')[0]),",
+        "    columnAIndices   = getAtomsWithinShape(get('indicesColumnA')[0]),",
+        "    indicesColumnC   = get('indicesColumnC'),",
+        "    indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA'),",
+        "    applyHeatBathToColumnB = true,",
+        "    applyHeatBathToColumnA = true;",
+        "callEvery(timeStepsPerTick,function(){",
+        "  var nToDrop = getAtomsWithinShape(indicesColumnC[0]).length;",
+        "  if (get('isColumnBDropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnB = false;",
+        "    } else {",
+        "      applyHeatBathToColumnB = true;",
+        "      set('isColumnBDropping',false);",
+        "      set('isColumnBDropped',true);",
+        "      if (get('isColumnADropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnB,{visible: true});",
+        "    }",
+        "  }",
+        "  if (get('isColumnADropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnA = false;",
+        "    } else {",
+        "      applyHeatBathToColumnA = true;",
+        "      set('isColumnADropping',false);",
+        "      set('isColumnADropped',true);",
+        "      if (get('isColumnBDropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnA,{visible: true});",
+        "    }",
+        "  }",
+        "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 150);",
+        "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 150);",
+        "});"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "particleMixingDoubleEthanol",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleEthanol$0.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+         "set('selectLiquid',2);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[9,2]);",
+        "set('indicesColumnC',[5,6,7]);",
+        "set('indicesColumnD',[3,4,8]);",
+        "setTextBoxProperties(1, {x: 3.5});",
+        "setTextBoxProperties(4, {x: 2.425});",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',true);",
+        "start();",
+        "var timeStepsPerTick = get('timeStepsPerTick'),",
+        "    columnBIndices   = getAtomsWithinShape(get('indicesColumnB')[0]),",
+        "    columnAIndices   = getAtomsWithinShape(get('indicesColumnA')[0]),",
+        "    indicesColumnC   = get('indicesColumnC'),",
+        "    indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA'),",
+        "    applyHeatBathToColumnB = true,",
+        "    applyHeatBathToColumnA = true;",
+        "callEvery(timeStepsPerTick,function(){",
+        "  var nToDrop = getAtomsWithinShape(indicesColumnC[0]).length;",
+        "  if (get('isColumnBDropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnB = false;",
+        "    } else {",
+        "      applyHeatBathToColumnB = true;",
+        "      set('isColumnBDropping',false);",
+        "      set('isColumnBDropped',true);",
+        "      if (get('isColumnADropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnB,{visible: true});",
+        "    }",
+        "  }",
+        "  if (get('isColumnADropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnA = false;",
+        "    } else {",
+        "      applyHeatBathToColumnA = true;",
+        "      set('isColumnADropping',false);",
+        "      set('isColumnADropped',true);",
+        "      if (get('isColumnBDropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnA,{visible: true});",
+        "    }",
+        "  }",
+        "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 150);",
+        "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 150);",
+        "});"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "particleMixingDoubleWater",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleWater$0.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "set('selectLiquid',3);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[2,3]);",
+        "set('indicesColumnC',[6,7,8]);",
+        "set('indicesColumnD',[4,5,9]);",
+        "setTextBoxProperties(1, {x: 3.5});",
+        "setTextBoxProperties(3, {x: 1.225});",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',true);",
+        "start();",
+        "var timeStepsPerTick = get('timeStepsPerTick'),",
+        "    columnBIndices   = getAtomsWithinShape(get('indicesColumnB')[0]),",
+        "    columnAIndices   = getAtomsWithinShape(get('indicesColumnA')[0]),",
+        "    indicesColumnC   = get('indicesColumnC'),",
+        "    indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA'),",
+        "    applyHeatBathToColumnB = true,",
+        "    applyHeatBathToColumnA = true;",
+        "callEvery(timeStepsPerTick,function(){",
+        "  var nToDrop = getAtomsWithinShape(indicesColumnC[0]).length;",
+        "  if (get('isColumnBDropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnB = false;",
+        "    } else {",
+        "      applyHeatBathToColumnB = true;",
+        "      set('isColumnBDropping',false);",
+        "      set('isColumnBDropped',true);",
+        "      if (get('isColumnADropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnB,{visible: true});",
+        "    }",
+        "  }",
+        "  if (get('isColumnADropping')) {",
+        "    if (nToDrop > 0) {",
+        "      applyHeatBathToColumnA = false;",
+        "    } else {",
+        "      applyHeatBathToColumnA = true;",
+        "      set('isColumnADropping',false);",
+        "      set('isColumnADropped',true);",
+        "      if (get('isColumnBDropped')) setComponentDisabled('cap-and-shake',false);",
+        "      setShapeProperties(indicesColumnC,{visible: false});",
+        "      setShapeProperties(indicesColumnC.slice(1,3),{y: -10});",
+        "      setShapeProperties(indicesColumnA,{visible: true});",
+        "    }",
+        "  }",
+        "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 125);",
+        "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 125);",
+        "});"
+      ]
+    },
+     {
+      "type": "md2d",
+      "id": "water-ethanol",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Ethanol.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": [
+        "set('selectLiquid',1);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "setTextBoxProperties(1, {x: 3.5});",
+        "setTextBoxProperties(3, {x: 1.225});",
+        "setTextBoxProperties(4, {x: 2.425});",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[2,3]);",
+        "set('indicesColumnD',[4,5,9]);",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',false);",
+        "var indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA');",
+        "set('isColumnBDropped',false);set('isColumnADropped',false);set('isColumnBDropping',false);set('isColumnADropping',false);",
+        "start();",
+        "var addition = 0.12;",
+        "var inc = 0.94;",
+        "var inc2 = 0;",
+        "callEvery(25,function(){",
+        "  if (get('isColumnBDropped') && get('isColumnADropped')) {",
+        "    setComponentDisabled('cap-and-shake',false);",
+        "  }",
+        "  if(get('Shakeliquid')){",
+        "set('positionA',get('positionA')+addition);",
+        "set('positionB',get('positionB')+addition);",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc += 0.01;",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc2 += 0.01;",
+        " if(get('positionA')>get('positionB') && get('positionA')>2.2) ",
+        "   addition = -0.12;",
+        " if(get('positionB')>get('positionA') && get('positionB')>2.2){ ",
+        "  addition = -0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')>1.26){ ",
+        "   addition = -0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')>1.26) {",
+        "   addition = -0.12;}",
+        " if(get('positionA')>get('positionB') && get('positionA')<1.62) {",
+        "   addition = 0.12;}",
+        " if(get('positionB')>get('positionA') && get('positionB')<1.62){ ",
+        "   addition = 0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')<0.68){ ",
+        "   addition = 0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')<0.68) {",
+        "   addition = 0.12;}",
+        "if(get('positionA')>get('positionB') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
+        "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
+         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
+        "    setShapeProperties(get('liquidB'),{y: 0.68});}",
+        "if(get('positionB')>get('positionA') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
+        "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
+         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 0.68});",
+        "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "water-water",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Water.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": [
+         "set('selectLiquid',3);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[2,3]);",
+        "set('indicesColumnD',[4,5,9]);",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',false);",
+        "var indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA');",
+        "start();",
+       "var addition = 0.12;",
+        "var inc = 0.94;",
+        "var inc2 = 0;",
+        "callEvery(25,function(){",
+        "  if (get('isColumnBDropped') && get('isColumnADropped')) {",
+        "    setComponentDisabled('cap-and-shake',false);",
+        "  }",
+        "  if(get('Shakeliquid')){",
+        "set('positionA',get('positionA')+addition);",
+        "set('positionB',get('positionB')+addition);",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc += 0.01;",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc2 += 0.01;",
+        " if(get('positionA')>get('positionB') && get('positionA')>2.2) ",
+        "   addition = -0.12;",
+        " if(get('positionB')>get('positionA') && get('positionB')>2.2){ ",
+        "  addition = -0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')>1.26){ ",
+        "   addition = -0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')>1.26) {",
+        "   addition = -0.12;}",
+        " if(get('positionA')>get('positionB') && get('positionA')<1.62) {",
+        "   addition = 0.12;}",
+        " if(get('positionB')>get('positionA') && get('positionB')<1.62){ ",
+        "   addition = 0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')<0.68){ ",
+        "   addition = 0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')<0.68) {",
+        "   addition = 0.12;}",
+        "if(get('positionA')>get('positionB') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
+        "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
+         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
+        "    setShapeProperties(get('liquidB'),{y: 0.68});}",
+        "if(get('positionB')>get('positionA') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
+        "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
+         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 0.68});",
+        "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "ethanol-ethanol",
+      "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Ethanol-Ethanol.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": [
+        "set('selectLiquid',2);",
+        "setComponentDisabled('add-columnB',false);",
+        "setComponentDisabled('add-columnA',false);",
+        "setComponentDisabled('cap-and-shake',true);",
+        "set('indicesColumnA',[1,0]);",
+        "set('indicesColumnB',[2,3]);",
+        "set('indicesColumnD',[4,5,9]);",
+        "setLineProperties([0,1,2,3],{lineColor: 'red'});",
+        "set('modelA',false);",
+        "var indicesColumnD   = get('indicesColumnD'),",
+        "    indicesColumnB   = get('indicesColumnB'),",
+        "    indicesColumnA   = get('indicesColumnA');",
+        "start();",
+        "var addition = 0.12;",
+        "var inc = 0.94;",
+        "var inc2 = 0;",
+        "callEvery(25,function(){",
+        "  if (get('isColumnBDropped') && get('isColumnADropped')) {",
+        "    setComponentDisabled('cap-and-shake',false);",
+        "  }",
+        "  if(get('Shakeliquid')){",
+        "set('positionA',get('positionA')+addition);",
+        "set('positionB',get('positionB')+addition);",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc += 0.01;",
+        "if(getShapeProperties(get('liquidA')).height<1.88 && getShapeProperties(get('liquidB')).height<1.88 && !get('stop-shake')) inc2 += 0.01;",
+        " if(get('positionA')>get('positionB') && get('positionA')>2.2) ",
+        "   addition = -0.12;",
+        " if(get('positionB')>get('positionA') && get('positionB')>2.2){ ",
+        "  addition = -0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')>1.26){ ",
+        "   addition = -0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')>1.26) {",
+        "   addition = -0.12;}",
+        " if(get('positionA')>get('positionB') && get('positionA')<1.62) {",
+        "   addition = 0.12;}",
+        " if(get('positionB')>get('positionA') && get('positionB')<1.62){ ",
+        "   addition = 0.12;}",
+        " if(get('positionA')<get('positionB') && get('positionA')<0.68){ ",
+        "   addition = 0.12;}",
+        " if(get('positionB')<get('positionA') && get('positionB')<0.68) {",
+        "   addition = 0.12;}",
+        "if(get('positionA')>get('positionB') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
+        "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
+         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
+        "    setShapeProperties(get('liquidB'),{y: 0.68});}",
+        "if(get('positionB')>get('positionA') && !get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
+        "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
+         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "    setShapeProperties(get('liquidA'),{y: 0.68});",
+        "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "applyHeatBathToColumnB",
+      "initialValue": true
+    },
+    {
+      "name": "applyHeatBathToColumnA",
+      "initialValue": true
+    },
+    {
+      "name": "isColumnBDropped",
+      "initialValue": false
+    },
+    {
+      "name": "isColumnBDropping",
+      "initialValue": false
+    },
+    {
+      "name": "isColumnADropping",
+      "initialValue": false
+    },
+    {
+      "name": "isColumnADropped",
+      "initialValue": false
+    },
+    {
+      "name": "columnBTemp",
+      "initialValue": 50
+    },
+    {
+      "name": "columnATemp",
+      "initialValue": 50
+    },
+    {
+      "name": "indicesColumnB",
+      "initialValue": [2,3]
+    },
+    {
+      "name": "indicesColumnA",
+      "initialValue": [1,0]
+    },
+    {
+      "name": "indicesColumnC",
+      "initialValue": [6,7,8]
+    },
+    {
+      "name": "indicesColumnD",
+      "initialValue": [4,5,9]
+    },
+    {
+      "name": "liquidA",
+      "initialValue": [10]
+    },
+    {
+      "name": "liquidB",
+      "initialValue": [11]
+    },
+    {
+      "name": "liquidC",
+      "initialValue": [12]
+    },
+    {
+      "name": "Shakeliquid",
+      "initialValue": false
+    },
+    {
+      "name": "modelA",
+      "initialValue": true
+    },
+    {
+      "name": "selectLiquid",
+      "initialValue": 1
+    },
+    {
+      "name": "positionA",
+      "initialValue": 0.68
+    },
+    {
+      "name": "positionB",
+      "initialValue": 0.68
+    },
+    {
+      "name": "stop-shake",
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-columnB",
+      "text": "Add second",
+      "action": [
+        "if ( !(get('isColumnBDropping') || get('isColumnADropping')) && get('modelA') ) {",
+        "   stop();",
+        "   set('isColumnBDropping',true);",
+        "   setComponentDisabled('add-columnB',true);",
+        "   var dx = getShapeProperties(get('indicesColumnC')[0]).x - getShapeProperties(get('indicesColumnB')[0]).x,",
+        "       dy = getShapeProperties(get('indicesColumnC')[0]).y - getShapeProperties(get('indicesColumnB')[0]).y,",
+        "       atomIndices = getAtomsWithinShape(get('indicesColumnB')[0]),",
+        "       targetMidX = getShapeProperties(get('indicesColumnC')[0]).x + getShapeProperties(get('indicesColumnC')[0]).width / 2,",
+        "       targetMinX = getShapeProperties(get('indicesColumnC')[0]).x,",
+        "       targetMaxX = getShapeProperties(get('indicesColumnC')[0]).x + getShapeProperties(get('indicesColumnC')[0]).width,",
+        "       halfTargetWidth = 0.5 * getShapeProperties(get('indicesColumnC')[0]).width,",
+        "       newX;",
+        "   batch(function(){",
+        "     setShapeProperties(get('indicesColumnB'),{visible: false});",
+        "     setShapeProperties(get('indicesColumnC').slice(1,3),{y: 3.29});",
+        "     setShapeProperties(get('indicesColumnC'),{visible: true});",
+        "     for (var i = 0, ii = atomIndices[0]; i < atomIndices.length; ii = atomIndices[++i]) {",
+        "         newX = getAtomProperties(ii).x + dx;",
+        "         if (newX < targetMidX) {",
+        "            newX = newX - ((newX - targetMidX)/halfTargetWidth)*0.1;",
+        "         } else {",
+        "            newX = newX - ((newX - targetMidX)/halfTargetWidth)*0.1;",
+        "         }",
+        "     setAtomProperties(ii, {x: newX} );",
+        "     setAtomProperties(ii, {y: getAtomProperties(ii).y + dy} );",
+        "     }",
+        "   });",
+        "start();",
+        "} else {",
+        "  if ( !(get('isColumnBDropping') || get('isColumnADropping')) ) {",
+        "     set('isColumnBDropping',true);",
+        "     setComponentDisabled('add-columnB',true);",
+        "   batch(function(){",
+        "      if(get('isColumnADropped')){",
+        "      setObstacleProperties(4, {visible:false}); ",
+        "      setShapeProperties(get('liquidB'),{y: 1.60,visible: true}); ",
+        "       set('positionB',getShapeProperties(get('liquidB')).y);",
+        "      set('isColumnBDropping',false);",
+        "      set('isColumnBDropped',true); ",
+        " } else {  ",
+        "      setObstacleProperties(4, {visible:false}); ",
+        "      setShapeProperties(get('liquidB'),{visible: true}); ",
+        "       set('positionB',getShapeProperties(get('liquidB')).y);",
+        "      set('isColumnBDropping',false);",
+        "       set('isColumnBDropped',true);",
+        "   }  ",
+        "  });",
+        " } ",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-columnA",
+      "text": "Add first",
+      "action": [
+        "if ( !(get('isColumnADropped') || get('isColumnADropping') || get('isColumnBDropping')) && get('modelA') ) {",
+        "  stop();",
+        "  set('isColumnADropping',true);",
+        "  setComponentDisabled('add-columnA',true);",
+        "  var dx = getShapeProperties(get('indicesColumnC')[0]).x - getShapeProperties(get('indicesColumnA')[0]).x,",
+        "      dy = getShapeProperties(get('indicesColumnC')[0]).y - getShapeProperties(get('indicesColumnA')[0]).y,",
+        "      atomIndices = getAtomsWithinShape(get('indicesColumnA')[0]),",
+        "      targetMidX = getShapeProperties(get('indicesColumnC')[0]).x + getShapeProperties(get('indicesColumnC')[0]).width / 2,",
+        "      targetMinX = getShapeProperties(get('indicesColumnC')[0]).x,",
+        "      targetMaxX = getShapeProperties(get('indicesColumnC')[0]).x + getShapeProperties(get('indicesColumnC')[0]).width,",
+        "      halfTargetWidth = 0.5 * getShapeProperties(get('indicesColumnC')[0]).width,",
+        "      newX;",
+        "  batch(function(){",
+        "    setShapeProperties(get('indicesColumnA'),{visible: false});",
+        "    setShapeProperties(get('indicesColumnC').slice(1,3),{y: 3.29});",
+        "    setShapeProperties(get('indicesColumnC'),{visible: true});",
+        "    for (var i = 0, ii = atomIndices[0]; i < atomIndices.length; ii = atomIndices[++i]) {",
+        "        newX = getAtomProperties(ii).x + dx;",
+        "        if (newX < targetMidX) {",
+        "           newX = newX - ((newX - targetMidX)/halfTargetWidth)*0.1;",
+        "        } else {",
+        "           newX = newX - ((newX - targetMidX)/halfTargetWidth)*0.1;",
+        "        }",
+        "        setAtomProperties(ii, {x: newX} );",
+        "        setAtomProperties(ii, {y: getAtomProperties(ii).y + dy} );",
+        "     }",
+        "  });",
+        " start();",
+        "} else {",
+        "if ( !(get('isColumnADropped') || get('isColumnADropping') || get('isColumnBDropping')) ) {",
+        "  set('isColumnADropping',true);",
+        "  setComponentDisabled('add-columnA',true);",
+        "  batch(function(){",
+        "      if(get('isColumnBDropped')){",
+        "         setObstacleProperties(3, {visible:false}); ",
+        "         setShapeProperties(get('liquidA'),{y: 1.60,visible: true});  ",
+        "       set('positionA',getShapeProperties(get('liquidA')).y);",
+        "         set('isColumnADropping',false);",
+        "         set('isColumnADropped',true); ",
+        " } else {  ",
+        "   setObstacleProperties(3, {visible:false}); ",
+        "   setShapeProperties(get('liquidA'),{y: 0.66,visible: true});",
+        "       set('positionA',getShapeProperties(get('liquidA')).y);",
+        "   set('isColumnADropping',false);",
+        "   set('isColumnADropped',true);",
+        "   }  ",
+        "  });",
+        " }",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "cap-and-shake",
+      "text": "Cap and shake",
+      "disabled": true,
+      "action": [
+        "if(get('modelA')){",
+        "var i = get('indicesColumnD'),",
+        "    prop = getShapeProperties(i[0]),",
+        "    nAbove = atomsWithinRect(prop.x, prop.y + prop.height, prop.width, prop.height).length;",
+        "if ( get('isColumnBDropped') && get('isColumnADropped') && nAbove === 0 ) {",
+        "   setComponentDisabled('stop-shaking',false);",
+        "   setShapeProperties(i[2], {y: prop.y + prop.height});",
+        "   set('columnBTemp',5000);",
+        "   set('columnATemp',5000);",
+        "}",
+        "} else {",
+        "  if ( get('isColumnBDropped') && get('isColumnADropped')) {",
+        "     set('Shakeliquid',true);",
+        "     setShapeProperties(get('indicesColumnD')[2], {visible:true});",
+        "     setComponentDisabled('stop-shaking',false);",
+        "     set('stop-shake',false);",
+        "   }",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop-shaking",
+      "text": "Stop shaking",
+      "disabled": true,
+      "action": [
+        "if(get('modelA')){",
+        "  set('columnBTemp',50);",
+        "  set('columnATemp',50);",
+        "  callAt( get('time') + 1000, function() {",
+        "    setShapeProperties(get('indicesColumnD')[2], {y: -10});",
+        "    setComponentDisabled('stop-shaking',true);",
+        "  });",
+        "} else {",
+        "  callAt( get('time')+2, function() {",
+        "    setShapeProperties(get('indicesColumnD')[2], {visible:false});",
+        "    setComponentDisabled('stop-shaking',true);",
+        "    set('stop-shake',true);",
+        "   });",
+        "}"
+      ]
+    },
+    {
+      "id": "label-select-matter",
+      "type": "text",
+      "text": "**Select a model of matter:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "text",
+      "id": "label-select-model",
+      "text": "**Select liquids**"
+    },
+    {
+      "type": "radio",
+      "id": "select-model",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Water + Ethanol",
+          "action": [
+                     "if(get('modelA')){",
+                     "  loadModel('particleMixing');}",
+                     "else{",
+                     "  loadModel('water-ethanol');}"
+                    ],
+          "selected": true
+        },
+        {
+          "text": "Ethanol + Ethanol",
+          "action": [
+                     "if(get('modelA'))",
+                     "  loadModel('particleMixingDoubleEthanol');",
+                     "else",
+                     "  loadModel('ethanol-ethanol');"
+                    ]
+        },
+        {
+          "text": "Water + Water",
+          "action": [
+                     "if(get('modelA'))",
+                     "  loadModel('particleMixingDoubleWater');",
+                     "else",
+                     "  loadModel('water-water');"
+                    ]
+        }
+      ]
+    },
+    {
+      "id": "pulldown",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "particle model",
+          "action":[
+                    "if(get('selectLiquid')==1)loadModel('particleMixing');",
+                    "if(get('selectLiquid')==2)loadModel('particleMixingDoubleEthanol');",
+                    "if(get('selectLiquid')==3)loadModel('particleMixingDoubleWater');",
+                    "set('modelA',true);"
+                  ],
+          "selected": true
+        },
+        {
+          "text": "continuous model",
+          "action": [
+                      "if(get('selectLiquid')==1)loadModel('water-ethanol');",
+                      "if(get('selectLiquid')==2)loadModel('ethanol-ethanol');",
+                      "if(get('selectLiquid')==3)loadModel('water-water');",
+                      "set('modelA',false);"
+                    ]
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "helpTips": [
+    {
+      "text": [
+        "#Mixing Liquids",
+        "- - -",
+        "Experiment with mixing liquids and observing the volume (amount of space) they take up."
+      ]
+    },
+    {
+      "component": "pulldown",
+      "text":  "First select a model of matter to explore."
+    },
+    {
+      "component": "select-model",
+      "text":  "Then select a pair of liquids to combine, and then note the volume of each liquid."
+    },
+    {
+      "component": "add-columnA",
+      "text": "Add one liquid to the mixing cylinder."
+    },
+    {
+      "component": "add-columnB",
+      "text": "Then add the second liquid to the mixing cylinder and note the volume."
+    },
+    {
+      "component": "cap-and-shake",
+      "text": "Shake the liquids up."
+    },
+    {
+      "component": "stop-shaking",
+      "text": "Then stop mixing the liquids and note the volume."
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "label-select-matter",
+        "pulldown"
+      ],
+      [
+        "label-select-model",
+        "select-model"
+      ],
+      [
+        "add-columnA",
+        "add-columnB",
+        "cap-and-shake",
+        "stop-shaking"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "width": "model.width",
+      "left": "model.left",
+      "top": "model.bottom",
+      "align": "center"
+    }
+  ]
+}
+
