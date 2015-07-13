@@ -256,13 +256,33 @@
           "action": "loadModel('sponge');"
         }
       ]
+    },
+    {
+      "type": "graph",
+      "id": "graph",
+      "title": "Temperature",
+      "xlabel": "Time  (ps)",
+      "ylabel": "Temperature (°)",
+      "ymin": 0,
+      "ymax": 200,
+      "xmax": 40,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "properties": [
+        "rightAtomsTempAvg","leftAtomsTempAvg"
+      ]
     }
   ],
   "layout": {
     "bottom": [
       [ "instructions", "show-ke" ],
       [ "select-model-buttons" ]
+    ],
+    "right": [
+      "graph"
     ]
   },
-  "template": "narrow-right"
+  "template": "wide-right"
 }
