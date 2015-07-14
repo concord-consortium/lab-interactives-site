@@ -1,0 +1,210 @@
+{
+  "title": "Fracking 1",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/fracking/lab-embeddable.html#showEarthPatches",
+        "drillDirection": null
+      },
+      "viewOptions": {
+        "aspectRatio": 1.75,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "onPropertyChange('explosionPossible', function() {",
+        "  setComponentDisabled('explode-btn', !get('explosionPossible'));",
+        "});",
+        "onPropertyChange('fillPossible', function() {",
+        "  setComponentDisabled('fill-water-btn', !get('fillPossible'));",
+        "  setComponentDisabled('fill-propane-btn', !get('fillPossible'));",
+        "});",
+        "onPropertyChange('removeFluidPossible', function() {",
+        "  setComponentDisabled('pump-out-btn', !get('removeFluidPossible'));",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "initialYear",
+      "initialValue": null
+    }
+  ],
+  "outputs": [
+    {
+      "name": "explosionPossible",
+      "value": "return iframeOutput('explosionPossible') || false;"
+    },
+    {
+      "name": "fillPossible",
+      "value": "return iframeOutput('fillPossible') || false;"
+    },
+    {
+      "name": "removeFluidPossible",
+      "value": "return iframeOutput('removeFluidPossible') || false;"
+    },
+    {
+      "name": "year",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "graphYear",
+      "value": "return get('initialYear') ? get('year') - get('initialYear') : null;"
+    },
+    {
+      "name": "well0",
+      "value": "return iframeOutput('well0') || 0;"
+    },
+    {
+      "name": "well1",
+      "value": "return iframeOutput('well1') || 0;"
+    },
+    {
+      "name": "well2",
+      "value": "return iframeOutput('well2') || 0;"
+    },
+    {
+      "name": "wellsCombined",
+      "value": "return iframeOutput('wellsCombined') || 0;"
+    }
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "drill",
+      "orientation": "horizontal",
+      "label": "Drill",
+      "labelOn": "left",
+      "style": "toggle",
+      "property": "drillDirection",
+      "options": [
+        {
+          "text": "<i class='fa fa-long-arrow-left'></i>",
+          "value": "left"
+        },
+        {
+          "text": "<i class='fa fa-long-arrow-down'></i>",
+          "value": "down"
+        },
+        {
+          "text": "<i class='fa fa-long-arrow-right'></i>",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "explode-btn",
+      "text": "Set off explosions",
+      "width": "13em",
+      "disabled": true,
+      "action": "explode()"
+    },
+    {
+      "type": "button",
+      "id": "fill-water-btn",
+      "text": "Fill with water",
+      "width": "13em",
+      "disabled": true,
+      "action": "floodWater()"
+    },
+    {
+      "type": "button",
+      "id": "fill-propane-btn",
+      "text": "Fill with propane",
+      "width": "13em",
+      "disabled": true,
+      "action": "floodPropane()"
+    },
+    {
+      "type": "button",
+      "id": "pump-out-btn",
+      "text": "Pump out fracking fluid",
+      "width": "13em",
+      "disabled": true,
+      "action": "pumpOut(); if (!get('initialYear')) { set('initialYear', get('year')); }"
+    },
+    {
+      "id": "methane-graph",
+      "type": "graph",
+      "properties": [
+        "well0",
+        "well1",
+        "well2",
+        "wellsCombined"
+      ],
+      "xProperty": "graphYear",
+      "title": "Methane Production",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 40,
+      "ylabel": "Methane",
+      "ymin": 0,
+      "ymax": 600,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#d95f02",
+        "#1b9e77",
+        "#7570B3",
+        "#000000"
+      ],
+      "legendLabels": [
+        "Well 1 Output",
+        "Well 2 Output",
+        "Well 3 Output",
+        "Combined Output"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-left",
+      "left": "model.left",
+      "top": "model.bottom"
+    },
+    {
+      "id": "bottom-right",
+      "right": "model.right",
+      "left": "bottom-left.right",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right-padding",
+      "width": "0.7em",
+      "left": "model.right",
+      "top": "model.top"
+    }
+  ],
+  "layout": {
+    "bottom-left": [
+      ["drill"],
+      ["explode-btn"],
+      ["fill-water-btn"],
+      ["fill-propane-btn"],
+      ["pump-out-btn"]
+    ],
+    "bottom-right": [
+      "methane-graph"
+    ]
+  }
+}

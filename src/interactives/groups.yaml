@@ -166,6 +166,10 @@
   :name: "Water Interactives"
   :category: Curriculum
 
+- :path: fracking
+  :name: "Fracking Interactives"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum
