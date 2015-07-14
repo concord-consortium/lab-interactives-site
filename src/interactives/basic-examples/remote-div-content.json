@@ -21,7 +21,8 @@
     {
       "type": "div",
       "id": "remote-div",
-      "src": "interactives/basic-examples/remote-div-content.html",
+      "url": "interactives/basic-examples/remote-div-content.html",
+      "width": "100%",
       "height": "5em"
     }
   ]
