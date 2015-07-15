@@ -24,7 +24,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
         "molecule": "models/3D-antibody/1EAP.pdb"
       },
       "onLoad": [
@@ -64,7 +64,7 @@
     {
       "id": "label1",
       "type": "text",
-      "text": "Antibody: ",
+      "text": "**Antibody:** ",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
@@ -73,7 +73,7 @@
     {
       "id": "label2",
       "type": "text",
-      "text": "Antigen: ",
+      "text": "**Antigen:** ",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
