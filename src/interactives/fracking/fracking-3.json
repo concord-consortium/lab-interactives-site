@@ -1,11 +1,11 @@
 {
-  "title": "Fracking 1",
+  "title": "Fracking 3",
   "publicationStatus": "draft",
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1,
+  "aspectRatio": 1.25,
   "fontScale": 0.9,
   "models": [
     {
@@ -13,11 +13,11 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/fracking/lab-embeddable.html#showEarthPatches",
+        "url": "//concord-consortium.github.io/agentscript-models-dev/fracking/lab-embeddable.html",
         "drillDirection": null
       },
       "viewOptions": {
-        "aspectRatio": 1.75,
+        "aspectRatio": 2.6,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -76,6 +76,14 @@
     {
       "name": "wellsCombined",
       "value": "return iframeOutput('wellsCombined') || 0;"
+    },
+    {
+      "name": "leakedMethane",
+      "value": "return iframeOutput('leakedMethane') || 0;"
+    },
+    {
+      "name": "pondWaste",
+      "value": "return iframeOutput('pondWaste') || 0;"
     }
   ],
   "helpTips": [
@@ -171,6 +179,36 @@
         "Well 3 Output",
         "Combined Output"
       ]
+    },
+    {
+      "id": "contaminant-graph",
+      "type": "graph",
+      "properties": [
+        "leakedMethane",
+        "pondWaste"
+      ],
+      "xProperty": "graphYear",
+      "title": "Contaminants in the aquifer",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 40,
+      "ylabel": "Contaminants",
+      "ymin": 0,
+      "ymax": 250,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#a00000",
+        "#44a000"
+      ],
+      "legendLabels": [
+        "Leaked Methane",
+        "Pond Waste"
+      ]
     }
   ],
   "template": [
@@ -180,13 +218,23 @@
       "top": "model.bottom"
     },
     {
-      "id": "bottom-right",
-      "right": "model.right",
+      "id": "bottom-middle",
       "left": "bottom-left.right",
       "top": "model.bottom",
       "bottom": "interactive.bottom",
+      "width": "(model.width - bottom-left.width) * 0.5",
       "padding-left": "0.5em",
-      "padding-right": "0.5em"
+      "fontScale": 0.9
+    },
+    {
+      "id": "bottom-right",
+      "left": "bottom-middle.right",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom",
+      "width": "(model.width - bottom-left.width) * 0.5",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "fontScale": 0.9
     },
     {
       "id": "right-padding",
@@ -203,8 +251,11 @@
       ["fill-propane-btn"],
       ["pump-out-btn"]
     ],
-    "bottom-right": [
+    "bottom-middle": [
       "methane-graph"
+    ],
+    "bottom-right": [
+      "contaminant-graph"
     ]
   }
 }
