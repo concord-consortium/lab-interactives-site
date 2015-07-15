@@ -4,7 +4,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 0.865,
+  "aspectRatio": 0.87,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -39,20 +39,20 @@
   ],
   "propertiesToRetain": [],
   "parameters": [
-   {
+    {
       "name": "firstHalf",
-      "initialValue": false,
+      "initialValue": true,
       "onChange": [
-        "if (!value) post('jsmolScript', 'select atomno<1656; color atoms opaque;');",
-        "else       post('jsmolScript', 'select atomno<1656; color atoms translucent;');"
+        "if (value) post('jsmolScript', 'select atomno<1656; color atoms opaque;');",
+        "else       post('jsmolScript', 'select atomno<1656; color atoms TRANSLUCENT 0.9;');"
       ]
     },
     {
       "name": "secondHalf",
-      "initialValue": false,
+      "initialValue": true,
       "onChange": [
-        "if (!value) post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms opaque;');",
-        "else       post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms translucent;');"
+        "if (value) post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms opaque;');",
+        "else       post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms TRANSLUCENT 0.9;');"
       ]
     }
   ],
@@ -61,7 +61,7 @@
   "helpTips": [],
   "dataSets": [],
   "components": [
-   {
+    {
       "id": "label1",
       "type": "text",
       "text": "Antibody: ",
@@ -114,7 +114,7 @@
       "options": [
         {
           "text": "spacefill atoms",
-          "action": "post('jsmolScript', 'select atomno<1656; spacefill 100%;');",
+          "action": "post('jsmolScript', 'select atomno<1656; spacefill 100%; wireframe 0;');",
           "selected": true
         },
         {
@@ -136,7 +136,7 @@
       "options": [
         {
           "text": "spacefill atoms",
-          "action": "post('jsmolScript','select HEP; spacefill 100%;');",
+          "action": "post('jsmolScript','select HEP; spacefill 100%; wireframe 0;');",
           "selected": true
         },
         {
@@ -158,7 +158,7 @@
       "options": [
         {
           "text": "spacefill atoms",
-          "action": "post('jsmolScript', 'select atomno>1656 && atomno<3266; spacefill 100%;');",
+          "action": "post('jsmolScript', 'select atomno>1656 && atomno<3266; spacefill 100%; wireframe 0;');",
           "selected": true
         },
         {
@@ -173,11 +173,13 @@
     }
   ],
   "layout": {
-   "bottom": [
+    "bottom": [
       "label1"
-      ],
-    "left":[
-      "first-half",
+    ],
+    "left": [
+      "first-half"
+    ],
+    "second": [
       "second-half"
     ],
     "right": [
@@ -187,39 +189,45 @@
       ]
     ],
     "down": [
-     "label2"
+      "label2"
     ],
     "button": [
-     "radio-button-3"
+      "radio-button-3"
     ]
   },
   "template": [
-   {
+    {
       "id": "bottom",
       "top": "model.bottom",
       "align": "center"
-   },
-   {
+    },
+    {
+      "id": "second",
+      "left": "left.right",
+      "top": "model.bottom",
+      "padding-left": "3.3em"
+    },
+    {
       "id": "down",
       "top": "right.bottom",
-      "align": "center"
-   },
-   {
+      "padding-bottom": "-2em"
+    },
+    {
       "id": "button",
       "top": "right.bottom",
       "left": "bottom.right",
-      "align": "center"
-   },
-   {
+      "padding-left": "0.5em"
+    },
+    {
       "id": "left",
       "left": "bottom.right",
       "top": "model.bottom",
-      "align": "center"
-   },
-   {
+      "padding-left": "0.6em"
+    },
+    {
       "id": "right",
       "top": "left.bottom",
       "left": "bottom.right"
-   }
+    }
   ]
 }
