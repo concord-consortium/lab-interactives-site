@@ -85,6 +85,13 @@
     }
   ],
   "helpTips": [
+    {
+      "text": [
+        "#Test help tip with image",
+        "- - -",
+        "![Alt text](resources/cc-logo.png)"
+      ]
+    }
   ],
   "components": [
     {
