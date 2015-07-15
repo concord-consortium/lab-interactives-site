@@ -119,6 +119,7 @@
       "type": "radio",
       "id": "radio-horizontal",
       "orientation": "horizontal",
+      "style": "toggle",
       "options": [
         {
           "text": "Boiling Point",
