@@ -5,8 +5,8 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1,
-  "fontScale": 0.9,
+  "aspectRatio": 1.5,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -17,7 +17,7 @@
         "drillDirection": null
       },
       "viewOptions": {
-        "aspectRatio": 1.75,
+        "aspectRatio": 1.55,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -86,7 +86,7 @@
       "id": "drill",
       "orientation": "horizontal",
       "label": "Drill",
-      "labelOn": "left",
+      "labelOn": "top",
       "style": "toggle",
       "property": "drillDirection",
       "options": [
@@ -177,7 +177,8 @@
     {
       "id": "bottom-left",
       "left": "model.left",
-      "top": "model.bottom"
+      "top": "model.bottom",
+      "padding-top": "0.8em"
     },
     {
       "id": "bottom-right",
@@ -185,25 +186,29 @@
       "left": "bottom-left.right",
       "top": "model.bottom",
       "bottom": "interactive.bottom",
-      "padding-left": "0.5em",
-      "padding-right": "0.5em"
+      "padding-top": "0.5em",
+      "padding-bottom": "0.5em",
+      "padding-left": "0.5em"
     },
     {
-      "id": "right-padding",
-      "width": "0.7em",
+      "id": "right",
+      "width": "model.width * 0.5",
+      "height": "model.height * 0.8",
       "left": "model.right",
-      "top": "model.top"
+      "top": "model.top",
+      "padding-left": "0.3em",
+      "padding-right": "0.5em"
     }
   ],
   "layout": {
     "bottom-left": [
-      ["drill"],
-      ["explode-btn"],
-      ["fill-water-btn"],
-      ["fill-propane-btn"],
-      ["pump-out-btn"]
+      "drill"
     ],
     "bottom-right": [
+      ["explode-btn", "fill-water-btn"],
+      ["pump-out-btn", "fill-propane-btn"]
+    ],
+    "right": [
       "methane-graph"
     ]
   }
