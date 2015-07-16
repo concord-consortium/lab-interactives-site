@@ -116,7 +116,6 @@
       "type": "button",
       "id": "explode-btn",
       "text": "Set off explosions",
-      "width": "13em",
       "disabled": true,
       "action": "explode()"
     },
@@ -124,7 +123,7 @@
       "type": "button",
       "id": "fill-water-btn",
       "text": "Fill with water",
-      "width": "13em",
+      "width": "11em",
       "disabled": true,
       "action": "floodWater()"
     },
@@ -132,7 +131,7 @@
       "type": "button",
       "id": "fill-propane-btn",
       "text": "Fill with propane",
-      "width": "13em",
+      "width": "11em",
       "disabled": true,
       "action": "floodPropane()"
     },
@@ -140,7 +139,6 @@
       "type": "button",
       "id": "pump-out-btn",
       "text": "Pump out fracking fluid",
-      "width": "13em",
       "disabled": true,
       "action": "pumpOut(); if (!get('initialYear')) { set('initialYear', get('year')); }"
     },
@@ -213,20 +211,31 @@
   ],
   "template": [
     {
-      "id": "bottom-left",
+      "id": "bottom-1",
       "left": "model.left",
       "top": "model.bottom",
       "padding-top": "0.8em"
     },
     {
-      "id": "bottom-right",
-      "right": "model.right",
-      "left": "bottom-left.right",
+      "id": "bottom-2",
+      "left": "bottom-1.right",
       "top": "model.bottom",
-      "bottom": "interactive.bottom",
+      "padding-top": "1.95em",
+      "padding-left": "1.5em"
+    },
+    {
+      "id": "bottom-3",
+      "left": "bottom-2.right",
+      "top": "model.bottom",
       "padding-top": "0.5em",
-      "padding-bottom": "0.5em",
       "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom-4",
+      "left": "bottom-3.right",
+      "top": "model.bottom",
+      "padding-top": "1.95em",
+      "padding-left": "0.6em"
     },
     {
       "id": "right-top",
@@ -248,12 +257,18 @@
     }
   ],
   "layout": {
-    "bottom-left": [
+    "bottom-1": [
       "drill"
     ],
-    "bottom-right": [
-      ["explode-btn", "fill-water-btn"],
-      ["pump-out-btn", "fill-propane-btn"]
+    "bottom-2": [
+      "explode-btn"
+    ],
+    "bottom-3": [
+      ["fill-water-btn"],
+      ["fill-propane-btn"]
+    ],
+    "bottom-4": [
+      "pump-out-btn"
     ],
     "right-top": [
       "methane-graph"
