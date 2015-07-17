@@ -64,7 +64,7 @@
       "height": "100%",
       "xlabel": "Time (years)",
       "xmin": 0,
-      "xmax": 40,
+      "xmax": 10,
       "ylabel": "Water Level",
       "ymin": 0,
       "ymax": 1200,
