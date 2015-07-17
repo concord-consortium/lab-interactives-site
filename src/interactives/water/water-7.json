@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.2,
+  "aspectRatio": 1.4,
   "fontScale": 0.9,
   "models": [
     {
@@ -84,17 +84,15 @@
     },
     {
       "id": "template-pulldown",
-      "type": "pulldown",
-      "label": "Stream",
-      "labelOn": "left",
+      "type": "radio",
       "property": "template",
       "options": [
         {
-          "text": "A",
+          "text": "Stream A",
           "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json"
         },
         {
-          "text": "B",
+          "text": "Stream B",
           "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
         }
       ]
@@ -102,18 +100,19 @@
   ],
   "template": [
     {
+      "id": "bottom-left",
+      "left": "model.left",
+      "width": "model.width * 0.4",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom"
+    },
+    {
       "id": "bottom-right",
       "right": "model.right",
+      "width": "7em",
       "top": "model.bottom",
       "padding-right": "0.5em",
       "padding-top": "1.5em"
-    },
-    {
-      "id": "bottom-left",
-      "left": "model.left",
-      "right": "bottom-right.left",
-      "top": "model.bottom",
-      "bottom": "interactive.bottom"
     },
     {
       "id": "right-padding",
