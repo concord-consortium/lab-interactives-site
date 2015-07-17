@@ -176,7 +176,8 @@
         "Well 2 Output",
         "Well 3 Output",
         "Combined Output"
-      ]
+      ],
+      "syncXAxis": "contaminant-graph"
     },
     {
       "id": "contaminant-graph",
@@ -206,7 +207,8 @@
       "legendLabels": [
         "Leaked Methane",
         "Pond Waste"
-      ]
+      ],
+      "syncXAxis": "methane-graph"
     }
   ],
   "template": [
