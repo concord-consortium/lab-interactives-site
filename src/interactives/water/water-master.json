@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.3,
+  "aspectRatio": 1.4,
   "fontScale": 0.8,
   "models": [
     {
@@ -82,6 +82,26 @@
     {
       "name": "rainCount",
       "value": "return iframeOutput('rainCount') || get('initialRainCount');"
+    },
+    {
+      "name": "well0",
+      "value": "return iframeOutput('well0') || null"
+    },
+    {
+      "name": "well1",
+      "value": "return iframeOutput('well1') || null"
+    },
+    {
+      "name": "well2",
+      "value": "return iframeOutput('well2') || null"
+    },
+    {
+      "name": "well3",
+      "value": "return iframeOutput('well3') || null"
+    },
+    {
+      "name": "well4",
+      "value": "return iframeOutput('well4') || null"
     }
   ],
   "helpTips": [
@@ -119,6 +139,45 @@
       ]
     },
     {
+      "id": "wells-graph",
+      "type": "graph",
+      "properties": [
+        "well0",
+        "well1",
+        "well2",
+        "well3",
+        "well4"
+      ],
+      "xProperty": "year",
+      "title": "Well output",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 40,
+      "ylabel": "Well output",
+      "ymin": 0,
+      "ymax": 600,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff",
+        "#989898",
+        "#000000"
+      ],
+      "legendLabels": [
+        "Well 1 Output",
+        "Well 2 Output",
+        "Well 3 Output",
+        "Well 4 Output",
+        "Well 5 Output"
+      ]
+    },
+    {
       "id": "followRainButton",
       "type": "button",
       "action": [
@@ -139,35 +198,35 @@
           "value": ""
         },
         {
-          "text": "WaterModel-2PumpTypes-NoFile",
+          "text": "Rural vs. urban areas",
           "value": "state/low-res/WaterModel-2PumpTypes-NoFile.json"
         },
         {
-          "text": "WaterModel-5-23-11-compareLayers",
+          "text": "Compare permeabilities",
           "value": "state/low-res/WaterModel-5-23-11-compareLayers.json"
         },
         {
-          "text": "WaterModel-5-23-11-confinedAndUnconfined",
+          "text": "Confined vs. unconfined aquifers",
           "value": "state/low-res/WaterModel-5-23-11-confinedAndUnconfined.json"
         },
         {
-          "text": "WaterModel-5-23-11-goodVbadAquifers-Aquifers-Example",
+          "text": "What makes a good aquifer? (1)",
           "value": "state/low-res/WaterModel-5-23-11-goodVbadAquifers-Aquifers-Example.json"
         },
         {
-          "text": "WaterModel-5-23-11-goodVbadAquifers-Example-Layers",
+          "text": "What makes a good aquifer? (2)",
           "value": "state/low-res/WaterModel-5-23-11-goodVbadAquifers-Example-Layers.json"
         },
         {
-          "text": "WaterModel-Gaining-Losing-Stream-StreamA",
+          "text": "Gaining stream",
           "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json"
         },
         {
-          "text": "WaterModel-Gaining-Losing-Stream-StreamB",
+          "text": "Losing stream",
           "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
         },
         {
-          "text": "WaterModel-WaterInTheWorld",
+          "text": "Simple water model",
           "value": "state/low-res/WaterModel-WaterInTheWorld.json"
         }
       ]
@@ -195,18 +254,26 @@
   ],
   "template": [
     {
-      "id": "bottom-right",
-      "right": "model.right",
-      "top": "model.bottom",
-      "padding-right": "0.5em",
-      "padding-top": "1.5em"
-    },
-    {
       "id": "bottom-left",
       "left": "model.left",
-      "right": "bottom-right.left",
+      "top": "model.bottom",
+      "padding-top": "1.5em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom-middle",
+      "left": "bottom-left.right",
+      "width": "(interactive.width - bottom-left.width) * 0.5",
       "top": "model.bottom",
       "bottom": "interactive.bottom"
+    },
+    {
+      "id": "bottom-right",
+      "left": "bottom-middle.right",
+      "width": "(interactive.width - bottom-left.width) * 0.5",
+      "top": "model.bottom",
+      "bottom": "interactive.bottom",
+      "padding-right": "0.5em"
     },
     {
       "id": "right-padding",
@@ -216,11 +283,16 @@
     }
   ],
   "layout": {
-    "bottom-left": ["water-level-graph"],
-    "bottom-right": [
+    "bottom-left": [
       ["followRainButton"],
       ["templatePulldown"],
       ["rainSlider"]
+    ],
+    "bottom-middle": [
+      "water-level-graph"
+    ],
+    "bottom-right": [
+      "wells-graph"
     ]
   }
 }
