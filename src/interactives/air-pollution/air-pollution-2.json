@@ -124,7 +124,7 @@
       "title": "Wind",
       "labels": [
         {
-          "value": -100,
+          "value": "left",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -132,7 +132,7 @@
           "label": "None"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -153,11 +153,11 @@
       "fillColor": "#efa03d",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": 10,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -178,11 +178,11 @@
       "fillColor": "#52b6ca",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": 6,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
