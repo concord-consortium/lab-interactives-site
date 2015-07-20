@@ -1,0 +1,155 @@
+{
+  "title": "Borders Test",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": "",
+  "fontScale": 0.7,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "graph",
+      "id": "peGraph",
+      "title": "PE",
+      "xmin": 0,
+      "xmax": 20,
+      "ymin": -1,
+      "ymax": 3,
+      "properties": [
+        "potentialEnergy"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "keGraph",
+      "title": "KE",
+      "xmin": 0,
+      "xmax": 20,
+      "ymin": -1,
+      "ymax": 3,
+      "properties": [
+        "kineticEnergy"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "button-a",
+      "action": "",
+      "text": "A"
+    },
+    {
+      "type": "button",
+      "id": "button-b",
+      "action": "",
+      "text": "B"
+    },
+    {
+      "type": "button",
+      "id": "button-c",
+      "action": "",
+      "text": "C"
+    },
+    {
+      "type": "button",
+      "id": "button-d",
+      "action": "",
+      "text": "D"
+    },
+    {
+      "type": "button",
+      "id": "button-graph-1",
+      "action": "",
+      "text": "Modify Graph"
+    },
+    {
+      "type": "button",
+      "id": "button-graph-2",
+      "action": "",
+      "text": "Reset Graph"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "text": "##Title",
+      "width": "90%"
+    }
+  ],
+  "layout": {
+    "right-upper": [
+      "keGraph"
+    ],
+    "right-lower": [
+      "peGraph"
+    ],
+    "bottom-left": [
+      [
+        "label"
+      ],
+      [
+        "button-a",
+        "button-b"
+      ],
+      [
+        "button-c",
+        "button-d"
+      ]
+    ],
+    "bottom-graph": [
+      [
+        "button-graph-1"
+      ],
+      [
+        "button-graph-2"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "right-upper",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height * 0.5",
+      "padding-left": "1em",
+      "width": "model.width * 0.7",
+      "min-width": "6em",
+      "border": "1px solid black"
+    },
+    {
+      "id": "right-lower",
+      "left": "model.right",
+      "top": "right-upper.bottom",
+      "height": "model.height * 0.5",
+      "padding-left": "1em",
+      "width": "model.width * 0.7",
+      "min-width": "6em",
+      "border": "1px solid white"
+    },
+    {
+      "id": "bottom-left",
+      "left": "model.left",
+      "top": "model.bottom",
+      "align": "center",
+      "padding-top": "1em",
+      "padding-bottom": "1em",
+      "border": "1px solid gray",
+      "inner-padding": "0.3em"
+    },
+    {
+      "id": "bottom-graph",
+      "top": "model.bottom",
+      "right": "right-lower.right",
+      "padding": "1em",
+      "align": "right",
+      "border": "2px solid red",
+      "inner-padding": "0.3em"
+    }
+  ]
+}
