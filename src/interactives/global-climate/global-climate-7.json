@@ -267,11 +267,11 @@
       "title": "Simulation speed",
       "labels": [
         {
-          "value": 20,
+          "value": "left",
           "label": "slow"
         },
         {
-          "value": 60,
+          "value": "right",
           "label": "fast"
         }
       ],
