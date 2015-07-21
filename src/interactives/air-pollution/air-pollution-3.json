@@ -122,7 +122,7 @@
       "title": "Wind",
       "labels": [
         {
-          "value": -100,
+          "value": "left",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -130,7 +130,7 @@
           "label": "None"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -151,11 +151,11 @@
       "fillColor": "#743288",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-truck'></i>"
         },
         {
-          "value": 10,
+          "value": "right",
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
@@ -176,11 +176,11 @@
       "fillColor": "#468732",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-building'></i>"
         },
         {
-          "value": 5,
+          "value": "right",
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
@@ -201,11 +201,11 @@
       "fillColor": "#d177c1",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "0%"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "100%"
         }
       ],
@@ -226,11 +226,11 @@
       "fillColor": "#77d288",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "0%"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "100%"
         }
       ],
