@@ -128,7 +128,7 @@
       "fillToValue": 0,
       "labels": [
         {
-          "value": -100,
+          "value": "left",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -136,7 +136,7 @@
           "label": "None"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -158,11 +158,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-truck'></i>"
         },
         {
-          "value": 10,
+          "value": "right",
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
@@ -184,11 +184,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-building'></i>"
         },
         {
-          "value": 5,
+          "value": "right",
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
@@ -210,11 +210,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "Cold"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "Hot"
         }
       ],
@@ -236,11 +236,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": 10,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -262,11 +262,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": 6,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -288,11 +288,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-ban-circle'></i>"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -314,11 +314,11 @@
       "fillColor": "#ff0000",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='icon-ban-circle'></i>"
         },
         {
-          "value": 100,
+          "value": "right",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
