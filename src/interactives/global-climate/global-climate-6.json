@@ -224,11 +224,11 @@
       "title": "Simulation speed",
       "labels": [
         {
-          "value": 20,
+          "value": "left",
           "label": "slow"
         },
         {
-          "value": 60,
+          "value": "right",
           "label": "fast"
         }
       ],
@@ -248,11 +248,11 @@
       "title": "Ice cover",
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "0%"
         },
         {
-          "value": 1,
+          "value": "right",
           "label": "100%"
         }
       ],
