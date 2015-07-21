@@ -243,11 +243,11 @@
       "steps": 50,
       "labels": [
         {
-          "value": 0,
+          "value": "left",
           "label": "<i class='fa fa-sun-o' style='font-size: 1.5em;'></i>"
         },
         {
-          "value": 1,
+          "value": "right",
           "label": "<i class='fa fa-umbrella' style='font-size: 1.5em;'></i>"
         }
       ],
