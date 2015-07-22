@@ -1,0 +1,451 @@
+{
+  "title": "Land Management 5",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1.27,
+  "fontScale": 0.6,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//concord-consortium.github.io/agentscript-models-dev/land-management/lab-embeddable.html",
+        "userPrecipitation": 166,
+        "climate": "temperate",
+        "showErosion": false,
+        "showSoilQuality": true,
+        "showPrecipitationGraph": true,
+        "landType": "Plain",
+        "zone1Slope": 0,
+        "zone2Slope": 0,
+        "zone1Planting": "bare",
+        "zone2Planting": "bare"
+      },
+      "viewOptions": {
+        "aspectRatio": 1.8,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function setSlopeSlidersDisabled(v) {",
+        "  setComponentDisabled('zone-1-slope', v);",
+        "  setComponentDisabled('zone-2-slope', v);",
+        "}",
+        "setSlopeSlidersDisabled(get('landType') !== 'Sliders');",
+        "onPropertyChange('landType', function() {",
+        "  reloadModel();",
+        "  setSlopeSlidersDisabled(get('landType') !== 'Sliders');",
+        "});",
+        "onStart(function() {",
+        "  setSlopeSlidersDisabled(true);",
+        "});",
+        "setComponentDisabled('user-precipitation', get('climate') !== 'user');",
+        "onPropertyChange('climate', function() {",
+        "  setComponentDisabled('user-precipitation', get('climate') !== 'user');",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('year')"
+    },
+    {
+      "name": "precipitation",
+      "value": "return iframeOutput('precipitation') || 0"
+    },
+    {
+      "name": "topsoilInZone1",
+      "value": "return iframeOutput('topsoilInZone1')"
+    },
+    {
+      "name": "topsoilInZone2",
+      "value": "return iframeOutput('topsoilInZone2')"
+    },
+    {
+      "name": "zone1ErosionCount",
+      "value": "return iframeOutput('zone1ErosionCount')"
+    },
+    {
+      "name": "zone2ErosionCount",
+      "value": "return iframeOutput('zone2ErosionCount')"
+    }
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "erosion-graph",
+      "type": "graph",
+      "properties": [
+        "zone1ErosionCount",
+        "zone2ErosionCount"
+      ],
+      "xProperty": "year",
+      "title": "Erosion Rates",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 2015,
+      "xmax": 2022,
+      "ylabel": "Monthly Erosion",
+      "ymin": 0,
+      "ymax": 100,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0072d0",
+        "#83D000"
+      ],
+      "legendLabels": [
+        "Zone 1",
+        "Zone 2"
+      ],
+      "syncXAxis": "topsoil-graph"
+    },
+    {
+      "id": "topsoil-graph",
+      "type": "graph",
+      "properties": [
+        "topsoilInZone1",
+        "topsoilInZone2"
+      ],
+      "xProperty": "year",
+      "title": "Amount of Topsoil in Zone",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 2015,
+      "xmax": 2022,
+      "ylabel": "Amount of Topsoil",
+      "ymin": 0,
+      "ymax": 1000,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0072d0",
+        "#83D000"
+      ],
+      "legendLabels": [
+        "Zone 1",
+        "Zone 2"
+      ],
+      "syncXAxis": "erosion-graph"
+    },
+    {
+      "type": "text",
+      "id": "landscape-label",
+      "text": "##Initial landscape"
+    },
+    {
+      "type": "pulldown",
+      "id": "terrain",
+      "label": "Terrain",
+      "labelOn": "left",
+      "property": "landType",
+      "options": [
+        {
+          "text": "Nearly Flat",
+          "value": "Nearly Flat"
+        },
+        {
+          "text": "Plain",
+          "value": "Plain"
+        },
+        {
+          "text": "Rolling",
+          "value": "Rolling"
+        },
+        {
+          "text": "Hilly",
+          "value": "Hilly"
+        },
+        {
+          "text": "Terraced",
+          "value": "Terraced"
+        },
+        {
+          "text": "Use Slope-Slider Values",
+          "value": "Sliders"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "zone-1-slope",
+      "title": "Zone 1 Slope",
+      "width": "10em",
+      "min": -3,
+      "max": 3,
+      "steps": 10,
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "property": "zone1Slope"
+    },
+    {
+      "type": "slider",
+      "id": "zone-2-slope",
+      "title": "Zone 2 Slope",
+      "width": "10em",
+      "min": -3,
+      "max": 3,
+      "steps": 10,
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "property": "zone2Slope"
+    },
+    {
+      "type": "text",
+      "id": "planting-label",
+      "text": "##Management plan"
+    },
+    {
+      "type": "pulldown",
+      "id": "zone-1-planting",
+      "label": "Zone 1",
+      "labelOn": "left",
+      "property": "zone1Planting",
+      "options": [
+        {
+          "text": "Bare soil",
+          "value": "bare"
+        },
+        {
+          "text": "Grass",
+          "value": "grass"
+        },
+        {
+          "text": "Wheat (conservative tillage)",
+          "value": "wheat"
+        },
+        {
+          "text": "Wheat (intensive tillage)",
+          "value": "wheat-intensive"
+        },
+        {
+          "text": "Forest",
+          "value": "trees"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "zone-2-planting",
+      "label": "Zone 2",
+      "labelOn": "left",
+      "property": "zone2Planting",
+      "options": [
+        {
+          "text": "Bare soil",
+          "value": "bare"
+        },
+        {
+          "text": "Grass",
+          "value": "grass"
+        },
+        {
+          "text": "Wheat (conservative tillage)",
+          "value": "wheat"
+        },
+        {
+          "text": "Wheat (intensive tillage)",
+          "value": "wheat-intensive"
+        },
+        {
+          "text": "Forest",
+          "value": "trees"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "climate-label",
+      "text": "##Climate"
+    },
+    {
+      "type": "pulldown",
+      "id": "climate",
+      "property": "climate",
+      "options": [
+        {
+          "text": "Humid Continental",
+          "value": "temperate"
+        },
+        {
+          "text": "Tropical Rainforest",
+          "value": "tropical"
+        },
+        {
+          "text": "Semi-Arid",
+          "value": "arid"
+        },
+        {
+          "text": "Use Precipitation-Slider Values",
+          "value": "user"
+        }
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "precipitation-value",
+      "label": "Precipitation",
+      "property": "precipitation",
+      "displayValue": "return value + ' mm/month'"
+    },
+    {
+      "type": "slider",
+      "id": "user-precipitation",
+      "title": "Set precipitation",
+      "width": "15em",
+      "min": 0,
+      "max": 500,
+      "steps": 10,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 500,
+          "label": "500"
+        }
+      ],
+      "property": "userPrecipitation"
+    },
+    {
+      "type": "text",
+      "id": "soil-label",
+      "text": "##Soil quality"
+    },
+    {
+      "type": "div",
+      "id": "good-soil",
+      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(60, 51, 47)'></div> Good soil"
+    },
+    {
+      "type": "div",
+      "id": "medium-soil",
+      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(135, 79, 49)'></div> Medium soil"
+    },
+    {
+      "type": "div",
+      "id": "poor-soil",
+      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(193, 114, 7)'></div> Poor soil"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "model.bottom",
+      "margin-top": "0.5em",
+      "border": "1px solid gray"
+    },
+    {
+      "id": "bottom-right",
+      "left": "bottom-1.right",
+      "top": "model.bottom",
+      "margin-top": "0.5em"
+    },
+    {
+      "id": "bottom-2",
+      "left": "model.left",
+      "top": "bottom-1.bottom",
+      "margin-top": "0.5em",
+      "align": "center",
+      "border": "1px solid gray",
+      "width": "23em"
+    },
+    {
+      "id": "bottom-3",
+      "left": "model.left",
+      "top": "bottom-2.bottom",
+      "margin-top": "0.5em",
+      "align": "center",
+      "border": "1px solid gray",
+      "padding-bottom": "0.4em",
+      "width": "23em"
+    },
+    {
+      "id": "bottom-4",
+      "left": "bottom-2.right",
+      "top": "bottom-1.bottom",
+      "bottom": "bottom-3.bottom",
+      "margin-top": "0.5em",
+      "margin-left": "0.5em",
+      "align": "center",
+      "border": "1px solid gray",
+      "padding-bottom": "0.4em"
+    },
+    {
+      "id": "right-top",
+      "width": "model.width * 0.5",
+      "height": "interactive.height * 0.5",
+      "left": "model.right",
+      "top": "model.top",
+      "padding-left": "0.3em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right-bottom",
+      "width": "model.width * 0.5",
+      "height": "interactive.height * 0.5",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "padding-left": "0.3em",
+      "padding-right": "0.5em"
+    }
+  ],
+  "layout": {
+    "bottom-1": [
+      ["soil-label", "good-soil", "medium-soil", "poor-soil"]
+    ],
+    "bottom-2": [
+      ["landscape-label"],
+      ["terrain"],
+      ["zone-1-slope", "zone-2-slope"]
+    ],
+    "bottom-3": [
+      ["planting-label"],
+      ["zone-1-planting", "zone-2-planting"]
+    ],
+    "bottom-4": [
+      ["climate-label"],
+      ["climate"],
+      ["precipitation-value"],
+      ["user-precipitation"]
+    ],
+    "right-top": [
+      "erosion-graph"
+    ],
+    "right-bottom": [
+      "topsoil-graph"
+    ]
+  }
+}
