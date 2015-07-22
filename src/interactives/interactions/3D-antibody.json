@@ -1,0 +1,233 @@
+{
+  "title": "3D Exploration of Bound Antibody & Antigen",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.87,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": [
+    "To the left, part of an antibody (green) is shown bound to an antigen (white). ",
+    "As you learned earlier, how well two molecules stick to each other can be related",
+    "to how well the shapes of the molecules fit together.",
+    "Can you find the four different base pairs that DNA is constructed from?"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
+        "molecule": "models/3D-antibody/1EAP.pdb"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'rotate x 45;rotate y 20;zoom IN;select atomno<1656;color atoms [0,240,0];select atomno>1656 && atomno<3266;color atoms [50,200,50]; select HEP; color white; select *; wireframe off; cpk on; center HEP; spacefill 100%');",
+        "post('jsmolScript', 'set background [x000000];');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 1.2,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "firstHalf",
+      "initialValue": true,
+      "onChange": [
+        "if (value) post('jsmolScript', 'select atomno<1656; color atoms opaque;');",
+        "else       post('jsmolScript', 'select atomno<1656; color atoms TRANSLUCENT 0.9;');"
+      ]
+    },
+    {
+      "name": "secondHalf",
+      "initialValue": true,
+      "onChange": [
+        "if (value) post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms opaque;');",
+        "else       post('jsmolScript', 'select atomno>1656 && atomno<3266; color atoms TRANSLUCENT 0.9;');"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "**Antibody:** ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "**Antigen:** ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "first-half",
+      "type": "checkbox",
+      "text": "1st Half",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "firstHalf",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "second-half",
+      "type": "checkbox",
+      "text": "2nd Half",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "secondHalf",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "radio-button",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "spacefill atoms",
+          "action": "post('jsmolScript', 'select atomno<1656; spacefill 100%; wireframe 0;');",
+          "selected": true
+        },
+        {
+          "text": "ball & stick",
+          "action": "post('jsmolScript', 'select atomno<1656; spacefill 20%; wireframe 0.15;');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "radio-button-3",
+      "type": "radio",
+      "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "spacefill atoms",
+          "action": "post('jsmolScript','select HEP; spacefill 100%; wireframe 0;');",
+          "selected": true
+        },
+        {
+          "text": "ball & stick ",
+          "action": "post('jsmolScript','select HEP; spacefill 25%; wireframe 0.2;');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "radio-button-2",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "spacefill atoms",
+          "action": "post('jsmolScript', 'select atomno>1656 && atomno<3266; spacefill 100%; wireframe 0;');",
+          "selected": true
+        },
+        {
+          "text": "ball & stick",
+          "action": "post('jsmolScript', 'select atomno>1656 && atomno<3266; spacefill 20%; wireframe 0.15;')"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "label1"
+    ],
+    "left": [
+      "first-half"
+    ],
+    "second": [
+      "second-half"
+    ],
+    "right": [
+      [
+        "radio-button",
+        "radio-button-2"
+      ]
+    ],
+    "down": [
+      "label2"
+    ],
+    "button": [
+      "radio-button-3"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "align": "center"
+    },
+    {
+      "id": "second",
+      "left": "left.right",
+      "top": "model.bottom",
+      "padding-left": "3.3em"
+    },
+    {
+      "id": "down",
+      "top": "right.bottom",
+      "padding-bottom": "-2em"
+    },
+    {
+      "id": "button",
+      "top": "right.bottom",
+      "left": "bottom.right",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "left",
+      "left": "bottom.right",
+      "top": "model.bottom",
+      "padding-left": "0.6em"
+    },
+    {
+      "id": "right",
+      "top": "left.bottom",
+      "left": "bottom.right"
+    }
+  ]
+}
