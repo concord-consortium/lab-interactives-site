@@ -46,7 +46,7 @@
             "hostType": "Atom",
             "hostIndex": 0,
             "layer": 1,
-            "color": "yellow",
+            "color": "rgb(255, 255, 0)",
             "textAlign": "center",
             "width": 0.15,
             "fontScale": 0.7
@@ -56,7 +56,7 @@
             "hostType": "Atom",
             "hostIndex": 1,
             "layer": 1,
-            "color": "yellow",
+            "color": "rgb(255, 255, 0)",
             "textAlign": "center",
             "width": 0.15,
             "fontScale": 0.7
@@ -79,6 +79,25 @@
       "name": "right-particle-charge",
       "initialValue": -2,
       "onChange": "setAtomProperties(0,{charge: value});"
+    },
+    {
+      "name": "show-second-atom",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  setAtomProperties(0, {charge: -2, visible: true, pinned:0});",
+        "setTextBoxProperties(0, {color: 'rgb(255, 255, 0)'}); ",
+        "set('showForceVectors',true);",
+        "setComponentDisabled('set-right-particle-charge',false);", 
+        "setComponentDisabled('select-show-forces',false);",       
+        "} else {",
+        "  setAtomProperties(0, {charge: 0, visible: false, pinned:1});",
+        "setTextBoxProperties(0, {color: 'rgba(0, 0, 0,0)'}); ",
+        "set('showForceVectors',false);",
+        "setComponentDisabled('set-right-particle-charge',true);",
+        "setComponentDisabled('select-show-forces',true);",       
+        "}"
+      ]
     }
   ],
   "outputs": [],
@@ -166,6 +185,19 @@
       "helpIcon": false
     },
     {
+      "id": "select-show-second-atom",
+      "type": "checkbox",
+      "text": "use two particles",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "show-second-atom",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "select-show-forces",
       "type": "checkbox",
       "text": "Show forces",
@@ -199,6 +231,7 @@
         "set-right-particle-charge"
       ],
       [
+        "select-show-second-atom",
         "select-show-forces",
         "select-show-electric-field"
       ]
