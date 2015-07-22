@@ -170,6 +170,10 @@
   :name: "Fracking Interactives"
   :category: Curriculum
 
+- :path: land-management
+  :name: "Land Management"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum

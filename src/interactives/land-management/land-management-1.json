@@ -1,0 +1,269 @@
+{
+  "title": "Land Management 1",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "helpOnLoad": true,
+  "about": "",
+  "theme": ["has"],
+  "aspectRatio": 1.6,
+  "fontScale": 0.6,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//concord-consortium.github.io/agentscript-models-dev/land-management/lab-embeddable.html",
+        "showErosion": true,
+        "showPrecipitationGraph": false,
+        "userPrecipitation": 166,
+        "climate": "user",
+        "landType": "Plain",
+        "zone1Slope": 0,
+        "zone2Slope": 0
+      },
+      "viewOptions": {
+        "aspectRatio": 1.8,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function setSlopeSlidersDisabled(v) {",
+        "  setComponentDisabled('zone-1-slope', v);",
+        "  setComponentDisabled('zone-2-slope', v);",
+        "}",
+        "setSlopeSlidersDisabled(get('landType') !== 'Sliders');",
+        "onPropertyChange('landType', function() {",
+        "  reloadModel();",
+        "  if (get('landType') === 'Sliders') setSlopeSlidersDisabled(false);",
+        "});",
+        "onStart(function() {",
+        "  setSlopeSlidersDisabled(true);",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('year')"
+    },
+    {
+      "name": "topsoilInZone1",
+      "value": "return iframeOutput('topsoilInZone1')"
+    },
+    {
+      "name": "topsoilInZone2",
+      "value": "return iframeOutput('topsoilInZone2')"
+    },
+    {
+      "name": "zone1ErosionCount",
+      "value": "return iframeOutput('zone1ErosionCount')"
+    },
+    {
+      "name": "zone2ErosionCount",
+      "value": "return iframeOutput('zone2ErosionCount')"
+    }
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "erosion-graph",
+      "type": "graph",
+      "properties": [
+        "zone1ErosionCount",
+        "zone2ErosionCount"
+      ],
+      "xProperty": "year",
+      "title": "Erosion Rates",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 2015,
+      "xmax": 2022,
+      "ylabel": "Monthly Erosion",
+      "ymin": 0,
+      "ymax": 100,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0072d0",
+        "#83D000"
+      ],
+      "legendLabels": [
+        "Zone 1",
+        "Zone 2"
+      ],
+      "syncXAxis": "topsoil-graph"
+    },
+    {
+      "id": "topsoil-graph",
+      "type": "graph",
+      "properties": [
+        "topsoilInZone1",
+        "topsoilInZone2"
+      ],
+      "xProperty": "year",
+      "title": "Amount of Topsoil in Zone",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 2015,
+      "xmax": 2022,
+      "ylabel": "Amount of Topsoil",
+      "ymin": 0,
+      "ymax": 1000,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#0072d0",
+        "#83D000"
+      ],
+      "legendLabels": [
+        "Zone 1",
+        "Zone 2"
+      ],
+      "syncXAxis": "erosion-graph"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-erosion",
+      "property": "showErosion",
+      "text": "Show erosion"
+    },
+    {
+      "type": "text",
+      "id": "landscape-label",
+      "text": "##Initial landscape"
+    },
+    {
+      "type": "pulldown",
+      "id": "terrain",
+      "label": "Terrain",
+      "labelOn": "left",
+      "property": "landType",
+      "options": [
+        {
+          "text": "Nearly Flat",
+          "value": "Nearly Flat"
+        },
+        {
+          "text": "Plain",
+          "value": "Plain"
+        },
+        {
+          "text": "Rolling",
+          "value": "Rolling"
+        },
+        {
+          "text": "Hilly",
+          "value": "Hilly"
+        },
+        {
+          "text": "Terraced",
+          "value": "Terraced"
+        },
+        {
+          "text": "Use Slope-Slider Values",
+          "value": "Sliders"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "zone-1-slope",
+      "title": "Zone 1 Slope",
+      "width": "10em",
+      "min": -3,
+      "max": 3,
+      "steps": 10,
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "property": "zone1Slope"
+    },
+    {
+      "type": "slider",
+      "id": "zone-2-slope",
+      "title": "Zone 2 Slope",
+      "width": "10em",
+      "min": -3,
+      "max": 3,
+      "steps": 10,
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "property": "zone2Slope"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "model.bottom",
+      "margin-top": "0.5em"
+    },
+    {
+      "id": "bottom-2",
+      "left": "model.left",
+      "top": "bottom-1.bottom",
+      "margin-top": "0.5em",
+      "align": "center",
+      "border": "1px solid gray"
+    },
+    {
+      "id": "right-top",
+      "width": "model.width * 0.5",
+      "height": "interactive.height * 0.5",
+      "left": "model.right",
+      "top": "model.top",
+      "padding-left": "0.3em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right-bottom",
+      "width": "model.width * 0.5",
+      "height": "interactive.height * 0.5",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "padding-left": "0.3em",
+      "padding-right": "0.5em"
+    }
+  ],
+  "layout": {
+    "bottom-1": [
+      "show-erosion"
+    ],
+    "bottom-2": [
+      ["landscape-label"],
+      ["terrain"],
+      ["zone-1-slope", "zone-2-slope"]
+    ],
+    "right-top": [
+      "erosion-graph"
+    ],
+    "right-bottom": [
+      "topsoil-graph"
+    ]
+  }
+}
