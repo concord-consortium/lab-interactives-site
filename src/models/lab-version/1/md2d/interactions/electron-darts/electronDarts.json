@@ -73,7 +73,7 @@
         "anchor": "upper-left"
       },
       {
-        "text": "Keep throwing darts until you clearly see a \"blue cloud\" \nindicating where the darts will likely land.",
+        "text": "Keep throwing darts until you clearly see a \"red cloud\" \nindicating where the darts will likely land.",
         "x": 0.12,
         "y": 0.58,
         "layer": 1,
@@ -82,7 +82,7 @@
         "anchor": "upper-left"
       },
       {
-        "text": "The blue haze indicates where the next dart\nthrow will land—more likely where the haze is dark,\nand less likely where it is light.",
+        "text": "The red haze indicates where the next dart\nthrow will land—more likely where the haze is dark,\nand less likely where it is light.",
         "x": 0.12,
         "y": 1.53,
         "layer": 1,
@@ -182,7 +182,7 @@
       0
     ],
     "color": [
-      "radial rgba(0,153,255,0.7254901960784313) 0% rgb(244,245,239) 100%"
+      "radial rgba(255,51,51,0.7254901960784313) 0% rgb(244,245,239) 100%"
     ],
     "lineColor": [
       "black"

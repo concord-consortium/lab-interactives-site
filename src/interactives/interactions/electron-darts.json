@@ -40,7 +40,7 @@
         "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
         "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
         "    fence: 0,",
-        "    color: 'rgb(0,0,255)',",
+        "    color: 'red',",
         "    lineColor: 'black',",
         "    lineDashes: 'none',",
         "    lineWeight: 0,",
