@@ -214,14 +214,25 @@
         }
       ],
       "property": "zone2Slope"
+    },
+    {
+      "type": "playback",
+      "id": "playback"
     }
   ],
   "template": [
     {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
       "id": "bottom-1",
       "left": "model.left",
       "top": "model.bottom",
-      "margin-top": "0.5em"
+      "margin-top": "0.7em"
     },
     {
       "id": "bottom-2",
@@ -251,6 +262,9 @@
     }
   ],
   "layout": {
+    "playback-container": [
+      "playback"
+    ],
     "bottom-1": [
       "show-erosion"
     ],
