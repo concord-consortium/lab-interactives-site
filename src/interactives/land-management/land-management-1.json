@@ -224,15 +224,13 @@
     {
       "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
-      "align": "center"
+      "left": "model.left"
     },
     {
       "id": "bottom-1",
-      "left": "model.left",
+      "left": "playback-container.right",
       "top": "model.bottom",
-      "margin-top": "0.7em"
+      "margin": "0.4em 0 0.2em 1em"
     },
     {
       "id": "bottom-2",

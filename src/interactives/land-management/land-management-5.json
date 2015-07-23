@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.22,
+  "aspectRatio": 1.25,
   "fontScale": 0.6,
   "models": [
     {
@@ -367,15 +367,13 @@
     {
       "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
-      "align": "center"
+      "left": "model.left"
     },
     {
       "id": "bottom-1",
-      "left": "model.left",
-      "top": "playback-container.bottom",
-      "margin-top": "0.5em",
+      "left": "playback-container.right + (model.width - playback-container.width - bottom-1.width) * 0.5",
+      "top": "model.bottom",
+      "margin-top": "0.4em",
       "border": "1px solid gray"
     },
     {
