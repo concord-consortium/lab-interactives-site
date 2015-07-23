@@ -10,7 +10,7 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
-  "helpOnLoad": false,
+  "helpOnLoad": true,
   "about": [
     "Control the amount of charge on two objects an observe how it affects ",
     "(1) the electric fields around the charged objects and ",
