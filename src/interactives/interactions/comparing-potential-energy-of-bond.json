@@ -10,7 +10,7 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
-  "helpOnLoad": false,
+  "helpOnLoad": true,
   "about": [
     "Explore the different strengths of dipole-dipole (polar) and London dispersion (non-polar)",
     "attractions. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
@@ -23,35 +23,6 @@
   "showBottomBar": true,
   "padding": 10,
   "models": [
-    {
-      "type": "md2d",
-      "id": "instructions",
-      "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/instructions.json",
-      "onLoad": "set('countPotential', 0);",
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false,
-        "textBoxes": [
-          {
-            "text": "Compare the energy it takes to separate molecules from each other with the energy it takes to separate atoms that are bonded together in a single molecule.",
-            "x": 0.3,
-            "y": 1.7,
-            "fontSize": 0.12,
-            "width": 2.7
-          },
-          {
-            "text": "Choose a pair of molecules from the menu below.",
-            "x": 0.3,
-            "y": 0.4,
-            "fontSize": 0.12,
-            "width": 2.7
-          }
-        ]
-      },
-      "modelOptions": {
-        "useDuration": false
-      }
-    },
     {
       "type": "md2d",
       "id": "npPulling",
@@ -242,7 +213,20 @@
     ],
   "outputs": [],
   "filteredOutputs": [],
-  "helpTips": [],
+  "helpTips": [
+   {
+      "component": "",
+      "text": [
+        "Explore the difference in attractive forces between polar and non-polar molecules."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "pulldown1",
+      "text": "Select two molecules or atoms to pull apart.",
+      "showcase": true
+    }
+  ],
   "exports": {
     "selectionComponents": [],
     "perRun": [
@@ -259,13 +243,9 @@
       "labelOn": "top",
       "options": [
         {
-          "text": "Select a pair of molecules",
-          "action": "loadModel('instructions');",
-          "selected": true
-        },
-        {
           "text": "pull two nonpolar molecules apart from each other",
-          "action": "loadModel('npPulling');"
+          "action": "loadModel('npPulling');",
+          "selected": true
         },
         {
           "text": "pull two polar molecules apart from each other",
