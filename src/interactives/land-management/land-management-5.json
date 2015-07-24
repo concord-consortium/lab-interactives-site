@@ -4,7 +4,7 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
+  "theme": ["has", "invisible-disabled-components"],
   "aspectRatio": 1.25,
   "fontScale": 0.6,
   "models": [
