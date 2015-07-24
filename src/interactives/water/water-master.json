@@ -85,23 +85,23 @@
     },
     {
       "name": "well0",
-      "value": "return iframeOutput('well0') || null"
+      "value": "return iframeOutput('well0') || 0"
     },
     {
       "name": "well1",
-      "value": "return iframeOutput('well1') || null"
+      "value": "return iframeOutput('well1') || 0"
     },
     {
       "name": "well2",
-      "value": "return iframeOutput('well2') || null"
+      "value": "return iframeOutput('well2') || 0"
     },
     {
       "name": "well3",
-      "value": "return iframeOutput('well3') || null"
+      "value": "return iframeOutput('well3') || 0"
     },
     {
       "name": "well4",
-      "value": "return iframeOutput('well4') || null"
+      "value": "return iframeOutput('well4') || 0"
     }
   ],
   "helpTips": [
@@ -239,7 +239,7 @@
       "min": 0,
       "max": 1,
       "title": "Rain probability",
-      "width": "98%",
+      "width": "85%",
       "steps": 50,
       "labels": [
         {
