@@ -18,6 +18,7 @@
         "climate": "temperate",
         "showErosion": false,
         "showSoilQuality": true,
+        "showSoilQualityKey": true,
         "showPrecipitationGraph": true,
         "landType": "Plain",
         "zone1Slope": 0,
