@@ -78,6 +78,8 @@
         "zone1ErosionCount",
         "zone2ErosionCount"
       ],
+      "enableZooming": false,
+      "enableAxisScaling": false,
       "xProperty": "year",
       "title": "Erosion Rates",
       "width": "100%",
@@ -109,6 +111,8 @@
         "topsoilInZone1",
         "topsoilInZone2"
       ],
+      "enableZooming": false,
+      "enableAxisScaling": false,
       "xProperty": "year",
       "title": "Amount of Topsoil in Zone",
       "width": "100%",
