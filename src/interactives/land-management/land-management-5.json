@@ -339,26 +339,6 @@
       "property": "userPrecipitation"
     },
     {
-      "type": "text",
-      "id": "soil-label",
-      "text": "##Soil quality"
-    },
-    {
-      "type": "div",
-      "id": "good-soil",
-      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(60, 51, 47)'></div> Good soil"
-    },
-    {
-      "type": "div",
-      "id": "medium-soil",
-      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(135, 79, 49)'></div> Medium soil"
-    },
-    {
-      "type": "div",
-      "id": "poor-soil",
-      "content": "<div style='display: inline-block; width: 2em; height: 1em; background: rgb(193, 114, 7)'></div> Poor soil"
-    },
-    {
       "type": "playback",
       "id": "playback"
     }
@@ -370,22 +350,9 @@
       "left": "model.left"
     },
     {
-      "id": "bottom-1",
-      "left": "playback-container.right + (model.width - playback-container.width - bottom-1.width) * 0.5",
-      "top": "model.bottom",
-      "margin-top": "0.4em",
-      "border": "1px solid gray"
-    },
-    {
-      "id": "bottom-right",
-      "left": "bottom-1.right",
-      "top": "model.bottom",
-      "margin-top": "0.5em"
-    },
-    {
       "id": "bottom-2",
       "left": "model.left",
-      "top": "bottom-1.bottom",
+      "top": "playback-container.bottom",
       "margin-top": "0.5em",
       "align": "center",
       "border": "1px solid gray",
@@ -404,7 +371,7 @@
     {
       "id": "bottom-4",
       "left": "bottom-2.right",
-      "top": "bottom-1.bottom",
+      "top": "playback-container.bottom",
       "bottom": "bottom-3.bottom",
       "margin-top": "0.5em",
       "margin-left": "0.5em",
@@ -434,9 +401,6 @@
   "layout": {
     "playback-container": [
       "playback"
-    ],
-    "bottom-1": [
-      ["soil-label", "good-soil", "medium-soil", "poor-soil"]
     ],
     "bottom-2": [
       ["landscape-label"],
