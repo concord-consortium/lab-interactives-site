@@ -1,8 +1,8 @@
 {
   "type": "md2d",
   "imagePath": "",
-  "width": 3.38,
-  "height": 1.88,
+  "width": 3.5,
+  "height": 2,
   "unitsScheme": "md2d",
   "lennardJonesForces": true,
   "coulombForces": true,
