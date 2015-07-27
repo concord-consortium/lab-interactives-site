@@ -33,5 +33,25 @@
   "helpTips": [
   ],
   "components": [
-  ]
+        {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+  
+    "layout": {
+    "playback-container":[
+    	"playback"
+    ]
+  },
+  "template": [
+  
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left", 
+      "margin": "0em 0 1em 0"
+    }
+    ]
 }
