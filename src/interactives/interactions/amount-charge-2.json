@@ -81,14 +81,19 @@
       "onChange": "setAtomProperties(0,{charge: value});"
     },
     {
+      "name": "x-cord",
+      "initialValue": 2.57
+    },
+    {
       "name": "show-second-atom",
       "initialValue": true,
       "onChange": [
         "if (value) {",
-        "  setAtomProperties(0, {charge: -2, visible: true, pinned:0, x:2.57});",
+        "  setAtomProperties(0, {charge: -2, visible: true, pinned:0, x:get('x-cord')});",
         "setTextBoxProperties(0, {color: 'rgb(255, 255, 0)'}); ",
         "setComponentDisabled('set-right-particle-charge',false);",       
         "} else {",
+        "set('x-cord',getAtomProperties(0).x);",
         "  setAtomProperties(0, {charge: 0, visible: false, pinned:1, x:5});",
         "setTextBoxProperties(0, {color: 'rgba(0, 0, 0,0)'}); ",
         "setComponentDisabled('set-right-particle-charge',true);",
