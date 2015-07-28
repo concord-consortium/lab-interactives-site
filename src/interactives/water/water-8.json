@@ -96,7 +96,8 @@
       "yFormatter": ".2r",
       "dataColors": [
         "#0000ff"
-      ]
+      ],
+      "syncXAxis": "wells-graph"
     },
     {
       "id": "wells-graph",
@@ -137,7 +138,8 @@
         "Well 3 Output",
         "Well 4 Output",
         "Well 5 Output"
-      ]
+      ],
+      "syncXAxis": "water-level-graph"
     },
     {
       "id": "playback",
