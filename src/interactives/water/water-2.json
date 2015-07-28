@@ -4,9 +4,9 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
-  "aspectRatio": 2.1,
-  "fontScale": 0.9,
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 1.75,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -22,7 +22,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3.25,
+        "aspectRatio": 2.7,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -66,36 +66,27 @@
       "text": "Follow water droplet",
       "width": "14em"
     },
-        {
+    {
       "id": "playback",
-      "type": "playback",
-      "stepping": true
+      "type": "playback"
     }
   ],
-  
-    "layout": {
-    "playback-container":[
-    	"playback"
-    ], 
-    "bottom-1":[
-    
-    "followRainButton"
+  "layout": {
+    "bottom": [
+      [
+        "playback"
+      ],
+      [
+        "followRainButton"
+      ]
     ]
   },
   "template": [
-  
     {
-      "id": "playback-container",
+      "id": "bottom",
       "top": "model.bottom",
-      "left": "model.left", 
-      "margin": "0em 0 1em 0"
-    },
-    {
-      "id": "bottom-1",
-      "top": "playback-container.bottom",
       "left": "model.left",
       "margin": "0.4em 0 0 0.2em 0"
-    
     }
-    ]
+  ]
 }  

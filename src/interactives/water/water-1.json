@@ -5,8 +5,8 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 2,
-  "fontScale": 0.9,
+  "aspectRatio": 1.9,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -80,19 +80,17 @@
     ]
   },
   "template": [
-  
     {
       "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left", 
-      "margin": "0em 0 1em 0"
+      "left": "model.left",
+      "margin": "0 0 1em 0"
     },
     {
       "id": "bottom-1",
       "top": "playback-container.bottom",
       "left": "model.left",
       "margin": "0.4em 0 0 0.2em 0"
-    
     }
-    ]
+  ]
 }

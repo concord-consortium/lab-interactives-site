@@ -4,8 +4,8 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
-  "aspectRatio": 1.4,
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 1.33,
   "fontScale": 0.8,
   "models": [
     {
@@ -33,7 +33,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3.25,
+        "aspectRatio": 2.7,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -252,6 +252,10 @@
         }
       ],
       "property": "rainProbability"
+    },
+    {
+      "id": "playback",
+      "type": "playback"
     }
   ],
   "template": [
@@ -259,7 +263,7 @@
       "id": "bottom-left",
       "left": "model.left",
       "top": "model.bottom",
-      "padding-top": "1.5em",
+      "padding-top": "0.5em",
       "padding-right": "0.5em"
     },
     {
@@ -286,6 +290,7 @@
   ],
   "layout": {
     "bottom-left": [
+      ["playback"],
       ["followRainButton"],
       ["templatePulldown"],
       ["rainSlider"]

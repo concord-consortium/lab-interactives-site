@@ -4,9 +4,9 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
-  "aspectRatio": 2.05,
-  "fontScale": 0.9,
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 1.4,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -24,7 +24,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3.25,
+        "aspectRatio": 2.7,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -55,10 +55,38 @@
     }
   ],
   "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('month') / 12;"
+    },
+    {
+      "name": "well0",
+      "value": "return iframeOutput('well0') || 0"
+    },
+    {
+      "name": "well1",
+      "value": "return iframeOutput('well1') || 0"
+    },
+    {
+      "name": "well2",
+      "value": "return iframeOutput('well2') || 0"
+    },
+    {
+      "name": "well3",
+      "value": "return iframeOutput('well3') || 0"
+    },
+    {
+      "name": "well4",
+      "value": "return iframeOutput('well4') || 0"
+    }
   ],
   "helpTips": [
   ],
   "components": [
+    {
+      "id": "playback",
+      "type": "playback"
+    },
     {
       "id": "followRainButton",
       "type": "button",
@@ -67,6 +95,76 @@
       ],
       "text": "Follow water droplet",
       "width": "14em"
+    },
+    {
+      "id": "wells-graph",
+      "type": "graph",
+      "properties": [
+        "well0",
+        "well1",
+        "well2",
+        "well3",
+        "well4"
+      ],
+      "enableZooming": false,
+      "enableAxisScaling": false,
+      "xProperty": "year",
+      "title": "Well output",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 10,
+      "ylabel": "Well output",
+      "ymin": 0,
+      "ymax": 600,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff",
+        "#989898",
+        "#000000"
+      ],
+      "legendLabels": [
+        "Well 1 Output",
+        "Well 2 Output",
+        "Well 3 Output",
+        "Well 4 Output",
+        "Well 5 Output"
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "playback"
+      ],
+      [
+        "followRainButton"
+      ]
+    ],
+    "bottom-right": [
+      "wells-graph"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "margin": "0.4em 0 0 0.2em 0"
+    },
+    {
+      "id": "bottom-right",
+      "right": "model.right",
+      "width": "model.width * 0.3",
+      "height": "model.width * 0.3",
+      "top": "model.bottom - model.height * 0.1",
+      "margin-top": "0.5em"
     }
   ]
 }

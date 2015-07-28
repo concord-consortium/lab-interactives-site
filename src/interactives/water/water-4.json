@@ -4,16 +4,16 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
-  "aspectRatio": 1.9,
-  "fontScale": 0.9,
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 1.5,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable#xMax=40",
         "template": "state/low-res/WaterModel-5-23-11-confinedAndUnconfined.json",
         "rainProbability": 0.4,
         "evapProbability": 20,
@@ -23,7 +23,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 3.25,
+        "aspectRatio": 1.7,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -54,10 +54,38 @@
     }
   ],
   "outputs": [
+    {
+      "name": "year",
+      "value": "return iframeOutput('month') / 12;"
+    },
+    {
+      "name": "well0",
+      "value": "return iframeOutput('well0') || 0"
+    },
+    {
+      "name": "well1",
+      "value": "return iframeOutput('well1') || 0"
+    },
+    {
+      "name": "well2",
+      "value": "return iframeOutput('well2') || 0"
+    },
+    {
+      "name": "well3",
+      "value": "return iframeOutput('well3') || 0"
+    },
+    {
+      "name": "well4",
+      "value": "return iframeOutput('well4') || 0"
+    }
   ],
   "helpTips": [
   ],
   "components": [
+    {
+      "type": "playback",
+      "id": "playback"
+    },
     {
       "id": "followRainButton",
       "type": "button",
@@ -73,7 +101,7 @@
       "min": 0,
       "max": 1,
       "title": "Rain probability",
-      "width": "24.5em",
+      "width": "15em",
       "steps": 50,
       "labels": [
         {
@@ -86,6 +114,73 @@
         }
       ],
       "property": "rainProbability"
+    },
+    {
+      "id": "wells-graph",
+      "type": "graph",
+      "properties": [
+        "well0",
+        "well1",
+        "well2",
+        "well3",
+        "well4"
+      ],
+      "enableZooming": false,
+      "enableAxisScaling": false,
+      "xProperty": "year",
+      "title": "Well output",
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (years)",
+      "xmin": 0,
+      "xmax": 10,
+      "ylabel": "Well output",
+      "ymin": 0,
+      "ymax": 600,
+      "xTickCount": 6,
+      "yTickCount": 6,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "dataColors": [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff",
+        "#989898",
+        "#000000"
+      ],
+      "legendLabels": [
+        "Well 1 Output",
+        "Well 2 Output",
+        "Well 3 Output",
+        "Well 4 Output",
+        "Well 5 Output"
+      ]
     }
-  ]
+  ],
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "width": "model.width * 0.6",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "padding": "0 0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "margin-top": "0.3em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["playback"],
+      ["followRainButton"],
+      ["rainSlider"]
+    ],
+    "right": [
+      "wells-graph"
+    ]
+  }
 }
