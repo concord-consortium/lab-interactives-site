@@ -65,7 +65,7 @@ CONFIG = YAML.load_file(branch_config)
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
-  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/version/1.6.0/lab",
+  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/branch/sensor-connector/lab",
   :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/version/1.6.0/lab",
   :staging     => config_lab_root_url[:staging]     || "//lab-framework.concord.org/version/1.6.0/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.concord.org/branch/master/lab",
