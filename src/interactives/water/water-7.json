@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has"],
-  "aspectRatio": 1.3,
+  "aspectRatio": 1.7,
   "fontScale": 0.8,
   "models": [
     {
@@ -102,8 +102,7 @@
       "yFormatter": ".2r",
       "dataColors": [
         "#0000ff"
-      ],
-      "syncXAxis": "wells-graph"
+      ]
     },
     {
       "id": "template",
@@ -119,48 +118,6 @@
           "value": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamB.json"
         }
       ]
-    },
-    {
-      "id": "wells-graph",
-      "type": "graph",
-      "properties": [
-        "well0",
-        "well1",
-        "well2",
-        "well3",
-        "well4"
-      ],
-      "enableZooming": false,
-      "enableAxisScaling": false,
-      "xProperty": "year",
-      "title": "Well output",
-      "width": "100%",
-      "height": "100%",
-      "xlabel": "Time (years)",
-      "xmin": 0,
-      "xmax": 10,
-      "ylabel": "Well output",
-      "ymin": 0,
-      "ymax": 600,
-      "xTickCount": 6,
-      "yTickCount": 6,
-      "xFormatter": "d",
-      "yFormatter": ".2r",
-      "dataColors": [
-        "#ff0000",
-        "#00ff00",
-        "#0000ff",
-        "#989898",
-        "#000000"
-      ],
-      "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Well 4 Output",
-        "Well 5 Output"
-      ],
-      "syncXAxis": "water-level-graph"
     },
     {
       "id": "playback",
@@ -186,14 +143,6 @@
       "width": "model.width * 0.5",
       "height": "model.width * 0.5",
       "margin": "0 0.3em"
-    },
-    {
-      "id": "right-bottom",
-      "top": "right-top.bottom",
-      "left": "model.right",
-      "width": "model.width * 0.5",
-      "height": "model.width * 0.5",
-      "margin": "0.3em"
     }
   ],
   "layout": {
@@ -204,9 +153,6 @@
       "template"
     ],
     "right-top": [
-      "wells-graph"
-    ],
-    "right-bottom": [
       "water-level-graph"
     ]
   }

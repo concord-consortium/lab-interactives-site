@@ -175,10 +175,10 @@
       "playback"
     ],
     "right-top": [
-      "wells-graph"
+      "water-level-graph"
     ],
     "right-bottom": [
-      "water-level-graph"
+      "wells-graph"
     ]
   }
 }

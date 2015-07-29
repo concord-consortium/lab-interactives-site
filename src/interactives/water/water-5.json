@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has", "standalone-playback"],
-  "aspectRatio": 1.4,
+  "aspectRatio": 1.8,
   "fontScale": 0.8,
   "models": [
     {
@@ -13,7 +13,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable#xMin=-165&xMax=150",
         "template": "state/low-res/WaterModel-5-23-11-goodVbadAquifers-Example-Layers.json",
         "rainProbability": 0.5,
         "evapProbability": 20,
@@ -24,7 +24,7 @@
         }
       },
       "viewOptions": {
-        "aspectRatio": 2.7,
+        "aspectRatio": 2.1,
         "controlButtons": "play_reset"
       },
       "onLoad": [
@@ -147,7 +147,7 @@
         "followRainButton"
       ]
     ],
-    "bottom-right": [
+    "right": [
       "wells-graph"
     ]
   },
@@ -159,12 +159,12 @@
       "margin": "0.4em 0 0 0.2em 0"
     },
     {
-      "id": "bottom-right",
-      "right": "model.right",
-      "width": "model.width * 0.3",
-      "height": "model.width * 0.3",
-      "top": "model.bottom - model.height * 0.1",
-      "margin-top": "0.5em"
+      "id": "right",
+      "left": "model.right",
+      "top": "model.top",
+      "width": "model.height * 0.9",
+      "height": "model.height * 0.9",
+      "margin": "0 0.4em"
     }
   ]
 }
