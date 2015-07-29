@@ -122,7 +122,7 @@
           "label": "fast"
         }
       ],
-      "width": "10em",
+      "width": "14em",
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
