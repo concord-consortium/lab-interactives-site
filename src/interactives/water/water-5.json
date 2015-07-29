@@ -4,7 +4,7 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has", "standalone-playback"],
+  "theme": ["has", "graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.8,
   "fontScale": 0.8,
   "models": [
@@ -117,7 +117,7 @@
       "xmax": 10,
       "ylabel": "Well output",
       "ymin": 0,
-      "ymax": 600,
+      "ymax": 630,
       "xTickCount": 6,
       "yTickCount": 6,
       "xFormatter": "d",

@@ -4,7 +4,7 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
+  "theme": ["has", "graph-title-bg"],
   "aspectRatio": 1.7,
   "fontScale": 0.8,
   "models": [
@@ -95,7 +95,7 @@
       "xmax": 10,
       "ylabel": "Water Level",
       "ymin": 0,
-      "ymax": 1200,
+      "ymax": 1250,
       "xTickCount": 6,
       "yTickCount": 6,
       "xFormatter": "d",
