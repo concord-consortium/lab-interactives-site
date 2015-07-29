@@ -4,7 +4,7 @@
   "subtitle": "Atmosphere & Land Interactions Without Graphs",
   "helpOnLoad": true,
   "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere.",
-  "theme": ["has","has-global-climate"],
+  "theme": ["has","standalone-playback"],
   "aspectRatio": 1.05,
   "fontScale": 0.9,
   "models": [
@@ -111,6 +111,7 @@
       "max": 60,
       "steps": 10,
       "title": "Simulation speed",
+      "fillColor": "#2DA343",
       "labels": [
         {
           "value": "left",
@@ -177,7 +178,7 @@
       "type": "button",
       "action": "subtractCO2();",
       "text": "Remove CO₂",
-      "width": "",
+      "width": "14em",
       "height": "",
       "disabled": false,
       "tooltip": "Remove carbon dioxide from the model."
@@ -203,7 +204,7 @@
         "set('followCO2', !get('followCO2'));"
       ],
       "text": "Follow CO₂",
-      "width": "10em",
+      "width": "14em",
       "height": "",
       "disabled": false,
       "tooltip": "Follow a greenhouse gas in the model."
@@ -213,44 +214,91 @@
       "type": "button",
       "action": "erupt();",
       "text": "Erupt!",
-      "width": "",
+      "width": "14em",
       "height": "",
       "disabled": false,
       "tooltip": "Add carbon dioxide to the model."
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
-  "layout": {
+ "layout": {
+    "playback-container": [
+      "playback"
+    ],
+    "bottom-1":[
+    	"speedSlider"
+    ],
     "bottomLeft": [
-      ["eruptButton", "removeCo2Button"],
-      ["followEnergyButton", "followCO2Button"],
-      ["speedSlider"]
+      [
+        "eruptButton",
+        "removeCo2Button"
+      ],
+      [
+        "followEnergyButton",
+        "followCO2Button"
+      ]
     ],
-    "bottomMiddle": [
-      "showLabel"
-    ],
-    "bottomRight": [
-      ["showGasesCheckbox"],
-      ["showRaysCheckbox"],
-      ["showHeatCheckbox"]
-    ]
+
+    "bottom-row-1": 
+      [
+      	"showLabel"
+      ],
+     "bottom-row-2":   
+      [
+        "showGasesCheckbox"
+      ],
+     "bottom-row-3": 
+      [
+        "showRaysCheckbox"
+      ],
+     "bottom-row-4": 
+      [
+        "showHeatCheckbox"
+      ]
+    
   },
   "template": [
     {
-      "id": "bottomLeft",
+      "id": "playback-container",
       "top": "model.bottom",
+      "left": "model.left",
+      "margin": "0.4em 0 0.2em 0"
+    
+    },
+    {
+      "id": "bottom-1",
+      "top": "model.bottom",
+      "left": "playback-container.right",
+      "margin": "0.4em 0 0 0.2em 0"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "bottom-row-1.bottom",
       "left": "model.left"
     },
     {
-      "id": "bottomRight",
-      "top": "model.bottom",
-      "right": "model.right"
+      "id": "bottom-row-1",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
     },
     {
-      "id": "bottomMiddle",
-      "top": "model.bottom",
-      "right": "bottomRight.left",
-      "padding-top": "0.2em",
-      "padding-right": "0.2em"
+      "id": "bottom-row-2",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-1.right"
+    },
+        {
+      "id": "bottom-row-3",
+      "top": "bottom-1.bottom",
+     "left": "bottom-row-2.right"
+    },
+        {
+      "id": "bottom-row-4",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-3.right"
     }
   ]
 }
