@@ -4,7 +4,10 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
+  "theme": [
+    "has",
+    "standalone-playback"
+  ],
   "aspectRatio": 1.9,
   "fontScale": 0.8,
   "models": [
