@@ -121,6 +121,8 @@
       "max": 100,
       "steps": 10,
       "title": "Wind",
+      "fillColor": "#A469BD",
+      "fillToValue": 0,
       "labels": [
         {
           "value": "left",
