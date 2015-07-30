@@ -1,18 +1,36 @@
 {
   "title": "Air Pollution (master)",
   "publicationStatus": "draft",
+  "labEnvironment": "production",
   "subtitle": "Air Pollution",
-  "helpOnLoad": false,
-  "about": "TODO",
-  "theme": ["has","has-air-pollution","no-slider-bar"],
-  "aspectRatio": 1.37,
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.9,
   "fontScale": 0.6,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": "TODO",
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar"
+  ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
-      "modelOptions":{
+      "onLoad": [],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
         "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable.html",
         "includeSunlight": true,
         "sunlightAmount": 6,
@@ -24,15 +42,11 @@
         "factoryPollutionRate": 100,
         "electricCarPercentage": 25,
         "temperature": 50
-      },
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      },
-      "onLoad": []
+      }
     }
   ],
-  "parameters": [
-  ],
+  "propertiesToRetain": [],
+  "parameters": [],
   "outputs": [
     {
       "name": "ticks",
@@ -47,29 +61,34 @@
       "value": "return iframeOutput('secondaryAQI');"
     }
   ],
+  "filteredOutputs": [],
   "helpTips": [
     {
       "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the **Erupt** button to release carbon dioxide.",
-      "",
-      "",
-      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
-      "in the atmosphere.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
+      "text": [
+        "#How do I use this model?",
+        "---",
+        "Press the **Erupt** button to release carbon dioxide.",
+        "",
+        "",
+        "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
+        "in the atmosphere.",
+        "",
+        "",
+        "You can hover over the controls for more information. Click to close this window."
+      ],
+      "showcase": true
     }
   ],
+  "dataSets": [],
   "components": [
     {
       "id": "aqiGraph",
       "type": "graph",
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
-      "enableAxisScaling": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
@@ -79,18 +98,20 @@
       "markAllDataPoints": false,
       "showRulersOnSelection": false,
       "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
       "properties": [
         "primaryAQI",
         "secondaryAQI"
       ],
       "xProperty": "ticks",
       "title": "Air Pollutants",
+      "titlePosition": "center",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
       "xlabel": "Time (ticks)",
       "xmin": 0,
-      "xmax": 2000,
+      "xmax": 100,
       "ylabel": "AQI (Air Quality Index)",
       "ymin": 0,
       "ymax": 300,
@@ -102,14 +123,15 @@
       "yFormatter": "0f",
       "lines": true,
       "bars": false,
+      "tooltip": "",
       "dataColors": [
         "#664935",
         "#F47921",
         "#000000"
       ],
       "legendLabels": [
-          "Primary Pollutants",
-          "Secondary Pollutants"
+        "Primary Pollutants",
+        "Secondary Pollutants"
       ],
       "legendVisible": true,
       "syncXAxis": false,
@@ -123,8 +145,8 @@
       "max": 100,
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Wind</span>",
-      "titlePosition": "left",
-      "fillColor": "#C8C8FF",
+      "titlePosition": "top",
+      "fillColor": "#A469BD",
       "fillToValue": 0,
       "labels": [
         {
@@ -140,12 +162,13 @@
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "windSpeed",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed and direction of the wind."
+      "tooltip": "Change the speed and direction of the wind.",
+      "helpIcon": false
     },
     {
       "id": "carsSlider",
@@ -154,8 +177,8 @@
       "max": 10,
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Cars</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -166,12 +189,13 @@
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "numCars",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of cars."
+      "tooltip": "Change the number of cars.",
+      "helpIcon": false
     },
     {
       "id": "factoriesSlider",
@@ -180,8 +204,8 @@
       "max": 5,
       "steps": 5,
       "title": "<span style='display: inline-block; width: 6.5em;'>Power Plants</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -192,12 +216,13 @@
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "numFactories",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of power plants."
+      "tooltip": "Change the number of power plants.",
+      "helpIcon": false
     },
     {
       "id": "temperatureSlider",
@@ -206,8 +231,8 @@
       "max": 100,
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Temperature</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -218,12 +243,13 @@
           "label": "Hot"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "temperature",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the temperature."
+      "tooltip": "Change the temperature.",
+      "helpIcon": false
     },
     {
       "id": "sunSlider",
@@ -232,8 +258,8 @@
       "max": 10,
       "steps": 10,
       "title": "<span style='display: inline-block; width: 9.7em;'>Sunlight</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -244,12 +270,13 @@
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "sunlightAmount",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of sunlight."
+      "tooltip": "Change the amount of sunlight.",
+      "helpIcon": false
     },
     {
       "id": "rainSlider",
@@ -258,8 +285,8 @@
       "max": 6,
       "steps": 6,
       "title": "<span style='display: inline-block; width: 9.7em;'>Rain</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -270,12 +297,13 @@
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "rainRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of rain."
+      "tooltip": "Change the amount of rain.",
+      "helpIcon": false
     },
     {
       "id": "carPollutionSlider",
@@ -284,8 +312,8 @@
       "max": 100,
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Car pollution</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -296,12 +324,13 @@
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "carPollutionRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of pollution produced by each car."
+      "tooltip": "Change the amount of pollution produced by each car.",
+      "helpIcon": false
     },
     {
       "id": "factoryPollutionSlider",
@@ -310,8 +339,8 @@
       "max": 100,
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Power plant pollution</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": "left",
@@ -322,12 +351,13 @@
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "factoryPollutionRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of pollution produced by each power plant."
+      "tooltip": "Change the amount of pollution produced by each power plant.",
+      "helpIcon": false
     },
     {
       "id": "electricCarsSlider",
@@ -336,8 +366,8 @@
       "max": 100,
       "steps": 10,
       "title": "<span style='display: inline-block; width: 9.7em;'>Electric cars</span>",
-      "titlePosition": "left",
-      "fillColor": "#ff0000",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
       "labels": [
         {
           "value": 0,
@@ -352,57 +382,78 @@
           "label": "100%"
         }
       ],
-      "width": "100%",
+      "width": "18em",
       "height": "auto",
       "property": "electricCarPercentage",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the percentage of cars which are electric."
+      "tooltip": "Change the percentage of cars which are electric.",
+      "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
   "layout": {
+    
+     "playback-container": [
+      "playback"
+    ],
     "bottomLeft": [
-      ["windSlider"],
-      ["carsSlider"],
-      ["factoriesSlider"],
-      ["temperatureSlider"]
+      [
+        "windSlider"
+      ],
+      [
+        "temperatureSlider"
+      ],
+       [
+        "sunSlider"
+      ],
+      [
+        "rainSlider"
+      ],
+           [
+        "carsSlider"
+      ],
+      [
+        "carPollutionSlider"
+      ],
+      [
+        "electricCarsSlider"
+      ],
+      [
+        "factoriesSlider"
+      ],
+      [
+        "factoryPollutionSlider"
+      ]
     ],
     "topRight": [
-      ["aqiGraph"]
-    ],
-    "bottomRight": [
-      ["sunSlider"],
-      ["rainSlider"],
-      ["carPollutionSlider"],
-      ["electricCarsSlider"],
-      ["factoryPollutionSlider"]
+      [
+        "aqiGraph"
+      ]
     ]
+    
   },
-  "template": [
+ "template": [
     {
-      "id": "bottomLeft",
+      "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "interactive.width / 2",
-      "height": "15em",
-      "padding-top": "0.5em",
-      "padding-right": "1em"
+      "left": "model.left"
     },
     {
-      "id": "bottomRight",
-      "top": "model.bottom",
-      "right": "interactive.right",
-      "width": "interactive.width / 2",
-      "height": "15em",
-      "padding-top": "0.5em",
-      "padding-right": "1em"
+      "id": "bottomLeft",
+      "top": "playback-container.bottom",
+      "left": "model.left"
     },
     {
       "id": "topRight",
+      "top": "model.top",
       "left": "model.right",
-      "width": "0.56 * model.width",
+      "width": "0.75 * model.width",
       "height": "model.height",
-      "padding-bottom": "1em",
       "padding-left": "0.5em"
     }
   ]
