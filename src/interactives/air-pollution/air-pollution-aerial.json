@@ -4,8 +4,8 @@
   "subtitle": "Aerial View",
   "helpOnLoad": true,
   "about": "Explore the effect of wind and geography on regional air quality.",
-  "theme": ["has","has-air-pollution"],
-  "aspectRatio": 1.6,
+  "theme": ["has","standalone-playback"],
+  "aspectRatio": 1.2,
   "fontScale": 0.8,
   "models": [
     {
@@ -59,14 +59,6 @@
   ],
   "components": [
     {
-      "id": "instructions",
-      "type": "text",
-      "text": "Click on the model to add up to four power plants.",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
-    },
-    {
       "id": "airQualityTitle",
       "type": "text",
       "text": "Air Quality",
@@ -97,8 +89,8 @@
       "title": "Wind",
       "property": "wind",
       "scale": 30,
-      "width": "100%",
-      "height": "100%",
+      "width": "10em",
+      "height": "10em",
       "tooltip": "Move the joystick to change the wind direction and speed.",
       "displayValue":[
         "var speed = Math.round(value.magnitude),",
@@ -141,40 +133,51 @@
       "colorValue": "return 'hsl('+value+',100%,50%)';",
       "tooltip": "",
       "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
-  "layout": {
-    "belowModel": [
-      ["instructions"]
+ "layout": {
+	"playback-container": [
+      "playback"
     ],
     "rightTop": [
-      ["airQualityTitle"],
-      ["city-a-aq"],
-      ["city-b-aq"],
-      ["city-c-aq"]
+      [
+        "airQualityTitle"
+      ],
+      [
+        "city-a-aq"
+      ],
+      [
+        "city-b-aq"
+      ],
+      [
+        "city-c-aq"
+      ]
     ],
     "rightRightTop": [
       "scale"
     ],
-    "rightBottom": [
-      ["windJoystick"]
+    "bottom-1": [
+      [
+        "windJoystick"
+      ]
     ]
   },
   "template": [
     {
-      "id": "belowModel",
+      "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
-      "height": "1em",
-      "padding-left": "1em"
+      "left": "model.left"
+    
     },
     {
-      "id": "rightBottom",
-      "left": "model.right",
-      "bottom": "model.bottom",
-      "width": "0.3 * model.width",
-      "height": "interactive.height / 2",
+      "id": "bottom-1",
+      "left": "model.width / 3",
+      "top": "playback-container.bottom",
       "padding-left": "0.5em"
     },
     {
