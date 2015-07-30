@@ -147,7 +147,8 @@
       "type": "graph",
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
-      "enableAxisScaling": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
@@ -188,7 +189,7 @@
           "Air temperature"
       ],
       "legendVisible": true,
-      "syncXAxis": false,
+      "syncXAxis": "co2Graph",
       "syncYAxis": false,
       "helpIcon": true
     },
@@ -197,7 +198,8 @@
       "type": "graph",
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
-      "enableAxisScaling": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
@@ -238,7 +240,7 @@
         	"CO₂ in Atmosphere"
       ],
       "legendVisible": true,
-      "syncXAxis": false,
+      "syncXAxis": "temperatureGraph",
       "syncYAxis": false
     },
     {
