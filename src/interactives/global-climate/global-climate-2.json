@@ -371,13 +371,7 @@
     "rightBottom": [
       "co2Graph"
     ],
-    "rightTop": [
-      "temperatureGraph"
-    ],
-    "rightBottom": [
-      "co2Graph"
-    ],
-	"playback-container": [
+"playback-container": [
       "playback"
     ],
     "bottom-1":[
