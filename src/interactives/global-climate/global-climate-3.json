@@ -7,8 +7,8 @@
   "",
             "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
            ],
-  "theme": ["has","has-global-climate"],
-  "aspectRatio": 1.49,
+  "theme": ["has","standalone-playback"],
+  "aspectRatio": 1.05,
   "fontScale": 0.7,
   "models": [
     {
@@ -279,6 +279,7 @@
       "max": 60,
       "steps": 10,
       "title": "Simulation speed",
+      "fillColor": "#2DA343",
       "labels": [
         {
           "value": "left",
@@ -289,7 +290,7 @@
           "label": "fast"
         }
       ],
-      "width": "9em",
+      "width": "14em",
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
@@ -303,6 +304,7 @@
       "max": 20,
       "steps": 100,
       "title": "Temperature",
+        "fillColor": "#459ACE",
       "labels": [
         {
           "value": 0,
@@ -372,7 +374,7 @@
         "set('followEnergy', !get('followEnergy'));"
       ],
       "text": "Follow energy packet",
-      "width": "13em",
+      "width": "12em",
       "height": "",
       "disabled": false,
       "tooltip": "Follow an energy packet from the Sun."
@@ -385,42 +387,63 @@
         "set('followCO2', !get('followCO2'));"
       ],
       "text": "Follow CO₂",
-      "width": "10em",
+      "width": "12em",
       "height": "",
       "disabled": false,
       "tooltip": "Follow a greenhouse gas in the model."
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
-  "layout": {
+ "layout": {
     "rightTop": [
       "temperatureGraph"
     ],
     "rightBottom": [
       "co2Graph"
     ],
+    "bottom-Tempslider": [
+      "tempSlider"],
+      
+     "playback-container": [
+      "playback"
+    ],
+    "bottom-1":[
+    	"speedSlider"
+    ],
     "bottomLeft": [
-      ["tempSlider"],
       [
         "followEnergyButton",
         "followCO2Button"
+      ]
+    ],
+
+    "bottom-row-1": 
+      [
+      	"showLabel"
       ],
-      ["speedSlider"]
-    ],
-    "bottomMiddle": [
-      "showLabel"
-    ],
-    "bottomRight": [
-      ["showGasesCheckbox"],
-      ["showRaysCheckbox"],
-      ["showHeatCheckbox"]
-    ]
+     "bottom-row-2":   
+      [
+        "showGasesCheckbox"
+      ],
+     "bottom-row-3": 
+      [
+        "showRaysCheckbox"
+      ],
+     "bottom-row-4": 
+      [
+        "showHeatCheckbox"
+      ]
   },
   "template": [
     {
       "id": "rightTop",
       "left": "model.right",
       "width": "0.7 * model.width",
-      "height": "0.5 * interactive.height",
+      "height": "0.45 * interactive.height",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
     },
@@ -429,25 +452,50 @@
       "left": "model.right",
       "top": "rightTop.bottom",
       "width": "0.7 * model.width",
-      "height": "0.5 * interactive.height",
+      "height": "0.45 * interactive.height",
       "padding-left": "0.5em"
     },
     {
-      "id": "bottomLeft",
+      "id": "bottom-Tempslider",
+      "top": "bottom-row-1.bottom",
+      "left": "model.left"
+    },
+   {
+      "id": "playback-container",
       "top": "model.bottom",
+      "left": "model.left"
+    
+    },
+    {
+      "id": "bottom-1",
+      "top": "model.bottom",
+      "left": "playback-container.right"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "bottom-Tempslider.bottom",
       "left": "model.left"
     },
     {
-      "id": "bottomRight",
-      "top": "model.bottom",
-      "right": "model.right"
+      "id": "bottom-row-1",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
     },
     {
-      "id": "bottomMiddle",
-      "top": "model.bottom",
-      "right": "bottomRight.left",
-      "padding-top": "0.2em",
-      "padding-right": "0.2em"
+      "id": "bottom-row-2",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-1.right"
+    },
+        {
+      "id": "bottom-row-3",
+      "top": "bottom-1.bottom",
+     "left": "bottom-row-2.right"
+    },
+        {
+      "id": "bottom-row-4",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-3.right"
+
     }
   ]
 }
