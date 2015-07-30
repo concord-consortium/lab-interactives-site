@@ -7,7 +7,7 @@
   "",
   "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
   ],
-  "theme": ["has","has-global-climate"],
+  "theme": ["has","standalone-playback"],
   "aspectRatio": 1.6,
   "fontScale": 0.7,
   "models": [
@@ -129,7 +129,8 @@
       "type": "graph",
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
-      "enableAxisScaling": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
@@ -179,7 +180,8 @@
       "type": "graph",
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
-      "enableAxisScaling": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
