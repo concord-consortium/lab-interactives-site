@@ -4,7 +4,7 @@
   "subtitle": "Wind, Geography, and Pollution Sources (no graph)",
   "helpOnLoad": true,
   "about": "Explore some factors that affect the pollution levels over a city.",
-  "theme": ["has","has-air-pollution","no-slider-bar"],
+  "theme": ["has","standalone-playback","no-slider-bar"],
   "aspectRatio": 0.98,
   "fontScale": 0.9,
   "models": [
@@ -78,7 +78,7 @@
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
-      "width": "100%",
+      "width": "25em",
       "height": "auto",
       "property": "windSpeed",
       "retainProperty": true,
@@ -103,7 +103,7 @@
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
-      "width": "100%",
+      "width": "25em",
       "height": "auto",
       "property": "numCars",
       "retainProperty": true,
@@ -128,37 +128,47 @@
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
-      "width": "100%",
+      "width": "25em",
       "height": "auto",
       "property": "numFactories",
       "retainProperty": true,
       "disabled": false,
       "tooltip": "Change the number of power plants."
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
-  "layout": {
-    "bottomLeft": [
-      ["windSlider"],
-      ["carsSlider"],
-      ["factoriesSlider"]
+   "layout": {
+    "playback-container": [
+      "playback"
     ],
-    "bottomRight": [
+    "bottomLeft": [
+      [
+        "windSlider"
+      ],
+      [
+        "carsSlider"
+      ],
+      [
+        "factoriesSlider"
+      ]
     ]
   },
   "template": [
     {
-      "id": "bottomLeft",
+      "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "interactive.width / 2",
-      "padding-right": "1em"
+      "left": "model.left"
+    
     },
+    
     {
-      "id": "bottomRight",
-      "top": "model.bottom",
-      "right": "interactive.right",
-      "width": "interactive.width / 2",
-      "padding-right": "1em"
+      "id": "bottomLeft",
+      "top": "playback-container.bottom",
+      "left": "model.left"
     }
   ]
 }
