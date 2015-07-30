@@ -374,7 +374,7 @@
       "id": "rightTop",
       "left": "model.right",
       "width": "0.7 * model.width",
-      "height": "0.45 * interactive.height",
+      "height": "0.5 * interactive.height",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
     },
@@ -383,7 +383,7 @@
       "left": "model.right",
       "top": "rightTop.bottom",
       "width": "0.7 * model.width",
-      "height": "0.45 * interactive.height",
+      "height": "0.5 * interactive.height",
       "padding-left": "0.5em"
     },
     {
