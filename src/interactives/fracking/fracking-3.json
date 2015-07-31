@@ -4,8 +4,8 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has"],
-  "aspectRatio": 1.5,
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 1.2,
   "fontScale": 0.8,
   "models": [
     {
@@ -116,6 +116,7 @@
       "type": "button",
       "id": "explode-btn",
       "text": "Set off explosions",
+      "width": "20em",
       "disabled": true,
       "action": "explode()"
     },
@@ -123,7 +124,7 @@
       "type": "button",
       "id": "fill-water-btn",
       "text": "Fill with water",
-      "width": "11em",
+      "width": "9em",
       "disabled": true,
       "action": "floodWater()"
     },
@@ -131,7 +132,7 @@
       "type": "button",
       "id": "fill-propane-btn",
       "text": "Fill with propane",
-      "width": "11em",
+      "width": "9em",
       "disabled": true,
       "action": "floodPropane()"
     },
@@ -139,6 +140,7 @@
       "type": "button",
       "id": "pump-out-btn",
       "text": "Pump out fracking fluid",
+      "width": "20em",
       "disabled": true,
       "action": "pumpOut(); if (!get('initialYear')) { set('initialYear', get('year')); }"
     },
@@ -152,6 +154,8 @@
         "wellsCombined"
       ],
       "xProperty": "graphYear",
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "title": "Methane Production",
       "width": "100%",
       "height": "100%",
@@ -172,15 +176,17 @@
         "#000000"
       ],
       "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Combined Output"
+        "Well 1",
+        "Well 2",
+        "Well 3",
+        "Combined"
       ],
       "syncXAxis": "contaminant-graph"
     },
     {
       "id": "contaminant-graph",
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "type": "graph",
       "properties": [
         "leakedMethane",
@@ -195,7 +201,7 @@
       "xmax": 40,
       "ylabel": "Contaminants",
       "ymin": 0,
-      "ymax": 250,
+      "ymax": 100,
       "xTickCount": 6,
       "yTickCount": 6,
       "xFormatter": "d",
@@ -205,60 +211,22 @@
         "#44a000"
       ],
       "legendLabels": [
-        "Leaked Methane",
-        "Pond Waste"
+        "Leaked methane",
+        "Pond waste"
       ],
       "syncXAxis": "methane-graph"
-    }
-  ],
-  "template": [
-    {
-      "id": "bottom-1",
-      "left": "model.left",
-      "top": "model.bottom",
-      "padding-top": "0.8em"
     },
     {
-      "id": "bottom-2",
-      "left": "bottom-1.right",
-      "top": "model.bottom",
-      "padding-top": "1.95em",
-      "padding-left": "1.5em"
-    },
-    {
-      "id": "bottom-3",
-      "left": "bottom-2.right",
-      "top": "model.bottom",
-      "padding-top": "0.5em",
-      "padding-left": "0.5em"
-    },
-    {
-      "id": "bottom-4",
-      "left": "bottom-3.right",
-      "top": "model.bottom",
-      "padding-top": "1.95em",
-      "padding-left": "0.6em"
-    },
-    {
-      "id": "right-top",
-      "width": "model.width * 0.5",
-      "height": "model.height * 0.5",
-      "left": "model.right",
-      "top": "model.top",
-      "padding-left": "0.3em",
-      "padding-right": "0.5em"
-    },
-    {
-      "id": "right-bottom",
-      "width": "model.width * 0.5",
-      "height": "model.height * 0.5",
-      "left": "model.right",
-      "top": "right-top.bottom",
-      "padding-left": "0.3em",
-      "padding-right": "0.5em"
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
   "layout": {
+		"playback-container": [
+      "playback"
+    ],
+    
     "bottom-1": [
       "drill"
     ],
@@ -266,8 +234,12 @@
       "explode-btn"
     ],
     "bottom-3": [
-      ["fill-water-btn"],
-      ["fill-propane-btn"]
+      
+        "fill-water-btn"
+      ,
+      
+        "fill-propane-btn"
+      
     ],
     "bottom-4": [
       "pump-out-btn"
@@ -278,5 +250,51 @@
     "right-bottom": [
       "contaminant-graph"
     ]
-  }
+  },
+  "template": [
+    {"id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "playback-container.bottom",
+      "padding-top": "0.8em"
+    },
+    {
+      "id": "bottom-2",
+      "left": "model.left",
+      "top": "bottom-1.bottom",
+      "padding-top": "1.5em"
+    },
+    {
+      "id": "bottom-3",
+      "left": "model.left",
+      "top": "bottom-2.bottom",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "bottom-4",
+      "left": "model.left",
+      "top": "bottom-3.bottom",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "right-top",
+      "width": "model.width * 0.55",
+      "height": "model.height * 0.9",
+      "left": "model.right",
+      "top": "model.top",
+      "padding-left": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "width": "model.width * 0.55",
+      "height": "model.height * 0.9",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "padding-left": "0.3em"
+    }
+  ]
 }
