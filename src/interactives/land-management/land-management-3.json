@@ -5,7 +5,7 @@
   "helpOnLoad": true,
   "about": "",
   "theme": ["has", "invisible-disabled-components"],
-  "aspectRatio": 1.35,
+  "aspectRatio": 1.2,
   "fontScale": 0.6,
   "models": [
     {
@@ -389,7 +389,7 @@
     {
       "id": "right-top",
       "width": "model.width * 0.5",
-      "height": "interactive.height * 0.5",
+      "height": "model.height",
       "left": "model.right",
       "top": "model.top",
       "padding-left": "0.3em",
@@ -398,7 +398,7 @@
     {
       "id": "right-bottom",
       "width": "model.width * 0.5",
-      "height": "interactive.height * 0.5",
+      "height": "model.height",
       "left": "model.right",
       "top": "right-top.bottom",
       "padding-left": "0.3em",
