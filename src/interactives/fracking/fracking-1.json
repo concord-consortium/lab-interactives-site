@@ -168,10 +168,10 @@
         "#000000"
       ],
       "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Combined Output"
+        "Well 1",
+        "Well 2",
+        "Well 3",
+        "Combined"
       ]
     },
     {
