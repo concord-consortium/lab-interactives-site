@@ -217,13 +217,13 @@
     {
       "component": "",
       "text": [
-        "Non-polar molecules:\n London dispersion attraction"
+        "Compare the energy it takes to separate molecules from each other with the energy it takes to separate atoms that are bonded together in a single molecule."
       ],
       "showcase": true
     },
     {
       "component": "pulldown1",
-      "text": "Compare the energy it takes to separate molecules from each other with the energy it takes to separate atoms that are bonded together in a single molecule.",
+      "text": "Select two molecules or atoms to pull apart.",
       "showcase": true
     }
   ],
