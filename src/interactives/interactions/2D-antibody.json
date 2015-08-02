@@ -140,7 +140,7 @@
     {
       "id": "shape-2",
       "type": "image",
-      "onClick": "loadModel('antibodyDesign2');",
+      "onClick": "loadModel('antibodyDesign4');",
       "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape2.png",
       "urlRelativeTo": "page",
       "width": "auto",
@@ -162,7 +162,7 @@
     {
       "id": "shape-4",
       "type": "image",
-      "onClick": "loadModel('antibodyDesign4');",
+      "onClick": "loadModel('antibodyDesign2');",
       "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape4.png",
       "urlRelativeTo": "page",
       "width": "auto",
