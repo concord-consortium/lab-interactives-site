@@ -3,83 +3,187 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
-  "aspectRatio": 1.0,
+  "aspectRatio": 0.9,
+  "helpOnLoad": true,
   "models": [
-    {
-      "type": "md2d",
-      "id": "instruction",
-      "url": "models/lab-version/1/md2d/interactions/2D-antibody/instruction.json",
-      "viewOptions": {
-        "controlButtons": "play",
-        "imageMapping": {
-          "star.png": "star.svg"
-        }
-      },
-      "onLoad": "start();"
-    },
     {
       "type": "md2d",
       "id": "antibodyDesign1",
       "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign1.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
-      "onLoad": "start();"
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('radio',true);",
+        "});",
+        "onStop(function() {",
+         " setComponentDisabled('radio',false);",
+        "});"
+      ]
     },
     {
       "type": "md2d",
       "id": "antibodyDesign2",
       "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign2.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
-      "onLoad": "start();"
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('radio',true);",
+        "});",
+        "onStop(function() {",
+         " setComponentDisabled('radio',false);",
+        "});"
+      ]
     },
     {
       "type": "md2d",
       "id": "antibodyDesign3",
       "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign3.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
-      "onLoad": "start();"
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('radio',true);",
+        "});",
+        "onStop(function() {",
+         " setComponentDisabled('radio',false);",
+        "});"
+      ]
     },
     {
       "type": "md2d",
       "id": "antibodyDesign4",
       "url": "models/lab-version/1/md2d/interactions/2D-antibody/antibodyDesign4.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
-      "onLoad": "start();"
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('radio',true);",
+        "});",
+        "onStop(function() {",
+         " setComponentDisabled('radio',false);",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Above is an antigen. Select an antibody ",
+        "shape from the images to the right, and ",
+        "modify it with the charge tools above,",
+        "so that it will form the  best attraction to the antigen."
+      ],
+      "showcase": true
     }
   ],
   "components": [
     {
-      "type": "pulldown",
-      "id": "pulldown1",
+      "id": "radio-label",
+      "type": "text",
+      "text": "Actions : ",
+      "width": "5em",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "radio",
+      "id": "radio",
+      "orientation": "horizontal",      
+      "label": "",
       "options": [
         {
-          "text": "Select an antibody shape",
-          "action": "loadModel('instruction');"
+          "text": "Nothing",
+          "selected": true
         },
         {
-          "text": "shape1",
-          "action": "loadModel('antibodyDesign1');"
+          "text": "Increase Charge",
+          "action": [
+              "  onClick('atom', function(x, y, d, i) {",
+              "  setAtomProperties(i, {charge: getAtomProperties(i).charge + 0.1});",
+               " });"
+                   ]
         },
         {
-          "text": "shape2",
-          "action": "loadModel('antibodyDesign2');"
-        },
-        {
-          "text": "shape3",
-          "action": "loadModel('antibodyDesign3');"
-        },
-        {
-          "text": "shape4",
-          "action": "loadModel('antibodyDesign4');"
+          "text": "Decrease Charge",
+           "action": [
+              "  onClick('atom', function(x, y, d, i) {",
+              "  setAtomProperties(i, {charge: getAtomProperties(i).charge - 0.1});",
+              " });"
+                   ]
         }
       ]
+    },
+    {
+      "id": "shape-1",
+      "type": "image",
+      "onClick": "loadModel('antibodyDesign1');",
+      "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape1.png",
+      "urlRelativeTo": "page",
+      "width": "auto",
+      "height": "3em",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "shape-2",
+      "type": "image",
+      "onClick": "loadModel('antibodyDesign2');",
+      "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape2.png",
+      "urlRelativeTo": "page",
+      "width": "auto",
+      "height": "3em",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "shape-3",
+      "type": "image",
+      "onClick": "loadModel('antibodyDesign3');",
+      "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape3.png",
+      "urlRelativeTo": "page",
+      "width": "auto",
+      "height": "3em",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "shape-4",
+      "type": "image",
+      "onClick": "loadModel('antibodyDesign4');",
+      "src": "models/lab-version/1/md2d/interactions/2D-antibody/shape4.png",
+      "urlRelativeTo": "page",
+      "width": "auto",
+      "height": "3em",
+      "tooltip": "",
+      "helpIcon": false
     }
-  ]
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "radio-label",
+        "radio"
+      ],
+      [
+        "shape-1",
+        "shape-2",
+        "shape-3",
+        "shape-4"
+      ]
+    ]
+  },
+  "template": "simple"
 }
