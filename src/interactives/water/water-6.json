@@ -18,8 +18,7 @@
         "rainProbability": 0.4,
         "evapProbability": 20,
         "controls": {
-          "removalWell": true,
-          "irrigationWell": true,
+          "wells": true,
           "remove": "well"
         }
       },

@@ -34,8 +34,7 @@
           "debug": false
         },
         "controls": {
-          "irrigationWell": true,
-          "removalWell": true,
+          "wells": true,
           "water": true,
           "draw": true,
           "remove": true
@@ -282,7 +281,8 @@
       "left": "bottom-left.right",
       "width": "(interactive.width - bottom-left.width) * 0.5",
       "top": "model.bottom",
-      "bottom": "interactive.bottom"
+      "bottom": "interactive.bottom",
+      "padding-top": "0.3em"
     },
     {
       "id": "bottom-right",
@@ -290,7 +290,8 @@
       "width": "(interactive.width - bottom-left.width) * 0.5",
       "top": "model.bottom",
       "bottom": "interactive.bottom",
-      "padding-right": "0.5em"
+      "padding-right": "0.5em",
+      "padding-top": "0.3em"
     },
     {
       "id": "right-padding",

@@ -19,7 +19,7 @@
         "evapProbability": 20,
         "controls": {
           "water": true,
-          "irrigationWell": true,
+          "wells": "irrigation",
           "remove": ["water", "well"]
         }
       },
