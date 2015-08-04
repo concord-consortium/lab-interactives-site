@@ -3,6 +3,7 @@
   "publicationStatus": "public",
   "subtitle": "Explore the force between charged objects.",
   "aspectRatio": 1.6,
+  "helpOnLoad": true,
   "about": [
     "One way to represent an electric field is through a map of vectors that show ",
     "the force felt by a positive charge in that field. Force ",
@@ -105,6 +106,13 @@
       ]
     }
   ],
+   "helpTips": [
+    {
+      "component": "",
+      "text": "Use the draggable object to observe the strength and direction of the force it feels. Use the trace button to track the pattern of forces.",
+      "showcase": true
+    }
+  ],
   "components": [
     {
       "type": "button",
@@ -134,7 +142,7 @@
       "type": "checkbox",
       "id": "toggle-trace-force-vectors",
       "property": "trace-force-vectors",
-      "text": "Trace force vectors"
+      "text": "Trace force pointers"
     },
     {
       "type": "text",
