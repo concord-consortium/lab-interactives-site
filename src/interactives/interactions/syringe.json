@@ -16,7 +16,7 @@
       "id": "syringe$0",
       "url": "models/lab-version/1/md2d/interactions/syringe.json",
       "viewOptions": {
-        "controlButtons": "play_stop",
+        "controlButtons": "play_reset",
         "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
