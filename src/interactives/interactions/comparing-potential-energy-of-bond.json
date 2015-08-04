@@ -33,7 +33,10 @@
                 "set('finalPotential',33);",
                 "set('potentialFactor',15);",
                 "onDrag('atom',function(){",
+                "set('atomdragged',true);",
+                "});",
                 "callEvery(25, function() {",
+                "if(get('atomdragged')){",
                 "var x1 = getAtomProperties(0).x,",
                 "    y1 = getAtomProperties(0).y,",
                 "    x2 = getAtomProperties(3).x,",
@@ -42,8 +45,7 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.19;",
                 "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.167)+get('breakEnergy'));",
-                "});",
-                "});"
+                "}});"
                 ],
       "viewOptions": {
         "controlButtons": "",
@@ -73,7 +75,10 @@
                 "set('finalPotential',28.5);",
                 "set('potentialFactor',8);",
                 "onDrag('atom',function(){",
+                "set('atomdragged',true);",
+                "});",
                 "callEvery(25, function() {",
+                "if(get('atomdragged')){",
                 "var x1 = getAtomProperties(0).x,",
                 "    y1 = getAtomProperties(0).y,",
                 "    x2 = getAtomProperties(3).x,",
@@ -82,8 +87,7 @@
                 "    disty = y1-y2,",
                 "    distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
                 "set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
-                "});",
-                "});"
+                "}});"
                 ],
       "viewOptions": {
         "controlButtons": "",
@@ -113,7 +117,10 @@
                 "setPairwiseLJProperties(1, 2, { epsilon: -0.1 });",
                 "set('potentialFactor',35);",
                 "onDrag('atom',function(){",
+                "set('atomdragged',true);",
+                "});",
                 "callEvery(25, function() {",
+                "if(get('atomdragged')){",
                 "var x1 = getAtomProperties(0).x,",
                 "    y1 = getAtomProperties(0).y,",
                 "    x2 = getAtomProperties(1).x,",
@@ -126,8 +133,7 @@
                 "else{",
                 "set('breakEnergy', -7.2);}",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
-                "});",
-                "});"
+                "}});"
                 ],
       "viewOptions": {
         "controlButtons": "",
@@ -157,7 +163,10 @@
                 "setPairwiseLJProperties(1, 2, { epsilon: -0.1 });",
                 "set('potentialFactor',50);",
                 "onDrag('atom',function(){",
+                "set('atomdragged',true);",
+                "});",
                 "callEvery(25, function() {",
+                "if(get('atomdragged')){",
                 "var x1 = getAtomProperties(0).x,",
                 "    y1 = getAtomProperties(0).y,",
                 "    x2 = getAtomProperties(1).x,",
@@ -170,8 +179,7 @@
                 "else{",
                 "set('breakEnergy', -18);}",
                 "set('countPotential', get('potentialFactor')*Math.pow(distance,0.25)+get('breakEnergy'));",
-                "});",
-                "});"
+                "}});"
                 ],
       "viewOptions": {
         "controlButtons": "",
@@ -209,6 +217,10 @@
       {
         "name": "finalPotential",
         "initialValue": 0
+      },
+      {
+       "name": "atomdragged",
+       "initialValue": false
       }
     ],
   "outputs": [],
