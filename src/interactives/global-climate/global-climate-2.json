@@ -249,19 +249,19 @@
       "min": 20,
       "max": 60,
       "steps": 10,
-      "title": "Simulation speed",
+      "title": "",
       "fillColor": "#2DA343",
       "labels": [
         {
-          "value": "left",
+          "value": "20",
           "label": "slow"
         },
         {
-          "value": "right",
+          "value": "60",
           "label": "fast"
         }
       ],
-      "width": "14em",
+      "width": "7em",
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
@@ -425,13 +425,16 @@
     {
       "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left"
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
     
     },
     {
       "id": "bottom-1",
       "top": "model.bottom",
-      "left": "playback-container.right"
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
     },
     {
       "id": "bottomLeft",
