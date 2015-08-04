@@ -182,11 +182,11 @@
       "labels": [
         {
           "value": "0",
-          "label": "<i class='icon-truck'></i>"
+          "label": "<i class='icon-minus'></i>"
         },
         {
           "value": "10",
-          "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -209,11 +209,11 @@
       "labels": [
         {
           "value": "0",
-          "label": "<i class='icon-building'></i>"
+          "label": "<i class='icon-minus'></i>"
         },
         {
           "value": "5",
-          "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -267,7 +267,7 @@
         },
         {
           "value": "10",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -294,7 +294,7 @@
         },
         {
           "value": "6",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -321,7 +321,7 @@
         },
         {
           "value": "100",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -348,7 +348,7 @@
         },
         {
           "value": "100",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -371,7 +371,7 @@
       "labels": [
         {
           "value": 0,
-          "label": "<i class='icon-ban-circle'></i>"
+          "label": "0%"
         },
         {
           "value": 50,
