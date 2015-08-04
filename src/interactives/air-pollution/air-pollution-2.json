@@ -127,7 +127,7 @@
       "fillToValue": 0,
       "labels": [
         {
-          "value": "left",
+          "value": "-100",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -135,7 +135,7 @@
           "label": "None"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -156,11 +156,11 @@
       "fillColor": "#459ACE",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": "right",
+          "value": "10",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -181,11 +181,11 @@
       "fillColor": "#459ACE",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": "right",
+          "value": "6",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
