@@ -125,7 +125,7 @@
       "fillToValue": 0,
       "labels": [
         {
-          "value": "left",
+          "value": "-100",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -133,7 +133,7 @@
           "label": "None"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -151,14 +151,14 @@
       "max": 10,
       "steps": 10,
       "title": "Cars",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-truck'></i>"
         },
         {
-          "value": "right",
+          "value": "10",
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
@@ -176,14 +176,14 @@
       "max": 5,
       "steps": 5,
       "title": "Power Plants",
-      "fillColor": "#459ACE",
+      "fillColor": "#E67E22",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-building'></i>"
         },
         {
-          "value": "right",
+          "value": "5",
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
@@ -201,14 +201,14 @@
       "max": 100,
       "steps": 20,
       "title": "Cars with pollution control devices:",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "0%"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "100%"
         }
       ],
@@ -226,14 +226,14 @@
       "max": 100,
       "steps": 20,
       "title": "Power plants with pollution control devices:",
-      "fillColor": "#459ACE",
+      "fillColor": "#E67E22",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "0%"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "100%"
         }
       ],
