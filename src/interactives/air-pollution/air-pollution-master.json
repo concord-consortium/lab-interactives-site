@@ -150,7 +150,7 @@
       "fillToValue": 0,
       "labels": [
         {
-          "value": "left",
+          "value": "-100",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
@@ -158,7 +158,7 @@
           "label": "None"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -178,14 +178,14 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 6.5em;'>Cars</span>",
       "titlePosition": "top",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-truck'></i>"
         },
         {
-          "value": "right",
+          "value": "10",
           "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
         }
       ],
@@ -205,14 +205,14 @@
       "steps": 5,
       "title": "<span style='display: inline-block; width: 6.5em;'>Power Plants</span>",
       "titlePosition": "top",
-      "fillColor": "#459ACE",
+      "fillColor": "#E67E22",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-building'></i>"
         },
         {
-          "value": "right",
+          "value": "5",
           "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
         }
       ],
@@ -235,11 +235,11 @@
       "fillColor": "#459ACE",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "Cold"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "Hot"
         }
       ],
@@ -262,11 +262,11 @@
       "fillColor": "#459ACE",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": "right",
+          "value": "10",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -289,11 +289,11 @@
       "fillColor": "#459ACE",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-minus'></i>"
         },
         {
-          "value": "right",
+          "value": "6",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -313,14 +313,14 @@
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Car pollution</span>",
       "titlePosition": "top",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-ban-circle'></i>"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -340,14 +340,14 @@
       "steps": 20,
       "title": "<span style='display: inline-block; width: 9.7em;'>Power plant pollution</span>",
       "titlePosition": "top",
-      "fillColor": "#459ACE",
+      "fillColor": "#E67E22",
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='icon-ban-circle'></i>"
         },
         {
-          "value": "right",
+          "value": "100",
           "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
         }
       ],
@@ -367,7 +367,7 @@
       "steps": 10,
       "title": "<span style='display: inline-block; width: 9.7em;'>Electric cars</span>",
       "titlePosition": "top",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
           "value": 0,
