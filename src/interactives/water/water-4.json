@@ -4,7 +4,7 @@
   "subtitle": "",
   "helpOnLoad": true,
   "about": "",
-  "theme": ["has", "graph-title-bg", "standalone-playback"],
+  "theme": ["has", "graph-title-bg", "standalone-playback", "no-slider-bar"],
   "aspectRatio": 1.5,
   "fontScale": 0.8,
   "models": [
@@ -101,15 +101,16 @@
       "min": 0,
       "max": 1,
       "title": "Rain probability",
+      "fillColor": "#459ACE",
       "width": "15em",
       "steps": 50,
       "labels": [
         {
-          "value": "left",
+          "value": "0",
           "label": "<i class='fa fa-sun-o' style='font-size: 1.5em; margin-right: 0.4em;'></i>"
         },
         {
-          "value": "right",
+          "value": "1",
           "label": "<i class='fa fa-umbrella' style='font-size: 1.5em;'></i>"
         }
       ],
