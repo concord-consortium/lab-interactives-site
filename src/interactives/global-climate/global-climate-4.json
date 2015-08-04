@@ -9,8 +9,8 @@
   ],      
   
   "theme": ["has","standalone-playback","no-slider-bar"],
-  "aspectRatio": 1,
-  "fontScale": 0.7,
+  "aspectRatio": 1.05,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -240,19 +240,19 @@
       "min": 20,
       "max": 60,
       "steps": 10,
-      "title": "Simulation speed",
+      "title": "",
       "fillColor": "#2DA343",
       "labels": [
         {
-          "value": "left",
+          "value": "20",
           "label": "slow"
         },
         {
-          "value": "right",
+          "value": "60",
           "label": "fast"
         }
       ],
-      "width": "14em",
+      "width": "7em",
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
@@ -372,7 +372,7 @@
       "id": "rightTop",
       "left": "model.right",
       "width": "0.7 * model.width",
-      "height": "0.5 * interactive.height",
+      "height": "model.height * 1.1",
       "padding-bottom": "1em",
       "padding-left": "0.5em"
     },
@@ -381,7 +381,7 @@
       "left": "model.right",
       "top": "rightTop.bottom",
       "width": "0.7 * model.width",
-      "height": "0.5 * interactive.height",
+      "height": "model.height * 1.1",
       "padding-left": "0.5em"
     },
    
@@ -393,13 +393,16 @@
    {
       "id": "playback-container",
       "top": "model.bottom",
-      "left": "model.left"
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
     
     },
     {
       "id": "bottom-1",
       "top": "model.bottom",
-      "left": "playback-container.right"
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
     },
      {
       "id": "bottom-row-1",
