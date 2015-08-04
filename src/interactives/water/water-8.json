@@ -128,11 +128,11 @@
       "xFormatter": "d",
       "yFormatter": ".2r",
       "dataColors": [
-        "#ff0000",
-        "#00ff00",
-        "#0000ff",
-        "#989898",
-        "#000000"
+        "#0000FF",
+        "#FF0066",
+        "#000000",
+        "#CC33FF",
+        "#FF6600"
       ],
       "legendLabels": [
         "Well 1 Output",
