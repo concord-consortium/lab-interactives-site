@@ -626,7 +626,7 @@
         "var i = get('indicesColumnD'),",
         "    prop = getShapeProperties(i[0]),",
         "    nAbove = atomsWithinRect(prop.x, prop.y + prop.height, prop.width, prop.height).length;",
-        "    callAt( get('time') + 700, function() {",
+        "    callAt( get('time') + 7000, function() {",
         "      set('columnBTemp',50);",
         "      set('columnATemp',50);",
         "      setShapeProperties(get('indicesColumnD')[2], {y: -10});",
