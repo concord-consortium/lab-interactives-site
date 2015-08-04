@@ -17,8 +17,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
+        "controlButtonStyle": "",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -84,8 +84,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleEthanol$0.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text"
+        "controlButtons": "",
+        "controlButtonStyle": ""
       },
       "onLoad": [
          "set('selectLiquid',2);",
@@ -149,8 +149,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleWater$0.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text"
+        "controlButtons": "",
+        "controlButtonStyle": ""
       },
       "onLoad": [
         "set('selectLiquid',3);",
@@ -214,8 +214,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
+        "controlButtonStyle": "",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -286,8 +286,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Water.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
+        "controlButtonStyle": "",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -354,8 +354,8 @@
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Ethanol-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
       "viewOptions": {
-        "controlButtons": "reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
+        "controlButtonStyle": "",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -626,17 +626,28 @@
         "var i = get('indicesColumnD'),",
         "    prop = getShapeProperties(i[0]),",
         "    nAbove = atomsWithinRect(prop.x, prop.y + prop.height, prop.width, prop.height).length;",
+        "    callAt( get('time') + 700, function() {",
+        "      set('columnBTemp',50);",
+        "      set('columnATemp',50);",
+        "      setShapeProperties(get('indicesColumnD')[2], {y: -10});",
+        "      setComponentDisabled('reset',false);",
+        "  });",
         "if ( get('isColumnBDropped') && get('isColumnADropped') && nAbove === 0 ) {",
-        "   setComponentDisabled('stop-shaking',false);",
+        "   setComponentDisabled('reset',false);",
         "   setShapeProperties(i[2], {y: prop.y + prop.height});",
         "   set('columnBTemp',5000);",
         "   set('columnATemp',5000);",
         "}",
         "} else {",
         "  if ( get('isColumnBDropped') && get('isColumnADropped')) {",
+        "    callAt( get('time') + 2500, function() {",
+        "      setShapeProperties(get('indicesColumnD')[2], {visible:false});",
+        "      setComponentDisabled('reset',false);",
+        "      set('stop-shake',true);",
+        "  });",
         "     set('Shakeliquid',true);",
         "     setShapeProperties(get('indicesColumnD')[2], {visible:true});",
-        "     setComponentDisabled('stop-shaking',false);",
+        "     setComponentDisabled('reset',false);",
         "     set('stop-shake',false);",
         "   }",
         "}"
@@ -644,25 +655,10 @@
     },
     {
       "type": "button",
-      "id": "stop-shaking",
-      "text": "Stop shaking",
+      "id": "reset",
+      "text": "Reset",
       "disabled": true,
-      "action": [
-        "if(get('modelA')){",
-        "  set('columnBTemp',50);",
-        "  set('columnATemp',50);",
-        "  callAt( get('time') + 1000, function() {",
-        "    setShapeProperties(get('indicesColumnD')[2], {y: -10});",
-        "    setComponentDisabled('stop-shaking',true);",
-        "  });",
-        "} else {",
-        "  callAt( get('time')+2, function() {",
-        "    setShapeProperties(get('indicesColumnD')[2], {visible:false});",
-        "    setComponentDisabled('stop-shaking',true);",
-        "    set('stop-shake',true);",
-        "   });",
-        "}"
-      ]
+      "action": "reloadModel();"
     },
     {
       "id": "label-select-matter",
@@ -774,7 +770,7 @@
       "text": "Shake the liquids up."
     },
     {
-      "component": "stop-shaking",
+      "component": "reset",
       "text": "Then stop mixing the liquids and note the volume."
     }
   ],
@@ -792,7 +788,7 @@
         "add-columnA",
         "add-columnB",
         "cap-and-shake",
-        "stop-shaking"
+        "reset"
       ]
     ]
   },
