@@ -1,0 +1,250 @@
+{
+  "title": "Charge Intensity and Electric Force 2",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Manipulate the charge on objects to explore the relationship between charge, electric field and forces on objects.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.31,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": true,
+  "about": [
+    "Control the amount of charge on two objects an observe how it affects ",
+    "(1) the electric fields around the charged objects and ",
+    "(2) the strength of the forces acting between the two objects."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "amount-charge",
+      "url": "models/lab-version/1/md2d/interactions/charge-intensity-and-force/amount-charge.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
+      "onLoad": [
+        "set('showElectricField',false);",
+        "set('left-particle-charge',2);",
+        "set('right-particle-charge',-2);",
+        "stop();"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        },
+        "textBoxes": [
+          {
+            "text": "     Particle B     \n \n \n",
+            "hostType": "Atom",
+            "hostIndex": 0,
+            "layer": 1,
+            "color": "rgb(255, 255, 0)",
+            "textAlign": "center",
+            "width": 0.15,
+            "fontScale": 0.7
+          },
+          {
+            "text": "     Particle A     \n \n \n",
+            "hostType": "Atom",
+            "hostIndex": 1,
+            "layer": 1,
+            "color": "rgb(255, 255, 0)",
+            "textAlign": "center",
+            "width": 0.15,
+            "fontScale": 0.7
+          }
+          ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "left-particle-charge",
+      "initialValue": 2,
+      "onChange": "setAtomProperties(1,{charge: value});"
+    },
+    {
+      "name": "right-particle-charge",
+      "initialValue": -2,
+      "onChange": "setAtomProperties(0,{charge: value});"
+    },
+    {
+      "name": "x-cord",
+      "initialValue": 2.57
+    },
+    {
+      "name": "show-second-atom",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  setAtomProperties(0, {charge: get('right-particle-charge'), visible: true, pinned:0, x:get('x-cord')});",
+        "setTextBoxProperties(0, {color: 'rgb(255, 255, 0)'}); ",
+        "setComponentDisabled('set-right-particle-charge',false);",       
+        "} else {",
+        "set('x-cord',getAtomProperties(0).x);",
+        "  setAtomProperties(0, {charge: 0, visible: false, pinned:1, x:8});",
+        "setTextBoxProperties(0, {color: 'rgba(0, 0, 0,0)'}); ",
+        "setComponentDisabled('set-right-particle-charge',true);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+   {
+      "component": "",
+      "text": [
+        "Drag the particles around and use the controls below to explore electric forces and fields."
+      ],
+      "showcase": true
+    }
+  ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "set-left-particle-charge",
+      "type": "slider",
+      "min": -3,
+      "max": 3,
+      "steps": 6,
+      "title": "Particle A",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "left-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "set-right-particle-charge",
+      "type": "slider",
+      "min": -3,
+      "max": 3,
+      "steps": 6,
+      "title": "Particle B",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "right-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-show-second-atom",
+      "type": "checkbox",
+      "text": "use two particles",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "show-second-atom",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-show-forces",
+      "type": "checkbox",
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showElectricField",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "set-left-particle-charge",
+        "set-right-particle-charge"
+      ],
+      [
+        "select-show-second-atom",
+        "select-show-forces",
+        "select-show-electric-field"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
+}
