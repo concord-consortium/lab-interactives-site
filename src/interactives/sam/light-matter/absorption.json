@@ -5,6 +5,19 @@
   "about": "",
   "aspectRatio": 1.6,
   "fontScale": 0.8,
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    }
+  ],
   "models": [
     {
       "type": "md2d",
