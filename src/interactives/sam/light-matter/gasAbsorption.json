@@ -14,10 +14,6 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "setLightSourceAngle(0);",
-        "setLightSourceFrequency(get('lightSourceFrequency'));",
-        "setLightSourceNumber(5);",
-        "setLightSourcePeriod(500);",
         "setTemperatureOfAtoms(atomsWithinRect(0,0,get('width'),get('height')),300);",
         "set('timeStepsPerTick',20);"
       ]
@@ -30,10 +26,6 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "setLightSourceAngle(0);",
-        "setLightSourceFrequency(get('lightSourceFrequency'));",
-        "setLightSourceNumber(5);",
-        "setLightSourcePeriod(500);",
         "setTemperatureOfAtoms(atomsWithinRect(0,0,get('width'),get('height')),300);",
         "set('timeStepsPerTick',20);"
       ]
@@ -46,10 +38,6 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "setLightSourceAngle(0);",
-        "setLightSourceFrequency(get('lightSourceFrequency'));",
-        "setLightSourceNumber(5);",
-        "setLightSourcePeriod(500);",
         "setTemperatureOfAtoms(atomsWithinRect(0,0,get('width'),get('height')),300);",
         "set('timeStepsPerTick',20);"
       ]
@@ -153,6 +141,15 @@
         }
       ],
       "title": "Frequency of light source"
+    },
+    {
+      "type": "text",
+      "id": "spectrometer-label",
+      "text": "**Spectrometer**"
+    },
+    {
+      "id": "spectrometer",
+      "type": "spectrometer"
     }
   ],
   "layout": {
@@ -162,6 +159,12 @@
       ],
       [
         "select-model"
+      ],
+      [
+        "spectrometer-label"
+      ],
+      [
+        "spectrometer"
       ]
     ],
     "bottom": [
