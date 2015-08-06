@@ -123,7 +123,7 @@
       "max": 100,
       "steps": 10,
       "title": "Wind",
-      "fillColor": "#A469BD",
+       "fillColor": "#459ACE",
       "fillToValue": 0,
       "labels": [
         {
@@ -161,7 +161,7 @@
         },
         {
           "value": "10",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
@@ -186,7 +186,7 @@
         },
         {
           "value": "6",
-          "label": "<i class='icon-plus'></i><i class='icon-plus'></i><i class='icon-plus'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "18em",
