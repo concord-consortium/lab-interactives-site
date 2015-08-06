@@ -96,7 +96,7 @@
       "xmax": 10,
       "ylabel": "Water Level",
       "ymin": 0,
-      "ymax": 1250,
+      "ymax": 1200,
       "xTickCount": 6,
       "yTickCount": 6,
       "xFormatter": "d",

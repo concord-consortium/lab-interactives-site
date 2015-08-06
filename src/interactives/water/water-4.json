@@ -138,7 +138,7 @@
       "xmax": 10,
       "ylabel": "Well output",
       "ymin": 0,
-      "ymax": 630,
+      "ymax": 600,
       "xTickCount": 6,
       "yTickCount": 6,
       "xFormatter": "d",
