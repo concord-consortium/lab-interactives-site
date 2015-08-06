@@ -16,7 +16,8 @@
   "theme": [
     "has",
     "standalone-playback",
-    "no-slider-bar"
+    "no-slider-bar",
+    "graph-title-bg"
   ],
   "showTopBar": true,
   "showBottomBar": true,
@@ -105,6 +106,7 @@
       ],
       "xProperty": "ticks",
       "title": "Air Pollutants",
+      "titlePosition": "left",
       "titlePosition": "center",
       "lineWidth": 2,
       "width": "100%",
