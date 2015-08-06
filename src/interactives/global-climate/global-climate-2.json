@@ -7,7 +7,7 @@
   "",
             "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
   ],
-  "theme": ["has","standalone-playback","no-slider-bar"],
+  "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
   "aspectRatio": 1.1,
   "fontScale": 0.8,
   "models": [
@@ -163,6 +163,7 @@
       ],
       "xProperty": "year",
       "title": "Temperature Change",
+      "titlePosition": "left",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
@@ -214,6 +215,7 @@
       ],
       "xProperty": "year",
       "title": "CO₂ Concentration",
+      "titlePosition": "left",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
