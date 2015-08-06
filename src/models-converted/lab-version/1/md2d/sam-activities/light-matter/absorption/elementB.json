@@ -23,6 +23,9 @@
   "DNAMutations": true,
   "useQuantumDynamics": true,
   "useChemicalReactions": false,
+  "useDuration": "codap",
+  "requestedDuration": null,
+  "skipPECheckOnAddAtom": false,
   "viewOptions": {
     "viewPortWidth": 3.7,
     "viewPortHeight": 2.5,
@@ -844,8 +847,11 @@
     "radiationlessEmissionProbability": 0.5,
     "lightSource": {
       "on": true,
+      "monochromatic": false,
       "frequency": 72,
-      "numberOfBeams": 5
+      "radiationPeriod": 1000,
+      "numberOfBeams": 5,
+      "angleOfIncidence": 0
     }
   }
 }
