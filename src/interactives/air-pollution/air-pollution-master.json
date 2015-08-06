@@ -6,8 +6,8 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 0.9,
-  "fontScale": 0.6,
+  "aspectRatio": 1.1,
+  "fontScale": 0.7,
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
@@ -413,7 +413,9 @@
       ],
       [
         "rainSlider"
-      ],
+      ]
+    ],
+    "bottomRight": [
            [
         "carsSlider"
       ],
@@ -447,6 +449,11 @@
       "id": "bottomLeft",
       "top": "playback-container.bottom",
       "left": "model.left"
+    },
+    {
+      "id": "bottomRight",
+      "top": "playback-container.bottom",
+      "left": "bottomLeft.right"
     },
     {
       "id": "topRight",
