@@ -64,7 +64,7 @@
       "max": 100,
       "steps": 10,
       "title": "Wind",
-      "fillColor": "#A469BD",
+       "fillColor": "#459ACE",
       "fillToValue": 0,
       "labels": [
         {
@@ -98,11 +98,11 @@
       "labels": [
         {
           "value": "0",
-          "label": "<i class='icon-truck'></i>"
+          "label": "<i class='icon-minus'></i>"
         },
         {
           "value": "10",
-          "label": "<i class='icon-truck'></i><i class='icon-truck'></i><i class='icon-truck'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "25em",
@@ -123,11 +123,11 @@
       "labels": [
         {
           "value": "0",
-          "label": "<i class='icon-building'></i>"
+          "label": "<i class='icon-minus'></i>"
         },
         {
           "value": "5",
-          "label": "<i class='icon-building'></i><i class='icon-building'></i><i class='icon-building'></i>"
+          "label": "<i class='icon-plus'></i>"
         }
       ],
       "width": "25em",
