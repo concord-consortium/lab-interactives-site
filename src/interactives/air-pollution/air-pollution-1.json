@@ -149,7 +149,7 @@
       "max": 10,
       "steps": 10,
       "title": "Cars",
-      "fillColor": "#459ACE",
+      "fillColor": "#D84748",
       "labels": [
         {
           "value": "0",
@@ -174,7 +174,7 @@
       "max": 5,
       "steps": 5,
       "title": "Power Plants",
-      "fillColor": "#459ACE",
+      "fillColor": "#E67E22",
       "labels": [
         {
           "value": "0",
