@@ -22,7 +22,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable",
+        "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html",
         "template": "",
         "rainProbability": 0.35,
         "evapProbability": 10,

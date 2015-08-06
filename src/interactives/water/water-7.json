@@ -13,7 +13,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/water/lab-embeddable#xMax=125&xMin=-125",
+        "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html#xMax=125&xMin=-125",
         "template": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json",
         "rainProbability": 0,
         "evapProbability": 0,

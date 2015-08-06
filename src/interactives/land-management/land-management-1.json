@@ -13,7 +13,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//concord-consortium.github.io/agentscript-models-dev/land-management/lab-embeddable.html",
+        "url": "//models-resources.concord.org/agentscript/land-management/lab-embeddable.html",
         "showErosion": true,
         "showPrecipitationGraph": false,
         "userPrecipitation": 166,
