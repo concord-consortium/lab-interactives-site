@@ -83,6 +83,17 @@
       "text": "Shine light on mixture",
       "textOn": "right",
       "property": "lightSourceEnabled"
+    },
+    {
+      "type": "text",
+      "id": "spectrometer-label",
+      "text": "**Spectrometer**"
+    },
+    {
+      "id": "spectrometer",
+      "type": "spectrometer",
+      "upperBound": 15,
+      "lowerBound": 2
     }
   ],
   "layout": {
@@ -92,6 +103,12 @@
       ],
       [
         "select-model"
+      ],
+      [
+        "spectrometer-label"
+      ],
+      [
+        "spectrometer"
       ]
     ],
     "bottom": [
