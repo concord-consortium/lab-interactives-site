@@ -1,9 +1,16 @@
 {
   "title": "Water 7",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "helpOnLoad": true,
-  "about": "",
+  "subtitle": "Gaining and Losing Streams",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "In this model, you can explore how the water table changes near gaining and losing streams.",
+    "",
+    "Choose **Stream A** or **Stream B**. Press the **Play** button to start the model.",
+    "Run the model for at least 6 years.",
+    "Watch the graph of the water level in the stream. Compare the water level between Stream A and Stream B."
+  ],
   "theme": ["has", "standalone-playback", "graph-title-bg"],
   "aspectRatio": 1.7,
   "fontScale": 0.8,
