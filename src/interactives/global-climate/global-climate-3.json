@@ -2,11 +2,19 @@
   "title": "Climate Change 3",
   "publicationStatus": "public",
   "subtitle": "The Relationship Between Ocean Temperature and Atmospheric Carbon Dioxide Levels",
-  "helpOnLoad": true,
-  "about": ["The model represents a simplified Earth system. In this model, you can explore how the temperature of the ocean affects the concentration of carbon dioxide in the air and ocean. Graphs show the temperature change and relative amounts of carbon dioxide in the atmosphere and ocean.",
-  "",
-            "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
-           ],
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "In this model you can explore how the temperature of the ocean affects the concentration",
+    "of carbon dioxide in the air and ocean.",
+    "",
+    "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
+    "",
+    "Change the temperature and watch the graphs to see what happens to the amount of carbon dioxide in the ocean",
+    "and atmosphere. Make sure that you wait long enough to see an effect.",
+    "",
+    "**NOTE**: This model does not show the actual concentration of greenhouse gases in the atmosphere."
+  ],
   "theme": ["has","standalone-playback", "no-slider-bar","graph-title-bg"],
   "aspectRatio": 1.05,
   "fontScale": 0.65,
@@ -136,36 +144,6 @@
       "value": "return iframeOutput('oceanCO2Concentration');"
     }
   ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": [
-        "#How do I use this model?",
-        "---",
-        "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
-        "",
-        "Change the temperature, and watch the graphs to see what happens to the amount of carbon dioxide in the ocean and atmosphere.",
-        "Make sure that you wait long enough to see the effect.",
-        "",
-        "You can hover over the controls for more information. Click to close this window."
-        ],
-        "showcase": true
-    },
-        {
-      "component": [
-        "temperatureGraph",
-        "co2Graph"
-      ],
-      "text": [
-        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph).",
-        "Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet.",
-        "---",
-        "Note: This model is a simplified representation of the climate system, and as such,",
-        "it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
-      ],
-      "showcase": false
-    }
-  ],
   "components": [
     {
       "id": "temperatureGraph",
@@ -219,7 +197,7 @@
       "legendVisible": true,
       "syncXAxis": "co2Graph",
       "syncYAxis": false,
-      "helpIcon": true
+      "helpIcon": false
     },
     {
       "id": "co2Graph",
