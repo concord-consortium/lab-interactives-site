@@ -2,8 +2,16 @@
   "title": "Climate Change 1",
   "publicationStatus": "public",
   "subtitle": "Atmosphere & Land Interactions Without Graphs",
-  "helpOnLoad": true,
-  "about": "This model represents a simplified Earth system. In this model, you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere.",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "In this model you can explore how solar radiation (yellow arrows) interacts with the land and gases in the atmosphere.",
+    "",
+    "Press the **Erupt!** button to release carbon dioxide.",
+    "Follow an energy packet or molecule of carbon dioxide to see what happens when there is more carbon dioxide in the atmosphere.",
+    "",
+    "You can hover over the controls for more information."
+    ],
   "theme": ["has","standalone-playback", "no-slider-bar"],
   "aspectRatio": 1,
   "fontScale": 0.8,
@@ -85,22 +93,6 @@
     {
       "name": "spotlightActive",
       "value": "return iframeOutput('spotlightActive');"
-    }
-  ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the **Erupt** button to release carbon dioxide.",
-      "",
-      "",
-      "Follow an energy packet or a molecule of carbon dioxide to see what happens when there is more carbon dioxide",
-      "in the atmosphere.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
     }
   ],
   "components": [
