@@ -2,10 +2,24 @@
   "title": "Climate Change 7",
   "publicationStatus": "public",
   "subtitle": "The Effect of Clouds",
-  "helpOnLoad": true,
-  "about": ["Clouds affect the temperature of Earth's atmosphere and surface. How clouds affect temperature is a balance between how much sunlight is reflected away from Earth's surface (a cooling effect) and how much outgoing infrared radiation is absorbed and re-radiated into the atmosphere (a warming effect. In this model, you can change the number of clouds. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere.",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about":[
+  "Clouds affect the temperature of Earth's atmosphere and surface. ",
+  "How clouds affect temperature is a balance between how much sunlight is reflected away from Earth's surface",
+  "(a cooling effect) and how much outgoing infrared radiation is absorbed and re-radiated into the atmosphere",
+  "(a warming effect).",
   "",
-  "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
+  "In this model, you can change the number of clouds.",
+    "",
+    "Change the number of clouds in the model. Follow energy packets to see how they interact with the clouds.",
+    "Watch the graphs to see what happens to the temperature and the amount of greenhouse gases in the atmosphere and ocean.",
+    "Make sure that you wait long enough to see the effect.  ",
+    "",
+    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
+    "and atmosphere (lower graph).    ",
+    "",
+    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
   ],
   "theme": ["has","standalone-playback", "no-slider-bar", "graph-title-bg"],
   "aspectRatio": 1.1,
@@ -123,36 +137,6 @@
       ]
     }
   ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": [
-        "#How do I use this model?",
-        "---",
-        "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
-        "",
-        "Change the temperature, and watch the graphs to see what happens to the amount of carbon dioxide in the ocean and atmosphere.",
-        "Make sure that you wait long enough to see the effect.",
-        "",
-        "You can hover over the controls for more information. Click to close this window."
-      ],
-      "showcase": true
-    },
-    {
-      "component": [
-        "temperatureGraph",
-        "co2Graph"
-      ],
-      "text": [
-        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph).",
-        "Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet.",
-        "---",
-        "Note: This model is a simplified representation of the climate system, and as such,",
-        "it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
-      ],
-      "showcase": false
-    }
-  ],
     "components": [
     {
       "id": "temperatureGraph",
@@ -204,7 +188,7 @@
       "legendVisible": true,
       "syncXAxis": "co2Graph",
       "syncYAxis": false,
-      "helpIcon": true
+      "helpIcon": false
     },
     {
       "id": "co2Graph",
