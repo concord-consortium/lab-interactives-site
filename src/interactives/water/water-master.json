@@ -5,13 +5,14 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Choose a model from the **Template** menu or draw your own model. ",
+    "",
+    "Select the **Add layers** button, and click and drag in the model to draw layers.",
+    "Add wells to the model by selecting a well type from the **Add well** button. Click and hold in the model where",
+    "you want a well. Release when the well has reached the proper depth.",
+    "",
+    "Use the **Well Output** graph to compare the water output of different wells. Use the **Water Level** graph to monitor",
+    "the water level in the stream in the **Gaining Stream** and **Losing Stream** models."
   ],
   "theme": ["has", "graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.33,
@@ -129,6 +130,8 @@
         "rainCount"
       ],
       "xProperty": "year",
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "title": "Water Level",
       "titlePosition": "left",
       "width": "100%",
@@ -159,7 +162,9 @@
         "well4"
       ],
       "xProperty": "year",
-      "title": "Well output",
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "title": "Well Output",
       "titlePosition": "left",
       "width": "100%",
       "height": "100%",
@@ -181,11 +186,11 @@
         "#FF6600"
       ],
       "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Well 4 Output",
-        "Well 5 Output"
+        "Well 1",
+        "Well 2",
+        "Well 3",
+        "Well 4",
+        "Well 5"
       ],
       "syncXAxis": "water-level-graph"
     },
