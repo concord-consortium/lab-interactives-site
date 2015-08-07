@@ -1,9 +1,25 @@
 {
   "title": "Water 8",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "helpOnLoad": true,
-  "about": "",
+  "subtitle": "Well Placement Around a Gaining Stream",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "In this model, you can explore the best place to put wells around a gaining stream to maintain the water level",
+    "in the stream.",
+    "",
+    "Select the **Add well** button, and then move your cursor where you want to place a well. Click and hold",
+    "until the well reaches the proper depth.",
+    "",
+    "Run two experiments:",
+    "",
+    "(1) Place wells near the stream.",
+    "",
+    "(2) place wells far from the stream.",
+    "",
+    "Use the upper graph (Water Level) to monitor the water level in the stream.",
+    "Use the lower graph (Well Output) to compare the water output of the wells."
+    ],
   "theme": ["has", "graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.3,
   "fontScale": 0.8,
@@ -113,7 +129,7 @@
       "enableZooming": false,
       "enableAxisScaling": false,
       "xProperty": "year",
-      "title": "Well output",
+      "title": "Well Output",
       "titlePosition": "left",
       "width": "100%",
       "height": "100%",
@@ -135,11 +151,11 @@
         "#FF6600"
       ],
       "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Well 4 Output",
-        "Well 5 Output"
+        "Well 1",
+        "Well 2",
+        "Well 3",
+        "Well 4",
+        "Well 5"
       ],
       "syncXAxis": "water-level-graph"
     },
