@@ -2,10 +2,22 @@
   "title": "Climate Change 8",
   "publicationStatus": "public",
   "subtitle": "Combining Positive and Negative Feedback to Make Predictions About Future Climate",
-  "helpOnLoad": true,
-  "about": ["In this model, you can explore how changing human emissions might affect the temperature in the future. Graphs show temperature change, relative amounts of carbon dioxide in the atmosphere and ocean, and amount of water vapor in the atmosphere. The amount of ice cover and number of clouds in the model change with temperature and water vapor levels.",
-  "",
-  "*This climate model cannot accurately predict Earth's future temperature or greenhouse gas levels.*"
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+ "about": [
+    "In this model, you can explore how changing human emissions might affect the temperature in the future.",
+    "The amount of ice cover and number of clouds in the model change in response to temperature and water vapor",
+    "levels.",
+    "",
+    "The **Human emissions** slider controls how much carbon dioxide comes out of the power plant.",
+    "Zero percent (0%) means that there are no human emissions. One hundred percent (100%) means that human",
+    "emissions are the same as in the year 2010. Two hundred percent (200%) means that human emissions are double",
+    "the 2010 level.",
+    "",
+    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
+    "and atmosphere (lower graph) and ocean (lower graph).",
+    "",
+    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
   ],
   "theme": ["has","standalone-playback","no-slider-bar", "graph-title-bg"],
   "aspectRatio": 1.1,
@@ -93,36 +105,6 @@
       "value": "return iframeOutput('vaporConcentration');"
     }
   ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": [
-        "#How do I use this model?",
-        "---",
-        "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
-        "",
-        "Change the temperature, and watch the graphs to see what happens to the amount of carbon dioxide in the ocean and atmosphere.",
-        "Make sure that you wait long enough to see the effect.",
-        "",
-        "You can hover over the controls for more information. Click to close this window."
-      ],
-      "showcase": true
-    },
-    {
-      "component": [
-        "temperatureGraph",
-        "co2Graph"
-      ],
-      "text": [
-        "These graphs show the relative change in temperature (upper graph) and concentration of greenhouse gases in the atmosphere and ocean (lower graph).",
-        "Together these graphs show the relationship between the concentration of greenhouse gases and the temperature of the planet.",
-        "---",
-        "Note: This model is a simplified representation of the climate system, and as such,",
-        "it does not show the actual concentrations of greenhouse gases in the atmosphere and ocean."
-      ],
-      "showcase": false
-    }
-  ],
   "components": [
     {
       "id": "temperatureGraph",
@@ -174,7 +156,7 @@
       "legendVisible": true,
       "syncXAxis": "co2Graph",
       "syncYAxis": false,
-      "helpIcon": true
+      "helpIcon": false
     },
     {
       "id": "co2Graph",
