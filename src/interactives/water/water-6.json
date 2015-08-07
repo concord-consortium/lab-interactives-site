@@ -119,7 +119,7 @@
       "enableZooming": false,
       "enableAxisScaling": false,
       "xProperty": "year",
-      "title": "Well output",
+      "title": "Well Output",
       "titlePosition": "left",
       "width": "100%",
       "height": "100%",
@@ -141,11 +141,11 @@
         "#FF6600"
       ],
       "legendLabels": [
-        "Well 1 Output",
-        "Well 2 Output",
-        "Well 3 Output",
-        "Well 4 Output",
-        "Well 5 Output"
+        "Well 1",
+        "Well 2",
+        "Well 3",
+        "Well 4",
+        "Well 5"
       ]
     }
   ],
