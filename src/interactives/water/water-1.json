@@ -1,9 +1,14 @@
 {
   "title": "Water 1",
   "publicationStatus": "draft",
-  "subtitle": "",
-  "helpOnLoad": true,
-  "about": "",
+  "subtitle": "Simple Water Model",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "In this model, you can explore how water moves through rocks and sediments.",
+    "",
+    "Use the **Follow water droplet** button to watch where water goes after it falls."
+  ],
   "theme": [
     "has",
     "standalone-playback"
