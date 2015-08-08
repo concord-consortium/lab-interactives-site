@@ -34,6 +34,7 @@
         "userPrecipitation": 166,
         "climate": "temperate",
         "showErosion": true,
+        "showSoilQualityKey": true,
         "showPrecipitationGraph": true,
         "landType": "Plain",
         "zone1Slope": 0,
