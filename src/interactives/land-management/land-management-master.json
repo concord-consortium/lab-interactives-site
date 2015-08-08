@@ -20,6 +20,7 @@
     "The **Soil Quality Key** in the model allows you to monitor how the quality of the soil is affected",
     "by the management plan.",
     ""
+    ],
   "theme": ["has", "invisible-disabled-components", "standalone-playback", "graph-title-bg"],
   "aspectRatio": 1.2,
   "fontScale": 0.6,
