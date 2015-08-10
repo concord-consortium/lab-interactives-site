@@ -5,7 +5,7 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
  "about": [
-    "In this model, you can explore the effect of changing human emissions of carbon dioxide on the temperature",
+    "Explore the effect of changing human emissions of carbon dioxide on the temperature",
     "and amount of water vapor in the atmosphere.",
     "",
     "The **Human emissions** slider controls how much carbon dioxide comes out of the power plant.",
