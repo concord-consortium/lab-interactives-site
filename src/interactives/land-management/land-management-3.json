@@ -1,15 +1,19 @@
 {
   "title": "Land Management 3",
+  "subtitle": "Effect of Climate on Plant Growth and Erosion",
   "publicationStatus": "draft",
 "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can explore the effect of slope, plants, and climatic factors on erosion.",
+    "Explore the effect of slope, plants, and climatic factors on erosion.",
     "This model is divided into two zones that allow you to compare different slopes and management plans.",
     "",
-    "Change the terrain with the landscape controls. You can choose from the preset values or set your own slopes.",
-    "Change the planting with the management plan.",
-    "Change the climate with the climate controls. You can choose from preset values or set your own monthly precipitation rate.",
+    "1) Change the landscape by choosing a terrain from the pulldown menu.",
+    "You can choose from the preset values or set your own slopes.",
+    "",
+    "2) Choose a management plan for each zone from the pulldown menus.",
+    "",
+    "3) Change the climate with the climate controls. You can choose from preset values or set your own monthly precipitation rate.",
     "",
     "Watch the graphs to see how soil moves between the zones.",
     "",
@@ -169,7 +173,7 @@
     {
       "type": "text",
       "id": "landscape-label",
-      "text": "##Initial landscape"
+      "text": "##Landscape"
     },
     {
       "type": "pulldown",
