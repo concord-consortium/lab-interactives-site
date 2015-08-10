@@ -2,8 +2,18 @@
   "title": "Air Pollution 3",
   "publicationStatus": "draft",
   "subtitle": "The Effect of Pollution Control Devices on Pollution Levels",
-  "helpOnLoad": true,
-  "about": "Explore the effects that pollution control devices have on the level of pollutants over a city.",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Explore the effects that pollution control devices have on the level of pollutants over a city.",
+    "",
+    "Change the number of cars and power plants with pollution control devices to explore the effect of ",
+    "pollution control",
+    "devices on the level of pollutants over a city.",
+    "",
+   "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
+    "modeled area."
+    ],
   "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
   "aspectRatio": 1,
   "fontScale": 0.9,
@@ -43,21 +53,6 @@
     {
       "name": "secondaryAQI",
       "value": "return iframeOutput('secondaryAQI');"
-    }
-  ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the play button to start the model.",
-      "",
-      "",
-      "Change the number of cars and power plants with pollution control devices to explore the effect of pollution control",
-      "devices on the level of pollutants over a city.",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
     }
   ],
   "components": [
