@@ -5,13 +5,14 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can draw your own layers to explore how water moves through rocks and sediments.",
+    "Draw your own rock/sediment layers to explore how water moves through rocks and sediments.",
     "",
     "Select a sediment type from the **Add Layers** menu, and drag the cursor within the model to draw a layer.",
     "Add as many layers as you want.",
     "",
-    "When you are done, start the model and watch where water flows. You can use the **Follow water droplet** button",
-    " to follow a single water droplet as it moves through the layers."
+    "When you are done, press the **play** button to start the model and watch where water flows. ",
+    "You can use the **Follow water droplet** button",
+    "to follow a single water droplet as it moves through the layers."
     ],
   "theme": ["has", "standalone-playback"],
   "aspectRatio": 1.75,
