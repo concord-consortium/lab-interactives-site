@@ -2,8 +2,17 @@
   "title": "Air Pollution 4",
   "publicationStatus": "draft",
   "subtitle": "Thermal Inversions",
-  "helpOnLoad": true,
-  "about": "Use the model to create thermal inversions, and explore the effect of thermal inversions on smog events.",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Use the model to create thermal inversions, and explore the effect of thermal inversions on smog events.",
+    "",
+    "Use the wind, rain, and sunlight sliders to set up a thermal inversion. How does the thermal inversion",
+    "affect the pollutant level over the city?",
+    "",
+     "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
+    "modeled area."
+    ],
   "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
   "aspectRatio": 1.2,
   "fontScale": 0.9,
@@ -44,21 +53,6 @@
     {
       "name": "secondaryAQI",
       "value": "return iframeOutput('secondaryAQI');"
-    }
-  ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Press the play button to start the model.",
-      "",
-      "",
-      "Change the direction of the wind to see how thermal inversions affect the pollutant level over the city.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
     }
   ],
   "components": [
