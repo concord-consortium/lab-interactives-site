@@ -5,15 +5,16 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can explore how water flow differs in rural and urban areas.",
+    "Explore how water flow differs in rural and urban areas.",
     "",
-    "Select the **Add well** button to select a flowback or non-flowback well.",
+    "Click the **Add well** button to select a flowback or non-flowback well.",
     "The flowback well will release water directly above the well. The non-flowback well will not release water within the model.",
     "",
-    "Click in the model where you want to drill a well, and hold until the well reaches the proper depth.",
-    "You can add up to five wells.",
+    "Move your cursor to where you want to drill a well.",
+    "Place your cursor at the land surface, and click to start drilling.",
+    "Click and hold until the well has reached the proper depth.",
     "",
-    "Use the graph to compare the water output of the different wells."
+    "The graph shows the water outputs of the different wells. You can drill up to five wells."
   ],
   "theme": ["has", "graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.8,
