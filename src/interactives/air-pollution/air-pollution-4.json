@@ -11,7 +11,7 @@
     "affect the pollutant level over the city?",
     "",
      "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
-    "modeled area."
+    "modeled area. A lower number indicates better quality air."
     ],
   "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
   "aspectRatio": 1.2,
