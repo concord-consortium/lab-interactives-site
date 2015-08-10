@@ -7,8 +7,6 @@
   "about":[
   "Albedo describes how much sunlight is reflected back into space without being absorbed by the surface. ",
   "Albedo varies greatly depending on the type of surface the sunlight hits.",
-  "",
-  "In this model, you can change the amount of ice covering the surface.",
     "",
     "Use the **Ice cover** slider to change the albedo in the model.",
     "",
