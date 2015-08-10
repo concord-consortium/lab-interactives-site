@@ -11,8 +11,20 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
-  "about": "TODO",
+  "aboutOnLoad": true,
+  "about": [
+    "Many factors affect the air quality in a region.",
+    "",
+    "Use the model to explore and discover the connection between weather, geography, and air quality.",
+    "You can also explore the human impact on air quality by changing the number of cars and power plants",
+    "in the region, both with and without pollution control devices.",
+    "",
+    "Use the sliders to set up different conditions and watch how they affect the region's air quality.",
+    "Make sure that you wait long enough to see the effect.",
+    "",
+    "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
+    "modeled area. A lower number indicates better quality air."
+    ],
   "theme": [
     "has",
     "standalone-playback",
