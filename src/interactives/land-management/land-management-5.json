@@ -5,7 +5,8 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can explore the effect of slope, plants, climatic factors, and tillage strategy on erosion.",
+    "In this model, you can explore the effect of slope, plants, climatic factors, and tillage strategy ",
+    "(preparateion for planting) on erosion.",
     "In conservative tillage, the soil is minimally disrupted, while in intensive tillage, the soil is completely tilled.",
     "This model is divided into two zones that allow you to compare different management plans.",
     "",
@@ -169,7 +170,7 @@
     {
       "type": "text",
       "id": "landscape-label",
-      "text": "##Initial landscape"
+      "text": "##Landscape"
     },
     {
       "type": "pulldown",
