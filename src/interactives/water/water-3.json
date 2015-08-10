@@ -5,7 +5,7 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can compare the behavior of water as it hits sediments/rocks of differing permeability."
+    "Compare the behavior of water as it hits sediments/rocks of differing permeability."
     ],
   "theme": [
     "has",
