@@ -4,7 +4,7 @@
   "subtitle": "The Relationship Between Ocean Temperature and Atmospheric Water Vapor Levels",
   "helpOnLoad": false,
   "aboutOnLoad": true,
-    "about": ["In this model, you can explore how the temperature of the planet affects the amount of water vapor in the air.   ",
+    "about": ["Explore how the temperature of the planet affects the amount of water vapor in the air.   ",
     "",
     "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
     "Change the temperature, and watch the graphs to see what happens to the amount of water vapor in the air and the amount of",
