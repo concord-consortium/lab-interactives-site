@@ -5,10 +5,11 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model, you can explore the effect of slope on erosion.",
+    "Explore the effect of slope on erosion.",
     "This model is divided into two zones that allow you to compare different slopes.",
     "",
-    "Change the terrain with the landscape controls. You can choose from the preset values or set your own slopes.",
+    "Change the landscape by choosing a terrain from the pulldown menu. ",
+    "You can choose from the preset options or set your own slopes.",
     "Watch the graphs to see how soil moves between the zones.",
     "",
     "The **Erosion Rate** graph shows the amount of soil in each zone over time.",
@@ -157,7 +158,7 @@
     {
       "type": "text",
       "id": "landscape-label",
-      "text": "##Initial landscape"
+      "text": "##Landscape"
     },
     {
       "type": "pulldown",
