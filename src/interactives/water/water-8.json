@@ -65,10 +65,6 @@
       "value": "return iframeOutput('rainCount') || 28"
     },
     {
-      "name": "well0",
-      "value": "return iframeOutput('well0') || 0"
-    },
-    {
       "name": "well1",
       "value": "return iframeOutput('well1') || 0"
     },
@@ -83,6 +79,10 @@
     {
       "name": "well4",
       "value": "return iframeOutput('well4') || 0"
+    },
+    {
+      "name": "well5",
+      "value": "return iframeOutput('well5') || 0"
     }
   ],
   "helpTips": [
@@ -120,11 +120,11 @@
       "id": "wells-graph",
       "type": "graph",
       "properties": [
-        "well0",
         "well1",
         "well2",
         "well3",
-        "well4"
+        "well4",
+        "well5"
       ],
       "enableZooming": false,
       "enableAxisScaling": false,
