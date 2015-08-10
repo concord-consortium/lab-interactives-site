@@ -5,7 +5,7 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "In this model you can explore how the temperature of the ocean affects the concentration",
+    "Explore how the temperature of the ocean affects the concentration",
     "of carbon dioxide in the air and ocean.",
     "",
     "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
