@@ -2,8 +2,18 @@
   "title": "Air Pollution - Aerial",
   "publicationStatus": "draft",
   "subtitle": "Aerial View",
-  "helpOnLoad": true,
-  "about": "Explore the effect of wind and geography on regional air quality.",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+  	"Explore the effect of wind and geography on regional air quality.",
+  	"Explore how emissions can affect air quality in distant places.",
+  	"",
+  	 "Click on the model to add up to four power plants.",
+      "",
+      "Use the **wind control** to change the wind speed and direction.",
+      "",
+      "The **Air Quality Index** shows the air quality in Cities A, B, and C."
+  	],
   "theme": ["has","standalone-playback"],
   "aspectRatio": 1.2,
   "fontScale": 0.8,
@@ -40,21 +50,6 @@
     {
       "name": "cityCQuality",
       "value": "return iframeOutput('cityCQuality');"
-    }
-  ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": ["#How do I use this model?",
-      "---",
-      "Click on the model to add up to four power plants.",
-      "",
-      "",
-      "Use the wind control to change the wind speed and direction.",
-      "",
-      "",
-      "You can hover over the controls for more information. Click to close this window."
-       ]
     }
   ],
   "components": [
