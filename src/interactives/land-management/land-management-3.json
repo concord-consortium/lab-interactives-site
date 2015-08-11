@@ -128,6 +128,7 @@
         "Zone 1",
         "Zone 2"
       ],
+      "legendVisible": true,
       "syncXAxis": "topsoil-graph"
     },
     {
@@ -162,6 +163,7 @@
         "Zone 1",
         "Zone 2"
       ],
+      "legendVisible": true,
       "syncXAxis": "erosion-graph"
     },
     {
