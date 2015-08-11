@@ -63,7 +63,9 @@
         "opacity": 1
       }
     ],
-    "imageMapping": {},
+    "imageMapping": {
+      "nucleus.png": "nucleus.svg"
+    },
     "textBoxes": [],
     "xlabel": false,
     "ylabel": false,
