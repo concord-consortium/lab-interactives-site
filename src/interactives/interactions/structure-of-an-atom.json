@@ -1,0 +1,155 @@
+{
+  "title": "Structure of an atom",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "Using a color to estimate the next dart throw.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.01,
+  "fontScale": 1.0302457466918715,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "about": [],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electron-darts",
+      "url": "models/lab-version/1/md2d/interactions/structure-of-atom/structure.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
+      "onLoad": [
+        "// Hide the green text",
+        "//var savedText = getTextBoxProperties(2).text;",
+        "//setTextBoxProperties(2, {text: ''});",
+        "function throwDart(){",
+        "  var randomAngle = 2 * Math.PI * Math.random(),",
+        "      randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.05,",
+        "    height: 0.05,",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    fence: 0,",
+        "    color: 'rgb(0,0,255)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "};",
+        "onPropertyChange('time',function(time){",
+        "    batch(function(){",
+        "       if(!get('trace')){",
+        "         reloadModel();",
+        "           start();",
+        "        throwDart();",
+        "         }else{",
+        "        throwDart(); }",
+        "    });",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "darts",
+      "initialValue": 0
+    },
+    {
+      "name": "dartsPerTick",
+      "initialValue": 1
+    },
+    {
+      "name": "trace",
+      "initialValue": false
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "play",
+      "type": "button",
+      "action": "start();",
+      "text": "Start",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "trace-electrons",
+      "type": "checkbox",
+      "text": "Trace Electrons",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "trace",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "pause",
+      "type": "button",
+      "action": "stop();",
+      "text": "Stop throwing",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Remove darts",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "play"
+      ],
+      [
+        "pause",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}
