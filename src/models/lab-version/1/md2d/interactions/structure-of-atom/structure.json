@@ -27,7 +27,7 @@
   "requestedDuration": {},
   "skipPECheckOnAddAtom": false,
   "viewOptions": {
-    "viewPortWidth": 5.3,
+    "viewPortWidth": 5.7,
     "viewPortHeight": 4,
     "viewPortZoom": 1,
     "viewPortX": 0,
@@ -52,8 +52,8 @@
     "images": [
       {
         "imageUri": "nucleus.svg",
-        "imageX": 2,
-        "imageY": 2.8,
+        "imageX": 2.3,
+        "imageY": 2.1,
         "imageHostType": "",
         "imageHostIndex": 0,
         "imageLayer": 2,
