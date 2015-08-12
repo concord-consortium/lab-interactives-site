@@ -5,8 +5,10 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.1451942740286298,
-  "fontScale": 1.0089285714285714,
+  "aspectRatio": 1.07,
+  "fontScale": 0.85,
+  "lang": "en-US",
+  "i18nMetadata": "",
   "helpOnLoad": false,
   "about": [
     "J.J. Thomson discovered electrons by studying cathode rays, which were actually ",
@@ -14,6 +16,10 @@
     "and cathode ray particles (electrons). Why did Thomson think the cathode ray particles ",
     "could not be some type of charged atom?"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
@@ -196,7 +202,6 @@
   "outputs": [],
   "filteredOutputs": [],
   "helpTips": [],
-  "hideExportDataControl": false,
   "dataSets": [],
   "components": [
     {
@@ -211,11 +216,12 @@
         "start();",
         "traceAtom(0);"
       ],
-      "text": "Send + charged atom",
+      "text": "Send pos.(+) atom",
       "width": "",
       "height": "",
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "send-neg-particle",
@@ -229,11 +235,12 @@
         "start();",
         "traceAtom(0);"
       ],
-      "text": "Send - charged atom",
+      "text": "Send neg.(-) atom",
       "width": "",
       "height": "",
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "send-mystery-particle",
@@ -247,11 +254,12 @@
         "start();",
         "traceAtom(0);"
       ],
-      "text": "Send cathode ray particle from Crookes tube",
+      "text": "Send cathode ray particle",
       "width": "",
-      "height": "",
+      "height": "100%",
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "set-atom-mass",
@@ -260,6 +268,7 @@
       "max": 12,
       "steps": 11,
       "title": "",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 1,
@@ -274,13 +283,14 @@
           "label": "Carbon"
         }
       ],
-      "width": "40%",
+      "width": "80%",
       "height": "auto",
       "displayValue": "return format('f')(value)",
       "property": "mysteryMass",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "label-atom-mass",
@@ -288,7 +298,26 @@
       "text": "Atom mass (amu):",
       "width": "auto",
       "height": "auto",
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "crookes-particle",
+      "type": "text",
+      "text": "**Particles from a Crookes tube**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "charged-particle",
+      "type": "text",
+      "text": "**Charged atoms**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "label-plate-charge",
@@ -296,7 +325,8 @@
       "text": "Charge on plates:",
       "width": "auto",
       "height": "auto",
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "enable-slow-motion",
@@ -308,7 +338,8 @@
       "property": "isSlowMotionEnabled",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "set-charge-on-plates",
@@ -317,6 +348,7 @@
       "max": 20,
       "steps": 20,
       "title": "",
+      "titlePosition": "top",
       "labels": [
         {
           "value": -20,
@@ -331,12 +363,13 @@
           "label": "None"
         }
       ],
-      "width": "40%",
+      "width": "60%",
       "height": "auto",
       "property": "plateChargeProxy",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "enable-super-plates",
@@ -348,22 +381,12 @@
       "property": "superChargePlates",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      [
-        "send-mystery-particle"
-      ],
-      [
-        "label-atom-mass",
-        "set-atom-mass"
-      ],
-      [
-        "send-neg-particle",
-        "send-pos-particle"
-      ],
       [
         "label-plate-charge",
         "set-charge-on-plates"
@@ -372,15 +395,59 @@
         "enable-super-plates",
         "enable-slow-motion"
       ]
-    ]
+    ],
+    "left": [
+      [
+       "crookes-particle"
+      ],
+      [
+       "send-mystery-particle"
+      ]
+    ],
+    "right":[
+      [
+       "charged-particle"
+      ],
+      [
+       "label-atom-mass"
+      ],
+      [
+        "set-atom-mass"
+      ],
+      [
+        "send-neg-particle",
+        "send-pos-particle"
+      ]
+   ]
   },
   "template": [
     {
-      "id": "bottom",
+      "id": "left",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
-      "align": "center"
+      "border": "1px solid gray",
+      "padding-top": "3.85em",
+      "padding-bottom": "3.85em",
+      "padding-left": "2em",
+      "padding-right": "2em",
+      "margin-top": "1em",
+      "margin-bottom": "1em",
+      "background": "#fff"
+    },
+    {
+      "id": "right",
+      "top": "model.bottom",
+      "left": "left.right",
+      "border": "1px solid gray",
+      "padding": "1em",
+      "padding-right": "3em",
+      "margin-top": "1em",
+      "margin-bottom": "1em",
+      "background": "#fff"
+    },
+    {
+      "id": "bottom",
+      "top": "left.bottom",
+      "padding-left": "7em"
     }
   ]
 }
