@@ -2,11 +2,11 @@
   "title": "Structure of an atom",
   "publicationStatus": "draft",
   "labEnvironment": "production",
-  "subtitle": "Using a color to estimate the next dart throw.",
+  "subtitle": "Using a color to estimate the next electron throw.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.01,
+  "aspectRatio": 1,
   "fontScale": 1.0302457466918715,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -31,14 +31,14 @@
         "      randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
         "  addShape({",
         "    type: 'ellipse',",
-        "    width: 0.05,",
-        "    height: 0.05,",
+        "    width: 0.07,",
+        "    height: 0.07,",
         "    // Convert random angle and distance from polar",
         "    // to rectangular coordinates",
         "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
         "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
         "    fence: 0,",
-        "    color: 'rgb(0,0,255)',",
+        "    color: 'red',",
         "    lineColor: 'black',",
         "    lineDashes: 'none',",
         "    lineWeight: 0,",
@@ -47,15 +47,14 @@
         "    visible: 1",
         "  });",
         "};",
-        "onPropertyChange('time',function(time){",
-        "    batch(function(){",
+        "callEvery(get('timeGap'), function() {",
         "       if(!get('trace')){",
         "         reloadModel();",
         "           start();",
         "        throwDart();",
         "         }else{",
+        "        throwDart(); ",
         "        throwDart(); }",
-        "    });",
         "});"
       ],
       "viewOptions": {
@@ -67,16 +66,12 @@
   "propertiesToRetain": [],
   "parameters": [
     {
-      "name": "darts",
-      "initialValue": 0
-    },
-    {
-      "name": "dartsPerTick",
-      "initialValue": 1
-    },
-    {
       "name": "trace",
       "initialValue": false
+    },
+    {
+      "name": "timeGap",
+      "initialValue": 25
     }
   ],
   "outputs": [],
@@ -123,9 +118,36 @@
       "id": "reset",
       "type": "button",
       "action": "reloadModel();",
-      "text": "Remove darts",
+      "text": "Remove Electrons",
       "width": "",
       "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "timestep-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 100,
+      "steps": 50,
+      "title": "Delay between finding Electrons",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 10,
+          "label": "short"
+        },
+        {
+          "value": 100,
+          "label": "long"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "timeGap",
+      "retainProperty": true,
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
@@ -134,11 +156,13 @@
   "layout": {
     "bottom": [
       [
-        "play"
-      ],
-      [
+        "play",
         "pause",
         "reset"
+      ],
+      [
+        "timestep-slider",
+        "trace-electrons"
       ]
     ]
   },
