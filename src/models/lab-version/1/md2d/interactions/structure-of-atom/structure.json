@@ -52,7 +52,7 @@
     "images": [
       {
         "imageUri": "nucleus.svg",
-        "imageX": 2.3,
+        "imageX": 2.8,
         "imageY": 2.1,
         "imageHostType": "",
         "imageHostIndex": 0,
@@ -63,6 +63,7 @@
         "opacity": 1
       }
     ],
+    "imageMapping": {},
     "textBoxes": [],
     "xlabel": false,
     "ylabel": false,
