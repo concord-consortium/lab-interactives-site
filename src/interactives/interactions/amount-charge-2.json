@@ -27,7 +27,7 @@
       "url": "models/lab-version/1/md2d/interactions/charge-intensity-and-force/amount-charge.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
       "onLoad": [
-        "set('showElectricField',false);",
+        "set('showElectricField',true);",
         "set('left-particle-charge',2);",
         "set('right-particle-charge',-2);",
         "stop();"
