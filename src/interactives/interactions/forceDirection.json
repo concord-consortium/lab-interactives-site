@@ -3,6 +3,7 @@
   "publicationStatus": "public",
   "subtitle": "Explore the direction of an electric force between charged objects.",
   "aspectRatio": 1.6,
+  "helpOnLoad": true,
   "about": [
     "Charged objects attract or repel each other. Try changing the charge of the central, stationary object and ",
     "dragging around the other one. Then observe how the force arrows behave. Use the *Trace force vectors* ",
@@ -19,6 +20,7 @@
       },
       "viewOptions": {
         "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
       "onLoad": [
@@ -104,10 +106,13 @@
       ]
     }
   ],
-  "exports": {
-    "perRun": ["object-charge", "potentialEnergy"],
-    "perTick": []
-  },
+  "helpTips": [
+    {
+      "component": "",
+      "text": "Use the draggable object to observe the direction of the force it feels. Use the trace button to track the pattern of forces.",
+      "showcase": true
+    }
+  ],
   "components": [
     {
       "type": "button",
@@ -137,7 +142,7 @@
       "type": "checkbox",
       "id": "toggle-trace-force-vectors",
       "property": "trace-force-vectors",
-      "text": "Trace force vectors"
+      "text": "Trace force pointers"
     },
     {
       "type": "text",
