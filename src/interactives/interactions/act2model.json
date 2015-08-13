@@ -33,14 +33,28 @@
     }
   ],
   "parameters": [
+    {   
+      "name": "buffer_x",
+      "initialValue": 1.23
+      },
+    {   
+      "name": "buffer_y",
+      "initialValue": 1.23
+      },
     {
       "name": "show-second-atom",
       "initialValue": false,
       "onChange": [
         "if (value) {",
-        "  setAtomProperties(1, {charge: 2, visible: true});",
-        "} else {",
-        "  setAtomProperties(1, {charge: 0, visible: false});",
+        "  addAtom({ element:2,",
+        "                 x: get('buffer_x'),",
+        "                 y: get('buffer_y'),",
+        "                 charge:2,",
+        "                 vx: 0,",
+        "                 vy: 0});",
+        "} else {","set('buffer_x',getAtomProperties(1).x);", 
+                   "set('buffer_y',getAtomProperties(1).y);",
+                   "removeAtom(1);",
         "}"
       ]
     }
