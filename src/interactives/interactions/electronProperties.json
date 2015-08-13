@@ -5,7 +5,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.07,
+  "aspectRatio": 1.054,
   "fontScale": 0.85,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -320,15 +320,6 @@
       "helpIcon": false
     },
     {
-      "id": "label-plate-charge",
-      "type": "text",
-      "text": "Charge on plates:",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
       "id": "enable-slow-motion",
       "type": "checkbox",
       "text": "Slow motion",
@@ -347,8 +338,8 @@
       "min": -20,
       "max": 20,
       "steps": 20,
-      "title": "",
-      "titlePosition": "top",
+      "title": "Charge on plates:",
+      "titlePosition": "left",
       "labels": [
         {
           "value": -20,
@@ -363,7 +354,7 @@
           "label": "None"
         }
       ],
-      "width": "60%",
+      "width": "100%",
       "height": "auto",
       "property": "plateChargeProxy",
       "retainProperty": true,
@@ -388,7 +379,6 @@
   "layout": {
     "bottom": [
       [
-        "label-plate-charge",
         "set-charge-on-plates"
       ],
       [
@@ -398,18 +388,18 @@
     ],
     "left": [
       [
-       "crookes-particle"
+        "crookes-particle"
       ],
       [
-       "send-mystery-particle"
+        "send-mystery-particle"
       ]
     ],
-    "right":[
+    "right": [
       [
-       "charged-particle"
+        "charged-particle"
       ],
       [
-       "label-atom-mass"
+        "label-atom-mass"
       ],
       [
         "set-atom-mass"
@@ -418,25 +408,25 @@
         "send-neg-particle",
         "send-pos-particle"
       ]
-   ]
+    ]
   },
   "template": [
     {
       "id": "left",
       "top": "model.bottom",
       "border": "1px solid gray",
-      "padding-top": "3.85em",
-      "padding-bottom": "3.85em",
+      "padding-top": "3.8999em",
+      "padding-bottom": "3.87em",
       "padding-left": "2em",
       "padding-right": "2em",
       "margin-top": "1em",
-      "margin-bottom": "1em",
+      "margin-bottom": "1.1em",
       "background": "#fff"
     },
     {
       "id": "right",
       "top": "model.bottom",
-      "left": "left.right",
+      "left": "left.right*1.03",
       "border": "1px solid gray",
       "padding": "1em",
       "padding-right": "3em",
