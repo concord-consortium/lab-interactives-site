@@ -9,7 +9,7 @@
   "fontScale": 0.85,
   "lang": "en-US",
   "i18nMetadata": "",
-  "helpOnLoad": false,
+  "helpOnLoad": true,
   "about": [
     "J.J. Thomson discovered electrons by studying cathode rays, which were actually ",
     "streams of electrons. Use this simulation to compare the behavior of charged atoms ",
@@ -201,7 +201,23 @@
   ],
   "outputs": [],
   "filteredOutputs": [],
-  "helpTips": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "In this simulation you explore and compare the behavior of cathode ray particles with charged atoms of various mass."
+      ],
+      "showcase": true
+    },
+    {
+    
+      "component": "enable-super-plates",
+      "text": [
+		"Note: If you don't see the charged plates having an effect on the charged atoms, try making the charge really high."
+      ],
+      "showcase": true
+    }
+  ],
   "dataSets": [],
   "components": [
     {
@@ -400,7 +416,7 @@
         "crookes-particle"
       ],
       [
-      	"space"
+        "space"
       ],
       [
         "send-mystery-particle"
