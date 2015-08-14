@@ -5,7 +5,7 @@
   "about": [
     "Use this table to collect data about your experiment with a charged and uncharged bottle."
   ],
-  "aspectRatio": "2.08",
+  "aspectRatio": "2.15",
   "fontscale": 1.13,
   "models": [
     {
@@ -31,7 +31,7 @@
         "Observation: How did your hand and the bottle interact?"
       ],
       "initialData": {
-        "Experiment": ["Bottle not rubbed with fur","Bottle after it's been rubbed with fur"]
+        "Experiment": ["Bottle not rubbed with fur","Bottle after rubbing with fur"]
       }
 
     }
