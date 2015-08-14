@@ -5,7 +5,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.054,
+  "aspectRatio": 1.1167,
   "fontScale": 0.85,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -267,7 +267,7 @@
       "min": 1,
       "max": 12,
       "steps": 11,
-      "title": "",
+      "title": "Atom mass (amu):",
       "titlePosition": "top",
       "labels": [
         {
@@ -293,15 +293,6 @@
       "helpIcon": false
     },
     {
-      "id": "label-atom-mass",
-      "type": "text",
-      "text": "Atom mass (amu):",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
       "id": "crookes-particle",
       "type": "text",
       "text": "**Particles from a Crookes tube**",
@@ -315,6 +306,24 @@
       "type": "text",
       "text": "**Charged atoms**",
       "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "space",
+      "type": "text",
+      "text": "  ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "space2",
+      "type": "text",
+      "text": "       ",
+      "width": "28%",
       "height": "auto",
       "tooltip": "",
       "helpIcon": false
@@ -391,15 +400,16 @@
         "crookes-particle"
       ],
       [
+      	"space"
+      ],
+      [
         "send-mystery-particle"
       ]
     ],
     "right": [
       [
+        "space2",
         "charged-particle"
-      ],
-      [
-        "label-atom-mass"
       ],
       [
         "set-atom-mass"
@@ -415,9 +425,9 @@
       "id": "left",
       "top": "model.bottom",
       "border": "1px solid gray",
-      "padding-top": "3.8999em",
-      "padding-bottom": "3.87em",
       "padding-left": "2em",
+      "padding-bottom": "3.3em",
+      "padding-top": "1.3em",
       "padding-right": "2em",
       "margin-top": "1em",
       "margin-bottom": "1.1em",
@@ -429,7 +439,8 @@
       "left": "left.right*1.03",
       "border": "1px solid gray",
       "padding": "1em",
-      "padding-right": "3em",
+      "padding-right": "1em",
+      "padding-left": "2em",
       "margin-top": "1em",
       "margin-bottom": "1em",
       "background": "#fff"
