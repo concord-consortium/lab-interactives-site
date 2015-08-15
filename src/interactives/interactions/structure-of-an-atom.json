@@ -77,8 +77,7 @@
     },
     {
       "name": "trace",
-      "initialValue": false,
-      "onChange": "reloadModel();"
+      "initialValue": false
     }
   ],
   "outputs": [],
