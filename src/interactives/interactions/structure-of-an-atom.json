@@ -47,14 +47,16 @@
         "    visible: 1",
         "  });",
         "};",
-        "callEvery(get('timeGap'), function() {",
+        "callEvery(1,function(){",
+        "     if(get('time')>=get('LastDartThrow')+get('timeGap')){",
         "       if(!get('trace')){",
-        "         reloadModel();",
-        "           start();",
-        "        throwDart();",
-        "         }else{",
-        "        throwDart(); ",
-        "        throwDart(); }",
+        "           removeShape(0);",
+        "           throwDart();",
+        "     }else{",
+        "           throwDart(); ",
+        "      }",
+        "     set('LastDartThrow',get('time'));",
+        "      }",
         "});"
       ],
       "viewOptions": {
@@ -66,12 +68,17 @@
   "propertiesToRetain": [],
   "parameters": [
     {
-      "name": "trace",
-      "initialValue": false
+      "name": "timeGap",
+      "initialValue": 40
     },
     {
-      "name": "timeGap",
-      "initialValue": 25
+      "name": "LastDartThrow",
+      "initialValue": 0
+    },
+    {
+      "name": "trace",
+      "initialValue": false,
+      "onChange": "reloadModel();"
     }
   ],
   "outputs": [],
@@ -128,18 +135,18 @@
     {
       "id": "timestep-slider",
       "type": "slider",
-      "min": 10,
-      "max": 100,
+      "min": 20,
+      "max": 110,
       "steps": 50,
       "title": "Delay between finding Electrons",
       "titlePosition": "top",
       "labels": [
         {
-          "value": 10,
+          "value": 20,
           "label": "short"
         },
         {
-          "value": 100,
+          "value": 110,
           "label": "long"
         }
       ],
