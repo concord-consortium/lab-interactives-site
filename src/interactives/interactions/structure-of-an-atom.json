@@ -52,10 +52,10 @@
         "       if(!get('trace')){",
         "           removeShape(0);",
         "           throwDart();",
-        "     }else{",
+        "       }else{",
         "           throwDart(); ",
-        "      }",
-        "     set('LastDartThrow',get('time'));",
+        "       }",
+        "       set('LastDartThrow',get('time'));",
         "      }",
         "});"
       ],
@@ -77,7 +77,10 @@
     },
     {
       "name": "trace",
-      "initialValue": false
+      "initialValue": false,
+      "onChange": [
+        "if (!value) stop();"
+      ]
     }
   ],
   "outputs": [],
