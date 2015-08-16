@@ -77,10 +77,7 @@
     },
     {
       "name": "trace",
-      "initialValue": false,
-      "onChange": [
-        "if (!value) stop();"
-      ]
+      "initialValue": false
     }
   ],
   "outputs": [],
