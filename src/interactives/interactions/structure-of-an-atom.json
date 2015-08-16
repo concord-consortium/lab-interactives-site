@@ -124,7 +124,7 @@
       "id": "reset",
       "type": "button",
       "action": "reloadModel();",
-      "text": "Remove Electrons",
+      "text": "Reset",
       "width": "",
       "height": "",
       "disabled": false,
