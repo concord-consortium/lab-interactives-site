@@ -6,11 +6,11 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 0.77777,
+  "aspectRatio": 1.5,
   "fontScale": 1.0302457466918715,
   "lang": "en-US",
   "i18nMetadata": "",
-  "helpOnLoad": false,
+  "helpOnLoad": true,
   "about": [],
   "theme": "",
   "showTopBar": true,
@@ -54,15 +54,17 @@
         "          removeShape(size-1);",
         "          throwDart();",
         "       }else{",
-        "           throwDart(); ",
+        "       batch(function(){",
+        "           throwDart();",
+        "           throwDart(); });",
         "       }",
         "       set('LastDartThrow',get('time'));",
         "      }",
         "});"
       ],
       "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       }
     }
   ],
@@ -83,20 +85,17 @@
   ],
   "outputs": [],
   "filteredOutputs": [],
-  "helpTips": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "It is impossible to know both the precise location and velocity of an electron at the same time. This simulation shows you the position of electrons at various moments in time. Explore the pattern of where the electrons are found."
+        ],
+      "showcase": true
+    }
+  ],
   "dataSets": [],
   "components": [
-    {
-      "id": "play",
-      "type": "button",
-      "action": "start();",
-      "text": "Start",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
-    },
     {
       "id": "trace-electrons",
       "type": "checkbox",
@@ -106,28 +105,6 @@
       "height": "auto",
       "property": "trace",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
-      "id": "pause",
-      "type": "button",
-      "action": "stop();",
-      "text": "Stop throwing",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
-      "id": "reset",
-      "type": "button",
-      "action": "reloadModel();",
-      "text": "Reset",
-      "width": "",
-      "height": "",
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
@@ -163,12 +140,9 @@
   "layout": {
     "bottom": [
       [
-        "play",
-        "pause",
-        "reset"
+        "timestep-slider"
       ],
       [
-        "timestep-slider",
         "trace-electrons"
       ]
     ]
@@ -176,9 +150,8 @@
   "template": [
     {
       "id": "bottom",
-      "top": "model.bottom",
+      "left": "model.right",
       "width": "model.width",
-      "left": "model.left",
       "padding-top": "0.5em",
       "align": "center"
     }
