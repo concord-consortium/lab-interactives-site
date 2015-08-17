@@ -266,8 +266,7 @@
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Change the speed of the model."
+      "disabled": false
     },
     {
       "id": "showLabel",
@@ -286,8 +285,7 @@
       "height": "auto",
       "property": "showGases",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing gases in the model."
+      "disabled": false
     },
     {
       "id": "showRaysCheckbox",
@@ -298,8 +296,7 @@
       "height": "auto",
       "property": "showRays",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing radiation in the model."
+      "disabled": false
     },
     {
       "id": "showHeatCheckbox",
@@ -310,8 +307,7 @@
       "height": "auto",
       "property": "showHeat",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing heat in the model."
+      "disabled": false
     },
     {
       "id": "followEnergyButton",
@@ -323,8 +319,7 @@
       "text": "Follow energy packet",
       "width": "12em",
       "height": "",
-      "disabled": false,
-      "tooltip": "Follow an energy packet from the Sun."
+      "disabled": false
     },
     {
       "id": "followCO2Button",
@@ -336,8 +331,7 @@
       "text": "Follow CO₂",
       "width": "12em",
       "height": "",
-      "disabled": false,
-      "tooltip": "Follow a greenhouse gas in the model."
+      "disabled": false
     },
     {
       "id": "addCloudButton",
@@ -346,8 +340,7 @@
       "text": "Add cloud",
       "width": "12em",
       "height": "",
-      "disabled": false,
-      "tooltip": "Add clouds to the model."
+      "disabled": false
     },
     {
       "id": "removeCloudButton",
@@ -356,8 +349,7 @@
       "text": "Remove cloud",
       "width": "12em",
       "height": "",
-      "disabled": false,
-      "tooltip": "Remove clouds from the model."
+      "disabled": false
     },
     {
       "id": "playback",
