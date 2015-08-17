@@ -21,7 +21,7 @@
     "The **Amount of Topsoil** graph shows the amount of topsoil in each zone over time.",
     ""
   ],
-  "theme": ["has", "invisible-disabled-components","graph-title-bg"],
+  "theme": ["has", "invisible-disabled-components","graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.2,
   "fontScale": 0.6,
   "models": [
