@@ -222,8 +222,7 @@
       "height": "auto",
       "property": "animRate",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Change the speed of the model."
+      "disabled": false
     },
     {
       "id": "iceSlider",
@@ -247,8 +246,7 @@
       "height": "auto",
       "property": "icePercent",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Change the amount of ice cover in the model."
+      "disabled": false
     },
     {
       "id": "showLabel",
@@ -267,8 +265,7 @@
       "height": "auto",
       "property": "showGases",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing gases in the model."
+      "disabled": false
     },
     {
       "id": "showRaysCheckbox",
@@ -279,8 +276,7 @@
       "height": "auto",
       "property": "showRays",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing radiation in the model."
+      "disabled": false
     },
     {
       "id": "showHeatCheckbox",
@@ -291,8 +287,7 @@
       "height": "auto",
       "property": "showHeat",
       "retainProperty": true,
-      "disabled": false,
-      "tooltip": "Toggle showing heat in the model."
+      "disabled": false
     },
     {
       "id": "playback",
