@@ -1,0 +1,191 @@
+{
+  "title": "Structure of an atom",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "Using a color to map the location of electrons.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 1.0302457466918715,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": true,
+  "about": [],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electron-darts",
+      "url": "models/lab-version/1/md2d/interactions/structure-of-atom/structure.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
+      "onLoad": [
+        "// Hide the green text",
+        "//var savedText = getTextBoxProperties(2).text;",
+        "//setTextBoxProperties(2, {text: ''});",
+        "function throwDart(){",
+        "  var randomAngle = 2 * Math.PI * Math.random(),",
+        "      randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.07,",
+        "    height: 0.07,",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    fence: 0,",
+        "    color: 'rgba(255, 0, 0, 0.4)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "};",
+        "callEvery(1,function(){",
+        "     if(get('time')>=get('LastDartThrow')+get('timeGap')){",
+        "       if(!get('trace')){",
+        "          if (getNumberOfShapes()>1){",
+        "            removeShape(1);",
+        "            removeShape(1);",
+        "          }",
+        "          throwDart();",
+        "          throwDart();",
+        "       }else{",
+        "         batch(function () {",
+        "           throwDart();",
+        "           throwDart();",
+        "         });",
+        "       }",
+        "       set('LastDartThrow',get('time'));",
+        "      }",
+        "});",
+        "throwDart();",
+        "throwDart();",
+        "start();"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "timeGap",
+      "initialValue": 100
+    },
+    {
+      "name": "LastDartThrow",
+      "initialValue": 0
+    },
+    {
+      "name": "trace",
+      "initialValue": false,
+      "onChange": [
+        "batch(function() {",
+        "  var shapeNum = getNumberOfShapes()-1;",
+        "  for(var i = 0; i<shapeNum; i++) {",
+        "    removeShape(1);",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "It is impossible to know both the precise location and velocity of an electron at the same time. This simulation shows you the position of electrons at various moments in time. Explore the pattern of where the electrons are found."
+        ],
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "trace-electrons",
+      "type": "checkbox",
+      "text": "Trace Electrons",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "trace",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "timestep-slider",
+      "type": "slider",
+      "min": 5,
+      "max": 200,
+      "steps": 50,
+      "title": "Delay between finding Electrons",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 5,
+          "label": "short"
+        },
+        {
+          "value": 200,
+          "label": "long"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "timeGap",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "image",
+      "id": "key",
+      "height": "8em",
+      "src": "atom-key.svg"
+    }
+  ],
+  "layout": {
+    "right-top": [
+      [
+        "timestep-slider"
+      ],
+      [
+        "trace-electrons"
+      ]
+    ],
+    "right-bottom": [
+        "key"
+      ]
+  },
+  "template": [
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "padding-bottom": "2em",
+      "align": "center"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "width": "model.width",
+      "top": "right-top.bottom",
+      "align": "center"
+    }
+  ]
+}
