@@ -1,0 +1,101 @@
+{
+  "title": "Table: Determining the charge on rubbed objects",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [
+    "Use this table to indicate the charge objects that have been rubbed together have."
+  ],
+  "aspectRatio": "1.8",
+  "fontscale": 1.13,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "empty",
+      "model": {
+        "url": ""
+      },
+      "viewOptions": {
+        "aspectRatio": 1000,
+        "controlButtons": "",
+        "showClock": false
+      }
+    }
+  ],
+  "dataSets":[
+    {
+      "name": "table-dataset",
+      "properties": [
+        "Objects that were rubbed together",
+        "Interaction with positive tape",
+        "Interaction with negative tape",
+        "Charge of rubbed object"
+      ],
+      "initialData": {
+        "Objects that were rubbed together": ["T1 - Teflon rod", "T1 - fur","T2 - glass rod", "T2 - silk", "T2 - plastic bottle", "T3 - fur", "T4 - plastic bottle", "T4 - silk"],
+        "Interaction with positive tape": ["attract", "repel", "repel", "attract", "attract", "repel", "attract", "repel"],
+        "Interaction with negative tape": ["repel", "attract", "attract", "repel", "repel", "attract", "repel", "attract"]
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "table1",
+      "type": "table",
+      "dataSet": "table-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": false,
+      "indexColumn": false,
+      "width": "interactive.width",
+      "propertyColumns": [
+        {
+          "name": "Objects that were rubbed together",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "Interaction with positive tape",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "Interaction with negative tape",
+          "format": "r",
+          "editable": false
+        },
+        {
+          "name": "Charge of rubbed object",
+          "format": "r"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-dataset",
+      "text": "Reset table",
+      "action": "resetDataSet('table-dataset');"
+    }
+  ],
+  "template": [
+    {
+      "id": "above",
+      "top": "model.bottom",
+      "padding-top": "0em",
+      "bottom": "below.top",
+      "padding-bottom": "3em",
+      "padding-right": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "width": "interactive.width",
+      "align": "center",
+      "bottom": "interactive.bottom"
+    }
+  ],
+  "layout": {
+    "above": ["table1"],
+    "below": ["reset-dataset"]
+  }
+}
