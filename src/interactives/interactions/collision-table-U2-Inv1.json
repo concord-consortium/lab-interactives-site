@@ -25,7 +25,6 @@
     {
       "name": "table-dataset",
       "properties": [
-        "Method of collision",
         "Observations of motion before collision",
         "Observations of motion after collision"
       ]
@@ -42,10 +41,6 @@
       "indexColumn": false,
       "width": "interactive.width",
       "propertyColumns": [
-        {
-          "name": "Method of collision",
-          "format": "r"
-        },
         {
           "name": "Observations of motion before collision",
           "format": "r"
