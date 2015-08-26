@@ -122,6 +122,8 @@
       "xProperty": "year",
       "title": "Well Output",
       "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
       "width": "100%",
       "height": "100%",
       "xlabel": "Time (years)",
