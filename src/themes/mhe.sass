@@ -19,8 +19,37 @@ $main-color: #00A0E3 // #00a2de
     transform: translateX(0.08em) translateY(0.08em)
     -webkit-transform: translateX(0.08em) translateY(0.08em)
 
+// These font files don't resolve here, but they do when embedded into the MHE model folders
+@font-face
+  font-family: 'fonts/mheelemsans'
+  src: url('../../css/fonts/mheelemsans-regular-webfont.eot')
+  src: url('../../css/fonts/mheelemsans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../../css/fonts/mheelemsans-regular-webfont.woff2') format('woff2'), url('../../css/fonts/mheelemsans-regular-webfont.woff') format('woff'), url('../../css/fonts/mheelemsans-regular-webfont.ttf') format('truetype'), url('../../css/fonts/mheelemsans-regular-webfont.svg#mheelemsansregular') format('svg')
+  font-style: normal
+  font-weight: normal
+
+@font-face
+  font-family: 'fonts/mheelemsans'
+  src: url('../../css/fonts/mheelemsans-bold-webfont.eot')
+  src: url('../../css/fonts/mheelemsans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../../css/fonts/mheelemsans-bold-webfont.woff2') format('woff2'), url('../../css/fonts/mheelemsans-bold-webfont.woff') format('woff'), url('../../css/fonts/mheelemsans-bold-webfont.ttf') format('truetype'), url('../../css/fonts/mheelemsans-bold-webfont.svg#mheelemsansbold') format('svg')
+  font-style: normal
+  font-weight: bold
+
+@font-face
+  font-family: 'fonts/mheelemsans'
+  src: url('../../css/fonts/mheelemsans-italic-webfont.eot')
+  src: url('../../css/fonts/mheelemsans-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../../css/fonts/mheelemsans-italic-webfont.woff2') format('woff2'), url('../../css/fonts/mheelemsans-italic-webfont.woff') format('woff'), url('../../css/fonts/mheelemsans-italic-webfont.ttf') format('truetype'), url('../../css/fonts/mheelemsans-italic-webfont.svg#mheelemsansitalic') format('svg')
+  font-style: italic
+  font-weight: normal
+
+@font-face
+  font-family: 'fonts/mheelemsans'
+  src: url('../../css/fonts/mheelemsans-bolditalic-webfont.eot')
+  src: url('../../css/fonts/mheelemsans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'), url('../../css/fonts/mheelemsans-bolditalic-webfont.woff2') format('woff2'), url('../../css/fonts/mheelemsans-bolditalic-webfont.woff') format('woff'), url('../../css/fonts/mheelemsans-bolditalic-webfont.ttf') format('truetype'), url('../../css/fonts/mheelemsans-bolditalic-webfont.svg#mheelemsansbold_italic') format('svg')
+  font-style: italic
+  font-weight: bold
+
 .lab-theme-mhe
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: 'fonts/mheelemsans', "Helvetica Neue", Helvetica, Arial, sans-serif
   background-image: none
   background-color: #fff
 
