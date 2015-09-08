@@ -22,7 +22,16 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "getPart(3).temperature = 500;"
+        "getPart(3).temperature = 500;",
+        "// Lines below provide workaround to the difference between Java and JS version of Energy2D",
+        "// that is related to floating point inaccuracy. For example:",
+        "// cell_position = 1.05, cell_size = 0.1",
+        "// [Java E2D]: Math.round(cell_position / cell_size) = 10",
+        "// [JS E2D]:   Math.round(cell_position / cell_size) = 11",
+        "// It's causing the average temperature at the end of radiator to be very different, as different",
+        "// grid cells are taken into account. Make sure that Math.round() will return the same value:",
+        "getPart(3).x -= 0.01;",
+        "getPart(4).x += 0.01;"
       ]
     }
   ],
@@ -30,7 +39,6 @@
     {
       "name": "left-heater-temperature",
       "label": "Heater temperature",
-      "value": "getPart(3).temperature;",
       "onChange": "getPart(3).temperature = value;",
       "initialValue": 500
     }
