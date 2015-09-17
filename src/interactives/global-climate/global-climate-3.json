@@ -147,6 +147,12 @@
       "value": "return iframeOutput('oceanCO2Concentration');"
     }
   ],
+    "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["year","temperatureChange","oceanTemperatureChange", "airCO2Concentration", "oceanCO2Concentration", "spotlightActive","temperatureChange","CO2Concentration","followEnergy","followCO2","showGases","showRays","showHeat", "fixedTemperature"],
+      "perTick":[]
+    },
   "components": [
     {
       "id": "temperatureGraph",
