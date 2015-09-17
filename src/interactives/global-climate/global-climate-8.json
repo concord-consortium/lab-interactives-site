@@ -105,6 +105,12 @@
       "value": "return iframeOutput('vaporConcentration');"
     }
   ],
+  "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["year","temperatureChange", "airCO2Concentration", "oceanCO2Concentration", "vaporConcentration", "showGases","showRays","showHeat", "humanEmissionRate"],
+      "perTick":[]
+    },
   "components": [
     {
       "id": "temperatureGraph",
