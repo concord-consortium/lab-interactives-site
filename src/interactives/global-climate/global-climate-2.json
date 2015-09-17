@@ -120,6 +120,12 @@
       "value": "return iframeOutput('CO2Concentration');"
     }
   ],
+      "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["year","temperatureChange", "CO2Concentration", "spotlightActive","temperatureChange","CO2Concentration","followEnergy","followCO2","showGases","showRays","showHeat"],
+      "perTick":[]
+    },
   "components": [
     {
       "id": "temperatureGraph",
