@@ -146,8 +146,12 @@
   :name: "VISUAL: Plate Techtonics"
   :category: Curriculum
 
-- :path: grasp/land-of-bump
+- :path: sensing-science/land-of-bump
   :name: "GRASP: Land of Bump"
+  :category: Curriculum
+
+- :path: grasp
+  :name: "GRASP models"
   :category: Curriculum
 
 - :path: jsmol
