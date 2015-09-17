@@ -102,23 +102,12 @@
       "value": "return iframeOutput('vaporConcentration');"
     }
   ],
-  "helpTips": [
+    "exports": 
     {
-      "component": "",
-      "text": [
-      ],
-      "showcase": false
+      "selectionComponents": [],
+      "perRun": ["year","temperatureChange","oceanTemperatureChange", "airCO2Concentration", "oceanCO2Concentration", "vaporConcentration", "showGases","showRays","showHeat", "fixedTemperature"],
+      "perTick":[]
     },
-     {
-      "component": [
-        "temperatureGraph",
-        "co2Graph"
-      ],
-      "text": [
-      ],
-      "showcase": false
-    }
-  ],
   "components": [
     {
       "id": "temperatureGraph",
