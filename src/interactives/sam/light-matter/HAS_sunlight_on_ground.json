@@ -83,6 +83,12 @@
       "unitType": "temperature"
     }
   ],
+  "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["lightSourceEnabled", "slowMotion", "averageTemperature", "keShading"],
+      "perTick":["lightSourceEnabled", "averageTemperature", "temperature"]
+    },
   "helpTips": [],
   "dataSets": [],
   "components": [
