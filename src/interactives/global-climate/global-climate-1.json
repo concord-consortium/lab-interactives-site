@@ -88,6 +88,12 @@
       ]
     }
   ],
+   "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["spotlightActive","temperatureChange","CO2Concentration","followEnergy","followCO2","showGases","showRays","showHeat"],
+      "perTick":[]
+    },
   "outputs": [
     {
       "name": "spotlightActive",
