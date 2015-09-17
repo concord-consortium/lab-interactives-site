@@ -103,6 +103,12 @@
       "value": "return iframeOutput('vaporConcentration');"
     }
   ],
+  "exports": 
+    {
+      "selectionComponents": [],
+      "perRun": ["year","temperatureChange", "airCO2Concentration", "oceanCO2Concentration", "vaporConcentration", "showGases","showRays","showHeat", "followEnergy", "followCO2", "spotlightActive"],
+      "perTick":[]
+    },
   "parameters": [
     {
       "name": "followEnergy",
