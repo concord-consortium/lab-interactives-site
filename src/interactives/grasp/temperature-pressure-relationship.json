@@ -86,7 +86,7 @@
           "label": "5000"
         }
       ],
-      "property": "targetTemperature"
+      "property": "temperature"
     }
   ],
   "layout": {
