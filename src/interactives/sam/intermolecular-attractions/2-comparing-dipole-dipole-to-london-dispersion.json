@@ -1,9 +1,9 @@
 {
   "title": "Comparing Dipole-Dipole to London Dispersion",
   "publicationStatus": "public",
-  "subtitle": "Explore the difference in attractive forces between polar and non-polar molecules.",
+  "subtitle": "Explore the difference in attractive forces between polar and nonpolar molecules.",
   "about": [
-    "Explore the different strengths of dipole-dipole (polar) and London dispersion (non-polar)",
+    "Explore the different strengths of dipole-dipole (polar) and London dispersion (nonpolar)",
     "attractions. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
     "",
     "Choose a pair of molecules from the drop-down menu and \"pull\" on the star to separate the",
@@ -22,7 +22,7 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between polar and non-polar molecules by dragging the \"star\" image found in the following simulations.",
+            "text": "Explore the different attractive forces between polar and nonpolar molecules by dragging the \"star\" image found in the following simulations.",
             "x": 0.3,
             "y": 1.7,
             "fontSize": 0.12,
@@ -122,7 +122,7 @@
           "action": "loadModel('instructions');"
         },
         {
-          "text": "Pull apart two non-polar molecules",
+          "text": "Pull apart two nonpolar molecules",
           "action": "loadModel('npPulling');"
         },
         {
@@ -130,7 +130,7 @@
           "action": "loadModel('polarPulling');"
         },
         {
-          "text": "Pull apart a non-polar and polar molecules",
+          "text": "Pull apart a nonpolar and polar molecules",
           "action": "loadModel('polarNpPulling');"
         }
       ]
