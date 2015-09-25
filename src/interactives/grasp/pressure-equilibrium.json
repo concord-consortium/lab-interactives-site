@@ -88,20 +88,6 @@
       ]
     },
     {
-      "name": "temperatureInside",
-      "unitType": "temperature",
-      "value": [
-        "return getTemperatureOfAtoms(get('purpleAtomIndices'));"
-      ]
-    },
-    {
-      "name": "temperatureOutside",
-      "unitType": "temperature",
-      "value": [
-        "return getTemperatureOfAtoms(get('yellowAtomIndices'));"
-      ]
-    },
-    {
       "name": "volumeInside",
       "unitType": "length",
       "value": [
@@ -246,7 +232,7 @@
     {
       "type": "barGraph",
       "id": "temperature-inside",
-      "property": "temperatureInside",
+      "property": "purpleAtomTemperature",
       "title": "T",
       "labels": 0,
       "min": 0,
@@ -257,7 +243,7 @@
     {
       "type": "barGraph",
       "id": "temperature-outside",
-      "property": "temperatureOutside",
+      "property": "yellowAtomTemperature",
       "title": "T",
       "labels": 0,
       "min": 0,
