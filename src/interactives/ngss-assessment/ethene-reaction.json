@@ -1,0 +1,26 @@
+{
+  "title": "Ethene and bromine reaction",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.30,
+  "fontScale": 0.85,
+  "about": [
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models-converted/lab-version/1/md2d/ngss-assessment/ethene-reaction/ethene-reaction.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "imageMapping": {
+          "H.png": "H.svg",
+          "Br.png": "Br.svg",
+          "C.png": "C.svg"
+        }
+      },
+      "onLoad": []
+    }
+  ],
+  "layout": {}
+}
