@@ -1,0 +1,255 @@
+{
+  "title": "Conduction Between Two Solids - v2",
+  "publicationStatus": "draft",
+  "subtitle": "GRASP",
+  "about": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.75,
+  "models": [
+      {
+      "type": "md2d",
+      "id": "vacuum",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer/vacuum.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"},
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "thick-long-bar",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer/thick-bar.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+       },
+     "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+         "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"    
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "thin-long-bar",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer/thin-bar.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"},
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"      
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "speedSetting",
+      "onChange": "set({timeStep: value});",
+      "initialValue": 1.0
+    },
+    {
+      "name": "leftAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "rightAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "leftAtomsMarked",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  addShape({",
+        "    type: 'rectangle',",
+        "    x: 0.03,",
+        "    y: 0.03,",
+        "    width: 1.1,",
+        "    height: 1.94,",
+        "    color: 'orange',",
+        "    layer: 0",
+        "  });",
+        "} else {",
+        "  // removeShape(0);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "rightAtomsTemp",
+      "label": "Temperature of Molecules on Right",
+      "unitAbbreviation": "°C",
+      "value": [
+        "return getTemperatureOfAtoms(get('rightAtomsIndices'));"
+      ]      
+    },
+    {
+      "name": "leftAtomsTemp",
+      "label": "Temperature of Molecules on Left",
+      "unitAbbreviation": "°C",
+       "value": [
+        "return getTemperatureOfAtoms(get('leftAtomsIndices'));"
+      ]     
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "rightAtomsTempAvg",
+      "property": "rightAtomsTemp",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg",
+      "property": "leftAtomsTemp",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "retainProperty": true,
+  "disabled": false,
+  "tooltip": "",
+  "components": [
+  {
+      "id": "select-speed",
+      "type": "radio",
+      "orientation": "horizontal",
+      "property": "speedSetting",
+      "label": "Speed:",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Fast",
+          "value": 1.0
+        },
+        {
+          "text": "Medium",
+          "value": 0.2
+        },        
+        {
+          "text": "Slow",
+          "value": 0.05
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 1000,
+      "title": "Temperature of Molecules on Right",
+      "property": "rightAtomsTemp",
+      "units": true
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph2",
+      "min": 0,
+      "max": 1000,
+      "title": "Temperature of Molecules on Left",
+      "property": "leftAtomsTemp",
+      "units": true
+    },  
+    {
+      "type": "checkbox",
+      "id": "show-ke",
+      "text": "K. E. Shading",
+      "property": "keShading"
+    },
+    {
+      "type": "text",
+      "id": "instructions",
+      "text": "Choose a material to fill the space between the two solids."
+    },
+    {
+      "type": "radio",
+      "id": "select-model-buttons",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Vacuum",
+          "action": "loadModel('vacuum');",
+          "selected": true
+        },
+        {
+          "text": "Thick long bar",
+          "action": "loadModel('thick-long-bar');"
+        },
+        {
+          "text": "Thin long bar",
+          "action": "loadModel('thin-long-bar');"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["instructions"],
+      ["select-model-buttons"],
+      ["show-ke", "select-speed"]      
+    ],
+    "right": [
+    "bar-graph"
+    ],
+    "left": [
+    "bar-graph2"
+    ]
+  },
+  "template": [
+      {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "interactive.height",
+      "padding-right": "0.5em",
+      "align": "right",
+      "min-width": "6em"
+    }, 
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "interactive.height",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    }
+  ]
+}
