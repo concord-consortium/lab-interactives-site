@@ -167,6 +167,8 @@
       "xProperty": "graphYear",
       "title": "Methane Production",
       "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
       "width": "100%",
       "height": "100%",
       "enableAxisScaling": false,
