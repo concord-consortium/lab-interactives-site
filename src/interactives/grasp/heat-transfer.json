@@ -1,5 +1,5 @@
 {
-  "title": "Conduction Between Two Solids - v2",
+  "title": "Conduction Between Two Solids",
   "publicationStatus": "draft",
   "subtitle": "GRASP",
   "about": "",
@@ -11,7 +11,8 @@
       "id": "vacuum",
       "url": "models/lab-version/1/md2d/grasp/heat-transfer/vacuum.json",
       "viewOptions": {
-        "controlButtons": "play_reset"},
+        "controlButtons": "play_reset"
+      },
       "onLoad": [
         "var leftAtoms = [];",
         "var rightAtoms = [];",
@@ -83,10 +84,15 @@
       "initialValue": []
     },
     {
-      "name": "leftAtomsMarked",
-      "initialValue": false,
+      "name": "barAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "markedBlock",
+      "initialValue": true,
       "onChange": [
-        "if (value) {",
+        "if (getNumberOfShapes() > 0) removeShape(0);",
+        "if (value === 'left') {",
         "  addShape({",
         "    type: 'rectangle',",
         "    x: 0.03,",
@@ -94,10 +100,81 @@
         "    width: 1.1,",
         "    height: 1.94,",
         "    color: 'orange',",
+        "    lineColor: 'transparent',",
+        "    layer: 0",
+        "  });",
+        "} else if (value === 'right') {",
+        "  addShape({",
+        "    type: 'rectangle',",
+        "    x: 2.37,",
+        "    y: 0.03,",
+        "    width: 1.1,",
+        "    height: 1.94,",
+        "    color: 'orange',",
+        "    lineColor: 'transparent',",
+        "    layer: 0",
+        "  });",
+        "}"
+      ]
+    },
+    {
+      "name": "rightAtomsMarked",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  addShape({",
+        "    type: 'rectangle',",
+        "    x: 2.37,",
+        "    y: 0.03,",
+        "    width: 1.1,",
+        "    height: 1.94,",
+        "    color: 'orange',",
+        "    lineColor: 'transparent',",
         "    layer: 0",
         "  });",
         "} else {",
-        "  // removeShape(0);",
+        "  if (getNumberOfShapes() > 0) removeShape(0);",
+        "}"
+      ]
+    },
+    {
+      "name": "leftAtomsTargetTemp",
+      "initialValue": 250,
+      "onChange": "setTemperatureOfAtoms(get('leftAtomsIndices'), value);"
+    },
+    {
+      "name": "rightAtomsTargetTemp",
+      "initialValue": 250,
+      "onChange": "setTemperatureOfAtoms(get('rightAtomsIndices'), value);"
+    },
+    {
+      "name": "bar",
+      "initialValue": "none",
+      "onChange": [
+        "// First, remove old bar.",
+        "var barAtomsIndices = get('barAtomsIndices');",
+        "for (var i = getNumberOfAtoms() - 1; i >= 0; i--) {",
+        "  if (getAtomProperties(i).element === 3) { removeAtom(i); }",
+        "}",
+        "if (value === 'thin' || value === 'thick') {",
+        "  var xDiff = 0.155;",
+        "  var atomIndices = value === 'thick' ? atomsWithinRect(0.76, 0.4, 0.3, 1.2) : atomsWithinRect(0.8, 0.8, 0.3, 0.53);",
+        "  var barIndices = [];",
+        "  for (var i = 0; i < atomIndices.length; i++) {",
+        "    var a = getAtomProperties(atomIndices[i]);",
+        "    var x = a.x + xDiff;",
+        "    var y = a.y;",
+        "    while (x < 3) {",
+        "      if (addAtom({x: x, y: y, element: 3})) {",
+        "        barIndices.push(getNumberOfAtoms() - 1);",
+        "      }",
+        "      x += xDiff;",
+        "    }",
+        "  }",
+        "  // Try to minize impact on block temperatures.",
+        "  minimizeEnergy();",
+        "  setTemperatureOfAtoms(barIndices, 250); tick(); setTemperatureOfAtoms(barIndices, 250); tick();",
+        "  setTemperatureOfAtoms(barIndices, 250); tick(); setTemperatureOfAtoms(barIndices, 250);",
         "}"
       ]
     }
@@ -117,7 +194,7 @@
       "unitAbbreviation": "°C",
        "value": [
         "return getTemperatureOfAtoms(get('leftAtomsIndices'));"
-      ]     
+      ]
     }
   ],
   "filteredOutputs": [
@@ -165,18 +242,18 @@
       "type": "barGraph",
       "id": "bar-graph",
       "min": 0,
-      "max": 1000,
+      "max": 800,
       "title": "Temperature of Molecules on Right",
-      "property": "rightAtomsTemp",
+      "property": "rightAtomsTempAvg",
       "units": true
     },
     {
       "type": "barGraph",
       "id": "bar-graph2",
       "min": 0,
-      "max": 1000,
+      "max": 800,
       "title": "Temperature of Molecules on Left",
-      "property": "leftAtomsTemp",
+      "property": "leftAtomsTempAvg",
       "units": true
     },  
     {
@@ -194,19 +271,19 @@
       "type": "radio",
       "id": "select-model-buttons",
       "orientation": "horizontal",
+      "property": "bar",
       "options": [
         {
           "text": "Vacuum",
-          "action": "loadModel('vacuum');",
-          "selected": true
+          "value": "none"
         },
         {
           "text": "Thick long bar",
-          "action": "loadModel('thick-long-bar');"
+          "value": "thick"
         },
         {
           "text": "Thin long bar",
-          "action": "loadModel('thin-long-bar');"
+          "value": "thin"
         }
       ]
     }
