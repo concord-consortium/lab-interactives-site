@@ -74,6 +74,8 @@
       "xProperty": "ticks",
       "title": "Air Pollutants",
       "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
