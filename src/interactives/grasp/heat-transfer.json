@@ -6,7 +6,7 @@
   "aspectRatio": 1.6,
   "fontScale": 0.75,
   "models": [
-      {
+    {
       "type": "md2d",
       "id": "vacuum",
       "url": "models/lab-version/1/md2d/grasp/heat-transfer/vacuum.json",
@@ -25,47 +25,6 @@
         "}",
         "set('leftAtomsIndices', leftAtoms);",
         "set('rightAtomsIndices', rightAtoms);"
-      ]
-    },
-    {
-      "type": "md2d",
-      "id": "thick-long-bar",
-      "url": "models/lab-version/1/md2d/grasp/heat-transfer/thick-bar.json",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-       },
-     "onLoad": [
-        "var leftAtoms = [];",
-        "var rightAtoms = [];",
-        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
-        "  if (getAtomProperties(i).element == 0) {",
-        "    leftAtoms.push(i);",
-         "  } else if(getAtomProperties(i).element == 2) {",
-        "    rightAtoms.push(i);",
-        "  }",
-        "}",
-        "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);"    
-      ]
-    },
-    {
-      "type": "md2d",
-      "id": "thin-long-bar",
-      "url": "models/lab-version/1/md2d/grasp/heat-transfer/thin-bar.json",
-      "viewOptions": {
-        "controlButtons": "play_reset"},
-      "onLoad": [
-        "var leftAtoms = [];",
-        "var rightAtoms = [];",
-        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
-        "  if (getAtomProperties(i).element == 0) {",
-        "    leftAtoms.push(i);",
-        "  } else if(getAtomProperties(i).element == 2) {",
-        "    rightAtoms.push(i);",
-        "  }",
-        "}",
-        "set('leftAtomsIndices', leftAtoms);",
-        "set('rightAtomsIndices', rightAtoms);"      
       ]
     }
   ],
@@ -89,7 +48,7 @@
     },
     {
       "name": "markedBlock",
-      "initialValue": true,
+      "initialValue": "none",
       "onChange": [
         "if (getNumberOfShapes() > 0) removeShape(0);",
         "if (value === 'left') {",
@@ -114,26 +73,6 @@
         "    lineColor: 'transparent',",
         "    layer: 0",
         "  });",
-        "}"
-      ]
-    },
-    {
-      "name": "rightAtomsMarked",
-      "initialValue": false,
-      "onChange": [
-        "if (value) {",
-        "  addShape({",
-        "    type: 'rectangle',",
-        "    x: 2.37,",
-        "    y: 0.03,",
-        "    width: 1.1,",
-        "    height: 1.94,",
-        "    color: 'orange',",
-        "    lineColor: 'transparent',",
-        "    layer: 0",
-        "  });",
-        "} else {",
-        "  if (getNumberOfShapes() > 0) removeShape(0);",
         "}"
       ]
     },
@@ -271,6 +210,7 @@
       "type": "radio",
       "id": "select-model-buttons",
       "orientation": "horizontal",
+      "retainProperty": false,
       "property": "bar",
       "options": [
         {
