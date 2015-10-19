@@ -1,0 +1,136 @@
+{
+  "title": "Heating water",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.85,
+  "about": [
+  ],
+  "theme": ["hide-legends"],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models-converted/lab-version/1/md2d/ngss-assessment/water-heating/water-heating.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "keShadingMinEnergy": 0.1,
+        "keShadingMaxEnergy": 0.25,
+        "imageMapping": {
+          "KE-legend.png": "KE-legend.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Heating...",
+            "x": 1.1,
+            "y": 4,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "fontSize": 0.20,
+            "backgroundColor": "rgb(255,255,192)",
+            "anchor": "upper-left"
+          },
+          {
+            "text": "Water Particles",
+            "x": 1,
+            "y": 3.5,
+            "layer": 1,
+            "fontSize": 0.18,
+            "anchor": "upper-left"
+          }
+        ]
+      },
+      "onLoad": [
+        "onStart(function() {", 
+        "  setComponentDisabled('start-heating', false);",
+        "});",
+        "var maxTemp = 1500;",
+        "setComponentDisabled('start-heating', true);",
+        "callEvery(100, function() {",
+        "  if (get('experimentRunning')) {",
+        "    var runningTime = get('time') - get('timeExperimentStarted');",
+        "    set('experimentTime', runningTime);",
+        "    if (get('temperature') < maxTemp) {",
+        "      set('targetTemperature',(get('temperature')+4));",
+        "    } else {",
+        "      set('targetTemperature',get('temperature'));",
+        "      if (getTextBoxProperties(0).y < 4) setTextBoxProperties(0, {y: 4});",
+        "    }",
+        "    if (runningTime > 22000) stop();",
+        "  } else {",
+        "    set('targetTemperature',get('targetTemperature'));",
+        "  }",
+        "});",
+        "set('targetTemperature', 900);"
+      ]
+
+    }
+  ],
+  "parameters": [
+    {
+      "name": "timeExperimentStarted",
+      "initialValue": 0,
+      "onChange": ""
+    },
+    {
+      "name": "experimentRunning",
+      "initialValue": false,
+      "onChange": ""
+    },
+    {
+      "name": "experimentTime",
+      "label": "Experiment time",
+      "initialValue": 0,
+      "onChange": ""
+    }
+  ],
+  "components":[
+    {
+      "type": "button",
+      "id": "start-heating",
+      "text": "Start adding thermal energy",
+      "action": [
+        "set('timeExperimentStarted', get('time'));",
+        "set('experimentRunning', true);",
+        "setComponentDisabled('start-heating', true);",
+        "setTextBoxProperties(0, {y: 3});"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "keGraph",
+      "title": "Average Kinetic Energy of Water Particles",
+      "xlabel": "Time",
+      "ylabel": "Average KE",
+      "hideAxisValues": true,
+      "ymin": 8.0,
+      "ymax": 14,
+      "xmax": 50,
+      "enableAutoScaleButton": true,
+      "properties": [
+        "kineticEnergy"
+      ]
+    }
+  ],
+  "layout": {
+    "right": ["keGraph"],
+    "bottom": ["start-heating"]
+  },
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "right": "interactive.right",
+      "height": "model.height",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "right": "interactive.right",
+      "padding-top": "0.5em"
+    }
+  ]
+}
