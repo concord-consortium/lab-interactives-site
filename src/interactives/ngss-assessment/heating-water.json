@@ -4,6 +4,7 @@
   "subtitle": "",
   "aspectRatio": 1.6,
   "fontScale": 0.85,
+  "helpOnLoad": true,
   "about": [
   ],
   "theme": ["hide-legends"],
@@ -85,11 +86,16 @@
       "onChange": ""
     }
   ],
+  "helpTips": [
+    {
+    "text": ["Press **Start** to begin the simulation."]
+    }
+  ],
   "components":[
     {
       "type": "button",
       "id": "start-heating",
-      "text": "Start adding thermal energy",
+      "text": "Begin adding thermal energy",
       "action": [
         "set('timeExperimentStarted', get('time'));",
         "set('experimentRunning', true);",
