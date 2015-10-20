@@ -1,0 +1,132 @@
+{
+  "title": "The Effect of Mass on Temperature Change",
+  "publicationStatus": "draft",
+  "subtitle": "Cooling solids",
+  "aspectRatio": 1.248768472906404,
+  "fontScale": 1.1143984220907297,
+  "about": [
+  ],
+  "models": [
+     {
+      "type": "md2d",
+      "id": "small-solid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-cooling-solids/small-solid.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('remove-energy', false);",
+        "set('targetTemperature', 273);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 40
+        }
+      ]
+    },
+   {
+      "type": "md2d",
+      "id": "large-solid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-cooling-solids/large-solid.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('remove-energy', false);",
+        "set('targetTemperature', 273);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 20
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "energy-added-count",
+      "initialValue": 0,
+      "onChange": "set('celciusTemp', get('targetTemperature')-73);"
+    },
+    {
+      "name": "minTemp",
+      "initialValue": -40
+    },
+    {
+      "name": "celciusTemp",
+      "unitAbbreviation": "°C",
+      "initialValue": 200
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "min": -50,
+      "max": 210,
+      "title": "Temperature",
+      "property": "celciusTemp",
+      "units": true
+    },
+    {
+      "id": "model-select",
+      "type": "radio",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Solid A",
+          "action": "loadModel('small-solid');",
+          "selected": true
+        },
+        {
+          "text": "Solid B (double solid A mass)",
+          "action": "loadModel('large-solid');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "remove-energy",
+      "text": "Remove energy",
+      "action": [
+        "start();",
+        "set('targetTemperature', get('targetTemperature') - get('deltaT'));",
+        "set('energy-added-count', get('energy-added-count') + 1);",
+        "if (get('celciusTemp') <= get('minTemp')) {",
+        "  setComponentDisabled('remove-energy', true);",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "energy-added-count",
+      "property": "energy-added-count",
+      "label": ""
+    },
+    {
+      "type": "text",
+      "id": "times-label",
+      "text": "units of thermal energy removed."
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "text": "This button removes the same fixed amount of energy to the solid with each click."
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      ["model-select"],
+      ["remove-energy", "energy-added-count", "times-label"],
+      ["button-label"]
+    ]
+  }
+}
