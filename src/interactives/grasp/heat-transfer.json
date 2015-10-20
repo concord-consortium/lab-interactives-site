@@ -30,11 +30,6 @@
   ],
   "parameters": [
     {
-      "name": "speedSetting",
-      "onChange": "set({timeStep: value});",
-      "initialValue": 1.0
-    },
-    {
       "name": "leftAtomsIndices",
       "initialValue": []
     },
@@ -58,7 +53,7 @@
         "    y: 0.03,",
         "    width: 1.1,",
         "    height: 1.94,",
-        "    color: 'orange',",
+        "    color: '#FFE5C5',",
         "    lineColor: 'transparent',",
         "    layer: 0",
         "  });",
@@ -69,7 +64,7 @@
         "    y: 0.03,",
         "    width: 1.1,",
         "    height: 1.94,",
-        "    color: 'orange',",
+        "    color: '#FFE5C5',",
         "    lineColor: 'transparent',",
         "    layer: 0",
         "  });",
@@ -131,21 +126,67 @@
       "name": "leftAtomsTemp",
       "label": "Temperature of Molecules on Left",
       "unitAbbreviation": "°C",
-       "value": [
+      "value": [
         "return getTemperatureOfAtoms(get('leftAtomsIndices'));"
+      ]
+    },
+    {
+      "name": "rightAtomsTempAvg",
+      "unitAbbreviation": "°C",
+      "value": [
+        "var timestep = get('timeStep');",
+        "if (timestep > 0.99) return get('rightAtomsTempAvg1');",
+        "if (timestep > 0.19) return get('rightAtomsTempAvg2');",
+        "return get('rightAtomsTempAvg3');"
+      ]
+    },
+    {
+      "name": "leftAtomsTempAvg",
+      "unitAbbreviation": "°C",
+      "value": [
+        "var timestep = get('timeStep');",
+        "if (timestep > 0.99) return get('leftAtomsTempAvg1');",
+        "if (timestep > 0.19) return get('leftAtomsTempAvg2');",
+        "return get('leftAtomsTempAvg3');"
       ]
     }
   ],
   "filteredOutputs": [
     {
-      "name": "rightAtomsTempAvg",
+      "name": "rightAtomsTempAvg1",
       "property": "rightAtomsTemp",
-      "unitAbbreviation": "°C"
+      "unitAbbreviation": "°C",
+      "period": 2500
     },
     {
-      "name": "leftAtomsTempAvg",
+      "name": "leftAtomsTempAvg1",
       "property": "leftAtomsTemp",
-      "unitAbbreviation": "°C"
+      "unitAbbreviation": "°C",
+      "period": 2500
+    },
+    {
+      "name": "rightAtomsTempAvg2",
+      "property": "rightAtomsTemp",
+      "unitAbbreviation": "°C",
+      "period": 1000
+    },
+    {
+      "name": "leftAtomsTempAvg2",
+      "property": "leftAtomsTemp",
+      "unitAbbreviation": "°C",
+      "period": 1000
+    },
+    {
+      "name": "rightAtomsTempAvg3",
+      "property": "rightAtomsTemp",
+      "unitAbbreviation": "°C",
+      "period": 350
+    },
+    {
+      "name": "leftAtomsTempAvg3",
+      "property": "leftAtomsTemp",
+      "unitAbbreviation": "°C",
+      "period": 350
     }
   ],
   "retainProperty": true,
@@ -156,7 +197,7 @@
       "id": "select-speed",
       "type": "radio",
       "orientation": "horizontal",
-      "property": "speedSetting",
+      "property": "timeStep",
       "label": "Speed:",
       "labelOn": "left",
       "options": [
@@ -172,10 +213,7 @@
           "text": "Slow",
           "value": 0.05
         }
-      ],
-      "retainProperty": true,
-      "disabled": false,
-      "tooltip": ""
+      ]
     },
     {
       "type": "barGraph",
