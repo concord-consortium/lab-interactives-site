@@ -106,10 +106,11 @@
     {
       "type": "graph",
       "id": "keGraph",
-      "title": "Average Kinetic Energy of Water Particles",
+      "title": "Average Kinetic Energy of Helium Particles",
       "xlabel": "Time",
-      "ylabel": "Average KE",
+      "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
+      "fontScaleRelativeToParent": false,
       "ymin": 5.0,
       "ymax": 40,
       "xmax": 50,
