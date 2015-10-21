@@ -70,7 +70,9 @@
       "max": 210,
       "title": "Temperature",
       "property": "celciusTemp",
-      "units": true
+      "units": true,
+      "gridLines": 5,
+      "labelFormat": "0.0f"
     },
     {
       "id": "model-select",
