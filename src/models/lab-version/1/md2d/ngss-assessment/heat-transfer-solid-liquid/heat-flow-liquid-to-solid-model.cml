@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<language>UTF-8</language>
+<page_title>heat-flow-liquid-to-solid</page_title>
+<text> </text>
+<section start="0" end="2">
+<paragraph start="0" end="2">
+<content start="0" end="1">
+<component><class>org.concord.mw2d.activity.AtomContainer</class>
+<resource>heat-flow-liquid-to-solid-model$0.mml</resource><menubar>false</menubar></component></content>
+
+</paragraph>
+</section>
+</document>
