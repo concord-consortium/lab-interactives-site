@@ -1,13 +1,13 @@
 {
   "title": "Heat Transfer between a Liquid and a Solid",
-  "publicationStatus": "public",
+  "publicationStatus": "draft",
   "subtitle": "NGSS Assessment Item",
   "about": "",
   "models": [
     {
       "type": "md2d",
       "id": "liquid-solid",
-      "url": "models-converted/lab-version/1/md2d/ngss-assessment/heat-transfer-solid-liquid/heat-flow-liquid-to-solid.json",
+      "url": "models-converted/lab-version/1/md2d/ngss-assessment/heat-transfer-solid-liquid/heat-flow-liquid-to-solid-model-v2.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
