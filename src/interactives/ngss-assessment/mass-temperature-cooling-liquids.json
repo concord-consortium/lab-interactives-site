@@ -1,0 +1,133 @@
+{
+  "title": "The Effect of Mass on Temperature Change",
+  "publicationStatus": "draft",
+  "subtitle": "Cooling liquids",
+  "aspectRatio": 0.9,
+  "about": [
+  ],
+  "models": [
+     {
+      "type": "md2d",
+      "id": "large-liquid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-cooling-liquids/cooling-liquid-large.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('remove-energy', false);",
+        "set('targetTemperature', 363);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 5
+        }
+      ]
+    },
+   {
+      "type": "md2d",
+      "id": "small-liquid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-cooling-liquids/cooling-liquid-small.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('remove-energy', false);",
+        "set('targetTemperature', 363);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 10
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "energy-removed-count",
+      "initialValue": 0,
+      "onChange": "set('celciusTemp', get('targetTemperature')-273);"
+    },
+    {
+      "name": "minTemp",
+      "initialValue": 20
+    },
+    {
+      "name": "celciusTemp",
+      "unitAbbreviation": "°C",
+      "initialValue": 90
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "min": 0,
+      "max": 100,
+      "title": "Temperature",
+      "property": "celciusTemp",
+      "units": true,
+      "gridLines": 10,
+      "labelFormat": "0.0f"
+    },
+    {
+      "id": "model-select",
+      "type": "radio",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Beaker A",
+          "action": "loadModel('large-liquid');",
+          "selected": true
+        },
+        {
+          "text": "Beaker B (half Liquid A mass)",
+          "action": "loadModel('small-liquid');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "remove-energy",
+      "text": "Remove energy",
+      "action": [
+        "start();",
+        "set('targetTemperature', get('targetTemperature') - get('deltaT'));",
+        "set('energy-removed-count', get('energy-removed-count') + 1);",
+        "if (get('celciusTemp') <= get('minTemp')) {",
+        "  setComponentDisabled('remove-energy', true);",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "energy-removed-count",
+      "property": "energy-removed-count",
+      "label": ""
+    },
+    {
+      "type": "text",
+      "id": "times-label",
+      "text": "units of thermal energy removed."
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "text": "This button removes the same fixed amount of energy from the liquid with each click."
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      ["model-select"],
+      ["remove-energy", "energy-removed-count", "times-label"],
+      ["button-label"]
+    ]
+  }
+}
