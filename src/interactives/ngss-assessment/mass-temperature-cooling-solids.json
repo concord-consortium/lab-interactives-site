@@ -118,7 +118,7 @@
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button removes the same fixed amount of energy to the solid with each click."
+      "text": "This button removes the same fixed amount of energy from the solid with each click."
     }
   ],
   "layout": {
