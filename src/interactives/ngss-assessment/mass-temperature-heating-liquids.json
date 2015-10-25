@@ -1,0 +1,133 @@
+{
+  "title": "The Effect of Mass on Temperature Change",
+  "publicationStatus": "draft",
+  "subtitle": "Heating liquids",
+  "aspectRatio": 0.9,
+  "about": [
+  ],
+  "models": [
+     {
+      "type": "md2d",
+      "id": "large-liquid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-heating-liquids/heating-liquid-large.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('add-energy', false);",
+        "set('targetTemperature', 293);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 20
+        }
+      ]
+    },
+   {
+      "type": "md2d",
+      "id": "small-liquid",
+      "url": "models/lab-version/1/md2d/ngss-assessment/mass-temperature-heating-liquids/heating-liquid-small.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "setComponentDisabled('add-energy', false);",
+        "set('targetTemperature', 293);"
+      ],
+      "parameters": [
+        {
+          "name": "deltaT",
+          "initialValue": 40
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "energy-added-count",
+      "initialValue": 0,
+      "onChange": "set('celciusTemp', get('targetTemperature')-273);"
+    },
+    {
+      "name": "maxTemp",
+      "initialValue": 220
+    },
+    {
+      "name": "celciusTemp",
+      "unitAbbreviation": "°C",
+      "initialValue": 20
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "min": 0,
+      "max": 240,
+      "title": "Temperature",
+      "property": "celciusTemp",
+      "units": true,
+      "gridLines": 20,
+      "labelFormat": "0.0f"
+    },
+    {
+      "id": "model-select",
+      "type": "radio",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Vegetable oil A",
+          "action": "loadModel('large-liquid');",
+          "selected": true
+        },
+        {
+          "text": "Vegetable oil B (half Liquid A mass)",
+          "action": "loadModel('small-liquid');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-energy",
+      "text": "Add energy",
+      "action": [
+        "start();",
+        "set('targetTemperature', get('targetTemperature') + get('deltaT'));",
+        "set('energy-added-count', get('energy-added-count') + 1);",
+        "if (get('celciusTemp') >= get('maxTemp')) {",
+        "  setComponentDisabled('add-energy', true);",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "energy-added-count",
+      "property": "energy-added-count",
+      "label": ""
+    },
+    {
+      "type": "text",
+      "id": "times-label",
+      "text": "units of thermal energy added."
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "text": "This button adds the same fixed amount of energy to the liquid with each click."
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      ["model-select"],
+      ["add-energy", "energy-added-count", "times-label"],
+      ["button-label"]
+    ]
+  }
+}
