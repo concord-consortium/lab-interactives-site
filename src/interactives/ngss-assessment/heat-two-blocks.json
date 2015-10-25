@@ -1,0 +1,161 @@
+{
+  "title": "Adding energy to two solid blocks",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "aspectRatio": 1.37,
+  "fontScale": 0.9,
+  "about": [
+  ],
+  "models": [
+     {
+      "type": "md2d",
+      "id": "two-blocks",
+      "url": "models/lab-version/1/md2d/ngss-assessment/heating-two-blocks/two-solids-2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "keShadingMinEnergy": 0.08,
+        "keShadingMaxEnergy": 0.18,
+        "controlButtonStyle": "text",
+          "imageMapping": {
+            "KE-legend.png": "KE-legend.svg"
+        }
+      },
+      "onLoad": [
+        "setComponentDisabled('add-energy', false);",
+        "//setTemperatureOfAtoms(atomsWithinRect(0, 0, get('width')/2, get('height')),0);",
+        "//setTemperatureOfAtoms(atomsWithinRect(get('width')/2, 0, get('width')/2, get('height')),0);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "energy-added-count",
+      "initialValue": 0
+    },
+    {
+      "name": "maxCount",
+      "initialValue": 5
+    },
+    {
+      "name": "small-KE",
+      "initialValue": 0
+    },
+    {
+      "name": "large-KE",
+      "initialValue": 0
+    },
+    {
+      "name": "deltaT",
+      "initialValue": 200
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "small-avg-KE",
+      "min": -50,
+      "max": 2300,
+      "title": "Average kinetic energy of Block A atoms",
+      "property": "small-KE",
+      "units": false,
+      "gridLines": 10,
+      "labels": [
+        {
+          "value": -50,
+          "label": "low"
+        },
+        {
+          "value": 2300,
+          "label": "high"
+        }
+      ]
+    },
+    {
+      "type": "barGraph",
+      "id": "large-avg-KE",
+      "min": -50,
+      "max": 2300,
+      "title": "Average kinetic energy of Block B atoms",
+      "property": "large-KE",
+      "units": false,
+      "gridLines": 10,
+      "labels": [
+        {
+          "value": -50,
+          "label": "low"
+        },
+        {
+          "value": 2300,
+          "label": "high"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-energy",
+      "text": "Add the same amount of thermal energy to each block",
+      "action": [
+        "start();",
+        "set('small-KE', get('small-KE') + (2 * get('deltaT')));",
+        "set('large-KE', get('large-KE') + get('deltaT'));",
+        "setTemperatureOfAtoms(atomsWithinRect(0, 0, get('width')/2, get('height')),get('small-KE'));",
+        "setTemperatureOfAtoms(atomsWithinRect(get('width')/2, 0, get('width')/2, get('height')),get('large-KE'));",
+        "set('energy-added-count', get('energy-added-count') + 1);",
+        "if (get('energy-added-count') >= get('maxCount')) {",
+        "  setComponentDisabled('add-energy', true);",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "type": "numericOutput",
+      "id": "energy-added-count",
+      "property": "energy-added-count",
+      "label": ""
+    },
+    {
+      "type": "text",
+      "id": "times-label",
+      "text": "units of thermal energy added to each block."
+    }
+  ],
+  "layout": {
+    "left": ["small-avg-KE"],
+    "right": [
+      "large-avg-KE"
+    ],
+    "bottom": [
+      ["add-energy"], 
+      ["energy-added-count", "times-label"]
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "interactive.height",
+      "padding-right": "0.5em",
+      "align": "right",
+      "min-width": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "interactive.height",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "align": "center",
+      "height": "6em"
+    }
+  ]
+}
