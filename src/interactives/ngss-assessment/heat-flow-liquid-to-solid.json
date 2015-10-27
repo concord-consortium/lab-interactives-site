@@ -7,13 +7,70 @@
     {
       "type": "md2d",
       "id": "liquid-solid",
-      "url": "models-converted/lab-version/1/md2d/ngss-assessment/heat-transfer-solid-liquid/heat-flow-liquid-to-solid-model-v2.json",
+      "url": "models/lab-version/1/md2d/ngss-assessment/heat-transfer-solid-liquid/heat-flow-liquid-to-solid-model-v3.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
-      }
+        "controlButtons": "play_reset",
+        "keShadingMaxEnergy": 0.1
+      },
+      "onLoad": [
+        "var smallAtoms = [];",
+        "var largeAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    smallAtoms.push(i);",
+        "  } else {",
+        "    largeAtoms.push(i);",
+        "  }",
+        "}",
+        "set('smallAtomsIndices', smallAtoms);",
+        "set('largeAtomsIndices', largeAtoms);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "smallAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "largeAtomsIndices",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "waterAvgKE",
+      "label": "Number of Obstacles",
+      "value": [
+        "return getTemperatureOfAtoms(get('smallAtomsIndices'));"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "smoothedKE",
+      "property": "waterAvgKE",
+      "period": 10000
     }
   ],
   "components": [
+    {
+      "type": "graph",
+      "id": "keGraph",
+      "title": "Average Kinetic Energy of Water Particles",
+      "xlabel": "Time",
+      "ylabel": "Average Kinetic Energy",
+      "hideAxisValues": true,
+      "fontScaleRelativeToParent": false,
+      "ymin": 100,
+      "ymax": 300,
+      "xmax": 200,
+      "enableAutoScaleButton": true,
+      "properties": [
+        "smoothedKE"
+      ],
+      "width": "14em"
+    },
     {
       "type": "button",
       "id": "remove-obstacle",
@@ -24,6 +81,9 @@
   "layout": {
     "bottom": [
       "remove-obstacle"
+    ],
+    "right":[
+      "keGraph"
     ]
   },
   "template": "simple"
