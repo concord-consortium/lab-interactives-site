@@ -11,6 +11,7 @@
       "url": "models/lab-version/1/md2d/ngss-assessment/heat-transfer-solid-liquid/heat-flow-liquid-to-solid-model-v3.json",
       "viewOptions": {
         "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
         "keShadingMaxEnergy": 0.1
       },
       "onLoad": [
