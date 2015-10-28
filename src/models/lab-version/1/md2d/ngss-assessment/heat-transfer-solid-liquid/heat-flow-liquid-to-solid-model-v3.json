@@ -17,7 +17,7 @@
   "additionalSolventForceThreshold": 10,
   "polarAAEpsilon": -2,
   "viscosity": 1,
-  "timeStepsPerTick": 50,
+  "timeStepsPerTick": 30,
   "DNAState": "dna",
   "DNA": "",
   "DNAMutations": true,
@@ -54,6 +54,16 @@
         "imageLayer": 1,
         "imageLayerPosition": 2,
         "imageX": 0.045,
+        "imageY": 1.95,
+        "visible": true
+      },
+      {
+        "imageUri": "water-lead-legend.svg",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 1,
+        "imageLayerPosition": 2,
+        "imageX": 1.32,
         "imageY": 1.95,
         "visible": true
       }

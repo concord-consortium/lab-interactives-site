@@ -3,6 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "NGSS Assessment Item",
   "about": "",
+  "aspectRatio": 1.55,
   "models": [
     {
       "type": "md2d",
@@ -35,12 +36,20 @@
     {
       "name": "largeAtomsIndices",
       "initialValue": []
+    },
+    {
+      "name": "raisingBarrier",
+      "initialValue": false
+    },
+    {
+      "name": "raisedStep",
+      "initialValue": 0
     }
   ],
   "outputs": [
     {
       "name": "waterAvgKE",
-      "label": "Number of Obstacles",
+      "label": "Average KE of water particles",
       "value": [
         "return getTemperatureOfAtoms(get('smallAtomsIndices'));"
       ]
@@ -57,30 +66,45 @@
     {
       "type": "graph",
       "id": "keGraph",
-      "title": "Average Kinetic Energy of Water Particles",
+      "title": "Kinetic Energy of Water Particles",
       "xlabel": "Time",
       "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
-      "fontScaleRelativeToParent": false,
+      "fontScaleRelativeToParent": true,
       "ymin": 100,
       "ymax": 300,
-      "xmax": 200,
+      "xmax": 100,
       "enableAutoScaleButton": true,
       "properties": [
         "smoothedKE"
       ],
-      "width": "14em"
+      "width": "17em"
     },
     {
       "type": "button",
       "id": "remove-obstacle",
       "text": "Remove Barrier",
-      "action": "removeObstacle(0);"
+      "action": [
+        "setObstacleProperties(0, { y: getObstacleProperties(0).y + 0.80 });"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "slow-motion",
+      "text": "run in slow motion",
+      "textOn": "right",
+      "action": [
+        "if (value) {",
+        "  set('timeStepsPerTick', 5);",
+        "} else {",
+        "  set('timeStepsPerTick', 30);",
+        "}"
+      ]
     }
   ],
   "layout": {
     "bottom": [
-      "remove-obstacle"
+      "remove-obstacle", "slow-motion"
     ],
     "right":[
       "keGraph"
