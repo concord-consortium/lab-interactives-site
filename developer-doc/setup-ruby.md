@@ -9,7 +9,8 @@ and the specific Ruby Gems needed for building Lab and running the Lab server.
 
 [Install RVM](https://rvm.io/rvm/install/)
 
-    $ \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    $ curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 After RVM has finished installing it will ask you to run a command similar to
 
