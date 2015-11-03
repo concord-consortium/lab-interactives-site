@@ -106,6 +106,7 @@ clean:
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
+	rm -rf .sass-cache
 	# install/update Ruby Gems
 	bundle install
 	$(MAKE) prepare-submodules
