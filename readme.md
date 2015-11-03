@@ -38,6 +38,10 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 It is recommended that you review the [initial setup details](developer-doc/initial-setup-details.md).
 They describe what each of the steps above does.
 
+## Run Docker Container
+
+See the [Docker documentation](developer-doc/docker.md) for more information.
+
 ## Contributing to Lab Interactives Site
 
 If you think you'd like to contribute to Lab Interactives Site as an external developer:

@@ -1,0 +1,7 @@
+.bundle/
+.sass-cache/
+public/
+node_modules/
+.dockerignore
+Dockerfile
+docker-compose.yml

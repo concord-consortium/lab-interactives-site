@@ -1,0 +1,7 @@
+web:
+    build: .
+    volumes:
+        - .:/srv
+    ports:
+        - "9292:9292"    # web server
+        - "35729:35729"  # LiveReload server
