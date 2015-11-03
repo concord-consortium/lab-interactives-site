@@ -15,7 +15,7 @@ The readme contains the following steps for initial setup:
 Use git to create a local clone of the Lab repository.
 If you aren't familiar with git, you should read one of the tutorials on it.
 
-If you have commit access to the repository use this form:</p>
+If you have commit access to the repository use this form:
 
     git clone git@github.com:concord-consortium/lab-interactives-site.git
 
