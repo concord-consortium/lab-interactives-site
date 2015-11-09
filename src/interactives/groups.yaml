@@ -385,3 +385,7 @@
 - :path: external-projects/sri
   :name: "Interactives for SRI"
   :category: Curriculum
+
+- :path: external-projects/byu
+  :name: "Brigham Young University Interactives"
+  :category: Curriculum
