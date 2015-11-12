@@ -67,9 +67,9 @@
     {
       "type": "graph",
       "id": "keGraph",
-      "title": "Kinetic Energy of Air Particles",
+      "title": "Kinetic Energy of Gas Particles",
       "xlabel": "Time",
-      "ylabel": "Average Kinetic Energy",
+      "ylabel": "Average Kinetic Energy of Gas Particles",
       "hideAxisValues": true,
       "fontScaleRelativeToParent": true,
       "ymin": 100,
@@ -86,7 +86,9 @@
       "id": "remove-obstacle",
       "text": "Remove Barrier",
       "action": [
-        "removeObstacle(0);"
+      "if (getNumberOfObstacles() > 0) {",
+        "removeObstacle(0);",
+      "}"
       ]
     },
     {
