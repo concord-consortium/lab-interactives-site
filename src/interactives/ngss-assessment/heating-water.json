@@ -95,7 +95,7 @@
     {
       "type": "button",
       "id": "start-heating",
-      "text": "Begin adding thermal energy",
+      "text": "Begin transfer of thermal energy to water",
       "action": [
         "set('timeExperimentStarted', get('time'));",
         "set('experimentRunning', true);",
