@@ -4,6 +4,7 @@
   "subtitle": "Examples of defining and using different Interactive components.",
   "about": "",
   "fontScale": 0.7,
+  "aspectRatio": 1.1,
   "models": [
     {
       "type": "md2d",
@@ -35,7 +36,7 @@
       "type": "button",
       "id": "abs-zero",
       "text": "Set to absolute zero",
-      "action": "set({targetTemperature: 0.00001});"
+      "action": "set({targetTemperature: 0.00001}); logAction('CustomEvent', {value1: 1, value2: 2});"
     },
     {
       "type": "button",
@@ -89,6 +90,25 @@
       ]
     },
     {
+      "type": "pulldown",
+      "id": "pulldown3",
+      "property": "targetTemperature",
+      "options": [
+        {
+          "text": "set  temperature ...",
+          "disabled": true
+        },
+        {
+          "text": "100K",
+          "value": 100
+        },
+        {
+          "text": "1000K",
+          "value": 1000
+        }
+      ]
+    },
+    {
       "type": "radio",
       "id": "radio",
       "options": [
@@ -114,6 +134,12 @@
           "disabled": true
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "checkbox",
+      "text": "KE Shading",
+      "property": "keShading"
     },
     {
       "type": "radio",
@@ -247,6 +273,11 @@
       "width": "10em"
     }
   ],
+  "logging": {
+    "enabled": true,
+    "properties": ["temperature"],
+    "components": "all"
+  },
   "layout": {
     "bottom": [
       [
@@ -256,7 +287,8 @@
       ],
       [
         "pulldown1",
-        "pulldown2"
+        "pulldown2",
+        "pulldown3"
       ],
       [
         "radio-horizontal"
@@ -288,6 +320,9 @@
       ],
       [
         "radio"
+      ],
+      [
+        "checkbox"
       ]
     ]
   },
@@ -299,13 +334,14 @@
     {
       "id": "right",
       "left": "model.right",
-      "height": "model.height",
       "padding-left": "1em",
+      "height": "18em",
       "min-width": "6em"
     },
     {
+
       "id": "bottom",
-      "top": "model.bottom",
+      "top": "right.bottom",
       "width": "interactive.width",
       "padding-top": "0.5em",
       "padding-bottom": "1em"
