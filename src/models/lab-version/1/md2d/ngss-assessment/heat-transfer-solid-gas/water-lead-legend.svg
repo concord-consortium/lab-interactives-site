@@ -10,7 +10,7 @@
 	<stop  offset="1" style="stop-color:#5F5F5F"/>
 </radialGradient>
 <circle fill="url(#SVGID_1_)" cx="6.7" cy="7.7" r="2.9"/>
-<text transform="matrix(1 0 0 1 13.0145 9.6793)" font-family="'Lato-Regular'" font-size="9">Air Particle</text>
+<text transform="matrix(1 0 0 1 13.0145 9.6793)" font-family="'Lato-Regular'" font-size="9">Gas Particle</text>
 <text transform="matrix(1 0 0 1 13.0145 20.4606)" font-family="'Lato-Regular'" font-size="9">Solid Particle</text>
 <radialGradient id="SVGID_2_" cx="6.6788" cy="17.4647" r="4.8741" fx="6.0036" fy="16.0397" gradientUnits="userSpaceOnUse">
 	<stop  offset="0.3735" style="stop-color:#FFFFFF"/>
