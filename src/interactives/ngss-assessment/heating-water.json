@@ -106,9 +106,9 @@
     {
       "type": "graph",
       "id": "keGraph",
-      "title": "Average Kinetic Energy of Water Particles",
+      "title": "Average Kinetic Energy",
       "xlabel": "Time",
-      "ylabel": "Average Kinetic Energy",
+      "ylabel": "Average Kinetic Energy of Water Particles",
       "hideAxisValues": true,
       "fontScaleRelativeToParent": false,
       "ymin": 8.0,
