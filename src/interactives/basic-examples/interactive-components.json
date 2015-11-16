@@ -273,11 +273,6 @@
       "width": "10em"
     }
   ],
-  "logging": {
-    "enabled": true,
-    "properties": ["temperature"],
-    "components": "all"
-  },
   "layout": {
     "bottom": [
       [
