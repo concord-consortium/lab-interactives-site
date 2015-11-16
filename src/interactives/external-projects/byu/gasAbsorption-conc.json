@@ -122,16 +122,16 @@
       "min": 1,
       "max": 15,
       "steps": 14,
-      "displayValue": "return format('f')((15-value)/14 * 700 + 400)",
+      "displayValue": "return format('f')((15-value)/14 * 700 + 200)",
       "property": "lightSourceFrequency",
       "labels": [
         {
           "value": 15,
-          "label": "400"
+          "label": "200"
         },
         {
           "value": 1,
-          "label": "1100"
+          "label": "900"
         }
       ],
       "title": "Wavelength of Light (nm)"
