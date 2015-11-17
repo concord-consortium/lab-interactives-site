@@ -46,10 +46,6 @@
       "onChange": "setAtomProperties(0,{charge: value});"
     }
   ],
-  "exports": {
-    "perRun": ["left-particle-charge", "right-particle-charge", "potentialEnergy"],
-    "perTick": []
-  },
   "components": [
     {
       "type": "slider",
@@ -123,8 +119,29 @@
   ],
   "layout": {
     "bottom": [
-      ["set-left-particle-charge", "set-right-particle-charge"],
-      ["select-show-forces", "select-show-electric-field"]
+      [
+        "set-left-particle-charge",
+        "set-right-particle-charge"
+      ],
+      [
+        "select-show-forces",
+        "select-show-electric-field"
+      ]
     ]
+  },
+  "logging": {
+    "properties": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
   }
 }

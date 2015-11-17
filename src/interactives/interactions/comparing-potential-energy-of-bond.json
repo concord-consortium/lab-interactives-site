@@ -185,27 +185,27 @@
   ],
   "propertiesToRetain": [],
   "parameters": [
-      {
+    {
       "name": "countPotential",
-        "initialValue": 17
-      },
-      {
-        "name": "breakEnergy",
-        "initialValue": 0
-      },
-      {
-        "name": "potentialFactor",
-        "initialValue": 0
-      },
-      {
-        "name": "finalPotential",
-        "initialValue": 0
-      },
-      {
-       "name": "atomdragged",
-       "initialValue": false
-      }
-    ],
+      "initialValue": 17
+    },
+    {
+      "name": "breakEnergy",
+      "initialValue": 0
+    },
+    {
+      "name": "potentialFactor",
+      "initialValue": 0
+    },
+    {
+      "name": "finalPotential",
+      "initialValue": 0
+    },
+    {
+      "name": "atomdragged",
+      "initialValue": false
+    }
+  ],
   "outputs": [],
   "filteredOutputs": [],
   "helpTips": [
@@ -222,13 +222,6 @@
       "showcase": true
     }
   ],
-  "exports": {
-    "selectionComponents": [],
-    "perRun": [
-      "potentialEnergy"
-    ],
-    "perTick": []
-  },
   "dataSets": [],
   "components": [
     {
@@ -246,7 +239,7 @@
           "text": "pull two polar molecules apart from each other",
           "action": "loadModel('polarPulling');"
         },
-         {
+        {
           "text": "pull a nonpolar molecule apart (break a bond)",
           "action": "loadModel('npPullingBreakbond');"
         },
@@ -301,23 +294,35 @@
     }
   ],
   "layout": {
-      "right": [
-         "bargraph"
-      ],
-      "bottom": [
-        "pulldown1",
-        "reset"
-      ]
-    },
+    "right": [
+      "bargraph"
+    ],
+    "bottom": [
+      "pulldown1",
+      "reset"
+    ]
+  },
   "template": [
     {
-      "id":"right",
-      "left":"model.right",
-      "height":"model.height"
+      "id": "right",
+      "left": "model.right",
+      "height": "model.height"
     },
     {
       "id": "bottom",
       "top": "model.bottom"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  }
 }

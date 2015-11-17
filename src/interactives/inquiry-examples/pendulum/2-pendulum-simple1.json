@@ -72,7 +72,7 @@
       "property": "currentAngle",
       "type": "SimplePeriod"
     }
-   ],
+  ],
   "parameters": [
     {
       "name": "gravity",
@@ -233,18 +233,6 @@
       "resetAngle();",
       "stopMotion();",
       "set('rodLength', get('rodLength'));"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "gravity",
-      "rodLength",
-      "startingAngle",
-      "ballMass",
-      "damping"
-    ],
-    "perTick": [
-      "currentAngle"
     ]
   },
   "components": [
@@ -577,13 +565,22 @@
   ],
   "layout": {
     "top": [
-      "parameters-header", "length-slider", "mass-slider", "angle-slider"
+      "parameters-header",
+      "length-slider",
+      "mass-slider",
+      "angle-slider"
     ],
     "top-right": [
       "angle-graph"
     ],
     "experiment-controls": [
-      [ "start-run", "stop-run", "save-run", "next-run", "clear-all" ]
+      [
+        "start-run",
+        "stop-run",
+        "save-run",
+        "next-run",
+        "clear-all"
+      ]
     ],
     "last-run-data": [
       "last-run-table"
@@ -662,5 +659,26 @@
       "padding-top": "0em",
       "padding-right": "0.3em"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "gravity",
+      "rodLength",
+      "startingAngle",
+      "ballMass",
+      "damping"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "gravity",
+      "rodLength",
+      "startingAngle",
+      "ballMass",
+      "damping"
+    ],
+    "perTick": [
+      "currentAngle"
+    ]
+  }
 }

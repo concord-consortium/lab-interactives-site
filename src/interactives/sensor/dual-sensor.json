@@ -204,11 +204,6 @@
       "duration-enabled-checkbox"
     ]
   },
-  "exports": {
-    "selectionComponents": ["propertiesGraph","propertiesGraph2"],
-    "perRun": ["sensorType","sensorType2"],
-    "perTick": ["sensorReading","sensorReading2"]
-  },
   "template": [
     {
       "id": "sensor1-graph",
@@ -235,5 +230,25 @@
       "width": "sensor2-graph.width",
       "bottom": "interactive.bottom"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "sensorType",
+      "sensorType2"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [
+      "propertiesGraph",
+      "propertiesGraph2"
+    ],
+    "perRun": [
+      "sensorType",
+      "sensorType2"
+    ],
+    "perTick": [
+      "sensorReading",
+      "sensorReading2"
+    ]
+  }
 }

@@ -38,12 +38,16 @@
       }
     }
   ],
-  "exports": {
-    "perRun": ["potentialEnergy"],
-    "perTick": []
+  "components": [],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
   },
-  "components": [
-
-  ]
-
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  }
 }

@@ -61,7 +61,7 @@
             "width": 0.15,
             "fontScale": 0.7
           }
-          ]
+        ]
       },
       "modelOptions": {
         "useDuration": false
@@ -91,7 +91,7 @@
         "if (value) {",
         "  setAtomProperties(0, {charge: get('right-particle-charge'), visible: true, pinned:0, x:get('x-cord')});",
         "setTextBoxProperties(0, {color: 'rgb(255, 255, 0)'}); ",
-        "setComponentDisabled('set-right-particle-charge',false);",       
+        "setComponentDisabled('set-right-particle-charge',false);",
         "} else {",
         "set('x-cord',getAtomProperties(0).x);",
         "  setAtomProperties(0, {charge: 0, visible: false, pinned:1, x:8});",
@@ -104,7 +104,7 @@
   "outputs": [],
   "filteredOutputs": [],
   "helpTips": [
-   {
+    {
       "component": "",
       "text": [
         "Drag the particles around and use the controls below to explore electric forces and fields."
@@ -112,15 +112,6 @@
       "showcase": true
     }
   ],
-  "exports": {
-    "selectionComponents": [],
-    "perRun": [
-      "left-particle-charge",
-      "right-particle-charge",
-      "potentialEnergy"
-    ],
-    "perTick": []
-  },
   "dataSets": [],
   "components": [
     {
@@ -246,5 +237,21 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
+  }
 }

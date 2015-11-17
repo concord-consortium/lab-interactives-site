@@ -4,165 +4,192 @@
   "subtitle": "",
   "about": "",
   "aspectRatio": 1.13,
-  "models": [{
-    "type": "md2d",
-    "id": "deformedCloud$0",
-    "url": "models/lab-version/1/md2d/interactions/deformed-electron-cloud/deformedCloud.json",
-    "importedFrom": "imports/legacy-mw-content/interactions/deformed-electron-cloud/deformedCloud$0.mml",
-    "modelOptions": {
+  "models": [
+    {
+      "type": "md2d",
+      "id": "deformedCloud$0",
+      "url": "models/lab-version/1/md2d/interactions/deformed-electron-cloud/deformedCloud.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/deformed-electron-cloud/deformedCloud$0.mml",
+      "modelOptions": {
         "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "Positive.png": "Positive.svg",
+          "Negative.png": "Negative.svg"
+        }
+      },
+      "onLoad": [
+        "",
+        "",
+        "//Add electrons",
+        "var centerAtom = getAtomProperties(0),",
+        "    maxElectrons = 1;",
+        "for (var e = 0; e < maxElectrons; e++) {",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.03,",
+        "    height: 0.03,",
+        "    x: centerAtom.x,",
+        "    y: centerAtom.y,",
+        "    fence: 0,",
+        "    color: 'rgb(255, 0, 0)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "};",
+        "function randomizeElectrons(){",
+        "  var centerEllipse = getShapeProperties(2),",
+        "      randomAngle,",
+        "      randomDistance;",
+        "  for (var e = 0; e < maxElectrons; e++) {",
+        "    randomAngle = 2 * Math.PI * Math.random();",
+        "    randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    setShapeProperties(getNumberOfShapes() - maxElectrons + e, {",
+        "      x: centerEllipse.x + centerEllipse.width * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "      y: centerEllipse.y + centerEllipse.height * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    })",
+        "  }",
+        "}",
+        "function updateCloudShape(){",
+        "  var leftCharge = get('left-charge'),",
+        "      rightCharge = get('right-charge'),",
+        "      squeeze = 0.25 * (Math.abs(leftCharge) + Math.abs(rightCharge))",
+        "                    * (1 + 1.25 * Math.min(Math.max(leftCharge, rightCharge), 0)),",
+        "      displacement = -0.25 * leftCharge + 0.25 * rightCharge;",
+        "  var newWidth = 1.5 + squeeze,",
+        "      newHeight = 1.5 - squeeze;",
+        "  setShapeProperties(2, {",
+        "    width: newWidth,",
+        "    height: newHeight,",
+        "    x: centerAtom.x - newWidth / 2 + displacement,",
+        "    y: centerAtom.y - newHeight / 2",
+        "  });",
+        "}",
+        "var positiveChargeUri = 'Positive.png',",
+        "  negativeChargeUri = 'Negative.png';",
+        "function updateChargedPlates(rightPlate) {",
+        "  var charge = get(rightPlate ? 'right-charge' : 'left-charge'),",
+        "    chargeAsColor = 255 - Math.floor(100 * Math.abs(charge));",
+        "  setShapeProperties(rightPlate ? 1 : 0, {",
+        "    color: charge > 0 ? 'rgb(' + chargeAsColor + ',' + chargeAsColor + ',255)' : charge < 0 ? 'rgb(255,' + chargeAsColor + ',' + chargeAsColor + ')' : 'white'",
+        "  });",
+        "  setImageProperties(rightPlate ? 1 : 0, {",
+        "    imageUri: charge > 0 ? positiveChargeUri : negativeChargeUri,",
+        "    visible: charge !== 0",
+        "  });",
+        "}",
+        "callEvery(100,function(){",
+        "  batch(randomizeElectrons);",
+        "});",
+        "onPropertyChange('left-charge',function(){",
+        "  updateCloudShape();updateChargedPlates(false);",
+        "});",
+        "onPropertyChange('right-charge',function(){",
+        "  updateCloudShape();updateChargedPlates(true);",
+        "});",
+        "start();",
+        "updateCloudShape();"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "left-charge",
+      "initialValue": 0
     },
-    "viewOptions": {
-      "controlButtons": "",
-      "enableKeyboardHandlers": false,
-      "imageMapping": {
-        "Positive.png": "Positive.svg",
-        "Negative.png": "Negative.svg"
-      }
+    {
+      "name": "right-charge",
+      "initialValue": 0
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "left-charge-slider",
+      "title": "Left Charge",
+      "width": "16em",
+      "min": -1,
+      "max": 1,
+      "steps": 30,
+      "initialValue": 0,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": -0.8,
+          "label": "Negative"
+        },
+        {
+          "value": 0.8,
+          "label": "Positive"
+        }
+      ],
+      "action": "set({'left-charge': value});"
     },
-    "onLoad": [
-      "",
-      "",
-      "//Add electrons",
-      "var centerAtom = getAtomProperties(0),",
-      "    maxElectrons = 1;",
-      "for (var e = 0; e < maxElectrons; e++) {",
-      "  addShape({",
-      "    type: 'ellipse',",
-      "    width: 0.03,",
-      "    height: 0.03,",
-      "    x: centerAtom.x,",
-      "    y: centerAtom.y,",
-      "    fence: 0,",
-      "    color: 'rgb(255, 0, 0)',",
-      "    lineColor: 'black',",
-      "    lineDashes: 'none',",
-      "    lineWeight: 0,",
-      "    layer: 1,",
-      "    layerPosition: 100,",
-      "    visible: 1",
-      "  });",
-      "};",
-      "function randomizeElectrons(){",
-      "  var centerEllipse = getShapeProperties(2),",
-      "      randomAngle,",
-      "      randomDistance;",
-      "  for (var e = 0; e < maxElectrons; e++) {",
-      "    randomAngle = 2 * Math.PI * Math.random();",
-      "    randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
-      "    // Convert random angle and distance from polar",
-      "    // to rectangular coordinates",
-      "    setShapeProperties(getNumberOfShapes() - maxElectrons + e, {",
-      "      x: centerEllipse.x + centerEllipse.width * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
-      "      y: centerEllipse.y + centerEllipse.height * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
-      "    })",
-      "  }",
-      "}",
-      "function updateCloudShape(){",
-      "  var leftCharge = get('left-charge'),",
-      "      rightCharge = get('right-charge'),",
-      "      squeeze = 0.25 * (Math.abs(leftCharge) + Math.abs(rightCharge))",
-      "                    * (1 + 1.25 * Math.min(Math.max(leftCharge, rightCharge), 0)),",
-      "      displacement = -0.25 * leftCharge + 0.25 * rightCharge;",
-      "  var newWidth = 1.5 + squeeze,",
-      "      newHeight = 1.5 - squeeze;",
-      "  setShapeProperties(2, {",
-      "    width: newWidth,",
-      "    height: newHeight,",
-      "    x: centerAtom.x - newWidth / 2 + displacement,",
-      "    y: centerAtom.y - newHeight / 2",
-      "  });",
-      "}",
-      "var positiveChargeUri = 'Positive.png',",
-      "  negativeChargeUri = 'Negative.png';",
-      "function updateChargedPlates(rightPlate) {",
-      "  var charge = get(rightPlate ? 'right-charge' : 'left-charge'),",
-      "    chargeAsColor = 255 - Math.floor(100 * Math.abs(charge));",
-      "  setShapeProperties(rightPlate ? 1 : 0, {",
-      "    color: charge > 0 ? 'rgb(' + chargeAsColor + ',' + chargeAsColor + ',255)' : charge < 0 ? 'rgb(255,' + chargeAsColor + ',' + chargeAsColor + ')' : 'white'",
-      "  });",
-      "  setImageProperties(rightPlate ? 1 : 0, {",
-      "    imageUri: charge > 0 ? positiveChargeUri : negativeChargeUri,",
-      "    visible: charge !== 0",
-      "  });",
-      "}",
-      "callEvery(100,function(){",
-      "  batch(randomizeElectrons);",
-      "});",
-      "onPropertyChange('left-charge',function(){",
-      "  updateCloudShape();updateChargedPlates(false);",
-      "});",
-      "onPropertyChange('right-charge',function(){",
-      "  updateCloudShape();updateChargedPlates(true);",
-      "});",
-      "start();",
-      "updateCloudShape();"
-    ]
-  }],
-  "parameters": [{
-    "name": "left-charge",
-    "initialValue": 0
-  }, {
-    "name": "right-charge",
-    "initialValue": 0
-  }],
-  "exports": {
-    "perRun": ["left-charge", "right-charge"],
-    "perTick": []
-  },
-  "components": [{
-    "type": "slider",
-    "id": "left-charge-slider",
-    "title": "Left Charge",
-    "width": "16em",
-    "min": -1,
-    "max": 1,
-    "steps": 30,
-    "initialValue": 0,
-    "labels": [{
-      "value": 0,
-      "label": "0"
-    }, {
-      "value": -0.8,
-      "label": "Negative"
-    }, {
-      "value": 0.8,
-      "label": "Positive"
-    }],
-    "action": "set({'left-charge': value});"
-  }, {
-    "type": "slider",
-    "id": "right-charge-slider",
-    "title": "Right Charge",
-    "width": "16em",
-    "min": -1,
-    "max": 1,
-    "steps": 30,
-    "initialValue": 0,
-    "labels": [{
-      "value": 0,
-      "label": "0"
-    }, {
-      "value": -0.8,
-      "label": "Negative"
-    }, {
-      "value": 0.8,
-      "label": "Positive"
-    }],
-    "action": "set({'right-charge': value});"
-  }],
+    {
+      "type": "slider",
+      "id": "right-charge-slider",
+      "title": "Right Charge",
+      "width": "16em",
+      "min": -1,
+      "max": 1,
+      "steps": 30,
+      "initialValue": 0,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": -0.8,
+          "label": "Negative"
+        },
+        {
+          "value": 0.8,
+          "label": "Positive"
+        }
+      ],
+      "action": "set({'right-charge': value});"
+    }
+  ],
   "layout": {
     "bottom": [
       "left-charge-slider",
       "right-charge-slider"
     ]
   },
-  "template": [{
-    "id": "bottom",
-    "top": "model.bottom",
-    "width": "model.width",
-    "left": "model.left",
-    "padding-top": "0.5em",
-    "align": "center"
-  }]
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ],
+  "logging": {
+    "properties": [
+      "left-charge",
+      "right-charge"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "left-charge",
+      "right-charge"
+    ],
+    "perTick": []
+  }
 }
