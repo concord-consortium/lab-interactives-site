@@ -164,11 +164,6 @@
       "duration-enabled-checkbox"
     ]
   },
-  "exports": {
-    "selectionComponents": ["propertiesGraph"],
-    "perRun": ["sensorType"],
-    "perTick": ["sensorReading"]
-  },
   "template": [
     {
       "id": "below-model",
@@ -190,5 +185,21 @@
       "width": "below-model.width",
       "bottom": "interactive.bottom"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "sensorType"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [
+      "propertiesGraph"
+    ],
+    "perRun": [
+      "sensorType"
+    ],
+    "perTick": [
+      "sensorReading"
+    ]
+  }
 }

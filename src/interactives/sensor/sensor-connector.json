@@ -53,11 +53,6 @@
       "propertiesGraph"
     ]
   },
-  "exports": {
-    "selectionComponents": ["propertiesGraph"],
-    "perRun": ["sensorName"],
-    "perTick": ["sensorReading"]
-  },
   "template": [
     {
       "id": "below-model",
@@ -74,5 +69,21 @@
       "right": "model.left",
       "padding-right": "0.5em"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "sensorName"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [
+      "propertiesGraph"
+    ],
+    "perRun": [
+      "sensorName"
+    ],
+    "perTick": [
+      "sensorReading"
+    ]
+  }
 }

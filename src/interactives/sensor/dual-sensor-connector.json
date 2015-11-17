@@ -85,11 +85,6 @@
       "propertiesGraph2"
     ]
   },
-  "exports": {
-    "selectionComponents": ["propertiesGraph","propertiesGraph2"],
-    "perRun": ["sensorName","sensorName2"],
-    "perTick": ["sensorReading","sensorReading2"]
-  },
   "template": [
     {
       "id": "sensor1-graph",
@@ -105,5 +100,25 @@
       "height": "(interactive.height - model.height) * 0.5",
       "padding-right": "1em"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "sensorName",
+      "sensorName2"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [
+      "propertiesGraph",
+      "propertiesGraph2"
+    ],
+    "perRun": [
+      "sensorName",
+      "sensorName2"
+    ],
+    "perTick": [
+      "sensorReading",
+      "sensorReading2"
+    ]
+  }
 }

@@ -45,10 +45,6 @@
       ]
     }
   ],
-  "exports": {
-    "perRun": ["show-second-atom", "potentialEnergy"],
-    "perTick": []
-  },
   "components": [
     {
       "type": "checkbox",
@@ -97,9 +93,31 @@
   ],
   "layout": {
     "bottom": [
-      ["label-set-charge"],
-      ["set-charge-negative","set-charge-positive"],
-      ["select-show-second-atom","select-show-electric-field","select-show-forces"]
+      [
+        "label-set-charge"
+      ],
+      [
+        "set-charge-negative",
+        "set-charge-positive"
+      ],
+      [
+        "select-show-second-atom",
+        "select-show-electric-field",
+        "select-show-forces"
+      ]
     ]
+  },
+  "logging": {
+    "properties": [
+      "show-second-atom",
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "show-second-atom",
+      "potentialEnergy"
+    ],
+    "perTick": []
   }
 }

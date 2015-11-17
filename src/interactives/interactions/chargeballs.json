@@ -17,18 +17,14 @@
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
-     }
+      }
     }
   ],
-  "exports": {
-    "perRun": ["potentialEnergy"],
-    "perTick": []
-  },
   "components": [
     {
       "type": "text",
-      "id":"left-label",
-      "text":"**Charge left sphere**"
+      "id": "left-label",
+      "text": "**Charge left sphere**"
     },
     {
       "type": "button",
@@ -44,8 +40,8 @@
     },
     {
       "type": "text",
-      "id":"right-label",
-      "text":"**Charge right sphere**"
+      "id": "right-label",
+      "text": "**Charge right sphere**"
     },
     {
       "type": "button",
@@ -68,14 +64,26 @@
   ],
   "layout": {
     "left": [
-      ["left-label"],
-      ["left-pos"],
-      ["left-neg"]
+      [
+        "left-label"
+      ],
+      [
+        "left-pos"
+      ],
+      [
+        "left-neg"
+      ]
     ],
     "right": [
-      ["right-label"],
-      ["right-pos"],
-      ["right-neg"]
+      [
+        "right-label"
+      ],
+      [
+        "right-pos"
+      ],
+      [
+        "right-neg"
+      ]
     ],
     "bottom": [
       "reset"
@@ -104,5 +112,16 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  }
 }

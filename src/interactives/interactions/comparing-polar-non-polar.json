@@ -108,10 +108,6 @@
       "onLoad": "start();"
     }
   ],
-  "exports": {
-    "perRun": ["potentialEnergy"],
-    "perTick": []
-  },
   "components": [
     {
       "type": "pulldown",
@@ -141,5 +137,16 @@
       "text": "Reset",
       "action": "reloadModel();"
     }
-  ]
+  ],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  }
 }
