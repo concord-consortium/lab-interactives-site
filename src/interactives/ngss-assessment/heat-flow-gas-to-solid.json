@@ -67,9 +67,9 @@
     {
       "type": "graph",
       "id": "keGraph",
-      "title": "Kinetic Energy of Gas Particles",
+      "title": "Average Kinetic Energy of Gas Particles",
       "xlabel": "Time",
-      "ylabel": "Average Kinetic Energy of Gas Particles",
+      "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
       "fontScaleRelativeToParent": true,
       "ymin": 100,

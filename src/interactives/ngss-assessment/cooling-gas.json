@@ -95,7 +95,7 @@
     {
       "type": "button",
       "id": "start-cooling",
-      "text": "Begin removing thermal energy",
+      "text": "Begin transfer of thermal energy from helium to the surroundings",
       "action": [
         "set('timeExperimentStarted', get('time'));",
         "set('experimentRunning', true);",
