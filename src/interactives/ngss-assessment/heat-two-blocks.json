@@ -117,7 +117,7 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": ["units of thermal energy transferred", "", "to each block."]
+      "text": "units of thermal energy transferred to each block."
     }
   ],
   "layout": {
@@ -135,7 +135,7 @@
       "id": "left",
       "top": "model.top",
       "right": "model.left",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-right": "0.5em",
       "align": "right",
       "min-width": "6em"
@@ -144,7 +144,7 @@
       "id": "right",
       "top": "model.top",
       "left": "model.right",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-left": "0.5em",
       "padding-right": "0.5em",
       "min-width": "6em"
@@ -152,10 +152,10 @@
     {
       "id": "bottom",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
+      "left": "left.left",
+      "width": "interactive.width",
       "padding-top": "0.5em",
-      "align": "left",
+      "align": "center",
       "height": "6em"
     }
   ]
