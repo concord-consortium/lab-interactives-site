@@ -81,12 +81,12 @@
       "orientation": "horizontal",
       "options": [
         {
-          "text": "Solid A",
+          "text": "Sample A",
           "action": "loadModel('small-solid');",
           "selected": true
         },
         {
-          "text": "Solid B (double solid A mass)",
+          "text": "Sample B (double Sample A mass)",
           "action": "loadModel('large-solid');"
         }
       ]
@@ -94,7 +94,7 @@
     {
       "type": "button",
       "id": "add-energy",
-      "text": "Add energy",
+      "text": "Transfer thermal energy to sample",
       "action": [
         "start();",
         "set('targetTemperature', get('targetTemperature')+get('deltaT'));",
@@ -114,12 +114,12 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy added."
+      "text": "units of thermal energy transferred to the sample."
     },
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button adds the same fixed amount of energy to the solid with each click."
+      "text": "This button transfers the same fixed amount of energy to the sample with each click."
     }
   ],
   "layout": {
@@ -128,8 +128,9 @@
     ],
     "bottom": [
       ["model-select"],
-      ["add-energy", "energy-added-count", "times-label"],
-      ["button-label"]
+      ["add-energy"],
+      ["button-label"],      
+      [ "energy-added-count", "times-label"]
     ]
   }
 }
