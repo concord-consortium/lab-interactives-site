@@ -2,7 +2,7 @@
   "title": "The Effect of Mass on Temperature Change",
   "publicationStatus": "draft",
   "subtitle": "Cooling solids",
-  "aspectRatio": 1.248768472906404,
+  "aspectRatio": 1.2,
   "fontScale": 1.1143984220907297,
   "about": [
   ],
@@ -80,12 +80,12 @@
       "orientation": "horizontal",
       "options": [
         {
-          "text": "Solid A",
+          "text": "Sample A",
           "action": "loadModel('small-solid');",
           "selected": true
         },
         {
-          "text": "Solid B (double solid A mass)",
+          "text": "Sample B (double Sample A mass)",
           "action": "loadModel('large-solid');"
         }
       ]
@@ -93,7 +93,7 @@
     {
       "type": "button",
       "id": "remove-energy",
-      "text": "Remove energy",
+      "text": "Transfer thermal energy from sample to surroundings",
       "action": [
         "start();",
         "set('targetTemperature', get('targetTemperature') - get('deltaT'));",
@@ -113,12 +113,12 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy removed."
+      "text": "units of thermal energy transferred from sample."
     },
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button removes the same fixed amount of energy from the solid with each click."
+      "text": "*Each button click transfers the same fixed amount of energy from the sample.*"
     }
   ],
   "layout": {
@@ -127,7 +127,8 @@
     ],
     "bottom": [
       ["model-select"],
-      ["remove-energy", "energy-added-count", "times-label"],
+      ["remove-energy"],
+      ["energy-added-count", "times-label"],
       ["button-label"]
     ]
   }
