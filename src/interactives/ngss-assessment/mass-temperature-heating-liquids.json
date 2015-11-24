@@ -84,7 +84,7 @@
           "selected": true
         },
         {
-          "text": "Vegetable oil B (half Liquid A mass)",
+          "text": "Vegetable oil B (half Vegetable oil A mass)",
           "action": "loadModel('small-liquid');"
         }
       ]
@@ -92,7 +92,7 @@
     {
       "type": "button",
       "id": "add-energy",
-      "text": "Add energy",
+      "text": "Transfer thermal energy to oil",
       "action": [
         "start();",
         "set('targetTemperature', get('targetTemperature') + get('deltaT'));",
@@ -112,12 +112,12 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy added."
+      "text": "units of thermal energy transferred to oil."
     },
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button adds the same fixed amount of energy to the liquid with each click."
+      "text": "*Each button click transfers the same fixed amount of energy to the sample.*"
     }
   ],
   "layout": {
@@ -126,7 +126,8 @@
     ],
     "bottom": [
       ["model-select"],
-      ["add-energy", "energy-added-count", "times-label"],
+      ["add-energy"], 
+      ["energy-added-count", "times-label"],
       ["button-label"]
     ]
   }
