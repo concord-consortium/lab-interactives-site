@@ -93,7 +93,7 @@
     {
       "type": "button",
       "id": "remove-energy",
-      "text": "Remove the same amount of thermal energy from each block",
+      "text": "Transfer the same amount of thermal energy from each block to the surroundings",
       "action": [
         "start();",
         "set('small-KE', get('small-KE') + (2 * get('deltaT')));",
@@ -134,7 +134,7 @@
       "id": "left",
       "top": "model.top",
       "right": "model.left",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-right": "0.5em",
       "align": "right",
       "min-width": "6em"
@@ -143,7 +143,7 @@
       "id": "right",
       "top": "model.top",
       "left": "model.right",
-      "height": "interactive.height",
+      "height": "model.height",
       "padding-left": "0.5em",
       "padding-right": "0.5em",
       "min-width": "6em"
@@ -151,8 +151,8 @@
     {
       "id": "bottom",
       "top": "model.bottom",
-      "left": "model.left",
-      "width": "model.width",
+      "left": "left.left",
+      "width": "interactive.width",
       "padding-top": "0.5em",
       "align": "center",
       "height": "6em"
