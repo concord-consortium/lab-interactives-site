@@ -2,7 +2,7 @@
   "title": "The Effect of Mass on Temperature Change",
   "publicationStatus": "draft",
   "subtitle": "Heating solids",
-  "aspectRatio": 1.248768472906404,
+  "aspectRatio": 1.2,
   "fontScale": 1.1143984220907297,
   "about": [
   ],
@@ -119,7 +119,7 @@
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button transfers the same fixed amount of energy to the sample with each click."
+      "text": "*Each button click transfers the same fixed amount of energy to the sample.*"
     }
   ],
   "layout": {
@@ -129,8 +129,8 @@
     "bottom": [
       ["model-select"],
       ["add-energy"],
-      ["button-label"],      
-      [ "energy-added-count", "times-label"]
+      [ "energy-added-count", "times-label"],
+      ["button-label"]
     ]
   }
 }
