@@ -93,7 +93,7 @@
     {
       "type": "button",
       "id": "add-energy",
-      "text": "Add the same amount of thermal energy to each block",
+      "text": "Transfer the same amount of thermal energy to each block",
       "action": [
         "start();",
         "set('small-KE', get('small-KE') + (2 * get('deltaT')));",
@@ -111,12 +111,13 @@
       "type": "numericOutput",
       "id": "energy-added-count",
       "property": "energy-added-count",
-      "label": ""
+      "label": "",
+      "align": "left"
     },
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy added to each block."
+      "text": ["units of thermal energy transferred", "", "to each block."]
     }
   ],
   "layout": {
@@ -154,7 +155,7 @@
       "left": "model.left",
       "width": "model.width",
       "padding-top": "0.5em",
-      "align": "center",
+      "align": "left",
       "height": "6em"
     }
   ]
