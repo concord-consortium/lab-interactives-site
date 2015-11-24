@@ -84,7 +84,7 @@
           "selected": true
         },
         {
-          "text": "Beaker B (half Liquid A mass)",
+          "text": "Beaker B (liquid with half the mass of Beaker A)",
           "action": "loadModel('small-liquid');"
         }
       ]
@@ -92,7 +92,7 @@
     {
       "type": "button",
       "id": "remove-energy",
-      "text": "Remove energy",
+      "text": "Transfer thermal energy from beaker to surroundings",
       "action": [
         "start();",
         "set('targetTemperature', get('targetTemperature') - get('deltaT'));",
@@ -112,12 +112,12 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy removed."
+      "text": "units of thermal energy transferred from the beaker."
     },
     {
       "type": "text",
       "id": "button-label",
-      "text": "This button removes the same fixed amount of energy from the liquid with each click."
+      "text": "*Each button click transfers the same fixed amount of energy from the beaker.*"
     }
   ],
   "layout": {
@@ -126,7 +126,8 @@
     ],
     "bottom": [
       ["model-select"],
-      ["remove-energy", "energy-removed-count", "times-label"],
+      ["remove-energy"], 
+      ["energy-removed-count", "times-label"],
       ["button-label"]
     ]
   }
