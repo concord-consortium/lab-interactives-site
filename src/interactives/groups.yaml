@@ -178,6 +178,10 @@
   :name: "Land Management"
   :category: Curriculum
 
+- :path: planet-hunting
+  :name: "Planet Hunting"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum
