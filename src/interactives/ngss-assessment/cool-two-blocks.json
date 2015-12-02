@@ -116,7 +116,7 @@
     {
       "type": "text",
       "id": "times-label",
-      "text": "units of thermal energy removed from each block."
+      "text": "units of thermal energy transferred from each block."
     }
   ],
   "layout": {
