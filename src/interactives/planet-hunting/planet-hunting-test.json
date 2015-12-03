@@ -15,7 +15,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions": {
-        "url": "//localhost:8000/planet-hunting/",
+        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true
@@ -37,12 +37,16 @@
       "value": "return iframeOutput('starCamVelocity') * 50000 || 0;"
     },
     {
+      "name": "lightIntensity",
+      "value": "return iframeOutput('lightIntensity') || 0;"
+    },
+    {
       "name": "planet.mass",
-      "value": "return iframeOutput('planet.mass') || 1;"
+      "value": "return iframeOutput('planet.mass') || 0;"
     },
     {
       "name": "camera.tilt",
-      "value": "return iframeOutput('camera.tilt') || 90;"
+      "value": "return iframeOutput('camera.tilt') || 0;"
     }
   ],
   "parameters": [
@@ -129,6 +133,30 @@
       "dataColors": [
         "#ff0000"
       ]
+    },
+    {
+      "id": "light-intensity",
+      "type": "graph",
+      "properties": [
+        "lightIntensity"
+      ],
+      "xProperty": "time",
+      "title": "Light intensity",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Velocity",
+      "ymin": 0.7,
+      "ymax": 1.02,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "dataColors": [
+        "#ff0000"
+      ]
     }
   ],
   "template": [
@@ -144,8 +172,17 @@
       "margin-left": "2em"
     },
     {
-      "id": "right",
+      "id": "right-top",
       "left": "model.right",
+      "height": "model.height * 0.5",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "top": "right-top.bottom",
       "height": "model.height * 0.5",
       "width": "20em",
       "padding-left": "0.3em",
@@ -162,8 +199,11 @@
       ["camera-tilt"],
       ["planet-mass"]
     ],
-    "right": [
+    "right-top": [
       "star-cam-velocity"
+    ],
+    "right-bottom": [
+      "light-intensity"
     ]
   }
 }
