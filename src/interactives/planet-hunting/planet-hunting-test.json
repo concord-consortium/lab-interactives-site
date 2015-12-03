@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.1,
+  "aspectRatio": 1.45,
   "fontScale": 0.7,
   "models": [
     {
@@ -15,7 +15,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "url": "//localhost:8000/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true
@@ -28,6 +28,14 @@
     }
   ],
   "outputs": [
+    {
+      "name": "time",
+      "value": "return iframeOutput('time') * 365 || 0;"
+    },
+    {
+      "name": "starCamVelocity",
+      "value": "return iframeOutput('starCamVelocity') * 50000 || 0;"
+    },
     {
       "name": "planet.mass",
       "value": "return iframeOutput('planet.mass') || 1;"
@@ -97,6 +105,30 @@
       "property": "camera.tilt",
       "label": "The tilt is",
       "displayValue": "return value.toFixed(2) + ' degrees';"
+    },
+    {
+      "id": "star-cam-velocity",
+      "type": "graph",
+      "properties": [
+        "starCamVelocity"
+      ],
+      "xProperty": "time",
+      "title": "Velocity of star relative to observer",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Velocity",
+      "ymin": -1,
+      "ymax": 1,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "dataColors": [
+        "#ff0000"
+      ]
     }
   ],
   "template": [
@@ -112,9 +144,12 @@
       "margin-left": "2em"
     },
     {
-      "id": "right-padding",
+      "id": "right",
       "left": "model.right",
-      "padding-right": "1em"
+      "height": "model.height * 0.5",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
     }
   ],
   "layout": {
@@ -126,6 +161,9 @@
     "bottom-2": [
       ["camera-tilt"],
       ["planet-mass"]
+    ],
+    "right": [
+      "star-cam-velocity"
     ]
   }
 }
