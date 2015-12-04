@@ -152,7 +152,8 @@
       "yTickCount": 5,
       "dataColors": [
         "#ff0000"
-      ]
+      ],
+      "syncXAxis": "light-intensity"
     },
     {
       "id": "light-intensity",
@@ -176,7 +177,8 @@
       "yTickCount": 5,
       "dataColors": [
         "#ff0000"
-      ]
+      ],
+      "syncXAxis": "star-cam-velocity"
     }
   ],
   "template": [
