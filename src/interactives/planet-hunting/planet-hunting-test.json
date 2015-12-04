@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.45,
+  "aspectRatio": 1.35,
   "fontScale": 0.7,
   "models": [
     {
@@ -18,7 +18,8 @@
         "url": "//concord-consortium.github.io/space-models/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
-        "planet.rocky": true
+        "planet.rocky": true,
+        "telescope.precision": 100
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -34,11 +35,11 @@
     },
     {
       "name": "starCamVelocity",
-      "value": "return iframeOutput('starCamVelocity') * 50000 || 0;"
+      "value": "return iframeOutput('telescope.starCamVelocity') || 0;"
     },
     {
       "name": "lightIntensity",
-      "value": "return iframeOutput('lightIntensity') || 0;"
+      "value": "return iframeOutput('telescope.lightIntensity') || 0;"
     },
     {
       "name": "planet.mass",
@@ -91,6 +92,25 @@
       "property": "planet.diameter"
     },
     {
+      "id": "telescope-precision",
+      "type": "slider",
+      "min": 5,
+      "max": 100,
+      "steps": 100,
+      "title": "Telescope precision",
+      "labels": [
+        {
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "value": 100,
+          "label": "100"
+        }
+      ],
+      "property": "telescope.precision"
+    },
+    {
       "id": "planet-mass",
       "type": "numericOutput",
       "property": "planet.mass",
@@ -126,8 +146,8 @@
       "xmin": 0,
       "xmax": 600,
       "ylabel": "Velocity",
-      "ymin": -1,
-      "ymax": 1,
+      "ymin": -2.5,
+      "ymax": 2.5,
       "xTickCount": 4,
       "yTickCount": 5,
       "dataColors": [
@@ -193,6 +213,7 @@
     "bottom-1": [
       ["timestep"],
       ["planet-diameter"],
+      ["telescope-precision"],
       ["planet-rocky"]
     ],
     "bottom-2": [
