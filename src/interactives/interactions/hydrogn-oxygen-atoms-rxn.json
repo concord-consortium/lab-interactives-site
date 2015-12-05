@@ -1,0 +1,202 @@
+{
+  "title": "Reaction between hydrogen and oxygen atoms",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "hydrogen-oxygen-reaction",
+      "url": "models/lab-version/1/md2d/interactions/hydrogen-oxygen-atoms-rxn/hydrogen-oxygen-atoms-rxn.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "valenceElectrons": [
+            1,
+            1,
+            6,
+            7
+          ],
+          "bondEnergy": {
+            "default": 6,
+            "1-2": 5.2,
+            "1-1": 4.52,
+            "2-2": 0.1,
+            "2=2": 5.16
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.01,
+            "2+1-2": 0.01,
+            "2+1-1": 0.01,
+            "1+2-1": 0.01
+          }
+        }
+      },
+      "onLoad": [
+        "function backup(x) {",
+        "  for (var i = 0; i < x; i++) {",
+        "    stepBack();",
+        "  }",
+        "}"
+      ]
+    }
+  ],
+  "parameters": [
+  ],
+  "filteredOutputs": [
+    {
+      "name": "KE_AVG",
+      "unitType": "energy",
+      "property": "kineticEnergy",
+      "period": 10
+    },
+    {
+      "name": "potentialEnergy_AVG",
+      "unitType": "energy",
+      "property": "potentialEnergy",
+      "period": 10
+    },
+    {
+      "name": "totalEnergy_AVG",
+      "unitType": "energy",
+      "property": "totalEnergy",
+      "period": 10
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "back-label",
+      "text": "**Step back:**"
+    },
+    {
+      "type": "text",
+      "id": "forward-label",
+      "text": "**Step forward:**"
+    },
+    {
+      "type": "button",
+      "id": "step-back-1",
+      "text": "1",
+      "action": "stepBack();"
+    },
+    {
+      "type": "button",
+      "id": "step-back-10",
+      "text": "10",
+      "action": "for( var i = 0; i < 10; i++) { stepBack(); }"
+    },
+    {
+      "type": "button",
+      "id": "step-back-100",
+      "text": "100",
+      "action": "for( var i = 0; i < 100; i++) { stepBack(); }"
+    },
+    {
+      "type": "button",
+      "id": "step-forward-1",
+      "text": "1",
+      "action": "stepForward();"
+    },
+    {
+      "type": "button",
+      "id": "step-forward-10",
+      "text": "10",
+      "action": "for( var i = 0; i < 10; i++) { stepForward(); }"
+    },
+    {
+      "type": "button",
+      "id": "step-forward-100",
+      "text": "100",
+      "action": "for( var i = 0; i < 100; i++) { stepForward(); }"
+    },
+    {
+      "type": "graph",
+      "id": "energyGraph",
+      "title": "Energies",
+      "xlabel": "Time",
+      "ylabel": "Energy",
+      "hideAxisValues": true,
+      "helpIcon": true,
+      "ymin": -4,
+      "ymax": 4,
+      "xmax": 0.3000001,
+      "width": "18em",
+      "xTickCount": 6,
+      "yTickCount": 10,
+      "xFormatter": "r",
+      "yFormatter": ".1r",
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "streamDataFromModel": true, 
+      "xProperty": "displayTime",
+      "properties": [
+        "KE_AVG",
+        "potentialEnergy_AVG",
+        "totalEnergy_AVG"
+      ],
+      "dataColors": [
+        "#814ec6",
+        "#70c64e",
+        "#7c7c7c"
+      ],
+      "legendLabels": [
+        "Kinetic Energy",
+        "Potential Energy",
+        "Total Energy"
+      ],
+      "legendVisible": false
+    }
+  ],
+  "helpTips": [
+    {
+      "text": [
+        "Try running the model by pressing *start*.",
+        "",
+        "Then look closely at how the graph relates to what is going on with the atoms and bonding."
+      ]
+    }
+  ],
+  "helpOnLoad": true,
+  "layout": {
+    "bottom-left": [
+      ["back-label"], 
+      ["forward-label"]
+    ],
+    "bottom-right": [
+      ["step-back-1", "step-back-10", "step-back-100"],
+      ["step-forward-1", "step-forward-10", "step-forward-100"]
+    ],
+    "right": [
+      "energyGraph"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "10em",
+      "padding-top": "0.8em",
+      "padding-right": "0em",
+      "width": "7.5em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "left": "bottom-left.right",
+      "padding-left": "0em",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height"
+    }
+  ]
+}
