@@ -54,6 +54,23 @@
   ],
   "components": [
     {
+      "id": "circular-orbit",
+      "type": "button",
+      "text": "Make circular orbit",
+      "action": "post('makeCircularOrbit');"
+    },
+    {
+      "id": "clear-graphs",
+      "type": "button",
+      "text": "Clear graphs",
+      "action": [
+        "var newXMin = Math.round(get('time'));",
+        "var newXMax = newXMin + 600;",
+        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});",
+        "setComponentAttributes('light-intensity', {xmin: newXMin, xmax: newXMax});"
+      ]
+    },
+    {
       "id": "timestep",
       "type": "slider",
       "min": 0.0002,
@@ -148,8 +165,8 @@
       "ylabel": "Velocity",
       "ymin": -2.5,
       "ymax": 2.5,
-      "xTickCount": 4,
-      "yTickCount": 5,
+      "xTickCount": 8,
+      "yTickCount": 4,
       "dataColors": [
         "#ff0000"
       ],
@@ -173,8 +190,8 @@
       "ylabel": "Velocity",
       "ymin": 0.7,
       "ymax": 1.02,
-      "xTickCount": 4,
-      "yTickCount": 5,
+      "xTickCount": 8,
+      "yTickCount": 4,
       "dataColors": [
         "#ff0000"
       ],
@@ -192,6 +209,15 @@
       "left": "bottom-1.right",
       "top": "model.bottom",
       "margin-left": "2em"
+    },
+    {
+      "id": "bottom-3",
+      "left": "bottom-2.right",
+      "right": "interactive.right",
+      "top": "model.bottom",
+      "align": "right",
+      "margin-top": "1em",
+      "margin-right": "1em"
     },
     {
       "id": "right-top",
@@ -215,12 +241,16 @@
     "bottom-1": [
       ["timestep"],
       ["planet-diameter"],
-      ["telescope-precision"],
-      ["planet-rocky"]
+      ["telescope-precision"]
     ],
     "bottom-2": [
       ["camera-tilt"],
-      ["planet-mass"]
+      ["planet-mass"],
+      ["circular-orbit"],
+      ["planet-rocky"]
+    ],
+    "bottom-3": [
+      ["clear-graphs"]
     ],
     "right-top": [
       "star-cam-velocity"
