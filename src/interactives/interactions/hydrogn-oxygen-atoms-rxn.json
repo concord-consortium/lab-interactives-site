@@ -3,6 +3,8 @@
   "publicationStatus": "draft",
   "subtitle": "",
   "about": "",
+  "aspectRatio": 1.2362030905077264,
+  "fontScale": 1.0089285714285714,
   "models": [
     {
       "type": "md2d",
@@ -121,7 +123,7 @@
       "xlabel": "Time",
       "ylabel": "Energy",
       "hideAxisValues": true,
-      "helpIcon": true,
+      "helpIcon": false,
       "ymin": -4,
       "ymax": 4,
       "xmax": 0.3000001,
