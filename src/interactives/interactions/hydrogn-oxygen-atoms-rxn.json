@@ -52,19 +52,19 @@
       "name": "KE_AVG",
       "unitType": "energy",
       "property": "kineticEnergy",
-      "period": 10
+      "period": 50
     },
     {
       "name": "potentialEnergy_AVG",
       "unitType": "energy",
       "property": "potentialEnergy",
-      "period": 10
+      "period": 50
     },
     {
       "name": "totalEnergy_AVG",
       "unitType": "energy",
       "property": "totalEnergy",
-      "period": 10
+      "period": 50
     }
   ],
   "components": [
