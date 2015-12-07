@@ -99,11 +99,11 @@
       "labels": [
         {
           "value": 1,
-          "label": "earth x 1"
+          "label": "1X Earth"
         },
         {
           "value": 50,
-          "label": "earth x 50"
+          "label": "50X Earth"
         }
       ],
       "property": "planet.diameter"
@@ -118,11 +118,11 @@
       "labels": [
         {
           "value": 5,
-          "label": "5"
+          "label": "5%"
         },
         {
           "value": 100,
-          "label": "100"
+          "label": "100%"
         }
       ],
       "property": "telescope.precision"
@@ -131,8 +131,8 @@
       "id": "planet-mass",
       "type": "numericOutput",
       "property": "planet.mass",
-      "label": "The planet's mass is",
-      "displayValue": "return value.toFixed(2) + ' times the earth mass';"
+      "label": "Planet mass",
+      "displayValue": "return value.toFixed(2) + ' X Earth';"
     },
     {
       "id": "planet-rocky",
