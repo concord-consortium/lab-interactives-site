@@ -196,9 +196,21 @@
         "#ff0000"
       ],
       "syncXAxis": "star-cam-velocity"
+    },
+        {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
     }
   ],
   "template": [
+          {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
     {
       "id": "bottom-1",
       "left": "model.left",
@@ -222,7 +234,7 @@
     {
       "id": "right-top",
       "left": "model.right",
-      "height": "model.height * 0.5",
+      "height": "interactive.height * 0.48",
       "width": "20em",
       "padding-left": "0.3em",
       "padding-right": "0.3em"
@@ -231,13 +243,18 @@
       "id": "right-bottom",
       "left": "model.right",
       "top": "right-top.bottom",
-      "height": "model.height * 0.5",
+      "height": "interactive.height * 0.48",
       "width": "20em",
       "padding-left": "0.3em",
       "padding-right": "0.3em"
     }
   ],
   "layout": {
+        "playback-container": [
+    [
+      "playback"
+    ]
+    ],
     "bottom-1": [
       ["timestep"],
       ["planet-diameter"],
