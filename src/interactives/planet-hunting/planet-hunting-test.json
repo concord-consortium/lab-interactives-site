@@ -62,7 +62,7 @@
     {
       "id": "clear-graphs",
       "type": "button",
-      "text": "Clear graphs",
+      "text": "Clear all graphs",
       "action": [
         "var newXMin = Math.round(get('time'));",
         "var newXMax = newXMin + 600;",
@@ -131,8 +131,8 @@
       "id": "planet-mass",
       "type": "numericOutput",
       "property": "planet.mass",
-      "label": "Planet mass",
-      "displayValue": "return value.toFixed(2) + ' X Earth';"
+      "label": "Planet mass:",
+      "displayValue": "return value.toFixed(2) + 'X Earth';"
     },
     {
       "id": "planet-rocky",
@@ -144,7 +144,7 @@
       "id": "camera-tilt",
       "type": "numericOutput",
       "property": "camera.tilt",
-      "label": "The tilt is",
+      "label": "The tilt is:",
       "displayValue": "return value.toFixed(2) + ' degrees';"
     },
     {
@@ -154,7 +154,7 @@
         "starCamVelocity"
       ],
       "xProperty": "time",
-      "title": "Velocity of star relative to observer",
+      "title": "Velocity of Star, Relative to Observer",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
@@ -179,7 +179,7 @@
         "lightIntensity"
       ],
       "xProperty": "time",
-      "title": "Light intensity",
+      "title": "Light Intensity of Star",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
