@@ -171,7 +171,7 @@
       "xTickCount": 8,
       "yTickCount": 4,
       "dataColors": [
-        "#ff0000"
+        "#0000ff"
       ],
       "syncXAxis": "light-intensity"
     },
@@ -196,7 +196,7 @@
       "xTickCount": 8,
       "yTickCount": 4,
       "dataColors": [
-        "#ff0000"
+        "#0000ff"
       ],
       "syncXAxis": "star-cam-velocity"
     },
