@@ -153,6 +153,7 @@
     {
       "id": "star-cam-velocity",
       "type": "graph",
+      "enableAxisScaling": false,
       "properties": [
         "starCamVelocity"
       ],
@@ -178,6 +179,7 @@
     {
       "id": "light-intensity",
       "type": "graph",
+      "enableAxisScaling": false,
       "properties": [
         "lightIntensity"
       ],
