@@ -203,7 +203,7 @@
       "stepping": true
     }
   ],
-  "template": [
+ "template": [
           {
       "id": "playback-container",
       "top": "model.bottom",
@@ -211,10 +211,16 @@
       "padding-top": "0.75em",
       "padding-right": "0.5em"
     },
+        {
+      "id": "playback-right",
+      "top": "model.bottom",
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
+    },
     {
       "id": "bottom-1",
       "left": "model.left",
-      "top": "model.bottom"
+      "top": "playback-right.bottom"
     },
     {
       "id": "bottom-2",
@@ -255,8 +261,10 @@
       "playback"
     ]
     ],
+    "playback-right": [
+      "timestep"
+    ],
     "bottom-1": [
-      ["timestep"],
       ["planet-diameter"],
       ["telescope-precision"]
     ],
