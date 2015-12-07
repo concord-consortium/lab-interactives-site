@@ -73,6 +73,7 @@
     {
       "id": "timestep",
       "type": "slider",
+      "fillColor": "#2DA343",
       "min": 0.0002,
       "max": 0.005,
       "steps": 100,
@@ -92,6 +93,7 @@
     {
       "id": "planet-diameter",
       "type": "slider",
+      "fillColor": "#459ACE",
       "min": 1,
       "max": 50,
       "steps": 100,
@@ -111,6 +113,7 @@
     {
       "id": "telescope-precision",
       "type": "slider",
+      "fillColor": "#459ACE",
       "min": 5,
       "max": 100,
       "steps": 100,
