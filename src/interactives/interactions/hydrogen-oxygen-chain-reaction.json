@@ -1,0 +1,228 @@
+{
+  "title": "Chain reaction between hydrogen and oxygen",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.6869300911854104,
+  "fontScale": 1.018018018018018,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "hydrogen-oxygen-reaction",
+      "url": "models/lab-version/1/md2d/interactions/hydrogen-oxygen-chain-reaction/hydrogen-oxygen-chain-reaction.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "valenceElectrons": [
+            1,
+            1,
+            6,
+            7
+          ],
+          "bondEnergy": {
+            "default": 6,
+            "1-2": 5.2,
+            "1-1": 4.52,
+            "2-2": 0.1,
+            "2=2": 5.16
+          },
+          "activationEnergy": {
+            "default": 0.0002,
+            "1+2-2": 0.00001,
+            "1+2=2": 0.00001,
+            "2+1-2": 0.00001,
+            "2+1-1": 0.00001,
+            "1+2-1": 0.00001
+          }
+        }
+      },
+      "onLoad": [
+        "setComponentDisabled('spark-button', false);",
+        "var unMarkedAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  unMarkedAtoms[i] = i;",
+        "}",
+        "set('PE', get('total-E') - get('kineticEnergy'));",
+        "onPropertyChange('kineticEnergy', function () {",
+        "  set('PE', get('total-E') - get('KE_AVG'));",
+        "});",
+        "callEvery(25, function () {",
+        "  var atomsOfMolecule, moleculeSize, elementHash, markAtoms, currentIndex;",
+        "  for (var i = 0; i < unMarkedAtoms.length; i++) {",
+        "    markAtoms = false;",
+        "    atomsOfMolecule = getMoleculeAtoms(unMarkedAtoms[i]);",
+        "    atomsOfMolecule.push(unMarkedAtoms[i]);",
+        "    moleculeSize = atomsOfMolecule.length;",
+        "    if (moleculeSize === 1) {",
+        "      markAtoms = true;",
+        "    } else if ((moleculeSize === 2) && (getAtomProperties(atomsOfMolecule[0]).element != getAtomProperties(atomsOfMolecule[1]).element)) {",
+        "     markAtoms = true;",
+        "    } else if ((moleculeSize === 2) && ((getAtomProperties(atomsOfMolecule[0]).marked === 1) || (getAtomProperties(atomsOfMolecule[1]).marked === 1))) {",
+        "     markAtoms = true;",
+        "    } else if (moleculeSize === 3) {",
+        "      elementHash = 0;",
+        "      for (var x = 0; x < 2; x++) {",
+        "       elementHash += getAtomProperties(atomsOfMolecule[x]).element;",
+        "      }",
+        "      if (elementHash != 4) {",
+        "        markAtoms = true;",
+        "      }",
+        "    } else if (moleculeSize > 3) {",
+        "      markAtoms = true;",
+        "    }",
+        "    if (markAtoms === true) {",
+        "      for( var x = 0; x < (moleculeSize); x++) {",
+        "        currentIndex = atomsOfMolecule[x];",
+        "        if (getAtomProperties(currentIndex).marked != 1) {",
+        "          setAtomProperties(currentIndex, {'marked': 1});",
+        "          unMarkedAtoms.splice(unMarkedAtoms.indexOf(currentIndex),1);",
+        "        }",
+        "      }",
+        "    }",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "total-E",
+      "initialValue": 100
+    },
+    {
+      "name": "PE",
+      "initialValue": 0
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "KE_AVG",
+      "unitType": "energy",
+      "property": "kineticEnergy",
+      "period": 50
+    },
+    {
+      "name": "potentialEnergy_AVG",
+      "unitType": "energy",
+      "property": "potentialEnergy",
+      "period": 50
+    },
+    {
+      "name": "totalEnergy_AVG",
+      "unitType": "energy",
+      "property": "totalEnergy",
+      "period": 50
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "spark-button",
+      "text": "Add some energy to break one of the molecular bonds",
+      "action": [
+        "var props, a1Props, a2Props, dx, dy, slowMotionChanged;",
+        "for(var i = 0, len = getNumberOfRadialBonds(); i < len; i++) {",
+        "  props = getRadialBondProperties(i);",
+        "  a1Props = getAtomProperties(props.atom1);",
+        "  a2Props = getAtomProperties(props.atom2);",
+        "  if (a1Props.element === 1 &&",
+        "      a2Props.element === 1) {",
+        "    setComponentDisabled('spark-button', true);",
+        "    dx = (a1Props.x - a2Props.x) * 1e-1;",
+        "    dy = (a1Props.y - a2Props.y) * 1e-1;",
+        "    setAtomProperties(props.atom1, { vx: dx, vy: dy });",
+        "    setAtomProperties(props.atom2, { vx: -dx, vy: -dy });",
+        "    removeRadialBond(i);",
+        "    break;",
+        "  }",
+        "}",
+        "set('total-E', 103);",
+        "start();"
+      ]
+    },
+    {
+      "type": "barGraph",
+      "id": "avg-KE",
+      "barColor": "#814ec6",
+      "min": 0,
+      "max": 120,
+      "title": "Kinetic energy",
+      "property": "KE_AVG",
+      "units": false,
+      "gridLines": 10,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 120,
+          "label": "high"
+        }
+      ]
+    },
+    {
+      "type": "barGraph",
+      "id": "avg-PE",
+      "barColor": "#70c64e",
+      "min": 0,
+      "max": 120,
+      "title": "Potential Energy",
+      "property": "PE",
+      "units": false,
+      "gridLines": 10,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 120,
+          "label": "high"
+        }
+      ]
+    },
+    {
+      "type": "barGraph",
+      "id": "avg-TE",
+      "barColor": "#7c7c7c",
+      "min": 0,
+      "max": 120,
+      "title": "Total energy",
+      "property": "total-E",
+      "units": false,
+      "gridLines": 10,
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 120,
+          "label": "high"
+        }
+      ]
+    }    
+  ],
+  "helpTips": [
+      {
+      "text": [
+        "Try running the model by pressing *start*.",
+        "",
+        "Atoms that have been involved in part of the reaction will turn yellow."
+      ]
+    }
+  ],
+  "helpOnLoad": true,
+  "layout": {
+    "bottom": [
+      "spark-button"
+    ],
+    "right": [
+      "avg-KE","avg-PE","avg-TE"
+    ]
+  }
+}
