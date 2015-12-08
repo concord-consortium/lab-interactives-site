@@ -272,30 +272,39 @@
     }
   ],
   "layout": {
-    "tilt-container":[
-          ["camera-tilt"]
-    ],
-        "playback-container": [
-    [
-      "playback"
-    ]
+    "playback-container": [
+      [
+        "playback"
+      ]
     ],
     "playback-right": [
       "timestep"
     ],
     "bottom-1": [
-      ["planet-diameter"],
-      ["telescope-precision"],
-      ["circular-orbit"]
+      [
+        "planet-diameter"
+      ],
+      [
+        "telescope-precision"
+      ],
+      [
+        "circular-orbit"
+      ]
     ],
     "bottom-1b": [
-    ["planet-rocky"]
+      [
+        "planet-rocky"
+      ]
     ],
     "bottom-2": [
-      ["planet-mass"]
+      [
+        "planet-mass"
+      ]
     ],
     "bottom-3": [
-      ["clear-graphs"]
+      [
+        "clear-graphs"
+      ]
     ],
     "right-top": [
       "star-cam-velocity"
@@ -303,5 +312,61 @@
     "right-bottom": [
       "light-intensity"
     ]
-  }
+  },
+  "template": [
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "playback-right",
+      "top": "model.bottom",
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
+    },
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "bottom-1b.bottom"
+    },
+    {
+      "id": "bottom-1b",
+      "left": "model.left",
+      "top": "playback-right.bottom"
+    },
+    {
+      "id": "bottom-2",
+      "left": "bottom-1.right",
+      "top": "bottom-1.top",
+      "margin-left": "2em"
+    },
+    {
+      "id": "bottom-3",
+      "left": "right-bottom.left",
+      "top": "right-bottom.bottom",
+      "align": "right",
+      "margin-top": "1em",
+      "margin-right": "1em"
+    },
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "height": "interactive.height * 0.44",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "height": "interactive.height * 0.44",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    }
+  ]
 }
