@@ -144,13 +144,6 @@
       "property": "planet.rocky"
     },
     {
-      "id": "camera-tilt",
-      "type": "numericOutput",
-      "property": "camera.tilt",
-      "label": "The tilt is:",
-      "displayValue": "return value.toFixed(2) + ' degrees';"
-    },
-    {
       "id": "star-cam-velocity",
       "type": "graph",
       "enableAxisScaling": false,
