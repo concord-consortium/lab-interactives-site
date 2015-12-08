@@ -135,7 +135,7 @@
       "type": "numericOutput",
       "property": "planet.mass",
       "label": "Planet mass:",
-      "displayValue": "return value.toFixed(2) + 'X Earth';"
+      "displayValue": "return value.toFixed(0) + 'x Earth';"
     },
     {
       "id": "planet-rocky",
