@@ -192,7 +192,7 @@
       "xlabel": "Time (days)",
       "xmin": 0,
       "xmax": 600,
-      "ylabel": "Velocity",
+      "ylabel": "Light Intensity",
       "ymin": 0.7,
       "ymax": 1.02,
       "xTickCount": 8,
