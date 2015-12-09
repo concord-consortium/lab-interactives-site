@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.05,
+  "aspectRatio": 1.25,
   "fontScale": 0.7,
   "models": [
     {
@@ -101,11 +101,11 @@
       "labels": [
         {
           "value": 1,
-          "label": "1X Earth"
+          "label": "1x Earth"
         },
         {
           "value": 50,
-          "label": "50X Earth"
+          "label": "50x Earth"
         }
       ],
       "property": "planet.diameter"
@@ -139,9 +139,21 @@
     },
     {
       "id": "planet-rocky",
-      "type": "checkbox",
-      "text": "Rocky planet",
-      "property": "planet.rocky"
+      "type": "radio",
+      "orientation": "horizontal",
+      "label": "Planet type",
+      "labelOn": "left",
+      "property": "planet.rocky",
+      "options": [
+        {
+          "value": false,
+          "text": "Gaseous"
+        },
+        {
+          "value": true,
+          "text": "Rocky"
+        }
+      ]
     },
     {
       "id": "star-cam-velocity",
@@ -195,115 +207,36 @@
       ],
       "syncXAxis": "star-cam-velocity"
     },
-        {
+    {
       "id": "playback",
       "type": "playback",
       "stepping": true
     }
   ],
- "template": [
-     {
-      "id": "tilt-container",
-      "top": "model.bottom",
-      "left": "model.left",
-      "padding-top": "0.75em",
-      "padding-right": "0.5em"
-    },
-          {
-      "id": "playback-container",
-      "top": "tilt-container.bottom",
-      "left": "model.left",
-      "padding-top": "0.75em",
-      "padding-right": "0.5em"
-    },
-        {
-      "id": "playback-right",
-      "top": "tilt-container.bottom",
-      "left": "playback-container.right",
-      "padding-bottom": "0.5em"
-    },
-    {
-      "id": "bottom-1",
-      "left": "model.left",
-      "top": "bottom-1b.bottom"
-    },
-       {
-      "id": "bottom-1b",
-      "left": "model.left",
-      "top": "playback-right.bottom"
-    },
-    {
-      "id": "bottom-2",
-      "left": "bottom-1.right",
-      "top": "bottom-1.top",
-      "margin-left": "2em"
-    },
-    {
-      "id": "bottom-3",
-      "left": "right-bottom.left",
-      "top": "right-bottom.bottom",
-      "align": "right",
-      "margin-top": "1em",
-      "margin-right": "1em"
-    },
-    {
-      "id": "right-top",
-      "left": "model.right",
-      "height": "interactive.height * 0.44",
-  	  "width": "20em",
-      "padding-left": "0.3em",
-      "padding-right": "0.3em"
-    },
-    {
-      "id": "right-bottom",
-      "left": "model.right",
-      "top": "right-top.bottom",
-      "height": "interactive.height * 0.44",
-      "width": "20em",
-      "padding-left": "0.3em",
-      "padding-right": "0.3em"
-    }
-  ],
   "layout": {
     "playback-container": [
-      [
-        "playback"
-      ]
+      "playback"
     ],
     "playback-right": [
       "timestep"
     ],
     "bottom-1": [
-      [
-        "planet-diameter"
-      ],
-      [
-        "telescope-precision"
-      ],
-      [
-        "circular-orbit"
-      ]
-    ],
-    "bottom-1b": [
-      [
-        "planet-rocky"
-      ]
+      ["planet-rocky"],
+      ["planet-diameter"],
+      ["telescope-precision"],
+      ["circular-orbit"]
     ],
     "bottom-2": [
-      [
-        "planet-mass"
-      ]
-    ],
-    "bottom-3": [
-      [
-        "clear-graphs"
-      ]
+      "planet-mass"
     ],
     "right-top": [
       "star-cam-velocity"
     ],
     "right-bottom": [
       "light-intensity"
+    ],
+    "under-graphs": [
+      "clear-graphs"
     ]
   },
   "template": [
@@ -317,37 +250,25 @@
     {
       "id": "playback-right",
       "top": "model.bottom",
-      "left": "playback-container.right",
-      "padding-bottom": "0.5em"
+      "left": "playback-container.right"
     },
     {
       "id": "bottom-1",
       "left": "model.left",
-      "top": "bottom-1b.bottom"
-    },
-    {
-      "id": "bottom-1b",
-      "left": "model.left",
-      "top": "playback-right.bottom"
+      "top": "playback-right.bottom",
+      "margin-top": "1em"
     },
     {
       "id": "bottom-2",
       "left": "bottom-1.right",
       "top": "bottom-1.top",
-      "margin-left": "2em"
-    },
-    {
-      "id": "bottom-3",
-      "left": "right-bottom.left",
-      "top": "right-bottom.bottom",
-      "align": "right",
-      "margin-top": "1em",
-      "margin-right": "1em"
+      "margin-left": "2em",
+      "margin-top": "4.1em"
     },
     {
       "id": "right-top",
       "left": "model.right",
-      "height": "interactive.height * 0.44",
+      "height": "interactive.height * 0.46",
       "width": "20em",
       "padding-left": "0.3em",
       "padding-right": "0.3em"
@@ -356,10 +277,19 @@
       "id": "right-bottom",
       "left": "model.right",
       "top": "right-top.bottom",
-      "height": "interactive.height * 0.44",
+      "height": "interactive.height * 0.46",
       "width": "20em",
       "padding-left": "0.3em",
       "padding-right": "0.3em"
+    },
+    {
+      "id": "under-graphs",
+      "left": "right-bottom.left",
+      "right": "right-bottom.right",
+      "top": "right-bottom.bottom",
+      "align": "right",
+      "margin-right": "1em",
+      "margin-top": "1em"
     }
   ]
 }
