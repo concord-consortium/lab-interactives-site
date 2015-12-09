@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.25,
+  "aspectRatio": 1.15,
   "fontScale": 0.7,
   "models": [
     {
@@ -51,6 +51,21 @@
     }
   ],
   "parameters": [
+    {
+      "name": "presetPlanet",
+      "initialValue": "Earth",
+      "onChange": "post('loadPreset', value);"
+    },
+    {
+      "name": "speed",
+      "initialValue": 50,
+      "onChange": [
+        "var v = value / 50;",
+        "if (v > 1) v = Math.pow(v, 4);",
+        "if (v < 1) v = Math.sqrt(v);",
+        "set('timestep', 0.001 * v);"
+      ]
+    }
   ],
   "components": [
     {
@@ -74,21 +89,21 @@
       "id": "timestep",
       "type": "slider",
       "fillColor": "#2DA343",
-      "min": 0.0002,
-      "max": 0.005,
+      "min": 1,
+      "max": 100,
       "steps": 100,
       "title": "Speed",
       "labels": [
         {
-          "value": 0.0002,
+          "value": 1,
           "label": "slow"
         },
         {
-          "value": 0.005,
+          "value": 100,
           "label": "fast"
         }
       ],
-      "property": "timestep"
+      "property": "speed"
     },
     {
       "id": "planet-diameter",
@@ -96,7 +111,7 @@
       "fillColor": "#459ACE",
       "min": 1,
       "max": 50,
-      "steps": 100,
+      "steps": 50,
       "title": "Planet diameter",
       "labels": [
         {
@@ -135,7 +150,7 @@
       "type": "numericOutput",
       "property": "planet.mass",
       "label": "Planet mass:",
-      "displayValue": "return value.toFixed(0) + 'x Earth';"
+      "displayValue": "return (value < 1 ? value.toFixed(1) : value.toFixed(0)) + 'x Earth';"
     },
     {
       "id": "planet-rocky",
@@ -152,6 +167,47 @@
         {
           "value": true,
           "text": "Rocky"
+        }
+      ]
+    },
+    {
+      "id": "preset-planet",
+      "type": "pulldown",
+      "label": "Preset planets",
+      "labelOn": "left",
+      "property": "presetPlanet",
+      "options": [
+        {
+          "text": "Earth",
+          "value": "Earth"
+        },
+        {
+          "text": "Mars",
+          "value": "Mars"
+        },
+        {
+          "text": "Jupiter",
+          "value": "Jupiter"
+        },
+        {
+          "text": "Venus",
+          "value": "Venus"
+        },
+        {
+          "text": "Like Mercury but 10x larger diameter",
+          "value": "MercuryDiameter10x"
+        },
+        {
+          "text": "Like Earth but 10x larger diameter",
+          "value": "EarthDiameter10x"
+        },
+        {
+          "text": "Earth-like planet near the star",
+          "value": "EarthNearTheStar"
+        },
+        {
+          "text": "Large rocky planet very near the star",
+          "value": "LargeNearTheStar"
         }
       ]
     },
@@ -176,6 +232,7 @@
       "ymax": 2.5,
       "xTickCount": 8,
       "yTickCount": 4,
+      "yFormatter": ".2s",
       "dataColors": [
         "#0000ff"
       ],
@@ -221,13 +278,14 @@
       "timestep"
     ],
     "bottom-1": [
+      ["preset-planet"],
       ["planet-rocky"],
-      ["planet-diameter"],
+      ["planet-diameter", "planet-mass"],
       ["telescope-precision"],
       ["circular-orbit"]
     ],
     "bottom-2": [
-      "planet-mass"
+
     ],
     "right-top": [
       "star-cam-velocity"
