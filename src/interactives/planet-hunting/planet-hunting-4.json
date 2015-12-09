@@ -86,8 +86,7 @@
       "action": [
         "var newXMin = Math.round(get('time'));",
         "var newXMax = newXMin + 600;",
-        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});",
-        "setComponentAttributes('light-intensity', {xmin: newXMin, xmax: newXMax});"
+        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});"
       ],
       "text": "Clear graph",
       "width": "",
