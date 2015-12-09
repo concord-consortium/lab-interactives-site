@@ -1,0 +1,431 @@
+{
+  "title": "Planet Hunting 6",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.15,
+  "fontScale": 0.7,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": "",
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar",
+    "graph-title-bg"
+  ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "onLoad": [],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "timestep": 0.001,
+        "planet.diameter": 1,
+        "planet.rocky": true,
+        "telescope.precision": 100
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "presetPlanet",
+      "initialValue": "Earth",
+      "onChange": "post('loadPreset', value);"
+    },
+    {
+      "name": "speed",
+      "initialValue": 50,
+      "onChange": [
+        "var v = value / 50;",
+        "if (v > 1) v = Math.pow(v, 4);",
+        "if (v < 1) v = Math.sqrt(v);",
+        "set('timestep', 0.001 * v);"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "time",
+      "value": "return iframeOutput('time') * 365 || 0;"
+    },
+    {
+      "name": "starCamVelocity",
+      "value": "return iframeOutput('telescope.starCamVelocity') || 0;"
+    },
+    {
+      "name": "lightIntensity",
+      "value": "return iframeOutput('telescope.lightIntensity') || 0;"
+    },
+    {
+      "name": "planet.mass",
+      "value": "return iframeOutput('planet.mass') || 0;"
+    },
+    {
+      "name": "camera.tilt",
+      "value": "return iframeOutput('camera.tilt') || 0;"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "clear-graphs",
+      "type": "button",
+      "action": [
+        "var newXMin = Math.round(get('time'));",
+        "var newXMax = newXMin + 600;",
+        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});",
+        "setComponentAttributes('light-intensity', {xmin: newXMin, xmax: newXMax});"
+      ],
+      "text": "Clear all graphs",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "timestep",
+      "type": "slider",
+      "min": 1,
+      "max": 100,
+      "steps": 100,
+      "title": "Speed",
+      "titlePosition": "top",
+      "fillColor": "#2DA343",
+      "labels": [
+        {
+          "value": 1,
+          "label": "slow"
+        },
+        {
+          "value": 100,
+          "label": "fast"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "speed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-diameter",
+      "type": "slider",
+      "min": 1,
+      "max": 50,
+      "steps": 50,
+      "title": "Planet diameter",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1x Earth"
+        },
+        {
+          "value": 50,
+          "label": "50x Earth"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "planet.diameter",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-mass",
+      "type": "numericOutput",
+      "property": "planet.mass",
+      "label": "Planet mass:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return (value < 1 ? value.toFixed(1) : value.toFixed(0)) + 'x Earth';",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-rocky",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "Planet type",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Gaseous",
+          "value": false
+        },
+        {
+          "text": "Rocky",
+          "value": true
+        }
+      ],
+      "property": "planet.rocky",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "preset-planet",
+      "type": "pulldown",
+      "label": "Preset planets",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Earth",
+          "value": "Earth"
+        },
+        {
+          "text": "Mars",
+          "value": "Mars"
+        },
+        {
+          "text": "Jupiter",
+          "value": "Jupiter"
+        },
+        {
+          "text": "Venus",
+          "value": "Venus"
+        },
+        {
+          "text": "Like Mercury but 10x larger diameter",
+          "value": "MercuryDiameter10x"
+        },
+        {
+          "text": "Like Earth but 10x larger diameter",
+          "value": "EarthDiameter10x"
+        },
+        {
+          "text": "Earth-like planet near the star",
+          "value": "EarthNearTheStar"
+        },
+        {
+          "text": "Large rocky planet very near the star",
+          "value": "LargeNearTheStar"
+        }
+      ],
+      "property": "presetPlanet",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "star-cam-velocity",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "starCamVelocity"
+      ],
+      "xProperty": "time",
+      "title": "Velocity of Star, Relative to Observer",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Velocity",
+      "ymin": -2.5,
+      "ymax": 2.5,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#0000ff"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": "light-intensity",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "light-intensity",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "lightIntensity"
+      ],
+      "xProperty": "time",
+      "title": "Light Intensity of Star",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Light Intensity",
+      "ymin": 0.7,
+      "ymax": 1.02,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#0000ff"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": "star-cam-velocity",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+  "layout": {
+    "playback-container": [
+      "playback"
+    ],
+    "playback-right": [
+      "timestep"
+    ],
+    "bottom-1": [
+      [
+        "preset-planet"
+      ],
+      [
+        "planet-rocky"
+      ],
+      [
+        "planet-diameter",
+        "planet-mass"
+      ]
+    ],
+    "bottom-2": [],
+    "right-top": [
+      "star-cam-velocity"
+    ],
+    "right-bottom": [
+      "light-intensity"
+    ],
+    "under-graphs": [
+      "clear-graphs"
+    ]
+  },
+  "template": [
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "playback-right",
+      "top": "model.bottom",
+      "left": "playback-container.right"
+    },
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "playback-right.bottom",
+      "margin-top": "1em"
+    },
+    {
+      "id": "bottom-2",
+      "left": "bottom-1.right",
+      "top": "bottom-1.top",
+      "margin-left": "2em",
+      "margin-top": "4.1em"
+    },
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "under-graphs",
+      "left": "right-bottom.left",
+      "right": "right-bottom.right",
+      "top": "right-bottom.bottom",
+      "align": "right",
+      "margin-right": "1em",
+      "margin-top": "1em"
+    }
+  ]
+}
