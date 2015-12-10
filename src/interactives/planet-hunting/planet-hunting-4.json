@@ -46,7 +46,7 @@
       "modelOptions": {
         "url": "//concord-consortium.github.io/space-models/planet-hunting/",
         "timestep": 0.001,
-        "planet.diameter": 1,
+        "planet.diameter": 10,
         "planet.rocky": true,
         "telescope.precision": 100
       }
@@ -56,7 +56,7 @@
   "parameters": [
     {
       "name": "presetPlanet",
-      "initialValue": "EarthDiameter10x",
+      "initialValue": "Custom",
       "onChange": [
         "post('loadPreset', value);",
         "post('makeCircularOrbit');"
@@ -264,6 +264,10 @@
         {
           "text": "Large rocky planet very near the star",
           "value": "LargeNearTheStar"
+        },
+        {
+          "text": "Custom",
+          "value": ""
         }
       ],
       "property": "presetPlanet",
