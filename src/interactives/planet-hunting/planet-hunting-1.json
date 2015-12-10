@@ -11,7 +11,7 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
   "Explore the gravitational effect an orbiting planet has on a star's motion.",
   "",
@@ -19,7 +19,6 @@
   "",
   "Change the diameter of the planet to change the mass, and explore the effect of planet mass on star motion."
   ],
-  "aboutOnLoad": true,
   "theme": [
     "has",
     "standalone-playback",
