@@ -47,7 +47,8 @@
         "planet.diameter": 1,
         "planet.rocky": true,
         "telescope.precision": 100,
-        "habitationZone.visible": true
+        "habitationZone.visible": true,
+        "camera.tiltLocked": true
       }
     }
   ],
