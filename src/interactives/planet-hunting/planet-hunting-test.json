@@ -208,6 +208,10 @@
         {
           "text": "Large rocky planet very near the star",
           "value": "LargeNearTheStar"
+        },
+        {
+          "text": "No planet",
+          "value": "NoPlanet"
         }
       ]
     },
