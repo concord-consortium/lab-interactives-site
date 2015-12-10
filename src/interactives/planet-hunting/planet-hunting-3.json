@@ -189,51 +189,6 @@
       "helpIcon": false
     },
     {
-      "id": "preset-planet",
-      "type": "pulldown",
-      "label": "Preset planets",
-      "labelOn": "left",
-      "options": [
-        {
-          "text": "Earth",
-          "value": "Earth"
-        },
-        {
-          "text": "Mars",
-          "value": "Mars"
-        },
-        {
-          "text": "Jupiter",
-          "value": "Jupiter"
-        },
-        {
-          "text": "Venus",
-          "value": "Venus"
-        },
-        {
-          "text": "Like Mercury but 10x larger diameter",
-          "value": "MercuryDiameter10x"
-        },
-        {
-          "text": "Like Earth but 10x larger diameter",
-          "value": "EarthDiameter10x"
-        },
-        {
-          "text": "Earth-like planet near the star",
-          "value": "EarthNearTheStar"
-        },
-        {
-          "text": "Large rocky planet very near the star",
-          "value": "LargeNearTheStar"
-        }
-      ],
-      "property": "presetPlanet",
-      "retainProperty": true,
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
       "id": "star-cam-velocity",
       "type": "graph",
       "resetAxesOnReset": true,
@@ -298,9 +253,6 @@
       "timestep"
     ],
     "bottom-1": [
-      [
-        "preset-planet"
-      ],
       [
         "planet-rocky"
       ],
