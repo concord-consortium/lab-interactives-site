@@ -2,7 +2,7 @@
   "title": "Planet Hunting 6",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "",
+  "subtitle": "Finding a Planet Through Velocity and Light Intensity Methods",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -11,8 +11,16 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
-  "about": "",
+  "aboutOnLoad": true,
+  "about": [
+    "Explore how combining data from the velocity of a star and the light intensity of a star can be used to find planets.",
+    "",
+    "Adjust the orbital angle (tilt) of the model so that you can see star movement in the velocity graph.",
+    "As the planet passes in front of the star, watch what happens to the light intensity on the light intensity graph.",
+    "",
+    "What type of planet has the largest dimming effect on the star?",
+    "Why is it possible to detect planets on the velocity graph and not on the light intensity graph?"
+    ],
   "theme": [
     "has",
     "standalone-playback",
