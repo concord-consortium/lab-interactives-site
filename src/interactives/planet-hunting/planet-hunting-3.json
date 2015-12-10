@@ -47,7 +47,7 @@
       "modelOptions": {
         "url": "//concord-consortium.github.io/space-models/planet-hunting/",
         "timestep": 0.001,
-        "planet.diameter": 1,
+        "planet.diameter": 10,
         "planet.rocky": true,
         "telescope.precision": 100
       }
@@ -55,14 +55,6 @@
   ],
   "propertiesToRetain": [],
   "parameters": [
-  {
-      "name": "presetPlanet",
-      "initialValue": "EarthDiameter10x",
-      "onChange": [
-        "post('loadPreset', value);",
-        "post('makeCircularOrbit');"
-      ]
-    },
     {
       "name": "speed",
       "initialValue": 50,
