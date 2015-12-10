@@ -204,7 +204,7 @@
       "orientation": "horizontal",
       "width": "auto",
       "height": "auto",
-      "displayValue": "return (value < 1 ? value.toFixed(1) : value.toFixed(0)) + 'x Earth';",
+      "displayValue": "return (value < 1 ? value.toFixed(1) : value.toFixed(0)) + ' x Earth';",
       "tooltip": "",
       "helpIcon": false
     },
