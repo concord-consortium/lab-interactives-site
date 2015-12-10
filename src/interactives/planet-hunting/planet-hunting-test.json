@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.15,
+  "aspectRatio": 1.05,
   "fontScale": 0.7,
   "models": [
     {
@@ -19,7 +19,8 @@
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true,
-        "telescope.precision": 100
+        "telescope.precision": 100,
+        "habitationZone.visible": true
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -54,7 +55,18 @@
     {
       "name": "presetPlanet",
       "initialValue": "Earth",
-      "onChange": "post('loadPreset', value);"
+      "onChange": [
+        "post('loadPreset', value);",
+        "post('makeCircularOrbit');"
+      ]
+    },
+    {
+      "name": "presetStar",
+      "initialValue": "Sun",
+      "onChange": [
+        "post('loadPreset', value);",
+        "post('makeCircularOrbit');"
+      ]
     },
     {
       "name": "speed",
@@ -216,6 +228,41 @@
       ]
     },
     {
+      "id": "habitation-zone-vis",
+      "type": "checkbox",
+      "text": "Habitation zone",
+      "property": "habitationZone.visible"
+    },
+    {
+      "id": "preset-star",
+      "type": "pulldown",
+      "label": "Preset stars",
+      "labelOn": "left",
+      "property": "presetStar",
+      "options": [
+        {
+          "text": "M - red (temp 3120 K)",
+          "value": "StarRed"
+        },
+        {
+          "text": "K - orange (temp 4640 K)",
+          "value": "StarOrange"
+        },
+        {
+          "text": "G - yellow (temp 5920 K) (Sun)",
+          "value": "Sun"
+        },
+        {
+          "text": "F - white (temp 7240 K)",
+          "value": "StarWhite"
+        },
+        {
+          "text": "A - blue (temp 8620 K)",
+          "value": "StarBlue"
+        }
+      ]
+    },
+    {
       "id": "star-cam-velocity",
       "type": "graph",
       "enableAxisScaling": false,
@@ -282,6 +329,8 @@
       "timestep"
     ],
     "bottom-1": [
+      ["habitation-zone-vis"],
+      ["preset-star"],
       ["preset-planet"],
       ["planet-rocky"],
       ["planet-diameter", "planet-mass"],
