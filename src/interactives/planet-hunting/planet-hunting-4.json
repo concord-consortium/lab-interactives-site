@@ -42,10 +42,13 @@
   ],
   "propertiesToRetain": [],
   "parameters": [
-    {
+     {
       "name": "presetPlanet",
       "initialValue": "Earth",
-      "onChange": "post('loadPreset', value);"
+      "onChange": [
+        "post('loadPreset', value);",
+        "post('makeCircularOrbit');"
+      ]
     },
     {
       "name": "speed",
