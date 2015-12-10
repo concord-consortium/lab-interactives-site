@@ -42,9 +42,9 @@
   ],
   "propertiesToRetain": [],
   "parameters": [
-     {
+    {
       "name": "presetPlanet",
-      "initialValue": "Earth",
+      "initialValue": "EarthDiameter10x",
       "onChange": [
         "post('loadPreset', value);",
         "post('makeCircularOrbit');"
