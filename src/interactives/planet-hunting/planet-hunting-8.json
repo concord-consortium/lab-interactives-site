@@ -30,7 +30,7 @@
       },
       "viewOptions": {
         "controlButtons": "play_reset",
-        "aspectRatio": 1000000
+        "aspectRatio": 100
       },
       "onLoad": [
         "// First, hide all the images. Note that we use 'invisible-disabled-components' theme!",
