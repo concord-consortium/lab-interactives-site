@@ -1,6 +1,7 @@
 {
   "title": "Planet Hunting 8",
   "publicationStatus": "public",
+  "subtitle": "Using Star Data to Detect Planets",
   "theme": [
     "has",
     "standalone-playback",
@@ -10,6 +11,15 @@
   ],
   "aspectRatio": 1.32,
   "fontScale": 0.7,
+   "aboutOnLoad": true,
+  "about": [
+    "In this model, you get to search for planets just as scientists would. The only information you",
+    "have are the graphs of star velocity and light intensity.",
+    "",
+  	"Use the graphs of star velocity and light intensity to determine if the star has an orbiting planet.",
+    "",
+    "There are five different stars in this model. You may reload the model to try a different star."
+    ],
   "models": [
     {
       "type": "iframe-model",
