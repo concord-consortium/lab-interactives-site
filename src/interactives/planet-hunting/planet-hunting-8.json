@@ -1,0 +1,301 @@
+{
+  "title": "Planet Hunting 8",
+  "publicationStatus": "public",
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar",
+    "graph-title-bg",
+    "invisible-disabled-components"
+  ],
+  "aspectRatio": 1.32,
+  "fontScale": 0.7,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions": {
+        "url": "//concord-consortium.github.io/space-models/planet-hunting/"
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "aspectRatio": 1000000
+      },
+      "onLoad": [
+        "// First, hide all the images. Note that we use 'invisible-disabled-components' theme!",
+        "setComponentDisabled('star-1', true);",
+        "setComponentDisabled('star-2', true);",
+        "setComponentDisabled('star-3', true);",
+        "setComponentDisabled('star-4', true);",
+        "setComponentDisabled('star-5', true);",
+        "// Now pick random star (1, 2, 3, 4 or 5).",
+        "var star = Math.ceil(Math.random() * 5);",
+        "setComponentDisabled('star-' + star, false);",
+        "switch(star) {",
+        "  case 1:",
+        "  set({",
+        "    'telescope.precision': 99,",
+        "    'planet.diameter': 3.4,",
+        "    'planet.rocky': true,",
+        "    'camera.tilt': 1",
+        "  });",
+        "  break;",
+        "  case 2:",
+        "  set({",
+        "    'telescope.precision': 21,",
+        "    'planet.diameter': 16.8,",
+        "    'planet.rocky': true,",
+        "    'camera.tilt': 0",
+        "  });",
+        "  break;",
+        "  case 3:",
+        "  set({",
+        "    'telescope.precision': 35,",
+        "    'planet.diameter': 16.8,",
+        "    'planet.rocky': true,",
+        "    'camera.tilt': 73",
+        "  });",
+        "  break;",
+        "  case 4:",
+        "  set({",
+        "    'telescope.precision': 94,",
+        "    'planet.diameter': 7.6,",
+        "    'planet.rocky': false,",
+        "    'camera.tilt': 0",
+        "  });",
+        "  break;",
+        "  case 5:",
+        "  set({",
+        "    'telescope.precision': 5,",
+        "    'planet.diameter': 50,",
+        "    'planet.rocky': false,",
+        "    'camera.tilt': 0",
+        "  });",
+        "  break;",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "time",
+      "value": "return iframeOutput('time') * 365 || 0;"
+    },
+    {
+      "name": "starCamVelocity",
+      "value": "return iframeOutput('telescope.starCamVelocity') || 0;"
+    },
+    {
+      "name": "lightIntensity",
+      "value": "return iframeOutput('telescope.lightIntensity') || 0;"
+    }
+  ],
+  "parameters": [
+  ],
+  "components": [
+    {
+      "id": "clear-graphs",
+      "type": "button",
+      "text": "Clear all graphs",
+      "action": [
+        "var newXMin = Math.round(get('time'));",
+        "var newXMax = newXMin + 600;",
+        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});",
+        "setComponentAttributes('light-intensity', {xmin: newXMin, xmax: newXMax});"
+      ]
+    },
+    {
+      "id": "star-cam-velocity",
+      "type": "graph",
+      "enableAxisScaling": false,
+      "properties": [
+        "starCamVelocity"
+      ],
+      "xProperty": "time",
+      "title": "Velocity of Star, Relative to Observer",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Velocity",
+      "ymin": -2.5,
+      "ymax": 2.5,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "yFormatter": ".2s",
+      "dataColors": [
+        "#0000ff"
+      ],
+      "syncXAxis": "light-intensity"
+    },
+    {
+      "id": "light-intensity",
+      "type": "graph",
+      "enableAxisScaling": false,
+      "properties": [
+        "lightIntensity"
+      ],
+      "xProperty": "time",
+      "title": "Light Intensity of Star",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Light Intensity",
+      "ymin": 0.7,
+      "ymax": 1.02,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "dataColors": [
+        "#0000ff"
+      ],
+      "syncXAxis": "star-cam-velocity"
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    },
+    {
+      "id": "star-1",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/planet-hunting/mysteryStar1.jpg",
+      "width": "100%",
+      "height": "100%"
+    },
+    {
+      "id": "star-2",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/planet-hunting/mysteryStar2.jpg",
+      "width": "100%",
+      "height": "100%"
+    },
+    {
+      "id": "star-3",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/planet-hunting/mysteryStar3.jpg",
+      "width": "100%",
+      "height": "100%"
+    },
+    {
+      "id": "star-4",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/planet-hunting/mysteryStar4.jpg",
+      "width": "100%",
+      "height": "100%"
+    },
+    {
+      "id": "star-5",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/planet-hunting/mysteryStar5.jpg",
+      "width": "100%",
+      "height": "100%"
+    }
+  ],
+  "layout": {
+    "container-1": [
+      "star-1"
+    ],
+    "container-2": [
+      "star-2"
+    ],
+    "container-3": [
+      "star-3"
+    ],
+    "container-4": [
+      "star-4"
+    ],
+    "container-5": [
+      "star-5"
+    ],
+    "playback-container": [
+      "playback"
+    ],
+    "right-top": [
+      "star-cam-velocity"
+    ],
+    "right-bottom": [
+      "light-intensity"
+    ],
+    "under-graphs": [
+      "clear-graphs"
+    ]
+  },
+  "template": [
+    {
+      "id": "right-top",
+      "right": "interactive.right",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "right": "interactive.right",
+      "top": "right-top.bottom",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "under-graphs",
+      "left": "right-bottom.left",
+      "right": "right-bottom.right",
+      "top": "right-bottom.bottom",
+      "align": "right",
+      "margin-right": "1em",
+      "margin-top": "1em"
+    },
+    {
+      "id": "container-1",
+      "left": "interactive.left",
+      "right": "right-top.left",
+      "height": "container-1.width"
+    },
+    {
+      "id": "container-2",
+      "left": "interactive.left",
+      "right": "right-top.left",
+      "height": "container-2.width"
+    },
+    {
+      "id": "container-3",
+      "left": "interactive.left",
+      "right": "right-top.left",
+      "height": "container-3.width"
+    },
+    {
+      "id": "container-4",
+      "left": "interactive.left",
+      "right": "right-top.left",
+      "height": "container-4.width"
+    },
+    {
+      "id": "container-5",
+      "left": "interactive.left",
+      "right": "right-top.left",
+      "height": "container-5.width"
+    },
+    {
+      "id": "playback-container",
+      "top": "container-1.bottom",
+      "left": "interactive.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    }
+  ]
+}
