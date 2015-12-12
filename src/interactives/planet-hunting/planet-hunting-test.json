@@ -231,6 +231,10 @@
         {
           "text": "No planet",
           "value": "NoPlanet"
+        },
+        {
+          "text": "Custom",
+          "value": ""
         }
       ]
     },
