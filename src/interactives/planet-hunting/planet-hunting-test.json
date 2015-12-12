@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.05,
+  "aspectRatio": 1.00,
   "fontScale": 0.7,
   "models": [
     {
@@ -20,7 +20,8 @@
         "planet.diameter": 1,
         "planet.rocky": true,
         "telescope.precision": 100,
-        "habitationZone.visible": true
+        "habitationZone.visible": true,
+        "camera.tiltLocked": false
       },
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -85,6 +86,12 @@
       "type": "button",
       "text": "Make circular orbit",
       "action": "post('makeCircularOrbit');"
+    },
+    {
+      "id": "analyze",
+      "type": "button",
+      "text": "Analyze habitability (WIP)",
+      "action": "post('analyzeHabitability');"
     },
     {
       "id": "clear-graphs",
@@ -234,6 +241,12 @@
       "property": "habitationZone.visible"
     },
     {
+      "id": "tilt-locked",
+      "type": "checkbox",
+      "text": "Tilt locked",
+      "property": "camera.tiltLocked"
+    },
+    {
       "id": "preset-star",
       "type": "pulldown",
       "label": "Preset stars",
@@ -329,13 +342,14 @@
       "timestep"
     ],
     "bottom-1": [
+      ["tilt-locked"],
       ["habitation-zone-vis"],
       ["preset-star"],
       ["preset-planet"],
       ["planet-rocky"],
       ["planet-diameter", "planet-mass"],
       ["telescope-precision"],
-      ["circular-orbit"]
+      ["circular-orbit", "analyze"]
     ],
     "bottom-2": [
 
