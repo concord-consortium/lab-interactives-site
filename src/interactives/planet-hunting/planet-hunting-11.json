@@ -32,6 +32,9 @@
     "reload the model to try again.",
     "",
     "When you have finished setting up your solar system, analyze its habitability.",
+    "If a characteristic is favorable to life, there will be a √. If the characteristic is unfavorable, there will be an X.",
+    "",
+    "Try many different combinations to see if you can answer these questions:",
     "Which star types are conducive to life? What planet type is necessary for life as we know it?",
     "What is the best orbit for supporting life?"
     ],
