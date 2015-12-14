@@ -7,7 +7,7 @@
     "no-slider-bar",
     "graph-title-bg"
   ],
-  "aspectRatio": 1.00,
+  "aspectRatio": 0.82,
   "fontScale": 0.7,
   "models": [
     {
@@ -15,7 +15,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "url": "//localhost:8000/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true,
@@ -50,6 +50,22 @@
     {
       "name": "camera.tilt",
       "value": "return iframeOutput('camera.tilt') || 0;"
+    },
+    {
+      "name": "habitability.starType",
+      "value": "return iframeOutput('habitability.starType');"
+    },
+    {
+      "name": "habitability.planetType",
+      "value": "return iframeOutput('habitability.planetType');"
+    },
+    {
+      "name": "habitability.planetSize",
+      "value": "return iframeOutput('habitability.planetSize');"
+    },
+    {
+      "name": "habitability.orbitalDistance",
+      "value": "return iframeOutput('habitability.orbitalDistance');"
     }
   ],
   "parameters": [
@@ -88,9 +104,14 @@
       "action": "post('makeCircularOrbit');"
     },
     {
+      "id": "habitability-label",
+      "type": "text",
+      "text": "**Habitability**"
+    },
+    {
       "id": "analyze",
       "type": "button",
-      "text": "Analyze habitability (WIP)",
+      "text": "Analyze",
       "action": "post('analyzeHabitability');"
     },
     {
@@ -333,6 +354,34 @@
       "syncXAxis": "star-cam-velocity"
     },
     {
+      "id": "hab-star-type",
+      "type": "numericOutput",
+      "property": "habitability.starType",
+      "label": "Star type:",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'"
+    },
+    {
+      "id": "hab-planet-type",
+      "type": "numericOutput",
+      "property": "habitability.planetType",
+      "label": "Planet type:",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'"
+    },
+    {
+      "id": "hab-planet-size",
+      "type": "numericOutput",
+      "property": "habitability.planetSize",
+      "label": "Planet size:",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'"
+    },
+    {
+      "id": "hab-orbital-distance",
+      "type": "numericOutput",
+      "property": "habitability.orbitalDistance",
+      "label": "Orbital distance:",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'"
+    },
+    {
       "id": "playback",
       "type": "playback",
       "stepping": true
@@ -353,10 +402,14 @@
       ["planet-rocky"],
       ["planet-diameter", "planet-mass"],
       ["telescope-precision"],
-      ["circular-orbit", "analyze"]
+      ["circular-orbit"]
     ],
-    "bottom-2": [
-
+    "habitability": [
+      ["habitability-label", "analyze"],
+      ["hab-star-type"],
+      ["hab-planet-type"],
+      ["hab-planet-size"],
+      ["hab-orbital-distance"]
     ],
     "right-top": [
       "star-cam-velocity"
@@ -388,11 +441,11 @@
       "margin-top": "1em"
     },
     {
-      "id": "bottom-2",
-      "left": "bottom-1.right",
-      "top": "bottom-1.top",
-      "margin-left": "2em",
-      "margin-top": "4.1em"
+      "id": "habitability",
+      "left": "model.left",
+      "top": "bottom-1.bottom",
+      "margin-top": "1em",
+      "border": "1px solid #bbb"
     },
     {
       "id": "right-top",
