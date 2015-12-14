@@ -13,18 +13,20 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore how telescopes can see a star's motion.",
+    "Explore which planetary angles of orbit can be detected by scientists on Earth.",
     "",
     "In this model, the telescope is at a right angle (90°) to the screen. ",
-    "(Imagine the telescope coming straight out of the screen so that you can look through it to see the star.).",
-    "",
-    "Not all star motion will be detected by this telescope. The angle of the star's motion has to be in the ",
-    "same orbital plane (tilt) as the telescope.",
+    "(Imagine that you are looking through a telescope focused on the screen to see the star's motion ",
+    "toward and away from you.).",
+    "Not all star motion will be detected by this telescope.",
     "",
     "Change the tilt of the orbit by dragging the gridded plane of the model. The current tilt angle is reported in ",
     "the lower left of the model.",
     "",
-    "Which orbital angles can the telescope detect?"
+    "Which orbital angles can the telescope detect?",
+    "",
+    "(Note that you may need to **Zoom** in on the graph after changing the tilt. You can also clear current graph data to",
+    "focus on the newer data only.)"
   ],
   "theme": [
     "has",
