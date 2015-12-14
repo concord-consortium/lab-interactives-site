@@ -196,6 +196,11 @@
       "left": "model.left",
       "top": "playback-right.bottom",
       "margin-top": "1em"
+    },
+    {
+      "id": "right-padding",
+      "width": "1em",
+      "left": "model.right"
     }
   ]
 }

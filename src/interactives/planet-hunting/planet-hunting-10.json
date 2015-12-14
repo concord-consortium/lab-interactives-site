@@ -6,7 +6,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.05,
+  "aspectRatio": 1.15,
   "fontScale": 0.7,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -180,6 +180,11 @@
       "left": "model.left",
       "top": "playback-right.bottom",
       "margin-top": "1em"
+    },
+    {
+      "id": "right-padding",
+      "width": "1em",
+      "left": "model.right"
     }
   ]
 }
