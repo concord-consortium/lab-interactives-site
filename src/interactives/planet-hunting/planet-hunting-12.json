@@ -1,8 +1,8 @@
 {
   "title": "Planet Hunting 12",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "",
+  "subtitle": "Habitability Challenge",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -13,6 +13,11 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
+    "Many different factors affect a planet's suitability for life, including: ",
+    "star type, planet type, planet size, and the planet's orbital distance from its star.",
+    "",
+  	"Observe the orbits and star types of Planets A, B, C, and D to predict ",
+    "which planet would be most habitable."
   ],
   "theme": [
     "has",
