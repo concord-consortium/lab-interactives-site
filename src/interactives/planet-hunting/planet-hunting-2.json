@@ -25,8 +25,8 @@
     "",
     "Which orbital angles can the telescope detect?",
     "",
-    "(Note that you may need to **Zoom** in on the graph after changing the tilt. You can also clear current graph data to",
-    "focus on the newer data only.)"
+    "(Note that you may need to **Zoom** in on the graph after changing the planet's orbital angle (tilt). You can also clear ",
+    "current graph data to focus on the newer data only.)"
   ],
   "theme": [
     "has",
