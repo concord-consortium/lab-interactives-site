@@ -16,10 +16,15 @@
     "Explore how combining data from the velocity of a star and the light intensity of a star can be used to find planets.",
     "",
     "Adjust the orbital angle (tilt) of the model so that you can see star movement in the velocity graph.",
+    "(Note that you may need to **Zoom** in on the graph after changing the planet's orbital angle (tilt). You can also clear ",
+    "current graph data to focus on the newer data only.)",
+    "",
     "As the planet passes in front of the star, watch what happens to the light intensity on the light intensity graph.",
     "",
+    "Change the diameter of the planet and/or test out some of the preset planets.",
+    "",
     "What type of planet has the largest dimming effect on the star?",
-    "Why is it possible to detect planets on the velocity graph and not on the light intensity graph?"
+    "Why is it possible to sometimes detect planets on the velocity graph and not on the light intensity graph?"
     ],
   "theme": [
     "has",
