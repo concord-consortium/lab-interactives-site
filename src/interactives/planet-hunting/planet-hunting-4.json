@@ -13,17 +13,17 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore the effect of 'noisy' instruments on data interpretation.",
+    "Explore the effect of 'noise' on data interpretation.",
     "",
-    "In the real world, telescopes are not perfect. There is always some 'noise' in the data.",
+    "In the real world, there is always some 'noise' in the data collected by telescopes.",
     "",
-    "In this model, you can control the precision of the telescope to discover which types of planets are ",
+    "In this model, you can control the 'precision of the telescope' to discover which types of planets are ",
     "most likely to be discovered using real-world telescopes.",
     "",
     "Set up the model with a tilt angle and planet that is detectable on the velocity graph.",
     "Then add 'noise' to the data by decreasing the telescope precision.",
     "",
-    "Is it possible to detect a really small planet with a 'noisy' telescope?"
+    "Is it possible to detect a really small planet when there is a lot of noise in the data?"
     ],
   "theme": [
     "has",
