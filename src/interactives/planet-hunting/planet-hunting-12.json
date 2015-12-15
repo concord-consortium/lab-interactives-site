@@ -142,23 +142,23 @@
     {
       "id": "preset-star",
       "type": "pulldown",
-      "label": "Preset planets",
+      "label": "Preset planets and stars",
       "labelOn": "left",
       "options": [
         {
-          "text": "Planet A - gaseous",
+          "text": "Planet A - gaseous; Star type - yellow",
           "value": "planet-A"
         },
         {
-          "text": "Planet B - rocky",
+          "text": "Planet B - rocky; Star type - white",
           "value": "planet-B"
         },
         {
-          "text": "Planet C - rocky",
+          "text": "Planet C - rocky; Star type - yellow",
           "value": "planet-C"
         },
         {
-          "text": "Planet D - rocky",
+          "text": "Planet D - rocky; Star type - blue",
           "value": "planet-D"
         }
       ],
