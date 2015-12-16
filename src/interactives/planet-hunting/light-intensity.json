@@ -1,8 +1,8 @@
 {
   "title": "Light Intensity",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "",
+  "subtitle": "Detecting a Planet by Monitoring Starlight",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -12,7 +12,16 @@
   "i18nMetadata": "",
   "helpOnLoad": false,
   "aboutOnLoad": true,
-  "about": [],
+  "about": [
+  	"Discover how a planet can dim a star's apparent light intensity.",
+    "",
+    "Press the **Play** button to start the model.",
+    "Move the planet around the model space. Look at the light intensity graph",
+    "to see what happens to the star's apparent light intensity as the planet moves",
+    "past the star.",
+    "",
+    "Try changing the diameter of the planet. Which planets are more likely to be detected?"
+  ],
   "theme": [
     "has",
     "standalone-playback",
@@ -102,7 +111,7 @@
       "xlabel": "Time (days)",
       "xmin": 0,
       "xmax": 600,
-      "ylabel": "Velocity",
+      "ylabel": "Light Intensity",
       "ymin": 0.8,
       "ymax": 1.1,
       "xTickCount": 8,
