@@ -2,7 +2,7 @@
   "title": "Wave Generator",
   "publicationStatus": "draft",
   "labEnvironment": "production",
-  "subtitle": "",
+  "subtitle": "Using the Doppler Effect to Detect Star Motion",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -12,7 +12,17 @@
   "i18nMetadata": "",
   "helpOnLoad": false,
   "aboutOnLoad": true,
-  "about": [],
+  "about": [
+  	"Explore how scientists use changes in a star's apparent wavelength to detect movement.",
+    "",
+    "Press the **Play** button to start the model.",
+    "Use the slider to move the star closer to and farther from the telescope.",
+    "Watch what happens to the color of the light coming from the star.",
+    "Why does it change?",
+    "",
+    "Look at the graph of the star's velocity.",
+    "Can you tell from the graph alone when the star is moving toward the telescope?"
+  ],
   "theme": [
     "has",
     "standalone-playback",
