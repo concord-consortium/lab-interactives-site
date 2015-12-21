@@ -72,6 +72,16 @@
       "name": "presetPlanet",
       "initialValue": "Custom",
       "onChange": [
+        "if (value === 'PlanetWithEllipticalOrbit') {",
+        "  set('planet.vx', 4.513357434242106);",
+        "  set('planet.vy', 2.7795137194466553);",
+        "  set('planet.x', 1.1266354729037682);",
+        "  set('planet.y', -0.37085177610966996);",
+        "  set('planet.rocky', true);",
+        "  set('planet.diameter', 1);",
+        "  set('camera.zoom', 1);",
+        "  return;",
+        "}",
         "post('loadPreset', value);",
         "post('makeCircularOrbit');"
       ]
@@ -287,6 +297,10 @@
         {
           "text": "Large rocky planet very near the star",
           "value": "LargeNearTheStar"
+        },
+        {
+          "text": "Rocky planet with an elliptical orbit",
+          "value": "PlanetWithEllipticalOrbit"
         },
         {
           "text": "Custom",
