@@ -1,0 +1,86 @@
+{
+  "title": "Light absorption / emission",
+  "publicationStatus": "draft",
+  "about": "",
+  "aspectRatio": 1.4,
+  "fontScale": 0.95,
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "elementA",
+      "url": "models-converted/lab-version/1/md2d/space/light-absorption-emission/HASlight$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
+      },
+      "modelOptions": {
+        "timeStep": 0.3
+      },
+      "onLoad": [
+        "setElementProperties(3, {epsilon: 0});",
+        "setLightSourceNumber(4);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceFrequency",
+      "initialValue": 1.725,
+      "onChange": "setLightSourceFrequency(value);"
+    },
+    {
+      "name": "lightSourceIntensity",
+      "initialValue": 0,
+      "onChange": "setLightSourcePeriod(600 - value);"
+    }
+  ],
+  "components": [
+    {
+      "id": "playback",
+      "type": "playback"
+    },
+    {
+      "type": "slider",
+      "id": "light-source-frequency",
+      "min": 4.8,
+      "max": 12.6,
+      "steps": 17,
+      "labels": [
+        {
+          "value": 5.4,
+          "label": "Infrared"
+        },
+        {
+          "value": 11.8,
+          "label": "Ultraviolet"
+        }
+      ],
+      "property": "lightSourceFrequency",
+      "title": "Energy of Monochromatic Light Source"
+    },
+    {
+      "type": "slider",
+      "id": "light-source-intensity",
+      "min": 0,
+      "max": 300,
+      "steps": 50,
+      "labels": [
+        {
+          "value": 20,
+          "label": "Weak"
+        },
+        {
+          "value": 265,
+          "label": "Strong"
+        }
+      ],
+      "property": "lightSourceIntensity",
+      "title": "Intensity of light source"
+    }
+  ]
+}
