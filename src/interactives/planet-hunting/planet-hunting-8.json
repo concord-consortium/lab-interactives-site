@@ -119,6 +119,7 @@
       "id": "star-cam-velocity",
       "type": "graph",
       "enableAxisScaling": false,
+      "enableZooming": false,
       "properties": [
         "starCamVelocity"
       ],
@@ -146,6 +147,7 @@
       "id": "light-intensity",
       "type": "graph",
       "enableAxisScaling": false,
+      "enableZooming": false,
       "properties": [
         "lightIntensity"
       ],
