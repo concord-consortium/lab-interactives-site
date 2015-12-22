@@ -22,7 +22,8 @@
         "timeStep": 0.15
       },
       "onLoad": [
-        "setLightSourceNumber(3);"
+        "setLightSourceNumber(3);",
+        "setLightSourceAngle(0);"
       ]
     }
   ],
