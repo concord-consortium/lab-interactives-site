@@ -104,11 +104,13 @@
     {
       "id": "star-telescope-velocity",
       "type": "graph",
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "properties": [
         "starTelescopeVelocity"
       ],
       "xProperty": "time",
-      "title": "Star velocity",
+      "title": "Velocity of Star, Relative to Observer",
       "titlePosition": "left",
       "buttonsStyle": "text",
       "buttonsLayout": "horizontal",
