@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+<language>ISO-8859-1</language>
+<page_title>Introducing light and photons</page_title>
+<text>
+
+
+
+ 
+  
+  
+
+</text>
+<section start="0" end="14">
+<paragraph start="0" end="1">
+<Alignment>1</Alignment>
+<LeftIndent>6.0</LeftIndent>
+<SpaceAbove>4.0</SpaceAbove>
+<content start="0" end="1">
+</content>
+
+</paragraph>
+<paragraph start="1" end="2">
+<LeftIndent>6.0</LeftIndent>
+<content start="1" end="2">
+</content>
+
+</paragraph>
+<paragraph start="2" end="3">
+<LeftIndent>6.0</LeftIndent>
+<content start="2" end="3">
+</content>
+
+</paragraph>
+<paragraph start="3" end="4">
+<Alignment>1</Alignment>
+<LeftIndent>6.0</LeftIndent>
+<content start="3" end="4">
+</content>
+
+</paragraph>
+<paragraph start="4" end="6">
+<Alignment>1</Alignment>
+<content start="4" end="5">
+<component><class>org.concord.mw2d.activity.AtomContainer</class>
+<resource>lightHAS1$0.mml</resource><menubar>false</menubar><statusbar>false</statusbar><recorderless>true</recorderless>
+</component></content>
+
+<content start="5" end="6">
+</content>
+
+</paragraph>
+<paragraph start="6" end="9">
+<Alignment>1</Alignment>
+<content start="6" end="7">
+<component><class>org.concord.modeler.PageButton</class>
+<title>Start a parade of photons</title>
+<tooltip>Start a parade of photons</tooltip>
+<border>Raised Bevel</border>
+<opaque>false</opaque>
+<modelclass>org.concord.mw2d.models.MolecularModel</modelclass>
+<model>0</model>
+<disabled_at_run>true</disabled_at_run>
+<script>run;</script>
+<action>Execute MW script</action>
+</component></content>
+
+<content start="7" end="8">
+<component><class>org.concord.modeler.PageButton</class>
+<title>Pause</title>
+<tooltip>Pause</tooltip>
+<border>Raised Bevel</border>
+<opaque>false</opaque>
+<modelclass>org.concord.mw2d.models.MolecularModel</modelclass>
+<model>0</model>
+<script>stop;</script>
+<action>Execute MW script</action>
+</component></content>
+
+<content start="8" end="9">
+</content>
+
+</paragraph>
+<paragraph start="9" end="12">
+<Alignment>1</Alignment>
+<content start="9" end="10">
+<component><class>org.concord.modeler.PageSlider</class>
+<modelclass>org.concord.mw2d.models.MolecularModel</modelclass>
+<model>0</model>
+<value>1.725</value>
+<minimum>2.0</minimum>
+<maximum>13.5</maximum>
+<nstep>20</nstep>
+<title>Energy of Monochromatic Light Source</title>
+<tooltip>change the frequency of monochromatic light source</tooltip>
+<width>250</width>
+<height>70</height>
+<opaque>false</opaque>
+<tick>true</tick>
+<labeltable>{value=&quot;2.3000000000000003&quot;, label=&quot;Infrared&quot;}{value=&quot;13.225&quot;, label=&quot;Ultraviolet&quot;}</labeltable>
+<change>Frequency of Light Source</change>
+</component></content>
+
+<content start="10" end="11">
+<component><class>org.concord.modeler.PageSlider</class>
+<modelclass>org.concord.mw2d.models.MolecularModel</modelclass>
+<model>0</model>
+<value>0.0</value>
+<minimum>0.0</minimum>
+<maximum>10.0</maximum>
+<nstep>20</nstep>
+<title>Intensity of Light Source</title>
+<tooltip>Change the intensity of light source</tooltip>
+<width>250</width>
+<height>70</height>
+<opaque>false</opaque>
+<tick>true</tick>
+<labeltable>{value=&quot;10.0&quot;, label=&quot;Strong&quot;}{value=&quot;0.0&quot;, label=&quot;Weak&quot;}</labeltable>
+<change>Intensity of Light Source</change>
+</component></content>
+
+<content start="11" end="12">
+</content>
+
+</paragraph>
+<paragraph start="12" end="13">
+<content start="12" end="13">
+<size>11</size></content>
+
+</paragraph>
+<paragraph start="13" end="14">
+</paragraph>
+</section>
+</document>

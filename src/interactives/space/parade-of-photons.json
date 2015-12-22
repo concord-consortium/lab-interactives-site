@@ -1,0 +1,81 @@
+{
+  "title": "Parade of photons",
+  "publicationStatus": "draft",
+  "about": "",
+  "aspectRatio": 2.05,
+  "fontScale": 0.95,
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "elementA",
+      "url": "models-converted/lab-version/1/md2d/space/parade-of-photons/lightHAS1$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.15
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceFrequency",
+      "initialValue": 1.725,
+      "onChange": "setLightSourceFrequency(value);"
+    },
+    {
+      "name": "lightSourceIntensity",
+      "initialValue": 371.5,
+      "onChange": "setLightSourcePeriod(800 - value);"
+    }
+  ],
+  "components": [
+    {
+      "id": "playback",
+      "type": "playback"
+    },
+    {
+      "type": "slider",
+      "id": "light-source-frequency",
+      "min": 1,
+      "max": 15,
+      "steps": 50,
+      "labels": [
+        {
+          "value": 2,
+          "label": "Infrared"
+        },
+        {
+          "value": 13.5,
+          "label": "Ultraviolet"
+        }
+      ],
+      "property": "lightSourceFrequency",
+      "title": "Energy of Monochromatic Light Source"
+    },
+    {
+      "type": "slider",
+      "id": "light-source-intensity",
+      "min": 0,
+      "max": 540,
+      "steps": 50,
+      "labels": [
+        {
+          "value": 50,
+          "label": "Weak"
+        },
+        {
+          "value": 490,
+          "label": "Strong"
+        }
+      ],
+      "property": "lightSourceIntensity",
+      "title": "Intensity of light source"
+    }
+  ]
+}

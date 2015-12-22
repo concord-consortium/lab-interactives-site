@@ -182,6 +182,10 @@
   :name: "Planet Hunting"
   :category: Curriculum
 
+- :path: space
+  :name: "Space Module"
+  :category: Curriculum
+
 - :path: DNA-protein-variations
   :name: "DNA and Protein Variations"
   :category: Curriculum
