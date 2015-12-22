@@ -23,7 +23,7 @@
       "onLoad": [
         "setComponentDisabled('remove-energy', false);",
         "setTemperatureOfAtoms(atomsWithinRect(0, 0, get('width')/2, get('height')),2000);",
-        "setTemperatureOfAtoms(atomsWithinRect(get('width')/2, 0, get('width')/2, get('height')),1000);"
+        "setTemperatureOfAtoms(atomsWithinRect(get('width')/2, 0, get('width')/2, get('height')),2000);"
       ]
     }
   ],
@@ -42,7 +42,7 @@
     },
     {
       "name": "large-KE",
-      "initialValue": 1000
+      "initialValue": 2000
     },
     {
       "name": "deltaT",
