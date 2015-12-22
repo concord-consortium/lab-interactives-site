@@ -1,7 +1,23 @@
 {
   "title": "Light absorption / emission",
   "publicationStatus": "draft",
-  "about": "",
+  "subtitle": "Absorption & Emission of Photons",
+   "aboutOnLoad": true,
+  "about": [
+    "Discover what happens when a particular frequency of light is absorbed by an atom.",
+    "",
+    "Press the **Play** button to start the radiation source.",
+    "",
+	"Change the **Energy of monochromatic light source** slider to see photons at different energy levels. ",
+    "To make sure you see all the steps, select the slider and step through the energy levels with the arrow keys.",
+    "",
+    "Wait for at least three series of a photon before moving to the next position.",
+    "The atoms will either absorb or let pass photons of each frequency. If the atoms absorb a particular frequency, ",
+    "they will be excited and get a yellow halo. The atoms will then re-emit the photons.",
+    "",
+    "Which frequency of light is absorbed and re-emitted by these atoms?",
+    "Do the re-emitted photons continue in the same direction as the light source?"
+    ],
   "aspectRatio": 1.4,
   "fontScale": 0.95,
   "theme": [
@@ -61,7 +77,7 @@
         }
       ],
       "property": "lightSourceFrequency",
-      "title": "Energy of Monochromatic Light Source"
+      "title": "Energy of monochromatic light source"
     },
     {
       "type": "slider",
