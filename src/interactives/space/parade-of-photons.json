@@ -1,9 +1,21 @@
 {
   "title": "Parade of photons",
   "publicationStatus": "draft",
+  "subtitle": "Comparing Energy and Wavelengths",
   "about": "",
   "aspectRatio": 2.05,
   "fontScale": 0.95,
+  "aboutOnLoad": true,
+  "about": [
+    "Compare the wavelengths of different kinds of radiation on the electromagnetic spectrum.",
+    "",
+    "Press the **Play** button to start the radiation source.",
+    "",
+	"Change the **Energy of monochromatic light source** slider to see photons at different energy levels. ",
+    "To make sure you see all the steps, select the slider and step through the energy levels with the arrow keys.",
+    "",
+    "What is the relationship between photon energy and wavelength?"
+    ],
   "theme": [
     "has",
     "standalone-playback",
@@ -61,7 +73,7 @@
         }
       ],
       "property": "lightSourceFrequency",
-      "title": "Energy of Monochromatic Light Source"
+      "title": "Energy of monochromatic light source"
     },
     {
       "type": "slider",
