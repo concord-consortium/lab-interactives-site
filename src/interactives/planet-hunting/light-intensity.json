@@ -99,6 +99,8 @@
     {
       "id": "light-intensity",
       "type": "graph",
+      "enableAxisScaling": false,
+      "enableZooming": false,
       "properties": [
         "lightIntensity"
       ],
