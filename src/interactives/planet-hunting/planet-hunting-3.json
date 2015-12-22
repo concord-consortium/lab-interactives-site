@@ -199,7 +199,7 @@
       "resetAxesOnReset": true,
       "enableAutoScaleButton": true,
       "enableAxisScaling": false,
-      "enableZooming": true,
+      "enableZooming": false,
       "autoScaleX": true,
       "autoScaleY": true,
       "enableSelectionButton": false,
