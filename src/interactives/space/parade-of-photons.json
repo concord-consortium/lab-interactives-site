@@ -15,11 +15,15 @@
       "id": "elementA",
       "url": "models-converted/lab-version/1/md2d/space/parade-of-photons/lightHAS1$0.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       },
       "modelOptions": {
         "timeStep": 0.15
-      }
+      },
+      "onLoad": [
+        "setLightSourceNumber(3);"
+      ]
     }
   ],
   "parameters": [
@@ -30,8 +34,8 @@
     },
     {
       "name": "lightSourceIntensity",
-      "initialValue": 371.5,
-      "onChange": "setLightSourcePeriod(800 - value);"
+      "initialValue": 0,
+      "onChange": "setLightSourcePeriod(600 - value);"
     }
   ],
   "components": [
@@ -42,16 +46,16 @@
     {
       "type": "slider",
       "id": "light-source-frequency",
-      "min": 1,
-      "max": 15,
-      "steps": 50,
+      "min": 2,
+      "max": 13.5,
+      "steps": 20,
       "labels": [
         {
-          "value": 2,
+          "value": 2.9,
           "label": "Infrared"
         },
         {
-          "value": 13.5,
+          "value": 12.4,
           "label": "Ultraviolet"
         }
       ],
@@ -62,15 +66,15 @@
       "type": "slider",
       "id": "light-source-intensity",
       "min": 0,
-      "max": 540,
+      "max": 300,
       "steps": 50,
       "labels": [
         {
-          "value": 50,
+          "value": 30,
           "label": "Weak"
         },
         {
-          "value": 490,
+          "value": 270,
           "label": "Strong"
         }
       ],
