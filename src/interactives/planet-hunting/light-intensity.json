@@ -13,11 +13,11 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-  	"Discover how a planet can dim a star's apparent light intensity.",
+  	"Discover how a planet can dim a star's apparent light intensity (brightness).",
     "",
     "Press the **Play** button to start the model.",
     "Move the planet around the model space. Look at the light intensity graph",
-    "to see what happens to the star's apparent light intensity as the planet moves",
+    "to discover how light intensity changes as the planet moves",
     "past the star.",
     "",
     "Try changing the diameter of the planet. Which planets are more likely to be detected?"
