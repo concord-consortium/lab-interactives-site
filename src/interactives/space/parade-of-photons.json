@@ -3,7 +3,7 @@
   "publicationStatus": "draft",
   "subtitle": "Comparing Energy and Wavelengths",
   "about": "",
-  "aspectRatio": 2.05,
+  "aspectRatio": 1.6,
   "fontScale": 0.95,
   "aboutOnLoad": true,
   "about": [
@@ -93,6 +93,13 @@
       ],
       "property": "lightSourceIntensity",
       "title": "Intensity of light source"
+    },
+    {
+      "id": "key",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/space/wave_length_key.png",
+      "width": "20em"
     }
   ]
 }
