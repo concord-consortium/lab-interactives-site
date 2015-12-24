@@ -99,7 +99,8 @@
       "type": "image",
       "urlRelativeTo": "page",
       "src": "interactives/space/wave_length_key.png",
-      "width": "20em"
+      "width": "auto",
+      "height": "7em"
     }
   ]
 }
