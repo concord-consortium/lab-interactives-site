@@ -1,0 +1,61 @@
+{
+  "title": "Heat transfer between two solids",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 0.7741176470588236,
+  "fontScale": 1.7173252279635258,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "heat-transfer",
+      "url": "models/lab-version/1/md2d/external-projects/CREATE/solid-heat-transfer/solid-heat-transfer.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "outputs": [],
+  "parameters": [
+    {
+      "name": "slow-motion",
+      "initialValue": true,
+      "onChange": "if (value) set('timeStep', 0.1); else set('timeStep', 1);"
+    }
+  ],
+  "components": [
+    {
+      "id": "slow-motion-checkbox",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slow-motion",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Speed shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "ke-shading",
+      "slow-motion-checkbox"
+    ]
+  }
+}
