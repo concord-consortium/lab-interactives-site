@@ -4,6 +4,7 @@
   "subtitle": "NGSS Assessment Item",
   "about": "",
   "aspectRatio": 1.55,
+  "theme": ["hide-legends"],
   "models": [
     {
       "type": "md2d",

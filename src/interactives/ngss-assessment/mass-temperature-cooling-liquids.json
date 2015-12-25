@@ -5,6 +5,7 @@
   "aspectRatio": 0.9,
   "about": [
   ],
+  "theme": ["hide-legends"],
   "models": [
      {
       "type": "md2d",

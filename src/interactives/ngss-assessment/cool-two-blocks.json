@@ -6,6 +6,7 @@
   "fontScale": 0.85,
   "about": [
   ],
+  "theme": ["hide-legends"],
   "models": [
      {
       "type": "md2d",
