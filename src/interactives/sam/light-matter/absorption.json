@@ -50,6 +50,14 @@
       "viewOptions": {
         "controlButtons": "play_reset"
       }
+    },
+    {
+      "type": "md2d",
+      "id": "elementD",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementD.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
     }
   ],
   "components": [
@@ -74,6 +82,10 @@
         {
           "text": "Mixture C",
           "action": "loadModel('elementC');"
+        },
+        {
+          "text": "Mixture D",
+          "action": "loadModel('elementD');"
         }
       ]
     },
