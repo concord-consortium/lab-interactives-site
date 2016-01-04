@@ -1,0 +1,263 @@
+{
+  "title": "Absoprtion Spectra",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "Explore how light interacts with mixtures of elements",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Explore how absorption spectra are created.",
+    "",
+    "Each element absorbs specific wavelengths. By shining light onto a mixture, ",
+    "and measuring the wavelengths going in and coming out, scientists can determine ",
+    "which elements are in the mixture.",
+    "",
+    "Shine light on the mixture. Wait for enough different wavelengths to get a complete spectrum.",
+    "",
+    "Can you use the data to determine which mixture contains hydrogen?"
+            ],
+  "theme": ["has","standalone-playback","no-slider-bar"],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "emission-spec",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/emissionSpc$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementA",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementA.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementB",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementB.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementC",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementC.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementD",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementD.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "text-select-model",
+      "type": "text",
+      "text": "**Choose a substance to load**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-model",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Mixture A",
+          "action": "loadModel('elementA');",
+          "selected": true
+        },
+        {
+          "text": "Mixture B",
+          "action": "loadModel('elementB');"
+        },
+        {
+          "text": "Mixture C",
+          "action": "loadModel('elementC');"
+        },
+        {
+          "text": "Mixture D",
+          "action": "loadModel('elementD');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "enable-light-source",
+      "type": "checkbox",
+      "text": "Shine light on mixture",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "lightSourceEnabled",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "spectrometer-label",
+      "type": "text",
+      "text": "**Spectrometer**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "spectrometer",
+      "type": "spectrometer",
+      "upperBound": 15,
+      "lowerBound": 2,
+      "ticks": 10,
+      "clearOnModelLoad": true,
+      "width": "12em",
+      "height": "3em",
+      "border": "none",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "speed-slider",
+      "type": "slider",
+      "min": 0.005,
+      "max": 1,
+      "steps": 100,
+      "title": "Simulation speed",
+      "fillColor": "#2DA343",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": "0.005",
+          "label": "slow"
+        },
+        {
+          "value": "1",
+          "label": "fast"
+        }
+      ],
+      "width": "9em",
+      "height": "auto",
+      "property": "timeStep",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    },
+    {
+      "id": "H",
+      "type": "image",
+      "src": "http://resources.has.concord.org/resources/LARAspace/hydrogenSpec.png",
+      "width": "13em",
+      "height": "auto"
+    }
+  ],
+  "layout": {
+    "playback-container": [
+      ["playback", "speed-slider"]
+      ],
+     "bottom": [
+      ["enable-light-source"
+      ]
+    ],
+    "rightside":[
+      [
+        "text-select-model"
+      ],
+      [
+        "select-model"
+      ],
+      [
+        "spectrometer-label"
+      ],
+      [
+        "spectrometer"
+      ]
+      ],
+    "bottom-right":
+    [
+      [
+        "H"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left"
+    
+    },
+    {
+      "id": "bottom",
+      "top": "playback-container.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "rightside",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "0.75 * model.width",
+      "height": "model.height",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "rightside.bottom",
+      "left": "model.right",
+      "padding-top": "0.5em",
+      "padding-left": "0.5em"
+    }
+  ]
+}
