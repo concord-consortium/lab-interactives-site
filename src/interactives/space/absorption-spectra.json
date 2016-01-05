@@ -159,7 +159,7 @@
       "clearOnModelLoad": true,
       "width": "12em",
       "height": "3em",
-      "border": "none",
+      "border": "1px solid gray",
       "tooltip": "",
       "helpIcon": false
     },
