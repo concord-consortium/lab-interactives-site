@@ -33,7 +33,8 @@
       "id": "emission-spec",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/emissionSpc$0.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       }
     },
     {
@@ -41,7 +42,8 @@
       "id": "elementA",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementA.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       }
     },
     {
@@ -49,7 +51,8 @@
       "id": "elementB",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementB.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       }
     },
     {
@@ -57,7 +60,8 @@
       "id": "elementC",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementC.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       }
     },
     {
@@ -65,7 +69,8 @@
       "id": "elementD",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementD.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "backgroundColor": "#fff"
       }
     }
   ],
@@ -198,7 +203,8 @@
     {
       "id": "H",
       "type": "image",
-      "src": "http://resources.has.concord.org/resources/LARAspace/hydrogenSpec.png",
+      "urlRelativeTo": "page",
+      "src": "interactives/space/hydrogenSpec.png",
       "width": "13em",
       "height": "auto"
     }
