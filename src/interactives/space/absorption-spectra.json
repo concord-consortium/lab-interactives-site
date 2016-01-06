@@ -1,6 +1,6 @@
 {
-  "title": "Absoprtion Spectra",
-  "publicationStatus": "public",
+  "title": "Absoprtion spectra",
+  "publicationStatus": "draft",
   "labEnvironment": "production",
   "subtitle": "Explore how light interacts with mixtures of elements",
   "category": "",
@@ -16,14 +16,17 @@
     "Explore how absorption spectra are created.",
     "",
     "Each element absorbs specific wavelengths. By shining light onto a mixture, ",
-    "and measuring the wavelengths going in and coming out, scientists can determine ",
+    "and measuring the wavelengths coming out, scientists can determine ",
     "which elements are in the mixture.",
     "",
-    "Shine light on the mixture. Wait for enough different wavelengths to get a complete spectrum.",
-    "",
-    "Can you use the data to determine which mixture contains hydrogen?"
-            ],
-  "theme": ["has","standalone-playback","no-slider-bar"],
+    "Shine light on the mixture. Allow the model to run until all types of wavelengths have had a chance",
+    "to interact with the mixture."
+  ],
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar"
+  ],
   "showTopBar": true,
   "showBottomBar": true,
   "padding": 10,
@@ -175,8 +178,8 @@
       "max": 1,
       "steps": 100,
       "title": "Simulation speed",
-      "fillColor": "#2DA343",
       "titlePosition": "top",
+      "fillColor": "#2DA343",
       "labels": [
         {
           "value": "0.005",
@@ -199,25 +202,21 @@
       "id": "playback",
       "type": "playback",
       "stepping": true
-    },
-    {
-      "id": "H",
-      "type": "image",
-      "urlRelativeTo": "page",
-      "src": "interactives/space/hydrogenSpec.png",
-      "width": "13em",
-      "height": "auto"
     }
   ],
   "layout": {
     "playback-container": [
-      ["playback", "speed-slider"]
-      ],
-     "bottom": [
-      ["enable-light-source"
+      [
+        "playback",
+        "speed-slider"
       ]
     ],
-    "rightside":[
+    "bottom": [
+      [
+        "enable-light-source"
+      ]
+    ],
+    "rightside": [
       [
         "text-select-model"
       ],
@@ -230,12 +229,6 @@
       [
         "spectrometer"
       ]
-      ],
-    "bottom-right":
-    [
-      [
-        "H"
-      ]
     ]
   },
   "template": [
@@ -243,7 +236,6 @@
       "id": "playback-container",
       "top": "model.bottom",
       "left": "model.left"
-    
     },
     {
       "id": "bottom",
@@ -256,13 +248,6 @@
       "left": "model.right",
       "width": "0.75 * model.width",
       "height": "model.height",
-      "padding-left": "0.5em"
-    },
-    {
-      "id": "bottom-right",
-      "top": "rightside.bottom",
-      "left": "model.right",
-      "padding-top": "0.5em",
       "padding-left": "0.5em"
     }
   ]
