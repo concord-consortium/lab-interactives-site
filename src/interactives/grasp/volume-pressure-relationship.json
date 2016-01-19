@@ -49,6 +49,11 @@
         "  minimizeEnergy();",
         "}"
       ]
+    },
+    {
+      "name": "pistonColor",
+      "initialValue": "#8CBBB8",
+      "onChange": "setObstacleProperties(0, {color: value});"
     }
   ],
   "outputs": [
