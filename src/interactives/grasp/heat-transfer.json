@@ -11,7 +11,8 @@
       "id": "vacuum",
       "url": "models/lab-version/1/md2d/grasp/heat-transfer/vacuum.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "atomRadiusScale": 1.13
       },
       "onLoad": [
         "var leftAtoms = [];",
