@@ -132,7 +132,7 @@
       "xlabel": "Time (days)",
       "xmin": 0,
       "xmax": 600,
-      "ylabel": "Velocity",
+      "ylabel": "Velocity (m/s)",
       "ymin": -2.5,
       "ymax": 2.5,
       "xTickCount": 8,
