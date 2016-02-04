@@ -1,0 +1,71 @@
+{
+  "title": "Molecular View of a Solid with Slow Motion",
+  "publicationStatus": "public",
+  "subtitle": "What does a solid look like at the molecular level?",
+  "aspectRatio": 1.2,
+  "about": [
+    "Molecules are in constant motion—even those in a solid! \"Mark two atoms,\" then",
+    "run the model to see how the molecules in a solid move relative to each other. How",
+    "would you describe the movement and arrangement of molecules in a solid?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models/lab-version/1/md2d/sensing-science/online-pd/solid-model-molecular-view.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": false
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "slow-motion",
+      "initialValue": false,
+      "onChange": "if (value) set('timeStep', 0.2); else set('timeStep', 1);"
+    }
+  ],  
+  "components": [
+    {
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Mark two atoms",
+      "action": "markAtoms(randomAtoms(2));"
+    },
+    {
+      "id": "slow-motion-checkbox",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slow-motion",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Trace a random atom",
+      "action": "traceAtom(randomAtoms(1));"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Remove trace",
+      "action": "untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "slow-motion-checkbox"
+    ]
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/4-solids.json"
+}

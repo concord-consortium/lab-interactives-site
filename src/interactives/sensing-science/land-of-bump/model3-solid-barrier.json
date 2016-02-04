@@ -1,0 +1,118 @@
+{
+  "title": "Land of Bump - Model 3, Red Hots, Cool Blues with Removable Solid Barrier",
+  "publicationStatus": "draft",
+  "subtitle": "Dancing apart and together...",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.333,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 0,
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty-atom",
+      "url": "models/lab-version/1/md2d/sensing-science/land-of-bump/screen3-solid-barrier.json",
+      "onLoad": [
+        "var redAtoms = [];",
+        "var blueAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    redAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 1) {",
+        "    blueAtoms.push(i);",
+        "  }",
+        "}",
+        "set('redAtomsIndices', redAtoms);",
+        "set('blueAtomsIndices', blueAtoms);"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "viewPortX": 0.3,
+        "viewPortY": 3.8,
+        "viewPortWidth": 6.4,
+        "viewPortHeight": 6.4
+      }
+    }
+  ],
+    "parameters": [
+    {
+      "name": "redAtomsIndices",
+      "initialValue": []
+    },
+    {   "name": "blueAtomsIndices",
+       "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "temperature-red",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('redAtomsIndices'));"
+    },
+    {
+      "name": "temperature-blue",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('blueAtomsIndices'));"
+    }
+  ],
+  "components": [
+   {
+      "type": "barGraph",
+      "id": "bar-graph-reds",
+      "min": 0,
+      "max": 5000,
+      "title": "Temperature of Red Molecules",
+      "property": "temperature-red"
+    },
+       {
+      "type": "barGraph",
+      "id": "bar-graph-blues",
+      "min": 0,
+      "max": 5000,
+      "title": "Temperature of Blue Molecules",
+      "property": "temperature-blue"
+    },
+    {
+      "type": "button",
+      "id": "remove-barrier",
+      "text": "Remove the barrier",
+      "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0) };"
+    },
+        {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "KE Shading",
+      "property": "keShading"
+    }
+  ],
+  "layout": 
+  {
+    "right-side": [ "bar-graph-reds", "bar-graph-blues"],
+    "below-model": ["remove-barrier", "ke-shading"]
+  },
+    "template": [
+    {
+      "id": "below-model",
+      "top": "model.bottom",
+      "left": "model.left",
+      "height": 0.5
+    },
+    {
+      "id": "right-side",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right"
+    }
+  ]
+}
