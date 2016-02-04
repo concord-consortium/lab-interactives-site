@@ -1,0 +1,137 @@
+{
+  "title": "Introduction to temperature and molecular movement using the Seasons",
+  "publicationStatus": "draft",
+  "aspectRatio": 2.0,
+  "fontScale": 0.8,
+  "subtitle": "Molecular movement of a gas in the four seasons",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models/lab-version/1/md2d/sensing-science/online-pd/gas-molecules-for-seasons.json",
+      "importedFrom": "imports/legacy-mw-content/itsi/heatv2/heat_itsi_models/page1$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {}
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "text": "Note that the temperature difference in the four seasons above may not be accurate."
+    },
+    {
+      "id": "autumn-button",
+      "type": "button",
+      "action": "set('targetTemperature', 500);",
+      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd//autumn2.gif' width='100%' />",
+      "width": "6.5em",
+      "height": "6.5em",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "spring-button",
+      "type": "button",
+      "action": "set('targetTemperature', 500);",
+      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd/spring2.gif' width='100%' />",
+      "width": "6.5em",
+      "height": "6.5em",
+      "disabled": false,
+      "tooltip": ""
+    },    
+    {
+      "id": "summer-button",
+      "type": "button",
+      "action": "set('targetTemperature', 1500);",
+      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd/summer2.gif' width='100%' />",
+      "width": "6.5em",
+      "height": "6.5em",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "winter-button",
+      "type": "button",
+      "action": "set('targetTemperature', 100);",
+      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd/winter2.gif' width='100%' />",
+      "width": "6.5em",
+      "height": "6.5em",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "type": "button",
+      "id": "mark-trace-atom",
+      "text": "Mark and trace a molecule",
+      "width": "14em",
+      "action": [
+        "var atomId = randomAtoms(1);",
+        "markAtoms(atomId)",
+        "traceAtom(atomId)"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Remove trace from molecule",
+      "width": "14em",
+      "action": "untraceAtom(); unmarkAllAtoms()"
+    },
+    {
+      "id": "temp-bar",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 1000,
+      "title": "",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "100%",
+      "barColor": "#ff0000",
+      "fillColor": "#fff",
+      "tooltip": ""
+    }
+  ],
+  "template": [
+    {
+      "id": "on-left",
+      "right": "model.left",
+      "top": "model.top",
+      "height": "model.height",
+      "width": "15em",
+      "align": "left"
+    },
+    {
+      "id": "on-right",
+      "left": "model.right",
+      "top": "model.top",
+      "height": "model.height",
+      "align": "center"
+    },
+    {
+      "id": "below",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "left"
+    }
+  ],
+  "layout": {
+    "on-right": ["temp-bar"],
+    "on-left":  [
+      ["spring-button","summer-button"],
+      ["autumn-button","winter-button"],
+      ["mark-trace-atom"],
+      ["untrace-atom"]
+    ],
+    "below": ["disclaimer"]
+  }
+}
