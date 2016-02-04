@@ -1,7 +1,7 @@
 {
   "title": "Introduction to temperature and molecular movement using the Seasons",
   "publicationStatus": "draft",
-  "aspectRatio": 2.0,
+  "aspectRatio": 1.725,
   "fontScale": 0.8,
   "subtitle": "Molecular movement of a gas in the four seasons",
   "about": "",
@@ -27,7 +27,7 @@
       "id": "autumn-button",
       "type": "button",
       "action": "set('targetTemperature', 500);",
-      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd//autumn2.gif' width='100%' />",
+      "text": "<img src='models/lab-version/1/md2d/sensing-science/online-pd/autumn2.gif' width='100%' />",
       "width": "6.5em",
       "height": "6.5em",
       "disabled": false,
