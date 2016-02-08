@@ -401,3 +401,7 @@
 - :path: external-projects/byu
   :name: "Brigham Young University Interactives"
   :category: Curriculum
+
+- :path: external-projects/achieve
+  :name: "Achieve"
+  :category: Curriculum

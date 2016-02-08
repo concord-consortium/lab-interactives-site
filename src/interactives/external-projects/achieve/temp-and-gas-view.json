@@ -1,0 +1,54 @@
+{
+  "title": "Gas Molecules in Motion",
+  "publicationStatus": "public",
+  "subtitle": "Explore how temperature affects a gas at the atomic level.",
+  "aspectRatio": 1.2,
+  "about": [
+    "Molecules are in constant motion. Adjust the temperature slider and observe the ",
+    "relationship between temperature and the motion of gas molecules.",
+    "------",
+    "This interactive developed in collaboration with Achieve (www.achieve.org)."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models/lab-version/1/md2d/external-projects/achieve/gas.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 50,
+      "max": 5000,
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 50,
+          "label": "Low"
+        },
+        {
+          "value": 2500,
+          "label": "Medium"
+        },
+        {
+          "value": 5000,
+          "label": "High"
+        }
+      ],
+      "steps": 499,
+      "title": "Temperature",
+      "property": "targetTemperature"
+    }
+  ],
+  "layout": {
+    "bottom": [
+       "temperature-slider"
+    ]
+  }
+}
