@@ -6,7 +6,8 @@
   "unitsScheme": "md2d",
   "lennardJonesForces": true,
   "coulombForces": true,
-  "temperatureControl": false,
+  "temperatureControl": true,
+  "targetTemperature": 100,  
   "gravitationalField": false,
   "timeStep": 1,
   "dielectricConstant": 1,
@@ -134,69 +135,14 @@
       -0.1
     ],
     "color": [
-      -242119,
+      -13075,
       -11695113,
       -10040320,
       -256,
       -855310
     ]
   },
-
- "obstacles": {
-    "x": [
-      3.44
-    ],
-    "y": [
-      3.95
-    ],
-    "vx": [
-      0
-    ],
-    "vy": [
-      0
-    ],
-    "externalAx": [
-      0
-    ],
-    "externalAy": [
-      0
-    ],
-    "displayExternalAcceleration": [
-      true
-    ],
-    "friction": [
-      0
-    ],
-    "height": [
-      6.4
-    ],
-    "width": [
-      0.24
-    ],
-    "mass": [
-      "Infinity"
-    ],
-    "westProbe": [
-      false
-    ],
-    "northProbe": [
-      false
-    ],
-    "eastProbe": [
-      false
-    ],
-    "southProbe": [
-      false
-    ],
-    "color": [
-      "rgb(128,128,128)"
-    ],
-    "visible": [
-      true
-    ]
-  },
-
-  "atoms": {
+ "atoms": {
     "x": [
       6.62,
       6.6029083252,
@@ -812,20 +758,20 @@
       0,
       0,
       0,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "pinned": [
       1,

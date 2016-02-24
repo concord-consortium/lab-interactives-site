@@ -66,6 +66,20 @@
       "value": "return getTemperatureOfAtoms(get('blueAtomsIndices'));"
     }
   ],
+  "filteredOutputs": [
+    {
+      "name": "display-temp-red",
+      "property": "temperature-red",
+      "unitAbbreviation": "°K",
+      "period": 8000
+    },
+    {
+      "name": "display-temp-blue",
+      "property": "temperature-blue",
+      "unitAbbreviation": "°K",
+      "period": 8000
+    }
+  ],
   "components": [
    {
       "type": "barGraph",
@@ -73,7 +87,7 @@
       "min": 0,
       "max": 5000,
       "title": "Temperature of Red Molecules",
-      "property": "temperature-red"
+      "property": "display-temp-red"
     },
        {
       "type": "barGraph",
@@ -81,7 +95,7 @@
       "min": 0,
       "max": 5000,
       "title": "Temperature of Blue Molecules",
-      "property": "temperature-blue"
+      "property": "display-temp-blue"
     },
     {
       "type": "button",
