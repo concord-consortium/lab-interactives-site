@@ -1,0 +1,704 @@
+{
+  "title": "Planet Hunting (master)",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Finding Planets and Analyzing Habitability Potential",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.82,
+  "fontScale": 0.7,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Explore how combining data from the velocity of a star and the light intensity of a star can be used to find planets.",
+    "",
+    "Adjust the orbital angle (tilt) of the model so that you can see star movement in the velocity graph.",
+    "(Note that you may need to **Zoom** in on the graph after changing the planet's orbital angle (tilt). You can also clear ",
+    "current graph data to focus on the newer data only.)",
+    "",
+    "As the planet passes in front of the star, watch what happens to the light intensity on the light intensity graph.",
+    "",
+    "Change the diameter of the planet and/or test out some of the preset planets.",
+    "",
+    "What type of planet has the largest dimming effect on the star?",
+    "Why is it possible to sometimes detect planets on the velocity graph and not on the light intensity graph?",
+  	"",
+	"***",
+    "In the real world, there is always some 'noise' in the data collected by telescopes.",
+    "",
+    "In this model, you can control the 'precision of the telescope' to discover which types of planets are ",
+    "most likely to be discovered using real-world telescopes.",
+    "",
+    "Set up the model with a tilt angle and planet that is detectable.",
+    "Then add 'noise' to the data by decreasing the telescope precision.",
+    "",
+    "Is it possible to detect a really small planet when there is a lot of noise in the data?",
+    "Which planet hunting method is more likely to detect a planet when there is a lot of noise?",
+  	"",
+    "***",
+   	"Explore the habitable zone ranges of different star types.",
+    "",
+    "There are five types of stars, classified by their color and temperature.",
+    "",
+    "The blue ring represents the zone around the star where liquid water is possible.",
+    "This zone of habitability is different for different types of stars.",
+  	"Press the **Analyze** button to analyze the likely habitability of your planet."
+  ],
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar",
+    "graph-title-bg"
+  ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "onLoad": [],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "timestep": 0.001,
+        "planet.diameter": 1,
+        "planet.rocky": true,
+        "telescope.precision": 100,
+        "habitationZone.visible": true,
+        "camera.tiltLocked": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "presetPlanet",
+      "initialValue": "Earth",
+      "onChange": [
+        "post('loadPreset', value);",
+        "post('makeCircularOrbit');"
+      ]
+    },
+    {
+      "name": "presetStar",
+      "initialValue": "Sun",
+      "onChange": [
+        "post('loadPreset', value);",
+        "post('makeCircularOrbit');"
+      ]
+    },
+    {
+      "name": "speed",
+      "initialValue": 50,
+      "onChange": [
+        "var v = value / 50;",
+        "if (v > 1) v = Math.pow(v, 4);",
+        "if (v < 1) v = Math.sqrt(v);",
+        "set('timestep', 0.001 * v);"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "time",
+      "value": "return iframeOutput('time') * 365 || 0;"
+    },
+    {
+      "name": "starCamVelocity",
+      "value": "return iframeOutput('telescope.starCamVelocity') || 0;"
+    },
+    {
+      "name": "lightIntensity",
+      "value": "return iframeOutput('telescope.lightIntensity') || 0;"
+    },
+    {
+      "name": "planet.mass",
+      "value": "return iframeOutput('planet.mass') || 0;"
+    },
+    {
+      "name": "camera.tilt",
+      "value": "return iframeOutput('camera.tilt') || 0;"
+    },
+    {
+      "name": "habitability.starType",
+      "value": "return iframeOutput('habitability.starType');"
+    },
+    {
+      "name": "habitability.planetType",
+      "value": "return iframeOutput('habitability.planetType');"
+    },
+    {
+      "name": "habitability.planetSize",
+      "value": "return iframeOutput('habitability.planetSize');"
+    },
+    {
+      "name": "habitability.orbitalDistance",
+      "value": "return iframeOutput('habitability.orbitalDistance');"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "circular-orbit",
+      "type": "button",
+      "action": "post('makeCircularOrbit');",
+      "text": "Make circular orbit",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "habitability-label",
+      "type": "text",
+      "text": "**Habitability**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "analyze",
+      "type": "button",
+      "action": "post('analyzeHabitability');",
+      "text": "Analyze",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "clear-graphs",
+      "type": "button",
+      "action": [
+        "var newXMin = Math.round(get('time'));",
+        "var newXMax = newXMin + 600;",
+        "setComponentAttributes('star-cam-velocity', {xmin: newXMin, xmax: newXMax});",
+        "setComponentAttributes('light-intensity', {xmin: newXMin, xmax: newXMax});"
+      ],
+      "text": "Clear all graphs",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "timestep",
+      "type": "slider",
+      "min": 1,
+      "max": 100,
+      "steps": 100,
+      "title": "Speed",
+      "titlePosition": "top",
+      "fillColor": "#2DA343",
+      "labels": [
+        {
+          "value": 1,
+          "label": "slow"
+        },
+        {
+          "value": 100,
+          "label": "fast"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "speed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-diameter",
+      "type": "slider",
+      "min": 1,
+      "max": 50,
+      "steps": 50,
+      "title": "Planet diameter",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1x Earth"
+        },
+        {
+          "value": 50,
+          "label": "50x Earth"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "planet.diameter",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "telescope-precision",
+      "type": "slider",
+      "min": 5,
+      "max": 100,
+      "steps": 100,
+      "title": "Telescope precision",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": 5,
+          "label": "5%"
+        },
+        {
+          "value": 100,
+          "label": "100%"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "telescope.precision",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-mass",
+      "type": "numericOutput",
+      "property": "planet.mass",
+      "label": "Planet mass:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return (value < 1 ? value.toFixed(1) : value.toFixed(0)) + ' x Earth';",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "planet-rocky",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "Planet type",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Gaseous",
+          "value": false
+        },
+        {
+          "text": "Rocky",
+          "value": true
+        }
+      ],
+      "property": "planet.rocky",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "preset-planet",
+      "type": "pulldown",
+      "label": "Preset planets",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Earth",
+          "value": "Earth"
+        },
+        {
+          "text": "Mars",
+          "value": "Mars"
+        },
+        {
+          "text": "Jupiter",
+          "value": "Jupiter"
+        },
+        {
+          "text": "Venus",
+          "value": "Venus"
+        },
+        {
+          "text": "Like Mercury but 10x larger diameter",
+          "value": "MercuryDiameter10x"
+        },
+        {
+          "text": "Like Earth but 10x larger diameter",
+          "value": "EarthDiameter10x"
+        },
+        {
+          "text": "Earth-like planet near the star",
+          "value": "EarthNearTheStar"
+        },
+        {
+          "text": "Large rocky planet very near the star",
+          "value": "LargeNearTheStar"
+        },
+        {
+          "text": "No planet",
+          "value": "NoPlanet"
+        },
+        {
+          "text": "Custom",
+          "value": ""
+        }
+      ],
+      "property": "presetPlanet",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "habitation-zone-vis",
+      "type": "checkbox",
+      "text": "Habitation zone",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "habitationZone.visible",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "tilt-locked",
+      "type": "checkbox",
+      "text": "Tilt locked",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "camera.tiltLocked",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "preset-star",
+      "type": "pulldown",
+      "label": "Preset stars",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "M - red (temp 3120 K)",
+          "value": "StarRed"
+        },
+        {
+          "text": "K - orange (temp 4640 K)",
+          "value": "StarOrange"
+        },
+        {
+          "text": "G - yellow (temp 5920 K) (Sun)",
+          "value": "Sun"
+        },
+        {
+          "text": "F - white (temp 7240 K)",
+          "value": "StarWhite"
+        },
+        {
+          "text": "A - blue (temp 8620 K)",
+          "value": "StarBlue"
+        }
+      ],
+      "property": "presetStar",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "star-cam-velocity",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "starCamVelocity"
+      ],
+      "xProperty": "time",
+      "title": "Velocity of Star, Relative to Observer",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Velocity (m/s)",
+      "ymin": -2.5,
+      "ymax": 2.5,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#0000ff"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": "light-intensity",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "light-intensity",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "lightIntensity"
+      ],
+      "xProperty": "time",
+      "title": "Light Intensity of Star",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (days)",
+      "xmin": 0,
+      "xmax": 600,
+      "ylabel": "Light Intensity",
+      "ymin": 0.7,
+      "ymax": 1.02,
+      "xTickCount": 8,
+      "yTickCount": 4,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#0000ff"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": "star-cam-velocity",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "hab-star-type",
+      "type": "numericOutput",
+      "property": "habitability.starType",
+      "label": "Star type:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "hab-planet-type",
+      "type": "numericOutput",
+      "property": "habitability.planetType",
+      "label": "Planet type:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "hab-planet-size",
+      "type": "numericOutput",
+      "property": "habitability.planetSize",
+      "label": "Planet size:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "hab-orbital-distance",
+      "type": "numericOutput",
+      "property": "habitability.orbitalDistance",
+      "label": "Orbital distance:",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return value != null ? (value ? '✓' : '✗') : '?'",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+  "layout": {
+    "playback-container": [
+      "playback"
+    ],
+    "playback-right": [
+      "timestep"
+    ],
+    "bottom-1": [
+      [
+        "tilt-locked"
+      ],
+      [
+        "habitation-zone-vis"
+      ],
+      [
+        "preset-star"
+      ],
+      [
+        "preset-planet"
+      ],
+      [
+        "planet-rocky"
+      ],
+      [
+        "planet-diameter",
+        "planet-mass"
+      ],
+      [
+        "telescope-precision"
+      ],
+      [
+        "circular-orbit"
+      ]
+    ],
+    "habitability": [
+      [
+        "habitability-label",
+        "analyze"
+      ],
+      [
+        "hab-star-type"
+      ],
+      [
+        "hab-planet-type"
+      ],
+      [
+        "hab-planet-size"
+      ],
+      [
+        "hab-orbital-distance"
+      ]
+    ],
+    "right-top": [
+      "star-cam-velocity"
+    ],
+    "right-bottom": [
+      "light-intensity"
+    ],
+    "under-graphs": [
+      "clear-graphs"
+    ]
+  },
+  "template": [
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "playback-right",
+      "top": "model.bottom",
+      "left": "playback-container.right"
+    },
+    {
+      "id": "bottom-1",
+      "left": "model.left",
+      "top": "playback-right.bottom",
+      "margin-top": "1em"
+    },
+    {
+      "id": "habitability",
+      "left": "model.left",
+      "top": "bottom-1.bottom",
+      "margin-top": "1em",
+      "border": "1px solid #bbb"
+    },
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "top": "right-top.bottom",
+      "height": "interactive.height * 0.46",
+      "width": "20em",
+      "padding-left": "0.3em",
+      "padding-right": "0.3em"
+    },
+    {
+      "id": "under-graphs",
+      "left": "right-bottom.left",
+      "right": "right-bottom.right",
+      "top": "right-bottom.bottom",
+      "align": "right",
+      "margin-right": "1em",
+      "margin-top": "1em"
+    }
+  ]
+}
