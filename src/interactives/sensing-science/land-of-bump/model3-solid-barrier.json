@@ -5,7 +5,7 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.333,
+  "aspectRatio": 1.0,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -86,14 +86,29 @@
       "id": "bar-graph-reds",
       "min": 0,
       "max": 5000,
-      "title": "Temperature of Red Molecules",
-      "property": "display-temp-red"
+      "title": "Temperature of Red Particles",
+      "property": "display-temp-red",
+      "labels": [
+        {
+          "value": 1,
+          "label": "Cold"
+        },
+        {
+          "value": 2500,
+          "label": "Medium"
+        },
+        {
+          "value": 5000,
+          "label": "Hot"
+        }
+      ]           
     },
        {
       "type": "barGraph",
       "id": "bar-graph-blues",
       "min": 0,
       "max": 5000,
+      "labels": 0,
       "title": "Temperature of Blue Molecules",
       "property": "display-temp-blue"
     },
@@ -122,6 +137,11 @@
       "left": "model.left",
       "height": 0.5
     },
+    {
+      "id": "below-below",
+      "top": "below-model.bottom",
+      "left": "model.left"
+    },    
     {
       "id": "right-side",
       "top": "model.top",

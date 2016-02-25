@@ -84,7 +84,21 @@
       "min": 0,
       "max": 5000,
       "title": "Temperature of Particles",
-      "property": "display-temp-red"
+      "property": "display-temp-red",
+      "labels": [
+        {
+          "value": 1,
+          "label": "Cold"
+        },
+        {
+          "value": 2500,
+          "label": "Medium"
+        },
+        {
+          "value": 5000,
+          "label": "Hot"
+        }
+      ]      
     },
     {
       "type": "button",
