@@ -46,9 +46,7 @@
     "electricFieldDensity": 18,
     "electricFieldColor": "auto",
     "showAtomTrace": false,
-    "images": [
-     
-    ],
+    "images": [],
     "imageMapping": {},
     "textBoxes": [],
     "xlabel": false,
@@ -147,7 +145,7 @@
       3.44
     ],
     "y": [
-      3.95
+      4.1                   
     ],
     "vx": [
       0
@@ -168,7 +166,7 @@
       0
     ],
     "height": [
-      6.4
+      5.7
     ],
     "width": [
       0.24

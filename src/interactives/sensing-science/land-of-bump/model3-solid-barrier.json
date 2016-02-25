@@ -1,11 +1,11 @@
 {
-  "title": "Land of Bump - Model 3, Red Hots, Cool Blues with Removable Solid Barrier",
+  "title": "Land of Bump - Red Hots, Cool Blues with Removable Solid Barrier",
   "publicationStatus": "draft",
   "subtitle": "Dancing apart and together...",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.0,
+  "aspectRatio": 1.8,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -14,7 +14,7 @@
   "showTopBar": true,
   "showBottomBar": true,
   "padding": 0,
-  "about": "",
+  "about": "Tap \"Start\" and observe the particles moving. Describe as many details of their motion as you can. What's the difference between the way the Reds and the Blues move? Tap \"Remove the barrier\" and watch what happens. What changes do you observe? What causes the changes to the Reds? What causes the changes to the Blues?",
   "models": [
     {
       "type": "md2d",
@@ -103,25 +103,26 @@
         }
       ]           
     },
-       {
+    {
       "type": "barGraph",
       "id": "bar-graph-blues",
       "min": 0,
       "max": 5000,
       "labels": 0,
-      "title": "Temperature of Blue Molecules",
+      "title": "Temperature of Blue Particles",
+      "barColor": "#3867b5",
       "property": "display-temp-blue"
     },
     {
       "type": "button",
       "id": "remove-barrier",
-      "text": "Remove the barrier",
+      "text": "Remove the Barrier",
       "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0) };"
     },
         {
       "type": "checkbox",
       "id": "ke-shading",
-      "text": "KE Shading",
+      "text": "Show Speed",
       "property": "keShading"
     }
   ],
@@ -135,18 +136,13 @@
       "id": "below-model",
       "top": "model.bottom",
       "left": "model.left",
-      "height": 0.5
+      "width": "interactive.width"
     },
-    {
-      "id": "below-below",
-      "top": "below-model.bottom",
-      "left": "model.left"
-    },    
     {
       "id": "right-side",
       "top": "model.top",
-      "bottom": "model.bottom",
-      "left": "model.right"
+      "left": "model.right",
+      "height": "model.height"
     }
   ]
 }

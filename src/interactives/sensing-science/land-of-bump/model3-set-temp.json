@@ -1,5 +1,5 @@
 {
-  "title": "Land of Bump - Model 3, Reds and Blues with Temperature Setting",
+  "title": "Land of Bump - Reds and Blues with Temperature Setting",
   "publicationStatus": "draft",
   "subtitle": "Dancing together with different temperatures...",
   "category": "",
@@ -14,7 +14,7 @@
   "showTopBar": true,
   "showBottomBar": true,
   "padding": 0,
-  "about": "",
+  "about": "You are looking into the particles that make up everything in the world. These particles are always in motion. Look carefully to see how they move. Change temperatures by tapping the buttons, and describe how the motion of the particles changes. Use the checkboxes to highlight an individual particle or to indicate the speed of all the particles.",
   "models": [
     {
       "type": "md2d",
