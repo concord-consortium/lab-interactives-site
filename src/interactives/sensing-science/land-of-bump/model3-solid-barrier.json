@@ -1,11 +1,11 @@
 {
   "title": "Land of Bump - Red Hots, Cool Blues with Removable Solid Barrier",
   "publicationStatus": "draft",
-  "subtitle": "Dancing apart and together...",
+  "subtitle": "Dancing apart and together: mixing hot and cold.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.8,
+  "aspectRatio": 1.333,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -14,7 +14,22 @@
   "showTopBar": true,
   "showBottomBar": true,
   "padding": 0,
-  "about": "Tap \"Start\" and observe the particles moving. Describe as many details of their motion as you can. What's the difference between the way the Reds and the Blues move? Tap \"Remove the barrier\" and watch what happens. What changes do you observe? What causes the changes to the Reds? What causes the changes to the Blues?",
+  "about": [
+    "Tap \"Start\" and observe the particles moving.", 
+    "",
+    "Before removing the barrier, here are a few questions to answer:\n\n",
+    "How do the Reds move? How do the Blues move?\n", 
+    "What do notice about the speed of the Reds and the Blues and their temperatures?\n",
+    "Are all the Reds or all the Blues moving at the same speed?\n", 
+    "Do individual Reds or individual Blues change speed? If so, how does that happen?\n",
+    "\n",
+    "Tap \"Remove the barrier\" and watch what happens. What changes do you observe?\n", 
+    "What causes the changes to the Reds? What causes the changes to the Blues?\n",
+    "What do you notice about the temperatures of the Reds and Blues together?",
+    "\n",
+    "Tap \"Show Speed\" to see the speed of individual particles. The fastest are red and the coolest are white."
+],
+  
   "models": [
     {
       "type": "md2d",

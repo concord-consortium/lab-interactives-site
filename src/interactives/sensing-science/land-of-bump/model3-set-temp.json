@@ -1,11 +1,11 @@
 {
-  "title": "Land of Bump - Reds and Blues with Temperature Setting",
+  "title": "Land of Bump - Particles with Temperature Setting",
   "publicationStatus": "draft",
-  "subtitle": "Dancing together with different temperatures...",
+  "subtitle": "How do particles move at different temperatures?",
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.2,
+  "aspectRatio": 1.0,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
@@ -14,7 +14,12 @@
   "showTopBar": true,
   "showBottomBar": true,
   "padding": 0,
-  "about": "You are looking into the particles that make up everything in the world. These particles are always in motion. Look carefully to see how they move. Change temperatures by tapping the buttons, and describe how the motion of the particles changes. Use the checkboxes to highlight an individual particle or to indicate the speed of all the particles.",
+  "about": [
+  "You are looking into the particles that make up everything in the world. These particles are always in motion.\n\n", 
+  "Look carefully to see how they move. Change temperatures by tapping the buttons, and describe how the motion of the particles changes.\n\n", 
+  "Check \"Mark a Particle\" to highlight a particle to follow.\n\n",
+  "Check \"Show Particle Speed\" to see the fastest particles red and the slowest ones white."
+  ],
   "models": [
     {
       "type": "md2d",
