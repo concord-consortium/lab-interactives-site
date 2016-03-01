@@ -4,7 +4,15 @@
   "aspectRatio": 1.725,
   "fontScale": 0.8,
   "subtitle": "Molecular movement of a gas in the four seasons",
-  "about": "",
+  "about": [
+      "Molecules are always moving, but they move at different speeds depending on their temperature.",
+      "Tap the different seasons icons to see how molecules of a gas--air--for instance, move at different temperatures.",
+      "Tap \"Mark and trace a molecule\" to see the path of a molecule at different temperatures.",
+      "Here are a few questions to consider:",
+      "For any one seasons, do all molecules move at the same speed?",
+      "What makes molecules change speed?",
+      "At what season and temperature do you see the longest straight traces path?"
+  ],
   "models": [
     {
       "type": "md2d",

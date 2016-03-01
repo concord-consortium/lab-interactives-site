@@ -1,7 +1,7 @@
 {
   "title": "Land of Bump - Red Hots, Cool Blues with Removable Solid Barrier",
   "publicationStatus": "draft",
-  "subtitle": "Dancing apart and together: mixing hot and cold.",
+  "subtitle": "Mixing hot and cold",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -15,19 +15,15 @@
   "showBottomBar": true,
   "padding": 0,
   "about": [
-    "Tap \"Start\" and observe the particles moving.", 
+    "Click \"Start\" and observe the molecules moving.", 
     "",
-    "Before removing the barrier, here are a few questions to answer:\n\n",
-    "How do the Reds move? How do the Blues move?\n", 
-    "What do notice about the speed of the Reds and the Blues and their temperatures?\n",
-    "Are all the Reds or all the Blues moving at the same speed?\n", 
-    "Do individual Reds or individual Blues change speed? If so, how does that happen?\n",
+    "Before removing the barrier, here are a few questions to consider:\n\n",
+    "How do the red molecules move? How do the blues ones move?\n", 
+    "What do you notice about the speed of the red and blue molecules and their temperatures?\n",
+    "Are all the reds molecules moving at the same speed? What about the blue molecules?\n", 
+    "Do individual reds molecules change speed? If so, how does that happen? What about the blue molecules?\n",
     "\n",
-    "Tap \"Remove the barrier\" and watch what happens. What changes do you observe?\n", 
-    "What causes the changes to the Reds? What causes the changes to the Blues?\n",
-    "What do you notice about the temperatures of the Reds and Blues together?",
-    "\n",
-    "Tap \"Show Speed\" to see the speed of individual particles. The fastest are red and the coolest are white."
+    "Now click \"Remove the barrier\" and watch what happens. What changes do you observe?\n"
 ],
   
   "models": [
@@ -133,25 +129,20 @@
       "id": "remove-barrier",
       "text": "Remove the Barrier",
       "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0) };"
-    },
-        {
-      "type": "checkbox",
-      "id": "ke-shading",
-      "text": "Show Speed",
-      "property": "keShading"
     }
   ],
   "layout": 
   {
     "right-side": [ "bar-graph-reds", "bar-graph-blues"],
-    "below-model": ["remove-barrier", "ke-shading"]
+    "below-model": ["remove-barrier"]
   },
     "template": [
     {
       "id": "below-model",
       "top": "model.bottom",
       "left": "model.left",
-      "width": "interactive.width"
+      "width": "interactive.width",
+      "height": "3em"
     },
     {
       "id": "right-side",
