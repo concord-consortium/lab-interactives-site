@@ -17,7 +17,7 @@
   "about": [
   "You are looking into the particles that make up everything in the world. These particles are always in motion.\n\n", 
   "Look carefully to see how they move. Change temperatures by tapping the buttons, and describe how the motion of the particles changes.\n\n", 
-  "Check \"Mark a Particle\" to highlight a particle to follow.\n\n",
+  "Check \"Mark a Particle\" to highlight a particle to make it easier to follow.\n\n",
   "Check \"Show Particle Speed\" to see the fastest particles red and the slowest ones white."
   ],
   "models": [
@@ -32,7 +32,8 @@
         "    movingAtoms.push(i) };",
         "}",
         "set('movingAtomsIndices', movingAtoms);",
-        "start();"
+        "start();",
+        "set('targetTemperature', 850);"
       ],
       "viewOptions": {
         "controlButtons": "",
