@@ -16,9 +16,8 @@
   "padding": 0,
   "about": [
   "You are looking into the particles that make up everything in the world. These particles are always in motion.\n\n", 
-  "Look carefully to see how they move. Change temperatures by tapping the buttons, and describe how the motion of the particles changes.\n\n", 
-  "Check \"Mark a Particle\" to highlight a particle to make it easier to follow.\n\n",
-  "Check \"Show Particle Speed\" to see the fastest particles red and the slowest ones white."
+  "Look carefully to see how they move. Change temperatures by clicking the Cold, Medium, and Hot buttons, and describe how the motion of the particles changes.\n\n", 
+  "Check \"Mark a Particle\" to highlight a particle to make it easier to follow."
   ],
   "models": [
     {
@@ -126,12 +125,6 @@
     },    
     {
       "type": "checkbox",
-      "id": "ke-shading",
-      "text": "Show Particle Speed",
-      "property": "keShading"
-    },
-    {
-      "type": "checkbox",
       "id": "particle-mark",
       "text": "Mark a Particle",
       "property": "highlight-random-particle"
@@ -141,7 +134,7 @@
   {
     "right-side": [ "bar-graph-reds"],
     "below-model": ["cold-button", "medium-button", "hot-button"],
-    "below-below": ["particle-mark", "ke-shading" ]
+    "below-below": ["particle-mark" ]
   },
     "template": [
     {
@@ -152,7 +145,9 @@
     {
       "id": "below-below",
       "top": "below-model.bottom",
-      "left": "model.left"
+      "left": "model.left",
+      "height": "2em",
+      "padding-left": "1em"
     },
     {
       "id": "right-side",
