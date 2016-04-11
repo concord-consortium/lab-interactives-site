@@ -1,8 +1,11 @@
 {
   "title": "Energy of Bond Formation. (conceptual version)",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "subtitle": "Explore distance and energy of bond formation.",
+  "about": [ "Try dragging the atoms close together and far apart. Observe the relationships between ",
+    "the forces on the atoms, the probability map of where the electrons spend time, ",
+    "and the potential energy of the system."
+  ],
   "aspectRatio": 0.95,
   "models": [{
     "type": "md2d",
