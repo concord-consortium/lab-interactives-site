@@ -34,7 +34,7 @@
     "backgroundColor": "#eeeeee",
     "showClock": false,
     "markColor": "#f8b500",
-    "keShading": true,
+    "keShading": false,
     "chargeShading": false,
     "useThreeLetterCode": true,
     "aminoAcidColorScheme": "hydrophobicity",
@@ -47,18 +47,7 @@
     "electricFieldDensity": 18,
     "electricFieldColor": "auto",
     "showAtomTrace": false,
-    "images": [
-      {
-        "imageUri": "KE-legend.png",
-        "imageHostIndex": 0,
-        "imageHostType": "",
-        "imageLayer": 1,
-        "imageLayerPosition": 2,
-        "imageX": 0.05,
-        "imageY": 3.4,
-        "visible": true
-      }
-    ],
+    "images": [],
     "imageMapping": {},
     "textBoxes": [
       {

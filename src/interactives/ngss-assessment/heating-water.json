@@ -14,13 +14,9 @@
       "id": "model",
       "url": "models-converted/lab-version/1/md2d/ngss-assessment/water-heating/water-heating.json",
       "viewOptions": {
-        "controlButtons": "play_reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
         "keShadingMinEnergy": 0.1,
         "keShadingMaxEnergy": 0.25,
-        "imageMapping": {
-          "KE-legend.png": "KE-legend.svg"
-        },
         "textBoxes": [
           {
             "text": "Heating...",
@@ -48,6 +44,9 @@
         "});",
         "var maxTemp = 1500;",
         "setComponentDisabled('start-heating', true);",
+        "setComponentDisabled('start-button', false);",
+        "setComponentDisabled('stop-button', true);",
+        "setComponentDisabled('reset-button', true);",
         "callEvery(100, function() {",
         "  if (get('experimentRunning')) {",
         "    var runningTime = get('time') - get('timeExperimentStarted');",
@@ -58,7 +57,10 @@
         "      set('targetTemperature',get('temperature'));",
         "      if (getTextBoxProperties(0).y < 4) setTextBoxProperties(0, {y: 4});",
         "    }",
-        "    if (runningTime > 22000) stop();",
+        "    if (runningTime > 22000) {",
+        "      stop();",
+        "      setComponentDisabled('stop-button',true);",
+        "    }",
         "  } else {",
         "    set('targetTemperature',get('targetTemperature'));",
         "  }",
@@ -104,6 +106,33 @@
       ]
     },
     {
+      "type": "button",
+      "id": "start-button",
+      "text": "Start",
+      "action": [
+        "start();",
+        "setComponentDisabled('reset-button', false);",
+        "setComponentDisabled('stop-button', false);",
+        "setComponentDisabled('start-button', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop-button",
+      "text": "Stop",
+      "action": [
+        "stop();",
+        "setComponentDisabled('start-button',false);",
+        "setComponentDisabled('stop-button',true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-button",
+      "text": "Reset",
+      "action": "reloadModel();"
+    },
+    {
       "type": "graph",
       "id": "keGraph",
       "title": "Average Kinetic Energy of Water Particles",
@@ -111,6 +140,8 @@
       "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
       "fontScaleRelativeToParent": false,
+      "enableZooming": false,
+      "enableAxisScaling": false,
       "ymin": 8.0,
       "ymax": 14,
       "xmax": 50,
@@ -122,7 +153,7 @@
   ],
   "layout": {
     "right": ["keGraph"],
-    "bottom": ["start-heating"]
+    "bottom": ["start-button","stop-button","reset-button","start-heating"]
   },
   "template": [
     {
