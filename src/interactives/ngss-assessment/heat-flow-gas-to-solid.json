@@ -26,10 +26,12 @@
         "  }",
         "}",
         "set('smallAtomsIndices', smallAtoms);",
-        "set('largeAtomsIndices', largeAtoms);"
+        "set('largeAtomsIndices', largeAtoms);",
+        "setComponentDisabled('remove-obstacle',false);"
       ]
     }
   ],
+  "propertiesToRetain": ["timeStepsPerTick"],
   "parameters": [
     {
       "name": "smallAtomsIndices",
@@ -72,6 +74,8 @@
       "xlabel": "Time",
       "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
+      "enableZooming": false,
+      "enableAxisScaling": false,
       "fontScaleRelativeToParent": true,
       "ymin": 100,
       "ymax": 500,
@@ -89,6 +93,7 @@
       "action": [
       "if (getNumberOfObstacles() > 0) {",
         "removeObstacle(0);",
+        "setComponentDisabled('remove-obstacle',true);",
       "}"
       ]
     },
