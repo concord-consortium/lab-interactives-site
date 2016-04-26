@@ -14,13 +14,9 @@
       "id": "model",
       "url": "models-converted/lab-version/1/md2d/ngss-assessment/gas-cooling/gas-cooling.json",
       "viewOptions": {
-        "controlButtons": "play_reset",
-        "controlButtonStyle": "text",
+        "controlButtons": "",
         "keShadingMinEnergy": 0.1,
         "keShadingMaxEnergy": 0.25,
-        "imageMapping": {
-          "KE-legend.png": "KE-legend.svg"
-        },
         "textBoxes": [
           {
             "text": "Cooling...",
@@ -48,22 +44,28 @@
         "});",
         "var minTemp = 1200;",
         "setComponentDisabled('start-cooling', true);",
+        "setComponentDisabled('start-button', false);",
+        "setComponentDisabled('stop-button', true);",
+        "setComponentDisabled('reset-button', true);",
         "callEvery(100, function() {",
         "  if (get('experimentRunning')) {",
         "    var runningTime = get('time') - get('timeExperimentStarted');",
         "    set('experimentTime', runningTime);",
         "    if (get('temperature') > minTemp) {",
-        "      set('targetTemperature',(get('temperature')-20));",
+        "      set('targetTemperature',(get('temperature')-60));",
         "    } else {",
         "      set('targetTemperature',get('temperature'));",
         "      if (getTextBoxProperties(0).y < 4) setTextBoxProperties(0, {y: 4});",
         "    }",
-        "    if (runningTime > 28000) stop();",
+        "    if (runningTime > 28000) {",
+        "      stop();",
+        "      setComponentDisabled('stop-button',true);",
+        "    }",
         "  } else {",
         "    set('targetTemperature',get('targetTemperature'));",
         "  }",
         "});",
-        "set('targetTemperature', 4000);"
+        "set('targetTemperature', 12000);"
       ]
 
     }
@@ -104,12 +106,41 @@
       ]
     },
     {
+      "type": "button",
+      "id": "start-button",
+      "text": "Start",
+      "action": [
+        "start();",
+        "setComponentDisabled('reset-button', false);",
+        "setComponentDisabled('stop-button', false);",
+        "setComponentDisabled('start-button', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop-button",
+      "text": "Stop",
+      "action": [
+        "stop();",
+        "setComponentDisabled('start-button',false);",
+        "setComponentDisabled('stop-button',true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-button",
+      "text": "Reset",
+      "action": "reloadModel();"
+    },
+    {
       "type": "graph",
       "id": "keGraph",
       "title": "Average Kinetic Energy of Helium Particles",
       "xlabel": "Time",
       "ylabel": "Average Kinetic Energy",
       "hideAxisValues": true,
+      "enableZooming": false,
+      "enableAxisScaling": false,
       "fontScaleRelativeToParent": false,
       "ymin": 5.0,
       "ymax": 40,
@@ -122,7 +153,10 @@
   ],
   "layout": {
     "right": ["keGraph"],
-    "bottom": ["start-cooling"]
+    "bottom": [
+      ["start-button","stop-button","reset-button"],
+      ["start-cooling"]
+    ]
   },
   "template": [
     {
