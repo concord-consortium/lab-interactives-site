@@ -3,6 +3,7 @@
   "publicationStatus": "public",
   "subtitle": "Explore the conversion of electric potential energy to thermal energy.",
   "aspectRatio": 1.6,
+  "fontScale": 1,
   "about": [
     "Set the charge of the particles and compare the potential energy of the electric field ",
     "they generate. Try moving them closer and farther apart. Then run the model and see how",
