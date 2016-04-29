@@ -1,0 +1,46 @@
+{
+  "title": "Heat Transfer 3x3",
+  "publicationStatus": "draft",
+  "subtitle": "GRASP",
+  "about": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.75,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "vacuum",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer-micro/model-3x3.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "atomRadiusScale": 1
+      },
+      "onLoad": [
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "KE Shading",
+      "property": "keShading"
+    },
+    {
+      "type": "button",
+      "id": "add-ke",
+      "text": "+",
+      "action": [
+        "addKEToAtoms(0.1, [0]);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "rm-ke",
+      "text": "-",
+      "action": [
+        "setAtomProperties(0, {vx: 0, vy: 0});",
+        "addKEToAtoms(-0.05);"
+      ]
+    }
+  ]
+}
