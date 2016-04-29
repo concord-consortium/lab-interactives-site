@@ -1,5 +1,5 @@
 {
-  "title": "Heat Transfer 3x3",
+  "title": "Heat Transfer Micro V1",
   "publicationStatus": "draft",
   "subtitle": "GRASP",
   "about": "",
@@ -9,7 +9,7 @@
     {
       "type": "md2d",
       "id": "vacuum",
-      "url": "models/lab-version/1/md2d/grasp/heat-transfer-micro/model-3x3.json",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer-micro/model-v1.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "atomRadiusScale": 1
