@@ -1,5 +1,5 @@
 {
-  "title": "Heat Transfer Micro V1",
+  "title": "Heat Transfer Micro V3",
   "publicationStatus": "draft",
   "subtitle": "GRASP",
   "about": "",
@@ -9,13 +9,13 @@
     {
       "type": "md2d",
       "id": "vacuum",
-      "url": "models/lab-version/1/md2d/grasp/heat-transfer-micro/model-v1.json",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer-micro/model-v3.json",
       "viewOptions": {
         "controlButtons": "play_reset",
-        "atomRadiusScale": 1.03
+        "atomRadiusScale": 1.02
       },
       "onLoad": [
-        "var DIST_THRESHOLD = 0.148;",
+        "var DIST_THRESHOLD = 0.147;",
         "var INTERVAL = get('timeStep') * get('timeStepsPerTick') * 3;",
         "var FADE_SPEED = 0.01666;",
         "var POINT_SIZE = 0.018;",
@@ -112,6 +112,7 @@
       "id": "add-ke",
       "text": "+",
       "action": [
+        "setAtomProperties(0, {vy: 0});",
         "addKEToAtoms(0.1, [0]);"
       ]
     },
