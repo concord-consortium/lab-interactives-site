@@ -31,7 +31,7 @@
         "Charge of rubbed object"
       ],
       "initialData": {
-        "Objects that were rubbed together": ["T1 - Teflon rod", "T1 - fur","T2 - glass rod", "T2 - silk", "T2 - plastic bottle", "T3 - fur", "T4 - plastic bottle", "T4 - silk"],
+        "Objects that were rubbed together": ["T1 - Teflon rod", "T1 - fur","T2 - glass rod", "T2 - silk", "T3 - plastic bottle", "T3 - fur", "T4 - plastic bottle", "T4 - silk"],
         "Interaction with positive tape": ["attract", "repel", "repel", "attract", "attract", "repel", "attract", "repel"],
         "Interaction with negative tape": ["repel", "attract", "attract", "repel", "repel", "attract", "repel", "attract"]
       }
