@@ -112,7 +112,7 @@
       "id": "add-ke",
       "text": "+",
       "action": [
-        "addKEToAtoms(10);"
+        "addKEToAtoms(1, [0]);"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "id": "rm-ke",
       "text": "-",
       "action": [
-        "addKEToAtoms(-10);"
+        "setAtomProperties(0, {vx: 0, vy: 0});"
       ]
     }
   ]
