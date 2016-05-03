@@ -141,6 +141,14 @@
       0,
       0,
       0
+    ],
+    "draggableWhenStopped": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ]
   },
   "restraints": {

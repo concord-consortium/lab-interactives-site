@@ -15,6 +15,10 @@
         "atomRadiusScale": 1.10
       },
       "onLoad": [
+        "onClick('atom', function(x, y, atom) {",
+        "  markAtoms([atom.idx]);",
+        "});",
+        "",
         "var DIST_THRESHOLD = 0.1575;",
         "var INTERVAL = get('timeStep') * get('timeStepsPerTick') * 3;",
         "var FADE_SPEED = 0.01666;",
