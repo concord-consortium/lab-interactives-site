@@ -1,0 +1,81 @@
+{
+  "title": "Dissolving",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "aspectRatio": 1.18,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-only.json",
+      "viewOptions": {
+        "controlButtons": "play"
+      },
+      "onLoad": [
+        "setComponentDisabled('add-water', false);"
+      ]
+    },
+    {
+      "type": "md2d",
+      "id": "salt-and-water",
+      "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-and-water.json",
+      "viewOptions": {
+        "controlButtons": "play"
+      },
+      "modelOptions": {
+        "timeStep": 0.75
+      },
+      "onLoad": [
+        "start();",
+        "setComponentDisabled('add-water', true);"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "fakePE",
+      "value": [
+        "var pe = get('potentialEnergy');",
+        "if (pe < 0) pe *= -0.2;",
+        "return pe;"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredPE",
+      "property": "fakePE"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-water",
+      "text": "Add water",
+      "action": "loadModel('salt-and-water')"
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": "loadModel('salt')"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-interactions",
+      "text": "Show interactions between atoms",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "barGraph",
+      "id": "pe",
+      "property": "filteredPE",
+      "labels": 0,
+      "title": "Potential Energy"
+    }
+  ],
+  "layout": {
+    "bottom": ["add-water", "reset", "show-interactions"],
+    "right": ["pe"]
+  }
+}
