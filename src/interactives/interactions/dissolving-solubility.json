@@ -2,17 +2,23 @@
   "title": "Dissolving",
   "publicationStatus": "draft",
   "labEnvironment": "production",
-  "aspectRatio": 1.18,
+  "aspectRatio": 1.1,
   "models": [
     {
       "type": "md2d",
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-only.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": ""
       },
       "onLoad": [
-        "setComponentDisabled('add-water', false);"
+        "setComponentDisabled('add-water', false);",
+        "onStart(function () {",
+        "  set('playing', true);",
+        "});",
+        "onStop(function () {",
+        "  set('playing', false);",
+        "});"
       ]
     },
     {
@@ -20,14 +26,29 @@
       "id": "salt-and-water",
       "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-and-water.json",
       "viewOptions": {
-        "controlButtons": "play"
+        "controlButtons": ""
       },
       "modelOptions": {
         "timeStep": 0.75
       },
       "onLoad": [
-        "start();",
-        "setComponentDisabled('add-water', true);"
+        "setComponentDisabled('add-water', true);",
+        "onStart(function () {",
+        "  set('playing', true);",
+        "});",
+        "onStop(function () {",
+        "  set('playing', false);",
+        "});",
+        "start();"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "playing",
+      "initialValue": false,
+      "onChange": [
+        "setComponentAttributes('play-stop', {text: value ? 'Stop' : 'Play'});"
       ]
     }
   ],
@@ -50,15 +71,21 @@
   "components": [
     {
       "type": "button",
-      "id": "add-water",
-      "text": "Add water",
-      "action": "loadModel('salt-and-water')"
+      "id": "play-stop",
+      "text": "Play",
+      "action": "if (get('playing')) stop(); else start();"
     },
     {
       "type": "button",
       "id": "reset",
       "text": "Reset",
       "action": "loadModel('salt')"
+    },
+    {
+      "type": "button",
+      "id": "add-water",
+      "text": "Add water",
+      "action": "loadModel('salt-and-water')"
     },
     {
       "type": "checkbox",
@@ -75,7 +102,27 @@
     }
   ],
   "layout": {
-    "bottom": ["add-water", "reset", "show-interactions"],
+    "bottom": [
+      ["play-stop", "reset", "add-water"],
+      ["show-interactions"]
+    ],
     "right": ["pe"]
-  }
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    },
+    {
+    "id": "bottom",
+    "top": "right.bottom",
+    "left": "model.left",
+    "width": "interactive.width",
+    "padding-top": "0.5em"
+    }
+  ]
 }
