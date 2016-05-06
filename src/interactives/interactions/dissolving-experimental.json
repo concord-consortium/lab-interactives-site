@@ -1,0 +1,162 @@
+{
+  "title": "Dissolving Experimental",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "aspectRatio": 0.95,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/dissolving-experimental/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "greenCharge",
+      "initialValue": 0.75,
+      "onChange": [
+        "batch(function () {",
+        "  var count = getNumberOfAtoms();",
+        "  for (var i = 0; i < count; i++) {",
+        "    var a = getAtomProperties(i);",
+        "    if (a.element === 0) {",
+        "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
+        "    }",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "name": "redCharge",
+      "initialValue": 0.75,
+      "onChange": [
+        "batch(function () {",
+        "  var count = getNumberOfAtoms();",
+        "  for (var i = 0; i < count; i++) {",
+        "    var a = getAtomProperties(i);",
+        "    if (a.element === 2) {",
+        "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
+        "    }",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredPE",
+      "property": "potentialEnergy"
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "show-shading",
+      "text": "Show charge shading",
+      "property": "chargeShading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-interactions",
+      "text": "Show interactions between atoms",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "slider",
+      "id": "red-charge",
+      "property": "redCharge",
+      "min": 0.001,
+      "max": 4,
+      "steps": 20,
+      "title": "Set polarity of red molecules",
+      "labels": [
+        {
+          "value": 0.001,
+          "label": "none"
+        },
+        {
+          "value": 4,
+          "label": "high"
+        }
+      ],
+      "width": "20em"
+    },
+    {
+      "type": "slider",
+      "id": "green-charge",
+      "property": "greenCharge",
+      "min": 0.001,
+      "max": 4,
+      "steps": 20,
+      "title": "Set polarity of green molecules",
+      "labels": [
+        {
+          "value": 0.001,
+          "label": "none"
+        },
+        {
+          "value": 4,
+          "label": "high"
+        }
+      ],
+      "width": "20em"
+    },
+    {
+      "type": "checkbox",
+      "id": "temp-control",
+      "text": "Temperature control",
+      "property": "temperatureControl"
+    },
+    {
+      "type": "slider",
+      "id": "target-temp",
+      "property": "targetTemperature",
+      "min": 1,
+      "max": 10000,
+      "steps": 100,
+      "title": "Target temperature",
+      "displayValue": "return value.toFixed(0)",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 10000,
+          "label": "10000"
+        }
+      ],
+      "width": "20em"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["show-shading", "show-interactions"],
+      ["red-charge"],
+      ["green-charge"],
+      ["temp-control"],
+      ["target-temp"]
+    ],
+    "right": []
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "right.bottom",
+      "left": "model.left",
+      "width": "interactive.width",
+      "padding-top": "0.5em"
+    }
+  ]
+}
