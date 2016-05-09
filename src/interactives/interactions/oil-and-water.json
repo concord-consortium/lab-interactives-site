@@ -1,0 +1,89 @@
+{
+  "title": "Oil and Water",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "aspectRatio": 1.7,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/oil-and-water/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "setComponentDisabled('shake', false);"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredPE",
+      "property": "potentialEnergy"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "shake",
+      "text": "Mix and shake up",
+      "action": [
+        "removeObstacle(0);",
+        "set({targetTemperature: 10000, temperatureControl: true});",
+        "var currentTime = get('time');",
+        "var currentTemp = get('temperature');",
+        "callAt(currentTime + 7000, function() {",
+        "  set('targetTemperature', currentTemp);",
+        "});",
+        "callAt(currentTime + 7500, function() {",
+        "  set('temperatureControl', false);",
+        "});",
+        "setComponentDisabled('shake', true);"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "pe-graph",
+      "title": "",
+      "xlabel": "Time (s)",
+      "ylabel": "Potential Energy",
+      "ymin": -12,
+      "ymax": 12,
+      "xmax": 10,
+      "xTickCount": 4,
+      "yTickCount": 4,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "properties": [
+        "filteredPE"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right",
+      "width": "model.width * 0.6",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "right.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "shake"
+    ],
+    "right": [
+      "pe-graph"
+    ]
+  }
+}
