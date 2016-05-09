@@ -1,0 +1,97 @@
+{
+  "title": "Molecule Sorting",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "aspectRatio": 1.45,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/molecular-sorting/model.json",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "onLoad": [
+        "start();",
+        "callEvery(50, function() {",
+        "  batch(function() {",
+        "    var BY = get('height') * 0.5;",
+        "    var FORCE_RATIO = 0.00005;",
+        "    for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "      var a = getAtomProperties(i);",
+        "      if (a.element === 1) {",
+        "        if (Math.abs(a.y - BY) > 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * (a.y - BY), friction: 0.03});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0, friction: 0});",
+        "        }",
+        "      }",
+        "      else if (a.element === 2) {",
+        "        if (a.y < BY - 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * -0.2});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0});",
+        "        }",
+        "      }",
+        "      else if (a.element === 3) {",
+        "        if (a.y > BY + 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * 0.2});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0});",
+        "        }",
+        "      }",
+        "      if (a.x < 0.3 && Math.abs(a.y - 1.25 < 0.2)) {",
+        "        // make sure that atoms don't get stuck behind the small rectangle and don't block new atoms",
+        "        setAtomProperties(i, {vx: 0.0004});",
+        "      }",
+        "    }",
+        "  });",
+        "})"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "insert-molecule",
+      "text": "Insert a molecule",
+      "action": [
+        "var element = Math.floor(Math.random() * 3) + 1;",
+        "addAtom({element: element, x: 0.1, y: 1.25, vy: Math.random() * 0.0008 - 0.0004});"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": [
+        "reloadModel();"
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "right.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "insert-molecule", "reset"
+    ],
+    "right": [
+    ]
+  }
+}
