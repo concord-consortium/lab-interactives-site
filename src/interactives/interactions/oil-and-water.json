@@ -2,7 +2,7 @@
   "title": "Oil and Water",
   "publicationStatus": "draft",
   "labEnvironment": "production",
-  "aspectRatio": 1.7,
+  "aspectRatio": 1.45,
   "models": [
     {
       "type": "md2d",
@@ -16,10 +16,49 @@
       ]
     }
   ],
+  "parameters": [
+    {
+      "name": "initialTemp",
+      "initialValue": 800,
+      "onChange": "set('targetTemperature', value)"
+    },
+    {
+      "name": "timeoutID",
+      "initialValue": null
+    },
+    {
+      "name": "fastForward",
+      "initialValue": false,
+      "onChange": "set('timeStep', value ? 7 : 1);"
+    },
+    {
+      "name": "shaking",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  start();",
+        "  if (getNumberOfObstacles() > 0) removeObstacle(0);",
+        "  set('targetTemperature', 15000);",
+        "  setComponentAttributes('shake', {text: 'Stop shaking'});",
+        "  var timeoutID = setTimeout(function() {",
+        "    if (timeoutID !== get('timeoutID')) return; // can't call clearTimeout in scripts...",
+        "    set('shaking', false);",
+        "    set('timeoutID', null);",
+        "  }, 30000);",
+        "  set('timeoutID', timeoutID);",
+        "} else {",
+        "  set('targetTemperature', get('initialTemp'));",
+        "  setComponentAttributes('shake', {text: 'Mix and shake up'});",
+        "  set('timeoutID', null);",
+        "}"
+      ]
+    }
+  ],
   "filteredOutputs": [
     {
       "name": "filteredPE",
-      "property": "potentialEnergy"
+      "property": "potentialEnergy",
+      "period": 5000
     }
   ],
   "components": [
@@ -28,35 +67,23 @@
       "id": "shake",
       "text": "Mix and shake up",
       "action": [
-        "removeObstacle(0);",
-        "set({targetTemperature: 10000, temperatureControl: true});",
-        "var currentTime = get('time');",
-        "var currentTemp = get('temperature');",
-        "callAt(currentTime + 7000, function() {",
-        "  set('targetTemperature', currentTemp);",
-        "});",
-        "callAt(currentTime + 7500, function() {",
-        "  set('temperatureControl', false);",
-        "});",
-        "setComponentDisabled('shake', true);"
+        "set('shaking', !get('shaking'));"
       ]
     },
     {
-      "type": "graph",
+      "type": "checkbox",
+      "id": "fast-forward",
+      "text": "Fast forward",
+      "property": "fastForward"
+    },
+    {
+      "type": "barGraph",
       "id": "pe-graph",
-      "title": "",
-      "xlabel": "Time (s)",
-      "ylabel": "Potential Energy",
-      "ymin": -12,
-      "ymax": 12,
-      "xmax": 10,
-      "xTickCount": 4,
-      "yTickCount": 4,
-      "xFormatter": ".2r",
-      "yFormatter": ".2s",
-      "properties": [
-        "filteredPE"
-      ]
+      "property": "filteredPE",
+      "labels": 0,
+      "title": "Potential Energy",
+      "min": -25,
+      "max": -10
     }
   ],
   "template": [
@@ -65,7 +92,6 @@
       "top": "model.top",
       "bottom": "model.bottom",
       "left": "model.right",
-      "width": "model.width * 0.6",
       "padding-left": "1em",
       "padding-right": "1em"
     },
@@ -80,7 +106,7 @@
   ],
   "layout": {
     "bottom": [
-      "shake"
+      "shake", "fast-forward"
     ],
     "right": [
       "pe-graph"
