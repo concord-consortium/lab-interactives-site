@@ -10,13 +10,31 @@
       "url": "models/lab-version/1/md2d/interactions/dissolving-experimental/model.json",
       "viewOptions": {
         "controlButtons": "play_reset"
-      }
+      },
+      "onLoad": [
+        "setComponentDisabled('red-charge', false);",
+        "setComponentDisabled('green-charge', false);",
+        "onStart(function () {",
+        "  setComponentDisabled('red-charge', true);",
+        "  setComponentDisabled('green-charge', true);",
+        "});"
+      ]
     }
   ],
   "parameters": [
     {
+      "name": "minCharge",
+      "initialValue": 1000,
+      "onChange": [
+        "var temp = 400;",
+        "if (value > 0.4) temp = 650;",
+        "if (value > 0.8) temp = 1500;",
+        "set('targetTemperature', temp)"
+      ]
+    },
+    {
       "name": "greenCharge",
-      "initialValue": 0.75,
+      "initialValue": 0.5,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
@@ -26,12 +44,13 @@
         "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
         "    }",
         "  }",
+        "set('minCharge', Math.min(value, get('redCharge')));",
         "});"
       ]
     },
     {
       "name": "redCharge",
-      "initialValue": 0.75,
+      "initialValue": 0.5,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
@@ -41,8 +60,14 @@
         "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
         "    }",
         "  }",
+        "set('minCharge', Math.min(value, get('greenCharge')));",
         "});"
       ]
+    },
+    {
+      "name": "fastForward",
+      "initialValue": false,
+      "onChange": "set('timeStep', value ? 7 : 1);"
     }
   ],
   "filteredOutputs": [
@@ -68,9 +93,9 @@
       "type": "slider",
       "id": "red-charge",
       "property": "redCharge",
-      "min": 0.001,
-      "max": 4,
-      "steps": 20,
+      "min": 0.0001,
+      "max": 1.0,
+      "steps": 2,
       "title": "Set polarity of red molecules",
       "labels": [
         {
@@ -78,7 +103,11 @@
           "label": "none"
         },
         {
-          "value": 4,
+          "value": 0.5,
+          "label": "medium"
+        },
+        {
+          "value": 1.0,
           "label": "high"
         }
       ],
@@ -88,9 +117,9 @@
       "type": "slider",
       "id": "green-charge",
       "property": "greenCharge",
-      "min": 0.001,
-      "max": 4,
-      "steps": 20,
+      "min": 0.0001,
+      "max": 1.0,
+      "steps": 2,
       "title": "Set polarity of green molecules",
       "labels": [
         {
@@ -98,7 +127,11 @@
           "label": "none"
         },
         {
-          "value": 4,
+          "value": 0.5,
+          "label": "medium"
+        },
+        {
+          "value": 1.0,
           "label": "high"
         }
       ],
@@ -106,17 +139,17 @@
     },
     {
       "type": "checkbox",
-      "id": "temp-control",
-      "text": "Temperature control",
-      "property": "temperatureControl"
+      "id": "fast-forward",
+      "text": "Fast forward",
+      "property": "fastForward"
     },
     {
       "type": "slider",
       "id": "target-temp",
       "property": "targetTemperature",
       "min": 1,
-      "max": 10000,
-      "steps": 100,
+      "max": 2000,
+      "steps": 199,
       "title": "Target temperature",
       "displayValue": "return value.toFixed(0)",
       "labels": [
@@ -125,8 +158,8 @@
           "label": "1"
         },
         {
-          "value": 10000,
-          "label": "10000"
+          "value": 2000,
+          "label": "2000"
         }
       ],
       "width": "20em"
@@ -137,7 +170,7 @@
       ["show-shading", "show-interactions"],
       ["red-charge"],
       ["green-charge"],
-      ["temp-control"],
+      ["fast-forward"],
       ["target-temp"]
     ],
     "right": []
