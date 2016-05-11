@@ -14,10 +14,9 @@
       "onLoad": [
         "setComponentDisabled('red-charge', false);",
         "setComponentDisabled('green-charge', false);",
-        "onStart(function () {",
-        "  setComponentDisabled('red-charge', true);",
-        "  setComponentDisabled('green-charge', true);",
-        "});"
+        "set('targetTemperature', 1829);",
+        "set('redEpsilon', 0.317);",
+        "set('greenEpsilon', 0.317);"
       ]
     }
   ],
@@ -26,15 +25,18 @@
       "name": "minCharge",
       "initialValue": 1000,
       "onChange": [
-        "var temp = 400;",
-        "if (value > 0.4) temp = 650;",
-        "if (value > 0.8) temp = 1500;",
-        "set('targetTemperature', temp)"
+        "if (get('redCharge') !== get('greenCharge')) {",
+        "  setPairwiseLJProperties(0, 2, {epsilon: -0.2});",
+        "} else {",
+        "  (get('redCharge') === 1 ? setPairwiseLJProperties(0, 2, {epsilon: -0.1}) : setPairwiseLJProperties(0, 2, {epsilon: -0.317}));",
+        "}",
+        "(get('redCharge') === 1) ? set('redEpsilon', 0.1) : set('redEpsilon',0.317);",
+        "(get('greenCharge') === 1) ? set('greenEpsilon', 0.1) : set('greenEpsilon',0.317);"       
       ]
     },
     {
       "name": "greenCharge",
-      "initialValue": 0.5,
+      "initialValue": 0.0001,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
@@ -50,7 +52,7 @@
     },
     {
       "name": "redCharge",
-      "initialValue": 0.5,
+      "initialValue": 0.0001,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
@@ -68,14 +70,20 @@
       "name": "fastForward",
       "initialValue": false,
       "onChange": "set('timeStep', value ? 7 : 1);"
-    }
-  ],
-  "filteredOutputs": [
+    },
     {
-      "name": "filteredPE",
-      "property": "potentialEnergy"
+      "name": "greenEpsilon",
+      "initialValue": 0.1,
+      "onChange": ["setElementProperties(0, { epsilon: -value });"
+        ]
+    },
+    {
+      "name": "redEpsilon",
+      "initialValue": 0.1,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
     }
   ],
+  "filteredOutputs": [],
   "components": [
     {
       "type": "checkbox",
@@ -148,7 +156,7 @@
       "id": "target-temp",
       "property": "targetTemperature",
       "min": 1,
-      "max": 2000,
+      "max": 3000,
       "steps": 199,
       "title": "Target temperature",
       "displayValue": "return value.toFixed(0)",
@@ -158,11 +166,51 @@
           "label": "1"
         },
         {
-          "value": 2000,
-          "label": "2000"
+          "value": 3000,
+          "label": "3000"
         }
       ],
       "width": "20em"
+    },
+    {
+      "type": "slider",
+      "id": "epsilon-slider1",
+      "min": 0.075,
+      "max": 2,
+      "displayValue": "return format('.3f')(value)",
+      "labels": [
+        {
+          "value": 0.075,
+          "label": "Weak"
+        },
+        {
+          "value": 2,
+          "label": "Strong"
+        }
+      ],
+      "steps": 199,
+      "title": "Green VDW",
+      "property": "greenEpsilon"
+    },
+    {
+      "type": "slider",
+      "id": "epsilon-slider2",
+      "min": 0.075,
+      "max": 2,
+      "displayValue": "return format('.3f')(value)",
+      "labels": [
+        {
+          "value": 0.075,
+          "label": "Weak"
+        },
+        {
+          "value": 2,
+          "label": "Strong"
+        }
+      ],
+      "steps": 199,
+      "title": "Red VDW",
+      "property": "redEpsilon"
     }
   ],
   "layout": {
@@ -171,7 +219,8 @@
       ["red-charge"],
       ["green-charge"],
       ["fast-forward"],
-      ["target-temp"]
+      ["target-temp"],
+      ["epsilon-slider1","epsilon-slider2"]
     ],
     "right": []
   },
