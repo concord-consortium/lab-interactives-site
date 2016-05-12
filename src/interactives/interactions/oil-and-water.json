@@ -29,7 +29,7 @@
     {
       "name": "fastForward",
       "initialValue": false,
-      "onChange": "set('timeStep', value ? 7 : 1);"
+      "onChange": "set('timeStep', value ? 6 : 1);"
     },
     {
       "name": "shaking",
@@ -82,8 +82,8 @@
       "property": "filteredPE",
       "labels": 0,
       "title": "Potential Energy",
-      "min": -25,
-      "max": -10
+      "min": -37,
+      "max": -30
     }
   ],
   "template": [
