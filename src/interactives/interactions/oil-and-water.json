@@ -29,7 +29,7 @@
     {
       "name": "fastForward",
       "initialValue": false,
-      "onChange": "set('timeStep', value ? 6 : 1);"
+      "onChange": "set('timeStep', value ? 5 : 1);"
     },
     {
       "name": "shaking",
