@@ -2,7 +2,7 @@
   "title": "Dissolving Experimental",
   "publicationStatus": "draft",
   "labEnvironment": "production",
-  "aspectRatio": 0.95,
+  "aspectRatio": 1.2,
   "models": [
     {
       "type": "md2d",
@@ -12,10 +12,8 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "setComponentDisabled('red-charge', false);",
-        "setComponentDisabled('green-charge', false);",
         "set('targetTemperature', 1829);",
-        "set('redEpsilon', 0.317);",
+        "set('purpleEpsilon', 0.317);",
         "set('greenEpsilon', 0.317);"
       ]
     }
@@ -25,12 +23,12 @@
       "name": "minCharge",
       "initialValue": 1000,
       "onChange": [
-        "if (get('redCharge') !== get('greenCharge')) {",
+        "if (get('purpleCharge') !== get('greenCharge')) {",
         "  setPairwiseLJProperties(0, 2, {epsilon: -0.2});",
         "} else {",
-        "  (get('redCharge') === 1 ? setPairwiseLJProperties(0, 2, {epsilon: -0.1}) : setPairwiseLJProperties(0, 2, {epsilon: -0.317}));",
+        "  (get('purpleCharge') === 1 ? setPairwiseLJProperties(0, 2, {epsilon: -0.1}) : setPairwiseLJProperties(0, 2, {epsilon: -0.317}));",
         "}",
-        "(get('redCharge') === 1) ? set('redEpsilon', 0.1) : set('redEpsilon',0.317);",
+        "(get('purpleCharge') === 1) ? set('purpleEpsilon', 0.1) : set('purpleEpsilon',0.317);",
         "(get('greenCharge') === 1) ? set('greenEpsilon', 0.1) : set('greenEpsilon',0.317);"       
       ]
     },
@@ -46,12 +44,12 @@
         "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
         "    }",
         "  }",
-        "set('minCharge', Math.min(value, get('redCharge')));",
+        "set('minCharge', Math.min(value, get('purpleCharge')));",
         "});"
       ]
     },
     {
-      "name": "redCharge",
+      "name": "purpleCharge",
       "initialValue": 0.0001,
       "onChange": [
         "batch(function () {",
@@ -74,11 +72,10 @@
     {
       "name": "greenEpsilon",
       "initialValue": 0.1,
-      "onChange": ["setElementProperties(0, { epsilon: -value });"
-        ]
+      "onChange": "setElementProperties(0, { epsilon: -value });"
     },
     {
-      "name": "redEpsilon",
+      "name": "purpleEpsilon",
       "initialValue": 0.1,
       "onChange": "setElementProperties(2, { epsilon: -value });"
     }
@@ -99,12 +96,12 @@
     },
     {
       "type": "slider",
-      "id": "red-charge",
-      "property": "redCharge",
+      "id": "purple-charge",
+      "property": "purpleCharge",
       "min": 0.0001,
       "max": 1.0,
       "steps": 2,
-      "title": "Set polarity of red molecules",
+      "title": "Set polarity of purple molecules",
       "labels": [
         {
           "value": 0.001,
@@ -119,7 +116,7 @@
           "label": "high"
         }
       ],
-      "width": "20em"
+      "width": "45%"
     },
     {
       "type": "slider",
@@ -143,84 +140,19 @@
           "label": "high"
         }
       ],
-      "width": "20em"
+      "width": "45%"
     },
     {
       "type": "checkbox",
       "id": "fast-forward",
       "text": "Fast forward",
       "property": "fastForward"
-    },
-    {
-      "type": "slider",
-      "id": "target-temp",
-      "property": "targetTemperature",
-      "min": 1,
-      "max": 3000,
-      "steps": 199,
-      "title": "Target temperature",
-      "displayValue": "return value.toFixed(0)",
-      "labels": [
-        {
-          "value": 1,
-          "label": "1"
-        },
-        {
-          "value": 3000,
-          "label": "3000"
-        }
-      ],
-      "width": "20em"
-    },
-    {
-      "type": "slider",
-      "id": "epsilon-slider1",
-      "min": 0.075,
-      "max": 2,
-      "displayValue": "return format('.3f')(value)",
-      "labels": [
-        {
-          "value": 0.075,
-          "label": "Weak"
-        },
-        {
-          "value": 2,
-          "label": "Strong"
-        }
-      ],
-      "steps": 199,
-      "title": "Green VDW",
-      "property": "greenEpsilon"
-    },
-    {
-      "type": "slider",
-      "id": "epsilon-slider2",
-      "min": 0.075,
-      "max": 2,
-      "displayValue": "return format('.3f')(value)",
-      "labels": [
-        {
-          "value": 0.075,
-          "label": "Weak"
-        },
-        {
-          "value": 2,
-          "label": "Strong"
-        }
-      ],
-      "steps": 199,
-      "title": "Red VDW",
-      "property": "redEpsilon"
     }
   ],
   "layout": {
     "bottom": [
-      ["show-shading", "show-interactions"],
-      ["red-charge"],
-      ["green-charge"],
-      ["fast-forward"],
-      ["target-temp"],
-      ["epsilon-slider1","epsilon-slider2"]
+      ["purple-charge", "green-charge"],
+      ["show-shading", "show-interactions", "fast-forward"]
     ],
     "right": []
   },
