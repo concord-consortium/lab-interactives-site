@@ -113,13 +113,13 @@
       "type": "slider",
       "id": "purple-charge",
       "property": "purpleCharge",
-      "min": 0.0001,
+      "min": 0,
       "max": 1.0,
       "steps": 2,
       "title": "Set polarity of purple molecules",
       "labels": [
         {
-          "value": 0.001,
+          "value": 0,
           "label": "none"
         },
         {
