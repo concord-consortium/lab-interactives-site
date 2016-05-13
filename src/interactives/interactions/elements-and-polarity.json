@@ -12,7 +12,8 @@
       "viewOptions": {
         "aspectRatio": 1.8,
         "controlButtons": ""
-      }
+      },
+      "onLoad": "post('jsmolScript', 'set background black;');"
     }
   ],
   "parameters": [
@@ -39,7 +40,7 @@
         "  script += ' wireframe 0.15; cpk 20%; isosurface off;';",
         "}",
         "if (!get('isosurfaceGenerated') && (value === 'isosurface-opaque' || value === 'isosurface-transparent')) {",
-        "  script += 'isosurface molecular color range all colorscheme rwb map mep;'",
+        "  script += 'isosurface molecular color range -0.25 0.25 colorscheme rwb map mep;'",
         "  set('isosurfaceGenerated', true);",
         "}",
         "if (value === 'isosurface-opaque') {",
@@ -55,7 +56,7 @@
       "name": "labels",
       "initialValue": false,
       "onChange": [
-        "post('jsmolScript', 'labels ' + (value ? 'on' : 'off') + ';');"
+        "post('jsmolScript', value ? 'label %e; set labelOffset 0 0; color labels green; font labels 15;' : 'labels off;');"
       ]
     }
   ],
