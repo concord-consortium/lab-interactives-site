@@ -20,6 +20,11 @@
   ],
   "parameters": [
     {
+      "name": "chargeSign",
+      "initialValue": [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1,
+                       -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1]
+    },
+    {
       "name": "minCharge",
       "initialValue": 1000,
       "onChange": [
@@ -34,14 +39,15 @@
     },
     {
       "name": "greenCharge",
-      "initialValue": 0.0001,
+      "initialValue": 0,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
+        "  var chargeSign = get('chargeSign');",
         "  for (var i = 0; i < count; i++) {",
         "    var a = getAtomProperties(i);",
         "    if (a.element === 0) {",
-        "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
+        "      setAtomProperties(i, {charge: chargeSign[i] * value});",
         "    }",
         "  }",
         "set('minCharge', Math.min(value, get('purpleCharge')));",
@@ -50,14 +56,15 @@
     },
     {
       "name": "purpleCharge",
-      "initialValue": 0.0001,
+      "initialValue": 0,
       "onChange": [
         "batch(function () {",
         "  var count = getNumberOfAtoms();",
+        "  var chargeSign = get('chargeSign');",
         "  for (var i = 0; i < count; i++) {",
         "    var a = getAtomProperties(i);",
         "    if (a.element === 2) {",
-        "      setAtomProperties(i, {charge: a.charge < 0 ? -1 * value : value});",
+        "      setAtomProperties(i, {charge: chargeSign[i] * value});",
         "    }",
         "  }",
         "set('minCharge', Math.min(value, get('greenCharge')));",
@@ -78,6 +85,14 @@
       "name": "purpleEpsilon",
       "initialValue": 0.1,
       "onChange": "setElementProperties(2, { epsilon: -value });"
+    },
+    {
+      "name": "chargeShadingAndSymbols",
+      "initialValue": false,
+      "onChange": [
+        "set('chargeShading', value);",
+        "set('showChargeSymbols', value);"
+      ]
     }
   ],
   "filteredOutputs": [],
@@ -86,7 +101,7 @@
       "type": "checkbox",
       "id": "show-shading",
       "text": "Show charge shading",
-      "property": "chargeShading"
+      "property": "chargeShadingAndSymbols"
     },
     {
       "type": "checkbox",
@@ -122,13 +137,13 @@
       "type": "slider",
       "id": "green-charge",
       "property": "greenCharge",
-      "min": 0.0001,
+      "min": 0,
       "max": 1.0,
       "steps": 2,
       "title": "Set polarity of green molecules",
       "labels": [
         {
-          "value": 0.001,
+          "value": 0,
           "label": "none"
         },
         {
