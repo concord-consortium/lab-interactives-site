@@ -13,7 +13,9 @@
         "aspectRatio": 1.8,
         "controlButtons": ""
       },
-      "onLoad": "post('jsmolScript', 'set background black;');"
+      "onLoad": [
+        "post('jsmolScript', 'set background black;');"
+      ]
     }
   ],
   "parameters": [
@@ -28,6 +30,7 @@
         "post('jsmolScript', 'load ' + value + '; rotate BEST;');",
         "set('isosurfaceGenerated', false);",
         "set('viz', get('viz'));",
+        "//setTimeout(function() { set('viz', get('viz')); }, 100);",
         "set('labels', get('labels'));"
       ]
     },
@@ -40,7 +43,9 @@
         "  script += ' wireframe 0.15; cpk 20%; isosurface off;';",
         "}",
         "if (!get('isosurfaceGenerated') && (value === 'isosurface-opaque' || value === 'isosurface-transparent')) {",
-        "  script += 'isosurface molecular color range -0.25 0.25 colorscheme rwb map mep;'",
+        "  script += 'set echo bottom center; font ECHO 20 SansSerif; color ECHO orange; echo \"Generating surface...\"; refresh;';",
+        "  script += 'isosurface molecular color range -0.25 0.25 colorscheme rwb map mep;';",
+        "  script += 'set echo HIDDEN;';",
         "  set('isosurfaceGenerated', true);",
         "}",
         "if (value === 'isosurface-opaque') {",
