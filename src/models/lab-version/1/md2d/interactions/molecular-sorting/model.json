@@ -61,7 +61,6 @@
         "x": 4.37,
         "y": 0.3,
         "layer": 1,
-        "frame": "rounded rectangle",
         "fontSize": 0.12,
         "anchor": "upper-left"
       },
@@ -70,7 +69,6 @@
         "x": 4.56,
         "y": 2.44,
         "layer": 1,
-        "frame": "rounded rectangle",
         "fontSize": 0.12,
         "anchor": "upper-left"
       }
