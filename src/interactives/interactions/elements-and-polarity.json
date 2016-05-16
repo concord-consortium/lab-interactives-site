@@ -54,6 +54,9 @@
         "if (value === 'isosurface-transparent') {",
         "    script += ' isosurface on; isosurface translucent;';",
         "}",
+        "if (value === 'spacefill') {",
+        "    script += ' spacefill 90%;';",
+        "}",
         "post('jsmolScript', script);"
       ]
     },
@@ -123,6 +126,10 @@
         {
           "text": "Surface charge (transparent)",
           "value": "isosurface-transparent"
+        },
+        {
+          "text": "Spacefill",
+          "value": "spacefill"
         }
       ]
     },
