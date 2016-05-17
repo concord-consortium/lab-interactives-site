@@ -1,7 +1,8 @@
 {
   "title": "Elements and Polarity",
   "publicationStatus": "draft",
-  "aspectRatio": 1.3,
+  "aspectRatio": 1.2,
+  "theme": ["invisible-disabled-components"],
   "models": [
     {
       "type": "iframe-model",
@@ -29,18 +30,32 @@
       "onChange": [
         "post('jsmolScript', 'load ' + value + '; rotate BEST;');",
         "set('isosurfaceGenerated', false);",
-        "set('viz', get('viz'));",
-        "//setTimeout(function() { set('viz', get('viz')); }, 100);",
+        "set('atomView', get('atomView'));",
+        "set('surfaceView', get('surfaceView'));",
         "set('labels', get('labels'));"
       ]
     },
     {
-      "name": "viz",
+      "name": "atomView",
       "initialValue": "ball-and-stick",
       "onChange": [
-        "var script = '';",
+        "var script;",
         "if (value === 'ball-and-stick') {",
-        "  script += ' wireframe 0.15; cpk 20%; isosurface off;';",
+        "  script = 'wireframe 0.15; cpk 20%;';",
+        "} else if (value === 'spacefill') {",
+        "  script = 'spacefill 90%;';",
+        "}",
+        "post('jsmolScript', script);"
+      ]
+    },
+    {
+      "name": "surfaceView",
+      "initialValue": "none",
+      "onChange": [
+        "var script = '';",
+        "if (value === 'none') {",
+        "  script += ' isosurface off;';",
+        "  setComponentDisabled('surface-key', true);",
         "}",
         "if (!get('isosurfaceGenerated') && (value === 'isosurface-opaque' || value === 'isosurface-transparent')) {",
         "  script += 'set echo bottom center; font ECHO 20 SansSerif; color ECHO orange; echo \"Generating surface...\"; refresh;';",
@@ -49,13 +64,12 @@
         "  set('isosurfaceGenerated', true);",
         "}",
         "if (value === 'isosurface-opaque') {",
-        "    script += ' isosurface on; isosurface opaque;';",
+        "  script += ' isosurface on; isosurface opaque;';",
+        "  setComponentDisabled('surface-key', false);",
         "}",
         "if (value === 'isosurface-transparent') {",
-        "    script += ' isosurface on; isosurface translucent;';",
-        "}",
-        "if (value === 'spacefill') {",
-        "    script += ' spacefill 90%;';",
+        "  script += ' isosurface on; isosurface translucent;';",
+        "  setComponentDisabled('surface-key', false);",
         "}",
         "post('jsmolScript', script);"
       ]
@@ -73,6 +87,7 @@
       "type": "pulldown",
       "id": "mol",
       "property": "moleculeAndView",
+      "labelOn": "left",
       "label": "Molecule",
       "options": [
         {
@@ -110,22 +125,16 @@
       ]
     },
     {
-      "type": "pulldown",
-      "id": "view",
-      "property": "viz",
-      "label": "View",
+      "type": "radio",
+      "id": "atom-view",
+      "property": "atomView",
+      "label": "Atom view",
+      "labelOn": "left",
+      "orientation": "horizontal",
       "options": [
         {
           "text": "Ball and stick ",
           "value": "ball-and-stick"
-        },
-        {
-          "text": "Surface charge (opaque)",
-          "value": "isosurface-opaque"
-        },
-        {
-          "text": "Surface charge (transparent)",
-          "value": "isosurface-transparent"
         },
         {
           "text": "Spacefill",
@@ -134,10 +143,39 @@
       ]
     },
     {
+      "type": "radio",
+      "id": "surface-view",
+      "property": "surfaceView",
+      "label": "Surface view",
+      "labelOn": "left",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "None",
+          "value": "none"
+        },
+        {
+          "text": "Opaque",
+          "value": "isosurface-opaque"
+        },
+        {
+          "text": "Transparent",
+          "value": "isosurface-transparent"
+        }
+      ]
+    },
+    {
       "type": "checkbox",
       "id": "labels",
       "text": "Label atoms",
       "property": "labels"
+    },
+    {
+      "id": "surface-key",
+      "type": "image",
+      "urlRelativeTo": "page",
+      "src": "interactives/interactions/elements-and-polarity-surface-key.gif",
+      "width": "100%"
     }
   ],
   "template": [
@@ -146,9 +184,19 @@
       "top": "model.bottom",
       "left": "model.left",
       "width": "interactive.width"
+    },
+    {
+      "id": "key",
+      "top": "model.bottom",
+      "right": "model.right",
+      "width": "12em"
     }
   ],
   "layout": {
-    "bottom": ["mol", "view"]
+    "bottom": [
+      ["mol", "labels"],
+      ["atom-view", "surface-view"]
+    ],
+    "key": ["surface-key"]
   }
 }
