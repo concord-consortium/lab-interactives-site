@@ -1,0 +1,96 @@
+{
+  "title": "Micelles",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "aspectRatio": 1.1,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/micelles/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": [
+        "if (value === 'water') {",
+        "  set('backgroundColor', '#A2E0F9');",
+        "  setTextBoxProperties(0, {text: 'Water'})",
+        "  setAtomProperties(3, {charge: 20})",
+        "} else if (value === 'oil') {",
+        "  set('backgroundColor', '#FFE200');",
+        "  setTextBoxProperties(0, {text: 'Oil'})",
+        "  setAtomProperties(3, {charge: -20})",
+        "}"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredPE",
+      "property": "potentialEnergy",
+      "period": 2500
+    }
+  ],
+  "components": [
+    {
+      "type": "barGraph",
+      "id": "pe-graph",
+      "property": "filteredPE",
+      "labels": 0,
+      "title": "Potential Energy",
+      "min": -150,
+      "max": 40
+    },
+    {
+      "type": "radio",
+      "id": "solvent",
+      "property": "solvent",
+      "label": "Set solvent",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Water (polar)",
+          "value": "water"
+        },
+        {
+          "text": "Oil (non-polar)",
+          "value": "oil"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "drag",
+      "property": "onAtomDrag",
+      "label": "",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Move molecule",
+          "value": "translate"
+        },
+        {
+          "text": "Rotate molecule",
+          "value": "rotate"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "pe-graph"
+    ],
+    "bottom": [
+      ["solvent"],
+      ["drag"]
+    ]
+  }
+}
