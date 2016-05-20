@@ -2,7 +2,7 @@
   "title": "Exploring Protein 3D Structure",
   "publicationStatus": "draft",
   "aspectRatio": 1.2,
-  "fontScale": 0.6,
+  "fontScale": 0.95,
   "models": [
     {
       "type": "iframe-model",
@@ -35,9 +35,9 @@
         "function setColor() {",
         "  var value = get('color');",
         "  if (value === 'atom') {",
-        "    return 'select all; color shapely;';",
+        "    return 'select all; color cpk;';",
         "  } else if (value === 'amino-acid') {",
-        "    return 'select all; color monomer;';",
+        "    return 'select all; color shapely;';",
         "  }",
         "}",
         "",
@@ -49,7 +49,7 @@
         "  } else {",
         "    setComponentDisabled('sidechain-only', false);",
         "    if (get('sidechainOnly')) value += ' and sidechain';",
-        "    return 'select all; color translucent 7; color trace translucent 7; select ' + value + '; color opaque; wireframe 0.15; cpk 20%;';",
+        "    return 'select all; color translucent 0.9; color trace translucent 0.9; select ' + value + '; color opaque; wireframe 0.15; cpk 20%;';",
         "  }",
         "}",
         "",
@@ -166,7 +166,7 @@
       "id": "leu",
       "text": "Leucine (Leu)",
       "action": [
-        "set('selectedAminoAcid', 'leu68');",
+        "set('selectedAminoAcid', 'leu68 and sidechain or leu68.ca');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 12 1000 -20 130.25} /* zoom, translation */  764.18 0.0 0.0  /* center, rotationRadius */ {5.6313157894736845 3.6501578947368425 -1.192315789473684} 25.860218057641735 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
       ]
     },
