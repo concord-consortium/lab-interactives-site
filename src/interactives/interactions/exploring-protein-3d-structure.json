@@ -1,0 +1,266 @@
+{
+  "title": "Exploring Protein 3D Structure",
+  "publicationStatus": "draft",
+  "aspectRatio": 1.2,
+  "fontScale": 0.6,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "http://localhost:8080/embeddable.html"
+      },
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "molecule": "models/exploring-protein-3d-structure/1RK9.pdb"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;' +",
+        "                    'script models/exploring-protein-3d-structure/jmol-p2-init.spt;');",
+        "",
+        "function setStyle() {",
+        "  var value = get('style');",
+        "  if (value === 'beads') {",
+        "    return 'isosurface off; select all; restrict none; select protein; trace 0.3; select *.ca; cpk 50%;';",
+        "  } else if (value === 'spacefill') {",
+        "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
+        "  } else if (value === 'ball-and-stick') {",
+        "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
+        "  }",
+        "}",
+
+        "function setColor() {",
+        "  var value = get('color');",
+        "  if (value === 'atom') {",
+        "    return 'select all; color shapely;';",
+        "  } else if (value === 'amino-acid') {",
+        "    return 'select all; color monomer;';",
+        "  }",
+        "}",
+        "",
+        "function setSelectedAA() {",
+        "  var value = get('selectedAminoAcid');",
+        "  if (!value) {",
+        "    setComponentDisabled('sidechain-only', true);",
+        "    return 'select all; color opaque;';",
+        "  } else {",
+        "    setComponentDisabled('sidechain-only', false);",
+        "    if (get('sidechainOnly')) value += ' and sidechain';",
+        "    return 'select all; color translucent 7; color trace translucent 7; select ' + value + '; color opaque; wireframe 0.15; cpk 20%;';",
+        "  }",
+        "}",
+        "",
+        "function setImage(value) {",
+        "  var img = null;",
+        "  if (value === 'beads') img = 'displayBoxBeads.gif';",
+        "  if (value === 'ball-and-stick') img = 'none';",
+        "  if (value === 'spacefill') img = 'displayBoxSpacefill.gif';",
+        "  if (value === 'atom') img = 'colorsBoxElementProtein.gif';",
+        "  if (value === 'amino-acid') img = 'colorsBoxAminoSimple.gif';",
+        "  if (!img) return '';",
+        "  if (img === 'none') return 'set echo off;';",
+        "  return 'set echo off; set echo top center; set echo IMAGE \"models/exploring-protein-3d-structure/' + img + '\"';",
+        "}",
+        "",
+        "function update(propertyName) {",
+        "  var script = setStyle();",
+        "  script += setColor();",
+        "  script += setSelectedAA();",
+        "  script += setImage(propertyName);",
+        "  post('jsmolScript', script);",
+        "}",
+        "",
+        "onPropertyChange('color', update);",
+        "onPropertyChange('style', update);",
+        "onPropertyChange('selectedAminoAcid', update);",
+        "onPropertyChange('sidechainOnly', update);",
+        "",
+        "update(get('style'));"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "style",
+      "initialValue": "beads"
+    },
+    {
+      "name": "color",
+      "initialValue": "atom"
+    },
+    {
+      "name": "selectedAminoAcid",
+      "initialValue": false
+    },
+    {
+      "name": "sidechainOnly",
+      "initialValue": true
+    },
+    {
+      "name": "image",
+      "initialValue": false,
+      "onChange": [
+        "post('jsmolScript', 'set echo off;' + (value ? ' set echo top center; set echo IMAGE \"models/exploring-protein-3d-structure/' + value + '\"' : ''));"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "style",
+      "property": "style",
+      "labelOn": "left",
+      "label": "Style",
+      "options": [
+        {
+          "text": "Simplified “beads”",
+          "value": "beads"
+        },
+        {
+          "text": "All atoms (ball and stick)",
+          "value": "ball-and-stick"
+        },
+        {
+          "text": "All atoms (spacefill)",
+          "value": "spacefill"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "color",
+      "property": "color",
+      "labelOn": "left",
+      "label": "Color",
+      "options": [
+        {
+          "text": "Atom",
+          "value": "atom"
+        },
+        {
+          "text": "Amino acid",
+          "value": "amino-acid"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "build",
+      "text": "Build it",
+      "action": [
+        "post('jsmolScript', 'script models/exploring-protein-3d-structure/jmol-p2-buildAnything.spt');",
+        "setComponentDisabled('build', true);",
+        "setTimeout(function() { setComponentDisabled('build', false); }, 14000)"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "highlight-lbl",
+      "text": "Highlight one of these amino acids"
+    },
+    {
+      "type": "button",
+      "id": "leu",
+      "text": "Leucine (Leu)",
+      "action": [
+        "set('selectedAminoAcid', 'leu68');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 12 1000 -20 130.25} /* zoom, translation */  764.18 0.0 0.0  /* center, rotationRadius */ {5.6313157894736845 3.6501578947368425 -1.192315789473684} 25.860218057641735 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "ser",
+      "text": "Serine (Ser)",
+      "action": [
+        "set('selectedAminoAcid', 'ser110');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -34 965 -259 178.85} /* zoom, translation */  1162.22 0.0 0.0  /* center, rotationRadius */ {-4.897545454545455 -9.39590909090909 -9.201727272727274} 31.098118387407556 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "phe",
+      "text": "Phenylalanine (Phe)",
+      "action": [
+        "set('selectedAminoAcid', 'phe31');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -4 980 -199 157.27} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {0.14570000000000002 -6.731349999999999 -1.5313} 27.287621896265282 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "val",
+      "text": "Valine (Val)",
+      "action": [
+        "set('selectedAminoAcid', 'val107');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 159 -984 78 125.59} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {-3.4149999999999996 -7.9396249999999995 -3.9310000000000005} 27.491454564946096 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "asn",
+      "text": "Asparagine (Asn)",
+      "action": [
+        "set('selectedAminoAcid', 'asn8');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 228 -973 42 66.3} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {10.945500000000001 -10.171142857142858 4.8704285714285716} 37.4745032833543 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "gln",
+      "text": "Glutamine (Gln)",
+      "action": [
+        "set('selectedAminoAcid', 'gln32');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 238 -966 98 125.67} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {2.636117647058824 -11.167117647058824 -5.496647058823529} 30.251880741172403 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-selection",
+      "text": "Show entire protein",
+      "action": [
+        "set('selectedAminoAcid', false);",
+        "post('jsmolScript', 'moveto 1.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "sidechain-only",
+      "property": "sidechainOnly",
+      "text": "Show only sidechain atoms"
+    }
+  ],
+  "template": [
+  {
+    "id": "bottom",
+    "top": "model.bottom",
+    "left": "model.left",
+    "width": "interactive.right",
+    "margin-top": "0.5em"
+  },
+  {
+    "id": "bottom-group",
+    "top": "0.5 * (model.height - bottom-group.height)",
+    "left": "model.right",
+    "border": "1px solid #777",
+    "margin-left": "0.5em",
+    "margin-right": "0.5em",
+    "margin-bottom": "0",
+    "padding": "0 0.5em 0.5em 0.5em"
+  }
+],
+  "layout": {
+    "bottom": [
+      ["style", "color", "build"]
+    ],
+    "bottom-group": [
+      ["highlight-lbl"],
+      ["leu"], ["ser"],
+      ["phe"], ["val"],
+      [ "asn"], ["gln"],
+      ["reset-selection"],
+      ["sidechain-only"]
+    ]
+  }
+}
