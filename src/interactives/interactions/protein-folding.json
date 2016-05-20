@@ -12,7 +12,15 @@
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text",
-        "showClock": false
+        "showClock": false,
+        "images": [
+          {
+            "imageUri": "polarity-key.png",
+            "imageX": 4.9,
+            "imageY": 2.95,
+            "scale": 0.28
+          }
+        ]
       }
     }
   ],
@@ -67,12 +75,6 @@
         "  }",
         "});"
       ]
-    },
-    {
-      "id": "key",
-      "type": "image",
-      "src": "polarity-key.png",
-      "width": "10em"
     }
   ],
   "layout": {
@@ -80,10 +82,6 @@
       [
         "random-protein-button", "mostly-phobic-button", "mostly-philic-button"
       ]
-    ],
-    "right": [
-      "key"
     ]
-  },
-  "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
+  }
 }
