@@ -13,6 +13,12 @@
         "controlButtonStyle": "text"
       },
       "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('drag', true);",
+        "});",
+        "onStop(function() {",
+        "  setComponentDisabled('drag', false);",
+        "});"
       ]
     }
   ],
@@ -33,18 +39,11 @@
       ]
     }
   ],
-  "filteredOutputs": [
-    {
-      "name": "filteredPE",
-      "property": "potentialEnergy",
-      "period": 2500
-    }
-  ],
   "components": [
     {
       "type": "barGraph",
       "id": "pe-graph",
-      "property": "filteredPE",
+      "property": "potentialEnergy",
       "labels": 0,
       "title": "Potential Energy",
       "min": -150,
@@ -55,6 +54,7 @@
       "id": "solvent",
       "property": "solvent",
       "label": "Set solvent",
+      "labelOn": "left",
       "orientation": "horizontal",
       "options": [
         {
@@ -71,7 +71,8 @@
       "type": "radio",
       "id": "drag",
       "property": "onAtomDrag",
-      "label": "",
+      "label": "Interact with molecules",
+      "labelOn": "left",
       "orientation": "horizontal",
       "options": [
         {
