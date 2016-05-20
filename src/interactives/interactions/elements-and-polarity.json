@@ -54,22 +54,20 @@
       "onChange": [
         "var script = '';",
         "if (value === 'none') {",
-        "  script += ' isosurface off;';",
-        "  setComponentDisabled('surface-key', true);",
+        "  script += ' isosurface off; set echo off;';",
         "}",
         "if (!get('isosurfaceGenerated') && (value === 'isosurface-opaque' || value === 'isosurface-transparent')) {",
         "  script += 'set echo bottom center; font ECHO 20 SansSerif; color ECHO orange; echo \"Generating surface...\"; refresh;';",
         "  script += 'isosurface molecular color range -0.25 0.25 colorscheme rwb map mep;';",
-        "  script += 'set echo HIDDEN;';",
-        "  set('isosurfaceGenerated', true);",
+        "  script += 'set echo off;';",
         "}",
         "if (value === 'isosurface-opaque') {",
         "  script += ' isosurface on; isosurface opaque;';",
-        "  setComponentDisabled('surface-key', false);",
+        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.gif\"';",
         "}",
         "if (value === 'isosurface-transparent') {",
         "  script += ' isosurface on; isosurface translucent;';",
-        "  setComponentDisabled('surface-key', false);",
+        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.gif\"';",
         "}",
         "post('jsmolScript', script);"
       ]
@@ -119,7 +117,7 @@
           "value": "models/elements-and-polarity/propanol.mol; translate Z -20%;"
         },
         {
-          "text": "Stearic Acid",
+          "text": "Stearic acid (used in soap)",
           "value": "models/elements-and-polarity/stearic-acid.mol"
         }
       ]
@@ -169,13 +167,6 @@
       "id": "labels",
       "text": "Label atoms",
       "property": "labels"
-    },
-    {
-      "id": "surface-key",
-      "type": "image",
-      "urlRelativeTo": "page",
-      "src": "interactives/interactions/elements-and-polarity-surface-key.gif",
-      "width": "100%"
     }
   ],
   "template": [
@@ -184,19 +175,13 @@
       "top": "model.bottom",
       "left": "model.left",
       "width": "interactive.width"
-    },
-    {
-      "id": "key",
-      "top": "model.bottom",
-      "right": "model.right",
-      "width": "12em"
     }
   ],
   "layout": {
     "bottom": [
       ["mol", "labels"],
-      ["atom-view", "surface-view"]
-    ],
-    "key": ["surface-key"]
+      ["atom-view"],
+      ["surface-view"]
+    ]
   }
 }
