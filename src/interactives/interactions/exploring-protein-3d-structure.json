@@ -8,7 +8,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://localhost:8080/embeddable.html"
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
       },
       "viewOptions": {
         "aspectRatio": 1,
