@@ -9,7 +9,8 @@
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/dissolving-experimental/model.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
       "onLoad": [
         "set('targetTemperature', 1829);",
