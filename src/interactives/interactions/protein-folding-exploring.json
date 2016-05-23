@@ -1,0 +1,100 @@
+{
+  "title": "Protein Folding Exploring",
+  "publicationStatus": "draft",
+  "subtitle": "How do peptides fold into stable conformations?",
+  "fontScale": 0.95,
+  "aspectRatio": 1.3,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "amino-acids$0",
+      "url": "models/lab-version/1/md2d/interactions/protein-folding-exploring/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "showClock": false,
+        "images": [
+          {
+            "imageUri": "polarity-key.png",
+            "imageX": 3.5,
+            "imageY": 2.95,
+            "scale": 0.28
+          }
+        ]
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": "setSolvent(value);"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "random-protein-button",
+      "text": "Generate new random protein",
+      "action": "reloadModel(); generateRandomProtein(40);"
+    },
+    {
+      "type": "button",
+      "id": "all-phobic-button",
+      "text": "Generate all non-polar protein",
+      "action": [
+        "reloadModel();",
+        "batch(function () {",
+        "  generateRandomProtein(40);",
+        "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+        "  var phobic;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+        "    setAtomProperties(i, {element: phobic}, false, false);",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "all-philic-button",
+      "text": "Generate all polar protein",
+      "action": [
+        "reloadModel();",
+        "batch(function () {",
+        "  generateRandomProtein(40);",
+        "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+        "  var philic;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+        "    setAtomProperties(i, {element: philic}, false, false);",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "type": "barGraph",
+      "id": "pe-graph",
+      "property": "potentialEnergy",
+      "labels": 0,
+      "title": "Potential Energy",
+      "min": -40,
+      "max": 30
+    },
+    {
+      "type": "text",
+      "id": "instr",
+      "text": "Use these buttons to create a variety of proteins, or click on an amino acid to change it to a specific one of your choice."
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["random-protein-button"],
+      ["all-phobic-button", "all-philic-button"],
+      ["instr"]
+    ],
+    "right": [
+      "pe-graph"
+    ]
+  }
+}
