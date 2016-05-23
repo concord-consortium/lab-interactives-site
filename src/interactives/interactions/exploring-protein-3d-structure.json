@@ -33,7 +33,7 @@
 
         "function setColor() {",
         "  var value = get('color');",
-        "  if (value === 'atom') {",
+        "  if (value === 'element') {",
         "    return 'select all; color cpk;';",
         "  } else if (value === 'amino-acid') {",
         "    return 'select all; color shapely;';",
@@ -44,7 +44,7 @@
         "  var value = get('selectedAminoAcid');",
         "  if (!value) {",
         "    setComponentDisabled('sidechain-only', true);",
-        "    return 'select all; color opaque;';",
+        "    return 'select all; color opaque; color trace opaque;';",
         "  } else {",
         "    setComponentDisabled('sidechain-only', false);",
         "    var selector = value;",
@@ -59,7 +59,7 @@
         "  if (value === 'beads') img = 'displayBoxBeads.gif';",
         "  if (value === 'ball-and-stick') img = 'none';",
         "  if (value === 'spacefill') img = 'displayBoxSpacefill.gif';",
-        "  if (value === 'atom') img = 'colorsBoxElementProtein.gif';",
+        "  if (value === 'element') img = 'colorsBoxElementProtein.gif';",
         "  if (value === 'amino-acid') img = 'colorsBoxAminoSimple.gif';",
         "  if (!img) return '';",
         "  if (img === 'none') return 'set echo off;';",
@@ -138,8 +138,8 @@
       "label": "Color",
       "options": [
         {
-          "text": "Atom",
-          "value": "atom"
+          "text": "Element",
+          "value": "element"
         },
         {
           "text": "Amino acid",
