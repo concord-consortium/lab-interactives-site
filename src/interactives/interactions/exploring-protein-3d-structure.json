@@ -18,8 +18,7 @@
         "molecule": "models/exploring-protein-3d-structure/1RK9.pdb"
       },
       "onLoad": [
-        "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;' +",
-        "                    'script models/exploring-protein-3d-structure/jmol-p2-init.spt;');",
+        "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
         "",
         "function setStyle() {",
         "  var value = get('style');",
@@ -48,8 +47,10 @@
         "    return 'select all; color opaque;';",
         "  } else {",
         "    setComponentDisabled('sidechain-only', false);",
-        "    if (get('sidechainOnly')) value += ' and sidechain';",
-        "    return 'select all; color translucent 0.9; color trace translucent 0.9; select ' + value + '; color opaque; wireframe 0.15; cpk 20%;';",
+        "    var selector = value;",
+        "    if (get('sidechainOnly')) selector += ' and sidechain';",
+        "    var wireframeSelector = selector + ' or ' + value + '.ca';",
+        "    return 'select all; color translucent 0.9; color trace translucent 0.9; select ' + selector + '; color opaque; select ' + wireframeSelector +'; wireframe 0.15; cpk 20%;';",
         "  }",
         "}",
         "",
@@ -166,8 +167,8 @@
       "id": "leu",
       "text": "Leucine (Leu)",
       "action": [
-        "set('selectedAminoAcid', 'leu68 and sidechain or leu68.ca');",
-        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 12 1000 -20 130.25} /* zoom, translation */  764.18 0.0 0.0  /* center, rotationRadius */ {5.6313157894736845 3.6501578947368425 -1.192315789473684} 25.860218057641735 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+        "set('selectedAminoAcid', 'leu68');",
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 30 999 24 137.65} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {5.6313157894736845 3.6501578947368425 -1.192315789473684} 25.860218057641735 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
       ]
     },
     {
@@ -176,7 +177,7 @@
       "text": "Serine (Ser)",
       "action": [
         "set('selectedAminoAcid', 'ser110');",
-        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -34 965 -259 178.85} /* zoom, translation */  1162.22 0.0 0.0  /* center, rotationRadius */ {-4.897545454545455 -9.39590909090909 -9.201727272727274} 31.098118387407556 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -98 970 223 98.8} /* zoom, translation */  664.5 0.0 0.0  /* center, rotationRadius */ {-4.897545454545455 -9.39590909090909 -9.201727272727274} 31.098118387407556 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
       ]
     },
     {
@@ -185,7 +186,7 @@
       "text": "Phenylalanine (Phe)",
       "action": [
         "set('selectedAminoAcid', 'phe31');",
-        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -4 980 -199 157.27} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {0.14570000000000002 -6.731349999999999 -1.5313} 27.287621896265282 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 28 996 -79 156.6} /* zoom, translation */  379.93 0.0 0.0  /* center, rotationRadius */ {0.14570000000000002 -6.731349999999999 -1.5313} 27.287621896265282 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
       ]
     },
     {
@@ -203,7 +204,7 @@
       "text": "Asparagine (Asn)",
       "action": [
         "set('selectedAminoAcid', 'asn8');",
-        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 228 -973 42 66.3} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {10.945500000000001 -10.171142857142858 4.8704285714285716} 37.4745032833543 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
+        "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 186 -981 64 73.6} /* zoom, translation */  502.46 0.0 0.0  /* center, rotationRadius */ {10.945500000000001 -10.171142857142858 4.8704285714285716} 37.4745032833543 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
       ]
     },
     {
