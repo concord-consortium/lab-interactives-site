@@ -90,7 +90,7 @@
     },
     {
       "name": "color",
-      "initialValue": "atom"
+      "initialValue": "element"
     },
     {
       "name": "selectedAminoAcid",
