@@ -1,0 +1,209 @@
+{
+  "title": "Exploring Hydrophobic Core",
+  "publicationStatus": "draft",
+  "aspectRatio": 0.75,
+  "fontScale": 0.95,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+      },
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
+        "",
+        "function deleteNonProtein() {",
+        "  return 'select not protein; delete selected;';",
+        "}",
+        "",
+        "function setStyle() {",
+        "  var value = get('style');",
+        "  if (value === 'beads') {",
+        "    return 'isosurface off; select all; restrict none; select protein; trace 0.3; select *.ca; cpk 50%;';",
+        "  } else if (value === 'spacefill') {",
+        "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
+        "  } else if (value === 'ball-and-stick') {",
+        "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
+        "  }",
+        "}",
+        "",
+        "function setColor() {",
+        "  var value = get('color');",
+        "  if (value === 'element') {",
+        "    return 'select all; color cpk;';",
+        "  } else if (value === 'amino-acid') {",
+        "    return 'select all; color shapely;';",
+        "  } else if (value === 'polarity') {",
+        "    return 'select polar; color [x488728]; select hydrophobic; color [xE2AA31];';",
+        "  }",
+        "}",
+        "",
+        "function setTranslucency() {",
+        "  var value = get('translucency');",
+        "  if (!value) {",
+        "    return 'select all; color opaque;';",
+        "  } else if (value === 'hydrophobic') {",
+        "    return 'select hydrophobic; color atoms translucent 7; select polar; color atoms opaque; ';",
+        "  } else if (value === 'hydrophilic') {",
+        "    return 'select hydrophobic; color atoms opaque; select polar; color atoms translucent 7;';",
+        "  }",
+        "}",
+        "",
+        "function update(propertyName) {",
+        "  var script = deleteNonProtein();",
+        "  script += setStyle();",
+        "  script += setColor();",
+        "  script += setTranslucency();",
+        "  post('jsmolScript', script);",
+        "}",
+        "",
+        "onPropertyChange('molecule', update);",
+        "onPropertyChange('color', update);",
+        "onPropertyChange('style', update);",
+        "onPropertyChange('translucency', update);",
+        "",
+        "update(get('style'));"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "style",
+      "initialValue": "spacefill"
+    },
+    {
+      "name": "color",
+      "initialValue": "polarity"
+    },
+    {
+      "name": "translucency",
+      "initialValue": false
+    },
+    {
+      "name": "sidechainOnly",
+      "initialValue": true
+    },
+    {
+      "name": "image",
+      "initialValue": false,
+      "onChange": [
+        "post('jsmolScript', 'set echo off;' + (value ? ' set echo top center; set echo IMAGE \"models/exploring-hydrophobic-core/' + value + '\"' : ''));"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "molecule",
+      "property": "molecule",
+      "labelOn": "left",
+      "label": "Protein",
+      "options": [
+        {
+          "text": "Albumin (found in egg white)",
+          "value": "models/exploring-hydrophobic-core/1RK9.pdb"
+        },
+        {
+          "text": "Insulin (regulates blood sugar)",
+          "value": "models/exploring-hydrophobic-core/2hiu.pdb"
+        },
+        {
+          "text": "Lysozyme (a natural antibiotic found in tears and saliva)",
+          "value": "models/exploring-hydrophobic-core/2lyz.pdb"
+        },
+        {
+          "text": "Restriction Enzyme (cuts DNA in specific places)",
+          "value": "models/exploring-hydrophobic-core/1eri.pdb"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "style",
+      "property": "style",
+      "labelOn": "left",
+      "label": "Style",
+      "options": [
+        {
+          "text": "Simplified “beads”",
+          "value": "beads"
+        },
+        {
+          "text": "All atoms (ball and stick)",
+          "value": "ball-and-stick"
+        },
+        {
+          "text": "All atoms (spacefill)",
+          "value": "spacefill"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "color",
+      "property": "color",
+      "labelOn": "left",
+      "label": "Color",
+      "options": [
+        {
+          "text": "Polarity (hydrophobic/hydrophilic)",
+          "value": "polarity"
+        },
+        {
+          "text": "Element",
+          "value": "element"
+        },
+        {
+          "text": "Amino acid",
+          "value": "amino-acid"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "translucency",
+      "property": "translucency",
+      "labelOn": "left",
+      "label": "Translucency",
+      "options": [
+        {
+          "text": "None",
+          "value": false
+        },
+        {
+          "text": "Nonpolar (hydrophobic) translucent",
+          "value": "hydrophobic"
+        },
+        {
+          "text": "Polar/charged (hydrophilic) translucent",
+          "value": "hydrophilic"
+        }
+      ]
+    }
+  ],
+  "template": [
+  {
+    "id": "bottom",
+    "top": "model.bottom",
+    "left": "model.left",
+    "width": "interactive.right",
+    "margin-top": "0.5em"
+  }
+],
+  "layout": {
+    "bottom": [
+      ["molecule"],
+      ["style"],
+      ["color"],
+      ["translucency"]
+    ]
+  }
+}
