@@ -1,8 +1,8 @@
 {
   "title": "Exploring Hydrophobic Core",
   "publicationStatus": "draft",
-  "aspectRatio": 0.75,
-  "fontScale": 0.95,
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "iframe-model",
@@ -26,9 +26,7 @@
         "",
         "function setStyle() {",
         "  var value = get('style');",
-        "  if (value === 'beads') {",
-        "    return 'isosurface off; select all; restrict none; select protein; trace 0.3; select *.ca; cpk 50%;';",
-        "  } else if (value === 'spacefill') {",
+        "  if (value === 'spacefill') {",
         "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
         "  } else if (value === 'ball-and-stick') {",
         "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
@@ -104,7 +102,7 @@
       "type": "pulldown",
       "id": "molecule",
       "property": "molecule",
-      "labelOn": "left",
+      "labelOn": "top",
       "label": "Protein",
       "options": [
         {
@@ -116,26 +114,22 @@
           "value": "models/exploring-hydrophobic-core/2hiu.pdb"
         },
         {
-          "text": "Lysozyme (a natural antibiotic found in tears and saliva)",
+          "text": "Lysozyme (antibiotic in tears and saliva)",
           "value": "models/exploring-hydrophobic-core/2lyz.pdb"
         },
         {
-          "text": "Restriction Enzyme (cuts DNA in specific places)",
+          "text": "Restriction Enzyme (cuts DNA)",
           "value": "models/exploring-hydrophobic-core/1eri.pdb"
         }
       ]
     },
     {
-      "type": "pulldown",
+      "type": "radio",
       "id": "style",
       "property": "style",
-      "labelOn": "left",
+      "labelOn": "top",
       "label": "Style",
       "options": [
-        {
-          "text": "Simplified “beads”",
-          "value": "beads"
-        },
         {
           "text": "All atoms (ball and stick)",
           "value": "ball-and-stick"
@@ -147,10 +141,10 @@
       ]
     },
     {
-      "type": "pulldown",
+      "type": "radio",
       "id": "color",
       "property": "color",
-      "labelOn": "left",
+      "labelOn": "top",
       "label": "Color",
       "options": [
         {
@@ -168,10 +162,10 @@
       ]
     },
     {
-      "type": "pulldown",
+      "type": "radio",
       "id": "translucency",
       "property": "translucency",
-      "labelOn": "left",
+      "labelOn": "top",
       "label": "Translucency",
       "options": [
         {
@@ -179,11 +173,11 @@
           "value": false
         },
         {
-          "text": "Nonpolar (hydrophobic) translucent",
+          "text": "Nonpolar (hydrophobic)",
           "value": "hydrophobic"
         },
         {
-          "text": "Polar/charged (hydrophilic) translucent",
+          "text": "Polar/charged (hydrophilic)",
           "value": "hydrophilic"
         }
       ]
@@ -191,15 +185,15 @@
   ],
   "template": [
   {
-    "id": "bottom",
-    "top": "model.bottom",
-    "left": "model.left",
-    "width": "interactive.right",
-    "margin-top": "0.5em"
+    "id": "right",
+    "top": "model.top",
+    "left": "model.right",
+    "margin-left": "0.5em",
+    "margin-right": "0.5em"
   }
 ],
   "layout": {
-    "bottom": [
+    "right": [
       ["molecule"],
       ["style"],
       ["color"],
