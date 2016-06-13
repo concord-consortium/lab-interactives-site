@@ -29,6 +29,20 @@
         "template": "state/low-res/WaterModel-2PumpTypes-NoFile.json",
         "rainProbability": 0.4,
         "evapProbability": 20,
+        "images": [
+          {
+            "name": "city",
+            "x": 40,
+            "y": 64.8,
+            "scale": 0.14
+          },
+          {
+            "name": "farm",
+            "x": -120,
+            "y": 48.8,
+            "scale": 0.07
+          }
+        ],
         "controls": {
           "wells": true,
           "remove": "well"
@@ -153,18 +167,18 @@
     }
   ],
   "layout": {
-  "bottom": [
-    [
-      "playback"
+    "bottom": [
+      [
+        "playback"
+      ],
+      [
+        "followRainButton"
+      ]
     ],
-    [
-      "followRainButton"
+    "right": [
+      "wells-graph"
     ]
-  ],
-  "right": [
-    "wells-graph"
-  ]
-},
+  },
   "template": [
     {
       "id": "bottom",
