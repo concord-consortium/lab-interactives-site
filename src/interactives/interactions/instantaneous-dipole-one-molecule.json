@@ -1,0 +1,195 @@
+{
+  "title": "Instantaneous dipole (two molecules)",
+  "publicationStatus": "draft",
+  "aspectRatio": 0.95,
+  "models": [{
+    "type": "md2d",
+    "id": "deformedCloud$0",
+    "url": "models/lab-version/1/md2d/interactions/instantaneous-dipole-one-molecule/model.json",
+    "modelOptions": {
+    },
+    "viewOptions": {
+      "controlButtons": "",
+      "enableKeyboardHandlers": false
+    },
+    "onLoad": [
+      "// Add electrons",
+      "var atoms = [getAtomProperties(0), getAtomProperties(1)],",
+      "    maxElectrons = 2;",
+      "for (var e = 0; e < maxElectrons; e++) {",
+      "  addShape({",
+      "    type: 'ellipse',",
+      "    width: 0.03,",
+      "    height: 0.03,",
+      "    x: atoms[e].x,",
+      "    y: atoms[e].y,",
+      "    fence: 0,",
+      "    color: 'rgb(255, 0, 0)',",
+      "    lineColor: 'black',",
+      "    lineDashes: 'none',",
+      "    lineWeight: 0,",
+      "    layer: 1,",
+      "    layerPosition: 150",
+      "  });",
+      "};",
+      "function randomizeElectrons() {",
+      "  if (get('isFrozen')) return;",
+      "  var ellipse,",
+      "      randomAngle,",
+      "      randomDistance;",
+      "  for (var e = 0; e < maxElectrons; e++) {",
+      "    ellipse = getShapeProperties(e);",
+      "    randomAngle = 2 * Math.PI * Math.random();",
+      "    randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+      "    // Convert random angle and distance from polar",
+      "    // to rectangular coordinates",
+      "    setShapeProperties(getNumberOfShapes() - maxElectrons + e, {",
+      "      x: ellipse.x + ellipse.width * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+      "      y: ellipse.y + ellipse.height * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+      "    })",
+      "    setShapeProperties(2, {",
+      "      color: getSurfaceGradient(0, 1)",
+      "    })",
+      "  }",
+      "}",
+      "function getSurfaceGradient(i, j) {",
+      "  var a1 = getAtomProperties(i);",
+      "  var a2 = getAtomProperties(j);",
+      "  var e1 = getShapeProperties(getNumberOfShapes() - maxElectrons + i);",
+      "  var e2 = getShapeProperties(getNumberOfShapes() - maxElectrons + j);",
+      "  var m = 0.5 * (a1.x + a2.x);",
+      "  var charge = e2.x + e1.x - 2 * m;",
+      "  var intensity = Math.floor(255 - Math.abs(charge) * 255);",
+      "  var red = 'rgb(255, ' + intensity + ', ' + intensity + ')';",
+      "  var blue = 'rgb(' + intensity + ', ' + intensity + ', 255)';",
+      "  return charge < 0 ? 'linear ' + red + ' 0% ' + red + ' 30% rgb(255,255,255) 50% ' + blue + ' 80% ' + blue + ' 100%'",
+      "                    : 'linear ' + blue + ' 0% ' + blue + ' 30% rgb(255,255,255) 50% ' + red + ' 80% ' + red + ' 100%';",
+      "}",
+      "function updateVisualization(){",
+      "  atoms = [getAtomProperties(0), getAtomProperties(1)];",
+      "  var distance  = atoms[1].x - atoms[0].x,",
+      "      minSqueezeDistance = (atoms[0].element == 0 && atoms[1].element == 0 ? 2 : 3),",
+      "      closeness = (minSqueezeDistance - Math.min(distance,minSqueezeDistance)) / minSqueezeDistance,",
+      "      squeeze   = (closeness < 0.4) ? 0.8 * closeness : 0.32 - (0.8 * (closeness - 0.4)),",
+      "      force     = atoms[0].ax,",
+      "      displacement = squeeze * 1.3,",
+      "      baseSize0 = getElementProperties(atoms[0].element).sigma * 10 + (atoms[0].element == 1 ? 1 : 0),",
+      "      baseSize1 = getElementProperties(atoms[1].element).sigma * 10 + (atoms[1].element == 1 ? 1 : 0),",
+      "      newWidth0 = baseSize0 + (squeeze * (atoms[0].element == 0 ? 1 : atoms[0].element == 1 ? 3.9 : 2.2)),",
+      "      newWidth1 = baseSize1 + (squeeze * (atoms[1].element == 0 ? 1 : atoms[0].element == 1 ? 3.9 : 2.2)),",
+      "      newHeight0 = baseSize0 - Math.abs((squeeze * (atoms[0].element == 0 ? 1 : atoms[0].element == 1 ? 3.9 : 2.2))),",
+      "      newHeight1 = baseSize1 - Math.abs((squeeze * (atoms[1].element == 0 ? 1 : atoms[0].element == 1 ? 3.9 : 2.2))),",
+      "      _pe = pe();",
+      " // Cloud",
+      "  setShapeProperties(0, {",
+      "    width: newWidth0,",
+      "    height: newHeight0,",
+      "    x: atoms[0].x - newWidth0 / 2 + displacement,",
+      "    y: atoms[0].y - newHeight0 / 2",
+      "  });",
+      "  setShapeProperties(1, {",
+      "    width: newWidth1,",
+      "    height: newHeight1,",
+      "    x: atoms[1].x - newWidth1 / 2 - displacement,",
+      "    y: atoms[1].y - newHeight1 / 2",
+      "  });",
+      "  // Surface charge",
+      "  var totalWidth = 0.5 * (newWidth0 + newWidth1);",
+      "  var totalHeight = 0.4 * (newHeight0 + newHeight1);",
+      "  setShapeProperties(2, {",
+      "    width: totalWidth,",
+      "    height: totalHeight,",
+      "    x: (atoms[0].x + atoms[1].x) * 0.5 - totalWidth / 2,",
+      "    y: (atoms[0].y + atoms[1].y) * 0.5 - totalHeight / 2",
+      "  });",
+      "}",
+      "setInterval(function(){",
+      "  batch(randomizeElectrons);",
+      "}, 66);",
+      "updateVisualization();",
+      "randomizeElectrons();"
+    ]
+  }],
+  "parameters": [
+    {
+      "name": "isFrozen",
+      "initialValue": false,
+      "onChange": "set('cloudViz', get('cloudViz'));"
+    },
+    {
+      "name": "cloudViz",
+      "initialValue": true,
+      "onChange": [
+        "if (value && !get('isFrozen')) {",
+        "  setElementProperties(0, {sigma: 0.15, color: -16776961});",
+        "  setElementProperties(1, {sigma: 0.25, color: -16776961});",
+        "  setElementProperties(2, {sigma: 0.25, color: -16776961});",
+        "  for (var i = 0; i < 2; i++) {",
+        "    setShapeProperties(i, {visible: true});",
+        "  }",
+        "} else {",
+        "  for (var i = 0; i < 2; i++) {",
+        "    setShapeProperties(i, {visible: false});",
+        "  }",
+        "};"
+      ]
+    },
+    {
+      "name": "surfaceChargeViz",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  setShapeProperties(2, {visible: true});",
+        "} else {",
+        "  setShapeProperties(2, {visible: false});",
+        "};"
+      ]
+    },
+    {
+      "name": "viz",
+      "initialValue": "cloud",
+      "onChange": [
+        "if (value === 'cloud') {",
+        "  set('cloudViz', true);",
+        "  set('surfaceChargeViz', false);",
+        "}",
+        "if (value === 'surface') {",
+        "  set('cloudViz', false);",
+        "  set('surfaceChargeViz', true);",
+        "}"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "set-viz",
+      "property": "viz",
+      "orientation": "horizontal",
+      "label": "Molecule visualization",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Electron distribution",
+          "value": "cloud"
+        },
+        {
+          "text": "Charge on surface",
+          "value": "surface"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "freeze",
+      "property": "isFrozen",
+      "text": "Freeze time"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["freeze"],
+      ["set-viz"]
+    ]
+  }
+}
