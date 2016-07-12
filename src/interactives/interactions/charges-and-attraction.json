@@ -1,0 +1,121 @@
+{
+  "title": "Charges and Attraction",
+  "publicationStatus": "draft",
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "mostPolarPull",
+      "url": "models/lab-version/1/md2d/interactions/charges-and-attraction/model.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Try making various atoms in the two molecules\ncharged and then try pulling them apart.",
+            "x": 1.2,
+            "y": 2.05,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": [
+        "onClick('atom', function(x, y, d, i) {",
+        " console.log(i, get('charge'));",
+        "  setAtomProperties(i, {charge: get('charge')});",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "charge",
+      "initialValue": 1.5
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "charge",
+      "property": "charge",
+      "label": "Click an atom to make it:",
+      "options": [
+        {
+          "text": "Positive",
+          "value": 1.5
+        },
+        {
+          "text": "Negative",
+          "value": -1.5
+        },
+        {
+          "text": "Neutral",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "run",
+      "text": "Run",
+      "action": "start(); setComponentDisabled('run', true); setComponentDisabled('charge', true);"
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": "reloadModel(); setComponentDisabled('run', false); setComponentDisabled('charge', false);"
+    },
+    {
+      "id": "bargraph",
+      "type": "barGraph",
+      "property": "potentialEnergy",
+      "min": 0,
+      "max": 15,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 15,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "margin-left": "0.5em",
+      "margin-right": "0.5em",
+      "height": "model.height"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom"
+    }
+  ],
+  "layout": {
+    "right": [
+      "bargraph"
+    ],
+    "bottom": [
+      ["charge", "run", "reset"]
+    ]
+  }
+}
