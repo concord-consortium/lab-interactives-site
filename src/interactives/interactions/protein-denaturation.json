@@ -1,0 +1,53 @@
+{
+  "title": "Protein Denaturation",
+  "publicationStatus": "draft",
+  "aspectRatio": 1.15,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/interactions/protein-denaturation/model.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "temp",
+      "initialValue": 7,
+      "onChange": "set('targetTemperature', value * value * value);"
+    }
+  ],
+  "components": [
+    {
+      "id": "temp-slider",
+      "type": "slider",
+      "min": 7,
+      "max": 40,
+      "steps": 50,
+      "title": "Temperature",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 6,
+          "label": "Low"
+        },
+        {
+          "value": 40,
+          "label": "High"
+        }
+      ],
+      "property": "temp",
+      "width": "26em"
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": "reloadModel();"
+    }
+  ]
+}
