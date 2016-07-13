@@ -23,7 +23,7 @@
       },
       "onLoad": [
         "onClick('atom', function(x, y, d, i) {",
-        " console.log(i, get('charge'));",
+        "  if (i == 12) return; // don't charge star handle",
         "  setAtomProperties(i, {charge: get('charge')});",
         "});"
       ]
