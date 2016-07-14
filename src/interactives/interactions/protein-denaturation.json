@@ -1,7 +1,7 @@
 {
   "title": "Protein Denaturation",
   "publicationStatus": "draft",
-  "aspectRatio": 1.15,
+  "aspectRatio": 1.65,
   "models": [
     {
       "type": "md2d",
@@ -26,7 +26,7 @@
       "id": "temp-slider",
       "type": "slider",
       "min": 7,
-      "max": 40,
+      "max": 60,
       "steps": 50,
       "title": "Temperature",
       "titlePosition": "top",
@@ -36,7 +36,7 @@
           "label": "Low"
         },
         {
-          "value": 40,
+          "value": 60,
           "label": "High"
         }
       ],
