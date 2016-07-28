@@ -165,5 +165,6 @@
       "left": "model.left"
     }
   ],
+  "lang": "es",
   "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-1a.json"
 }

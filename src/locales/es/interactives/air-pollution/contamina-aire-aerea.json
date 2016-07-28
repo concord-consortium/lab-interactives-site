@@ -195,5 +195,6 @@
       "padding-left": "0.5em"
     }
   ],
+  "lang": "es",
   "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-aerial.json"
 }
