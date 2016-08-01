@@ -22,7 +22,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable-with-air-temp.html",
+        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable-with-air-temp-es.html",
         "includeSunlight": true,
         "includeInversionLayer": true,
         "windSpeed": 0,
