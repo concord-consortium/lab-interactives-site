@@ -106,7 +106,7 @@
       ],
       "legendLabels": [
           "Contaminantes primarios",
-          "Contaminantes secundario"
+          "Contaminantes secundarios"
       ],
       "legendVisible": true,
       "syncXAxis": false,
