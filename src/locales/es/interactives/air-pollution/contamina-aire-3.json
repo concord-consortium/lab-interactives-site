@@ -1,18 +1,17 @@
 {
   "title": "Air Pollution 3",
   "publicationStatus": "public",
-  "subtitle": "The Effect of Pollution Control Devices on Pollution Levels",
+  "subtitle": "El efecto de los dispositivos de control de emisiones sobre los niveles de contaminación",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore the effects that pollution control devices have on the level of pollutants over a city.",
+    "Explorar el efecto que tienen los dispositivos de control de emisiones sobre los niveles de contaminación sobre una ciudad.",
     "",
-    "Change the number of cars and power plants with pollution control devices to explore the effect of ",
-    "pollution control",
-    "devices on the level of pollutants over a city.",
+    "Cambiar la cantidad de automóviles y de plantas productoras de energía con dispositivos de control de emisiones para ",
+    "explorar el efecto de los dispositivos de control sobre el nivel de contaminantes sobre una ciudad.",
     "",
-   "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
-    "modeled area. A lower number indicates better quality air."
+   "El gráfico muestra el Índice de Calidad del Aire (ICA), un valor que expresa la magnitud de la contaminación en el área modelada. ",
+   "Un valor bajo indica mejor calidad del aire."
     ],
   "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
   "aspectRatio": 1,
@@ -77,17 +76,17 @@
         "secondaryAQI"
       ],
       "xProperty": "ticks",
-      "title": "Air Pollutants",
+      "title": "Contaminantes",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (ticks)",
+      "xlabel": "Tiempo (ticks)",
       "xmin": 0,
       "xmax": 100,
-      "ylabel": "AQI (Air Quality Index)",
+      "ylabel": "ICA (Índice de Calidad del Aire)",
       "ymin": 0,
       "ymax": 300,
       "xTickCount": 4,
@@ -104,8 +103,8 @@
         "#000000"
       ],
       "legendLabels": [
-          "Primary Pollutants",
-          "Secondary Pollutants"
+          "Contaminantes primarios",
+          "Contaminantes secundarios"
       ],
       "legendVisible": true,
       "syncXAxis": false,
@@ -118,7 +117,7 @@
       "min": -100,
       "max": 100,
       "steps": 10,
-      "title": "Wind",
+      "title": "Viento",
       "fillColor": "#459ACE",
       "fillToValue": 0,
       "labels": [
@@ -128,7 +127,7 @@
         },
         {
           "value": 0,
-          "label": "None"
+          "label": "No hay"
         },
         {
           "value": "100",
@@ -148,7 +147,7 @@
       "min": 0,
       "max": 10,
       "steps": 10,
-      "title": "Cars",
+      "title": "Autos",
       "fillColor": "#D84748",
       "labels": [
         {
@@ -173,7 +172,7 @@
       "min": 0,
       "max": 5,
       "steps": 5,
-      "title": "Power Plants",
+      "title": "Centrales de energía",
       "fillColor": "#E67E22",
       "labels": [
         {
@@ -198,7 +197,7 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Cars with pollution control devices:",
+      "title": "Porcentaje de autos sin control de emisiones:",
       "fillColor": "#D84748",
       "labels": [
         {
@@ -223,7 +222,7 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Power plants with pollution control devices:",
+      "title": "Porcentaje de centrales de energía sin control de emisiones:",
       "fillColor": "#E67E22",
       "labels": [
         {
