@@ -1,16 +1,15 @@
 {
   "title": "Air Pollution 1a",
   "publicationStatus": "public",
-  "subtitle": "Wind, Geography, and Pollution Sources (no graph)",
+  "subtitle": "Viento, Geografía y Fuentes de Contaminación (sin gráfico)",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore some factors that affect the pollution levels over a city.",
+    "Explorar algunos de los factores que afectan los niveles de contaminación sobre una ciudad.",
     "",
-    "Change the direction and speed of the wind, the number of cars, and the number of power plants ",
-    "to see how it affects the level of pollutants over the city.",
+    "Cambiar la dirección y la velocidad del viento, la cantidad de automóviles, y la cantidad de centrales productoras de energía para ver cómo afectan el nivel de contaminantes sobre la ciudad.",
     ""
-  ],
+    ],
   "theme": ["has","standalone-playback","no-slider-bar"],
   "aspectRatio": 0.98,
   "fontScale": 0.9,
@@ -55,7 +54,7 @@
       "min": -100,
       "max": 100,
       "steps": 10,
-      "title": "Wind",
+      "title": "Viento",
        "fillColor": "#459ACE",
       "fillToValue": 0,
       "labels": [
@@ -65,7 +64,7 @@
         },
         {
           "value": 0,
-          "label": "None"
+          "label": "No hay"
         },
         {
           "value": "100",
@@ -85,7 +84,7 @@
       "min": 0,
       "max": 10,
       "steps": 10,
-      "title": "Cars",
+      "title": "Autos",
       "fillColor": "#D84748",
       "labels": [
         {
@@ -110,7 +109,7 @@
       "min": 0,
       "max": 5,
       "steps": 5,
-      "title": "Power Plants",
+      "title": "Centrales productoras de energía",
       "fillColor": "#E67E22",
       "labels": [
         {
