@@ -76,7 +76,7 @@
       "property": "windSpeed",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed and direction of the wind."
+      "tooltip": "Cambiar la dirección y la velocidad del viento."
     },
     {
       "id": "carsSlider",
@@ -101,7 +101,7 @@
       "property": "numCars",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of cars."
+      "tooltip": "Cambiar la cantidad de automóviles."
     },
     {
       "id": "factoriesSlider",
@@ -126,7 +126,7 @@
       "property": "numFactories",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of power plants."
+      "tooltip": "Cambiar la cantidad de centrales productoras de energía."
     },
     {
       "id": "playback",
