@@ -140,7 +140,7 @@
       "property": "windSpeed",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed and direction of the wind."
+      "tooltip": "Cambiar la dirección y la velocidad del viento."
     },
     {
       "id": "sunSlider",
@@ -165,7 +165,7 @@
       "property": "sunlightAmount",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of sunlight."
+      "tooltip": "Cambiar la cantidad de luz solar."
     },
     {
       "id": "rainSlider",
@@ -190,7 +190,7 @@
       "property": "rainRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of rain."
+      "tooltip": "Cambiar la frecuencia de lluvias."
     },
     {
       "id": "playback",
