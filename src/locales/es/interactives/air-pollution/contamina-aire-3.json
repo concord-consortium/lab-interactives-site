@@ -139,7 +139,7 @@
       "property": "windSpeed",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed and direction of the wind."
+      "tooltip": "Cambiar la dirección y la velocidad del viento."
     },
     {
       "id": "carsSlider",
@@ -164,7 +164,7 @@
       "property": "numCars",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of cars."
+      "tooltip": "Cambiar la cantidad de automóviles."
     },
     {
       "id": "factoriesSlider",
@@ -189,7 +189,7 @@
       "property": "numFactories",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the number of power plants."
+      "tooltip": "Cambiar la cantidad de centrales productoras de energía."
     },
     {
       "id": "carPollutionControlSlider",
@@ -214,7 +214,7 @@
       "property": "carPollutionControl",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the percentage of cars with pollution control devices."
+      "tooltip": "Cambiar la cantidad de automóviles con dispositivos de control de emisiones."
     },
     {
       "id": "factoryPollutionControlSlider",
@@ -239,7 +239,7 @@
       "property": "factoryPollutionControl",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the percentage of power plants with pollution control devices."
+      "tooltip": "Cambiar la cantidad de plantas productoras de energía con dispositivos de control de emisiones."
     },
     {
       "id": "playback",
