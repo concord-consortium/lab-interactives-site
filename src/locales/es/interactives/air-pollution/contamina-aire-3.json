@@ -197,7 +197,7 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Porcentaje de autos sin control de emisiones:",
+      "title": "Porcentaje de autos con control de emisiones:",
       "fillColor": "#D84748",
       "labels": [
         {
@@ -222,7 +222,7 @@
       "min": 0,
       "max": 100,
       "steps": 20,
-      "title": "Porcentaje de centrales de energía sin control de emisiones:",
+      "title": "Porcentaje de centrales de energía con control de emisiones:",
       "fillColor": "#E67E22",
       "labels": [
         {
