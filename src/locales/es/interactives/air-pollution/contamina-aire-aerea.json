@@ -86,7 +86,7 @@
       "scale": 30,
       "width": "10em",
       "height": "10em",
-      "tooltip": "Move the joystick to change the wind direction and speed.",
+      "tooltip": "Mover el joystick para cambiar la velocidad y dirección del viento.",
       "displayValue":[
         "var speed = Math.round(value.magnitude),",
         "    out = '' + speed + ' MPH';",
