@@ -1,0 +1,289 @@
+{
+  "title": "Diffusion & Temperature - MVS AP Physics 2",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "How does temperature affect the rate of diffusion?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.7,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/2-temperature.json",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": ["Explore the role of temperature on the rate of diffusion. Set the temperature, then remove the barrier, to measure how long it takes for a selected number of blue molecules to reach the detector.", 
+    "----",
+    "*Note: Although the atoms in this model are in a flat plane, volume is calculated using 0.1 nm as the depth of the container.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/DiffusionTemp/DiffusionBarrier$0.json",
+      "onLoad": [
+        "set({ timeStep: 0.0003, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});", 
+        "onPropertyChange('time', function(t) {",
+        "set('pressure', ((3/2) * (getNumberOfAtoms()/1.37) * (get('totalElementKineticEnergy') / 120)));",
+        "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, 2);",
+        "  var nNewAtomsInTarget   = 0;",
+        "  var nAtomsInTargetTotal = get('nAtomsInTargetTotal')",
+        "  for( var i = 0; i < atoms.length; i++) {",
+        "    if (!getAtomProperties(atoms[i]).pinned) { ",
+        "      setAtomProperties(atoms[i], {pinned: 1});",
+        "      nNewAtomsInTarget++;",
+        "    }",
+        "  }",
+        "  set('nAtomsInTargetTotal', nAtomsInTargetTotal + nNewAtomsInTarget);",
+        "  set('experimentTime', get('experimentRunning') ? t - get('timeBarrierRemoved') : 0);",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play",
+        "textBoxes": [
+          {
+            "text": "Detector",
+            "x": 6.8,
+            "y": 0.2,
+            "rotate": -90,
+            "width": 2,
+            "fontSize": 0.19,
+            "textAlign": "center",
+            "frame": "rectangle",
+            "strokeOpacity": 0,
+            "backgroundColor": "rgba(192, 192, 192, .5)",
+            "layer": 1
+          }
+        ]
+      },
+      "modelOptions": {
+        "unitsScheme": "mks"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "nSelectedAtoms",
+      "initialValue": 1
+    },
+    {
+      "name": "nAtomsInTargetTotal",
+      "initialValue": 0,
+      "onChange": "if (value >= get('nSelectedAtoms')) { stop() }"
+    },
+    {
+      "name": "timeBarrierRemoved",
+      "initialValue": 0,
+      "onChange": ""
+    },
+    {
+      "name": "experimentRunning",
+      "initialValue": false,
+      "onChange": ""
+    },
+    {
+      "name": "experimentTime",
+      "initialValue": 0,
+      "onChange": "",
+      "label": "Experiment time",
+      "unitType": "time"
+    },
+    {
+      "name": "pressure",
+      "label": "Pressure",
+      "initialValue": 0,
+      "unitAbbreviation": "N/m2"
+    },
+    {
+      "name": "selectedTemperature",
+      "label": "Temperature",
+      "initialValue": 7,
+      "onChange": [
+        "var targets = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];",
+        "set('targetTemperature', targets[value]);",
+        "set('pressure', ((3/2) * (getNumberOfAtoms()/1.37) * (get('totalElementKineticEnergy') / 120)));"
+      ]
+    },
+    {
+      "name": "volume",
+      "label": "Volume",
+      "initialValue": 1.37,
+      "unitAbbreviation": "nm³"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "totalElementKineticEnergy",
+      "unitAbbreviation": "J",
+      "label": "Total KE",
+      "value": [
+        "if (isStopped()) {",
+        "  return (0);",
+        "} else { ",
+        "  return (atomsKe(atomsWithinRect(0,0,get('width'),get('height'),1)) + atomsKe(atomsWithinRect(0,0,get('width'),get('height'),2)));",
+        "}"
+      ]
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "remove-obstacle",
+      "type": "button",
+      "action": [
+        "if (isStopped()) {",
+        "  alert('Press play before removing the barrier');",
+        "} else if (getNumberOfObstacles() > 0) { ",
+        "  removeObstacle(0); ",
+        "  set('timeBarrierRemoved', get('time'));",
+        "  set('experimentRunning', true)",
+        "}"
+      ],
+      "text": "Remove barrier",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset-barrier",
+      "type": "button",
+      "action": [
+        "reloadModel();"
+      ],
+      "text": "Reset experiment",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 0,
+      "max": 9,
+      "labels": [
+        {
+          "value": 0,
+          "label": "100"
+        },
+        {
+          "value": 9,
+          "label": "1000"
+        }
+      ],
+      "steps": 9,
+      "title": "Temperature (K)",
+      "displayValue": "return get('targetTemperature')",
+      "property": "selectedTemperature"
+    },
+    {
+      "type": "numericOutput",
+      "id": "experiment-time",
+      "property": "experimentTime",
+      "displayValue": "return format('.1f')(value)"
+    },
+    {
+      "type": "numericOutput",
+      "id": "temperature-output",
+      "property": "targetTemperature",
+      "label": "Temperature (K)",
+      "displayValue": "return value"
+    },
+    {
+      "type": "numericOutput",
+      "id": "pressure-output",
+      "property": "pressure",
+      "displayValue": "return format('.1f')(value)"
+    },
+    {
+      "title": "Volume",
+      "type": "numericOutput",
+      "id": "volume-output",
+      "property": "volume",
+      "displayValue": "return value"
+    },
+    {
+      "type": "numericOutput",
+      "id": "ke-output",
+      "property": "totalElementKineticEnergy",
+      "displayValue": "return format('.1f')(value)"
+    },
+    {
+      "type": "slider",
+      "id": "nSelectedAtoms-slider",
+      "min": 1,
+      "max": 5,
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 5,
+          "label": "5"
+        }
+      ],
+      "steps": 4,
+      "title": "Number of Molecules",
+      "displayValue": "return get('nSelectedAtoms')",
+      "property": "nSelectedAtoms"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "remove-obstacle",
+        "reset-barrier"
+      ],
+      [
+        "temperature-slider",
+        "nSelectedAtoms-slider"
+      ],
+      [
+        "pressure-output",
+        "volume-output",
+        "temperature-output"
+      ]
+    ],
+    "right": [
+      [
+      "experiment-time"
+      ],
+      [
+      "ke-output"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "width": "interactive.width"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}
