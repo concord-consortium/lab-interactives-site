@@ -26,7 +26,7 @@
       "id": "model1",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/DiffusionTemp/DiffusionBarrier$0.json",
       "onLoad": [
-        "set({ timeStep: 0.0003, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});", 
+        "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});", 
         "onPropertyChange('time', function(t) {",
         "set('pressure', ((3/2) * (getNumberOfAtoms()/1.37) * (get('totalElementKineticEnergy') / 120)));",
         "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, 2);",
@@ -119,7 +119,7 @@
   "outputs": [
     {
       "name": "totalElementKineticEnergy",
-      "unitAbbreviation": "J",
+      "unitAbbreviation": "eV",
       "label": "Total KE",
       "value": [
         "if (isStopped()) {",
