@@ -1,7 +1,7 @@
 {
   "type": "md2d",
   "imagePath": "",
-  "width": 14,
+  "width": 7,
   "height": 1.96,
   "unitsScheme": "md2d",
   "lennardJonesForces": true,
@@ -1157,7 +1157,7 @@
       false
     ],
     "southProbe": [
-      false
+      true
     ],
     "color": [
       "rgb(128,128,128)"
