@@ -1,5 +1,5 @@
 {
-  "title": "LALALALAALALALALA!",
+  "title": "Diffusion & Temperature - AP Physics 2 (MVS)",
   "publicationStatus": "public",
   "labEnvironment": "production",
   "subtitle": "How does temperature affect the rate of diffusion?",
@@ -23,11 +23,10 @@
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models-converted/lab-version/1/md2d/external-projects/msu/diffusion-temperature.json",
+      "url": "models/lab-version/1/md2d/external-projects/msu/diffusion-temperature-model.json",
       "onLoad": [
         "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});", 
         "onPropertyChange('time', function(t) {",
-        "set('pressure', ((3/2) * (getNumberOfAtoms()/1.37) * (get('totalElementKineticEnergy') / 120)));",
         "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, 2);",
         "  var nNewAtomsInTarget   = 0;",
         "  var nAtomsInTargetTotal = get('nAtomsInTargetTotal')",
@@ -93,26 +92,20 @@
       "unitType": "time"
     },
     {
-      "name": "pressure",
-      "label": "Pressure",
-      "initialValue": 0,
-      "unitAbbreviation": "N/m2"
+      "name": "modelWidth",
+      "initialValue": 7,
+      "unitAbbreviation": "nm"
+    },
+    {
+      "name": "modelHeight",
+      "initialValue": 1.96,
+      "unitAbbreviation": "nm"
     },
     {
       "name": "selectedTemperature",
       "label": "Temperature",
-      "initialValue": 7,
-      "onChange": [
-        "var targets = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];",
-        "set('targetTemperature', targets[value]);",
-        "set('pressure', ((3/2) * (getNumberOfAtoms()/1.37) * (get('totalElementKineticEnergy') / getNumberOfAtoms())));"
-      ]
-    },
-    {
-      "name": "volume",
-      "label": "Volume",
-      "initialValue": 1.37,
-      "unitAbbreviation": "nm³"
+      "initialValue": 1000,
+      "onChange": "set('targetTemperature', get('selectedTemperature'));"
     }
   ],
   "outputs": [
@@ -124,12 +117,33 @@
         "if (isStopped()) {",
         "  return (0);",
         "} else { ",
-        "  return (atomsKe(atomsWithinRect(0,0,get('width'),get('height'),1)) + atomsKe(atomsWithinRect(0,0,get('width'),get('height'),2)));",
+        "  return (get('kineticEnergy'));",
         "}"
       ]
+    },
+    {
+      "name": "volume",
+      "unitAbbreviation": "nm³",
+      "label": "Volume",
+      "value": "return (get('modelWidth') * get('modelHeight') * .1)"
+    },
+    {
+      "name": "eastPressureProbeInstantaneous",
+      "value": "return getObstacleProperties(0).eastProbeValue;",
+      "label": "Pressure Gauge",
+      "unitType": "pressure"
     }
   ],
-  "filteredOutputs": [],
+  "filteredOutputs": [
+    {
+      "name": "eastPressureProbeFiltered",
+      "property": "eastPressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 100,
+      "label": "Pressure Gauge",
+      "unitType": "pressure"
+    }
+  ],
   "helpTips": [],
   "dataSets": [],
   "components": [
@@ -168,19 +182,19 @@
     {
       "type": "slider",
       "id": "temperature-slider",
-      "min": 0,
-      "max": 9,
+      "min": 100,
+      "max": 2500,
       "labels": [
         {
-          "value": 0,
+          "value": 100,
           "label": "100"
         },
         {
-          "value": 9,
-          "label": "1000"
+          "value": 2500,
+          "label": "2500"
         }
       ],
-      "steps": 9,
+      "steps": 12,
       "title": "Temperature (K)",
       "displayValue": "return get('targetTemperature')",
       "property": "selectedTemperature"
@@ -199,9 +213,9 @@
       "displayValue": "return value"
     },
     {
+      "id": "pressure",
       "type": "numericOutput",
-      "id": "pressure-output",
-      "property": "pressure",
+      "property": "eastPressureProbeFiltered",
       "displayValue": "return format('.1f')(value)"
     },
     {
@@ -209,7 +223,7 @@
       "type": "numericOutput",
       "id": "volume-output",
       "property": "volume",
-      "displayValue": "return value"
+      "displayValue": "return format('.1f')(value)"
     },
     {
       "type": "numericOutput",
