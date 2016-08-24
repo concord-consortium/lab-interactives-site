@@ -1,35 +1,36 @@
 {
-  "title": "Air Pollution 4",
+  "title": "Air Pollution 2",
   "publicationStatus": "public",
-  "subtitle": "Thermal Inversions",
+  "subtitle": "Formación de contaminantes secundarios",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Use the model to create thermal inversions, and explore the effect of thermal inversions on smog events.",
+    "Descubrir la conexión entre el tiempo, la geografía y la calidad del aire.",
+    "Explorar la combinación de factores que causan que se forme smog (contaminantes secundarios como el ozono) ",
+    "sobre una ciudad.",
     "",
-    "Use the wind, rain, and sunlight sliders to set up a thermal inversion. How does the thermal inversion",
-    "affect the pollutant level over the city?",
+    "Cambiar la dirección y velocidad del viento, la cantidad de luz solar y la frecuencia de lluvias para descubrir",
+    "cuáles son las condiciones que favorecen la formación de smog.",
     "",
-     "The graph shows the Air Quality Index (AQI), a number that indicates the amount of air pollution in the",
-    "modeled area. A lower number indicates better quality air."
-    ],
+    "El gráfico muestra el Índice de Calidad del Aire (ICA), un valor que expresa la magnitud de la contaminación en el área modelada. ",
+    "Un valor bajo indica mejor calidad del aire."
+  ],
   "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
-  "aspectRatio": 1.2,
-  "fontScale": 0.9,
+  "aspectRatio": 1.3,
+  "fontScale": 0.85,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable-with-air-temp.html",
+        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable.html",
         "includeSunlight": true,
-        "includeInversionLayer": true,
+        "sunlightAmount": 6,
+        "rainRate": 3,
         "windSpeed": 0,
         "numCars": 2,
         "numFactories": 2,
-        "sunlightAmount": 8,
-        "rainRate": 0,
         "carPollutionRate": 200,
         "factoryPollutionRate": 300
       },
@@ -77,17 +78,17 @@
         "secondaryAQI"
       ],
       "xProperty": "ticks",
-      "title": "Air Pollutants",
+      "title": "Contaminantes",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (ticks)",
+      "xlabel": "Tiempo (ticks)",
       "xmin": 0,
       "xmax": 100,
-      "ylabel": "AQI (Air Quality Index)",
+      "ylabel": "ICA (Índice de Calidad del Aire)",
       "ymin": 0,
       "ymax": 300,
       "xTickCount": 4,
@@ -104,8 +105,8 @@
         "#000000"
       ],
       "legendLabels": [
-          "Primary Pollutants",
-          "Secondary Pollutants"
+          "Contaminantes primarios",
+          "Contaminantes secundarios"
       ],
       "legendVisible": true,
       "syncXAxis": false,
@@ -115,23 +116,23 @@
     {
       "id": "windSlider",
       "type": "slider",
-      "min": -30,
-      "max": 30,
-      "steps": 61,
-      "title": "Wind",
-      "fillColor": "#459ACE",
+      "min": -100,
+      "max": 100,
+      "steps": 10,
+      "title": "Viento",
+       "fillColor": "#459ACE",
       "fillToValue": 0,
       "labels": [
         {
-          "value": "-30",
+          "value": "-100",
           "label": "<i class='icon-arrow-left'></i>"
         },
         {
           "value": 0,
-          "label": "None"
+          "label": "Nada"
         },
         {
-          "value": "30",
+          "value": "100",
           "label": "<i class='icon-arrow-right'></i>"
         }
       ],
@@ -140,7 +141,7 @@
       "property": "windSpeed",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed and direction of the wind."
+      "tooltip": "Cambiar la dirección y la velocidad del viento."
     },
     {
       "id": "sunSlider",
@@ -148,7 +149,7 @@
       "min": 0,
       "max": 10,
       "steps": 10,
-      "title": "Sunlight",
+      "title": "Luz solar",
       "fillColor": "#459ACE",
       "labels": [
         {
@@ -165,7 +166,7 @@
       "property": "sunlightAmount",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of sunlight."
+      "tooltip": "Cambiar la cantidad de luz solar."
     },
     {
       "id": "rainSlider",
@@ -173,7 +174,7 @@
       "min": 0,
       "max": 6,
       "steps": 6,
-      "title": "Rain",
+      "title": "Lluvia",
       "fillColor": "#459ACE",
       "labels": [
         {
@@ -190,7 +191,7 @@
       "property": "rainRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the amount of rain."
+      "tooltip": "Cambiar la frecuencia de lluvias."
     },
     {
       "id": "playback",
@@ -199,11 +200,15 @@
     }
   ],
  "layout": {
+    "playback-container": [
+      "playback"
+    ],
+    
     "bottomLeft": [
       [
         "windSlider"
       ],
-      [
+        [
         "sunSlider"
       ],
       [
@@ -214,9 +219,6 @@
       [
         "aqiGraph"
       ]
-    ],
-    "playback-container": [
-      "playback"
     ]
   },
   "template": [
@@ -226,11 +228,13 @@
       "left": "model.left"
     
     },
+    
     {
       "id": "bottomLeft",
       "top": "playback-container.bottom",
       "left": "model.left"
     },
+
     {
       "id": "topRight",
       "top": "model.top",
@@ -240,5 +244,6 @@
       "padding-left": "0.5em"
     }
   ],
-  "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-4.json"
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-2.json"
 }

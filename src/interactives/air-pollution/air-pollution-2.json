@@ -242,5 +242,6 @@
       "height": "model.height",
       "padding-left": "0.5em"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-2.json"
 }

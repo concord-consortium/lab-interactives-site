@@ -1,18 +1,18 @@
 {
   "title": "Air Pollution - Aerial",
   "publicationStatus": "public",
-  "subtitle": "Aerial View",
+  "subtitle": "Vista aérea",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-  	"Explore the effect of wind and geography on regional air quality.",
-  	"Explore how emissions can affect air quality in distant places.",
+  	"Explorar el efecto del viento y la geografía en la calidad del aire de la región.",
+  	"Explorar cómo las emisiones pueden afectar la calidad del aire en lugares distantes.",
   	"",
-  	 "Click on the model to add up to four power plants.",
+  	 "Clic en el modelo para agregar hasta cuatro plantas de producción de energía.",
       "",
-      "Use the **wind control** to change the wind speed and direction.",
+      "Utilizar el **control de viento** para cambiar la dirección y la velocidad del viento.",
       "",
-      "The **Air Quality Index** shows the air quality in Cities A, B, and C."
+      "El **Índice de Calidad del Aire** muestra la calidad del aire en las ciudades A, B y C."
   	],
   "theme": ["has","standalone-playback"],
   "aspectRatio": 1.2,
@@ -56,7 +56,7 @@
     {
       "id": "airQualityTitle",
       "type": "text",
-      "text": "Air Quality",
+      "text": "Calidad del Aire",
       "width": "100%",
       "height": "0.7em",
       "tooltip": ""
@@ -68,9 +68,9 @@
         "<div style='width: 100%; height: 100%; text-align: right;'>",
         "  <div style='width: 6em; height: 9.1em; padding: 0.5em; margin: auto 1em auto auto; border: 2px solid #BBBBBB; display: inline-block; position: relative;'>",
         "    <div style='height: 100%; width: 25%; background: #ff3232; background: -moz-linear-gradient(top,  #ff3232 0%, #edf72e 50%, #2aff00 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3232), color-stop(50%,#edf72e), color-stop(100%,#2aff00)); background: -webkit-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -o-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: -ms-linear-gradient(top,  #ff3232 0%,#edf72e 50%,#2aff00 100%); background: linear-gradient(to bottom,  #ff3232 0%,#edf72e 50%,#2aff00 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#2aff00',GradientType=0 );'></div>",
-        "    <span style='position: absolute; top: 0.5em; left: 50%;'>Poor</span>",
-        "    <span style='position: absolute; top: 45%; left: 50%;'>Fair</span>",
-        "    <span style='position: absolute; bottom: 0.5em; left: 50%;'>Good</span>",
+        "    <span style='position: absolute; top: 0.5em; left: 50%;'>Mala</span>",
+        "    <span style='position: absolute; top: 45%; left: 50%;'>Regular</span>",
+        "    <span style='position: absolute; bottom: 0.5em; left: 50%;'>Buena</span>",
         "  </div>",
         "</div>"
       ],
@@ -81,12 +81,12 @@
     {
       "id": "windJoystick",
       "type": "joystick",
-      "title": "Wind",
+      "title": "Viento",
       "property": "wind",
       "scale": 30,
       "width": "10em",
       "height": "10em",
-      "tooltip": "Move the joystick to change the wind direction and speed.",
+      "tooltip": "Mover el joystick para cambiar la velocidad y dirección del viento.",
       "displayValue":[
         "var speed = Math.round(value.magnitude),",
         "    out = '' + speed + ' MPH';",
@@ -100,7 +100,7 @@
       "id": "city-a-aq",
       "type": "colorIndicator",
       "property": "cityAQuality",
-      "title": "City A",
+      "title": "Ciudad A",
       "width": "auto",
       "height": "auto",
       "colorValue": "return 'hsl('+value+',100%,50%)';",
@@ -111,7 +111,7 @@
       "id": "city-b-aq",
       "type": "colorIndicator",
       "property": "cityBQuality",
-      "title": "City B",
+      "title": "Ciudad B",
       "width": "auto",
       "height": "auto",
       "colorValue": "return 'hsl('+value+',100%,50%)';",
@@ -122,7 +122,7 @@
       "id": "city-c-aq",
       "type": "colorIndicator",
       "property": "cityCQuality",
-      "title": "City C",
+      "title": "Ciudad C",
       "width": "auto",
       "height": "auto",
       "colorValue": "return 'hsl('+value+',100%,50%)';",
@@ -195,5 +195,6 @@
       "padding-left": "0.5em"
     }
   ],
+  "lang": "es",
   "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-aerial.json"
 }
