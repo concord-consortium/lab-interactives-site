@@ -92,56 +92,24 @@
       "unitType": "time"
     },
     {
-      "name": "modelWidth",
-      "initialValue": 7,
-      "unitAbbreviation": "nm"
-    },
-    {
-      "name": "modelHeight",
-      "initialValue": 1.96,
-      "unitAbbreviation": "nm"
-    },
-    {
       "name": "selectedTemperature",
       "label": "Temperature",
-      "initialValue": 1000,
+      "initialValue": 500,
       "onChange": "set('targetTemperature', get('selectedTemperature'));"
+    },
+    {
+      "name": "theoreticalPressure",
+      "label": "Pressure",
+      "initialValue": 4,
+      "unitAbbreviation": "nm"
     }
   ],
   "outputs": [
     {
-      "name": "totalElementKineticEnergy",
-      "unitAbbreviation": "eV",
-      "label": "Total KE",
-      "value": [
-        "if (isStopped()) {",
-        "  return (0);",
-        "} else { ",
-        "  return (get('kineticEnergy'));",
-        "}"
-      ]
-    },
-    {
       "name": "volume",
-      "unitAbbreviation": "nm³",
+      "value": "return (get('height') * get('width') * .1);",
       "label": "Volume",
-      "value": "return (get('modelWidth') * get('modelHeight') * .1)"
-    },
-    {
-      "name": "eastPressureProbeInstantaneous",
-      "value": "return getObstacleProperties(0).eastProbeValue;",
-      "label": "Pressure Gauge",
-      "unitType": "pressure"
-    }
-  ],
-  "filteredOutputs": [
-    {
-      "name": "eastPressureProbeFiltered",
-      "property": "eastPressureProbeInstantaneous",
-      "type": "RunningAverage",
-      "period": 100,
-      "label": "Pressure Gauge",
-      "unitType": "pressure"
+      "unitAbbreviation": "nm³"
     }
   ],
   "helpTips": [],
@@ -201,7 +169,7 @@
     },
     {
       "type": "numericOutput",
-      "id": "experiment-time",
+      "id": "experiment-time-output",
       "property": "experimentTime",
       "displayValue": "return format('.1f')(value)"
     },
@@ -213,9 +181,11 @@
       "displayValue": "return value"
     },
     {
-      "id": "pressure",
+      "title": "Pressure Gauge",
+      "id": "pressure-output",
       "type": "numericOutput",
-      "property": "eastPressureProbeFiltered",
+      "property": "theoreticalPressure",
+      "label": "Pressure",
       "displayValue": "return format('.1f')(value)"
     },
     {
@@ -223,12 +193,15 @@
       "type": "numericOutput",
       "id": "volume-output",
       "property": "volume",
+      "label": "Volume",
       "displayValue": "return format('.1f')(value)"
     },
     {
+      "title": "Total KE",
       "type": "numericOutput",
       "id": "ke-output",
-      "property": "totalElementKineticEnergy",
+      "property": "kineticEnergy",
+      "label": "Total KE",
       "displayValue": "return format('.1f')(value)"
     },
     {
@@ -270,7 +243,7 @@
     ],
     "right": [
       [
-      "experiment-time"
+      "experiment-time-output"
       ],
       [
       "ke-output"
