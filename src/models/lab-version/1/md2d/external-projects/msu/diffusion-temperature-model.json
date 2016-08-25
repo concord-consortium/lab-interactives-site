@@ -1157,10 +1157,10 @@
       false
     ],
     "southProbe": [
-      true
+      false
     ],
     "color": [
-      "rgb(128,128,128)"
+      "rgba(192, 192, 192, .5)"
     ],
     "visible": [
       true
