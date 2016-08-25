@@ -96,12 +96,6 @@
       "label": "Temperature",
       "initialValue": 500,
       "onChange": "set('targetTemperature', get('selectedTemperature'));"
-    },
-    {
-      "name": "theoreticalPressure",
-      "label": "Pressure",
-      "initialValue": 4,
-      "unitAbbreviation": "nm"
     }
   ],
   "outputs": [
@@ -110,6 +104,12 @@
       "value": "return (get('height') * get('width') * .1);",
       "label": "Volume",
       "unitAbbreviation": "nm³"
+    },
+    {
+      "name": "theoreticalPressure",
+      "value": "return ((2/3) * (getNumberOfAtoms() / get('volume')) * (get('kineticEnergy') / getNumberOfAtoms()));",
+      "label": "Pressure",
+      "unitAbbreviation": "N/nm²"
     }
   ],
   "helpTips": [],
@@ -174,13 +174,6 @@
       "displayValue": "return format('.1f')(value)"
     },
     {
-      "type": "numericOutput",
-      "id": "temperature-output",
-      "property": "targetTemperature",
-      "label": "Temperature (K)",
-      "displayValue": "return value"
-    },
-    {
       "title": "Pressure Gauge",
       "id": "pressure-output",
       "type": "numericOutput",
@@ -228,25 +221,24 @@
   "layout": {
     "bottom": [
       [
-        "remove-obstacle",
-        "reset-barrier"
-      ],
-      [
         "temperature-slider",
         "nSelectedAtoms-slider"
       ],
       [
+        "experiment-time-output",
+        "ke-output"
+      ],
+      [
         "pressure-output",
-        "volume-output",
-        "temperature-output"
+        "volume-output"
       ]
     ],
     "right": [
       [
-      "experiment-time-output"
+      "remove-obstacle"
       ],
       [
-      "ke-output"
+      "reset-barrier"
       ]
     ]
   },
@@ -254,15 +246,17 @@
     {
       "id": "top",
       "bottom": "model.top",
-      "width": "interactive.width"
+      "width": "model.width"
     },
     {
       "id": "right",
       "top": "model.top",
       "left": "model.right",
       "height": "model.height",
+      "padding-top": "1.5em",
       "padding-left": "1em",
-      "padding-right": "0.5em"
+      "padding-right": "0.5em",
+      "align": "center"
     },
     {
       "id": "bottom",
