@@ -26,6 +26,10 @@
     "",
     "Is it possible to have a massive planet that has very little effect on star motion?"
     ],
+ "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
     "standalone-playback",
