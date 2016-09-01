@@ -22,6 +22,10 @@
     "The lower graph (**Well Output**) shows the the water output of the different wells.",
     "Although you can add up to five wells, you should add only two wells in each experiment."
     ],
+ "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": ["has", "graph-title-bg", "standalone-playback"],
   "aspectRatio": 1.3,
   "fontScale": 0.8,
