@@ -23,6 +23,10 @@
     "Look at the graph of the star's velocity.",
     "Can you tell from the graph alone when the star is moving toward the telescope?"
   ],
+ "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
     "standalone-playback",
