@@ -29,6 +29,10 @@
     "Is it possible to detect a really small planet when there is a lot of noise in the data?",
     "With which method – velocity or light intensity – are scientists more likely to discover a planet with real-world telescopes?"
   ],
+"credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
     "standalone-playback",
