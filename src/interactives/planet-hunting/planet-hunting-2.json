@@ -28,6 +28,10 @@
     "(Note that you may need to **Zoom** in on the graph after changing the planet's orbital angle (tilt). You can also clear ",
     "current graph data to focus on the newer data only.)"
   ],
+ "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
     "standalone-playback",
