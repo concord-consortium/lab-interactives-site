@@ -16,6 +16,10 @@
     "The **Amount of Topsoil** graph shows the amount of topsoil in each zone over time.",
     ""
   ],
+  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": ["has", "invisible-disabled-components", "standalone-playback", "graph-title-bg"],
   "aspectRatio": 1.2,
   "fontScale": 0.65,
