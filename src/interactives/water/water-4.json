@@ -20,6 +20,10 @@
     "",
     "The graph shows the water outputs of the different wells. You can drill up to five wells."
   ],
+  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": ["has", "graph-title-bg", "standalone-playback", "no-slider-bar"],
   "aspectRatio": 1.5,
   "fontScale": 0.8,
