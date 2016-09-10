@@ -42,6 +42,7 @@
       ],
       "viewOptions": {
         "controlButtons": "play",
+        "controlButtonStyle": "text",
         "textBoxes": [
           {
             "text": "Detector",
@@ -107,9 +108,9 @@
     },
     {
       "name": "theoreticalPressure",
-      "value": "return ((2/3) * (getNumberOfAtoms() / get('volume')) * (get('kineticEnergy') / getNumberOfAtoms()));",
+      "value": "return (getNumberOfAtoms() * ((.083) * 1e-24) * get('targetTemperature')) / get('volume')",
       "label": "Pressure",
-      "unitAbbreviation": "N/nm²"
+      "unitAbbreviation": "atm"
     }
   ],
   "helpTips": [],
@@ -195,6 +196,7 @@
       "id": "ke-output",
       "property": "kineticEnergy",
       "label": "Total KE",
+      "units": "eV",
       "displayValue": "return format('.1f')(value)"
     },
     {
