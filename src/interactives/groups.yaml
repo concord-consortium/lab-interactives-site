@@ -405,3 +405,7 @@
 - :path: external-projects/achieve
   :name: "Achieve"
   :category: Curriculum
+  
+- :path: external-projects/msu
+  :name: "Michigan State University Interactives"
+  :category: Curriculum
