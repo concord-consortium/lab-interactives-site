@@ -13,7 +13,7 @@
   "aboutOnLoad": false,
   "about": ["Explore the role of temperature on the rate of diffusion. Set the temperature, then remove the barrier, to measure how long it takes for a selected number of blue molecules to reach the detector.", 
     "----",
-    "*Note: Although the atoms in this model are in a flat plane, volume is calculated using 0.1 nm as the depth of the container.*"
+    "*Note: Although the atoms in this model are in a flat plane, volume is calculated using 0.14 nm as the depth of the container.*"
     ],
   "theme": "",
   "showTopBar": true,
@@ -102,13 +102,13 @@
   "outputs": [
     {
       "name": "volume",
-      "value": "return (get('height') * get('width') * .1);",
+      "value": "return (get('height') * get('width') * .14);",
       "label": "Volume",
       "unitAbbreviation": "nm³"
     },
     {
       "name": "theoreticalPressure",
-      "value": "return (getNumberOfAtoms() * ((.083) * 1e-24) * get('targetTemperature')) / get('volume')",
+      "value": "return ((getNumberOfAtoms() / 6.02e+23) * (.082e+24 * get('targetTemperature'))) / get('volume')",
       "label": "Pressure",
       "unitAbbreviation": "atm"
     }
@@ -191,15 +191,6 @@
       "displayValue": "return format('.1f')(value)"
     },
     {
-      "title": "Total KE",
-      "type": "numericOutput",
-      "id": "ke-output",
-      "property": "kineticEnergy",
-      "label": "Total KE",
-      "units": "eV",
-      "displayValue": "return format('.1f')(value)"
-    },
-    {
       "type": "slider",
       "id": "nSelectedAtoms-slider",
       "min": 1,
@@ -228,9 +219,6 @@
       ],
       [
         "experiment-time-output",
-        "ke-output"
-      ],
-      [
         "pressure-output",
         "volume-output"
       ]
