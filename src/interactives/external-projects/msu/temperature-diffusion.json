@@ -6,12 +6,12 @@
   "category": "",
   "subCategory": "",
   "screenshot": "",
-  "aspectRatio": 1.7,
+  "aspectRatio": 1.9,
   "fontScale": 1,
   "lang": "en-US",
   "helpOnLoad": false,
   "aboutOnLoad": false,
-  "about": ["Explore the role of temperature on the rate of diffusion. Set the temperature, then remove the barrier, to measure how long it takes for a selected number of blue molecules to reach the detector.", 
+  "about": ["Explore the role of temperature on the rate of diffusion. Set the temperature, then remove the barrier, to measure how long it takes for a selected number of blue molecules to reach the detector.",
     "----",
     "*Note: Although the atoms in this model are in a flat plane, volume is calculated using 0.14 nm as the depth of the container.*"
     ],
@@ -25,7 +25,7 @@
       "id": "model1",
       "url": "models/lab-version/1/md2d/external-projects/msu/diffusion-temperature-model.json",
       "onLoad": [
-        "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});", 
+        "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});",
         "onPropertyChange('time', function(t) {",
         "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, 2);",
         "  var nNewAtomsInTarget   = 0;",
@@ -121,7 +121,7 @@
       "type": "button",
       "action": [
         "if (isStopped()) {",
-        "  alert('Press play before removing the barrier');",
+        "  alert('Press start before removing the barrier');",
         "} else if (getNumberOfObstacles() > 0) { ",
         "  removeObstacle(0); ",
         "  set('timeBarrierRemoved', get('time'));",
