@@ -14,6 +14,12 @@
       "",
       "El **Índice de Calidad del Aire** muestra la calidad del aire en las ciudades A, B y C."
   	],
+"credits": [" Este  interactivo de [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue creado con una serie de grans de la [Fundación Nacional de Ciencia](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en colaboración con la  ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\").",
+              "",
+              "Traducción al español por Cristián Rizzi Iribarren."],
   "theme": ["has","standalone-playback"],
   "aspectRatio": 1.2,
   "fontScale": 0.8,
