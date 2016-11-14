@@ -42,6 +42,10 @@
   :name: "Interactions Project"
   :category: Curriculum
 
+- :path: building-models
+  :name: "Building Models"
+  :category: Curriculum
+
 - :path: itsi/atoms-and-energy
   :name: "ITSI: Atoms and Energy"
   :category: Curriculum
@@ -405,7 +409,7 @@
 - :path: external-projects/achieve
   :name: "Achieve"
   :category: Curriculum
-  
+
 - :path: external-projects/msu
   :name: "Michigan State University Interactives"
   :category: Curriculum
