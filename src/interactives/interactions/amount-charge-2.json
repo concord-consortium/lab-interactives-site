@@ -10,11 +10,19 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
-    "Control the amount of charge on two objects an observe how it affects ",
+    "Control the type of charge on two objects and observe how it affects ",
     "(1) the electric fields around the charged objects and ",
-    "(2) the strength of the forces acting between the two objects."
+    "(2) the direction of the forces acting between the two objects.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
   "theme": "",
   "showTopBar": true,
@@ -112,6 +120,24 @@
       "showcase": true
     }
   ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
   "dataSets": [],
   "components": [
     {
@@ -237,21 +263,5 @@
       "width": "model.width",
       "align": "center"
     }
-  ],
-  "logging": {
-    "properties": [
-      "left-particle-charge",
-      "right-particle-charge",
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "selectionComponents": [],
-    "perRun": [
-      "left-particle-charge",
-      "right-particle-charge",
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  ]
 }
