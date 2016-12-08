@@ -1,26 +1,40 @@
 {
   "title": "Mixing Liquids",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore how liquids mix at the molecular level.",
-  "about": [
-    "How is it possible to mix two liquids together and for them to take up less volume than ",
-    "when they are separated? Does it always happen that the mixture takes up less space? How ",
-    "does thinking about liquids as being made of small particles help us understand our observations?"
-  ],
-  "helpOnLoad": true,
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 0.9325,
   "fontScale": 0.9,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "How is it possible to mix two liquids together and for them to take up less volume than",
+    " when they are separated? Does it always happen that the mixture takes up less space? ",
+    "How does thinking about liquids as being made of small particles help us understand our",
+    " observations? Use this interactive to explore these questions.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "particleMixing",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixing.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixing$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "set('selectLiquid',1);",
         "setComponentDisabled('add-columnB',false);",
@@ -76,19 +90,20 @@
         "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 150);",
         "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 150);",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": "",
+        "enableKeyboardHandlers": false
+      }
     },
     {
       "type": "md2d",
       "id": "particleMixingDoubleEthanol",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleEthanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleEthanol$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": ""
-      },
       "onLoad": [
-         "set('selectLiquid',2);",
+        "set('selectLiquid',2);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -141,17 +156,17 @@
         "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 150);",
         "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 150);",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": ""
+      }
     },
     {
       "type": "md2d",
       "id": "particleMixingDoubleWater",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/particleMixingDoubleWater.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/particleMixingDoubleWater$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": ""
-      },
       "onLoad": [
         "set('selectLiquid',3);",
         "setComponentDisabled('add-columnB',false);",
@@ -206,18 +221,17 @@
         "  setTemperatureOfAtoms(columnBIndices, applyHeatBathToColumnB ? get('columnBTemp') : 125);",
         "  setTemperatureOfAtoms(columnAIndices, applyHeatBathToColumnA ? get('columnATemp') : 125);",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": ""
+      }
     },
-     {
+    {
       "type": "md2d",
       "id": "water-ethanol",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "set('selectLiquid',1);",
         "setComponentDisabled('add-columnB',false);",
@@ -267,31 +281,31 @@
         "if(get('positionA')>get('positionB') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
         "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
-         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "if(get('positionA')>get('positionB') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
         "    setShapeProperties(get('liquidB'),{y: 0.68});}",
         "if(get('positionB')>get('positionA') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
         "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
-         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "if(get('positionB')>get('positionA') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 0.68});",
         "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": "",
+        "enableKeyboardHandlers": false
+      }
     },
     {
       "type": "md2d",
       "id": "water-water",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Water-Water.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
-         "set('selectLiquid',3);",
+        "set('selectLiquid',3);",
         "setComponentDisabled('add-columnB',false);",
         "setComponentDisabled('add-columnA',false);",
         "setComponentDisabled('cap-and-shake',true);",
@@ -304,7 +318,7 @@
         "    indicesColumnB   = get('indicesColumnB'),",
         "    indicesColumnA   = get('indicesColumnA');",
         "start();",
-       "var addition = 0.12;",
+        "var addition = 0.12;",
         "var inc = 0.94;",
         "var inc2 = 0;",
         "callEvery(25,function(){",
@@ -335,29 +349,29 @@
         "if(get('positionA')>get('positionB') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
         "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
-         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "if(get('positionA')>get('positionB') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
         "    setShapeProperties(get('liquidB'),{y: 0.68});}",
         "if(get('positionB')>get('positionA') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
         "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
-         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "if(get('positionB')>get('positionA') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 0.68});",
         "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": "",
+        "enableKeyboardHandlers": false
+      }
     },
     {
       "type": "md2d",
       "id": "ethanol-ethanol",
       "url": "models/lab-version/1/md2d/interactions/mixing-liquids/Ethanol-Ethanol.json",
       "importedFrom": "imports/legacy-mw-content/interactions/mixing-liquids/continuous.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "controlButtonStyle": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "set('selectLiquid',2);",
         "setComponentDisabled('add-columnB',false);",
@@ -403,20 +417,26 @@
         "if(get('positionA')>get('positionB') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidB'),{height: inc, y: get('positionB')});",
         "    setShapeProperties(get('liquidA'),{height: inc2+0.94, y: get('positionA')-inc2});}",
-         "if(get('positionA')>get('positionB') && get('stop-shake')){",
+        "if(get('positionA')>get('positionB') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 1.62-inc2});",
         "    setShapeProperties(get('liquidB'),{y: 0.68});}",
         "if(get('positionB')>get('positionA') && !get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{height: inc, y: get('positionA')});",
         "    setShapeProperties(get('liquidB'),{height: inc2+0.94,y: get('positionB')-inc2});}",
-         "if(get('positionB')>get('positionA') && get('stop-shake')){",
+        "if(get('positionB')>get('positionA') && get('stop-shake')){",
         "    setShapeProperties(get('liquidA'),{y: 0.68});",
         "    setShapeProperties(get('liquidB'),{y: 1.62-inc2});}",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "controlButtonStyle": "",
+        "enableKeyboardHandlers": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "applyHeatBathToColumnB",
@@ -452,31 +472,51 @@
     },
     {
       "name": "indicesColumnB",
-      "initialValue": [2,3]
+      "initialValue": [
+        2,
+        3
+      ]
     },
     {
       "name": "indicesColumnA",
-      "initialValue": [1,0]
+      "initialValue": [
+        1,
+        0
+      ]
     },
     {
       "name": "indicesColumnC",
-      "initialValue": [6,7,8]
+      "initialValue": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "name": "indicesColumnD",
-      "initialValue": [4,5,9]
+      "initialValue": [
+        4,
+        5,
+        9
+      ]
     },
     {
       "name": "liquidA",
-      "initialValue": [10]
+      "initialValue": [
+        10
+      ]
     },
     {
       "name": "liquidB",
-      "initialValue": [11]
+      "initialValue": [
+        11
+      ]
     },
     {
       "name": "liquidC",
-      "initialValue": [12]
+      "initialValue": [
+        12
+      ]
     },
     {
       "name": "Shakeliquid",
@@ -503,11 +543,54 @@
       "initialValue": false
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "#Mixing Liquids",
+        "- - -",
+        "Experiment with mixing liquids and observing the volume (amount of space) they take up."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "pulldown",
+      "text": "First select a model of matter to explore.",
+      "showcase": true
+    },
+    {
+      "component": "select-model",
+      "text": "Then select a pair of liquids to combine, and then note the volume of each liquid.",
+      "showcase": true
+    },
+    {
+      "component": "add-columnA",
+      "text": "Add one liquid to the mixing cylinder.",
+      "showcase": true
+    },
+    {
+      "component": "add-columnB",
+      "text": "Then add the second liquid to the mixing cylinder and note the volume.",
+      "showcase": true
+    },
+    {
+      "component": "cap-and-shake",
+      "text": "Shake the liquids up.",
+      "showcase": true
+    },
+    {
+      "component": "reset",
+      "text": "Then stop mixing the liquids and note the volume.",
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "add-columnB",
-      "text": "Add second",
+      "type": "button",
       "action": [
         "if ( !(get('isColumnBDropping') || get('isColumnADropping')) && get('modelA') ) {",
         "   stop();",
@@ -558,12 +641,17 @@
         "  });",
         " } ",
         "}"
-      ]
+      ],
+      "text": "Add second",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "add-columnA",
-      "text": "Add first",
+      "type": "button",
       "action": [
         "if ( !(get('isColumnADropped') || get('isColumnADropping') || get('isColumnBDropping')) && get('modelA') ) {",
         "  stop();",
@@ -614,13 +702,17 @@
         "  });",
         " }",
         "}"
-      ]
+      ],
+      "text": "Add first",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "cap-and-shake",
-      "text": "Cap and shake",
-      "disabled": true,
+      "type": "button",
       "action": [
         "if(get('modelA')){",
         "var i = get('indicesColumnD'),",
@@ -651,14 +743,24 @@
         "     set('stop-shake',false);",
         "   }",
         "}"
-      ]
+      ],
+      "text": "Cap and shake",
+      "width": "",
+      "height": "",
+      "disabled": true,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
       "text": "Reset",
+      "width": "",
+      "height": "",
       "disabled": true,
-      "action": "reloadModel();"
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "label-select-matter",
@@ -670,44 +772,55 @@
       "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label-select-model",
-      "text": "**Select liquids**"
+      "type": "text",
+      "text": "**Select liquids**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "select-model",
+      "type": "radio",
+      "style": "radio",
       "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Water + Ethanol",
           "action": [
-                     "if(get('modelA')){",
-                     "  loadModel('particleMixing');}",
-                     "else{",
-                     "  loadModel('water-ethanol');}"
-                    ],
+            "if(get('modelA')){",
+            "  loadModel('particleMixing');}",
+            "else{",
+            "  loadModel('water-ethanol');}"
+          ],
           "selected": true
         },
         {
           "text": "Ethanol + Ethanol",
           "action": [
-                     "if(get('modelA'))",
-                     "  loadModel('particleMixingDoubleEthanol');",
-                     "else",
-                     "  loadModel('ethanol-ethanol');"
-                    ]
+            "if(get('modelA'))",
+            "  loadModel('particleMixingDoubleEthanol');",
+            "else",
+            "  loadModel('ethanol-ethanol');"
+          ]
         },
         {
           "text": "Water + Water",
           "action": [
-                     "if(get('modelA'))",
-                     "  loadModel('particleMixingDoubleWater');",
-                     "else",
-                     "  loadModel('water-water');"
-                    ]
+            "if(get('modelA'))",
+            "  loadModel('particleMixingDoubleWater');",
+            "else",
+            "  loadModel('water-water');"
+          ]
         }
-      ]
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "pulldown",
@@ -717,61 +830,28 @@
       "options": [
         {
           "text": "particle model",
-          "action":[
-                    "if(get('selectLiquid')==1)loadModel('particleMixing');",
-                    "if(get('selectLiquid')==2)loadModel('particleMixingDoubleEthanol');",
-                    "if(get('selectLiquid')==3)loadModel('particleMixingDoubleWater');",
-                    "set('modelA',true);"
-                  ],
+          "action": [
+            "if(get('selectLiquid')==1)loadModel('particleMixing');",
+            "if(get('selectLiquid')==2)loadModel('particleMixingDoubleEthanol');",
+            "if(get('selectLiquid')==3)loadModel('particleMixingDoubleWater');",
+            "set('modelA',true);"
+          ],
           "selected": true
         },
         {
           "text": "continuous model",
           "action": [
-                      "if(get('selectLiquid')==1)loadModel('water-ethanol');",
-                      "if(get('selectLiquid')==2)loadModel('ethanol-ethanol');",
-                      "if(get('selectLiquid')==3)loadModel('water-water');",
-                      "set('modelA',false);"
-                    ]
+            "if(get('selectLiquid')==1)loadModel('water-ethanol');",
+            "if(get('selectLiquid')==2)loadModel('ethanol-ethanol');",
+            "if(get('selectLiquid')==3)loadModel('water-water');",
+            "set('modelA',false);"
+          ]
         }
       ],
       "retainProperty": true,
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
-    }
-  ],
-  "helpTips": [
-    {
-      "text": [
-        "#Mixing Liquids",
-        "- - -",
-        "Experiment with mixing liquids and observing the volume (amount of space) they take up."
-      ]
-    },
-    {
-      "component": "pulldown",
-      "text":  "First select a model of matter to explore."
-    },
-    {
-      "component": "select-model",
-      "text":  "Then select a pair of liquids to combine, and then note the volume of each liquid."
-    },
-    {
-      "component": "add-columnA",
-      "text": "Add one liquid to the mixing cylinder."
-    },
-    {
-      "component": "add-columnB",
-      "text": "Then add the second liquid to the mixing cylinder and note the volume."
-    },
-    {
-      "component": "cap-and-shake",
-      "text": "Shake the liquids up."
-    },
-    {
-      "component": "reset",
-      "text": "Then stop mixing the liquids and note the volume."
     }
   ],
   "layout": {
@@ -802,4 +882,3 @@
     }
   ]
 }
-
