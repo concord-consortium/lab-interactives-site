@@ -1,8 +1,8 @@
 {
-  "title": "Boiling point of polar & nonpolar",
+  "title": "Boiling point of polar & nonpolar substances",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "",
+  "subtitle": "What affects the movement of molecules?",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,8 +10,20 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": false,
-  "about": "",
+  "aboutOnLoad": false,
+  "about": [
+    "Control the temperature and observe the impact on the motion and interactions between particles. ",
+  	"Compare the interactions between nonpolar molecules and between polar molecules to see how this",
+    " affects the boiling point of substances made from molecules with these properties.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
   "theme": "",
   "showTopBar": true,
   "showBottomBar": true,
@@ -22,14 +34,14 @@
       "id": "polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/polar.json",
       "onLoad": [
-                 "set('targetTemperature', 800);",
-                 "if (get('targetTemperature') < 4000) {",
-                 "  setComponentDisabled('heat', false);}",
-                 "callEvery(25,function(){",
-                 "  if (get('targetTemperature') < 4000) {",
-                 "   setComponentDisabled('heat', false);",
-                 "}});" 
-                ],
+        "set('targetTemperature', 800);",
+        "if (get('targetTemperature') < 4000) {",
+        "  setComponentDisabled('heat', false);}",
+        "callEvery(25,function(){",
+        "  if (get('targetTemperature') < 4000) {",
+        "   setComponentDisabled('heat', false);",
+        "}});"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
@@ -40,14 +52,14 @@
       "id": "non-polar",
       "url": "models/lab-version/1/md2d/interactions/boiling-point-polar-nonpolar/non-polar.json",
       "onLoad": [
-                 "set('targetTemperature', 800);",
-                 "if (get('targetTemperature') < 4000) {",
-                 "  setComponentDisabled('heat', false);}",
-                 "callEvery(25,function(){",
-                 "  if (get('targetTemperature') < 4000) {",
-                 "   setComponentDisabled('heat', false);",
-                 "}});" 
-                ],
+        "set('targetTemperature', 800);",
+        "if (get('targetTemperature') < 4000) {",
+        "  setComponentDisabled('heat', false);}",
+        "callEvery(25,function(){",
+        "  if (get('targetTemperature') < 4000) {",
+        "   setComponentDisabled('heat', false);",
+        "}});"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
@@ -120,9 +132,9 @@
           "label": "400"
         }
       ],
-     "property": "targetTemperature",
       "width": "auto",
       "height": "auto",
+      "property": "targetTemperature",
       "retainProperty": true,
       "disabled": false,
       "tooltip": "",
@@ -137,41 +149,41 @@
       "title": "Temperature (K)",
       "titleOn": "right",
       "labels": [
-         {
-           "value": 500,
-           "label": 50
+        {
+          "value": 500,
+          "label": 50
         },
         {
-           "value": 1000,
-           "label": 100
+          "value": 1000,
+          "label": 100
         },
         {
-           "value": 1500,
-           "label": 150
+          "value": 1500,
+          "label": 150
         },
         {
-           "value": 2000,
-           "label": 200
+          "value": 2000,
+          "label": 200
         },
         {
-           "value": 2500,
-           "label": 250
+          "value": 2500,
+          "label": 250
         },
         {
-           "value": 3000,
-           "label": 300
+          "value": 3000,
+          "label": 300
         },
         {
-           "value": 3500,
-           "label": 350
+          "value": 3500,
+          "label": 350
         },
         {
-           "value": 4000,
-           "label": 400
+          "value": 4000,
+          "label": 400
         },
         {
-           "value": 4500,
-           "label": 450
+          "value": 4500,
+          "label": 450
         }
       ],
       "units": false,
@@ -209,6 +221,7 @@
     {
       "id": "select-model",
       "type": "radio",
+      "style": "radio",
       "orientation": "horizontal",
       "label": "",
       "labelOn": "top",
@@ -229,26 +242,26 @@
       "helpIcon": false
     }
   ],
- "layout": {
+  "layout": {
     "right": [
       "thermometer"
     ],
     "down": [
-        "cool",
-        "heat",
-        "temp-slider",
-        "slow-motion-checkbox"
+      "cool",
+      "heat",
+      "temp-slider",
+      "slow-motion-checkbox"
     ],
-    "bottom-right":[
+    "bottom-right": [
       "molecule-header",
       "select-model"
     ]
   },
   "template": [
-    { 
-     "id": "right",
-     "left": "model.right",
-     "height": "model.height"
+    {
+      "id": "right",
+      "left": "model.right",
+      "height": "model.height"
     },
     {
       "id": "down",
@@ -261,5 +274,5 @@
       "width": "down.width",
       "align": "left"
     }
- ]
+  ]
 }
