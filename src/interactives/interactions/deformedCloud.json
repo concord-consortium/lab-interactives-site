@@ -1,26 +1,39 @@
 {
-  "title": "Deformed Cloud",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "title": "Deformed Electron Cloud",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore the effect of charges on electron distribution.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.13,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Explore the effect of charges on the electron distribution of the atom by using slider bars",
+    " to alter the charges outside the atom. Then analyze different combinations of outside charges",
+    " and observe their effect to draw conclusions about how charges affect the overall shape of atoms.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "deformedCloud$0",
       "url": "models/lab-version/1/md2d/interactions/deformed-electron-cloud/deformedCloud.json",
       "importedFrom": "imports/legacy-mw-content/interactions/deformed-electron-cloud/deformedCloud$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false,
-        "imageMapping": {
-          "Positive.png": "Positive.svg",
-          "Negative.png": "Negative.svg"
-        }
-      },
       "onLoad": [
         "",
         "",
@@ -98,9 +111,21 @@
         "});",
         "start();",
         "updateCloudShape();"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "Positive.png": "Positive.svg",
+          "Negative.png": "Negative.svg"
+        }
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-charge",
@@ -111,16 +136,35 @@
       "initialValue": 0
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-charge",
+      "right-charge"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "left-charge",
+      "right-charge"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
   "components": [
     {
-      "type": "slider",
       "id": "left-charge-slider",
-      "title": "Left Charge",
-      "width": "16em",
+      "type": "slider",
       "min": -1,
       "max": 1,
       "steps": 30,
-      "initialValue": 0,
+      "title": "Left Charge",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 0,
@@ -135,17 +179,23 @@
           "label": "Positive"
         }
       ],
-      "action": "set({'left-charge': value});"
+      "width": "16em",
+      "height": "auto",
+      "retainProperty": true,
+      "action": "set({'left-charge': value});",
+      "initialValue": 0,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "right-charge-slider",
-      "title": "Right Charge",
-      "width": "16em",
+      "type": "slider",
       "min": -1,
       "max": 1,
       "steps": 30,
-      "initialValue": 0,
+      "title": "Right Charge",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 0,
@@ -160,7 +210,14 @@
           "label": "Positive"
         }
       ],
-      "action": "set({'right-charge': value});"
+      "width": "16em",
+      "height": "auto",
+      "retainProperty": true,
+      "action": "set({'right-charge': value});",
+      "initialValue": 0,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -178,18 +235,5 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ],
-  "logging": {
-    "properties": [
-      "left-charge",
-      "right-charge"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "left-charge",
-      "right-charge"
-    ],
-    "perTick": []
-  }
+  ]
 }
