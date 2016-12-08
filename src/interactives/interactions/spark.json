@@ -1,27 +1,37 @@
-
 {
-  "title": "Van der Graaf (VDG) discharge",
+  "title": "Van de Graaf (VDG) discharge",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore electric potential energy and sparks.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.35,
-  "about": [
-    "Charge up the Van der Graaf generator and drag the discharge wand close enough to form a spark. ",
-    "What happens to the electric potential energy when you charge the Van der Graaf and when the spark occurs?"
-   ],
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Charge up the Van de Graaf generator and drag the discharge wand close enough to form a spark. ",
+    "What happens to the electric potential energy when you charge the Van de Graaf and when the spark occurs?",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "spark",
       "url": "models/lab-version/1/md2d/interactions/spark/spark.json",
-      "viewOptions": {
-        "controlButtons": "reset",
-        "enableKeyboardHandlers": false,
-        "imageMapping": {
-          "Wand.png": "Wand.svg",
-          "electron.png": "electron.svg"
-        }
-      },
       "onLoad": [
         "start();",
         "var pinned = 1,",
@@ -74,9 +84,18 @@
         "    }",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "reset",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "Wand.png": "Wand.svg",
+          "electron.png": "electron.svg"
+        }
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-particle-charge",
@@ -92,12 +111,23 @@
       "name": "fake_pe",
       "initialValue": 0
     }
-
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Charge up the Van der Graaf generator, and then drag the wand around by the head of the wand."
+      ],
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "add-charge",
+      "type": "button",
       "action": [
         "var numAtoms = atomsWithinCircle(getAtomProperties(0).x, getAtomProperties(0).y, 0.3).length,",
         "    added = false,",
@@ -111,16 +141,21 @@
         " added = addAtom({x: x, y: y, charge: -1, friction: 0.7, element: 0, draggableWhenStopped: 0});",
         "}"
       ],
-      "text": "Add negative charge to the VDG"
+      "text": "Add negative charge to the VDG",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "potential-energy-graph",
       "type": "barGraph",
+      "property": "fake_pe",
       "min": 0,
       "max": 10,
-      "id": "potential-energy-graph",
-      "property": "fake_pe",
-      "barColor": "#4c952f",
       "title": "Potential Energy",
+      "titleOn": "right",
       "labels": [
         {
           "value": 10,
@@ -130,16 +165,30 @@
           "value": 0,
           "label": "low"
         }
-      ]
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#4c952f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
-  "helpTips": [
-    {
-      "text": [
-        "Charge up the Van der Graaf generator, and then drag the wand around by the head of the wand."
+  "layout": {
+    "bottom": [
+      [
+        "add-charge"
       ]
-    }
-  ],
+    ],
+    "right": [
+      [
+        "potential-energy-graph"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "bottom",
@@ -157,13 +206,5 @@
       "padding-left": "1em",
       "padding-right": "1em"
     }
-  ],
-  "layout": {
-    "bottom": [
-      ["add-charge"]
-    ],
-    "right": [
-      ["potential-energy-graph"]
-    ]
-  }
+  ]
 }
