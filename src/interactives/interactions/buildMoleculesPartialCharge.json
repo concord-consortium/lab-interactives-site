@@ -1,13 +1,34 @@
 {
   "title": "Making molecules",
-  "publicationStatus": "draft",
-  "subtitle": " Exploring polarization",
-  "about": [
-    "Choose a type of atom to add to the existing molecule, then click on one of ",
-    "the atoms in that molecule to see what affect it has on how the electric charge ",
-    "from the electrons gets distributed."
-  ],
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Exploring polarization",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.35,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "What happens to the distribution of charge in a molecule when atoms within the molecule",
+    " are replaced with different ones? Choose different types of atoms to add to an existing",
+    " molecule and observe the changes in the electron distribution (charge distribution) of the",
+    " molecule when different atoms are substituted at various points on the molecule.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "iframe-model",
@@ -15,10 +36,6 @@
       "model": {
         "url": "https://models-resources.concord.org/jsmol/embeddable-polarization.html",
         "molecule": "models/polarization/propane.mol"
-      },
-      "viewOptions": {
-        "aspectRatio": 1,
-        "controlButtons": ""
       },
       "onLoad": [
         "function updateView() {",
@@ -41,9 +58,14 @@
         "post('jsmolScript', 'script models/polarization/initialization.spt');",
         "onPropertyChange('translucency', updateOpacity);",
         "onPropertyChange('surface', updateView);"
-      ]
+      ],
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "translucency",
@@ -54,15 +76,27 @@
       "initialValue": false
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "text",
       "id": "label1",
-      "text": "**Click on an atom of the molecule to change it to:**"
+      "type": "text",
+      "text": "**Click on an atom of the molecule to change it to:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "atom-type",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "oxygen",
@@ -71,7 +105,7 @@
         {
           "text": "fluorine",
           "action": "post('jsmolScript', 'set picking assignAtom_F;');"
-         },
+        },
         {
           "text": "nitrogen",
           "action": "post('jsmolScript', 'set picking assignAtom_N;');"
@@ -84,32 +118,83 @@
           "text": "hydrogen",
           "action": "post('jsmolScript', 'set picking assignAtom_H;');"
         }
-      ]
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label2",
-      "text": "**Set surface features:**"
+      "type": "text",
+      "text": "**Set surface features:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "charge-surface",
-      "text": "show charge coloring on molecule surface",
-      "property": "surface"
-    },
-    {
       "type": "checkbox",
-      "id": "surface-translucent",
-      "text": "make molecule surface opaque",
-      "property": "translucency"
+      "text": "show charge coloring on molecule surface",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "surface",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
+      "id": "surface-translucent",
+      "type": "checkbox",
+      "text": "make molecule surface opaque",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "translucency",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "reset",
+      "type": "button",
+      "action": "reloadInteractive();",
       "text": "reset",
-      "action": "reloadInteractive();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "right-top": [
+      [
+        "label1"
+      ],
+      [
+        "atom-type"
+      ]
+    ],
+    "right-bottom": [
+      [
+        "label2"
+      ],
+      [
+        "charge-surface"
+      ],
+      [
+        "surface-translucent"
+      ],
+      [
+        "reset"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "right-top",
@@ -125,17 +210,5 @@
       "padding-left": "0.5em",
       "padding-top": "0.5em"
     }
-  ],
-  "layout": {
-    "right-top": [
-      ["label1"],
-      ["atom-type"]
-     ],
-    "right-bottom": [
-      ["label2"],
-      ["charge-surface"],
-      ["surface-translucent"],
-      ["reset"]
-    ]
-  }
+  ]
 }
