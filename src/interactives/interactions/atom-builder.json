@@ -1,20 +1,41 @@
 {
   "title": "Atom and Ion Builder",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Making atoms and ions.",
-  "about": "Explore how protons, neutrons, and electrons affect the type of atom and its charge.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 2,
   "fontScale": 0.65,
-  "aspectRatio": 2.0,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Explore how changing numbers of protons, neutrons, and electrons affect the type of atom.",
+    " As you build atoms in this simulation, make observations of the components of different atoms ",
+    "and how they affect the type of atom. Then draw conclusions about which components affect the type",
+    " of atom (protons) which components affect the overall charge of atoms (electrons) and which components",
+    " affect the size of atoms (neutrons).",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "atom-builder",
       "url": "models/lab-version/1/md2d/interactions/atom-builder/atom-builder.json",
       "importedFrom": "imports/legacy-mw-content/interactions/atom-builder/atomBuilderIons$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "start();",
         "callEvery(100, function() {",
@@ -121,9 +142,14 @@
         "    color: color",
         "  });",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "numElectrons",
@@ -251,12 +277,11 @@
   "outputs": [
     {
       "name": "totalCharge",
-      "label": "Total Charge",
-      "value": "return get('numProtons') - get('numElectrons');"
+      "value": "return get('numProtons') - get('numElectrons');",
+      "label": "Total Charge"
     },
     {
       "name": "elementSymbol",
-      "label": "Symbol of the element",
       "value": [
         "switch (get('numProtons')) {",
         "  case  1: return 'H';",
@@ -270,11 +295,11 @@
         "  case  9: return 'F';",
         "  case 10: return 'Ne';",
         "}"
-      ]
+      ],
+      "label": "Symbol of the element"
     },
     {
       "name": "elementName",
-      "label": "Name of the element",
       "value": [
         "switch (get('numProtons')) {",
         "  case  1: return 'Hydrogen';",
@@ -288,48 +313,100 @@
         "  case  9: return 'Fluorine';",
         "  case 10: return 'Neon';",
         "}"
-      ]
+      ],
+      "label": "Name of the element"
     }
   ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
-    { "id": "reset",
+    {
+      "id": "reset",
       "type": "button",
+      "action": "set('numNeutrons', 0); set('numProtons', 1); set('numElectrons', 1);",
       "text": "reset to neutral hydrogen",
-      "action": "set('numNeutrons', 0); set('numProtons', 1); set('numElectrons', 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "add-electron",
+    {
+      "id": "add-electron",
       "type": "button",
+      "action": "set('numElectrons', get('numElectrons') + 1);",
       "text": "add electron",
-      "action": "set('numElectrons', get('numElectrons') + 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "remove-electron",
+    {
+      "id": "remove-electron",
       "type": "button",
+      "action": "set('numElectrons', get('numElectrons') - 1);",
       "text": "remove electron",
-      "action": "set('numElectrons', get('numElectrons') - 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "add-proton",
+    {
+      "id": "add-proton",
       "type": "button",
+      "action": "set('numProtons', get('numProtons') + 1);",
       "text": "add proton",
-      "action": "set('numProtons', get('numProtons') + 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "remove-proton",
+    {
+      "id": "remove-proton",
       "type": "button",
+      "action": "set('numProtons', get('numProtons') - 1);",
       "text": "remove proton",
-      "action": "set('numProtons', get('numProtons') - 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "add-neutron",
+    {
+      "id": "add-neutron",
       "type": "button",
+      "action": "set('numNeutrons', get('numNeutrons') + 1);",
       "text": "add neutron",
-      "action": "set('numNeutrons', get('numNeutrons') + 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "remove-neutron",
+    {
+      "id": "remove-neutron",
       "type": "button",
+      "action": "set('numNeutrons', get('numNeutrons') - 1);",
       "text": "remove neutron",
-      "action": "set('numNeutrons', get('numNeutrons') - 1);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "instructions",
+    {
+      "id": "instructions",
       "type": "div",
-      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affects the overall charge of the atom.</p>"
+      "content": "<p>As you build atoms, pay close attention to how the number of electrons, protons, and neutrons affects the overall charge of the atom.</p>",
+      "width": "auto",
+      "height": "auto",
+      "classes": [],
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -339,13 +416,17 @@
       "add-neutron"
     ],
     "right2": [
-     "remove-electron",
-     "remove-proton",
-     "remove-neutron"
+      "remove-electron",
+      "remove-proton",
+      "remove-neutron"
     ],
     "bottom": [
-      ["reset"],
-      ["instructions"]
+      [
+        "reset"
+      ],
+      [
+        "instructions"
+      ]
     ]
   },
   "template": [
