@@ -1,22 +1,45 @@
 {
   "title": "Charge Intensity and Electric Force",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Manipulate the charge on objects to explore the relationship between charge, electric field and forces on objects.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.31,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
     "Control the amount of charge on two objects an observe how it affects ",
     "(1) the electric fields around the charged objects and ",
-    "(2) the strength of the forces acting between the two objects."
+    "(2) the strength of the forces acting between the two objects.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "amount-charge$0",
       "url": "models-converted/lab-version/1/md2d/interactions/charge-intensity-and-force/amount-charge$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
+      "onLoad": [
+        "set('showElectricField',false);",
+        "set('left-particle-charge',2);",
+        "set('right-particle-charge',-2);",
+        "start();"
+      ],
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -26,36 +49,55 @@
           "length": 17
         }
       },
-      "onLoad": [
-        "set('showElectricField',false);",
-        "set('left-particle-charge',2);",
-        "set('right-particle-charge',-2);",
-        "start();"
-      ]
+      "modelOptions": {
+        "useDuration": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-particle-charge",
-      "initialValue": 0,
+      "initialValue": 2,
       "onChange": "setAtomProperties(1,{charge: value});"
     },
     {
       "name": "right-particle-charge",
-      "initialValue": 0,
+      "initialValue": -2,
       "onChange": "setAtomProperties(0,{charge: value});"
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
   "components": [
     {
-      "type": "slider",
       "id": "set-left-particle-charge",
-      "property": "left-particle-charge",
+      "type": "slider",
       "min": -3,
       "max": 3,
       "steps": 6,
       "title": "Left particle",
-      "displayValue": "return format('d')(value)",
+      "titlePosition": "top",
       "labels": [
         {
           "value": -3,
@@ -69,17 +111,24 @@
           "value": 3,
           "label": "3"
         }
-      ]
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "left-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "set-right-particle-charge",
-      "property": "right-particle-charge",
+      "type": "slider",
       "min": -3,
       "max": 3,
       "steps": 6,
       "title": "Right particle",
-      "displayValue": "return format('d')(value)",
+      "titlePosition": "top",
       "labels": [
         {
           "value": -3,
@@ -93,28 +142,41 @@
           "value": 3,
           "label": "3"
         }
-      ]
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "right-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "select-show-forces",
+      "type": "checkbox",
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "showForceVectors",
-      "text": "Show forces"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "showElectricField",
-      "text": "Show electric field"
-    }
-  ],
-  "template": [
-    {
-      "id": "bottom",
-      "left": "model.left",
-      "top": "model.bottom",
-      "width": "model.width",
-      "align": "center"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -129,19 +191,13 @@
       ]
     ]
   },
-  "logging": {
-    "properties": [
-      "left-particle-charge",
-      "right-particle-charge",
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "left-particle-charge",
-      "right-particle-charge",
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
 }
