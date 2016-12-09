@@ -1,33 +1,39 @@
 {
   "title": "Collisions and Kinetic Energy",
   "publicationStatus": "public",
-  "subtitle": "Energy exchange between colliding obstacles",
+  "labEnvironment": "production",
+  "subtitle": "Exploring kinetic energy through collisions.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.5,
   "fontScale": 0.75,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "The energy of motion is called *kinetic energy*. The amount of kinetic energy ",
-    "an object has depends on its mass and speed. Objects that interact with each ",
-    "other can transfer energy between them. Use the controls in this interactive to ",
-    "explore how this energy transfer occurs."
+    "The energy of motion is called *kinetic energy*. The amount of kinetic energy an object has depends",
+    " on its mass and speed. Objects that interact with each other can transfer kinetic energy between them. ",
+    "Use the controls in this interactive to explore how this energy transfer occurs.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "collision$0",
       "url": "models/lab-version/1/md2d/interactions/collision/Collision.json",
       "importedFrom": "imports/legacy-mw-content/interactions/collision/collision$0.mml",
-      "viewOptions": {
-        "velocityVectors": {
-          "length": 15
-        },
-        "controlButtons": "play_reset"
-      },
-      "modelOptions": {
-        "unitsScheme": "mks",
-        "timeStepsPerTick": 333,
-        "timeStep": 0.5,
-        "modelSampleRate": 60
-      },
       "onLoad": [
         "onPropertyChange('time', function(time){",
         "  setComponentDisabled('left-speed', true);",
@@ -41,9 +47,22 @@
         "setComponentDisabled('left-mass', false);",
         "setComponentDisabled('right-mass', false);",
         "setComponentDisabled('object-offset', false);"
-      ]
+      ],
+      "viewOptions": {
+        "velocityVectors": {
+          "length": 15
+        },
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 333,
+        "timeStep": 0.5,
+        "modelSampleRate": 60
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-speed",
@@ -74,79 +93,52 @@
   "outputs": [
     {
       "name": "left-ke",
-      "unitAbbreviation": "J",
-      "label": "KE of yellow object",
       "value": [
         "var props = getAtomProperties(0);",
         "// KE = (1/2)mv^2",
         "return 0.5 * 0.1 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
-      ]
+      ],
+      "label": "KE of yellow object",
+      "unitAbbreviation": "J"
     },
     {
       "name": "right-ke",
-      "unitAbbreviation": "J",
-      "label": "KE of blue object",
       "value": [
         "var props = getAtomProperties(1);",
         "// KE = (1/2)mv^2",
         "return 0.5 * 0.1 * props.mass * (props.vx * props.vx + props.vy * props.vy)"
-      ]
+      ],
+      "label": "KE of blue object",
+      "unitAbbreviation": "J"
     },
     {
       "name": "total-ke",
-      "unitAbbreviation": "J",
-      "label": "Total KE in system",
       "value": [
         "return (pe() + ke())/10;"
-      ]
+      ],
+      "label": "Total KE in system",
+      "unitAbbreviation": "J"
     }
   ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "slider",
       "id": "left-speed",
+      "type": "slider",
       "min": 0.5,
       "max": 2,
-      "value": 1,
       "steps": 3,
-      "displayValue": "return format('.1f')(value)",
-      "labels": [
-        {
-          "value": 0.5,
-          "label": "0.5"
-        },
-        {
-          "value": 1.0,
-          "label": "1.0"
-        },
-        {
-          "value": 1.5,
-          "label": "1.5"
-        },
-        {
-          "value": 2.0,
-          "label": "2.0"
-        }
-      ],
       "title": "Left object speed (m/s)",
-      "property": "left-speed",
-      "width": "11em"
-    },
-    {
-      "type": "slider",
-      "id": "right-speed",
-      "min": 0.5,
-      "max": 2,
-      "value": 1,
-      "steps": 3,
-      "displayValue": "return format('.1f')(value)",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 0.5,
           "label": "0.5"
         },
         {
-          "value": 1.0,
+          "value": 1,
           "label": "1.0"
         },
         {
@@ -154,56 +146,62 @@
           "label": "1.5"
         },
         {
-          "value": 2.0,
+          "value": 2,
           "label": "2.0"
         }
       ],
+      "width": "11em",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "left-speed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "right-speed",
+      "type": "slider",
+      "min": 0.5,
+      "max": 2,
+      "steps": 3,
       "title": "Right object speed (m/s)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 0.5,
+          "label": "0.5"
+        },
+        {
+          "value": 1,
+          "label": "1.0"
+        },
+        {
+          "value": 1.5,
+          "label": "1.5"
+        },
+        {
+          "value": 2,
+          "label": "2.0"
+        }
+      ],
+      "width": "11em",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
       "property": "right-speed",
-      "width": "11em"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "left-mass",
+      "type": "slider",
       "min": 1,
       "max": 5,
-      "value": 3,
       "steps": 4,
-      "displayValue": "return format('.1f')(value)",
-      "labels": [
-        {
-          "value": 1,
-          "label": "1"
-        },
-        {
-          "value": 2,
-          "label": "2"
-        },
-        {
-          "value": 3,
-          "label": "3"
-        },
-        {
-          "value": 4,
-          "label": "4"
-        },
-        {
-          "value": 5,
-          "label": "5"
-        }
-      ],
       "title": "Left object mass (kg)",
-      "property": "left-mass",
-      "width": "11em"
-    },
-    {
-      "type": "slider",
-      "id": "right-mass",
-      "min": 1,
-      "max": 5,
-      "value": 3,
-      "steps": 4,
-      "displayValue": "return format('.1f')(value)",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 1,
@@ -226,17 +224,62 @@
           "label": "5"
         }
       ],
-      "title": "Right object mass (kg)",
-      "property": "right-mass",
-      "width": "11em"
+      "width": "11em",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "left-mass",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "right-mass",
       "type": "slider",
+      "min": 1,
+      "max": 5,
+      "steps": 4,
+      "title": "Right object mass (kg)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "value": 5,
+          "label": "5"
+        }
+      ],
+      "width": "11em",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "right-mass",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "object-offset",
+      "type": "slider",
       "min": -1,
       "max": 1,
-      "value": 0,
       "steps": 8,
+      "title": "Vertical shift",
+      "titlePosition": "top",
       "labels": [
         {
           "value": -1,
@@ -251,71 +294,157 @@
           "label": "Right above left"
         }
       ],
-      "title": "Vertical shift",
+      "width": "20em",
+      "height": "auto",
       "property": "object-offset",
-      "width": "20em"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
-      "min": 0,
-      "max": 20,
       "id": "left-ke-display",
+      "type": "barGraph",
       "property": "left-ke",
-      "barColor": "#b76300",
+      "min": 0,
+      "max": 20,
       "title": "KE of left object (J)",
-      "height": "13em"
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "13em",
+      "barColor": "#b76300",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
-      "min": 0,
-      "max": 20,
       "id": "right-ke-display",
-      "property": "right-ke",
-      "barColor": "#0c7b79",
-      "title": "KE of right object (J)",
-      "height": "13em"
-    },
-    {
       "type": "barGraph",
+      "property": "right-ke",
       "min": 0,
       "max": 20,
-      "id": "total-ke-display",
-      "property": "total-ke",
-      "barColor": "#5f5f5f",
-      "title": "Total KE in system (J)",
-      "height": "13em"
+      "title": "KE of right object (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "13em",
+      "barColor": "#0c7b79",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "graph",
+      "id": "total-ke-display",
+      "type": "barGraph",
+      "property": "total-ke",
+      "min": 0,
+      "max": 20,
+      "title": "Total KE in system (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "13em",
+      "barColor": "#5f5f5f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "ke-plot",
-      "title": "",
-      "xlabel": "Time (s)",
-      "ylabel": "Kinetic Energy (J)",
-      "ymin": 0,
-      "ymax": 22,
-      "xmax": 10,
-      "xTickCount": 5,
-      "yTickCount": 6,
-      "xFormatter": ".2r",
-      "yFormatter": ".2s",
-      "dataColors": [
-        "#e69230",
-        "#1ad4d3",
-        "#7c7c7c"
-      ],
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
       "properties": [
         "left-ke",
         "right-ke",
         "total-ke"
+      ],
+      "xProperty": "displayTime",
+      "title": "",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (s)",
+      "xmin": 0,
+      "xmax": 10,
+      "ylabel": "Kinetic Energy (J)",
+      "ymin": 0,
+      "ymax": 22,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#e69230",
+        "#1ad4d3",
+        "#7c7c7c"
       ],
       "legendLabels": [
         "KE of left object",
         "KE of right object",
         "Total Kinetic Energy"
       ],
-      "legendVisible": true
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom-left": [
+      [
+        "left-speed",
+        "right-speed"
+      ],
+      [
+        "left-mass",
+        "right-mass"
+      ],
+      [
+        "object-offset"
+      ]
+    ],
+    "bottom-right": [
+      [
+        "left-ke-display",
+        "right-ke-display",
+        "total-ke-display"
+      ]
+    ],
+    "right": [
+      "ke-plot"
+    ]
+  },
   "template": [
     {
       "id": "bottom-left",
@@ -343,18 +472,5 @@
       "padding-bottom": "0.5em",
       "padding-left": "1.5em"
     }
-  ],
-  "layout": {
-    "bottom-left": [
-      ["left-speed", "right-speed"],
-      ["left-mass", "right-mass"],
-      ["object-offset"]
-    ],
-    "bottom-right": [
-      ["left-ke-display", "right-ke-display", "total-ke-display"]
-    ],
-    "right": [
-      "ke-plot"
-    ]
-  }
+  ]
 }
