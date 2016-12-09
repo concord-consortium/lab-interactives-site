@@ -14,7 +14,10 @@
   "helpOnLoad": false,
   "aboutOnLoad": false,
   "about": [
-    "Create multiple versions of various atoms and record the number of protons, electrons, and neutrons in a table.",
+    "Explore how changing numbers of protons, neutrons, and electrons affect the type of atom. As you build atoms in this simulation,",
+    " you will collect data on the components of different atoms and record them in a table. Then draw conclusions about which components",
+    " affect the type of atom (protons) which components affect the overall charge of atoms (balance of electrons and protons) and which",
+    " components affect the isotope type (neutrons).",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
     "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
