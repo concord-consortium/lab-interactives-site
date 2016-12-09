@@ -1,65 +1,140 @@
 {
   "title": "Opposites Attract",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore how charged objects interact.",
-  "about": "Change the charge on each sphere to positive or negative. Observe how the charges affect the interaction between the spheres.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.9112627986348123,
   "fontScale": 1.0089285714285714,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "What causes some things to stick together and other things to push apart? Manipulate the charges on two spheres, making them positive,",
+    " negative, or neutral and watch how the spheres interact with each other.",
+     "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "chargeballs$0",
       "url": "models-converted/lab-version/1/md2d/interactions/opposites-attract/chargeballs$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/opposites-attract/chargeballs$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "useDuration": false
       }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
   "components": [
     {
-      "type": "text",
       "id": "left-label",
-      "text": "**Charge left sphere**"
-    },
-    {
-      "type": "button",
-      "id": "left-pos",
-      "text": "Positive",
-      "action": "setAtomProperties(0,{charge:1});start()"
-    },
-    {
-      "type": "button",
-      "id": "left-neg",
-      "text": "Negative",
-      "action": "setAtomProperties(0,{charge:-1});start()"
-    },
-    {
       "type": "text",
-      "id": "right-label",
-      "text": "**Charge right sphere**"
+      "text": "**Charge left sphere**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "left-pos",
       "type": "button",
-      "id": "right-pos",
+      "action": "setAtomProperties(0,{charge:1});start()",
       "text": "Positive",
-      "action": "setAtomProperties(1,{charge:1});start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "left-neg",
       "type": "button",
-      "id": "right-neg",
+      "action": "setAtomProperties(0,{charge:-1});start()",
       "text": "Negative",
-      "action": "setAtomProperties(1,{charge:-1});start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "right-label",
+      "type": "text",
+      "text": "**Charge right sphere**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "right-pos",
       "type": "button",
+      "action": "setAtomProperties(1,{charge:1});start()",
+      "text": "Positive",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "right-neg",
+      "type": "button",
+      "action": "setAtomProperties(1,{charge:-1});start()",
+      "text": "Negative",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
       "text": "Reset",
-      "action": "reloadModel();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -112,16 +187,5 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ],
-  "logging": {
-    "properties": [
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  ]
 }
