@@ -1,43 +1,60 @@
 {
   "title": "Breaking a Molecular Bond (conceptual version)",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Can you break the bond between the two atoms?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.4,
-  "models": [{
-    "type": "md2d",
-    "id": "forming-molecular-bond",
-    "url": "models/lab-version/1/md2d/interactions/breaking-molecular-bond.json",
-    "viewOptions": {
-      "controlButtons": "play_step_reset",
-      "controlButtonStyle": "video",
-      "showClock": false
-    },
-    "onLoad": [
-      "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
-      "onPropertyChange('numberOfElement1AtomsInView', function() {",
-      "  if (get('numberOfElement1AtomsInView') < 2) {",
-      "    stop();",
-      "  }",
-      "});",
-      "setComponentDisabled('molecule-selector', false);",
-      "setComponentDisabled('velocity-slider', false);",
-      "onStart(function() {",
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Try to break different molecules apart by adjusting the initial velocity of",
+    " a third atom that will collide with two bonded atoms. Do some bonds require ",
+    "more energy to break than others? After the collision, compare the changes in energy associated with the different atoms.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "forming-molecular-bond",
+      "url": "models/lab-version/1/md2d/interactions/breaking-molecular-bond.json",
+      "onLoad": [
+        "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
+        "onPropertyChange('numberOfElement1AtomsInView', function() {",
+        "  if (get('numberOfElement1AtomsInView') < 2) {",
+        "    stop();",
+        "  }",
+        "});",
+        "setComponentDisabled('molecule-selector', false);",
+        "setComponentDisabled('velocity-slider', false);",
+        "onStart(function() {",
         "setComponentDisabled('molecule-selector', true);",
         "setComponentDisabled('velocity-slider', true);",
-      "});"
-    ]
-  }],
-  "helpTips": [
-    {
-      "component": "energyGraph",
-      "showcase": false,
-      "text": [
-        "Click on the top icon in the upper-right part of the graph to show which line",
-        "measures which energy."
-      ]
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_step_reset",
+        "controlButtonStyle": "video",
+        "showClock": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "mass",
@@ -108,34 +125,66 @@
       ]
     }
   ],
-  "components": [{
-      "type": "graph",
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "energyGraph",
+      "text": [
+        "Click on the top icon in the upper-right part of the graph to show which line",
+        "measures which energy."
+      ],
+      "showcase": false
+    }
+  ],
+  "dataSets": [],
+  "components": [
+    {
       "id": "energyGraph",
+      "type": "graph",
+      "streamDataFromModel": true,
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
       "enableAxisScaling": false,
-      "title": "Energies",
-      "hideAxisValues": true,
-      "helpIcon": true,
-      "xlabel": "Time",
-      "ylabel": "Energy",
-      "hideAxisValues": true,
-      "ymin": -5,
-      "ymax": 5,
-      "xmax": 0.13,
-      "width": "18em",
-      "xTickCount": 6,
-      "yTickCount": 10,
-      "xFormatter": "r",
-      "yFormatter": ".1r",
+      "enableZooming": true,
       "autoScaleX": true,
       "autoScaleY": true,
-      "streamDataFromModel": true,
-      "xProperty": "displayTime",
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": true,
       "properties": [
         "element1KE",
         "element2KE",
         "potentialEnergy",
         "totalEnergy"
       ],
+      "xProperty": "displayTime",
+      "title": "Energies",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "18em",
+      "height": "100%",
+      "xlabel": "Time",
+      "xmin": 0,
+      "xmax": 0.13,
+      "ylabel": "Energy",
+      "ymin": -5,
+      "ymax": 5,
+      "xTickCount": 6,
+      "yTickCount": 10,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "r",
+      "yFormatter": ".1r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
       "dataColors": [
         "#c194ff",
         "#814ec6",
@@ -148,7 +197,10 @@
         "Potential Energy",
         "Total Energy"
       ],
-      "legendVisible": false
+      "legendVisible": false,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": true
     },
     {
       "id": "molecule-header",
@@ -156,13 +208,16 @@
       "text": "Select molecule to break",
       "width": "auto",
       "height": "auto",
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "molecule-selector",
       "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": " ",
-      "property": "molecule",
+      "labelOn": "top",
       "options": [
         {
           "text": "Hydrogen",
@@ -176,7 +231,12 @@
           "text": "Nitrogen",
           "value": 3
         }
-      ]
+      ],
+      "property": "molecule",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "id": "third-atom-header",
@@ -184,47 +244,79 @@
       "text": "Set energy of non-bonded atom",
       "width": "auto",
       "height": "auto",
-      "tooltip": ""
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "velocity-slider",
+      "type": "slider",
       "min": 0.014,
-      "max": 0.020,
+      "max": 0.02,
+      "steps": 26,
+      "title": "Velocity",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 0.014,
           "label": "low"
         },
         {
-          "value": 0.020,
+          "value": 0.02,
           "label": "high"
         }
       ],
-      "steps": 26,
-      "title": "Velocity",
+      "width": "18em",
+      "height": "auto",
       "property": "velocity",
-      "width": "18em"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "slow-motion-checkbox",
+      "type": "checkbox",
       "text": "Slow motion",
-      "property": "slow-motion"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slow-motion",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
-   ],
+  ],
   "layout": {
-    "right": ["energyGraph"],
-    "bottom-left": [["molecule-header"],["molecule-selector"]],
-    "bottom-right": [["third-atom-header"],["velocity-slider"]],
-     "bottom-down": ["slow-motion-checkbox"]
+    "right": [
+      "energyGraph"
+    ],
+    "bottom-left": [
+      [
+        "molecule-header"
+      ],
+      [
+        "molecule-selector"
+      ]
+    ],
+    "bottom-right": [
+      [
+        "third-atom-header"
+      ],
+      [
+        "velocity-slider"
+      ]
+    ],
+    "bottom-down": [
+      "slow-motion-checkbox"
+    ]
   },
   "template": [
     {
       "id": "right",
       "height": "model.height",
       "left": "model.right",
-       "padding-left": "0.5em"
+      "padding-left": "0.5em"
     },
     {
       "id": "bottom-left",
@@ -239,21 +331,21 @@
       "top": "model.bottom",
       "left": "bottom-left.right",
       "padding-top": "0.5em",
-        "padding-left": "0.5em"
+      "padding-left": "0.5em"
     },
-   {
+    {
       "id": "bottom-down",
       "top": "bottom-right.bottom",
       "left": "bottom-left.right",
       "padding-top": "0.5em",
-       "padding-left": "2.3em"
+      "padding-left": "2.3em"
     },
-   {
+    {
       "id": "bottom-side",
       "top": "bottom-right.bottom",
       "left": "bottom-down.right",
       "padding-top": "0.5em",
-        "padding-left": "1em"
+      "padding-left": "1em"
     }
   ]
 }
