@@ -1,22 +1,39 @@
 {
   "title": "Comparing Attractive Forces Betweeen Molecules",
   "publicationStatus": "public",
-  "subtitle": "Explore the difference in attractive forces between polar and non-polar molecules.",
+  "labEnvironment": "production",
+  "subtitle": "Differences between polar and nonpolar attractions.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "Explore the different strengths of attractions between polar and non-polar",
-    "molecules. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
-    "",
-    "Choose a pair of molecules from the drop-down menu and \"pull\" on the star to separate the",
-    "molecules. Which type of intermolecular attraction is strongest?"
+    "Which type of intermolecular attraction is strongest? Explore the different strengths of attractions",
+    " between polar and nonpolar molecules. These intermolecular attractions are shown by dotted lines between",
+    " the pairs of molecules. Choose a pair of molecules from the drop-down menu and *pull* on the star to separate",
+    " them, paying attention to which interactions have the strongest force of attractions.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "instructions",
       "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/instructions.json",
-      "modelOptions": {
-        "useDuration": false
-      },
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -36,15 +53,16 @@
             "width": 2.7
           }
         ]
+      },
+      "modelOptions": {
+        "useDuration": false
       }
     },
     {
       "type": "md2d",
       "id": "npPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-polar-non-polar/npPulling.json",
-      "modelOptions": {
-        "useDuration": false
-      },
+      "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -59,15 +77,15 @@
           }
         ]
       },
-      "onLoad": "start();"
+      "modelOptions": {
+        "useDuration": false
+      }
     },
     {
       "type": "md2d",
       "id": "polarPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-polar-non-polar/polarPulling.json",
-      "modelOptions": {
-        "useDuration": false
-      },
+      "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -82,15 +100,15 @@
           }
         ]
       },
-      "onLoad": "start();"
+      "modelOptions": {
+        "useDuration": false
+      }
     },
     {
       "type": "md2d",
       "id": "polarNpPulling",
       "url": "models/lab-version/1/md2d/interactions/comparing-polar-non-polar/polarNpPulling.json",
-      "modelOptions": {
-        "useDuration": false
-      },
+      "onLoad": "start();",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
@@ -105,17 +123,42 @@
           }
         ]
       },
-      "onLoad": "start();"
+      "modelOptions": {
+        "useDuration": false
+      }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
   "components": [
     {
-      "type": "pulldown",
       "id": "pulldown1",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Select a pair of molecules",
-          "action": "loadModel('instructions');"
+          "action": "loadModel('instructions');",
+          "selected": true
         },
         {
           "text": "Pull apart two non-polar molecules",
@@ -129,24 +172,24 @@
           "text": "Pull apart a non-polar and polar molecules",
           "action": "loadModel('polarNpPulling');"
         }
-      ]
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
       "text": "Reset",
-      "action": "reloadModel();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
-  "logging": {
-    "properties": [
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  "layout": {},
+  "template": "simple"
 }
