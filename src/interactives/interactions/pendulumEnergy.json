@@ -1,40 +1,39 @@
 {
   "title": "Energy of a Pendulum",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Energy conservation and transformation in a pendulum.",
-  "about": [
-    "While a pendulum is swinging, energy is constantly transforming from one type to another. ",
-    "Try dragging the pendulum to set its initial height and observe the change from potential ",
-    "energy to kinetic energy, and ultimately to thermal energy (an increase in the temperature ",
-    "of the ball and the air around the ball.)"
-  ],
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.5,
   "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Drag the pendulum to set its initial height and observe how height is related to potential energy.",
+    " Then release the pendulum and observe the change from potential energy to kinetic energy, and ultimately",
+    " to thermal energy (an increase in the temperature of the ball and the air around the ball) as the pendulum ",
+    "eventually comes to a stop.",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "pendulumEnergy",
       "url": "models/lab-version/1/md2d/interactions/pendulumEnergy.json",
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "controlButtonStyle": "text",
-        "textBoxes": [
-          {
-            "text": "Drag the pendulum to set its initial height.",
-            "x": 0.0,
-            "y": 1.5,
-            "layer": 1,
-            "fontSize": 0.12,
-            "anchor": "upper-left"
-          }
-        ]
-      },
-      "modelOptions": {
-        "unitsScheme": "mks",
-        "timeStepsPerTick": 167,
-        "timeStep": 1,
-        "modelSampleRate": 60
-      },
       "onLoad": [
         "// Restore previous angle",
         "onDrag('atom', function (x, y, d, i) {",
@@ -49,41 +48,27 @@
         "onStart(function(){",
         "  setAtomProperties(1, {draggableWhenStopped: 0});",
         "});"
-      ]
-    }
-  ],
-  "outputs": [
-    {
-      "name": "kineticEnergy",
-      "unitAbbreviation": "J",
-      "label": "Kinetic Energy",
-      "value": [
-        "var atom = getAtomProperties(1); return 0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy);"
-      ]
-    },
-    {
-      "name": "potentialEnergy",
-      "unitAbbreviation": "J",
-      "label": "Potental Energy",
-      "value": [
-        "var atom = getAtomProperties(1), pin = getAtomProperties(0), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * (bond.length - (pin.y - atom.y));"
-      ]
-    },
-    {
-      "name": "totalEnergy",
-      "unitAbbreviation": "J",
-      "label": "Total Energy",
-      "value": [
-        "var atom = getAtomProperties(1), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * bond.length * (1 - Math.cos(get('startingAngle') * deg2rad)) + get('minThermalEnergy');"
-      ]
-    },
-    {
-      "name": "thermalEnergy",
-      "unitAbbreviation": "J",
-      "label": "Thermal Energy",
-      "value": [
-        "return get('totalEnergy') - get('kineticEnergy') - get('potentialEnergy')"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "textBoxes": [
+          {
+            "text": "Drag the pendulum to set its initial height.",
+            "x": 0,
+            "y": 1.5,
+            "layer": 1,
+            "fontSize": 0.12,
+            "anchor": "upper-left"
+          }
+        ]
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 1,
+        "modelSampleRate": 60
+      }
     }
   ],
   "propertiesToRetain": [
@@ -100,62 +85,152 @@
       "initialValue": 0.1
     }
   ],
+  "outputs": [
+    {
+      "name": "kineticEnergy",
+      "value": [
+        "var atom = getAtomProperties(1); return 0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy);"
+      ],
+      "label": "Kinetic Energy",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "potentialEnergy",
+      "value": [
+        "var atom = getAtomProperties(1), pin = getAtomProperties(0), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * (bond.length - (pin.y - atom.y));"
+      ],
+      "label": "Potental Energy",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "totalEnergy",
+      "value": [
+        "var atom = getAtomProperties(1), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * bond.length * (1 - Math.cos(get('startingAngle') * deg2rad)) + get('minThermalEnergy');"
+      ],
+      "label": "Total Energy",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "thermalEnergy",
+      "value": [
+        "return get('totalEnergy') - get('kineticEnergy') - get('potentialEnergy')"
+      ],
+      "label": "Thermal Energy",
+      "unitAbbreviation": "J"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "barGraph",
-      "min": 0,
-      "max": 2.5,
-      "barWidth": "1.6em",
       "id": "potentialEnergyGraph",
+      "type": "barGraph",
       "property": "potentialEnergy",
+      "min": 0,
+      "max": 2.5,
+      "title": "Potential Energy (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.6em",
+      "height": "100%",
       "barColor": "#4c952f",
-      "title": "Potential Energy (J)"
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
-      "min": 0,
-      "max": 2.5,
-      "barWidth": "1.6em",
       "id": "kineticEnergyGraph",
-      "property": "kineticEnergy",
-      "barColor": "#3f2168",
-      "title": "Kinetic Energy (J)"
-    },
-    {
       "type": "barGraph",
+      "property": "kineticEnergy",
       "min": 0,
       "max": 2.5,
+      "title": "Kinetic Energy (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
       "barWidth": "1.6em",
-      "id": "thermalEnergyGraph",
-      "property": "thermalEnergy",
-      "barColor": "#95602f",
-      "title": "Thermal Energy (J)"
+      "height": "100%",
+      "barColor": "#3f2168",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "graph",
+      "id": "thermalEnergyGraph",
+      "type": "barGraph",
+      "property": "thermalEnergy",
+      "min": 0,
+      "max": 2.5,
+      "title": "Thermal Energy (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.6em",
+      "height": "100%",
+      "barColor": "#95602f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "propertiesGraph",
-      "title": "Energy vs Time",
-      "xlabel": "Time (s)",
-      "ylabel": "Energy (J)",
-      "ymin": -0.2,
-      "ymax": 2.8,
-      "xmax": 8,
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
+      "autoScaleX": true,
       "autoScaleY": false,
-      "xTickCount": 5,
-      "yTickCount": 6,
-      "xFormatter": ".2r",
-      "yFormatter": ".2s",
-      "dataColors": [
-        "#70c64e",
-        "#814ec6",
-        "#c6884e",
-        "#7c7c7c"
-      ],
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
       "properties": [
         "potentialEnergy",
         "kineticEnergy",
         "thermalEnergy",
         "totalEnergy"
+      ],
+      "xProperty": "displayTime",
+      "title": "Energy vs Time",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (s)",
+      "xmin": 0,
+      "xmax": 8,
+      "ylabel": "Energy (J)",
+      "ymin": -0.2,
+      "ymax": 2.8,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#70c64e",
+        "#814ec6",
+        "#c6884e",
+        "#7c7c7c"
       ],
       "legendLabels": [
         "Potental Energy",
@@ -163,7 +238,10 @@
         "Thermal Energy",
         "Total Energy"
       ],
-      "legendVisible": true
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
     }
   ],
   "layout": {
