@@ -1,30 +1,40 @@
 {
   "title": "Target Game (Free Play)",
   "publicationStatus": "public",
-  "subtitle": "Can you steer a charged particle to a target by using charged objects?",
+  "labEnvironment": "production",
+  "subtitle": "Steer a charged particle to a target.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.27,
   "fontScale": 0.65,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
-    "Use the *Launch a positive particle* button to shoot a positive particle across the game board.",
-    "Place any number of charged objects in any location to steer the positive particle to the target.",
-    "Can you get the charged particle to hit the target?"
+    "Place particles in the game and charge them to guide a positive projectile around obstacles to hit a target. ",
+    "You can place any number of charged objects in any location to steer the positive particle to the target. ",
+    "View the electric field and the forces on the objects to draw conclusions about how they interact. ",
+    "Can you get the charged particle to hit the target?",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "level1",
       "url": "models-converted/lab-version/1/md2d/interactions/target-game-free-play/targetFreePlay$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/target-game-free-play/targetFreePlay$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false,
-        "electricFieldDensity": 24,
-        "electricFieldColor": "rgb(0,255,0)",
-        "forceVectors": {
-          "length": 30
-        }
-      },
       "onLoad": [
         "setShapeProperties(3, {lineColor: 'rgb(255,0,0)', lineWeight: 7});",
         "set('atomTraceColor','yellow');",
@@ -55,21 +65,22 @@
         "    }",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 30
+        }
+      }
     },
     {
       "type": "md2d",
       "id": "level2",
       "url": "models-converted/lab-version/1/md2d/interactions/target-game-free-play/level2FreePlay$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/target-game-free-play/level2FreePlay$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "electricFieldDensity": 24,
-        "electricFieldColor": "rgb(0,255,0)",
-        "forceVectors": {
-          "length": 30
-        }
-      },
       "onLoad": [
         "setShapeProperties(3, {lineColor: 'rgb(255,0,0)', lineWeight: 7});",
         "set('atomTraceColor','yellow');",
@@ -99,9 +110,18 @@
         "  }",
         "});",
         "start();"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 30
+        }
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "chargeSign",
@@ -146,11 +166,41 @@
       "initialValue": false
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "The goal of this game is to guide a positive particle to the target using other charged objects."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "select-add-atom-type",
+      "text": [
+        "Select *Add negative* or *Add positive* to add charged objects to the game board. You can ",
+        "drag charged objects around the board, or select *Delete object* and click ",
+        "on a charged object to remove it."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "try-again",
+      "text": "Use *Try again* to keep objects for another try.",
+      "showcase": true
+    },
+    {
+      "component": "reset",
+      "text": "Use *Reset* to remove all charged objects and reset controls.",
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "add-atom",
-      "text": "Launch a positive particle",
+      "type": "button",
       "action": [
         "var idx = atomsWithinRect(0,0,get('width'),get('height'),1);",
         "if (idx.length > 0) {",
@@ -161,43 +211,75 @@
         "idx = atomsWithinRect(0,0,get('width'),get('height'),1);",
         "start();",
         "traceAtom(idx[0]);"
-      ]
+      ],
+      "text": "Launch a positive particle",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
       "text": "Reset",
-      "action": "reloadModel();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "try-again",
-      "text": "Try again",
+      "type": "button",
       "action": [
         "var idx = atomsWithinRect(0,0,get('width'),get('height'),1);",
         "if (idx.length > 0) {",
         "  untraceAtom(idx[0]);",
         "  removeAtom(idx[0]);",
         "}"
-      ]
+      ],
+      "text": "Try again",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "select-show-force-vectors",
-      "text": "Show force on objects",
-      "property": "showForceVectors"
-    },
-    {
       "type": "checkbox",
-      "id": "select-show-electric-field",
-      "text": "Show electric field",
-      "property": "showElectricField"
+      "text": "Show force on objects",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
+      "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showElectricField",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "select-add-atom-type",
+      "type": "radio",
+      "style": "radio",
       "orientation": "horizontal",
-      "property": "chargeSign",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Add negative",
@@ -211,12 +293,20 @@
           "text": "Delete object",
           "value": -99
         }
-      ]
+      ],
+      "property": "chargeSign",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "select-level",
+      "type": "radio",
+      "style": "radio",
       "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Level 1",
@@ -227,16 +317,20 @@
           "text": "Level 2",
           "action": "loadModel('level2');"
         }
-      ]
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "select-charge-magnitude",
-      "property": "chargeMagnitude",
+      "type": "slider",
       "min": 0,
       "max": 5,
       "steps": 10,
-      "displayValue": "return format('0.1f')(value)",
+      "title": "",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 1,
@@ -250,48 +344,55 @@
           "value": 3,
           "label": "-/+ 3"
         }
-      ]
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('0.1f')(value)",
+      "property": "chargeMagnitude",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label-charge-place-toggle",
-      "text": "**Click in game to:**"
-    },
-    {
       "type": "text",
+      "text": "**Click in game to:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "label-select-placed-object-charge",
-      "text": "**Set charge amount on placed objects:**"
-    }
-  ],
-  "helpTips": [
-    {
-      "text": [
-        "The goal of this game is to guide a positive particle to the target using other charged objects."
-      ]
-    },
-    {
-      "component": "select-add-atom-type",
-      "text": [
-        "Select *Add negative* or *Add positive* to add charged objects to the game board. You can ",
-        "drag charged objects around the board, or select *Delete object* and click ",
-        "on a charged object to remove it."
-      ]
-    },
-    {
-      "component": "try-again",
-      "text": "Use *Try again* to keep objects for another try."
-    },
-    {
-      "component": "reset",
-      "text": "Use *Reset* to remove all charged objects and reset controls."
+      "type": "text",
+      "text": "**Set charge amount on placed objects:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      ["label-charge-place-toggle", "select-add-atom-type"],
-      ["add-atom", "try-again", "select-level", "reset"],
-      ["label-select-placed-object-charge", "select-charge-magnitude"],
-      ["select-show-electric-field", "select-show-force-vectors"]
+      [
+        "label-charge-place-toggle",
+        "select-add-atom-type"
+      ],
+      [
+        "add-atom",
+        "try-again",
+        "select-level",
+        "reset"
+      ],
+      [
+        "label-select-placed-object-charge",
+        "select-charge-magnitude"
+      ],
+      [
+        "select-show-electric-field",
+        "select-show-force-vectors"
+      ]
     ]
   },
   "template": [
