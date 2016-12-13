@@ -1,21 +1,39 @@
 {
   "title": "Exploring Hydrophobic Core",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Exploring polar and nonpolar regions on different proteins.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.7,
   "fontScale": 0.85,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Select different proteins and choose which parts of the protein molecule to highlight. ",
+    "Observe where the polar and nonpolar parts of the protein end up and how they influence ",
+    "the overall structure of the larger protein molecule.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
         "url": "https://models-resources.concord.org/jsmol/embeddable.html"
-      },
-      "viewOptions": {
-        "aspectRatio": 1,
-        "controlButtons": ""
-      },
-      "modelOptions": {
-        "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
       },
       "onLoad": [
         "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
@@ -69,9 +87,17 @@
         "onPropertyChange('translucency', update);",
         "",
         "update(get('style'));"
-      ]
+      ],
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "style",
@@ -97,13 +123,16 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "pulldown",
       "id": "molecule",
-      "property": "molecule",
-      "labelOn": "top",
+      "type": "pulldown",
       "label": "Protein",
+      "labelOn": "top",
       "options": [
         {
           "text": "Albumin (found in egg white)",
@@ -121,14 +150,20 @@
           "text": "Restriction Enzyme (cuts DNA)",
           "value": "models/exploring-hydrophobic-core/1eri.pdb"
         }
-      ]
+      ],
+      "property": "molecule",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "style",
-      "property": "style",
-      "labelOn": "top",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Style",
+      "labelOn": "top",
       "options": [
         {
           "text": "All atoms (ball and stick)",
@@ -138,14 +173,20 @@
           "text": "All atoms (spacefill)",
           "value": "spacefill"
         }
-      ]
+      ],
+      "property": "style",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "color",
-      "property": "color",
-      "labelOn": "top",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Color",
+      "labelOn": "top",
       "options": [
         {
           "text": "Polarity (hydrophobic/hydrophilic)",
@@ -159,14 +200,20 @@
           "text": "Amino acid",
           "value": "amino-acid"
         }
-      ]
+      ],
+      "property": "color",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "translucency",
-      "property": "translucency",
-      "labelOn": "top",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Translucency",
+      "labelOn": "top",
       "options": [
         {
           "text": "None",
@@ -180,24 +227,37 @@
           "text": "Polar/charged (hydrophilic)",
           "value": "hydrophilic"
         }
-      ]
+      ],
+      "property": "translucency",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
-  "template": [
-  {
-    "id": "right",
-    "top": "model.top",
-    "left": "model.right",
-    "margin-left": "0.5em",
-    "margin-right": "0.5em"
-  }
-],
   "layout": {
     "right": [
-      ["molecule"],
-      ["translucency"],
-      ["style"],
-      ["color"]
+      [
+        "molecule"
+      ],
+      [
+        "translucency"
+      ],
+      [
+        "style"
+      ],
+      [
+        "color"
+      ]
     ]
-  }
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "margin-left": "0.5em",
+      "margin-right": "0.5em"
+    }
+  ]
 }
