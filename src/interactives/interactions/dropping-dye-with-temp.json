@@ -1,26 +1,38 @@
 {
-  "title": "Diffusion of a Drop (with temperature)",
+  "title": "Diffusion of a Drop",
   "publicationStatus": "public",
-  "subtitle": "Looking at the effect of temperature.",
-  "aspectRatio": 1.135,
+  "labEnvironment": "production",
+  "subtitle": "The effect of temperature on diffusion.",
   "category": "Biology",
   "subCategory": "Molecular biology",
+  "screenshot": "http://screenshots.lab.concord.org/1-dropping-dye-on-click.png",
+  "aspectRatio": 1.25,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/1-dropping-dye-on-click.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "Click in the model to add a drop of dye.  Watch how the molecules move through the water.",
-    "Trace an individual molecule to see how it moves through the liquid."
+    "Click in the model to add dye to a liquid and watch how the dye molecules move through the water.",
+    " You  can also trace individual molecules to see how they move through the liquid. During the simulation, ",
+    "vary the temperature to observe how it affects the diffusion of the dye in water. ",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models/lab-version/1/md2d/interactions/dropping-dye/dropping-dye.json",
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "showClock": true,
-        "imageMapping": {
-          "waterDyeKey.png": "waterDyeKey.svg"
-        }
-      },
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
       "onLoad": [
         "function onClickHandler(x, y) {",
         "  start();",
@@ -31,9 +43,17 @@
         "}",
         "onClick('background', onClickHandler);",
         "onClick('atom', onClickHandler);"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showClock": true,
+        "imageMapping": {
+          "waterDyeKey.png": "waterDyeKey.svg"
+        }
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -46,11 +66,14 @@
       "onChange": ""
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "trace",
-      "text": "Trace a random molecule",
+      "type": "button",
       "action": [
         "batch(function () {",
         "  var atomID = randomAtoms(1);",
@@ -64,32 +87,18 @@
         "  setAtomProperties(atomID, {marked: 0}, false, false);",
         "  traceAtom(atomID);",
         "});"
-      ]
-    },
-    {
-      "type": "slider",
-      "id": "temperature-slider",
-      "min": 25,
-      "max": 500,
-      "displayValue": "",
-      "labels": [
-        {
-          "value": 25,
-          "label": "Low"
-        },
-        {
-          "value": 500,
-          "label": "High"
-        }
       ],
-      "steps": 100,
-      "title": "Temperature",
-      "property": "targetTemperature"
+      "text": "Trace a random molecule",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "under-model": [
-      "temperature-slider","trace"
+      "trace"
     ]
   },
   "template": [
