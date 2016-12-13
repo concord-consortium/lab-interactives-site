@@ -1,8 +1,35 @@
 {
   "title": "Elements and Polarity",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "How polarity affects molecular shape and charge.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.2,
-  "theme": ["invisible-disabled-components"],
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Select from different polar molecules such as water, propanol, mineral oil, and phospholipids. ",
+    "View these molecules and their shape in different ways to determine how different atom types lead ",
+    "to areas of different charge on the overall molecular surface.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": [
+    "invisible-disabled-components"
+  ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "iframe-model",
@@ -10,15 +37,16 @@
       "model": {
         "url": "https://models-resources.concord.org/jsmol/embeddable.html"
       },
+      "onLoad": [
+        "post('jsmolScript', 'set background black;');"
+      ],
       "viewOptions": {
         "aspectRatio": 1.8,
         "controlButtons": ""
-      },
-      "onLoad": [
-        "post('jsmolScript', 'set background black;');"
-      ]
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "isosurfaceGenerated",
@@ -80,13 +108,16 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "pulldown",
       "id": "mol",
-      "property": "moleculeAndView",
-      "labelOn": "left",
+      "type": "pulldown",
       "label": "Molecule",
+      "labelOn": "left",
       "options": [
         {
           "text": "Water",
@@ -120,15 +151,20 @@
           "text": "Stearic acid (used in soap)",
           "value": "models/elements-and-polarity/stearic-acid.mol"
         }
-      ]
+      ],
+      "property": "moleculeAndView",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "atom-view",
-      "property": "atomView",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
       "label": "Atom view",
       "labelOn": "left",
-      "orientation": "horizontal",
       "options": [
         {
           "text": "Ball and stick ",
@@ -138,15 +174,20 @@
           "text": "Spacefill",
           "value": "spacefill"
         }
-      ]
+      ],
+      "property": "atomView",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "surface-view",
-      "property": "surfaceView",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
       "label": "Surface view",
       "labelOn": "left",
-      "orientation": "horizontal",
       "options": [
         {
           "text": "None",
@@ -160,15 +201,41 @@
           "text": "Transparent",
           "value": "isosurface-transparent"
         }
-      ]
+      ],
+      "property": "surfaceView",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "labels",
+      "type": "checkbox",
       "text": "Label atoms",
-      "property": "labels"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "labels",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom": [
+      [
+        "mol",
+        "labels"
+      ],
+      [
+        "atom-view"
+      ],
+      [
+        "surface-view"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "bottom",
@@ -176,12 +243,5 @@
       "left": "model.left",
       "width": "interactive.width"
     }
-  ],
-  "layout": {
-    "bottom": [
-      ["mol", "labels"],
-      ["atom-view"],
-      ["surface-view"]
-    ]
-  }
+  ]
 }
