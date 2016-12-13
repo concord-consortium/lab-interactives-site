@@ -1,21 +1,40 @@
 {
   "title": "Exploring Protein 3D Structure",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Build proteins from amino acid components.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.2,
   "fontScale": 0.95,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "View the components of a protein in different colors (Elements, amino acids) ",
+    "and zoom into several amino acids to understand how they link together to make a larger structure. ",
+    "Using the mouse to drag the protein around, viewing it from different angles, and try \"building\" ",
+    "the proteins to see how the large molecule folds up to form a particular shape.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
         "url": "https://models-resources.concord.org/jsmol/embeddable.html"
-      },
-      "viewOptions": {
-        "aspectRatio": 1,
-        "controlButtons": ""
-      },
-      "modelOptions": {
-        "molecule": "models/exploring-protein-3d-structure/1RK9.pdb"
       },
       "onLoad": [
         "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
@@ -30,7 +49,6 @@
         "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
         "  }",
         "}",
-
         "function setColor() {",
         "  var value = get('color');",
         "  if (value === 'element') {",
@@ -80,9 +98,17 @@
         "onPropertyChange('sidechainOnly', update);",
         "",
         "update(get('style'));"
-      ]
+      ],
+      "viewOptions": {
+        "aspectRatio": 1,
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "molecule": "models/exploring-protein-3d-structure/1RK9.pdb"
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "style",
@@ -108,13 +134,16 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "pulldown",
       "id": "style",
-      "property": "style",
-      "labelOn": "left",
+      "type": "pulldown",
       "label": "Style",
+      "labelOn": "left",
       "options": [
         {
           "text": "Simplified “beads”",
@@ -128,14 +157,18 @@
           "text": "All atoms (spacefill)",
           "value": "spacefill"
         }
-      ]
+      ],
+      "property": "style",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "pulldown",
       "id": "color",
-      "property": "color",
-      "labelOn": "left",
+      "type": "pulldown",
       "label": "Color",
+      "labelOn": "left",
       "options": [
         {
           "text": "Element",
@@ -145,123 +178,204 @@
           "text": "Amino acid",
           "value": "amino-acid"
         }
-      ]
+      ],
+      "property": "color",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "build",
-      "text": "Build it",
+      "type": "button",
       "action": [
         "post('jsmolScript', 'script models/exploring-protein-3d-structure/jmol-p2-buildAnything.spt');",
         "setComponentDisabled('build', true);",
         "setTimeout(function() { setComponentDisabled('build', false); }, 14000)"
-      ]
+      ],
+      "text": "Build it",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "highlight-lbl",
-      "text": "Highlight one of these amino acids"
+      "type": "text",
+      "text": "Highlight one of these amino acids",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "leu",
-      "text": "Leucine (Leu)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'leu68');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 30 999 24 137.65} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {5.6313157894736845 3.6501578947368425 -1.192315789473684} 25.860218057641735 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Leucine (Leu)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "ser",
-      "text": "Serine (Ser)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'ser110');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { -98 970 223 98.8} /* zoom, translation */  664.5 0.0 0.0  /* center, rotationRadius */ {-4.897545454545455 -9.39590909090909 -9.201727272727274} 31.098118387407556 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Serine (Ser)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "phe",
-      "text": "Phenylalanine (Phe)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'phe31');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 28 996 -79 156.6} /* zoom, translation */  379.93 0.0 0.0  /* center, rotationRadius */ {0.14570000000000002 -6.731349999999999 -1.5313} 27.287621896265282 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Phenylalanine (Phe)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "val",
-      "text": "Valine (Val)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'val107');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 159 -984 78 125.59} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {-3.4149999999999996 -7.9396249999999995 -3.9310000000000005} 27.491454564946096 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Valine (Val)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "asn",
-      "text": "Asparagine (Asn)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'asn8');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 186 -981 64 73.6} /* zoom, translation */  502.46 0.0 0.0  /* center, rotationRadius */ {10.945500000000001 -10.171142857142858 4.8704285714285716} 37.4745032833543 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Asparagine (Asn)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "gln",
-      "text": "Glutamine (Gln)",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', 'gln32');",
         "post('jsmolScript', 'moveto /* time, axisAngle */ 1.0 { 238 -966 98 125.67} /* zoom, translation */  577.83 0.0 0.0  /* center, rotationRadius */ {2.636117647058824 -11.167117647058824 -5.496647058823529} 30.251880741172403 /* navigation center, translation, depth */ {0 0 0} 0 0 0 /* cameraDepth, cameraX, cameraY */  3.0 0.0 0.0;');"
-      ]
+      ],
+      "text": "Glutamine (Gln)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset-selection",
-      "text": "Show entire protein",
+      "type": "button",
       "action": [
         "set('selectedAminoAcid', false);",
         "post('jsmolScript', 'moveto 1.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');"
-      ]
+      ],
+      "text": "Show entire protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "sidechain-only",
+      "type": "checkbox",
+      "text": "Show only sidechain atoms",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "sidechainOnly",
-      "text": "Show only sidechain atoms"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
-  "template": [
-  {
-    "id": "bottom",
-    "top": "model.bottom",
-    "left": "model.left",
-    "width": "interactive.right",
-    "margin-top": "0.5em"
-  },
-  {
-    "id": "bottom-group",
-    "top": "0.5 * (model.height - bottom-group.height)",
-    "left": "model.right",
-    "border": "1px solid #777",
-    "margin-left": "0.5em",
-    "margin-right": "0.5em",
-    "margin-bottom": "0",
-    "padding": "0 0.5em 0.5em 0.5em"
-  }
-],
   "layout": {
     "bottom": [
-      ["style", "color", "build"]
+      [
+        "style",
+        "color",
+        "build"
+      ]
     ],
     "bottom-group": [
-      ["highlight-lbl"],
-      ["leu"], ["ser"],
-      ["phe"], ["val"],
-      [ "asn"], ["gln"],
-      ["reset-selection"],
-      ["sidechain-only"]
+      [
+        "highlight-lbl"
+      ],
+      [
+        "leu"
+      ],
+      [
+        "ser"
+      ],
+      [
+        "phe"
+      ],
+      [
+        "val"
+      ],
+      [
+        "asn"
+      ],
+      [
+        "gln"
+      ],
+      [
+        "reset-selection"
+      ],
+      [
+        "sidechain-only"
+      ]
     ]
-  }
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "interactive.right",
+      "margin-top": "0.5em"
+    },
+    {
+      "id": "bottom-group",
+      "top": "0.5 * (model.height - bottom-group.height)",
+      "left": "model.right",
+      "border": "1px solid #777",
+      "margin-left": "0.5em",
+      "margin-right": "0.5em",
+      "margin-bottom": "0",
+      "padding": "0 0.5em 0.5em 0.5em"
+    }
+  ]
 }
