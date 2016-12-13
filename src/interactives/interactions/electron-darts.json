@@ -1,29 +1,43 @@
 {
   "title": "Understanding Probability Maps",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Using a color to estimate the next dart throw.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.8015151515151515,
+  "fontScale": 1.0302457466918715,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "As in most dart games the best shot is a bulls-eye (right in the center).",
-    "However, it can be hard to get the dart to land there. Because, everyone ",
-    "aims for the center any random dart throw is more likely to be near the ",
-    "center, and less likely to be far away.",
+    "As in most dart games, the best shot is a bulls-eye (right in the center). ",
+    "However, it can be hard to get the dart to land there. Because, everyone aims for",
+    " the center any random dart throw is more likely to be near the center, and less likely to be far away. ",
     "",
     "Use the controls to throw lots of darts and observe the pattern they make.",
     "This is similar to how we understand the position of electrons around an ",
-    "atoms's nucleus—more likely in some places and less likely in others."
+    "atom's nucleus—more likely in some places and less likely in others.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
-  "aspectRatio": 0.8015151515151515,
-  "fontScale": 1.0302457466918715,
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "electron-darts",
       "url": "models/lab-version/1/md2d/interactions/electron-darts/electronDarts.json",
       "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "// Hide the green text",
         "var savedText = getTextBoxProperties(2).text;",
@@ -68,9 +82,14 @@
         "    });",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "darts",
@@ -82,26 +101,53 @@
     }
   ],
   "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
-    { "id": "step",
+    {
+      "id": "step",
       "type": "button",
+      "action": "set('dartsPerTick', 1);tick();",
       "text": "Throw a dart",
-      "action": "set('dartsPerTick', 1);tick();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "play",
+    {
+      "id": "play",
       "type": "button",
+      "action": "set('dartsPerTick', 10);start();",
       "text": "Continually throw darts",
-      "action": "set('dartsPerTick', 10);start();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "pause",
+    {
+      "id": "pause",
       "type": "button",
+      "action": "stop();",
       "text": "Stop throwing",
-      "action": "stop();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
-    { "id": "reset",
+    {
+      "id": "reset",
       "type": "button",
+      "action": "reloadModel();",
       "text": "Remove darts",
-      "action": "reloadModel();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
