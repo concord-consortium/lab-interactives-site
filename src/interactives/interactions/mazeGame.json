@@ -1,37 +1,39 @@
 {
   "title": "Electrostatics: Maze Game",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Guide a charged object through a maze.",
-  "about": "Control the charge of the gray ball by using the -, 0, and + buttons below the game. Use the attractive and repulsive forces between charged objects to navigate through the maze. Can you get it to the target before time runs out?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 2.04,
   "fontScale": 0.65,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Use an understanding of charged objects to guide an object through a maze. The charge of the gray ",
+    "ball can be changed by using the -, 0, and + buttons. Try using the attractive and repulsive forces ",
+    "between charged objects to navigate through the maze. Can you get it to the target before time runs out?",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "three-atoms-three-elements$0",
       "url": "models-converted/lab-version/1/md2d/interactions/maze-game/mazeGameModified$0.json",
       "importedFrom": "imports/legacy-mw-content/interactions/maze-game/mazeGame$0.mml",
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false,
-        "imageMapping": {
-          "target.png": "target.svg"
-        },
-        "textBoxes": [
-          {
-            "text": "50",
-            "x": 6.30,
-            "y": 0.4,
-            "layer": 2,
-            "width": 0.25,
-            "textAlign": "center",
-            "fontScale": 1.6,
-            "frame": "rounded rectangle",
-            "backgroundColor": "rgba(249,238,193,1)"
-          }
-        ]
-      },
       "onLoad": [
         "var props;",
         "setObstacleProperties(1,{",
@@ -88,48 +90,30 @@
         "    }",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "target.png": "target.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "50",
+            "x": 6.3,
+            "y": 0.4,
+            "layer": 2,
+            "width": 0.25,
+            "textAlign": "center",
+            "fontScale": 1.6,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgba(249,238,193,1)"
+          }
+        ]
+      }
     }
   ],
-  "helpTips": [
-    {
-      "component": "",
-      "text": [
-        "Welcome to the Maze Game!",
-        "- - -",
-        "Your goal is to get the gray ball to the target before time runs out."
-      ]
-    },
-    {
-      "component": "set-negative",
-      "text": [
-        "Gives the ball a negative charge."
-      ]
-    }
-,
-    {
-      "component": "set-neutral",
-      "text": [
-        "Removes all charge from the ball."
-      ]
-    }
-,
-    {
-      "component": "set-positive",
-      "text": [
-        "Gives the ball a positive charge."
-      ]
-    }
-  ],
-  "outputs": [
-    {
-      "name": "countdown",
-      "label": "Countdown",
-      "value": "return (1 - get('time')/get('max-model-time'))*get('max-countdown-time')",
-      "unitType": "",
-      "unitAbbreviation": ""
-    }
-  ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "max-model-time",
@@ -145,48 +129,121 @@
       ]
     }
   ],
+  "outputs": [
+    {
+      "name": "countdown",
+      "value": "return (1 - get('time')/get('max-model-time'))*get('max-countdown-time')",
+      "label": "Countdown",
+      "unitType": "",
+      "unitAbbreviation": ""
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Welcome to the Maze Game!",
+        "- - -",
+        "Your goal is to get the gray ball to the target before time runs out."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "set-negative",
+      "text": [
+        "Gives the ball a negative charge."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "set-neutral",
+      "text": [
+        "Removes all charge from the ball."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "set-positive",
+      "text": [
+        "Gives the ball a positive charge."
+      ],
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "set-negative",
+      "type": "button",
+      "action": "setAtomProperties(0,{charge:-1});start()",
       "text": "-",
-      "action": "setAtomProperties(0,{charge:-1});start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "set-neutral",
+      "type": "button",
+      "action": "setAtomProperties(0,{charge:0});start()",
       "text": "0",
-      "action": "setAtomProperties(0,{charge:0});start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "set-positive",
+      "type": "button",
+      "action": "setAtomProperties(0,{charge:1});start()",
       "text": "+",
-      "action": "setAtomProperties(0,{charge:1});start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "run",
+      "type": "button",
+      "action": "start()",
       "text": "Run",
-      "action": "start()"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "stop",
-      "text": "Stop",
-      "action": "stop()"
-    },
-    {
       "type": "button",
-      "id": "reset",
-      "text": "Reset",
-      "action": "reloadModel();"
+      "action": "stop()",
+      "text": "Stop",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "pulldown",
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "difficulty",
-      "property": "max-countdown-time",
-      "tooltip": "Change the game diffulty. Harder mode has a shorter countdown.",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Easier",
@@ -196,15 +253,26 @@
           "text": "Harder",
           "value": 25
         }
-      ]
+      ],
+      "property": "max-countdown-time",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Change the game diffulty. Harder mode has a shorter countdown.",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      "set-negative", "set-neutral", "set-positive", "run", "reset", "stop", "difficulty"
+      "set-negative",
+      "set-neutral",
+      "set-positive",
+      "run",
+      "reset",
+      "stop",
+      "difficulty"
     ]
   },
-  "template":[
+  "template": [
     {
       "id": "bottom",
       "top": "model.bottom",
