@@ -1,9 +1,33 @@
 {
   "title": "Protein Folding Exploring",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "How do peptides fold into stable conformations?",
-  "fontScale": 0.95,
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.3,
+  "fontScale": 0.95,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Generate all hydrophilic, all hydrophobic, or random proteins and observe how the protein folds",
+    " in response to these molecular properties. Explore how potential energy of the system changes over",
+    " time to draw conclusions about how proteins develop stable structures. ",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
@@ -24,6 +48,7 @@
       }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "solvent",
@@ -31,17 +56,25 @@
       "onChange": "setSolvent(value);"
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "random-protein-button",
+      "type": "button",
+      "action": "reloadModel(); generateRandomProtein(40);",
       "text": "Generate new random protein",
-      "action": "reloadModel(); generateRandomProtein(40);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "all-phobic-button",
-      "text": "Generate all non-polar protein",
+      "type": "button",
       "action": [
         "reloadModel();",
         "batch(function () {",
@@ -53,12 +86,17 @@
         "    setAtomProperties(i, {element: phobic}, false, false);",
         "  }",
         "});"
-      ]
+      ],
+      "text": "Generate all non-polar protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "all-philic-button",
-      "text": "Generate all polar protein",
+      "type": "button",
       "action": [
         "reloadModel();",
         "batch(function () {",
@@ -70,31 +108,59 @@
         "    setAtomProperties(i, {element: philic}, false, false);",
         "  }",
         "});"
-      ]
+      ],
+      "text": "Generate all polar protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "pe-graph",
+      "type": "barGraph",
       "property": "potentialEnergy",
-      "labels": 0,
-      "title": "Potential Energy",
       "min": -40,
-      "max": 30
+      "max": 30,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "instr",
-      "text": "Use these buttons to create a variety of proteins, or click on an amino acid to change it to a specific one of your choice."
+      "type": "text",
+      "text": "Use these buttons to create a variety of proteins, or click on an amino acid to change it to a specific one of your choice.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      ["random-protein-button"],
-      ["all-phobic-button", "all-philic-button"],
-      ["instr"]
+      [
+        "random-protein-button"
+      ],
+      [
+        "all-phobic-button",
+        "all-philic-button"
+      ],
+      [
+        "instr"
+      ]
     ],
     "right": [
       "pe-graph"
     ]
-  }
+  },
+  "template": "simple"
 }
