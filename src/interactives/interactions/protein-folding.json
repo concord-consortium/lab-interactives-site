@@ -1,9 +1,33 @@
 {
   "title": "Protein Folding",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "How do peptides fold into stable conformations?",
-  "fontScale": 0.95,
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.35,
+  "fontScale": 0.95,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Generate all polar, all nonpolar, or random proteins and observe how the protein folds in response",
+    " to these molecular properties. Explore how potential energy of the system changes over time to draw",
+    " conclusions about how proteins develop stable structures. ",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
@@ -24,6 +48,7 @@
       }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "solvent",
@@ -31,17 +56,25 @@
       "onChange": "setSolvent(value);"
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "random-protein-button",
+      "type": "button",
+      "action": "reloadModel(); generateRandomProtein(40);",
       "text": "Generate new random protein",
-      "action": "reloadModel(); generateRandomProtein(40);"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "mostly-phobic-button",
-      "text": "Generate mostly non-polar protein",
+      "type": "button",
       "action": [
         "reloadModel();",
         "batch(function () {",
@@ -55,12 +88,17 @@
         "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
         "  }",
         "});"
-      ]
+      ],
+      "text": "Generate mostly non-polar protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "mostly-philic-button",
-      "text": "Generate mostly polar protein",
+      "type": "button",
       "action": [
         "reloadModel();",
         "batch(function () {",
@@ -74,13 +112,25 @@
         "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
         "  }",
         "});"
-      ]
+      ],
+      "text": "Generate mostly polar protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      ["random-protein-button"],
-      ["mostly-phobic-button", "mostly-philic-button"]
+      [
+        "random-protein-button"
+      ],
+      [
+        "mostly-phobic-button",
+        "mostly-philic-button"
+      ]
     ]
-  }
+  },
+  "template": "simple"
 }
