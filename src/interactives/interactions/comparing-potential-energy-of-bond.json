@@ -10,12 +10,20 @@
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
-    "Explore the change in potential energy when you separate molecules from each other or break",
-    "molecules apart.",
+    "Explore the change in potential energy when molecules are separated from each other or broken apart.",
     "",
-    "Choose a pair of molecules or atoms from the drop-down menu and \"pull\" on the star to separate them."
+    "First, choose a pair of molecules or atoms from the drop-down menu and \"pull\" on the green star to separate them.",
+    "Then, compare observations of the potential energy of each molecule or scenario tested.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
   "theme": "",
   "showTopBar": true,
@@ -187,19 +195,19 @@
   "parameters": [
     {
       "name": "countPotential",
-      "initialValue": 17
+      "initialValue": 16.97951193289041
     },
     {
       "name": "breakEnergy",
-      "initialValue": 0
+      "initialValue": 10.5
     },
     {
       "name": "potentialFactor",
-      "initialValue": 0
+      "initialValue": 15
     },
     {
       "name": "finalPotential",
-      "initialValue": 0
+      "initialValue": 33
     },
     {
       "name": "atomdragged",
@@ -222,6 +230,20 @@
       "showcase": true
     }
   ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
   "dataSets": [],
   "components": [
     {
@@ -312,17 +334,5 @@
       "id": "bottom",
       "top": "model.bottom"
     }
-  ],
-  "logging": {
-    "properties": [
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "selectionComponents": [],
-    "perRun": [
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  ]
 }
