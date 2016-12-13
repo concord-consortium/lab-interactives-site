@@ -1,28 +1,39 @@
 {
   "title": "Conversion of Electric Potential Energy",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore the conversion of electric potential energy to thermal energy.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.6,
   "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "Set the charge of the particles and compare the potential energy of the electric field ",
-    "they generate. Try moving them closer and farther apart. Then run the model and see how",
-    "that energy is converted into thermal energy."
-   ],
+    "Select the amount of charge on two particles and compare the potential energy of the electric field they generate. ",
+    "Then move the particles closer and farther apart. Next, run the model and observe how potential energy is converted into thermal energy. ",
+    "Changes in forces and fields are also visible to help draw conclusions.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "electricPE",
       "url": "models/lab-version/1/md2d/interactions/electric-pe/electricPE.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "electricFieldDensity": 24,
-        "electricFieldColor": "rgb(0,255,0)",
-        "forceVectors": {
-          "length": 17
-        }
-      },
       "onLoad": [
         "setAtomProperties(1, {element: 2});",
         "function setInitialSpeed() {",
@@ -54,9 +65,18 @@
         " ",
         "setInitialSpeed();",
         "set('total-energy', get('potential-energy'));"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        }
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-particle-charge",
@@ -70,80 +90,60 @@
     },
     {
       "name": "total-energy",
-      "initialValue": 0
+      "initialValue": 7.382953029809695
     }
   ],
   "outputs": [
     {
       "name": "potential-energy",
-      "unitAbbreviation": "eV",
-      "label": "Potential Energy",
       "value": [
         "var peLimit = [[0, 0, 0, 0], [ 0, 2.27, 4.52, 6.78], [0, 4.52, 9.03, 13.53], [0, 6.78, 13.53, 20.29]];",
         "return pe() + (pe() < 0 ? peLimit[Math.abs(get('left-particle-charge'))][Math.abs(get('right-particle-charge'))] : 0);"
-      ]
+      ],
+      "label": "Potential Energy",
+      "unitAbbreviation": "eV"
     },
     {
       "name": "kinetic-energy",
-      "unitAbbreviation": "J",
-      "label": "Kinetic Energy",
       "value": [
         "var atom = getAtomProperties(0);",
         "return 2 * (0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy));"
-      ]
+      ],
+      "label": "Kinetic Energy",
+      "unitAbbreviation": "J"
     },
     {
       "name": "thermal-energy",
-      "unitAbbreviation": "J",
-      "label": "Thermal Energy",
       "value": [
         "var tot_e = get('total-energy'),",
         "    th_e = tot_e - get('potential-energy') - get('kinetic-energy');",
         "return Math.min(th_e, tot_e);"
-      ]
+      ],
+      "label": "Thermal Energy",
+      "unitAbbreviation": "J"
     }
   ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "text",
       "id": "drag-inst",
-      "text": "Note: The charged objects are draggable."
+      "type": "text",
+      "text": "Note: The charged objects are draggable.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "set-left-particle-charge",
-      "property": "left-particle-charge",
-      "min": -3,
-      "max": 3,
-      "steps": 6,
-      "width": "45%",
-      "title": "Left particle charge",
-      "displayValue": "return format('d')(value)",
-      "labels": [
-        {
-          "value": -3,
-          "label": "-3"
-        },
-        {
-          "value": 0,
-          "label": "0"
-        },
-        {
-          "value": 3,
-          "label": "3"
-        }
-      ]
-    },
-    {
       "type": "slider",
-      "id": "set-right-particle-charge",
-      "property": "right-particle-charge",
       "min": -3,
       "max": 3,
       "steps": 6,
-      "width": "45%",
-      "title": "Right particle charge",
-      "displayValue": "return format('d')(value)",
+      "title": "Left particle charge",
+      "titlePosition": "top",
       "labels": [
         {
           "value": -3,
@@ -157,43 +157,81 @@
           "value": 3,
           "label": "3"
         }
-      ]
+      ],
+      "width": "45%",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "left-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
+      "id": "set-right-particle-charge",
+      "type": "slider",
+      "min": -3,
+      "max": 3,
+      "steps": 6,
+      "title": "Right particle charge",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": -3,
+          "label": "-3"
+        },
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "width": "45%",
+      "height": "auto",
+      "displayValue": "return format('d')(value)",
+      "property": "right-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "select-show-forces",
-      "property": "showForceVectors",
-      "text": "Show forces"
-    },
-    {
       "type": "checkbox",
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "showElectricField",
-      "text": "Show electric field"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
-      "min": 0,
-      "max": 20,
-      "labels": [
-        {
-          "value": 0,
-          "label": "low"
-        },
-        {
-          "value": 20,
-          "label": "high"
-        }
-      ],
       "id": "potential-energy-graph",
-      "property": "potential-energy",
-      "barColor": "#4c952f",
-      "title": "Potential Energy (eV)"
-    },
-    {
       "type": "barGraph",
+      "property": "potential-energy",
       "min": 0,
       "max": 20,
+      "title": "Potential Energy (eV)",
+      "titleOn": "right",
       "labels": [
         {
           "value": 0,
@@ -204,12 +242,66 @@
           "label": "high"
         }
       ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#4c952f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "thermal-energy-graph",
+      "type": "barGraph",
       "property": "thermal-energy",
+      "min": 0,
+      "max": 20,
+      "title": "Thermal Energy (eV)",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 20,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
       "barColor": "#95602f",
-      "title": "Thermal Energy (eV)"
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom": [
+      [
+        "set-left-particle-charge",
+        "set-right-particle-charge"
+      ],
+      [
+        "select-show-forces",
+        "select-show-electric-field"
+      ],
+      [
+        "drag-inst"
+      ]
+    ],
+    "right": [
+      [
+        "potential-energy-graph",
+        "thermal-energy-graph"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "bottom",
@@ -226,15 +318,5 @@
       "padding-left": "1em",
       "padding-right": "1em"
     }
-  ],
-  "layout": {
-    "bottom": [
-      ["set-left-particle-charge", "set-right-particle-charge"],
-      ["select-show-forces", "select-show-electric-field"],
-      ["drag-inst"]
-    ],
-    "right": [
-      ["potential-energy-graph", "thermal-energy-graph"]
-    ]
-  }
+  ]
 }
