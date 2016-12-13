@@ -1,18 +1,38 @@
 {
   "title": "Polarization",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Observe polarization of a molecule.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.6,
   "fontScale": 1,
-  "subtitle": "",
-  "about": "",
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Select different types of atoms to form a bond and observe how this affects the way electrons become",
+    " distributed and the shape of the molecule. Try observing the molecules using both the surface charge",
+    " view and the electron distribution view.",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "polarization",
       "url": "models/lab-version/1/md2d/interactions/polarization/polarization.json",
-      "viewOptions": {
-        "controlButtons": ""
-      },
       "onLoad": [
         "var i,left,right,uri,images,img,balanced,leftText,rightText,leftColor,rightColor,leftX,rightX,",
         "    maxElectrons = 2;",
@@ -115,9 +135,13 @@
         "onPropertyChange('rightValue', updateView);",
         "onPropertyChange('chargeView', updateView);",
         "updateView()"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "leftValue",
@@ -132,11 +156,14 @@
       "initialValue": true
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "pulldown",
       "id": "set-left-element",
-      "property": "leftValue",
+      "type": "pulldown",
       "label": "Set left atom",
       "labelOn": "top",
       "options": [
@@ -150,7 +177,7 @@
         },
         {
           "text": "Hydrogen",
-          "value": 2.20
+          "value": 2.2
         },
         {
           "text": "Chlorine",
@@ -164,12 +191,16 @@
           "text": "Nitrogen",
           "value": 3.04
         }
-      ]
+      ],
+      "property": "leftValue",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "pulldown",
       "id": "set-right-element",
-      "property": "rightValue",
+      "type": "pulldown",
       "label": "Set right atom",
       "labelOn": "top",
       "options": [
@@ -183,7 +214,7 @@
         },
         {
           "text": "Hydrogen",
-          "value": 2.20
+          "value": 2.2
         },
         {
           "text": "Chlorine",
@@ -197,13 +228,20 @@
           "text": "Nitrogen",
           "value": 3.04
         }
-      ]
+      ],
+      "property": "rightValue",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "view-radio",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Molecule visualization",
-      "property": "chargeView",
+      "labelOn": "top",
       "options": [
         {
           "text": "Charge on surface molecule view",
@@ -213,9 +251,25 @@
           "text": "Electron distribution view     ",
           "value": false
         }
-      ]
+      ],
+      "property": "chargeView",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "right-top": [
+      [
+        "set-left-element",
+        "set-right-element"
+      ]
+    ],
+    "right-bottom": [
+      "view-radio"
+    ]
+  },
   "template": [
     {
       "id": "right-top",
@@ -233,9 +287,5 @@
       "padding-left": "0.7em",
       "align": "left"
     }
-  ],
-  "layout": {
-    "right-top": [["set-left-element", "set-right-element"]],
-    "right-bottom": ["view-radio"]
-  }
+  ]
 }
