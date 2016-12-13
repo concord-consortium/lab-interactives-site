@@ -1,30 +1,39 @@
 {
   "title": "Electric Potential Energy and Type of Charge",
   "publicationStatus": "public",
-  "subtitle": "Compare the potential energy of oppositely or similarly charged particles.",
+  "labEnvironment": "production",
+  "subtitle": "Compare potential energy of oppositely or similarly charged particles.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.35,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "Set the charge of the particles and compare the potential energy of the electric field ",
-    "they generate. Try moving them closer and farther apart."
-   ],
+    "Select the charge of two particles and compare the potential energy of the electric field they generate. ",
+    "Move the particles closer and farther apart and try different types of charge. Then observe the changes in ",
+    "potential energy, electric field, and forces generated.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "electricPE2",
       "url": "models/lab-version/1/md2d/interactions/electric-pe/electricPE.json",
       "importedFrom": "imports/legacy-mw-content/interactions/charge-intensity-and-force/amount-charge$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false,
-        "electricFieldDensity": 24,
-        "electricFieldColor": "rgb(0,255,0)",
-        "forceVectors": {
-          "length": 17
-        }
-      },
       "onLoad": [
         "onDrag('atom', function (x, y, d, i) {",
         "  var atomToAvoid = getAtomProperties(1 - i),",
@@ -35,9 +44,22 @@
         "    setAtomProperties(i, {x: minDist * (x - atomToAvoid.x) / distToAtom + atomToAvoid.x, y: minDist * (y - atomToAvoid.y) / distToAtom + atomToAvoid.y});",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        }
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "left-particle-charge",
@@ -53,28 +75,40 @@
   "outputs": [
     {
       "name": "potential-energy",
-      "unitAbbreviation": "eV",
-      "label": "Potential Energy",
       "value": [
         "return pe() + (pe() < 0 ? 9 : 0);"
-      ]
+      ],
+      "label": "Potential Energy",
+      "unitAbbreviation": "eV"
     }
   ],
+  "filteredOutputs": [],
+  "helpTips": [],
   "exports": {
-    "perRun": ["left-particle-charge", "right-particle-charge", "potential-energy"],
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potential-energy"
+    ],
     "perTick": []
   },
+  "dataSets": [],
   "components": [
     {
-      "type": "text",
       "id": "drag-inst",
-      "text": "Note: The charged objects are draggable."
+      "type": "text",
+      "text": "Note: The charged objects are draggable.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
-      "orientation": "vertical",
       "id": "set-left-particle-charge",
-      "property": "left-particle-charge",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Left particle charge",
       "labelOn": "top",
       "options": [
@@ -86,13 +120,18 @@
           "text": "Negative",
           "value": -2
         }
-      ]
+      ],
+      "property": "left-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
-      "orientation": "vertical",
       "id": "set-right-particle-charge",
-      "property": "right-particle-charge",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
       "label": "Right particle charge",
       "labelOn": "top",
       "options": [
@@ -104,28 +143,47 @@
           "text": "Negative",
           "value": -2
         }
-      ]
+      ],
+      "property": "right-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "select-show-forces",
-      "property": "showForceVectors",
-      "text": "Show forces"
-    },
-    {
       "type": "checkbox",
-      "id": "select-show-electric-field",
-      "property": "showElectricField",
-      "text": "Show electric field"
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
+      "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showElectricField",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "potential-energy-graph",
       "type": "barGraph",
+      "property": "potential-energy",
       "min": 0,
       "max": 9,
-      "id": "potential-energy-graph",
-      "property": "potential-energy",
-      "barColor": "#4c952f",
       "title": "Potential Energy",
+      "titleOn": "right",
       "labels": [
         {
           "value": 0,
@@ -135,9 +193,38 @@
           "value": 9,
           "label": "high"
         }
-      ]
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#4c952f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom": [
+      [
+        "set-left-particle-charge",
+        "set-right-particle-charge"
+      ],
+      [
+        "select-show-forces",
+        "select-show-electric-field"
+      ],
+      [
+        "drag-inst"
+      ]
+    ],
+    "right": [
+      [
+        "potential-energy-graph"
+      ]
+    ]
+  },
   "template": [
     {
       "id": "bottom",
@@ -155,15 +242,5 @@
       "padding-left": "1em",
       "padding-right": "1em"
     }
-  ],
-  "layout": {
-    "bottom": [
-      ["set-left-particle-charge", "set-right-particle-charge"],
-      ["select-show-forces", "select-show-electric-field"],
-      ["drag-inst"]
-    ],
-    "right": [
-      ["potential-energy-graph"]
-    ]
-  }
+  ]
 }
