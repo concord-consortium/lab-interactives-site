@@ -1,16 +1,38 @@
 {
   "title": "Dissolving",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
+  "subtitle": "Impact on potential energy when a substance dissolves in water.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.1,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Add water to a substance and observe the impact on potential energy as the substance dissolves. ",
+    "Observe the interactions between molecules as the substance dissolves over time and watch what happens",
+    " to the potential energy of the system as dissolving occurs.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-only.json",
-      "viewOptions": {
-        "controlButtons": ""
-      },
       "onLoad": [
         "setComponentDisabled('add-water', false);",
         "onStart(function () {",
@@ -19,18 +41,15 @@
         "onStop(function () {",
         "  set('playing', false);",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
     },
     {
       "type": "md2d",
       "id": "salt-and-water",
       "url": "models/lab-version/1/md2d/interactions/dissolving-solubility/salt-and-water.json",
-      "viewOptions": {
-        "controlButtons": ""
-      },
-      "modelOptions": {
-        "timeStep": 0.75
-      },
       "onLoad": [
         "setComponentDisabled('add-water', true);",
         "onStart(function () {",
@@ -40,9 +59,16 @@
         "  set('playing', false);",
         "});",
         "start();"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "timeStep": 0.75
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "playing",
@@ -65,48 +91,94 @@
   "filteredOutputs": [
     {
       "name": "filteredPE",
-      "property": "fakePE"
+      "property": "fakePE",
+      "type": "RunningAverage",
+      "period": 2500
     }
   ],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "play-stop",
+      "type": "button",
+      "action": "if (get('playing')) stop(); else start();",
       "text": "Play",
-      "action": "if (get('playing')) stop(); else start();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset",
-      "text": "Reset",
-      "action": "loadModel('salt')"
-    },
-    {
       "type": "button",
+      "action": "loadModel('salt')",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "add-water",
+      "type": "button",
+      "action": "loadModel('salt-and-water')",
       "text": "Add water",
-      "action": "loadModel('salt-and-water')"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "show-interactions",
+      "type": "checkbox",
       "text": "Show interactions between atoms",
-      "property": "showVDWLines"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showVDWLines",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "pe",
+      "type": "barGraph",
       "property": "filteredPE",
+      "min": 0,
+      "max": 10,
+      "title": "Potential Energy",
+      "titleOn": "right",
       "labels": 0,
-      "title": "Potential Energy"
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "bottom": [
-      ["play-stop", "reset", "add-water"],
-      ["show-interactions"]
+      [
+        "play-stop",
+        "reset",
+        "add-water"
+      ],
+      [
+        "show-interactions"
+      ]
     ],
-    "right": ["pe"]
+    "right": [
+      "pe"
+    ]
   },
   "template": [
     {
@@ -118,11 +190,11 @@
       "padding-right": "1em"
     },
     {
-    "id": "bottom",
-    "top": "right.bottom",
-    "left": "model.left",
-    "width": "interactive.width",
-    "padding-top": "0.5em"
+      "id": "bottom",
+      "top": "right.bottom",
+      "left": "model.left",
+      "width": "interactive.width",
+      "padding-top": "0.5em"
     }
   ]
 }
