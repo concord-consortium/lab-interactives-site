@@ -1,16 +1,39 @@
 {
   "title": "Molecule Sorting",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
+  "subtitle": "Add various molecules to oil and water to observe how they sort.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.45,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Insert various molecules to a mixture of oil and water, and observe where they tend to end up. ",
+    "The three molecule colors (purple, orange, and grey) represent polar and nonpolar molecules with ",
+    "hydrophilic and hydrophobic properties. Can you tell which ones are polar, nonpolar, or both by how ",
+    "they interact with oil and water?",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/molecular-sorting/model.json",
-      "viewOptions": {
-        "controlButtons": ""
-      },
       "onLoad": [
         "start();",
         "callEvery(50, function() {",
@@ -47,28 +70,54 @@
         "    }",
         "  });",
         "})"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
     }
   ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "insert-molecule",
-      "text": "Insert a molecule",
+      "type": "button",
       "action": [
         "var element = Math.floor(Math.random() * 3) + 1;",
         "addAtom({element: element, x: 0.1, y: 1.25, vy: Math.random() * 0.0008 - 0.0004});"
-      ]
+      ],
+      "text": "Insert a molecule",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "reset",
-      "text": "Reset",
+      "type": "button",
       "action": [
         "reloadModel();"
-      ]
+      ],
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom": [
+      "insert-molecule",
+      "reset"
+    ],
+    "right": []
+  },
   "template": [
     {
       "id": "right",
@@ -86,12 +135,5 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ],
-  "layout": {
-    "bottom": [
-      "insert-molecule", "reset"
-    ],
-    "right": [
-    ]
-  }
+  ]
 }
