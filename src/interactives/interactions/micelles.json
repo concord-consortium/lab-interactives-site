@@ -1,17 +1,39 @@
 {
   "title": "Micelles",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
+  "subtitle": "Explore potential energy of molecules in oil and water.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.1,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Select an oil or water environment for molecules and observe how they are affected by interactions with ",
+    "their environment and themselves. These molecules have hydrophilic (polar) and hydrophobic (nonpolar) portions, ",
+    "which interact in different ways with the surrounding environment. Watch how potential energy changes as the molecules ",
+    "self-assemble into micelles.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/micelles/model.json",
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "controlButtonStyle": "text"
-      },
       "onLoad": [
         "onStart(function() {",
         "  setComponentDisabled('drag', true);",
@@ -19,9 +41,14 @@
         "onStop(function() {",
         "  setComponentDisabled('drag', false);",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "solvent",
@@ -39,23 +66,37 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "barGraph",
       "id": "pe-graph",
+      "type": "barGraph",
       "property": "potentialEnergy",
-      "labels": 0,
-      "title": "Potential Energy",
       "min": -150,
-      "max": 40
+      "max": 40,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "solvent",
-      "property": "solvent",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
       "label": "Set solvent",
       "labelOn": "left",
-      "orientation": "horizontal",
       "options": [
         {
           "text": "Water (polar)",
@@ -65,15 +106,20 @@
           "text": "Oil (non-polar)",
           "value": "oil"
         }
-      ]
+      ],
+      "property": "solvent",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
       "id": "drag",
-      "property": "onAtomDrag",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
       "label": "Interact with molecules",
       "labelOn": "left",
-      "orientation": "horizontal",
       "options": [
         {
           "text": "Move molecule",
@@ -83,7 +129,12 @@
           "text": "Rotate molecule",
           "value": "rotate"
         }
-      ]
+      ],
+      "property": "onAtomDrag",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -91,8 +142,13 @@
       "pe-graph"
     ],
     "bottom": [
-      ["solvent"],
-      ["drag"]
+      [
+        "solvent"
+      ],
+      [
+        "drag"
+      ]
     ]
-  }
+  },
+  "template": "simple"
 }
