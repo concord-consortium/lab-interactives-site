@@ -1,8 +1,8 @@
 {
   "title": "Structure of an atom",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Using a color to map the location of electrons.",
+  "subtitle": "Mapping the location of electrons.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -10,8 +10,20 @@
   "fontScale": 1.0302457466918715,
   "lang": "en-US",
   "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
-  "about": [],
+  "aboutOnLoad": false,
+  "about": [
+    "Use the simulation to observe the probable location of electrons around an atom. Trace the electrons over time ",
+    "to draw conclusions about where electrons are likely to be found around an atom’s nucleus. How does the trace ",
+    "pattern relate to the electron cloud model?",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
   "theme": "",
   "showTopBar": true,
   "showBottomBar": true,
@@ -105,7 +117,7 @@
       "component": "",
       "text": [
         "It is impossible to know both the precise location and velocity of an electron at the same time. This simulation shows you the position of electrons at various moments in time. Explore the pattern of where the electrons are found."
-        ],
+      ],
       "showcase": true
     }
   ],
@@ -152,10 +164,14 @@
       "helpIcon": false
     },
     {
-      "type": "image",
       "id": "key",
+      "type": "image",
+      "src": "atom-key.svg",
+      "urlRelativeTo": "model",
+      "width": "auto",
       "height": "8em",
-      "src": "atom-key.svg"
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -168,8 +184,8 @@
       ]
     ],
     "right-bottom": [
-        "key"
-      ]
+      "key"
+    ]
   },
   "template": [
     {
