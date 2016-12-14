@@ -1,28 +1,38 @@
 {
   "title": "Direction of Force Around a VDG (Negatively Charged)",
   "publicationStatus": "public",
-  "subtitle": "Explore the forces between a charged object and a Van der Graaf generator.",
+  "labEnvironment": "production",
+  "subtitle": "Explore the forces between a charged object and a Van de Graaf generator.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.5677966101694916,
   "fontScale": 1.018018018018018,
-  "about": [
-    "The arrow indicates the direction of force between the charged object and the Van der Graaf generator.",
-    "How does the orientation of the arrow change as the charged object is moved around?",
-    "Use the *Trace force vectors* checkbox to help characterize the direction of force arrow when the charged object is in different positions."
-  ],
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Drag a positively charged object around a negatively charged Van de Graaff Generator and observe the forces between them. ",
+    "Use the \"trace pointers\" feature to draw conclusions about the pattern of forces between charged objects and the Van de Graaff Generator.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "forceDirectionVDG",
       "url": "models/lab-version/1/md2d/interactions/forceDirectionVDG.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction-VDG-negative/forceDirectionVDG$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
-      "viewOptions": {
-        "controlButtons": "reset",
-        "enableKeyboardHandlers": false
-      },
       "onLoad": [
         "function updateVectors() {",
         "  batch(function() {",
@@ -63,9 +73,17 @@
         "  }",
         "});",
         "updateVectors();"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "reset",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "last-trace-time",
@@ -93,54 +111,107 @@
       "onChange": []
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Drag the charged object around and observe the direction of the force. ",
+        "Use the trace button to track the pattern of forces around the object."
+      ],
+      "showcase": true
+    }
+  ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
   "components": [
     {
-      "type": "checkbox",
       "id": "toggle-show-force-on-object",
+      "type": "checkbox",
+      "text": "Show direction of force on draggable object",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "show-force-on-object",
-      "text": "Show direction of force on draggable object"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "toggle-show-force-on-VDG",
-      "property": "show-force-on-VDG",
-      "text": "Show direction of force on VDG"
-    },
-    {
       "type": "checkbox",
+      "text": "Show direction of force on VDG",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "show-force-on-VDG",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "toggle-trace-force-vectors",
+      "type": "checkbox",
+      "text": "Trace force pointers",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "trace-force-vectors",
-      "text": "Trace force pointers"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label-forces",
-      "text": "**Forces:**"
-    },
-    {
       "type": "text",
-      "id": "label-tracing",
-      "text": "**Tracing:**"
+      "text": "**Forces:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
+      "id": "label-tracing",
+      "type": "text",
+      "text": "**Tracing:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "clear-trace",
-      "text": "Clear",
+      "type": "button",
       "action": [
         "batch(function() { ",
         "  for (var i = 3; i < 53; i++) {",
         "    setImageProperties(i, { visible: false });",
         "  }",
         "});"
-      ]
-    }
-  ],
-  "helpTips": [
-    {
-      "text": [
-        "Drag the charged object around and observe the direction of the force. ",
-        "Use the trace button to track the pattern of forces around the object."
-      ]
+      ],
+      "text": "Clear",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
@@ -165,16 +236,5 @@
       ]
     ]
   },
-  "template": "wide-right",
-  "logging": {
-    "properties": [
-      "potentialEnergy"
-    ]
-  },
-  "exports": {
-    "perRun": [
-      "potentialEnergy"
-    ],
-    "perTick": []
-  }
+  "template": "wide-right"
 }
