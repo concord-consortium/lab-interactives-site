@@ -1,15 +1,41 @@
 {
   "title": "Reaction between hydrogen and oxygen molecules",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Energy during a reaction between hydrogen and oxygen molecules.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.13682092555332,
   "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Carefully observe changes in kinetic and potential energy as hydrogen and oxygen molecules react. ",
+    "Use the controls to speed up, slow down, or reverse the reaction to compare the energy changes over time. ",
+    "Focus on the moments when bonds break or form.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "hydrogen-oxygen-reaction",
       "url": "models/lab-version/1/md2d/interactions/hydrogen-oxygen-spark/hydrogen-oxygen-spark.json",
+      "onLoad": [
+        "setComponentDisabled('spark-button', false);"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
@@ -37,39 +63,41 @@
             "1+2-1": 0.01
           }
         }
-      },
-      "onLoad": [
-        "setComponentDisabled('spark-button', false);"
-      ]
+      }
     }
   ],
-  "parameters": [
-  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
   "filteredOutputs": [
     {
       "name": "KE_AVG",
-      "unitType": "energy",
       "property": "kineticEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     },
     {
       "name": "potentialEnergy_AVG",
-      "unitType": "energy",
       "property": "potentialEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     },
     {
       "name": "totalEnergy_AVG",
-      "unitType": "energy",
       "property": "totalEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     }
   ],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "spark-button",
-      "text": "Add some energy to break one of the molecular bonds",
+      "type": "button",
       "action": [
         "var currentTime = get('time');",
         "var props, a1Props, a2Props, dx, dy, slowMotionChanged;",
@@ -99,79 +127,144 @@
         "  }",
         "}",
         "setComponentDisabled('spark-button', true);"
-      ]
+      ],
+      "text": "Add some energy to break one of the molecular bonds",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "back-label",
-      "text": "**Step back:**"
-    },
-    {
       "type": "text",
+      "text": "**Step back:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "forward-label",
-      "text": "**Step forward:**"
+      "type": "text",
+      "text": "**Step forward:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "step-back-1",
+      "type": "button",
+      "action": "stepBack();",
       "text": "1",
-      "action": "stepBack();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "step-back-10",
+      "type": "button",
+      "action": "for( var i = 0; i < 10; i++) { stepBack(); }",
       "text": "10",
-      "action": "for( var i = 0; i < 10; i++) { stepBack(); }"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "step-back-100",
+      "type": "button",
+      "action": "for( var i = 0; i < 100; i++) { stepBack(); }",
       "text": "100",
-      "action": "for( var i = 0; i < 100; i++) { stepBack(); }"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "step-forward-1",
+      "type": "button",
+      "action": "stepForward();",
       "text": "1",
-      "action": "stepForward();"
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "button",
       "id": "step-forward-10",
-      "text": "10",
-      "action": "for( var i = 0; i < 10; i++) { stepForward(); }"
-    },
-    {
       "type": "button",
-      "id": "step-forward-100",
-      "text": "100",
-      "action": "for( var i = 0; i < 100; i++) { stepForward(); }"
+      "action": "for( var i = 0; i < 10; i++) { stepForward(); }",
+      "text": "10",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "graph",
+      "id": "step-forward-100",
+      "type": "button",
+      "action": "for( var i = 0; i < 100; i++) { stepForward(); }",
+      "text": "100",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "energyGraph",
-      "title": "Energies",
-      "xlabel": "Time",
-      "ylabel": "Energy",
-      "hideAxisValues": true,
-      "helpIcon": false,
-      "ymin": -4,
-      "ymax": 4,
-      "xmax": 0.3000001,
-      "width": "18em",
-      "xTickCount": 6,
-      "yTickCount": 10,
-      "xFormatter": "r",
-      "yFormatter": ".1r",
+      "type": "graph",
+      "streamDataFromModel": true,
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
       "autoScaleX": true,
       "autoScaleY": true,
-      "streamDataFromModel": true, 
-      "xProperty": "displayTime",
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": true,
       "properties": [
         "KE_AVG",
         "potentialEnergy_AVG",
         "totalEnergy_AVG"
       ],
+      "xProperty": "displayTime",
+      "title": "Energies",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "18em",
+      "height": "100%",
+      "xlabel": "Time",
+      "xmin": 0,
+      "xmax": 0.3000001,
+      "ylabel": "Energy",
+      "ymin": -4,
+      "ymax": 4,
+      "xTickCount": 6,
+      "yTickCount": 10,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "r",
+      "yFormatter": ".1r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
       "dataColors": [
         "#814ec6",
         "#70c64e",
@@ -182,22 +275,35 @@
         "Potential Energy",
         "Total Energy"
       ],
-      "legendVisible": false
+      "legendVisible": false,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
     }
   ],
-  "helpTips": [],
-  "helpOnLoad": true,
   "layout": {
     "bottom": [
       "spark-button"
     ],
     "bottom-left": [
-      ["back-label"], 
-      ["forward-label"]
+      [
+        "back-label"
+      ],
+      [
+        "forward-label"
+      ]
     ],
     "bottom-right": [
-      ["step-back-1", "step-back-10", "step-back-100"],
-      ["step-forward-1", "step-forward-10", "step-forward-100"]
+      [
+        "step-back-1",
+        "step-back-10",
+        "step-back-100"
+      ],
+      [
+        "step-forward-1",
+        "step-forward-10",
+        "step-forward-100"
+      ]
     ],
     "right": [
       "energyGraph"
@@ -208,10 +314,9 @@
       "id": "bottom-left",
       "top": "bottom.bottom",
       "left": "bottom.left",
-      "width": "10em",
+      "width": "7.5em",
       "padding-right": "0em",
-      "padding-top": "0.25em",
-      "width": "7.5em"
+      "padding-top": "0.25em"
     },
     {
       "id": "bottom-right",
