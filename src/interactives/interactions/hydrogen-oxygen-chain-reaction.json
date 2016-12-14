@@ -1,44 +1,38 @@
 {
   "title": "Chain reaction between hydrogen and oxygen",
-  "publicationStatus": "draft",
-  "subtitle": "",
-  "about": "",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Observe a reaction and the energy involved.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.6869300911854104,
   "fontScale": 1.018018018018018,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Add some energy to a system consisting of hydrogen and oxygen molecules to break one of the bonds. ",
+    "As the reaction develops and water is produced, observe the changes in potential and kinetic energy ",
+    "in the system, and the total energy of the system to draw conclusion about bonds and energy.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "hydrogen-oxygen-reaction",
       "url": "models/lab-version/1/md2d/interactions/hydrogen-oxygen-chain-reaction/hydrogen-oxygen-chain-reaction.json",
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "controlButtonStyle": "text"
-      },
-      "modelOptions": {
-        "chemicalReactions": {
-          "valenceElectrons": [
-            1,
-            1,
-            6,
-            7
-          ],
-          "bondEnergy": {
-            "default": 6,
-            "1-2": 5.2,
-            "1-1": 4.52,
-            "2-2": 0.1,
-            "2=2": 5.16
-          },
-          "activationEnergy": {
-            "default": 0.0002,
-            "1+2-2": 0.00001,
-            "1+2=2": 0.00001,
-            "2+1-2": 0.00001,
-            "2+1-1": 0.00001,
-            "1+2-1": 0.00001
-          }
-        }
-      },
       "onLoad": [
         "setComponentDisabled('spark-button', false);",
         "var unMarkedAtoms = [];",
@@ -84,9 +78,39 @@
         "    }",
         "  }",
         "});"
-      ]
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "valenceElectrons": [
+            1,
+            1,
+            6,
+            7
+          ],
+          "bondEnergy": {
+            "default": 6,
+            "1-2": 5.2,
+            "1-1": 4.52,
+            "2-2": 0.1,
+            "2=2": 5.16
+          },
+          "activationEnergy": {
+            "default": 0.0002,
+            "1+2-2": 0.00001,
+            "1+2=2": 0.00001,
+            "2+1-2": 0.00001,
+            "2+1-1": 0.00001,
+            "1+2-1": 0.00001
+          }
+        }
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "total-E",
@@ -94,34 +118,49 @@
     },
     {
       "name": "PE",
-      "initialValue": 0
+      "initialValue": 82.92222053166044
     }
   ],
+  "outputs": [],
   "filteredOutputs": [
     {
       "name": "KE_AVG",
-      "unitType": "energy",
       "property": "kineticEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     },
     {
       "name": "potentialEnergy_AVG",
-      "unitType": "energy",
       "property": "potentialEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     },
     {
       "name": "totalEnergy_AVG",
-      "unitType": "energy",
       "property": "totalEnergy",
-      "period": 50
+      "type": "RunningAverage",
+      "period": 50,
+      "unitType": "energy"
     }
   ],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Try running the model by pressing *start*.",
+        "",
+        "Atoms that have been involved in part of the reaction will turn yellow."
+      ],
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "spark-button",
-      "text": "Add some energy to break one of the molecular bonds",
+      "type": "button",
       "action": [
         "var props, a1Props, a2Props, dx, dy, slowMotionChanged;",
         "for(var i = 0, len = getNumberOfRadialBonds(); i < len; i++) {",
@@ -141,18 +180,22 @@
         "}",
         "set('total-E', 103);",
         "start();"
-      ]
+      ],
+      "text": "Add some energy to break one of the molecular bonds",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "avg-KE",
-      "barColor": "#814ec6",
+      "type": "barGraph",
+      "property": "KE_AVG",
       "min": 0,
       "max": 120,
       "title": "Kinetic energy",
-      "property": "KE_AVG",
-      "units": false,
-      "gridLines": 10,
+      "titleOn": "right",
       "labels": [
         {
           "value": 0,
@@ -162,18 +205,25 @@
           "value": 120,
           "label": "high"
         }
-      ]
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#814ec6",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "avg-PE",
-      "barColor": "#70c64e",
+      "type": "barGraph",
+      "property": "PE",
       "min": 0,
       "max": 120,
       "title": "Potential Energy",
-      "property": "PE",
-      "units": false,
-      "gridLines": 10,
+      "titleOn": "right",
       "labels": [
         {
           "value": 0,
@@ -183,18 +233,25 @@
           "value": 120,
           "label": "high"
         }
-      ]
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#70c64e",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "avg-TE",
-      "barColor": "#7c7c7c",
+      "type": "barGraph",
+      "property": "total-E",
       "min": 0,
       "max": 120,
       "title": "Total energy",
-      "property": "total-E",
-      "units": false,
-      "gridLines": 10,
+      "titleOn": "right",
       "labels": [
         {
           "value": 0,
@@ -204,25 +261,27 @@
           "value": 120,
           "label": "high"
         }
-      ]
-    }    
-  ],
-  "helpTips": [
-      {
-      "text": [
-        "Try running the model by pressing *start*.",
-        "",
-        "Atoms that have been involved in part of the reaction will turn yellow."
-      ]
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#7c7c7c",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
-  "helpOnLoad": true,
   "layout": {
     "bottom": [
       "spark-button"
     ],
     "right": [
-      "avg-KE","avg-PE","avg-TE"
+      "avg-KE",
+      "avg-PE",
+      "avg-TE"
     ]
-  }
+  },
+  "template": "simple"
 }
