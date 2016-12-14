@@ -1,22 +1,48 @@
 {
   "title": "Oil and Water",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
   "labEnvironment": "production",
+  "subtitle": "Mix a polar and nonpolar molecules together and observe changes in potential energy.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.45,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "\"Shake-up\" polar and nonpolar molecules to mix them, and observe the changes in potential energy over time as they ",
+    "separate back into uniform layers like oil and water. Use the \"fast forward\" control to speed up the process, ",
+    "which can take a while when you are not focussing on individual interactions between molecules.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "salt",
       "url": "models/lab-version/1/md2d/interactions/oil-and-water/model.json",
+      "onLoad": [
+        "setComponentDisabled('shake', false);"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
-      },
-      "onLoad": [
-        "setComponentDisabled('shake', false);"
-      ]
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "initialTemp",
@@ -55,38 +81,73 @@
       ]
     }
   ],
+  "outputs": [],
   "filteredOutputs": [
     {
       "name": "filteredPE",
       "property": "potentialEnergy",
+      "type": "RunningAverage",
       "period": 5000
     }
   ],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "shake",
-      "text": "Mix and shake up",
+      "type": "button",
       "action": [
         "set('shaking', !get('shaking'));"
-      ]
+      ],
+      "text": "Mix and shake up",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "fast-forward",
+      "type": "checkbox",
       "text": "Fast forward",
-      "property": "fastForward"
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "fastForward",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "barGraph",
       "id": "pe-graph",
+      "type": "barGraph",
       "property": "filteredPE",
-      "labels": 0,
-      "title": "Potential Energy",
       "min": -37,
-      "max": -30
+      "max": -30,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
+  "layout": {
+    "bottom": [
+      "shake",
+      "fast-forward"
+    ],
+    "right": [
+      "pe-graph"
+    ]
+  },
   "template": [
     {
       "id": "right",
@@ -104,13 +165,5 @@
       "padding-top": "0.5em",
       "align": "center"
     }
-  ],
-  "layout": {
-    "bottom": [
-      "shake", "fast-forward"
-    ],
-    "right": [
-      "pe-graph"
-    ]
-  }
+  ]
 }
