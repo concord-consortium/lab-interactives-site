@@ -1,72 +1,92 @@
 {
   "title": "Direction of Force on Charged Objects",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Explore the direction of an electric force between charged objects.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
   "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
   "helpOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
-    "Charged objects attract or repel each other. Try changing the charge of the central, stationary object and ",
-    "dragging around the other one. Then observe how the force arrows behave. Use the *Trace force vectors* ",
-    "checkbox to create a map of electric forces felt by charged objects around the center object."
-    ],
+    "Drag a positively charged object around a stationary object that can be either positive or negative. ",
+    "Observe the direction and angle of the force on the movable object due to the two charges. Use",
+    " the \"trace\" function to map being to map out a \"field\" around the central charged object.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "forceDirection",
       "url": "models/lab-version/1/md2d/interactions/forceDirection.json",
       "importedFrom": "imports/legacy-mw-content/interactions/force-direction/forceDirection$0.mml",
-      "modelOptions": {
-        "useDuration": false
-      },
+      "onLoad": [
+        "function updateVectors() {",
+        "  batch(function() {",
+        "    var dragAtomProps   = getAtomProperties(0);",
+        "    var targetAtomProps = getAtomProperties(1);",
+        "    var charge = get('object-charge');",
+        "    var dx = dragAtomProps.x - targetAtomProps.x;",
+        "    var dy = dragAtomProps.y - targetAtomProps.y;",
+        "    var angle = rad2deg * Math.atan2(dy, dx);",
+        "    var fieldDirectionAtTestCharge = charge > 0 ? angle : angle + 180",
+        "    var d;",
+        "    setImageProperties(0, { rotation: fieldDirectionAtTestCharge } );",
+        "    setImageProperties(1, { rotation: fieldDirectionAtTestCharge + 180 } );",
+        "    if ( get('trace-force-vectors') ) {",
+        "      var tNow = getCurrentComputerTime();",
+        "      if ( tNow - get('last-trace-time') > 250 ) {",
+        "        var traceidx = get('trace-idx');",
+        "        d = Math.sqrt(dx*dx + dy*dy);",
+        "        setImageProperties(2 + traceidx, { ",
+        "          imageX: dragAtomProps.x - 0.25,",
+        "          imageY: dragAtomProps.y + 0.05,",
+        "          rotation: fieldDirectionAtTestCharge,",
+        "          opacity: 0.7,",
+        "          visible: true",
+        "        });",
+        "        set('trace-idx', (traceidx+1) % 50);",
+        "        set('last-trace-time', tNow);",
+        "      }",
+        "    }",
+        "  });",
+        "};",
+        "onDrag('atom', function(x, y, d, i) {",
+        "  if (getNumberOfTextBoxes() > 0) { ",
+        "    removeTextBox(0);",
+        "  }",
+        "  if (i === 0) {",
+        "    updateVectors();",
+        "  }",
+        "});",
+        "onPropertyChange('object-charge', updateVectors);",
+        "updateVectors();"
+      ],
       "viewOptions": {
         "controlButtons": "reset",
         "controlButtonStyle": "text",
         "enableKeyboardHandlers": false
       },
-      "onLoad": [
-          "function updateVectors() {",
-          "  batch(function() {",
-          "    var dragAtomProps   = getAtomProperties(0);",
-          "    var targetAtomProps = getAtomProperties(1);",
-          "    var charge = get('object-charge');",
-          "    var dx = dragAtomProps.x - targetAtomProps.x;",
-          "    var dy = dragAtomProps.y - targetAtomProps.y;",
-          "    var angle = rad2deg * Math.atan2(dy, dx);",
-          "    var fieldDirectionAtTestCharge = charge > 0 ? angle : angle + 180",
-          "    var d;",
-          "    setImageProperties(0, { rotation: fieldDirectionAtTestCharge } );",
-          "    setImageProperties(1, { rotation: fieldDirectionAtTestCharge + 180 } );",
-          "    if ( get('trace-force-vectors') ) {",
-          "      var tNow = getCurrentComputerTime();",
-          "      if ( tNow - get('last-trace-time') > 250 ) {",
-          "        var traceidx = get('trace-idx');",
-          "        d = Math.sqrt(dx*dx + dy*dy);",
-          "        setImageProperties(2 + traceidx, { ",
-          "          imageX: dragAtomProps.x - 0.25,",
-          "          imageY: dragAtomProps.y + 0.05,",
-          "          rotation: fieldDirectionAtTestCharge,",
-          "          opacity: 0.7,",
-          "          visible: true",
-          "        });",
-          "        set('trace-idx', (traceidx+1) % 50);",
-          "        set('last-trace-time', tNow);",
-          "      }",
-          "    }",
-          "  });",
-          "};",
-          "onDrag('atom', function(x, y, d, i) {",
-          "  if (getNumberOfTextBoxes() > 0) { ",
-          "    removeTextBox(0);",
-          "  }",
-          "  if (i === 0) {",
-          "    updateVectors();",
-          "  }",
-          "});",
-          "onPropertyChange('object-charge', updateVectors);",
-          "updateVectors();"
-        ]
+      "modelOptions": {
+        "useDuration": false
+      }
     }
- ],
+  ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "last-trace-time",
@@ -106,6 +126,8 @@
       ]
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
   "helpTips": [
     {
       "component": "",
@@ -113,56 +135,98 @@
       "showcase": true
     }
   ],
+  "dataSets": [],
   "components": [
     {
-      "type": "button",
       "id": "clear-trace",
-      "text": "Clear",
+      "type": "button",
       "action": [
         "batch(function() { ",
         "  for (var i = 2; i < 52; i++) {",
         "    setImageProperties(i, { visible: false });",
         "  }",
         "});"
-      ]
+      ],
+      "text": "Clear",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "toggle-show-force-on-object",
+      "type": "checkbox",
+      "text": "Show force on draggable object",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "show-force-on-object",
-      "text": "Show force on draggable object"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "checkbox",
       "id": "toggle-show-force-on-VDG",
-      "property": "show-force-on-VDG",
-      "text": "Show force on stationary object"
-    },
-    {
       "type": "checkbox",
+      "text": "Show force on stationary object",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "show-force-on-VDG",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "toggle-trace-force-vectors",
+      "type": "checkbox",
+      "text": "Trace force pointers",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
       "property": "trace-force-vectors",
-      "text": "Trace force pointers"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label-forces",
-      "text": "**Forces:**"
+      "type": "text",
+      "text": "**Forces:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "text",
       "id": "label-tracing",
-      "text": "**Tracing:**"
-    },
-    {
       "type": "text",
-      "id": "label-direction",
-      "text": "**Set charge on stationary object:**"
+      "text": "**Tracing:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "radio",
+      "id": "label-direction",
+      "type": "text",
+      "text": "**Set charge on stationary object:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "id": "select-charge",
-      "property": "object-charge",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
       "options": [
         {
           "text": "Positive",
@@ -172,19 +236,40 @@
           "text": "Negative",
           "value": -1
         }
-      ]
+      ],
+      "property": "object-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     }
   ],
   "layout": {
     "right": [
-      ["label-forces"],
-      ["toggle-show-force-on-object"],
-      ["toggle-show-force-on-VDG"],
-      ["label-tracing"],
-      ["toggle-trace-force-vectors"],
-      ["clear-trace"],
-      ["label-direction"],
-      ["select-charge"]
+      [
+        "label-forces"
+      ],
+      [
+        "toggle-show-force-on-object"
+      ],
+      [
+        "toggle-show-force-on-VDG"
+      ],
+      [
+        "label-tracing"
+      ],
+      [
+        "toggle-trace-force-vectors"
+      ],
+      [
+        "clear-trace"
+      ],
+      [
+        "label-direction"
+      ],
+      [
+        "select-charge"
+      ]
     ]
   },
   "template": "wide-right"
