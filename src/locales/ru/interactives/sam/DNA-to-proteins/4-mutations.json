@@ -86,7 +86,7 @@
     {
       "type": "button",
       "id": "show-dna",
-      "text": "Показарть ДНК",
+      "text": "Показать ДНК",
       "action": "set('DNAState', 'dna');"
     },
     {
