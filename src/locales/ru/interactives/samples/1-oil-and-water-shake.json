@@ -1,0 +1,67 @@
+{
+  "title": "Вода и масло",
+  "publicationStatus": "sample",
+  "subtitle": "Исследуем взаимодействие полярных и неполярных веществ",
+  "about": [
+    "Хорошо известно, что вода и масло не смешиваются. А почему? Попробуйте выяснить",
+    " это экспериментируя с молекулярной моделью смеси. В ней полярные молекулы воды",
+    " представлены в виде голубых и белух частичек, а неполярные молекулы масла - в виде",
+    " серых частичек. Нажатием кнопки \"Встряхивание смеси масла и воды\" приводим модель в ",
+    "действие и наблюдаем за происходящими процессами на молекулярном уровне."
+  ],
+  "i18nMetadata": "locales/metadata/interactives/samples/1-oil-and-water-shake.json",
+  "lang": "ru",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/page3$1.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Разделение масла и воды в растворе",
+            "x": 0.5,
+            "y": 2.0,
+            "fontScale": 1.3,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(245,245,245)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "oilAndWaterMix",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/oilAndWaterMix.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Oil and water shaken up and mixed",
+            "x": 0.804,
+            "y": 2.0,
+            "fontScale": 1.3,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(245,245,245)"
+          }
+        ]
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "shake",
+      "text": "Нажатием кнопки встряхиваем смесь масла и воды",
+      "action": "loadModel('oilAndWaterMix');"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "shake"
+    ]
+  }
+}
