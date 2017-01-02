@@ -102,17 +102,37 @@
     }
   ],
   "layout": {
-    "right": [
+    "temp-container": [
       "thermometer"
     ],
-    "bottom": [
-      [
-        "charged-box",
-        "epsilon-slider",
-        "temperature-slider"
-      ]
+    "bottom-left": [
+      "charged-box",
+      "epsilon-slider"
+    ],
+    "bottom-right": [
+      "temperature-slider"
     ]
   },
+  "template": [
+    {
+      "id": "temp-container",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height"
+    },
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottom-right",
+      "top": "bottom-left.top",
+      "left": "bottom-left.right",
+      "padding-left": "1.5em",
+      "padding-top": "0.25em"
+    }
+  ],
   "i18nMetadata": "locales/metadata/interactives/samples/3-100-atoms.json",
   "lang": "ru"
 }
