@@ -1,0 +1,57 @@
+{
+  "title": "Молекулярная картина твердого тела",
+  "publicationStatus": "public",
+  "subtitle": "Как твердое тело выгладит на молекулярном уровне?",
+  "aspectRatio": 1.2,
+  "about": [
+    "Ведь даже в твердом и совершенно неподвижном теле его молекулы и ",
+    "атомы пребывают в постоянном движении движении."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page4/page4$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": true
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Пометить два атома",
+      "action": "markAtoms(randomAtoms(2));"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Показать притяжение",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Проследить за случайно выбранным атомом",
+      "action": "traceAtom(randomAtoms(1));"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Убрать слежение",
+      "action": "untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "show-attractions"
+    ]
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/4-solids.json",
+  "lang": "ru"
+}
