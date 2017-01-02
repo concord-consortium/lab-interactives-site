@@ -1,0 +1,60 @@
+{
+  "title": "Молекулярная картина жидкости",
+  "publicationStatus": "public",
+  "subtitle": "Исследуй движение молекул в жидкости.",
+  "aspectRatio": 1.2,
+  "about": [
+    "Молекулы жидкости пребывают в постоянном движении. Работая с моделью ",
+    "вы можете пометить пару атомов и наблюдать как они перемещаются относительно ",
+    "друг друга. Меняется ли расстояние между ними? Может ли наблюдение за ",
+    "перемещением молекул жидкости помочь понять, почему жидкость всегда принимает ",
+    "форму сосуда, в котором находится."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": true
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Пометить два атома",
+      "action": "markAtoms(randomAtoms(2));"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Показать притяжение",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Проследить за случайно выбранным атомом",
+      "action": "traceAtom(randomAtoms(1));"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Убрать слежение",
+      "action": "untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "show-attractions"
+    ]
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/3-liquids.json",
+  "lang": "ru"
+}
