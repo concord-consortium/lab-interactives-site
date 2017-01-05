@@ -12,10 +12,10 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Control the polarity of the stationary charged object and observe how the charge affects the electric",
-    " field around it. Add a second charged object and move it around the stationary object. Observe how the",
+    " field around it. Add a second charged object and move it around the stationary object. Explore how the",
     " strength and direction of the forces depends on the charges and distance between the two objects.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
