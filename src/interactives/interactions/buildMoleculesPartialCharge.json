@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "What happens to the distribution of charge in a molecule when atoms within the molecule",
     " are replaced with different ones? Choose different types of atoms to add to an existing",
