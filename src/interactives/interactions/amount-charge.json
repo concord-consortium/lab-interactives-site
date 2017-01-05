@@ -2,7 +2,7 @@
   "title": "Charge Intensity and Electric Force",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Manipulate the charge on objects to explore the relationship between charge, electric field and forces on objects.",
+  "subtitle": "Manipulate the charge on objects to explore the relationship between charge, electric field, and forces on objects.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Control the amount of charge on two objects an observe how it affects ",
     "(1) the electric fields around the charged objects and ",
