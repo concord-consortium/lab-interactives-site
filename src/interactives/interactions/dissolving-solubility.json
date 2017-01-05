@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Add water to a substance and observe the impact on potential energy as the substance dissolves. ",
     "Observe the interactions between molecules as the substance dissolves over time and watch what happens",
