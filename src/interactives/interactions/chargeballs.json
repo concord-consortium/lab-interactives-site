@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "What causes some things to stick together and other things to push apart? Manipulate the charges on two spheres, making them positive,",
     " negative, or neutral and watch how the spheres interact with each other.",
