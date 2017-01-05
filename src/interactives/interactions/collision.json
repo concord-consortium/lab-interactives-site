@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "The energy of motion is called *kinetic energy*. The amount of kinetic energy an object has depends",
     " on its mass and speed. Objects that interact with each other can transfer kinetic energy between them. ",
