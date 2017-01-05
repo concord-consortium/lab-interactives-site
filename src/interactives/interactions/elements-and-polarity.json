@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Select from different polar molecules such as water, propanol, mineral oil, and phospholipids. ",
     "View these molecules and their shape in different ways to determine how different atom types lead ",
