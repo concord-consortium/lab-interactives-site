@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Try to break different molecules apart by adjusting the initial velocity of",
     " a third atom that will collide with two bonded atoms. Do some bonds require ",
