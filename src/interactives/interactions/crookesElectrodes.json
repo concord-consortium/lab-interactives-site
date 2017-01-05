@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Participate in a simulation where two electrodes are connected to a high voltage source and see them",
     " produce cathode rays. J.J. Thomson used a similar experimental set up to discover the first subatomic ",
