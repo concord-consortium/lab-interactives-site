@@ -12,10 +12,10 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
-    "View the components of a protein in different colors (Elements, amino acids) ",
-    "and zoom into several amino acids to understand how they link together to make a larger structure. ",
+    "View the components of a protein (elements, amino acids) in different colors and zoom into several amino acids",
+    " to understand how they link together to make a larger structure.",
     "Using the mouse to drag the protein around, viewing it from different angles, and try \"building\" ",
     "the proteins to see how the large molecule folds up to form a particular shape.",
     "***",
@@ -24,7 +24,7 @@
     "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
     "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
     "which this simulation is embedded.*"
-    ],
+  ],
   "theme": "",
   "showTopBar": true,
   "showBottomBar": true,
