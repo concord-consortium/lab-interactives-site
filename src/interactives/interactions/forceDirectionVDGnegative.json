@@ -12,10 +12,10 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
-    "Drag a positively charged object around a negatively charged Van de Graaff Generator and observe the forces between them. ",
-    "Use the \"trace pointers\" feature to draw conclusions about the pattern of forces between charged objects and the Van de Graaff Generator.",
+    "Drag a positively charged object around a negatively charged Van de Graaff generator and observe the forces between them. ",
+    "Use the \"trace force pointers\" feature to draw conclusions about the pattern of forces between charged objects and the Van de Graaff generator.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
     "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
