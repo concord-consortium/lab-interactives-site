@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Observe a reaction between hydrogen and oxygen atoms, and watch how potential and kinetic energy change over time. ",
     "Use the controls to step forward and back to focus in on bonding events and what is happening in the energy graph ",
