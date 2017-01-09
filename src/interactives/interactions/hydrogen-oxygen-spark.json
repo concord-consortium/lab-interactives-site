@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Carefully observe changes in kinetic and potential energy as hydrogen and oxygen molecules react. ",
     "Use the controls to speed up, slow down, or reverse the reaction to compare the energy changes over time. ",
