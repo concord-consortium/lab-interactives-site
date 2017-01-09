@@ -12,11 +12,11 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Drag a positively charged object around a stationary object that can be either positive or negative. ",
     "Observe the direction and angle of the force on the movable object due to the two charges. Use",
-    " the \"trace\" function to map being to map out a \"field\" around the central charged object.",
+    " the \"trace\" function to map out a \"field\" around the central charged object.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
     "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
