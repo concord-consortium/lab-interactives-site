@@ -12,11 +12,11 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Select either hydrogen or helium atoms and observe what happens to potential energy, the overall interaction, ",
     "and the direction and strength of forces on the atoms. Explore why two atoms of hydrogen can form a covalent bond ",
-    "when in the right position, but two helium atoms don’t. Look at the patterns of electron distribution when attractive ",
+    "when in the right position, but two helium atoms do not. Look at the patterns of electron distribution when attractive ",
     "and repulsive forces are balanced.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
