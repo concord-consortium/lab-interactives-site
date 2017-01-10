@@ -1,5 +1,5 @@
 {
-  "title": "Van de Graaf (VDG) discharge",
+  "title": "Van de Graaff (VDG) discharge",
   "publicationStatus": "public",
   "labEnvironment": "production",
   "subtitle": "Explore electric potential energy and sparks.",
@@ -12,10 +12,10 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
-    "Charge up the Van de Graaf generator and drag the discharge wand close enough to form a spark. ",
-    "What happens to the electric potential energy when you charge the Van de Graaf and when the spark occurs?",
+    "Charge up the Van de Graaff generator and drag the discharge wand close enough to form a spark. ",
+    "What happens to the electric potential energy when you charge the Van de Graaff and when the spark occurs?",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
     "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
@@ -118,7 +118,7 @@
     {
       "component": "",
       "text": [
-        "Charge up the Van der Graaf generator, and then drag the wand around by the head of the wand."
+        "Charge up the Van de Graaff generator, and then drag the wand around by the head of the wand."
       ],
       "showcase": true
     }
