@@ -12,9 +12,9 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
-    "Insert various molecules to a mixture of oil and water, and observe where they tend to end up. ",
+    "Add various molecules to a mixture of oil and water, and observe where they tend to end up. ",
     "The three molecule colors (purple, orange, and grey) represent polar and nonpolar molecules with ",
     "hydrophilic and hydrophobic properties. Can you tell which ones are polar, nonpolar, or both by how ",
     "they interact with oil and water?",
