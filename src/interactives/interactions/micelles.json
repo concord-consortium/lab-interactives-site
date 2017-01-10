@@ -12,10 +12,10 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Select an oil or water environment for molecules and observe how they are affected by interactions with ",
-    "their environment and themselves. These molecules have hydrophilic (polar) and hydrophobic (nonpolar) portions, ",
+    "their environment and each other. These molecules have hydrophilic (polar) and hydrophobic (nonpolar) portions, ",
     "which interact in different ways with the surrounding environment. Watch how potential energy changes as the molecules ",
     "self-assemble into micelles.",
     "***",
@@ -24,7 +24,7 @@
     "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
     "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
     "which this simulation is embedded.*"
-    ],
+  ],
   "theme": "",
   "showTopBar": true,
   "showBottomBar": true,
