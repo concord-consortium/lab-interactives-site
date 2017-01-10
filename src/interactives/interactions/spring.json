@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Drag the mass to stretch or compress the spring, and observe how spring position is related to potential",
     " energy. Then release the spring and observe the change from potential energy to kinetic energy, and ultimately",
