@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Place particles in the game and charge them to guide a positive projectile around obstacles to hit a target. ",
     "You can place any number of charged objects in any location to steer the positive particle to the target. ",
