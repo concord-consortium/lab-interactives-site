@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": false,
-  "aboutOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Drag the pendulum to set its initial height and observe how height is related to potential energy.",
     " Then release the pendulum and observe the change from potential energy to kinetic energy, and ultimately",
