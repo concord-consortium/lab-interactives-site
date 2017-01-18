@@ -1,0 +1,139 @@
+{
+  "title": "Predicting self-assembly",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Move molecules around to suggest patterns they might form.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.95,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Select an oil or water environment for molecules and move the soap molecules around ",
+    "to predict how they will distribute themselves in water or oil.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/drawing-micelles/model.json",
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('drag', true);",
+        "});",
+        "onStop(function() {",
+        "  setComponentDisabled('drag', false);",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": [
+        "if (value === 'water') {",
+        "  set('backgroundColor', '#A2E0F9');",
+        "  setTextBoxProperties(0, {text: 'Water'})",
+        "  setAtomProperties(3, {charge: 20})",
+        "} else if (value === 'oil') {",
+        "  set('backgroundColor', '#FFE200');",
+        "  setTextBoxProperties(0, {text: 'Oil'})",
+        "  setAtomProperties(3, {charge: -20})",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "solvent",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "Set solvent",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Water (polar)",
+          "value": "water"
+        },
+        {
+          "text": "Oil (non-polar)",
+          "value": "oil"
+        }
+      ],
+      "property": "solvent",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "drag",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "Interact with molecules",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Move molecule",
+          "value": "translate"
+        },
+        {
+          "text": "Rotate molecule",
+          "value": "rotate"
+        }
+      ],
+      "property": "onAtomDrag",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "modifier-key",
+      "type": "text",
+      "text": "**Use the alt/option key to quickly swap between move and rotate.**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "solvent", "drag"
+      ],
+      [
+        "modifier-key"
+      ]
+    ]
+  },
+  "template": "simple"
+}
