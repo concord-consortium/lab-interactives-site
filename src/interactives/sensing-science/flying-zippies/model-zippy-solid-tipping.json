@@ -1,0 +1,107 @@
+{
+  "title": "Flying Zippies - Model of Solid Tipping",
+  "publicationStatus": "draft",
+  "subtitle": "Sliding on the cart...",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.777777778,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "theme": "no-framing", "showTopBar": false,
+  "showBottomBar": true,
+  "padding": 0,
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty-atom",
+      "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-solid-tipping.json",
+      "viewOptions": {
+        "viewPortX": 1.0,
+        "viewPortY": 1.0,
+        "viewPortWidth": 12.5,
+        "viewPortHeight": 7.03124
+      },
+      "onLoad": [
+        "var idx = 0;",
+        "var isLeftTilt = true;",      
+        "onPropertyChange('time',function(t) {",
+        "  if (t % 2000 === 0) {",
+        "    console.log('idx: ' + idx + ' isLeftTilt: ' + isLeftTilt );",        
+        "    if (isLeftTilt) {",
+        "      if (idx < 4) { ",
+        "         setImageProperties(idx, { visible: false } ); idx++;",
+        "      }",
+        "      else isLeftTilt = false;",
+        "    } else {",
+        "        if (idx > 0) { ",
+        "          setImageProperties(idx, { visible: true } ); idx--;",
+        "         }",       
+        "        else isLeftTilt = true;",
+        "    }",
+        "  }",
+        "});",       
+        "set({temperatureControl: true}); set({targetTemperature: 100});",      
+        "var airAtoms = [];",
+        "var zippyAtoms = [];",
+        "var cartAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 2) {",
+        "    setAtomProperties(i, { x: getAtomProperties(i).x - 0.0 });",
+        "    setAtomProperties(i, { y: getAtomProperties(i).y + 0.0 });",
+           "}",
+        "}",     
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0 || getAtomProperties(i).element == 1) {",
+        "    setAtomProperties(i, { x: getAtomProperties(i).x - 0.0 });",
+        "    setAtomProperties(i, { y: getAtomProperties(i).y + 0.0 });",
+           "}",
+        "}",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    airAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 1) {",
+        "    zippyAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    cartAtoms.push(i);",
+        "  }",
+        "set('airAtomsIndices', airAtoms);",
+        "set('zippyAtomsIndices', zippyAtoms);",
+        "set('cartAtomsIndices', zippyAtoms);",
+        "}"
+      ]
+    }
+  ],
+    "parameters": [
+    {
+      "name": "airAtomsIndices",
+      "initialValue": []
+    },
+    {   "name": "zippyAtomsIndices",
+       "initialValue": []
+    },
+    {   "name": "cartAtomsIndices",
+       "initialValue": []
+    }    
+  ],
+  "outputs": [
+    {
+      "name": "temperature-red",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('airAtomsIndices'));"
+    },
+    {
+      "name": "temperature-blue",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('zippyAtomsIndices'));"
+    }
+  ],
+  "components": [],
+  "layout": {},
+  "template": "model-only"
+}
