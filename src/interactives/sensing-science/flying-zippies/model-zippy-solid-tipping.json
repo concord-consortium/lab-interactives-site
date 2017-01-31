@@ -11,7 +11,7 @@
   "i18nMetadata": "",
   "helpOnLoad": false,
   "theme": "no-framing", "showTopBar": false,
-  "showBottomBar": true,
+  "showBottomBar": false,
   "padding": 0,
   "about": "",
   "models": [
@@ -43,7 +43,7 @@
         "        else isLeftTilt = true;",
         "    }",
         "  }",
-        "});",       
+        "});",
         "set({temperatureControl: true}); set({targetTemperature: 100});",      
         "var airAtoms = [];",
         "var zippyAtoms = [];",
