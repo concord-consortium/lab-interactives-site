@@ -1275,7 +1275,7 @@
     "color": [
       -1,
       -13057,
-      -10040320,
+      -1973814,
       -256,
       -855310
     ]
@@ -1283,7 +1283,7 @@
   "pairwiseLJProperties": [
     {
       "sigma": 0.245,
-      "epsilon": -0.5,
+      "epsilon": -1.0,
       "element1": 1,
       "element2": 1
     },
