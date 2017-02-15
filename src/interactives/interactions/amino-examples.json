@@ -1,0 +1,134 @@
+{
+  "title": "Charge surface of amino acid side-chains",
+  "publicationStatus": "public",
+  "subtitle": "Explore three different amino acids.",
+  "about": [
+    "Explore why different amino acids have different properties related to the charge (or no charge) on the surface of their side-chains.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.* Original Jsmol scripting done for the Science of Atoms and Molecules project DRL-0946582."
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
+        "m0:molecule": "models/amino-examples/ser.mol2",
+        "m1:molecule": "models/amino-examples/val.mol2",
+        "m2:molecule": "models/amino-examples/his.mol2",
+        "m0:showFrank": false,
+        "m1:showFrank": false,
+        "m2:showFrank": false
+      },
+      "onLoad":[
+        "post('jsmolScript', 'm0: low=-0.5; high=0.5; script models/amino-examples/jmol-ser.spt; script models/amino-examples/jmol-aa.spt; set echo top center');",
+        "post('jsmolScript', 'm1: low=-4.0; high=4.0; script models/amino-examples/jmol-val.spt; script models/amino-examples/jmol-aa.spt; set echo top center');",
+        "post('jsmolScript', 'm2: low=-3.0; high=3.0; script models/amino-examples/jmol-his.spt; script models/amino-examples/jmol-aa.spt; set echo top center');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 2.2,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "displayMode",
+      "initialValue": 1,
+      "onChange": [
+        "if (value == 1) {",
+        "  post('jsmolScript', 'select all; color cpk');",
+        "} else {",
+        "  post('jsmolScript', 'select ~backB; color [x333333]');",
+        "}"
+      ]
+    },
+    {
+      "name": "surfaceMode",
+      "initialValue": 2,
+      "onChange": [
+        "if (value == 1) {",
+        "  post('jsmolScript', 'isosurface on; surfaceFlag=true');",
+        "} else {",
+        "  post('jsmolScript', 'isosurface off; surfaceFlag=false');",
+        "}"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "aa-display",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "Change amino acid display",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "whole amino acid",
+          "value": 1
+        },
+        {
+          "text": "side-chain only",
+          "value": 2
+        }
+      ],
+      "retainProperty": false,
+      "property": "displayMode",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "charge-surface",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "Show surface charge",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "yes",
+          "value": 1
+        },
+        {
+          "text": "no",
+          "value": 2
+        }
+      ],
+      "retainProperty": false,
+      "property": "surfaceMode",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": true
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": [
+        "post('jsmolScript', 'm0: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { -583 748 -317 165.73} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {0.0 0.0 -0.0019999743} 4.8397026 /* navigation center, translation, depth */ {0.0 0.0 0.0} 0.011236018 0.008014679 50.0;');",
+        "post('jsmolScript', 'm1: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { 127 -395 -910 106.08} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {0.0 0.0 -0.0020000339} 4.6127696 /* navigation center, translation, depth */ {0.0 0.0 0.0} -0.011310577 -0.0072288513 50.0;');",
+        "post('jsmolScript', 'm2: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { 327 -891 -314 164.04} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {-0.38008574 -0.14767621 -0.035490476} 5.4654703 /* navigation center, translation, depth */ {0.0 0.0 0.0} -3.393457 1.6037064 50.0;');",
+        "set('displayMode',1);",
+        "set('surfaceMode',2);"
+      ]
+    }
+  ],
+  "helpTips": [
+    {
+      "component": "charge-surface",
+      "showcase": false,
+      "text": [
+        "We only show the surface over the side chain because it is the only part that differs ",
+        "between amino acids - so, it is the part that gives each amino acid a different character."
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+    ]
+  }
+}
