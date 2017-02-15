@@ -32,7 +32,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html"
       },
       "onLoad": [
         "post('jsmolScript', 'script models/amino-introduction/init.spt;');"
