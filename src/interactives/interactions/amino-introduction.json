@@ -1,0 +1,71 @@
+{
+  "title": "Introduction to Aminio Acids",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Understanding the building blocks of proteins.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Press play to zoom into part of a protein and see how amino acids link together to form proteins. You can interact with the molecule at any time ",
+    "by dragging it around.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.* Original Jsmol scripting done for the Science of Atoms and Molecules project DRL-0946582."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'script models/amino-introduction/init.spt;');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 1.5,
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "molecule": "models/amino-introduction/1prn.pdb"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "play-movie",
+      "type": "button",
+      "action": "post('jsmolScript', 'script models/amino-introduction/intro-sidechains.spt;')",
+      "text": "Play",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [ "play-movie" ]
+  }
+}
