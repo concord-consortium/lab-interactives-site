@@ -35,7 +35,7 @@
         "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html"
       },
       "onLoad": [
-        "post('jsmolScript', 'script models/amino-introduction/init.spt;');"
+        "post('jsmolScript', 'calculate hydrogens ((50-54) and sidechain); script models/amino-introduction/init.spt;');"
       ],
       "viewOptions": {
         "aspectRatio": 1.5,
