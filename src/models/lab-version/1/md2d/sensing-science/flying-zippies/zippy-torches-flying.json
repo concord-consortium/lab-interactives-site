@@ -44,7 +44,7 @@
     "aminoAcidColorScheme": "hydrophobicity",
     "aminoAcidLabels": true,
     "useThreeLetterCode": true,
-    "showChargeSymbols": true,
+    "showChargeSymbols": false,
     "showVDWLines": false,
     "VDWLinesCutoff": "medium",
     "showVelocityVectors": false,
@@ -55,11 +55,11 @@
     "showAtomTrace": false,
     "images": [
       {
-        "imageUri": "torches-lit-1.png",
+        "imageUri": "torches/torches-lit-1.png",
         "imageHostIndex": 0,
         "imageHostType": "",
-        "imageLayer": 0,
-        "imageLayerPosition": 4,
+        "imageLayer": 2,
+        "imageLayerPosition": 15,
         "imageX": 1.0,
         "imageY": 8.03124,
         "visible": true,
@@ -67,10 +67,45 @@
         "opacity": 1
       },
       {
-        "imageUri": "torches-lit-2.png",
-        "imageHostIndex": 1,
+        "imageUri": "torches/torches-lit-2.png",
+        "imageHostIndex": 0,
         "imageHostType": "",
-        "imageLayer": 0,
+        "imageLayer": 2,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torches-lit-4.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 1,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-1.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 2,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-2.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
         "imageLayerPosition": 3,
         "imageX": 1.0,
         "imageY": 8.03124,
@@ -79,17 +114,137 @@
         "opacity": 1
       },
       {
-        "imageUri": "torches-lit-4.png",
-        "imageHostIndex": 2,
+        "imageUri": "torches/torch-out-3.png",
+        "imageHostIndex": 0,
         "imageHostType": "",
-        "imageLayer": 0,
+        "imageLayer": 2,
+        "imageLayerPosition": 4,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-4.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 5,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-5.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 6,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-6.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 7,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-7.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 8,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-8.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 9,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-9.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 4,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-10.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 3,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-11.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
         "imageLayerPosition": 2,
         "imageX": 1.0,
         "imageY": 8.03124,
         "visible": true,
         "scale": 0.66,
         "opacity": 1
-      }
+      },
+      {
+        "imageUri": "torches/torch-out-12.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 1,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      },
+      {
+        "imageUri": "torches/torch-out-13.png",
+        "imageHostIndex": 0,
+        "imageHostType": "",
+        "imageLayer": 2,
+        "imageLayerPosition": 0,
+        "imageX": 1.0,
+        "imageY": 8.03124,
+        "visible": true,
+        "scale": 0.66,
+        "opacity": 1
+      }                                                                                                                      
     ],
     "imageMapping": {},
     "textBoxes": [],
@@ -173,29 +328,29 @@
       7.13
     ],
     "y": [
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,      
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,      
       3.77135678089119,
       4.204641576846663,
       4.171489058278777,
@@ -366,29 +521,29 @@
       -0.00021 
     ],
     "charge": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05,
+      -0.05
     ],
     "friction": [
       0,
@@ -508,17 +663,6 @@
     "strength": [],
     "type": []
   },
-  "electricFields": {
-    "intensity": [
-      0.02
-    ],
-    "orientation": [
-      "E"
-    ],
-    "shapeIdx": [
-      null
-    ]
-  },
   "elements": {
     "mass": [
       10,
@@ -598,5 +742,57 @@
       "element1": 2,
       "element2": 3
     }
-  ]
+  ],
+  "shapes": {
+    "type": [
+      "rectangle"
+    ],
+    "x": [
+      0.0
+    ],
+    "y": [
+      0
+    ],
+    "height": [
+      0.8
+    ],
+    "width": [
+      14.5
+    ],
+    "fence": [
+      0
+    ],
+    "color": [
+      "rgba(0,128,192,0.25098039215686274)"
+    ],
+    "lineColor": [
+      "black"
+    ],
+    "lineWeight": [
+      1
+    ],
+    "lineDashes": [
+      "none"
+    ],
+    "layer": [
+      1
+    ],
+    "layerPosition": [
+      1
+    ],
+    "visible": [
+      1
+    ]
+  },  
+  "electricFields": {
+    "intensity": [
+      0.001
+    ],
+    "orientation": [
+      "N"
+    ],
+    "shapeIdx": [
+      0
+    ]
+  }
 }

@@ -10,9 +10,9 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "theme": "no-framing", "showTopBar": false,
-  "showBottomBar": true,
-  "padding": 0,
+  "theme": "", "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0, 
   "about": "",
   "models": [
     {
@@ -24,20 +24,28 @@
         "viewPortX": 1.0,
         "viewPortY": 1.0,
         "viewPortWidth": 12.5,
-        "viewPortHeight": 7.03124
+        "viewPortHeight": 7.03124,
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "showElectricField": true      
       },
       "onLoad": [
         "var INTERVAL = get('timeStep') * get('timeStepsPerTick') * 3;",
-        "var startTime = 0;",
+        "var modelStartTime = 0;",
+        "var startLoopTime = 0;",
         "var presentTime = 0;",
-        "var setTemperature = 200;",
+        "var isLit = false;",
+        "var isFirstTime = true;",
+        "var frameCt = 14;",
+        "var delayCt = 50;",        
+        "var setTemperature = 1000;",
         "set({temperatureControl: true}); set({targetTemperature: setTemperature});",      
         "var airAtoms = [];",
         "var zippyAtoms = [];",
         "var cartAtoms = [];",
         "var airAtomsIndices = [];",
         "var zippyAtomsIndices = [];",
-        "var cartAtomsIndices = [];",
+        "var cartAtomsIndices = [];",     
         "for (var i = 0, a; i < getNumberOfAtoms(); i++) {",
         "  a = getAtomProperties(i);",
         "  if (a.element == 0) {airAtoms.push(a); airAtomsIndices.push(i);}", 
@@ -48,34 +56,64 @@
         "set('zippyAtomsIndices', zippyAtomsIndices);",
         "set('cartAtomsIndices', cartAtomsIndices);",
         "console.log('zippyAtomsIndices: ' + zippyAtomsIndices );",
-        "console.log('airAtomsIndices: ' + airAtomsIndices );",              
+        "console.log('airAtomsIndices: ' + airAtomsIndices );",  
+        "//console.log('isLightingTorches1: ' + get('isLightingTorches'));",
+        "setImageProperties([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], {visible: false});", 
+        "//setElectricFieldProperties( 0, {orientation: 'S', intensity: 5.0});", 
+        "setAtomProperties(zippyAtomsIndices, {pinned: 1});",
+        "set('showElectricField',false);",
+        "start();",
         "onPropertyChange('time',function(t) {",
-        " presentTime = t;",
-        " if (presentTime % 10 === 0) {",
-        " if (setTemperature < 25000) {",
-        "    setTemperature += 100;",
-        "    set({targetTemperature: setTemperature});",
+        "  presentTime = t;",      
+        "  if (isLit) { //this if statement takes care of changing the temperature", 
+        "    if (presentTime % 10 === 0) {",
+        "      if (setTemperature < 40000) {",
+        "        setTemperature += 100;",
+        "        set({targetTemperature: setTemperature});",
+        "      }",
+        "      var zippytemp = getTemperatureOfAtoms(get('zippyAtomsIndices'));",
+        "      var airtemp = getTemperatureOfAtoms(get('airAtomsIndices'));",
+        "      //console.log('zippy temp: ' + zippytemp + ' air temp: ' + airtemp);",      
+        "    }",
         "  }",
-        "   var zippytemp = getTemperatureOfAtoms(get('zippyAtomsIndices'));",
-        "   var airtemp = getTemperatureOfAtoms(get('airAtomsIndices'));",
-        "   console.log('zippy temp: ' + zippytemp + ' air temp: ' + airtemp);",        
-        "//   if (zippytemp >= 30000) ",
-        "//       addKEToAtoms(-5.0, get( 'zippyAtomsIndices' ));",
-        "//   if (airtemp <= 30000) ",
-        "//       addKEToAtoms(0.5, get( 'airAtomsIndices' ));",
-        "//   if (airtemp >= 30000) ",
-        "//       addKEToAtoms(-5.0, get( 'airAtomsIndices' ));",        
-        " }",
-        " if (presentTime % 250 === 0) {startTime = presentTime;}",            
-        " if (presentTime === startTime + 50)  {setImageProperties(0, {visible: false});}",
-        " if (presentTime === startTime + 100) {setImageProperties(1, {visible: false});}",
-        " if (presentTime === startTime + 150) {setImageProperties(1, {visible: true});}",  
-        " if (presentTime === startTime + 200) {setImageProperties(0, {visible: true});}",                
+        "  if (get('isLightingTorches')) { //this if statement animates lighting the torches",
+        "    if (isFirstTime) {",
+        "        modelStartTime = presentTime;",  
+        "        isFirstTime = false;", 
+        "        setAtomProperties(zippyAtomsIndices, {pinned: 0});",
+        "     }",
+        "    if (presentTime === (modelStartTime + delayCt)) {",
+        "        //console.log('frameCt: ' + frameCt + ' delayCt: ' + delayCt );",
+        "        setImageProperties(frameCt, {visible: true});",
+        "        setImageProperties(frameCt+1, {visible: false});",        
+        "        frameCt--;",
+        "        delayCt += 50;",
+        "        if (frameCt === 2) { ",
+        "          setImageProperties([0,1,2], {visible: true});",
+        "          setImageProperties([3,4,5,6,7,8,9,10,11,12,13,14], {visible: false});",         
+        "          set('isLightingTorches', false);",
+        "          isLit = true;",
+        "          startLoopTime = presentTime;",
+        "        }",
+        "      }",
+        "   }",
+        "   if (isLit) { //this if statement animates the torches when fully lit",         
+        "     if (presentTime === startLoopTime + 50)  {setImageProperties(0, {visible: false});}",
+        "     if (presentTime === startLoopTime + 100) {setImageProperties(1, {visible: false});}",
+        "     if (presentTime === startLoopTime + 150) {setImageProperties(1, {visible: true});}",  
+        "     if (presentTime === startLoopTime + 200) {",
+        "         setImageProperties(0, {visible: true});",
+        "         startLoopTime = presentTime;",
+        "     }",
+        "   }",
         "});"
       ]
     }
   ],
-    "parameters": [
+    "parameters": [ 
+    { "name": "isLightingTorches",
+      "initialValue": false
+    },
     {
       "name": "airAtomsIndices",
       "initialValue": []
@@ -101,7 +139,26 @@
       "value": "return getTemperatureOfAtoms(get('zippyAtomsIndices'));"
     }
   ],
-  "components": [],
-  "layout": {},
-  "template": "model-only"
+  "components": [
+    {
+      "type": "button",
+      "id": "light-torches",
+      "text": "Light the Torches",
+      "action": [ "set( 'isLightingTorches', true );" ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": [ "reloadModel();" ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "light-torches",
+      "reset"
+    ]
+
+    },
+  "template": "simple"
 }
