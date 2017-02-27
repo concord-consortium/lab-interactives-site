@@ -1,7 +1,7 @@
 {
-  "title": "Flying Zippies - Zippies Flying in the Air",
+  "title": "Flying Zippies - Zippies Returning to the Ring",
   "publicationStatus": "draft",
-  "subtitle": "Air speeds up when the torches are lit...",
+  "subtitle": "The torches go out and the air slows down...",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -18,7 +18,7 @@
     {
       "type": "md2d",
       "id": "empty-atom",
-      "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-torches-flying.json",
+      "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-torches-going-out.json",
       "viewOptions": {
         "showVDWLines": true,
         "viewPortX": 1.0,
@@ -27,18 +27,19 @@
         "viewPortHeight": 7.03124,
         "electricFieldDensity": 24,
         "electricFieldColor": "rgb(0,255,0)",
-        "showElectricField": false      
+        "showElectricField": true      
       },
       "onLoad": [
         "var INTERVAL = get('timeStep') * get('timeStepsPerTick') * 3;",
         "var modelStartTime = 0;",
         "var startLoopTime = 0;",
         "var presentTime = 0;",
-        "var isLit = false;",
+        "var isLit = true;",
         "var isFirstTime = true;",
-        "var frameCt = 14;",
+        "var triggerElectricField = true;",
+        "var frameCt = 3;",
         "var delayCt = 50;",        
-        "var setTemperature = 1000;",
+        "var setTemperature = 30000;",
         "set({temperatureControl: true}); set({targetTemperature: setTemperature});",      
         "var airAtoms = [];",
         "var zippyAtoms = [];",
@@ -58,42 +59,60 @@
         "console.log('zippyAtomsIndices: ' + zippyAtomsIndices );",
         "console.log('airAtomsIndices: ' + airAtomsIndices );",  
         "//console.log('isLightingTorches1: ' + get('isLightingTorches'));",
-        "setImageProperties([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], {visible: false});", 
-        "//setElectricFieldProperties( 0, {orientation: 'S', intensity: 5.0});", 
-        "setAtomProperties(zippyAtomsIndices, {pinned: 1});",
+        "setImageProperties([0,1,2], {visible: true});", 
+        "setImageProperties([3,4,5,6,7,8,9,10,11,12,13,14,15], {visible: false});",         
+        "setElectricFieldProperties( 0, {orientation: 'S', intensity: 0.0});", 
+        "//setElementProperties(1, {charge: -1.0});",
         "set('showElectricField',false);",
         "start();",
+        "startLoopTime = get( 'time' );",
         "onPropertyChange('time',function(t) {",
-        "  presentTime = t;",      
-        "  if (isLit) { //this if statement takes care of changing the temperature", 
+        "  presentTime = t;",   
+        "  if (!isLit) { //this if statement takes care of changing the temperature", 
         "    if (presentTime % 10 === 0) {",
-        "      if (setTemperature < 30000) {",
-        "        setTemperature += 100;",
+        "      if (setTemperature > 1000) {",
+        "        setTemperature -= 100;",
         "        set({targetTemperature: setTemperature});",
         "      }",
-        "      var zippytemp = getTemperatureOfAtoms(get('zippyAtomsIndices'));",
-        "      var airtemp = getTemperatureOfAtoms(get('airAtomsIndices'));",
-        "      //console.log('zippy temp: ' + zippytemp + ' air temp: ' + airtemp);",      
+        "      //var zippytemp = getTemperatureOfAtoms(get('zippyAtomsIndices'));",
+        "      //var airtemp = getTemperatureOfAtoms(get('airAtomsIndices'));",
+        "      //console.log('zippy temp: ' + zippytemp + ' air temp: ' + airtemp);", 
+        "      if (setTemperature < 1200 && triggerElectricField) {",
+        "        setElectricFieldProperties(0, {orientation: 'S', intensity: 0.001, shapeIdx: null});", 
+        "        for (var i = 0; i < zippyAtomsIndices.length; i++) {",
+        "          setAtomProperties(zippyAtomsIndices[i], {charge: 0.001});",
+        "        }",
+        "        triggerElectricField = false;",
+        "      }",
+        "      if (setTemperature < 1400 ) {",  
+        "        for (var i = 0, a; i < getNumberOfAtoms(); i++) {",
+        "          a = getAtomProperties(i);",
+        "          if (a.element === 1 && a.y < 0.85) {",
+        "            removeAtom(i);",
+        "            console.log('atom removed: ' + i)",
+        "          }",
+        "        }", 
+        "      }", 
         "    }",
         "  }",
-        "  if (get('isLightingTorches')) { //this if statement animates lighting the torches",
+        "  if (get('isPuttingTorchesOut')) { //this if statement animates putting out the torches",
         "    if (isFirstTime) {",
-        "        modelStartTime = presentTime;",  
-        "        isFirstTime = false;", 
-        "        setAtomProperties(zippyAtomsIndices, {pinned: 0});",
+        "      modelStartTime = presentTime;", 
+        "      isLit = false;",
+        "      isFirstTime = false;",
+        "      setImageProperties([0,1,2], {visible: false});", 
+        "      setImageProperties(3, {visible: true});", 
         "    }",
         "    if (presentTime === (modelStartTime + delayCt)) {",
         "      //console.log('frameCt: ' + frameCt + ' delayCt: ' + delayCt );",
-        "      setImageProperties(frameCt, {visible: true});",
-        "      setImageProperties(frameCt+1, {visible: false});",        
-        "      frameCt--;",
+        "      setImageProperties(frameCt+1, {visible: true});",
+        "      setImageProperties(frameCt, {visible: false});",        
+        "      frameCt++;",
         "      delayCt += 50;",
-        "      if (frameCt === 2) { ",
-        "        setImageProperties([0,1,2], {visible: true});",
-        "        setImageProperties([3,4,5,6,7,8,9,10,11,12,13,14], {visible: false});",         
-        "        set('isLightingTorches', false);",
-        "        isLit = true;",
-        "        startLoopTime = presentTime;",
+        "      if (frameCt === 15) { ",
+        "        setImageProperties(15, {visible: true});",
+        "        setImageProperties([1,2,3,4,5,6,7,8,9,10,11,12,13,14], {visible: false});",         
+        "        set('isPuttingTorchesOut', false);",
         "      }",
         "    }",
         "  }",
@@ -111,7 +130,7 @@
     }
   ],
     "parameters": [ 
-    { "name": "isLightingTorches",
+    { "name": "isPuttingTorchesOut",
       "initialValue": false
     },
     {
@@ -142,20 +161,26 @@
   "components": [
     {
       "type": "button",
-      "id": "light-torches",
-      "text": "Light the Torches",
-      "action": [ "set( 'isLightingTorches', true );" ]
+      "id": "put-out-torches",
+      "text": "Put the Torches Out",
+      "action": [ 
+        "set( 'isPuttingTorchesOut', true );",
+        "setComponentDisabled('put-out-torches', true);"
+       ]
     },
     {
       "type": "button",
       "id": "reset",
       "text": "See It Again",
-      "action": [ "reloadModel();" ]
+      "action": [ 
+      "reloadModel();",
+      "setComponentDisabled('put-out-torches', false);"      
+       ]
     }
   ],
   "layout": {
     "bottom": [
-      "light-torches",
+      "put-out-torches",
       "reset"
     ]
 
