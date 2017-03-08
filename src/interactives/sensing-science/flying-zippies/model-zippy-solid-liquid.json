@@ -10,7 +10,7 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "theme": "", "showTopBar": false,
+  "theme": "no-framing", "showTopBar": false,
   "showBottomBar": false,
   "padding": 0,
   "about": "",
@@ -115,11 +115,6 @@
       ]
     }
   ],
-  "layout": {
-    "bottom": [
-      "start-melting",
-      "reset"
-    ]
-  },
-  "template": "simple"
+  "layout": {},
+  "template": "model-only"
 }
