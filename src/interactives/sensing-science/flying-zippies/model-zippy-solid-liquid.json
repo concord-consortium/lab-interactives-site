@@ -10,8 +10,8 @@
   "lang": "en-US",
   "i18nMetadata": "",
   "helpOnLoad": false,
-  "theme": "no-framing", "showTopBar": false,
-  "showBottomBar": true,
+  "theme": "", "showTopBar": false,
+  "showBottomBar": false,
   "padding": 0,
   "about": "",
   "models": [
@@ -27,15 +27,9 @@
         "viewPortHeight": 7.03124
       },
       "onLoad": [
-        "var INTERVAL = get('timeStep') * get('timeStepsPerTick') * 3;",
-        "var DELTA_SPEED = 0.00011;",
-        "var vxBoost = DELTA_SPEED * 0.8660;",
-        "var vyBoost = DELTA_SPEED * 0.5;",
-        "var isLeftTilt = true;",
-        "var isTilting = false;",
         "var startTime;",
         "var presentTime;",
-        "set({temperatureControl: false}); set({targetTemperature: 300});",      
+        "set({temperatureControl: true}); set({targetTemperature: 2000});",      
         "var airAtoms = [];",
         "var zippyAtoms = [];",
         "var cartAtoms = [];",
@@ -52,64 +46,30 @@
         "set('airAtomsIndices', airAtomsIndices);",
         "set('zippyAtomsIndices', zippyAtomsIndices);",
         "set('cartAtomsIndices', cartAtomsIndices);",
-        "console.log('zippyAtomsIndices: ' + zippyAtomsIndices );",
-        "console.log('airAtomsIndices: ' + airAtomsIndices );",
-        "setElectricFieldProperties( 'zippyAtomsIndices', {orientation: 'W', intensity: 0.00001});",     
-        "onPropertyChange('time',function(t) {",
-        " presentTime = t;",
-        " if (presentTime % 100 === 0) {",
-        "   var zippytemp = getTemperatureOfAtoms(get('zippyAtomsIndices'));",
-        "   var airtemp = getTemperatureOfAtoms(get('airAtomsIndices'));",
-        "   console.log('zippy temp: ' + zippytemp + ' air temp: ' + airtemp);",        
-        "   if (zippytemp >= 5500) ",
-        "       addKEToAtoms(-0.1, get( 'zippyAtomsIndices' ));",
-        "   if (airtemp >= 7000) ",
-        "       addKEToAtoms(-0.3, get( 'airAtomsIndices' ));",
-        "   else addKEToAtoms(0.1, get ('airAtomsIndices' ));",
-        " }",
-        "});",
-        "function averageZippyXVelocity() {",
-        "   var sum = 0;",
-        "   var atom;",
-        "   for (var i = 0; i < zippyAtoms.length; i++) {",
-        "      atom = getAtomProperties( zippyAtoms[i] );",
-        "      sum = sum + atom.vx;",
-        "   }",
-        "   return sum / zippyAtomsIndices.length;",
-        "}",
-        "function averageZippyYVelocity() {",
-        "   var sum = 0;",
-        "   var atom;",
-        "   for (var i = 0; i < zippyAtoms.length; i++) {",
-        "      atom = getAtomProperties( zippyAtoms[i] );",
-        "      sum = sum + atom.vy;",
-        "   }",
-        "   return sum / zippyAtomsIndices.length;",
-        "}",        
-        "function boostVelocity(xDelta, yDelta) {",
-        "  var atom;",
-        "  for (var i = 0; i < zippyAtoms.length; i++) {",
-        "     atom = getAtomProperties( zippyAtomsIndices[i]);",
-        "     setAtomProperties(zippyAtomsIndices[i], {vx:atom.vx + xDelta, vy:atom.vy + yDelta});",
+        "//console.log('zippyAtomsIndices: ' + zippyAtomsIndices );",
+        "//console.log('airAtomsIndices: ' + airAtomsIndices );",
+        "start();",
+        "onPropertyChange('time',function(time) {",
+        "  if (get('isMelting') === true) {",
+        "    startMelting();",
+        "    set( 'isMelting', false);",
         "  }",
-        "}",
-        "function distanceFromCenter() {",
-        "  var atom = getAtomProperties(60);",
-        "  var x1 = atom.x;",
-        "  var y1 = atom.y;",
-        "  var xDist = 7.18 - x1;",
-        "  var yDist = 4.3 - y1;",
-        "  return Math.sqrt( xDist * xDist + yDist * yDist);",
-        "}",        
-        "function slideZippies( dx, dy ) {",
-        "  batch(function () {",
-        "    boostVelocity(dx, dy);",
-        "  });",
+        "});",
+        "function startMelting() {",
+        "  setElectricFieldProperties( 0, {orientation: 'E', intensity: 0.005});",
+        "  for (var i = 0, idx; i < zippyAtomsIndices.length; i++ ) {",
+        "    idx = zippyAtomsIndices[i];",
+        "    setAtomProperties( idx, {friction: 0.005 } );",
+        "  }",
+        "  setPairwiseLJProperties(1, 1, { epsilon: -0.35 });",        
         "}"
       ]
     }
   ],
     "parameters": [
+    { "name": "isMelting",
+      "initialValue": false
+    },    
     {
       "name": "airAtomsIndices",
       "initialValue": []
@@ -135,7 +95,31 @@
       "value": "return getTemperatureOfAtoms(get('zippyAtomsIndices'));"
     }
   ],
-  "components": [],
-  "layout": {},
-  "template": "model-only"
+  "components": [
+    {
+      "type": "button",
+      "id": "start-melting",
+      "text": "Start the Melting",
+      "action": [ 
+        "set( 'isMelting', true);",
+        "setComponentDisabled('start-melting', true);" 
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "See It Again",
+      "action": [ 
+      "reloadModel();",
+      "setComponentDisabled('start-melting', false);" 
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "start-melting",
+      "reset"
+    ]
+  },
+  "template": "simple"
 }
