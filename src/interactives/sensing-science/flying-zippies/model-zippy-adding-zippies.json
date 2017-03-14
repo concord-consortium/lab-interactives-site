@@ -51,20 +51,22 @@
       "initialValue": false,
       "onChange": [
         "if (value) {",
-        "  // open left side of the container",
-        "  for (var i = 3; i < 8; i++) setLineProperties(i, {fence: 0});",
-        "  // push atoms",
+        "  // open left side of the container (last 12 cart atoms)",
+        "  for (var i = 0; i < 12; i++) removeAtom(getNumberOfAtoms() - 1);",
+        "  // push new zippy atoms",
         "  var zippyAtomsIndices = get('zippyAtomsIndices');",
         "  var zippyAtomsCount = zippyAtomsIndices.length;",
-        "  for (var i = 1; i <= 10; i++) setAtomProperties(zippyAtomsIndices[zippyAtomsCount - i], {charge: -0.005});",
+        "  for (var i = 1; i <= 10; i++) setAtomProperties(zippyAtomsIndices[zippyAtomsCount - i], {charge: -0.006});",
         "  setTimeout(function() {",
         "    // restore default charge",
         "    for (var i = 1; i <= 10; i++) setAtomProperties(zippyAtomsIndices[zippyAtomsCount - i], {charge: -0.001});",
         "  }, 1000);",
         "  setTimeout(function() {",
         "    // make sure that cart is closed and atoms can't escape",
-        "    for (var i = 0; i < 3; i++) setLineProperties(i, {fence: 1});",
-        "  }, 3000);",
+        "    var x = [10.281437125748502, 10.206586826347305, 10.03193612774451, 9.857285429141717, 9.657684630738522, 9.483033932135728, 9.258483033932135, 8.984031936127744];",
+        "    var y = [4.9623777245508975, 5.286729021956088, 5.586130219560879, 5.8855314171656685, 6.135032415169661, 6.384533413173653, 6.609084311377246, 6.8086851097804395];",
+        "    for (var i = 0; i < x.length; i++) addAtom({x: x[i], y: y[i], element: 2, pinned: 1, visible: 0});",
+        "  }, 5000);",
         "}"
       ]
     }
