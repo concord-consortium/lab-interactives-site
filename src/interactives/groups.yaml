@@ -154,6 +154,10 @@
   :name: "GRASP: Land of Bump"
   :category: Curriculum
 
+- :path: sensing-science/flying-zippies
+  :name: "Sensing Science: Flying Zippies"
+  :category: Curriculum
+
 - :path: grasp
   :name: "GRASP models"
   :category: Curriculum
