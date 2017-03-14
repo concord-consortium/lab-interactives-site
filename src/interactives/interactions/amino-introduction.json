@@ -32,7 +32,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html"
+        "url": "https://concord-consortium.github.io/jsmol-models/embeddable.html"
       },
       "onLoad": [
         "post('jsmolScript', 'calculate hydrogens ((50-54) and sidechain); script models/amino-introduction/init.spt;');"
@@ -54,18 +54,111 @@
   "dataSets": [],
   "components": [
     {
-      "id": "play-movie",
+      "type": "text",
+      "id": "select-scene",
+      "text": "Step through each scene->"
+    },
+    {
+      "id": "scene1",
       "type": "button",
-      "action": "post('jsmolScript', 'script models/amino-introduction/intro-sidechains.spt;')",
-      "text": "Play",
+      "action": [
+        "post('jsmolScript', 'script models/amino-introduction/intro-sidechains-scene1.spt;');",
+        "setComponentDisabled('scene1',true);",
+        "setComponentDisabled('scene2',false);"
+      ],
+      "text": "1",
       "width": "",
       "height": "",
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
+    },
+    {
+      "id": "scene2",
+      "type": "button",
+      "action": [
+        "post('jsmolScript', 'script models/amino-introduction/intro-sidechains-scene2.spt;');",
+        "setComponentDisabled('scene2',true);",
+        "setComponentDisabled('scene3',false);"
+      ],
+      "text": "2",
+      "width": "",
+      "height": "",
+      "disabled": true,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "scene3",
+      "type": "button",
+      "action": [
+        "post('jsmolScript', 'script models/amino-introduction/intro-sidechains-scene3.spt;');",
+        "setComponentDisabled('scene3',true);",
+        "setComponentDisabled('scene4',false);"
+      ],
+      "text": "3",
+      "width": "",
+      "height": "",
+      "disabled": true,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "scene4",
+      "type": "button",
+      "action": [
+        "post('jsmolScript', 'script models/amino-introduction/intro-sidechains-scene4.spt;');",
+        "setComponentDisabled('scene4',true);",
+        "setComponentDisabled('scene5',false);"
+      ],
+      "text": "4",
+      "width": "",
+      "height": "",
+      "disabled": true,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "scene5",
+      "type": "button",
+      "action": [
+        "post('jsmolScript', 'script models/amino-introduction/intro-sidechains-scene5.spt;');",
+        "setComponentDisabled('scene5',true);"
+      ],
+      "text": "5",
+      "width": "",
+      "height": "",
+      "disabled": true,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": [
+        "reloadModel()",
+        "setComponentDisabled('scene1',false);",
+        "setComponentDisabled('scene2',true);",
+        "setComponentDisabled('scene3',true);",
+        "setComponentDisabled('scene4',true);",
+        "setComponentDisabled('scene5',true);"
+      ],
+      "text": "reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "text",
+      "id": "drag-text",
+      "text": "_Drag to rotate or shift-drag/pinch to zoom._"
     }
   ],
   "layout": {
-    "bottom": [ "play-movie" ]
+    "bottom": [
+      ["select-scene","scene1","scene2","scene3","scene4","scene5","reset","drag-text"]
+    ]
   }
 }
