@@ -38,7 +38,7 @@
         "post('jsmolScript', 'calculate hydrogens ((50-54) and sidechain); script models/amino-introduction/init.spt;');"
       ],
       "viewOptions": {
-        "aspectRatio": 1.5,
+        "aspectRatio": 1.7,
         "controlButtons": ""
       },
       "modelOptions": {
