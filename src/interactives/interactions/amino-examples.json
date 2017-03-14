@@ -2,8 +2,9 @@
   "title": "Charge surface of amino acid side-chains",
   "publicationStatus": "public",
   "subtitle": "Explore three different amino acids.",
+  "aboutOnLoad": true,
   "about": [
-    "Explore why different amino acids have different properties related to the charge (or no charge) on the surface of their side-chains.",
+    "Explore why different amino acids have different properties related to the charge (or lack of charge) on the surface of their side chains.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
     "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
@@ -11,13 +12,13 @@
     "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
     "which this simulation is embedded.* Original Jsmol scripting done for the Science of Atoms and Molecules project DRL-0946582."
   ],
-  "aspectRatio": 1.4,
+  "aspectRatio": 1.3,
   "models": [
     {
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
+        "url": "https://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
         "m0:molecule": "models/amino-examples/ser.mol2",
         "m1:molecule": "models/amino-examples/val.mol2",
         "m2:molecule": "models/amino-examples/his.mol2",
@@ -115,6 +116,11 @@
         "set('displayMode',1);",
         "set('surfaceMode',2);"
       ]
+    },
+    {
+      "type": "text",
+      "id": "drag-text",
+      "text": "_Drag to rotate or shift-drag/pinch to zoom._"
     }
   ],
   "helpTips": [
@@ -122,8 +128,9 @@
       "component": "charge-surface",
       "showcase": false,
       "text": [
-        "We only show the surface over the side chain because it is the only part that differs ",
-        "between amino acids - so, it is the part that gives each amino acid a different character."
+        "The surface around the side chain is due to the way electrons are shared by the atoms that make up that part of the ",
+        "amino acid. This means that amino acids (via their different side chains) can be polar, nonpolar, or charged. ",
+        "An example of each is shown here."
       ]
     }
   ],
