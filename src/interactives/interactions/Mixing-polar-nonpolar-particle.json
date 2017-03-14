@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "How is it possible to mix two liquids together and for them to take up less volume than",
     " when they are separated? Does it always happen that the mixture takes up less space? ",

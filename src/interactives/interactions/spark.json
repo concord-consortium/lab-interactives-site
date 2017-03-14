@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Charge up the Van de Graaff generator and drag the discharge wand close enough to form a spark. ",
     "What happens to the electric potential energy when you charge the Van de Graaff and when the spark occurs?",

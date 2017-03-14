@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Observe the probable location of electrons around an atom. Trace the electrons over time to draw conclusions about where electrons ",
     "are likely to be found around an atom’s nucleus. How does the trace pattern relate to the electron cloud model?",

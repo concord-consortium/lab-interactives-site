@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Explore the change in potential energy when molecules are separated from each other or broken apart.",
     "",

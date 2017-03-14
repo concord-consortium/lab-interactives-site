@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Drag a positively charged object around a stationary object that can be either positive or negative. ",
     "Observe the direction and angle of the force on the movable object due to the two charges. Use",

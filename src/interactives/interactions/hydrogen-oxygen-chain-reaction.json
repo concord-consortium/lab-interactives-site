@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Add some energy to a system consisting of hydrogen and oxygen molecules to break one of the bonds. ",
     "As the reaction develops and water is produced, observe the changes in potential and kinetic energy ",

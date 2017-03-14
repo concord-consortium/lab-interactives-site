@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Use an understanding of charged objects to guide an object through a maze. Change the charge of the gray ball using the -, 0, and + buttons. ",
     "Try using the attractive and repulsive forces between charged objects to navigate through the maze. Can you get it to the target before time runs out?",

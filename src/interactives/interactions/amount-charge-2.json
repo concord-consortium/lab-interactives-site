@@ -12,7 +12,7 @@
   "i18nMetadata": "",
   "credits": "",
   "helpOnLoad": true,
-  "aboutOnLoad": true,
+  "aboutOnLoad": false,
   "about": [
     "Control the type of charge on two objects and observe how it affects ",
     "(1) the electric fields around the charged objects and ",
