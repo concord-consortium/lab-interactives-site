@@ -120,7 +120,7 @@
     {
       "type": "text",
       "id": "drag-text",
-      "text": "_Drag to rotate or shift-drag/pinch to zoom._"
+      "text": "_Drag the molecules to rotate or shift-and-drag/pinch to zoom._"
     }
   ],
   "helpTips": [
