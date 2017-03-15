@@ -66,6 +66,19 @@
         "rotation": 0,
         "scale": 0.66,
         "opacity": 1
+      },
+      {
+        "imageUri": "broom.png",
+        "imageX": 13,
+        "imageY": 6.5,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 1,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.8,
+        "opacity": 1
       }
     ],
     "imageMapping": {},
@@ -859,7 +872,7 @@
     ],
     "epsilon": [
       -0.009999999776482582,
-      -0.35,
+      -0.1,
       1e-7,
       -1,
       -0.1

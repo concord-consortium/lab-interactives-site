@@ -25,7 +25,8 @@
         "  a = getAtomProperties(i);",
         "  if (a.element === 2) { set('chargedAtom', i); }",
         "}",
-        "start();"
+        "start();",
+        "setTimeout(function() { set('sweep', true); }, 7000);"
       ]
     }
   ],
@@ -39,11 +40,24 @@
       "initialValue": false,
       "onChange": [
         "if (value) {",
-        "  var chargedAtom = get('chargedAtom');",
-        "  setAtomProperties(chargedAtom, {charge: -350});",
-        "  callAt(get('time') + 1000, function() {",
-        "    setAtomProperties(chargedAtom, {charge: 50});",
-        "  });",
+        "  var broomX = 13;",
+        "  var broomVx = -0.075;",
+        "  var zippiesPushed = false;",
+        "  function pushZippies() {",
+        "    zippiesPushed = true;",
+        "    var chargedAtom = get('chargedAtom');",
+        "    setAtomProperties(chargedAtom, {charge: -350});",
+        "    callAt(get('time') + 1000, function() {",
+        "      setAtomProperties(chargedAtom, {charge: 50});",
+        "    });",
+        "  }",
+        "  function moveBroom() {",
+        "    setImageProperties(1, {imageX: broomX});",
+        "    broomX += broomVx;",
+        "    if (broomX > -5) { setTimeout(moveBroom, 16); }",
+        "    if (!zippiesPushed && broomX < 9) { pushZippies(); }",
+        "  }",
+        "  moveBroom();",
         "}"
       ]
     }
