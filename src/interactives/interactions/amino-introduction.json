@@ -14,7 +14,7 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Press play to zoom into part of a protein and see how amino acids link together to form proteins. You can interact with the molecule at any time ",
+    "Click on each scene number in order to zoom into part of a protein and see how amino acids link together to form proteins. You can interact with the molecule at any time ",
     "by dragging it around.",
     "***",
     "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
@@ -153,7 +153,7 @@
     {
       "type": "text",
       "id": "drag-text",
-      "text": "_Drag to rotate or shift-drag/pinch to zoom._"
+      "text": "_Drag the molecule to rotate or shift-and-drag/pinch to zoom._"
     }
   ],
   "layout": {
