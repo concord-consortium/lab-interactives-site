@@ -1,0 +1,53 @@
+{
+  "title": "Flying Zippies - Sweeping Zippies",
+  "publicationStatus": "draft",
+  "subtitle": "Seeping Zippies...",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.777777778,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "theme": "no-framing",
+  "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0,
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-sweeping-zippies.json",
+      "onLoad": [
+        "for (var i = 0, a; i < getNumberOfAtoms(); i++) {",
+        "  a = getAtomProperties(i);",
+        "  if (a.element === 2) { set('chargedAtom', i); }",
+        "}",
+        "start();"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "chargedAtom",
+      "initialValue": null
+    },
+    {
+      "name": "sweep",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  var chargedAtom = get('chargedAtom');",
+        "  setAtomProperties(chargedAtom, {charge: -350});",
+        "  callAt(get('time') + 1000, function() {",
+        "    setAtomProperties(chargedAtom, {charge: 50});",
+        "  });",
+        "}"
+      ]
+    }
+  ],
+  "layout": {},
+  "template": "model-only"
+}
