@@ -36,8 +36,8 @@
         "  setPairwiseLJProperties(1, 1, { epsilon: -0.35 });",
         "}",
         "startMelting();",
-        "setTimeout(function() { set('openContainer', true); }, 7000);",
-        "start();"
+        "//setTimeout(function() { set('openContainer', true); }, 7000);",
+        "//start();"
       ]
     }
   ],
