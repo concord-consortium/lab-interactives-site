@@ -1,0 +1,127 @@
+{
+  "title": "Color and Opacity",
+  "publicationStatus": "public",
+  "subtitle": "There're multiple ways to set color and opacity of an atom",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "one-atom",
+      "model": {
+        "width": 0.5,
+        "height": 0.5,
+        "atoms": {
+          "x": [
+            0.25
+          ],
+          "y": [
+            0.25
+          ],
+          "element": [
+            0
+          ]
+        }
+      },
+      "viewOptions": {
+        "controlButtons": ""
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "color",
+      "initialValue": "red",
+      "onChange": "setElementProperties(0, {color: value}); repaint();"
+    },
+    {
+      "name": "visible",
+      "initialValue": 1,
+      "onChange": "setAtomProperties(0, {visible: value}); repaint();"
+    }
+  ],
+  "components": [
+    {
+      "type": "radio",
+      "id": "color",
+      "orientation": "vertical",
+      "label": "Color",
+      "labelOn": "top",
+      "property": "color",
+      "options": [
+        {
+          "text": "red",
+          "value": "red"
+        },
+        {
+          "text": "#00ff00",
+          "value": "#00ff00"
+        },
+        {
+          "text": "rgb(50, 50, 255)",
+          "value": "rgb(50, 50, 255)"
+        },
+        {
+          "text": "rgba(50, 50, 255, 0.5)",
+          "value": "rgba(50, 50, 255, 0.5)"
+        },
+        {
+          "text": "-16711885 (= #00ff33, Classic MW format)",
+          "value": -16711885
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "visibility",
+      "title": "Visibility (opacity)",
+      "labelOn": "top",
+      "property": "visible",
+      "min": 0,
+      "max": 1,
+      "steps": 20,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 0.5,
+          "label": "0.5"
+        },
+        {
+          "value": 1,
+          "label": "1"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "text": [
+        "To change color of an atom, set `color` property of its element. It accepts standard HTML notation",
+        "or Classic MW format (usually result of an automatic conversion, see the conversion formula [here](https://github.com/concord-consortium/lab/blob/master/node-bin/hex-to-lab-color)).",
+        "",
+        "Opacity of an atom can be controlled using its color (when `rgba` format is used) or `visible` property which accepts fractional values."
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      ["color"],
+      ["visibility"]
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "width": "22em",
+      "left": "model.right",
+      "padding-left": "0.3em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "padding-top": "0.3em"
+    }
+  ]
+}
