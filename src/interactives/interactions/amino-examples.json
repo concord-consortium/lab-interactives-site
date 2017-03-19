@@ -21,7 +21,7 @@
         "url": "https://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
         "m0:molecule": "models/amino-examples/ser.mol2",
         "m1:molecule": "models/amino-examples/val.mol2",
-        "m2:molecule": "models/amino-examples/his.mol2",
+        "m2:molecule": "models/amino-examples/his.mol",
         "m0:showFrank": false,
         "m1:showFrank": false,
         "m2:showFrank": false
@@ -112,7 +112,7 @@
       "action": [
         "post('jsmolScript', 'm0: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { -583 748 -317 165.73} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {0.0 0.0 -0.0019999743} 4.8397026 /* navigation center, translation, depth */ {0.0 0.0 0.0} 0.011236018 0.008014679 50.0;');",
         "post('jsmolScript', 'm1: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { 127 -395 -910 106.08} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {0.0 0.0 -0.0020000339} 4.6127696 /* navigation center, translation, depth */ {0.0 0.0 0.0} -0.011310577 -0.0072288513 50.0;');",
-        "post('jsmolScript', 'm2: exit;select all; color cpk; isosurface off; moveto /* time, axisAngle */ 1.0 { 327 -891 -314 164.04} /* zoom, translation */  100.0 0.0 0.0  /* center, rotationRadius */ {-0.38008574 -0.14767621 -0.035490476} 5.4654703 /* navigation center, translation, depth */ {0.0 0.0 0.0} -3.393457 1.6037064 50.0;');",
+        "post('jsmolScript', 'm2: exit;select all; color cpk; isosurface off; moveto 1.0 { 644 -291 708 14.42} 100.0 0.0 0.0 {-0.38008574 -0.14767621 -0.035490476} 5.4654703 {0 0 0} 0 0 0 3.0 0.0 0.0;');",
         "set('displayMode',1);",
         "set('surfaceMode',2);"
       ]
