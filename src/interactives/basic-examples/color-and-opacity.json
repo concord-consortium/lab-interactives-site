@@ -103,12 +103,19 @@
         "",
         "Opacity of an atom can be controlled using its color (when `rgba` format is used) or `visible` property which accepts fractional values."
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "KE Shading",
+      "property": "keShading"
     }
   ],
   "layout": {
     "right": [
       ["color"],
-      ["visibility"]
+      ["visibility"],
+      ["ke-shading"]
     ]
   },
   "template": [
