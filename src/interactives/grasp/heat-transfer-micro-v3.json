@@ -185,5 +185,24 @@
         "set('keDiff', '-');"
       ]
     }
+  ],
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "height": "0.5 * (interactive.height - model.height - 20)"
+    },
+    {
+      "id": "right",
+      "left": "model.right",
+      "width": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "padding-top": "0.5em",
+      "width": "interactive.width",
+      "align": "center"
+    }
   ]
 }
