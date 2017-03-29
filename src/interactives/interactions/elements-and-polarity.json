@@ -35,7 +35,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html"
       },
       "onLoad": [
         "post('jsmolScript', 'set background black;');"
@@ -91,11 +91,11 @@
         "}",
         "if (value === 'isosurface-opaque') {",
         "  script += ' isosurface on; isosurface opaque;';",
-        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.gif\"';",
+        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.png\"';",
         "}",
         "if (value === 'isosurface-transparent') {",
         "  script += ' isosurface on; isosurface translucent;';",
-        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.gif\"';",
+        "  script += 'set echo bottom left; set echo IMAGE \"models/elements-and-polarity/surface-key.png\"';",
         "}",
         "post('jsmolScript', script);"
       ]
