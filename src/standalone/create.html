@@ -9,12 +9,17 @@
   	<h2>Standalone Interactive Creation Tool</h2>
   	This page is only intended to work on Google Chrome. It might work on other browsers but they are not supported.
     <ol>
-  		<li>Download the resources needed for all interactives: <a href="lab-interactive.tar.gz">lab-interactive.tar.gz</a>
-  		</li>
-  		<li>Unzip the file above which should give you a folder 'lab-interactive'</li>
-  		<li>Put the path to the interactive after the '#' in the URL above</li>
+  		<li>Download the resources needed for all interactives: <a href="lab-interactive.tar.gz">lab-interactive.tar.gz</a>.</li>
+  		<li>Unzip the file above which should give you a folder 'lab-interactive'.</li>
+			<li>JSmol interactives <b>only</b>:
+				<ol>
+					<li>Download JSmol offline bundle: <a href="https://models-resources.concord.org/jsmol/jsmol-offline.tar.gz">jsmol-offline.tar.gz</a>.</li>
+					<li>Unzip it, and move it inside the 'lab-interactive' folder created above.</li>
+				</ol>
+			</li>
+  		<li>Put the path to the interactive after the '#' in the URL above.</li>
   		<li>Click the Download HTML link below, and move the downloaded file inside the 'lab-interactive' folder created
-  			above</li>
+  			above.</li>
   		<li>Open this new file in a browser, you should see a file:// URL and the interactive should load.</li>
   		<li>Disconnect your network, clear your browser cache and try loading the file again to make sure
   			it has everything it needs.</li>
@@ -73,25 +78,22 @@
           	});
 
           	$.when.apply($,promises).then(function() {
-	          var interactive_def,
-	      	      inlined,
-	      	      blob, blob_url;
-	      	  interactive_def = "window.INTERACTIVE=" +
-	      	    JSON.stringify(interactive, null, 2) +
-	      	    ";"
-	      	  inlined = template_html.replace("// SPOT_TO_PUT_INLINE_INTERACTIVE_AND_MODEL",
-	      	  	"window.INTERACTIVE=" + JSON.stringify(interactive, null, 2) + ";");
+						var interactiveDef = JSON.stringify(interactive, null, 2);
+						// Replace jsmol embeddable page with local, offline bundle (needs to be downloaded by user).
+						interactiveDef = interactiveDef.replace('https://models-resources.concord.org/jsmol', 'jsmol-offline');
+	      	  var inlined = template_html.replace("// SPOT_TO_PUT_INLINE_INTERACTIVE_AND_MODEL",
+	      	  	"window.INTERACTIVE=" + interactiveDef + ";");
 	      	  // The following injection is so the sharing URL points back to the current
 	      	  // interactive site. The homEmbeddablePath is being abused a little bit here.
-	      	  // it is intented to just point at embeddable.html, and then the hash of the page
+	      	  // it is intended to just point at embeddable.html, and then the hash of the page
 	      	  // is appended to it by lab.js. But in the standalone case there is no
 	      	  // hash. So in this case we are setting homeEmbeddablePath to something like
 	      	  // /embeddable.html#interactives/samples/1-oil-and-water.json
 	      	  inlined = inlined.replace("// SPOT_TO_INJECT_CUSTOMIZED_CONFIGURATION",
 	      	  	'Lab.config.homeForSharing="' + getHomeForSharing() + '";\n' +
 	      	  	'Lab.config.homeEmbeddablePath="/embeddable.html' + window.location.hash + '";');
-	      	  blob = new Blob([inlined], {type : 'text/html'})
-	      	  blob_url = URL.createObjectURL(blob);
+	      	  var blob = new Blob([inlined], {type : 'text/html'});
+	      	  var blob_url = URL.createObjectURL(blob);
 	      	  $('#download_link_container').append('<a href="' + blob_url + '" download="' + interactive.title + '.html">Download HTML</a>');
 	      	  $('#standalone_html').val(inlined);
             });
