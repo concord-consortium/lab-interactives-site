@@ -1,0 +1,112 @@
+{
+  "title": "Flying Zippies - Zippies Liquid to Solid",
+  "publicationStatus": "draft",
+  "subtitle": "Cooling Zippies...",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.777777778,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "theme": "no-framing",
+  "showTopBar": false,
+  "showBottomBar": false,
+  "padding": 0,
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model",
+      "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-liquid-solid.json",
+      "onLoad": [
+        "var startTime;",
+        "var presentTime;",
+        "set({temperatureControl: false}); set({targetTemperature: 2000});",
+        "var airAtoms = [];",
+        "var zippyAtoms = [];",
+        "var cartAtoms = [];",
+        "var airAtomsIndices = [];",
+        "var zippyAtomsIndices = [];",
+        "var cartAtomsIndices = [];",
+        "for (var i = 0, a; i < getNumberOfAtoms(); i++) {",
+        "  a = getAtomProperties(i);",
+        "  if (a.element == 0) {airAtoms.push(a); airAtomsIndices.push(i);}",
+        "  if (a.element == 1) {zippyAtoms.push(a); zippyAtomsIndices.push(i);}",
+        "  if (a.element == 2) {cartAtoms.push(a); cartAtomsIndices.push(i);}",
+        "}",
+        "console.log('air: ' + airAtoms.length + ' zippy: ' + zippyAtoms.length + ' cart: ' + cartAtoms.length );",
+        "set('airAtomsIndices', airAtomsIndices);",
+        "set('zippyAtomsIndices', zippyAtomsIndices);",
+        "set('cartAtomsIndices', cartAtomsIndices);",
+        "//console.log('zippyAtomsIndices: ' + zippyAtomsIndices );",
+        "//console.log('airAtomsIndices: ' + airAtomsIndices );",
+        "start();",
+        "setTemperatureOfAtoms(zippyAtomsIndices, 3500);",
+        "//setTimeout(function() { set('isSolidifying', true); }, 7000);",
+        "onPropertyChange('time',function(time) {",
+        "  if (get('isSolidifying') === true) {",
+        "    startSolidifying();",
+        "    set( 'isSolidifying', false);",
+        "  }",
+        "});",
+        "function startSolidifying() {",
+        "  console.log('solidifying')",
+        "  setTemperatureOfAtoms(zippyAtomsIndices, 100);",
+        "}"
+      ]
+    }
+  ],
+    "parameters": [
+    { "name": "isSolidifying",
+      "initialValue": false
+    },
+    {
+      "name": "airAtomsIndices",
+      "initialValue": []
+    },
+    {   "name": "zippyAtomsIndices",
+       "initialValue": []
+    },
+    {   "name": "cartAtomsIndices",
+       "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "temperature-air",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('airAtomsIndices'));"
+    },
+    {
+      "name": "temperature-zippy",
+      "unitAbbreviation": "K",
+      "label": "speed",
+      "value": "return getTemperatureOfAtoms(get('zippyAtomsIndices'));"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "start-melting",
+      "text": "Start the Melting",
+      "action": [
+        "set( 'isSolidifying', true);",
+        "setComponentDisabled('start-melting', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "See It Again",
+      "action": [
+      "reloadModel();",
+      "setComponentDisabled('start-melting', false);"
+      ]
+    }
+  ],
+  "layout": {},
+  "template": "model-only"
+}
