@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
-require_relative '../../script/setup.rb'
-
 require 'rubygems'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html
 require 'yaml'
 require 'pp'
+
+PROJECT_ROOT = File.expand_path('../..',  __FILE__)
+SRC_PATH  = File.join(PROJECT_ROOT, 'src')
+PUBLIC_PATH  = File.join(PROJECT_ROOT, 'public')
 
 INTERACTIVE_EXAMPLES_PATH = PUBLIC_PATH
 INTERACTIVES_PATH = File.join(INTERACTIVE_EXAMPLES_PATH, 'interactives')

@@ -7,7 +7,7 @@ MARKDOWN_COMPILER = bundle exec kramdown
 SASS_COMPILER = bundle exec sass -I src -I public
 HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
-GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
+GENERATE_INTERACTIVE_INDEX = ruby script/process-interactives.rb
 
 FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 

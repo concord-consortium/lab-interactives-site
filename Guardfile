@@ -5,8 +5,6 @@ ignore %r{(bin|node_modules)}
 # https://github.com/nex3/firesass
 FIRESASS = false
 
-require "./script/setup.rb"
-
 def command(cmd)
   puts cmd
   system(cmd)
@@ -45,7 +43,7 @@ group :build do
 
   guard 'shell' do
 
-    watch(/(script\/(generate.*|setup.rb))|(config\/config\.yml)/) do |match|
+    watch(/(script\/(generate.*))|(config\/config\.yml)/) do |match|
       puts "re-generating version and config information ..."
       delete_css
       command("make")
@@ -123,7 +121,7 @@ group :build do
         destination_dir = destination_path[/(^.*)\//, 1]
         command("mkdir -p #{destination_dir}")
         command("cp -f '#{source_path}' '#{destination_path}'")
-        command("ruby src/helpers/process-interactives.rb")
+        command("ruby script/process-interactives.rb")
       end
     end
 
