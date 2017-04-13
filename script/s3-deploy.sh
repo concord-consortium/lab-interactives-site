@@ -24,7 +24,7 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   then
     echo "- lab.tar.gz archive found"
   else
-    lab_url=`script/lab-root-url.rb`
+    lab_url=`script/lab-root-url.js`
     echo "- download the default Lab archive at $lab_url.tar.gz"
     curl -O $lab_url.tar.gz
   fi
@@ -37,8 +37,8 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   rm _site/version/$SITE_VERSION/embeddable*.html
 
   echo "- generate HTML pages with correct Lab root URL"
-  LAB_ROOT_URL="lab" script/generate-interactives-html.rb default > _site/version/$SITE_VERSION/interactives.html
-  LAB_ROOT_URL="lab" script/generate-embeddable-html.rb default > _site/version/$SITE_VERSION/embeddable.html
+  LAB_ROOT_URL="lab" LAB_ENV="default" script/compile-handlebars.js src/interactives.html.handlebars _site/version/$SITE_VERSION/interactives.html
+  LAB_ROOT_URL="lab" LAB_ENV="default" script/compile-handlebars.js src/embeddable.html.handlebars > _site/version/$SITE_VERSION/embeddable.html
 
   echo "- generate archive _site/version/$SITE_VERSION.tar.gz"
   tar -cf _site/version/$SITE_VERSION.tar --directory=_site/version/ $SITE_VERSION

@@ -2,8 +2,6 @@
 
 # count the number of atoms referenced by all the model files
 
-require_relative 'setup.rb'
-
 require 'rubygems'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html

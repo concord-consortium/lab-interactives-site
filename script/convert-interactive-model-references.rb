@@ -2,8 +2,9 @@
 require 'bundler/setup'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html
-require_relative 'setup.rb'
 
+PROJECT_ROOT = File.expand_path('../..',  __FILE__)
+SRC_PATH  = File.join(PROJECT_ROOT, 'src')
 INTERACTIVE_PATH = File.join(SRC_PATH, "interactives")
 
 interactive_paths = Dir["#{INTERACTIVE_PATH}/**/*.json"]

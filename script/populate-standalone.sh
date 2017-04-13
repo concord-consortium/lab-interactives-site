@@ -15,7 +15,7 @@ if [ -f lab.tar.gz ];
 then
   echo "- lab.tar.gz archive found"
 else
-  lab_url=`script/lab-root-url.rb $lab_env`
+  lab_url=`script/lab-root-url.js $lab_env`
   echo "- download the $lab_env archive at $lab_url.tar.gz"
   curl -O $lab_url.tar.gz
 fi
