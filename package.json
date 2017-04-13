@@ -41,6 +41,7 @@
     "mkdirp": "0.3.2",
     "mocha": "~1.17.1",
     "node-inspector": "0.3.4",
+    "node-sass": "^4.5.2",
     "should": "3.0.1",
     "sinon": ">=1.7.3",
     "sizzle": ">=1.1.0",

@@ -4,7 +4,7 @@
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
 MARKDOWN_COMPILER = bundle exec kramdown
-SASS_COMPILER = bundle exec sass -I src -I public
+SASS_COMPILER = node_modules/node-sass/bin/node-sass -q
 HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
 GENERATE_INTERACTIVE_INDEX = ruby script/process-interactives.rb
@@ -457,7 +457,6 @@ public/%.css: %.scss
 	$(SASS_COMPILER) $< $@
 
 public/%.css: %.sass
-	@echo $($<)
 	$(SASS_COMPILER) $< $@
 
 public/%.js: %.coffee
