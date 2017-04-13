@@ -32,18 +32,19 @@
     "markdown": ">=0.5.0"
   },
   "devDependencies": {
-    "jsdom": ">=0.8.9",
-    "sizzle": ">=1.1.0",
-    "vows": "0.7.0",
-    "node-inspector": "0.3.4",
-    "jshint": ">=2.1.10",
+    "chai": ">=1.7.2",
     "cheerio": "0.12.4",
+    "handlebars": "^4.0.6",
     "jade": ">=0.35.0",
+    "jsdom": ">=0.8.9",
+    "jshint": ">=2.1.10",
     "mkdirp": "0.3.2",
     "mocha": "~1.17.1",
+    "node-inspector": "0.3.4",
     "should": "3.0.1",
     "sinon": ">=1.7.3",
-    "chai": ">=1.7.2"
+    "sizzle": ">=1.1.0",
+    "vows": "0.7.0"
   },
   "directories": {
     "bin": "node-bin"

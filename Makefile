@@ -5,7 +5,7 @@ JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
 MARKDOWN_COMPILER = bundle exec kramdown
 SASS_COMPILER = bundle exec sass -I src -I public
-HAML_COMPILER = bundle exec haml
+HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
 GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
 
@@ -16,8 +16,8 @@ FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 INTERACTIVE_FILES := $(shell find src/models src/interactives -name '*.json' -exec echo {} \; | sed s'/src\/\(.*\)/public\/\1/' )
 vpath %.json src
 
-HAML_FILES := $(shell find src -name '*.html.haml' -exec echo {} \; | sed s'/src\/\(.*\)\.haml/public\/\1/' )
-vpath %.haml src
+HANDLEBARS_FILES := $(shell find src -name '*.html.handlebars' -exec echo {} \; | sed s'/src\/\(.*\)\.handlebars/public\/\1/' )
+vpath %.handlebars src
 
 SASS_FILES := $(shell find src -name '*.sass' -and -not -path "src/sass/*" -exec echo {} \; | sed s'/src\/\(.*\)\.sass/public\/\1.css/' )
 SASS_FILES += $(shell find src -name '*.scss' -and -not -path "src/sass/*" -exec echo {} \; | sed s'/src\/\(.*\)\.scss/public\/\1.css/' )
@@ -31,8 +31,6 @@ vpath %.coffee src
 
 MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard *.md)) public/examples.html
 DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*.md))
-
-CURRENT_CONFIG_FILE := $(shell script/branch-config-file.rb)
 
 # default target executed when running make. Run the $(MAKE) public task rather than simply
 # declaring a dependency on 'public' because 'bundle install' and 'npm install' might update some
@@ -53,7 +51,7 @@ everything:
 src: \
 	$(MARKDOWN_FILES) \
 	$(DEV_MARKDOWN_FILES) \
-	$(HAML_FILES) \
+	$(HANDLEBARS_FILES) \
 	$(SASS_FILES) \
 	$(COFFEESCRIPT_FILES) \
 	$(INTERACTIVE_FILES) \
@@ -67,32 +65,31 @@ src: \
 	public/embeddable-staging.html \
 	public/embeddable-dev.html \
 	public/embeddable-local.html \
-	public/browser-check.html \
+	public/standalone/template.html \
 	public/interactives.json \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
-public/interactives.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb default > $@
-public/interactives-production.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb production > $@
-public/interactives-staging.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb staging > $@
-public/interactives-dev.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb development > $@
-public/interactives-local.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb local > $@
+public/interactives-production.html: src/interactives.html.handlebars
+    LAB_ENV=production $(HANDLEBARS_COMPILER) $< $@
+public/interactives-staging.html: src/interactives.html.handlebars
+	LAB_ENV=staging $(HANDLEBARS_COMPILER) $< $@
+public/interactives-dev.html: src/interactives.html.handlebars
+	LAB_ENV=development $(HANDLEBARS_COMPILER) $< $@
+public/interactives-local.html: src/interactives.html.handlebars
+	LAB_ENV=local $(HANDLEBARS_COMPILER) $< $@
 
-public/embeddable.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb default > $@
-public/embeddable-production.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb production > $@
-public/embeddable-staging.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb staging > $@
-public/embeddable-dev.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb development > $@
-public/embeddable-local.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb local > $@
+public/embeddable-production.html: src/embeddable.html.handlebars
+	LAB_ENV=production $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-staging.html: src/embeddable.html.handlebars
+	LAB_ENV=staging $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-dev.html: src/embeddable.html.handlebars
+	LAB_ENV=development $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-local.html: src/embeddable.html.handlebars
+	LAB_ENV=local $(HANDLEBARS_COMPILER) $< $@
+
+public/standalone/template.html: src/standalone/template.html.handlebars
+    LAB_ENV=production LAB_ROOT_URL=lab $(HANDLEBARS_COMPILER) $< $@
 
 .PHONY: clean
 clean:
@@ -183,7 +180,7 @@ public: \
 # used to generate resources from src/ to public/
 .PHONY: copy-resources-to-public
 copy-resources-to-public:
-	rsync -aq --exclude='helpers/' --exclude='layouts/' --exclude='modules/' --exclude='sass/' --exclude='vendor/' --exclude='lab/' --filter '+ */' --exclude='*.haml' --exclude='*.sass' --exclude='*.scss' --exclude='*.yaml' --exclude='*.coffee' --exclude='*.rb' --exclude='*.md' src/ public/
+	rsync -aq --exclude='helpers/' --exclude='layouts/' --exclude='modules/' --exclude='sass/' --exclude='vendor/' --exclude='lab/' --filter '+ */' --exclude='*.html.handlebars' --exclude='*.sass' --exclude='*.scss' --exclude='*.yaml' --exclude='*.coffee' --exclude='*.rb' --exclude='*.md' src/ public/
 
 public/examples:
 	mkdir -p public/examples
@@ -447,11 +444,8 @@ vendor/lab-energy2d-java:
 #
 # ------------------------------------------------
 
-test/%.html: test/%.html.haml
-	$(HAML_COMPILER) $< $@
-
-public/%.html: src/%.html.haml script/setup.rb
-	$(HAML_COMPILER) -r ./script/setup.rb $< $@
+public/%.html: src/%.html.handlebars script/compile-handlebars.js
+	LAB_ENV=default $(HANDLEBARS_COMPILER) $< $@
 
 public/%.html: src/%.html
 	cp $< $@
@@ -511,7 +505,7 @@ public/interactives.json: $(INTERACTIVE_FILES)
 
 .PHONY: h
 h:
-	@echo $(HAML_FILES)
+	@echo $(HANDLEBARS_FILES)
 
 .PHONY: s
 s:
