@@ -2,18 +2,12 @@
 
 const fs = require('fs');
 const Handlebars = require('handlebars');
+const LAB_ROOT_URL = require('./lab-urls');
 
 const inputPath = process.argv[2];
 const outputPath = process.argv[3];
 
 // config
-const LAB_ROOT_URL = {
-  default:     "//lab-framework.concord.org/version/1.14.0/lab",
-  production:  "//lab-framework.concord.org/version/1.14.0/lab",
-  staging:     "//lab-framework.concord.org/version/1.14.0/lab",
-  development: "//lab-framework.concord.org/branch/master/lab",
-  local:       "//localhost:9191/lab"
-};
 
 const EMBEDDABLE_PAGE = {
   default:     "embeddable.html",
