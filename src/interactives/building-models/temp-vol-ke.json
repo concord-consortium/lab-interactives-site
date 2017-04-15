@@ -1,0 +1,210 @@
+{
+  "title": "Temperature, Volume, and Kinetic Energy",
+  "publicationStatus": "public",
+  "subtitle": "Investigate the relationship between temperature and the volume of a gas.",
+  "aspectRatio": 0.96,
+  "about": [
+    "This model contains gas molecules on the left side and a barrier that moves when the",
+    "volume of gas expands or contracts, keeping the pressure constant. Run the model and",
+    "change the temperature. Why does the barrier move when the temperature changes?",
+    "",
+    "----",
+    "*Note: Although the atoms in this model are in a flat plane, volume is calculated using 0.1 nm as the depth of the container.*"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models-converted/lab-version/1/md2d/building-models/vol-temp-model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "textBoxes": [
+          {
+            "text": "A piston with constant pressure on it.",
+            "x": 1.973017120361328,
+            "y": 1.7,
+            "width": 0.5,
+            "fontSize": 0.13,
+            "textAlign": "center"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "volume",
+      "unitAbbreviation": "nm³",
+      "label": "Volume",
+      "value": [
+        "return getObstacleProperties(0).x * get('height') * 0.1;"
+      ]
+    }
+  ],
+  "dataSets": [
+    {
+      "name": "table-graph-dataset",
+      "properties": [
+        "displayTime",
+        "totalEnergy",
+        "Temperature",
+        "Volume"
+      ],
+      "serializableProperties": [
+        "Temperature",
+        "Volume"
+      ],
+      "streamDataFromModel": true,
+      "clearOnModelReset": true
+    }
+  ],
+
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 100,
+      "max": 800,
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 800,
+          "label": "800 K"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperature",
+      "property": "targetTemperature",
+      "displayValue": "return format('.0f')(value)"
+    },
+    {
+      "type": "numericOutput",
+      "id": "current-volume",
+      "label": "Gas volume",
+      "unitAbbreviation": "nm³",
+      "property": "volume",
+      "displayValue": "return format('.2f')(value)"
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Kinetic energy shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "keBarGraph",
+      "type": "barGraph",
+      "property": "kineticEnergy",
+      "min": 0,
+      "max": 15,
+      "title": "Kinetic Energy of Molecules",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 5,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "graph",
+      "id": "pt-graph",
+      "title": "",
+      "dataSet": "table-graph-dataset",
+      "xlabel": "Temperature (K)",
+      "ylabel": "Volume (nm³)",
+      "ymin": 0,
+      "ymax": 1.2,
+      "xmax": 800,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "width": "20em",
+      "height": "15em",
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "markAllDataPoints": true,
+      "lines": false,
+      "xProperty": "Temperature",
+      "properties": [
+        "Volume"
+      ]
+    },
+    {
+      "id": "pt-table",
+      "type": "table",
+      "dataSet": "table-graph-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": true,
+      "indexColumn": false,
+      "height": "12em",
+      "propertyColumns": [
+        {
+          "name": "Temperature",
+          "format": "r"
+        },
+        {
+          "name": "Volume",
+          "format": "r"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      [
+        "keBarGraph"
+      ]
+    ],
+    "bottom": [
+      [
+        "temperature-slider","current-volume", "ke-shading"
+      ],
+      [
+        "pt-table","pt-graph"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "0.5em"
+    }
+  ]
+
+}
