@@ -1,0 +1,209 @@
+{
+  "title": "Temperature, Pressure, and Kinetic Energy",
+  "publicationStatus": "public",
+  "subtitle": "Consider how temperature affects the pressure exerted by a gas.",
+  "about": "Run the model and change the temperature. What happens to the pressure when the temperature changes?",
+  "aspectRatio": 0.85,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/building-models/pressure-temp-model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "textBoxes": [
+          {
+            "text": "Pressure gauge →",
+            "x": 2.15,
+            "y": 2.27,
+            "width": 1.05,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pressureProbeInstantaneous",
+      "unitAbbreviation": "atm",
+      "label": "Pressure gauge",
+      "value": [
+        "return getObstacleProperties(0).westProbeValue;"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressureProbeFiltered",
+      "label": "Pressure gauge",
+      "unitAbbreviation": "atm",
+      "property": "pressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 50000
+    }
+  ],
+  "dataSets": [
+    {
+      "name": "table-graph-dataset",
+      "properties": [
+        "Temperature",
+        "Pressure"
+      ],
+      "serializableProperties": [
+        "Temperature",
+        "Pressure"
+      ],
+      "clearOnModelReset": true
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 100,
+      "max": 1000,
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 1000,
+          "label": "1000 K"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperature",
+      "width": "12em",
+      "property": "targetTemperature",
+      "displayValue": "return format('.0f')(value)"
+    },
+    {
+      "type": "numericOutput",
+      "id": "current-pressure",
+      "label": "Pressure",
+      "orientation": "horizontal",
+      "unitAbbreviation": "atm",
+      "property": "pressureProbeFiltered",
+      "displayValue": "return format('.2f')(value)"
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Kinetic energy shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "keBarGraph",
+      "type": "barGraph",
+      "property": "kineticEnergy",
+      "min": 0,
+      "max": 3,
+      "title": "Kinetic Energy of Molecules",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 3,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "graph",
+      "id": "pt-graph",
+      "title": "",
+      "dataSet": "table-graph-dataset",
+      "xlabel": "Temperature (K)",
+      "ylabel": "Pressure (atm)",
+      "ymin": 0,
+      "ymax": 0.6,
+      "xmax": 1000,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "width": "20em",
+      "height": "15em",
+      "autoScaleX": false,
+      "autoScaleY": false,
+      "markAllDataPoints": true,
+      "lines": false,
+      "xProperty": "Temperature",
+      "properties": [
+        "Pressure"
+      ]
+    },
+    {
+      "id": "pt-table",
+      "type": "table",
+      "dataSet": "table-graph-dataset",
+      "title": null,
+      "addNewRows": true,
+      "showBlankRow": true,
+      "indexColumn": false,
+      "height": "12em",
+      "propertyColumns": [
+        {
+          "name": "Temperature",
+          "format": "r"
+        },
+        {
+          "name": "Pressure",
+          "format": "r"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "keBarGraph"
+    ],
+    "bottom": [
+      [
+        "temperature-slider","current-pressure", "ke-shading"
+      ],
+      [
+        "pt-table","pt-graph"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "0.5em"
+    }
+  ]
+}
