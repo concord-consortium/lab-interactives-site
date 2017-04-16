@@ -107,7 +107,7 @@
       "type": "barGraph",
       "property": "kineticEnergy",
       "min": 0,
-      "max": 15,
+      "max": 5,
       "title": "Kinetic Energy of Molecules",
       "titleOn": "right",
       "labels": [
