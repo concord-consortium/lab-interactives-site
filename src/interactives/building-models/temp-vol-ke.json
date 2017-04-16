@@ -46,8 +46,6 @@
     {
       "name": "table-graph-dataset",
       "properties": [
-        "displayTime",
-        "totalEnergy",
         "Temperature",
         "Volume"
       ],
@@ -55,7 +53,6 @@
         "Temperature",
         "Volume"
       ],
-      "streamDataFromModel": true,
       "clearOnModelReset": true
     }
   ],
