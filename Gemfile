@@ -15,7 +15,6 @@ end
 group :development do
   # guard related ...
   gem "guard",              "~> 1.8.2"
-  gem "guard-haml",         "~> 0.4"
   gem "guard-sass",         "~> 1.3.2"
   gem "guard-shell",        "~> 0.5.1"
   gem "guard-livereload",   "~> 1.4.0"
