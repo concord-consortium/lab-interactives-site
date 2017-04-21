@@ -14,7 +14,7 @@ cache:
     - node_modules
 before_script:
 - travis_retry gem install s3_website -v 3.1.0
-- travis_retry npm install
+- travis_retry yarn
 - make prepare-submodules
 - make public
 script: script/s3-deploy.sh
