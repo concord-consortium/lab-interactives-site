@@ -21,7 +21,6 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 
 ### Prerequisites:
 
-- [RVM, Ruby 2.0 and Bundler](developer-doc/setup-ruby.md)
 - [node.js, npm and yarn](developer-doc/setup-node.md)
 - [additional Linux notes](developer-doc/linux-notes.md)
 
@@ -29,11 +28,11 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 
 1. Clone the git repository
 2. `cd lab-interactives-site`
-3. `bundle install`
+3. `yarn`
 4. `make everything`
-5. open another new terminal and run `rackup`
+5. open another new terminal and run `npm run server`
 6. open http://localhost:9292
-7. (optional) open a new terminal and run `guard`
+7. (optional) open a new terminal and run `guard` (you need to install ruby gems earlier: `bundle install`)
 
 It is recommended that you review the [initial setup details](developer-doc/initial-setup-details.md).
 They describe what each of the steps above does.
