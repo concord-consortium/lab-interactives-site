@@ -6,7 +6,7 @@ COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
 SASS_COMPILER = node_modules/node-sass/bin/node-sass -q
 HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
-GENERATE_INTERACTIVE_INDEX = ruby script/process-interactives.rb
+GENERATE_INTERACTIVE_INDEX = node script/process-interactives.js
 
 FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 
@@ -87,19 +87,11 @@ public/standalone/template.html: src/standalone/template.html.handlebars
 
 .PHONY: clean
 clean:
-	ruby script/check-development-dependencies.rb
-	# remove the .bundle dir in case we are running this after running: make clean-for-tests
-	# which creates a persistent bundle grouping after installing just the minimum
-	# necessary set of gems for running tests using the arguments: --without development app
-	# Would be nice if bundle install had a --withall option to cancel this persistence.
-	rm -rf .bundle
 	mkdir -p public
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
 	rm -rf .sass-cache
-	# install/update Ruby Gems
-	bundle install
 	$(MAKE) prepare-submodules
 
 # public dir cleanup.

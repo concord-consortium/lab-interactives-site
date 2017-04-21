@@ -38,6 +38,7 @@
     "jade": ">=0.35.0",
     "jsdom": ">=0.8.9",
     "jshint": ">=2.1.10",
+    "klaw-sync": "^1.1.2",
     "mkdirp": "0.3.2",
     "mocha": "~1.17.1",
     "node-inspector": "0.3.4",
