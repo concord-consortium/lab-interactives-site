@@ -3,7 +3,6 @@
 # Utilities
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
-MARKDOWN_COMPILER = bundle exec kramdown
 SASS_COMPILER = node_modules/node-sass/bin/node-sass -q
 HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
@@ -29,9 +28,6 @@ COFFEESCRIPT_FILES += $(shell find src/examples -name '*.coffee' -exec echo {} \
 COFFEESCRIPT_FILES += $(shell find src/experiments -name '*.coffee' -exec echo {} \; | sed s'/src\/\(.*\)\.coffee/public\/\1.js/' )
 vpath %.coffee src
 
-MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard *.md)) public/examples.html
-DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*.md))
-
 # default target executed when running make. Run the $(MAKE) public task rather than simply
 # declaring a dependency on 'public' because 'bundle install' and 'npm install' might update some
 # sources, and we want to recompute stale dependencies after that.
@@ -49,8 +45,6 @@ everything:
 
 .PHONY: src
 src: \
-	$(MARKDOWN_FILES) \
-	$(DEV_MARKDOWN_FILES) \
 	$(HANDLEBARS_FILES) \
 	$(SASS_FILES) \
 	$(COFFEESCRIPT_FILES) \
@@ -463,26 +457,6 @@ public/%.js: %.coffee
 	@rm -f $@
 	$(COFFEESCRIPT_COMPILER) --compile --print $< > $@
 
-# replace relative references to .md files for the static build
-# look for pattern like ](*.md) replace with ](*.html)
-# the ':' is hack so it doesn't match absolute http:// urls
-# the second command is necessary to match anchor references in md files
-%.md.static: %.md
-	@rm -f $@
-	sed -e s';\](\([^):]*\)\.md);\](\1.html);' -e s';\](\([^):]*\)\.md\(#[^)]*\));\](\1.html\2);' $< > $@
-
-public/developer-doc/%.html: developer-doc/%.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) -i GFM $< --template src/layouts/developer-doc.html.erb > $@
-
-public/examples.html: src/examples.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) $< --toc-levels 2..6 --template src/layouts/top-level.html.erb > $@
-
-public/%.html: %.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) $< --toc-levels 2..6 --template src/layouts/top-level.html.erb > $@
-
 public/interactives/%.json: src/interactives/%.json
 	@cp $< $@
 
@@ -509,10 +483,6 @@ h:
 .PHONY: s
 s:
 	@echo $(SASS_FILES)
-
-.PHONY: m
-m:
-	@echo $(MARKDOWN_FILES)
 
 .PHONY: c
 c:
