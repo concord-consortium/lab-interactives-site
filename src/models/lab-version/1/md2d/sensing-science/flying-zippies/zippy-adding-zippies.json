@@ -56,7 +56,7 @@
     "showAtomTrace": false,
     "images": [
       {
-        "imageUri": "adding-zippies.png",
+        "imageUri": "beaker-pull/beaker-pull-1.png",
         "imageX": 1,
         "imageY": 8.03124,
         "imageHostType": "",
@@ -67,7 +67,85 @@
         "rotation": 0,
         "scale": 0.66,
         "opacity": 1
-      }
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-2.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-3.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-4.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-5.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-6.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      },
+     {
+        "imageUri": "beaker-pull/beaker-pull-7.png",
+        "imageX": 1,
+        "imageY": 8.03124,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 0,
+        "imageLayerPosition": 4,
+        "visible": true,
+        "rotation": 0,
+        "scale": 0.66,
+        "opacity": 1
+      }                                
     ],
     "imageMapping": {},
     "textBoxes": [],

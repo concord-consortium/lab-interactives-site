@@ -22,6 +22,7 @@
       "url": "models/lab-version/1/md2d/sensing-science/flying-zippies/zippy-adding-zippies.json",
       "onLoad": [
         "set({temperatureControl: true}); set({targetTemperature: 2000});",
+        "setImageProperties([1,2,3,4,5,6], {visible: false},);",
         "var zippyAtomsIndices = [];",
         "for (var i = 0, a; i < getNumberOfAtoms(); i++) {",
         "  a = getAtomProperties(i);",
@@ -67,6 +68,12 @@
         "    var y = [4.9623777245508975, 5.286729021956088, 5.586130219560879, 5.8855314171656685, 6.135032415169661, 6.384533413173653, 6.609084311377246, 6.8086851097804395];",
         "    for (var i = 0; i < x.length; i++) addAtom({x: x[i], y: y[i], element: 2, pinned: 1, visible: 0});",
         "  }, 5000);",
+        "  setTimeout(function() {setImageProperties(1, {visible: true}) }, 5100);",
+        "  setTimeout(function() {setImageProperties(2, {visible: true}) }, 5200);",
+        "  setTimeout(function() {setImageProperties(3, {visible: true}) }, 5300);",
+        "  setTimeout(function() {setImageProperties(4, {visible: true}) }, 5400);", 
+        "  setTimeout(function() {setImageProperties(5, {visible: true}) }, 5500);",
+        "  setTimeout(function() {setImageProperties(6, {visible: true}) }, 5600);",                
         "}"
       ]
     }
