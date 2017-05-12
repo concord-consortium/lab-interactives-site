@@ -27,5 +27,5 @@ RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; bundle install"
 RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; gem install rb-readline"
 RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; make everything"
 
-EXPOSE 9292 35729
+EXPOSE 9292
 CMD ["/bin/bash", "-c", "source /usr/local/rvm/scripts/rvm; /usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]

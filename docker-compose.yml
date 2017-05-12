@@ -1,7 +1,9 @@
-web:
-    build: .
+version: '2'
+services:
+  app:
+    build:
+      context: .
     volumes:
-        - .:/srv
-    ports:
-        - "9292:9292"    # web server
-        - "35729:35729"  # LiveReload server
+      - .:/srv
+    environment:
+      VIRTUAL_HOST: labinteractives.docker

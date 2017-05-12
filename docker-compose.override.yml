@@ -1,0 +1,5 @@
+version: '2'
+services:
+  app:
+    ports:
+      - "9292:9292"

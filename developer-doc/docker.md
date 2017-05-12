@@ -22,7 +22,9 @@ If you have `docker-compose` installed, this process is even easier:
 1. `docker-compose build`
 2. `docker-compose up`
 
-Once the container is running, you can open a second terminal and run:
+Once the container is running you will find it at: http://labinteractives.docker
+
+You can open a second terminal and run:
 
     docker exec -ti <container_name> /bin/bash
 

@@ -1,0 +1,16 @@
+# This is an docker-compose overlay that publishes the app port to a random
+# host port. This is most useful when using a dynamic proxy and dns system like:
+# https://github.com/codekitchen/dinghy-http-proxy
+
+# A convient way to overlay this file is to add a `.env` file with the contents:
+#  COMPOSE_FILE=docker-compose.yml:docker/dev/docker-compose-random-ports.yml
+# You can also do it manually when you run docker-compose each time with
+# docker-compose -f docker-compose.yml -f docker/dev/docker-compose-random-ports.yml
+# if you are making changes to docker-compose.yml or this file it is useful to
+# run `docker-compose config` which shows how the two files get merged together
+
+version: '2'
+services:
+  app:
+    ports:
+      - "9292"
