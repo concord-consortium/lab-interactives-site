@@ -68,7 +68,7 @@
         "    var selector = value;",
         "    if (get('sidechainOnly')) selector += ' and sidechain';",
         "    var wireframeSelector = selector + ' or ' + value + '.ca';",
-        "    return 'select all; color translucent 0.9; color trace translucent 0.9; select ' + selector + '; color opaque; select ' + wireframeSelector +'; wireframe 0.15; cpk 20%;';",
+        "    return 'select all; color translucent 0.9; color trace translucent 0.9; select ' + selector + '; color opaque; select ' + wireframeSelector +'; wireframe 0.15; cpk 20%; color bonds opaque;';",
         "  }",
         "}",
         "",
