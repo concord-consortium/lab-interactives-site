@@ -33,7 +33,7 @@
     {
       "type": "md2d",
       "id": "instructions",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/instructions.json",
+      "url": "models/lab-version/1/md2d/interactions/comparing-polar-non-polar/instructions.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
