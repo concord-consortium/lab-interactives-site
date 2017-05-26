@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <title>Lab Interactive Browser</title>
+    {{{ fontface_link }}}
+    <link href='vendor/jquery-ui/jquery-ui.css' rel='stylesheet' type='text/css'>
+    <link href='vendor/codemirror/lib/codemirror.css' rel='stylesheet' type='text/css'>
+    <link href='vendor/chosen/chosen.css' rel='stylesheet' type='text/css'>
+    <link href='vendor/lab-grapher/lab-grapher.css' rel='stylesheet' type='text/css'>
+    <link href='interactives.css' rel='stylesheet' type='text/css'>
+    <script src='vendor/modernizr/modernizr.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+      if (!Modernizr.svg) { window.location = 'browser-upgrade.html'; }
+    </script>
+    {{{ lab_js_dependencies }}}
+    {{{ lab_js_additional_dependencies }}}
+    {{{ analytics }}}
+    <script src='vendor/shutterbug/shutterbug.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div id='header'>
+      <a href='http://www.concord.org/' id='logo'>
+        <img src='resources/cc-logo.png'>
+      </a>
+      <div class='row'>
+        <h1><a href='index.html'>Lab</a>:
+        <a href=''>Interactive Browser</a></h1>
+        <span class='title'>additional links:</span>
+        <a class='opens-in-new-window' href='{{{ embeddable_page }}}' id='embeddable-link' target='_blank'>Embeddable</a>
+        <a class='opens-in-new-window' href='{{{ embeddable_page }}}' id='codap-link' target='_blank'>CODAP</a>
+        <a class='opens-in-new-window' href='{{{ embeddable_page }}}' id='codap-staging-link' target='_blank'>CODAP (Staging)</a>
+        <a class='opens-in-new-window' href='' id='original-import-link' target='_blank'>Original Imported Model</a>
+      </div>
+      <div class='row'>
+        <span class='title'>select Interactive:</span>
+        <select id='select-interactive'></select>
+        <form class='controls' id='render-controls'>
+          <span class='title'>size:</span>
+          <select class='serialize' id='select-interactive-size' name='select-interactive-size'>
+            <option value='tiny'>tiny</option>
+            <option value='small'>small</option>
+            <option selected='selected' value='medium-small'>medium-small</option>
+            <option selected='selected' value='medium'>medium</option>
+            <option value='large'>large</option>
+          </select>
+          <span class='title'>Lab env:</span>
+          <select id='select-lab-environment' name='select-lab-environment'>
+            <option value=''>default</option>
+            <option value='production'>production</option>
+            <option value='staging'>staging</option>
+            <option value='dev'>development</option>
+            <option value='local'>local</option>
+          </select>
+        </form>
+      </div>
+      <div class='row'>
+        <form id='interactive-controls'>
+          <div class='controls' id='select-filters'>
+            <span class='title'>categories:</span>
+            <label for='curriculum-filter'>
+              Curriculum
+              <input checked='checked' class='serialize' id='curriculum-filter' name='curriculum-filter' type='checkbox'>
+            </label>
+            <label for='examples-filter'>
+              Examples
+              <input checked='checked' class='serialize' id='examples-filter' name='examples-filter' type='checkbox'>
+            </label>
+            <label for='tests-filter'>
+              Tests
+              <input checked='checked' class='serialize' id='tests-filter' name='tests-filter' type='checkbox'>
+            </label>
+            <label for='benchmarks-filter'>
+              Benchmarks
+              <input checked='checked' class='serialize' id='benchmarks-filter' name='benchmarks-filter' type='checkbox'>
+            </label>
+            <span class='title'>publication status:</span>
+            <label for='public'>
+              Public
+              <input checked='checked' class='serialize' id='public' name='public' type='checkbox'>
+            </label>
+            <label for='draft'>
+              Draft*
+              <input checked='checked' class='serialize' id='draft' name='draft' type='checkbox'>
+            </label>
+            <label for='broken'>
+              Broken**
+              <input class='serialize' id='broken' name='broken' type='checkbox'>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id='interactive-header'>
+      <div id='interactive-forward-back'>
+        <span class='arrow' id='run-benchmarks-button'>Run Benchmarks</span>
+        <span class='arrow' id='previous-interactive'>previous</span>
+        <span class='arrow' id='next-interactive'>next</span>
+      </div>
+      <div id='interactive-title'></div>
+    </div>
+    <div id='interactive-error-dialog'></div>
+    <div class='standard-interactive-layout' id='content'>
+      <div class='ui-widget-content' id='iframe-wrapper'></div>
+    </div>
+    <div id='extras-bottom'>
+      <div id='extras-bottom-banner'>Extras</div>
+      <ul class='sortable' id='sortable-extras'>
+        <li class='extras-item ui-state-default' id='editor'>
+          <div class='extras-item-banner'>
+            <input id='show-editor' type='checkbox'>
+            <label for='show-editor'>Interactive Editor</label>
+          </div>
+          <div class='extras-item-content' id='editor-content'>
+            <div class='extras-item-controls'>
+              <button id='update-interactive-button'>Update Interactive</button>
+              <button id='update-json-from-interactive-button'>Update JSON from Interactive</button>
+              <a class='opens-in-new-window' href='' id='json-interactive-link' target='_blank'>Interactive JSON</a>
+              <input id='edit-mode' type='checkbox'>
+              <label for='edit-mode'>Edit Mode</label>
+              <button class='right' id='autoformat-interactive-json-button'>AutoFormat</button>
+            </div>
+            <textarea id='interactive-text-area'></textarea>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default' id='model-editor'>
+          <div class='extras-item-banner'>
+            <input id='show-model-editor' type='checkbox'>
+            <label for='show-model-editor'>Model Editor</label>
+          </div>
+          <div class='extras-item-content' id='model-editor-content'>
+            <div class='extras-item-controls'>
+              <button id='update-model-button'>Update Model</button>
+              <button id='update-json-from-model-button'>Update JSON from Model</button>
+              <a class='opens-in-new-window' href='' id='json-model-link' target='_blank'>Model JSON</a>
+              <a class='opens-in-new-window' href='' id='original-model-link' target='_blank'>Original Model</a>
+              <button class='right' id='autoformat-model-json-button'>AutoFormat</button>
+            </div>
+            <textarea id='model-text-area'></textarea>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default' id='model-energy-graph'>
+          <div class='extras-item-banner'>
+            <input id='show-model-energy-graph' type='checkbox'>
+            <label for='show-model-energy-graph'>Energy Graph</label>
+          </div>
+          <div class='extras-item-content' id='model-energy-graph-content'>
+            <div class='ke-chart graph' id='model-energy-graph-chart'></div>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default' id='model-datatable'>
+          <div class='extras-item-banner'>
+            <input id='show-model-datatable' type='checkbox'>
+            <label for='show-model-datatable'>Atoms Datatable</label>
+          </div>
+          <div class='extras-item-content' id='model-datatable-content'>
+            <div class='extras-item-controls' id='model-datatable-stats'></div>
+            <div class='model-datatable-results'>
+              <table id='model-datatable-results'>
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default' id='benchmark'>
+          <div class='extras-item-banner'>
+            <input id='show-benchmarks' type='checkbox'>
+            <label for='show-benchmarks'>Benchmarks</label>
+          </div>
+          <div class='extras-item-content' id='benchmarks-content'>
+            <div class='extras-item-controls'>
+              <div class='extras-item-description'>
+                Collect performance data by running 100 steps: first just the graphics, then
+                just the model, and finally the model and graphics together.
+                First row contains averaged values from all runs.
+              </div>
+            </div>
+            <button id='submit-benchmarks-button'>Submit Data</button>
+            <span id='submit-success'></span>
+            <div class='small'>
+              Note: Some identifying information will be sent along with your benchmark data. To see more
+              <a href='#' id='show-browser-submission-info'>click here.</a>
+            </div>
+            <div id='browser-submission-info'>
+              <p>
+                In order to measure performance over time, we save a semi-unique "fingerprint" of
+                each browser that runs the benchmarks. This allows us to look at performance over
+                time of models running in a single user's browser.
+              </p>
+              <p>
+                To do this, we log a number of identifying pieces on information about your
+                browser, such as the browser's userAgent, language settings, colorDepth, etc. This
+                information is then hashed into a single number.
+              </p>
+              <p>
+                The unique fingerprint for your browser is
+                <span id='browser-fingerprint'></span>
+              </p>
+              <p>
+                It may be possible to use this information to uniquely identify your browser
+                elsewhere on the web. If you prefer that this information is not submitted, please
+                do not hit the Submit button.
+              </p>
+              <p>
+                This funationality uses the
+                <a href='https://github.com/Valve/fingerprintjs'>fingerprintjs</a>
+                library.
+              </p>
+            </div>
+            <div class='model-benchmark-results'>
+              <table class='model-benchmark-results' id='model-benchmark-results'></table>
+            </div>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default' id='snapshot'>
+          <div class='extras-item-banner'>
+            <input id='show-snapshot' type='checkbox'>
+            <label for='show-snapshot'>
+              <i class='icon-camera-retro'></i>
+              SnapShots
+            </label>
+          </div>
+          <div class='extras-item-content' id='snapshot-content'>
+            <div class='extras-item-controls'>
+              <button id='export_interactive'>
+                snapshot interactive
+              </button>
+            </div>
+            <div class='extras-item-description'>
+              take a screen capture of your model or interactive.
+            </div>
+            <div id='image_output'>
+              (no snapshot taken yet)
+            </div>
+            <div id='authored_screenshot'>
+              <img id='authored_screenshot_img'>
+            </div>
+          </div>
+        </li>
+        <li class='extras-item ui-state-default'>
+          <div class='extras-item-banner'>
+            <a id='learner_url' target='_blank'>
+              LearnerUrl
+            </a>
+          </div>
+          <div class='extras-item-content'>
+            <div class='extras-item-description'>
+              A link to the embeddable suitable for bundling with learner data.
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    {{{ js_site_config }}}
+    <script src='{{{ lab_js_url }}}' type='text/javascript'></script>
+    <script src='embeddable.js' type='text/javascript'></script>
+    <script src='application.js' type='text/javascript'></script>
+  </body>
+</html>

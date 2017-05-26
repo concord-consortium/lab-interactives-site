@@ -20,39 +20,39 @@
     "type": "git",
     "url": "https://github.com/concord-consortium/lab.git"
   },
+  "scripts": {
+    "server": "http-server public -p 9292"
+  },
   "dependencies": {
-    "optimist": ">=0.6.0",
-    "coffee-script": "~1.7.0",
-    "requirejs": ">=2.1.8",
     "amdefine": ">=0.0.8",
-    "mustache": "~0.7.2",
     "backbone": "1.1.0",
-    "underscore": ">=1.5.1",
+    "coffee-script": "~1.7.0",
+    "markdown": ">=0.5.0",
+    "mustache": "~0.7.2",
+    "optimist": ">=0.6.0",
+    "requirejs": ">=2.1.8",
     "uglify-js": ">=2.4.0",
-    "markdown": ">=0.5.0"
+    "underscore": ">=1.5.1"
   },
   "devDependencies": {
-    "jsdom": ">=0.8.9",
-    "sizzle": ">=1.1.0",
-    "vows": "0.7.0",
-    "node-inspector": "0.3.4",
-    "jshint": ">=2.1.10",
+    "chai": ">=1.7.2",
     "cheerio": "0.12.4",
+    "handlebars": "^4.0.6",
+    "http-server": "^0.9.0",
     "jade": ">=0.35.0",
+    "jsdom": ">=0.8.9",
+    "jshint": ">=2.1.10",
+    "klaw-sync": "^1.1.2",
     "mkdirp": "0.3.2",
     "mocha": "~1.17.1",
+    "node-inspector": "0.3.4",
+    "node-sass": "^4.5.2",
     "should": "3.0.1",
     "sinon": ">=1.7.3",
-    "chai": ">=1.7.2"
+    "sizzle": ">=1.1.0",
+    "vows": "0.7.0"
   },
   "directories": {
     "bin": "node-bin"
-  },
-  "files": [
-    "md-engine/2d-molecules.js",
-    "md-engine/2d-molecules.min.js"
-  ],
-  "scripts": {
-    "test": "./node_modules/vows/bin/vows"
   }
 }

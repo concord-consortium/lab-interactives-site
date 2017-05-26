@@ -6,8 +6,9 @@
 require 'bundler/setup'
 require 'fileutils'
 require 'json'                       # http://flori.github.com/json/doc/index.html
-require_relative 'setup.rb'
 
+PROJECT_ROOT = File.expand_path('../..',  __FILE__)
+SRC_PATH  = File.join(PROJECT_ROOT, 'src')
 Dir.chdir SRC_PATH
 
 LANG = ARGV[0]

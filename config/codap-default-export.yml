@@ -1,8 +1,0 @@
----
-# environment can be 'development' or 'production'.
-:environment: development
-# use the lab_root_url to override the default lab urls used in
-# the embeddable-*.html files, e.g.:
-:lab_root_url:
-  :development: //lab-framework-s3.concord.org/branch/codap-default-export/lab
-  :default:     //lab-framework-s3.concord.org/branch/codap-default-export/lab

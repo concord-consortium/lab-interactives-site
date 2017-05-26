@@ -3,11 +3,10 @@
 # Utilities
 JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
-MARKDOWN_COMPILER = bundle exec kramdown
-SASS_COMPILER = bundle exec sass -I src -I public
-HAML_COMPILER = bundle exec haml
+SASS_COMPILER = node_modules/node-sass/bin/node-sass -q
+HANDLEBARS_COMPILER = ./script/compile-handlebars.js
 
-GENERATE_INTERACTIVE_INDEX = ruby src/helpers/process-interactives.rb
+GENERATE_INTERACTIVE_INDEX = node script/process-interactives.js
 
 FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 
@@ -16,8 +15,8 @@ FONT_FOLDERS := $(shell find vendor/fonts -mindepth 1 -maxdepth 1)
 INTERACTIVE_FILES := $(shell find src/models src/interactives -name '*.json' -exec echo {} \; | sed s'/src\/\(.*\)/public\/\1/' )
 vpath %.json src
 
-HAML_FILES := $(shell find src -name '*.html.haml' -exec echo {} \; | sed s'/src\/\(.*\)\.haml/public\/\1/' )
-vpath %.haml src
+HANDLEBARS_FILES := $(shell find src -name '*.html.handlebars' -exec echo {} \; | sed s'/src\/\(.*\)\.handlebars/public\/\1/' )
+vpath %.handlebars src
 
 SASS_FILES := $(shell find src -name '*.sass' -and -not -path "src/sass/*" -exec echo {} \; | sed s'/src\/\(.*\)\.sass/public\/\1.css/' )
 SASS_FILES += $(shell find src -name '*.scss' -and -not -path "src/sass/*" -exec echo {} \; | sed s'/src\/\(.*\)\.scss/public\/\1.css/' )
@@ -28,11 +27,6 @@ COFFEESCRIPT_FILES := $(shell find src/doc -name '*.coffee' -exec echo {} \; | s
 COFFEESCRIPT_FILES += $(shell find src/examples -name '*.coffee' -exec echo {} \; | sed s'/src\/\(.*\)\.coffee/public\/\1.js/' )
 COFFEESCRIPT_FILES += $(shell find src/experiments -name '*.coffee' -exec echo {} \; | sed s'/src\/\(.*\)\.coffee/public\/\1.js/' )
 vpath %.coffee src
-
-MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard *.md)) public/examples.html
-DEV_MARKDOWN_FILES := $(patsubst %.md, public/%.html, $(wildcard developer-doc/*.md))
-
-CURRENT_CONFIG_FILE := $(shell script/branch-config-file.rb)
 
 # default target executed when running make. Run the $(MAKE) public task rather than simply
 # declaring a dependency on 'public' because 'bundle install' and 'npm install' might update some
@@ -51,9 +45,7 @@ everything:
 
 .PHONY: src
 src: \
-	$(MARKDOWN_FILES) \
-	$(DEV_MARKDOWN_FILES) \
-	$(HAML_FILES) \
+	$(HANDLEBARS_FILES) \
 	$(SASS_FILES) \
 	$(COFFEESCRIPT_FILES) \
 	$(INTERACTIVE_FILES) \
@@ -67,48 +59,39 @@ src: \
 	public/embeddable-staging.html \
 	public/embeddable-dev.html \
 	public/embeddable-local.html \
-	public/browser-check.html \
+	public/standalone/template.html \
 	public/interactives.json \
 	public/application.js
 
 # rebuild html files that use partials based on settings in project configuration
-public/interactives.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb default > $@
-public/interactives-production.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb production > $@
-public/interactives-staging.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb staging > $@
-public/interactives-dev.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb development > $@
-public/interactives-local.html: $(CURRENT_CONFIG_FILE) interactives.haml
-	script/generate-interactives-html.rb local > $@
+public/interactives-production.html: src/interactives.html.handlebars
+    LAB_ENV=production $(HANDLEBARS_COMPILER) $< $@
+public/interactives-staging.html: src/interactives.html.handlebars
+	LAB_ENV=staging $(HANDLEBARS_COMPILER) $< $@
+public/interactives-dev.html: src/interactives.html.handlebars
+	LAB_ENV=development $(HANDLEBARS_COMPILER) $< $@
+public/interactives-local.html: src/interactives.html.handlebars
+	LAB_ENV=local $(HANDLEBARS_COMPILER) $< $@
 
-public/embeddable.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb default > $@
-public/embeddable-production.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb production > $@
-public/embeddable-staging.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb staging > $@
-public/embeddable-dev.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb development > $@
-public/embeddable-local.html: $(CURRENT_CONFIG_FILE) embeddable.haml
-	script/generate-embeddable-html.rb local > $@
+public/embeddable-production.html: src/embeddable.html.handlebars
+	LAB_ENV=production $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-staging.html: src/embeddable.html.handlebars
+	LAB_ENV=staging $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-dev.html: src/embeddable.html.handlebars
+	LAB_ENV=development $(HANDLEBARS_COMPILER) $< $@
+public/embeddable-local.html: src/embeddable.html.handlebars
+	LAB_ENV=local $(HANDLEBARS_COMPILER) $< $@
+
+public/standalone/template.html: src/standalone/template.html.handlebars
+    LAB_ENV=production LAB_ROOT_URL=lab $(HANDLEBARS_COMPILER) $< $@
 
 .PHONY: clean
 clean:
-	ruby script/check-development-dependencies.rb
-	# remove the .bundle dir in case we are running this after running: make clean-for-tests
-	# which creates a persistent bundle grouping after installing just the minimum
-	# necessary set of gems for running tests using the arguments: --without development app
-	# Would be nice if bundle install had a --withall option to cancel this persistence.
-	rm -rf .bundle
 	mkdir -p public
 	$(MAKE) clean-public
 	# Remove Node modules.
 	rm -rf node_modules
 	rm -rf .sass-cache
-	# install/update Ruby Gems
-	bundle install
 	$(MAKE) prepare-submodules
 
 # public dir cleanup.
@@ -160,11 +143,8 @@ submodule-update-tags:
 #
 # ------------------------------------------------
 
-node_modules: node_modules/d3
-	npm install
-
-node_modules/d3:
-	npm install vendor/d3
+node_modules:
+	yarn || npm install
 
 # ------------------------------------------------
 #
@@ -186,7 +166,7 @@ public: \
 # used to generate resources from src/ to public/
 .PHONY: copy-resources-to-public
 copy-resources-to-public:
-	rsync -aq --exclude='helpers/' --exclude='layouts/' --exclude='modules/' --exclude='sass/' --exclude='vendor/' --exclude='lab/' --filter '+ */' --exclude='*.haml' --exclude='*.sass' --exclude='*.scss' --exclude='*.yaml' --exclude='*.coffee' --exclude='*.rb' --exclude='*.md' src/ public/
+	rsync -aq --exclude='helpers/' --exclude='layouts/' --exclude='modules/' --exclude='sass/' --exclude='vendor/' --exclude='lab/' --filter '+ */' --exclude='*.html.handlebars' --exclude='*.sass' --exclude='*.scss' --exclude='*.yaml' --exclude='*.coffee' --exclude='*.rb' --exclude='*.md' src/ public/
 
 public/examples:
 	mkdir -p public/examples
@@ -450,11 +430,8 @@ vendor/lab-energy2d-java:
 #
 # ------------------------------------------------
 
-test/%.html: test/%.html.haml
-	$(HAML_COMPILER) $< $@
-
-public/%.html: src/%.html.haml script/setup.rb
-	$(HAML_COMPILER) -r ./script/setup.rb $< $@
+public/%.html: src/%.html.handlebars script/compile-handlebars.js
+	LAB_ENV=default $(HANDLEBARS_COMPILER) $< $@
 
 public/%.html: src/%.html
 	cp $< $@
@@ -466,32 +443,11 @@ public/%.css: %.scss
 	$(SASS_COMPILER) $< $@
 
 public/%.css: %.sass
-	@echo $($<)
 	$(SASS_COMPILER) $< $@
 
 public/%.js: %.coffee
 	@rm -f $@
 	$(COFFEESCRIPT_COMPILER) --compile --print $< > $@
-
-# replace relative references to .md files for the static build
-# look for pattern like ](*.md) replace with ](*.html)
-# the ':' is hack so it doesn't match absolute http:// urls
-# the second command is necessary to match anchor references in md files
-%.md.static: %.md
-	@rm -f $@
-	sed -e s';\](\([^):]*\)\.md);\](\1.html);' -e s';\](\([^):]*\)\.md\(#[^)]*\));\](\1.html\2);' $< > $@
-
-public/developer-doc/%.html: developer-doc/%.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) -i GFM $< --template src/layouts/developer-doc.html.erb > $@
-
-public/examples.html: src/examples.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) $< --toc-levels 2..6 --template src/layouts/top-level.html.erb > $@
-
-public/%.html: %.md.static
-	@rm -f $@
-	$(MARKDOWN_COMPILER) $< --toc-levels 2..6 --template src/layouts/top-level.html.erb > $@
 
 public/interactives/%.json: src/interactives/%.json
 	@cp $< $@
@@ -514,15 +470,11 @@ public/interactives.json: $(INTERACTIVE_FILES)
 
 .PHONY: h
 h:
-	@echo $(HAML_FILES)
+	@echo $(HANDLEBARS_FILES)
 
 .PHONY: s
 s:
 	@echo $(SASS_FILES)
-
-.PHONY: m
-m:
-	@echo $(MARKDOWN_FILES)
 
 .PHONY: c
 c:
