@@ -1,4 +1,5 @@
 {
   "en-US": "interactives/air-pollution/air-pollution-aerial.json",
-  "es": "locales/es/interactives/air-pollution/contamina-aire-aerea.json"
+  "es": "locales/es/interactives/air-pollution/contamina-aire-aerea.json",
+  "it": "locales/it/interactives/air-pollution/contamina-aire-aerea.json"
 }

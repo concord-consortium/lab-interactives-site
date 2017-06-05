@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/empty.json",
   "en-US": "interactives/sam/diffusion/empty.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/empty.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/empty.json",
+  "it": "locales/it/interactives/sam/diffusion/empty.json"
 }

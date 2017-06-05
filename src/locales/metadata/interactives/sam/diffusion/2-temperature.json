@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/2-temperature.json",
   "en-US": "interactives/sam/diffusion/2-temperature.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/2-temperature.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/2-temperature.json",
+  "it": "locales/it/interactives/sam/diffusion/2-temperature.json"
 }

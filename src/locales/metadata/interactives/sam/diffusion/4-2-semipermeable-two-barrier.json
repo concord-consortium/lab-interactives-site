@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json",
   "en-US": "interactives/sam/diffusion/4-2-semipermeable-two-barrier.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json",
+  "it": "locales/it/interactives/sam/diffusion/4-2-semipermeable-two-barrier.json"
 }

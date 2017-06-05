@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/diffusion-sandbox.json",
   "en-US": "interactives/sam/diffusion/diffusion-sandbox.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/diffusion-sandbox.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/diffusion-sandbox.json",
+  "it": "locales/it/interactives/sam/diffusion/diffusion-sandbox.json"
 }
