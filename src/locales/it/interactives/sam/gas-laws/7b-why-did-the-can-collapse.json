@@ -1,5 +1,5 @@
 {
-  "title": "La colata di soda può",
+  "title": "La colata della lattina di soda",
   "publicationStatus": "draft",
   "subtitle": "Esplora come il calore e il numero di molecole influenzano l'equilibrio di pressione tra due gas.",
   "about": [
@@ -21,7 +21,7 @@
         "showVelocityVectors": true,
         "textBoxes": [
           {
-            "text": "Può parete",
+            "text": "Parete della lattina",
             "x": 1.7465425109863282,
             "y": 1.43,
             "width": 0.5,
@@ -31,7 +31,7 @@
             "hostIndex": 0
           },
           {
-            "text": "All'interno di soda può",
+            "text": "Interno della lattina di soda",
             "x": 0.02,
             "y": 0.25,
             "layer": 1,
@@ -39,7 +39,7 @@
             "backgroundColor": "rgb(250,190,210)"
           },
           {
-            "text": "La soda esterna può",
+            "text": "Fuori della lattina di soda",
             "x": 2.88,
             "y": 0.25,
             "layer": 1,
