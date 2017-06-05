@@ -187,5 +187,6 @@
       "text": "Reset",
       "action": "reloadModel();"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/5-strengthening-london-dispersion-attraction.json"
 }

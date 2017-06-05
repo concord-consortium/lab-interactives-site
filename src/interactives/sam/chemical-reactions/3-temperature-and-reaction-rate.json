@@ -105,5 +105,6 @@
     "bottom": [
       "temperature-slider"
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/3-temperature-and-reaction-rate.json"
 }

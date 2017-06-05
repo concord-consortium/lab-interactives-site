@@ -92,5 +92,6 @@
     "right": [
       "thermometer"
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/5-hydrogen-oxygen-reaction.json"
 }
