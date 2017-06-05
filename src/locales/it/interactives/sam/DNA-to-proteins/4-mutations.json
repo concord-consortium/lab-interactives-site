@@ -1,0 +1,155 @@
+   {
+  "title": "Mutazioni",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come cambiare la sequenza del DNA può cambiare la sequenza aminoacidica di una proteina.",
+  "aspectRatio": 1.2,
+  "about": [
+    "Le mutazioni sono errori nella sequenza del DNA. Usa il **Modifica il DNA** per cambiare l'intera sequenza o fare clic su un singolo nucleotide per fare una mutazione di inserzione, delezione o sostituzione. Come cambia la sequenza del DNA cambiare la proteina risultante?",
+    "",
+    "È possibile passare rapidamente tra la sequenza del DNA e la proteina finale usando i pulsanti **Show DNA** e **Show proteine**.",
+    "",
+    "Alcuni tipi di mutazioni sono più dannosi degli altri?"
+  ],
+  "fontScale": 0.75,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "transcribe",
+      "text": "Transcribir",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate",
+      "text": "Traducir",
+      "action": [
+        "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resette",
+      "action": "reloadModel();"
+    },
+    {
+      "type": "button",
+      "id": "stop",
+      "text": "Stop",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "next-state",
+      "text": "Continuare un passo",
+      "action": "animateToNextDNAState();"
+    },
+    {
+      "type": "button",
+      "id": "dna-dialog",
+      "text": "Modifica il DNA",
+      "action": "openDNADialog();"
+    },
+    {
+      "type": "button",
+      "id": "show-protein",
+      "text": "Mostra proteine",
+      "action": "set('DNAState', 'translation-end');"
+    },
+    {
+      "type": "button",
+      "id": "show-dna",
+      "text": "Mostra il DNA",
+      "action": "set('DNAState', 'dna');"
+    },
+    {
+      "type": "button",
+      "id": "start",
+      "text": "Avviare/continuare il modello",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "text": "Clicca su un nucleotide per eseguire una mutazione oppure "
+    },
+    {
+      "type": "text",
+      "id": "buffer",
+      "text": "|"
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label",
+        "dna-dialog"
+      ],
+      [
+        "show-dna",
+        "transcribe",
+        "buffer",
+        "translate",
+        "show-protein"
+      ],
+      [
+        "next-state",
+        "start",
+        "stop",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.3 * interactive.height",
+      "top": "model.bottom",
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/4-mutations.json"
+}

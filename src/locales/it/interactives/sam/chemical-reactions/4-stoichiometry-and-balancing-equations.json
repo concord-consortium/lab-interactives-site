@@ -1,0 +1,251 @@
+{
+  "title": "Stoichiometry and Balancing Equations",
+  "publicationStatus": "public",
+  "subtitle": "Ottenere i rapporti ragionevoli.",
+  "about": [
+    "Quando si scrive una reazione chimica è necessario soddisfare queste due leggi di chimica:",
+    "",
+    "1. **La legge di conservazione della massa**: La massa dei reagenti deve corrispondere alla massa dei prodotti.",
+    "2. **La legge di determinate proporzioni**: quando si crea una certa sostanza chimica esiste solo un corretto rapporto di reagenti.",
+    "",
+    "Per fare cloruro di idrogeno o qualsiasi altra sostanza chimica c'è solo un rapporto di reagenti che funziona",
+    "In modo che tutti l'idrogeno e il cloro siano usati per fare cloruro di idrogeno. Provate diversi rapporti ",
+    "Per vedere quali formano una reazione completa e nulla rimane. Qual è il rapporto più semplice dell'idrogeno?",
+    "Al cloro per la formazione di cloruro di idrogeno?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/page6$0.mml",
+      "viewOptions": {
+        "controlButtons": "",
+        "textBoxes": [
+          {
+            "text": "Selezionare una reazione da eseguire dal menu accanto al modello.",
+            "x": 0.1,
+            "y": 1.65,
+            "width": 2.15,
+            "fontSize": 0.17,
+            "backgroundColor": "#fafafa"
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "oneToOne",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/oneToOne.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.5,
+        "chemicalReactions": {
+          "bondEnergy": {
+            "default": 6,
+            "1-1": 1,
+            "2-2": 1
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "twoToOne",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToOne.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.5,
+        "chemicalReactions": {
+          "bondEnergy": {
+            "default": 6,
+            "1-1": 1,
+            "2-2": 1
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "twoToTwo",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToTwo.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.5,
+        "chemicalReactions": {
+          "bondEnergy": {
+            "default": 6,
+            "1-1": 1,
+            "2-2": 1
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "twoToThree",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/twoToThree.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.5,
+        "chemicalReactions": {
+          "bondEnergy": {
+            "default": 6,
+            "1-1": 1,
+            "2-2": 1
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "fourToFour",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page6/fourToFour.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "timeStep": 0.5,
+        "chemicalReactions": {
+          "bondEnergy": {
+            "default": 6,
+            "1-1": 1,
+            "2-2": 1
+          },
+          "activationEnergy": {
+            "default": 0.2,
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "reactionComplete",
+      "value": [
+        "var atoms = getNumberOfAtoms();",
+        "var expectedBonds = 0;",
+        "var props;",
+        "for(var i = 0, len = getNumberOfRadialBonds(); i < len; i++) {",
+        "  props = getRadialBondProperties(i);",
+        "  if (getAtomProperties(props.atom1).element !== getAtomProperties(props.atom2).element)",
+        "    expectedBonds += 1;",
+        "}",
+        "return atoms > 0 ? expectedBonds / (0.5 * atoms) * 100 : 0;"
+      ],
+      "unitAbbreviation": "%"
+    }
+  ],
+  "components": [
+    {
+      "id": "reaction-complete",
+      "type": "barGraph",
+      "property": "reactionComplete",
+      "title": "Reaction Complete",
+      "labels": 10,
+      "labelFormat": ".0f",
+      "units": true,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "id": "model-pulldown",
+      "type": "pulldown",
+      "options": [
+        {
+          "text": "Selezionare una reazione da eseguire",
+          "action": "loadModel('instructions');",
+          "selected": true
+        },
+        {
+          "text": "1 idrogeno: 1 cloro",
+          "action": "loadModel('oneToOne');"
+        },
+        {
+          "text": "2 idrogeno: 1 cloro",
+          "action": "loadModel('twoToOne');"
+        },
+        {
+          "text": "2 idrogeno: 2 cloro",
+          "action": "loadModel('twoToTwo');"
+        },
+        {
+          "text": "2 idrogeno: 3 cloro",
+          "action": "loadModel('twoToThree');"
+        },
+        {
+          "text": "4 idrogeno: 4 cloro",
+          "action": "loadModel('fourToFour');"
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "id": "right-lower",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "model.bottom",
+      "align": "center",
+      "padding-top": "1em"
+    },
+    {
+      "id": "right-upper",
+      "top": "model.top",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "right-lower.top",
+      "align": "center"
+    }
+  ],
+ "layout": {
+    "right-upper": [
+      "reaction-complete"
+    ],
+    "right-lower": [
+      "model-pulldown"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/4-stoichiometry-and-balancing-equations.json"
+}

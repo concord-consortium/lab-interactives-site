@@ -1,0 +1,125 @@
+{
+  "title": "Modellazione della trascrizione",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come una copia di mRNA è fatta di DNA.",
+  "aspectRatio": 1.05,
+  "about": [
+    "Un filo del DNA viene utilizzato come modello per creare una copia mRNA. Questo processo è chiamato trascrizione. Una copia di mRNA deve essere fatta perché il DNA non può lasciare il nucleo.",
+    "",
+    "I complessi proteici separano l'elica del DNA per consentire ai nucleotidi complementari di mRNA di legarsi alla sequenza del DNA. L'accoppiamento di nucleotidi è molto specifico.",
+    "",
+    "Usa il **A**, **U**, **G** e **C** pulsanti per inserire il nucleotide corretto di mRNA con ciascun nucleotide del DNA."
+  ],
+  "fontScale": 0.8,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page2/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGTTGACTCTAACTCGCATCCGCACTGTG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "begin",
+      "text": "Preparati per la trascrizione",
+      "action": "animateToDNAState('transcription:0');"
+    },
+    {
+      "type": "button",
+      "id": "transcribeA",
+      "text": "A",
+      "action": "transcribeDNAStep('A');"
+    },
+    {
+      "type": "button",
+      "id": "transcribeC",
+      "text": "C",
+      "action": "transcribeDNAStep('C');"
+    },
+    {
+      "type": "button",
+      "id": "transcribeG",
+      "text": "G",
+      "action": "transcribeDNAStep('G');"
+    },
+    {
+      "type": "button",
+      "id": "transcribeU",
+      "text": "U",
+      "action": "transcribeDNAStep('U');"
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resetta",
+      "action": "reloadModel();"
+    },
+    {
+      "type": "text",
+      "id": "label1A",
+      "text": "Clic"
+    },
+    {
+      "type": "text",
+      "id": "label1B",
+      "text": "per separare i fili del DNA."
+    },
+    {
+      "type": "text",
+      "id": "label2",
+      "text": "Quindi fare clic sul pulsante che rappresenta il corretto **complementare** nucleotide RNA per procedere al passo successivo nel processo di trascrizione:"
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1A",
+        "begin",
+        "label1B"
+      ],
+      [
+        "label2"
+      ],
+      [
+        "transcribeA",
+        "transcribeU",
+        "transcribeG",
+        "transcribeC",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.3 * interactive.height",
+      "top": "model.bottom",
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center"
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ],
+ "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/2-modeling-transcription.json"
+}

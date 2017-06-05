@@ -1,0 +1,97 @@
+{
+  "title": "Cambio di fase",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come l'input di energia causa di cambiare stati.",
+  "aspectRatio": 1.5,
+  "about": [
+    "La materia esiste come solidi, liquidi e gas e può cambiare stato tra questi.",
+    "",
+    "Il modello mostra un liquido a sinistra (piccoli atomi). La quantità di calore",
+    "l'energia è dimostrata dall'ombreggiatura dell'energia cinetica (KE), con tonalità più profonde di rosso",
+    "rappresentano più atomi energetici. Sul lato destro della barriera è un solido",
+    "material (large atoms).",
+    "",
+    "Esegui il modello. Quanta energia è in grado di penetrare nella barriera? Rimuovere la barriera.",
+    "Quanto velocemente gli atomi più energici scioglieranno il solido?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page6$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page6/page6$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Solido freddo",
+            "x": 4.175,
+            "y": 0.275,
+            "fontScale": 0.9,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(128,192,255)"
+          },
+          {
+            "text": "Liquido caldo",
+            "x": 0.05,
+            "y": 0.275,
+            "fontScale": 0.9,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(255, 190, 194)"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "largeAtomKE",
+      "label": "Kinetic Energy of Large Atoms",
+      "unitType": "energy",
+      "value": [
+        "var largeKE = 0;",
+        "var numLarge = 0;",
+        "var elemNum = 3;",
+        "var mass = getElementProperties(elemNum).mass;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == elemNum) {",
+        "    largeKE += 0.5 * mass * Math.pow(getAtomProperties(i).speed,2);",
+        "    numLarge++;",
+        "  }",
+        "}",
+        "return (largeKE/numLarge)*100000;"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "Ombreggiatura KE",
+      "property": "keShading"
+    },
+    {
+      "type": "button",
+      "id": "withdraw-barrier",
+      "text": "Togliere la barriera",
+      "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0) };"
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 5,
+      "title": "Avg. Energia cinetica di grandi atomi",
+      "property": "largeAtomKE"
+    }
+  ],
+  "layout": {
+    "right": [
+      "bar-graph"
+    ]
+  },
+  "template": "narrow-right",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/6-phase-changes-caused-by-energy-input.json"
+}

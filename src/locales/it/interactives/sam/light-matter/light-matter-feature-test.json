@@ -1,0 +1,72 @@
+{
+  "title": "Test della funzionalità della materia leggera",
+  "publicationStatus": "draft",
+  "subtitle": "Test delle caratteristiche del modello Light-Matter",
+  "about": "",
+  "aspectRatio": 1.5,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "blackbody$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/blackbody/blackbody$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 0,
+      "max": 10000,
+      "labels": [
+        {
+          "value": 0,
+          "label": "Low"
+        },
+        {
+          "value": 10000,
+          "label": "High"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperatura",
+      "property": "targetTemperature"
+    },
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "property": "temperature",
+      "title": "Temperatura (K)",
+      "labels": 0,
+      "min": 0,
+      "max": 10000
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-light-source",
+      "text": "Sorgente luminosa",
+      "textOn": "right",
+      "property": "lightSourceEnabled"
+    },
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "Visualizza calore nelle molecole",
+      "property": "keShading"
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      "enable-light-source",
+      "ke-shading"
+    ]
+  },
+  "template": "left-right-bottom",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/light-matter-feature-test.json"
+}

@@ -1,0 +1,111 @@
+{
+  "title": "Frequenza di temperatura e di reazione",
+  "publicationStatus": "public",
+  "subtitle": "Come influenza la temperatura sulla velocità di reazione?",
+  "about": [
+    "Esplora il ruolo della temperatura sul tasso di reazione. Nota: In questo modello qualsiasi",
+    "Il calore generato dalla reazione stessa viene rimosso, mantenendo la temperatura",
+    "Costante per isolare l'effetto della temperatura ambientale sulla velocità di reazione.",
+    "",
+    "Segui questi passi:",
+    "",
+    "1. Utilizzare il dispositivo di scorrimento della temperatura per impostare la temperatura di destinazione.",
+    "2. Esegui il modello.",
+    "3. Ripristinare il modello e provare una temperatura diversa.",
+    "",
+    "Misurare la velocità di reazione usando il grafico per vedere quando la reazione è relativamente stabile all'apertura del circa 80%."
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page3/page3$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page3/page3$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showClock": true,
+        "imageMapping": {
+          "reactionGoalFlat.png": "reactionGoalFlat.svg"
+        }
+      },
+      "onLoad": [
+        "setComponentDisabled('temperature-slider', false);",
+        "onStart(function() {",
+        "  setComponentDisabled('temperature-slider', true);",
+        "});"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "reactionComplete",
+      "value": [
+        "var atoms = getNumberOfAtoms();",
+        "var bonds = getNumberOfRadialBonds();",
+        "return atoms > 0 ? bonds / (0.5 * atoms) * 100 : 0;"
+      ],
+      "unitAbbreviation": "%"
+    }
+  ],
+  "components": [
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "property": "targetTemperature",
+      "min": 200,
+      "max": 12000,
+      "steps": 100,
+      "title": "Temperatura",
+      "labels": [
+        {
+          "value": 200,
+          "label": "low"
+        },
+        {
+          "value": 12000,
+          "label": "high"
+        }
+      ],
+      "width": "100%"
+    },
+    {
+      "id": "reaction-complete",
+      "type": "barGraph",
+      "property": "reactionComplete",
+      "title": "Reaction Complete",
+      "labels": 10,
+      "labelFormat": ".0f",
+      "units": true,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "interactive.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "1em"
+    }
+  ],
+  "layout": {
+    "right": [
+      "reaction-complete"
+    ],
+    "bottom": [
+      "temperature-slider"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/3-temperature-and-reaction-rate.json"
+}

@@ -1,0 +1,158 @@
+{
+  "title": "Fase Modifica con due grafici a barre",
+  "publicationStatus": "draft",
+  "subtitle": "Esplora come l'input di energia causa di cambiare stati.",
+  "aspectRatio": 1.65,
+  "about": [
+    "La materia esiste come solidi, liquidi e gas e può cambiare stato tra questi.",
+    "",
+    "Il modello mostra un liquido a sinistra (piccoli atomi). La quantità di calore",
+    "l'energia è dimostrata dall'ombreggiatura dell'energia cinetica (KE), con tonalità più profonde di rosso",
+    "rappresentano più atomi energetici. Sul lato destro della barriera è un solido",
+    "materiale (grandi atomi).",
+    "",
+    "Esegui il modello. Quanta energia è in grado di penetrare nella barriera? Rimuovere la barriera.",
+    "Quanto velocemente gli atomi più energici scioglieranno il solido?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page6$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page6/page6$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Cold Solid",
+            "x": 4.1,
+            "y": 0.4,
+            "fontScale": 0.9,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(128,192,255)"
+          },
+          {
+            "text": "Liquido caldo",
+            "x": 0.05,
+            "y": 0.4,
+            "fontScale": 0.9,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(255, 190, 194)"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "largeAtomKE",
+      "label": "Energia cinetica di grandi atomi",
+      "unitType": "energy",
+      "value": [
+        "var largeKE = 0;",
+        "var numLarge = 0;",
+        "var elemNum = 3;",
+        "var mass = getElementProperties(elemNum).mass;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == elemNum) {",
+        "    largeKE += 0.5 * mass * Math.pow(getAtomProperties(i).speed,2);",
+        "    numLarge++;",
+        "  }",
+        "}",
+        "return (largeKE/numLarge)*100000;"
+      ]
+    },
+    {
+      "name": "smallAtomKE",
+      "label": "Energia cinetica di piccoli atomi",
+      "unitType": "energy",
+      "value": [
+        "var smallKE = 0;",
+        "var numSmall = 0;",
+        "var elemNum = 2;",
+        "var mass = getElementProperties(elemNum).mass;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == elemNum) {",
+        "    smallKE += 0.5 * mass * Math.pow(getAtomProperties(i).speed,2);",
+        "    numSmall++;",
+        "  }",
+        "}",
+        "return (smallKE/numSmall)*100000;"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "ke-shading",
+      "text": "Ombreggiatura KE",
+      "property": "keShading"
+    },
+    {
+      "type": "button",
+      "id": "withdraw-barrier",
+      "text": "Togliere la barriera",
+      "action": "if (getNumberOfObstacles() > 0) { removeObstacle(0) };"
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 5,
+      "title": "Avg. Energia cinetica di grandi atomi",
+      "property": "largeAtomKE"
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph2",
+      "min": 0,
+      "max": 5,
+      "title": "Avg. Energia cinetica di piccoli atomi",
+      "property": "smallAtomKE"
+    }
+  ],
+  "layout": {
+    "left": [
+      "bar-graph2"
+    ],
+    "right": [
+      "bar-graph"
+    ]
+  },
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "width": "interactive.width"
+    },
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "model.height",
+      "padding-right": "1em",
+      "align": "right",
+      "min-width": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/6-phase-changes-caused-by-energy-input-two-bar-graphs.json"
+}

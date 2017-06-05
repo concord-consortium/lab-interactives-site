@@ -1,0 +1,56 @@
+{
+  "title": "Harvesting Light per la fotosintesi",
+  "publicationStatus": "draft",
+  "subtitle": "Foglie colorate diverse assorbono, riflettono e trasmettono diversi fotoni. È la luce che una foglia assorbe lo stesso colore della foglia?",
+  "about": "Foglie colorate diverse assorbono, riflettono e trasmettono diversi fotoni. È la luce che una foglia assorbe lo stesso colore della foglia?",
+  "aspectRatio": 1.0,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "blackbody$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/photosynthesis/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "greenleaf.gif": "greenleaf.svg",
+          "redleaf.gif": "redleaf.svg"
+        }
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceAngularFrequency",
+      "initialValue": 0,
+      "onChange": [
+
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "angular-frequency-slider",
+      "min": 0,
+      "max": 15,
+      "labels": [
+        {
+          "value": 0,
+          "label": "Low"
+        },
+        {
+          "value": 10000,
+          "label": "High"
+        }
+      ],
+      "steps": 50,
+      "title": "Temperatura",
+      "property": "lightSourceAngularFrequency"
+    }
+  ],
+  "layout": {
+  },
+  "template": "left-right-bottom",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/harvesting-light.json"
+}

@@ -1,0 +1,193 @@
+{
+  "title": "Fattori che interessano le attrattive di dispersione di Londra",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come le differenze nella dimensione e nella forma molecolare influenzano la forza delle attrattive di dispersione di Londra.",
+  "about": [
+    "Alcune molecole non polari hanno attrazioni più forti di altre. Scegli un paio di",
+    "Molecole dal menu a discesa e \"tirare\" sulla stella per separare le molecole.",
+    "Perché la dimensione e la forma influenzano la forza dell'attrazione tra due molecole non polari?"
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/instructions.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Esplora le diverse forze attraenti tra molecole di diversa dimensione e forma. Cercare come l'area di stretto contatto tra le molecole influenza la loro attrazione.",
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.14,
+            "width": 3.2
+          },
+          {
+            "text": "Scegli una coppia di molecole dal menu qui sotto.",
+            "x": 0.4,
+            "y": 0.6,
+            "fontSize": 0.14,
+            "width": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "npSmallStraight",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npSmallStraight.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Piccole molecole rettilinee",
+            "x": 1.36,
+            "y": 1.85,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "npLargeStraight",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npLargeStraight.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Grandi molecole dritte",
+            "x": 1.35,
+            "y": 1.85,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "npStraightJagged",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightJagged.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Grandi molecole dritte e piegate",
+            "x": 1.08,
+            "y": 1.85,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "npStraightRound",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightRound.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Grandi molecole dritte e rotonde",
+            "x": 1.01,
+            "y": 1.85,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "npCurvedRound",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npCurvedRound.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Grandi molecole curve e rotonde",
+            "x": 1.05,
+            "y": 1.85,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "pulldown1",
+      "options": [
+        {
+          "text": "Seleziona una coppia di molecole",
+          "action": "loadModel('instructions');"
+        },
+        {
+          "text": "Piccole molecole",
+          "action": "loadModel('npSmallStraight');"
+        },
+        {
+          "text": "Grandi molecole dritte",
+          "action": "loadModel('npLargeStraight');"
+        },
+        {
+          "text": "Grande dritto e piegato",
+          "action": "loadModel('npStraightJagged');"
+        },
+        {
+          "text": "Grande dritto e circolare",
+          "action": "loadModel('npStraightRound');"
+        },
+        {
+          "text": "Grande curva e circolare",
+          "action": "loadModel('npCurvedRound');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resette",
+      "action": "reloadModel();"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/5-strengthening-london-dispersion-attraction.json"
+}

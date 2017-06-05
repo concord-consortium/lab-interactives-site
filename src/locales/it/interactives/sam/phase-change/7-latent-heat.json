@@ -1,0 +1,26 @@
+{
+  "title": "Calore latente",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page7$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page7/page7$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "start-heating",
+      "text": "Avviare il riscaldamento",
+      "action": ""
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/7-latent-heat.json"
+}

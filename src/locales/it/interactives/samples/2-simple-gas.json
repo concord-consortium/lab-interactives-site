@@ -1,0 +1,18 @@
+{
+  "title": "Semplice gas",
+  "publicationStatus": "sample",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "simple-gas$0",
+      "url": "models-converted/lab-version/1/md2d/new-examples-for-nextgen/simple-gas$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/samples/2-simple-gas.json"
+}

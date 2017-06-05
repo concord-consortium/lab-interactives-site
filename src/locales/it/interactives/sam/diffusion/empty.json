@@ -1,0 +1,26 @@
+{
+  "title": "Modello di diffusione vuoto",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/original/empty.json"
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "add-atom",
+      "text": "Aggiungi atomi",
+      "action": "var i = 5; while (i--) addRandomAtom();"
+    }
+  ],
+  "layout": {
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/empty.json"
+}

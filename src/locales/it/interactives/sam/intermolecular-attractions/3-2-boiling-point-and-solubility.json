@@ -1,0 +1,55 @@
+{
+  "title": "Punto di ebollizione",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come il punto di ebollizione appare a livello molecolare con sostanze polari e non polari.",
+  "about": [
+    "Le molecole non polari (grigie) evaporano o si bollire più rapidamente delle molecole polari (blu e rosso).",
+    "Le attrattive tra le molecole sono indicate con linee tratteggiate. Eseguire il modello, quindi riscaldare i liquidi.",
+    "Cosa sembra bollente a livello molecolare?"
+  ],
+  "aspectRatio": 1.7,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0-with-heatbath",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page3/page3$0-with-heatbath.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "cool",
+      "text": "Freddo",
+      "action": "adjustTemperature(0.9);"
+    },
+    {
+      "type": "button",
+      "id": "heat",
+      "text": "Calore",
+      "action": "adjustTemperature(1.1); limitHighTemperature(5000);"
+    },
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "property": "temperature",
+      "units": true,
+      "labelFormat": "3r",
+      "min": 0,
+      "max": 700
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      "cool",
+      "heat"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/3-2-boiling-point-and-solubility.json"
+}

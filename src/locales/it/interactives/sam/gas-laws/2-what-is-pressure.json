@@ -1,0 +1,143 @@
+{
+  "title": "Cos'è la pressione?",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come il gas esercita pressione sui lati di un contenitore.",
+  "category": "Chemistry",
+  "subCategory": "States of matter",
+  "screenshot": "http://screenshots.lab.concord.org/2-what-is-pressure.png",
+  "about": [
+    "I gas non hanno una forma o un volume definiti. Quando sono costretti ad un contenitore,",
+    "Possiamo misurare la pressione che esercitano sulle pareti del contenitore.",
+    "",
+    "Il modello mostra l'interno (atomi gialli) e l'esterno (atomi verdi) di un palloncino.",
+    "La barriera teal rappresenta la parete del palloncino.",
+    "",
+    "Aggiungi gli atomi al pallone. Guarda cosa succede."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page2/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Palloncino interno",
+            "x": 0.7,
+            "y": 2.45,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          },
+          {
+            "text": "Palloncino esterno",
+            "x": 3.35,
+            "y": 2.45,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          },
+          {
+            "text": "Pelle di palloncino",
+            "x": 2.1593974304199217,
+            "y": 1.5,
+            "width": 0.3,
+            "textAlign": "center",
+            "layer": 1,
+            "hostType": "RectangularObstacle",
+            "hostIndex": 0
+          },
+          {
+            "text": "Atomi dentro: 40",
+            "x": 0.7,
+            "y": 0.25,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(160,206,219)"
+          }
+        ]
+      },
+      "onLoad": [
+        "var atomNum = 0;",
+        "var obsX = getObstacleProperties(0).x;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x < obsX) {",
+        "    atomNum++;",
+        "  }",
+        "}",
+        "set('atomInside', atomNum);"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "atomInside",
+      "label": "Atoms inside balloon",
+      "onChange": "setTextBoxProperties(3, {text: 'Atoms inside: ' + value})",
+      "initialValue": 0
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "show-velocity",
+      "text": "Mostra la velocità",
+      "property": "showVelocityVectors"
+    },
+    {
+      "type": "button",
+      "id": "add-atom",
+      "text": "Aggiungere un atomo al palloncino",
+      "action": [
+        "var elemNum = 3;",
+        "var obsX = getObstacleProperties(0).x;",
+        "var atomSigma = getElementProperties(elemNum).sigma;",
+        "var avgVx = 0;",
+        "var avgVy = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  avgVx += Math.abs(getAtomProperties(i).vx);",
+        "  avgVy += Math.abs(getAtomProperties(i).vy);",
+        "}",
+        "avgVx /= atomNum;",
+        "avgVy /= atomNum;",
+        "while(!addAtom({ element: elemNum,",
+        "                 x: (obsX - atomSigma) * Math.random(),",
+        "                 y: get('height') * Math.random(),",
+        "                 vx: avgVx,",
+        "                 vy: avgVy})) {}",
+        "set('atomInside', get('atomInside') + 1);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "remove-atom",
+      "text": "Rimuovere un atomo dal palloncino",
+      "action": [
+        "var atomNum = getNumberOfAtoms();",
+        "var obsx = getObstacleProperties(0).x;",
+        "if (atomNum > 0) {",
+        "  for (var i = 0; i < atomNum; i++) {",
+        "    if (getAtomProperties(i).x < obsx) {",
+        "      removeAtom(i);",
+        "      set('atomInside', get('atomInside') - 1);",
+        "      break;",
+        "    }",
+        "  }",
+        "}"
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "add-atom",
+        "remove-atom",
+        "show-velocity"
+      ]
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/2-what-is-pressure.json"
+}

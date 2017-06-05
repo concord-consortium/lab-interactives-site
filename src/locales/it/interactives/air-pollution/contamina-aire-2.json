@@ -1,0 +1,255 @@
+{
+  "title": "Air Pollution 2",
+  "publicationStatus": "public",
+  "subtitle": "Formazione di inquinanti secondari",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Scopri il collegamento tra il tempo, la geografia e la qualità dell'aria.",
+    "Esplorare la combinazione di fattori che causano forme smog (inquinanti secondari come l'ozono) ",
+    "sopra una città.",
+    "",
+    "Cambio di direzione e velocità del vento, quantità di luce solare e la frequenza delle precipitazioni per scoprire",
+    "le condizioni che favoriscono la formazione di smog sono.",
+    "",
+    "Il grafico mostra l'indice di qualità dell'aria (ICA), un valore che esprime l'entità della contaminazione nella zona modellato. ",
+    "Un valore basso indica una migliore qualità dell'aria."
+  ],
+    "credits": ["Questo interattivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "è stato creato con una serie di Grans della [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in collaborazione con il  ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\").",
+              "",
+              "Traduzione di Daniel Andreas Crespo Ochoa."],
+  "theme": ["has","standalone-playback","no-slider-bar","graph-title-bg"],
+  "aspectRatio": 1.3,
+  "fontScale": 0.85,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/air-pollution/lab-embeddable.html",
+        "includeSunlight": true,
+        "sunlightAmount": 6,
+        "rainRate": 3,
+        "windSpeed": 0,
+        "numCars": 2,
+        "numFactories": 2,
+        "carPollutionRate": 200,
+        "factoryPollutionRate": 300
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": []
+    }
+  ],
+  "parameters": [
+  ],
+  "outputs": [
+    {
+      "name": "ticks",
+      "value": "return iframeOutput('ticks');"
+    },
+    {
+      "name": "primaryAQI",
+      "value": "return iframeOutput('primaryAQI');"
+    },
+    {
+      "name": "secondaryAQI",
+      "value": "return iframeOutput('secondaryAQI');"
+    }
+  ],
+  "components": [
+    {
+      "id": "aqiGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "primaryAQI",
+        "secondaryAQI"
+      ],
+      "xProperty": "ticks",
+      "title": "Inquinanti",
+      "titlePosition": "left",
+      "buttonsLayout": "Orizzontale",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Tiempo (ticks)",
+      "xmin": 0,
+      "xmax": 100,
+      "ylabel": "ICA (Indice di qualità dell'aria)",
+      "ymin": 0,
+      "ymax": 300,
+      "xTickCount": 4,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "0f",
+      "yFormatter": "0f",
+      "lines": true,
+      "bars": false,
+      "dataColors": [
+        "#664935",
+        "#F47921",
+        "#000000"
+      ],
+      "legendLabels": [
+          "Inquinanti primari",
+          "Inquinanti secondari"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "windSlider",
+      "type": "slider",
+      "min": -100,
+      "max": 100,
+      "steps": 10,
+      "title": "Vento",
+       "fillColor": "#459ACE",
+      "fillToValue": 0,
+      "labels": [
+        {
+          "value": "-100",
+          "label": "<i class='icon-arrow-left'></i>"
+        },
+        {
+          "value": 0,
+          "label": "Niente"
+        },
+        {
+          "value": "100",
+          "label": "<i class='icon-arrow-right'></i>"
+        }
+      ],
+      "width": "18em",
+      "height": "auto",
+      "property": "windSpeed",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Cambio di direzione e velocità del vento."
+    },
+    {
+      "id": "sunSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 10,
+      "steps": 10,
+      "title": "Luce del sole",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": "0",
+          "label": "<i class='icon-minus'></i>"
+        },
+        {
+          "value": "10",
+          "label": "<i class='icon-plus'></i>"
+        }
+      ],
+      "width": "18em",
+      "height": "auto",
+      "property": "sunlightAmount",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Cambiare la quantità di luce solare."
+    },
+    {
+      "id": "rainSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 6,
+      "steps": 6,
+      "title": "Pioggia",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": "0",
+          "label": "<i class='icon-minus'></i>"
+        },
+        {
+          "value": "6",
+          "label": "<i class='icon-plus'></i>"
+        }
+      ],
+      "width": "18em",
+      "height": "auto",
+      "property": "rainRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Cambiando la frequenza di pioggia."
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+ "layout": {
+    "playback-container": [
+      "playback"
+    ],
+    
+    "bottomLeft": [
+      [
+        "windSlider"
+      ],
+        [
+        "sunSlider"
+      ],
+      [
+        "rainSlider"
+      ]
+    ],
+    "topRight": [
+      [
+        "aqiGraph"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left"
+    
+    },
+    
+    {
+      "id": "bottomLeft",
+      "top": "playback-container.bottom",
+      "left": "model.left"
+    },
+
+    {
+      "id": "topRight",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "0.75 * model.width",
+      "height": "model.height",
+      "padding-left": "0.5em"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/air-pollution/air-pollution-2.json"
+}
