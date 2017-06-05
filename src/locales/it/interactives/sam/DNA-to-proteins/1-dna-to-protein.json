@@ -11,7 +11,7 @@
      "",
      "Clicca **Traduci** per vedere che l'mRNA lascia il nucleo per il citoplasma e si attacca a un ribosoma. Le molecole di tRNA portano in aminoacidi e gli aminoacidi vengono aggiunti nell'ordine corretto raggruppando nucleotidi complementari",
      "",
-     "Dopo la traduzione, ispeziona la proteina per vedere come è ripiegata la sequenza di aminoacidi",
+     "Dopo la traduzione, ispeziona la proteina per vedere come è ripiegata la sequenza di aminoacidi"
    ],
   "fontScale": 0.65,
   "models": [
@@ -181,7 +181,6 @@
       "left": "interactive.left",
       "height": "0.25 * interactive.height",
       "top": "model.bottom",
-      "left": "interactive.left",
       "right": "interactive.right",
       "align": "center",
       "fontScale": 0.8
@@ -198,6 +197,6 @@
       "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
-   "lang": "it", 
-   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json" 
+   "lang": "it",
+   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }
