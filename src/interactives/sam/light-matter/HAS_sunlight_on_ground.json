@@ -87,7 +87,7 @@
       "unitType": "temperature"
     }
   ],
-  "exports": 
+  "exports":
     {
       "selectionComponents": [],
       "perRun": ["lightSourceEnabled", "slowMotion", "averageTemperature", "keShading"],
@@ -232,5 +232,6 @@
       ]
     ]
   },
-  "template": "left-right-bottom"
+  "template": "left-right-bottom",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/HAS_sunlight_on_ground.json"
 }

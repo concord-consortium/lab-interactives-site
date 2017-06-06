@@ -1,0 +1,125 @@
+{
+  "title": "Concentrazione e tasso di reazione",
+  "publicationStatus": "public",
+  "subtitle": "Come influisce la concentrazione sul tasso di reazione?",
+  "about": [
+    "In questo modello, due atomi possono formare un legame per fare una molecola. ",
+    "Sperimentate di cambiare la concentrazione degli atomi per vedere",
+    "Come questo influenza la velocità di reazione (la velocità alla quale si verifica la reazione).",
+    "",
+    "Segui questi passi:",
+    "",
+    "1. Aggiungi alcuni atomi. (È possibile aggiungere gli atomi premendo i pulsanti più volte).",
+    "2. Esegui il modello.",
+    "3. Ripristina il modello e prova una concentrazione diversa.",
+    "",
+    "Misurare il tasso di reazione utilizzando il grafico per vedere quando la reazione raggiunge l'80% di completamento."
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page2/page2$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showClock": true,
+        "imageMapping": {
+          "reactionGoalFlat.png": "reactionGoalFlat.svg"
+        }
+      },
+      "onLoad": [
+        "setComponentDisabled('add2', false);",
+        "setComponentDisabled('add10', false);",
+        "onStart(function() {",
+        "  setComponentDisabled('add2', true);",
+        "  setComponentDisabled('add10', true);",
+        "});"
+      ]
+    }
+
+  ],
+  "outputs": [
+    {
+      "name": "reactionComplete",
+      "value": [
+        "var atoms = getNumberOfAtoms();",
+        "var bonds = getNumberOfRadialBonds();",
+        "return atoms > 0 ? bonds / (0.5 * atoms) * 100 : 0;"
+      ],
+      "unitAbbreviation": "%"
+    }
+  ],
+  "components": [
+    {
+      "id": "add2",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var N = getNumberOfAtoms();",
+        "  for (var i = N; i < N + 2; i++) {",
+        "    addRandomAtom(1);",
+        "    setAtomProperties(i, {vx: Math.random() * 2e-5 - 1e-5, vy: Math.random() * 2e-5 - 1e-5});",
+        "  }",
+        "});"
+      ],
+      "text": "Aggiungere 2 atomi"
+    },
+    {
+      "id": "add10",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var N = getNumberOfAtoms();",
+        "  for (var i = N; i < N + 10; i++) {",
+        "    addRandomAtom(1);",
+        "    setAtomProperties(i, {vx: Math.random() * 2e-5 - 1e-5, vy: Math.random() * 2e-5 - 1e-5});",
+        "  }",
+        "});"
+      ],
+      "text": "Aggiungere 10 atomi"
+    },
+    {
+      "id": "reaction-complete",
+      "type": "barGraph",
+      "property": "reactionComplete",
+      "title": "Reaction Complete",
+      "labels": 10,
+      "labelFormat": ".0f",
+      "units": true,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "interactive.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "1em"
+    }
+  ],
+  "layout": {
+    "right": [
+      "reaction-complete"
+    ],
+    "bottom": [
+      [
+        "add2",
+        "add10"
+      ]
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/2-concentration-and-reaction-rate.json"
+}

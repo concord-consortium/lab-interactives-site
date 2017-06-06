@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/1-dropping-dye-on-click.json",
   "en-US": "interactives/sam/diffusion/1-dropping-dye-on-click.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/1-dropping-dye-on-click.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/1-dropping-dye-on-click.json",
+  "it": "locales/it/interactives/sam/diffusion/1-dropping-dye-on-click.json"
 }

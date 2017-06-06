@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/diffusion-build-your-own.json",
   "en-US": "interactives/sam/diffusion/diffusion-build-your-own.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/diffusion-build-your-own.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/diffusion-build-your-own.json",
+  "it": "locales/it/interactives/sam/diffusion/diffusion-build-your-own.json"
 }

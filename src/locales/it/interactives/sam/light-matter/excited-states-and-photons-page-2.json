@@ -1,0 +1,140 @@
+{
+  "title": "Elettroni eccitati",
+  "publicationStatus": "public",
+  "subtitle": "Indagare come un elettrone diventa eccitato.",
+  "category": "Physics",
+  "subCategory": "Light and sound",
+  "screenshot": "http://screenshots.lab.concord.org/excited-states-and-photons-page-2.png",
+  "about": [
+    "Gli elettroni di un atomo hanno energia, ma sono limitati a livelli energetici molto specifici. Se un elettrone ha la più bassa energia possibile ",
+    "è considerato come nella **Stato di base**. Viene chiamato un elettrone **emozionato** Se ha una maggiore energia rispetto allo stato di base. In questo ",
+    "modello di un elettrone eccitato è mostrato da un aureo giallo attorno all'atomo.",
+    "",
+    "**Come fa l'eccitazione di un elettrone?** Provate a collidere gli atomi insieme a diverse velocità. Gli elettroni sempre si eccitano? Dove",
+    "Viene l'energia da quando gli elettroni vanno dallo stato fondamentale ad uno stato eccitato?"
+  ],
+  "aspectRatio": 1.75,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "quantum-collision",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/excited-states-and-photons/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "showClock": false,
+        "showVelocityVectors": false
+      },
+      "onLoad": [
+        "unfreeze('initialVelocityInMKS')",
+        "onPropertyChange('initialVelocityInMKS', function() {",
+        "  var vx = get('initialVelocity');",
+        "  var vxInMKS = get('initialVelocityInMKS');",
+        "  set('initialVelocity', vx);",
+        "  setTextBoxProperties(0,{text: 'initial speed = ' + vxInMKS + ' m/s'});",
+        "});",
+        "onStart(function() {",
+        "  freeze('initialVelocityInMKS');",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "initialVelocity",
+      "unitType": "velocity",
+      "onChange": "setAtomProperties(1, { vx: value });",
+      "initialValue": 0
+    },
+    {
+      "name": "initialVelocityInMKS",
+      "onChange": "set('initialVelocity', get('initialVelocityInMKS') * 1e-6);",
+      "initialValue": 500
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "v-slider",
+      "min": 0,
+      "max": 2500,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 500,
+          "label": "500"
+        },
+        {
+          "value": 1000,
+          "label": "1000"
+        },
+        {
+          "value": 1500,
+          "label": "1500"
+        },
+        {
+          "value": 2000,
+          "label": "2000"
+        },
+        {
+          "value": 2500,
+          "label": "2500"
+        }
+      ],
+      "steps": 25,
+      "title": "Velocità iniziale dell'atomo blu (m/s)",
+      "displayValue": "return format('f')(value)",
+      "property": "initialVelocityInMKS",
+      "width": "18em"
+    },
+    {
+      "type": "graph",
+      "id": "graph",
+      "title": "Energia cinetica del sistema",
+      "xlabel": "Model time (fs)",
+      "ylabel": "Kinetic energy (eV)",
+      "ymin": 0,
+      "ymax": 2,
+      "xmax": 10,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "kineticEnergy"
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "graph"
+    ],
+    "bottom": [
+      "v-slider"
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em",
+      "width": "model.width",
+      "min-width": "6em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/excited-states-and-photons-page-2.json"
+}

@@ -1,0 +1,213 @@
+{
+  "title": "Diversi Stati emozionati per diversi elementi",
+  "publicationStatus": "public",
+  "subtitle": "Esplorare diversi stati eccitati.",
+  "about": [
+    "Viene chiamato un elettrone **emozionato** Se ha una maggiore energia rispetto allo stato di base - il suo stato energetico più basso. In questo ",
+    "Modello di un elettrone eccitato è mostrato da un aureo giallo attorno all'atomo.",
+    "",
+    "Cambiare la velocità (quindi l'energia cinetica) degli atomi blu (A e B) e determinare l'energia minima ",
+    "Necessari per eccitare l'atomo verde (C) e l'atomo giallo (D).",
+    "",
+    "Hints:",
+    "-  Focus su un atomo alla volta impostando la velocità dell'altro a zero.",
+    "-  Premere il pulsante Reset prima di cambiare la velocità.",
+    "",
+    "È l'energia minima necessaria per eccitare gli atomi C e D uguali? Perché?"
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "quantum-emission",
+      "url": "models/lab-version/1/md2d/sam/light-matter/excited-states-and-photons/page3.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "showClock": false,
+        "showVelocityVectors": false
+      },
+      "onLoad": [
+        "unfreeze('initialVelocityInMKS_A');",
+        "unfreeze('initialVelocityInMKS_B');",
+        "onPropertyChange('initialVelocityInMKS_A', function() {",
+        "  var vx = get('initialVelocity_A');",
+        "  set('initialVelocity_A', vx);",
+        "});",
+        "onPropertyChange('initialVelocityInMKS_B', function() {",
+        "  var vx = get('initialVelocity_B');",
+        "  set('initialVelocity_B', vx);",
+        "});",
+        "onStart(function() {",
+        "  freeze('initialVelocityInMKS_A');",
+        "  freeze('initialVelocityInMKS_B');",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "initialVelocity_A",
+      "unitType": "velocity",
+      "onChange": "setAtomProperties(0, { vx: value });",
+      "initialValue": 0
+    },
+    {
+      "name": "initialVelocityInMKS_A",
+      "onChange": "set('initialVelocity_A', get('initialVelocityInMKS_A') * 1e-6);",
+      "initialValue": 500
+    },
+    {
+      "name": "initialVelocity_B",
+      "unitType": "velocity",
+      "onChange": "setAtomProperties(1, { vx: value });",
+      "initialValue": 0
+    },
+    {
+      "name": "initialVelocityInMKS_B",
+      "onChange": "set('initialVelocity_B', get('initialVelocityInMKS_B') * 1e-6);",
+      "initialValue": 500
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "v-slider-a",
+      "min": 0,
+      "max": 3000,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 500,
+          "label": "500"
+        },
+        {
+          "value": 1000,
+          "label": "1000"
+        },
+        {
+          "value": 1500,
+          "label": "1500"
+        },
+        {
+          "value": 2000,
+          "label": "2000"
+        },
+        {
+          "value": 2500,
+          "label": "2500"
+        },
+        {
+          "value": 3000,
+          "label": "3000"
+        }
+      ],
+      "steps": 30,
+      "title": "Velocità iniziale dell'atomo A (m/s)",
+      "displayValue": "return format('f')(value)",
+      "property": "initialVelocityInMKS_A",
+      "width": "18em"
+    },
+    {
+      "type": "slider",
+      "id": "v-slider-b",
+      "min": 0,
+      "max": 3000,
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 500,
+          "label": "500"
+        },
+        {
+          "value": 1000,
+          "label": "1000"
+        },
+        {
+          "value": 1500,
+          "label": "1500"
+        },
+        {
+          "value": 2000,
+          "label": "2000"
+        },
+        {
+          "value": 2500,
+          "label": "2500"
+        },
+        {
+          "value": 3000,
+          "label": "3000"
+        }
+      ],
+      "steps": 30,
+      "title": "Velocità iniziale dell'atomo B (m/s)",
+      "displayValue": "return format('f')(value)",
+      "property": "initialVelocityInMKS_B",
+      "width": "18em"
+    },
+    {
+      "type": "graph",
+      "id": "graph",
+      "title": "Energia cinetica del sistema",
+      "xlabel": "Model time (fs)",
+      "ylabel": "Kinetic energy (eV)",
+      "ymin": 0,
+      "ymax": 5,
+      "xmax": 10,
+      "xTickCount": 5,
+      "yTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "properties": [
+        "kineticEnergy"
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "graph"
+    ],
+    "bottom-1": [
+      "v-slider-a"
+    ],
+    "bottom-2": [
+      "v-slider-b"
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em",
+      "width": "model.width",
+      "min-width": "6em"
+    },
+    {
+      "id": "bottom-1",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    },
+    {
+      "id": "bottom-2",
+      "top": "bottom-1.bottom",
+      "left": "model.left",
+      "width": "interactive.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/excited-states-and-photons-page-3.json"
+}

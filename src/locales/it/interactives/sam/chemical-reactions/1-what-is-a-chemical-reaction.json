@@ -1,0 +1,131 @@
+{
+  "title": "Che cos'è una reazione chimica?",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+    "Una reazione chimica può avvenire in tre modi diversi:",
+    "",
+    "- Viene creato un legame chimico.",
+    "- Un legame chimico è rotto.",
+    "- Uno o più elettroni vengono trasferiti tra atomi o molecole.",
+    "",
+    "Esplora le reazioni in cui i legami chimici sono formati e rotti con questo modello.",
+    "Press run, quindi provare a riscaldare e raffreddare gli atomi per vedere come influenza la temperatura",
+    "L'equilibrio tra formazione e rottura dei legami."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "reactionsExplanationFlat.png": "reactionsExplanationFlat.svg"
+        }
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "bondEnergy": {
+            "1-1": 2,
+            "2-2": 4
+          },
+          "activationEnergy": {
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      }
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "filteredTemperature",
+      "property": "temperature"
+    }
+  ],
+  "components": [
+    {
+      "id": "heat",
+      "type": "button",
+      "action": [
+        "if (get('temperature') > 100000) {",
+        "  setComponentDisabled('heat', true);",
+        "  return;",
+        "}",
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 1.1, vy: props.vy * 1.1});",
+        "  }",
+        "});"
+      ],
+      "text": "Calore"
+    },
+    {
+      "id": "cool",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 0.9, vy: props.vy * 0.9});",
+        "  }",
+        "});",
+        "if (get('temperature') < 100000) {",
+        "  setComponentDisabled('heat', false);",
+        "}"
+      ],
+      "text": "Freddo"
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "filteredTemperature",
+      "title": "Temperature",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 100000,
+          "label": "high"
+        }
+      ],
+      "min": 0,
+      "max": 100000
+    }
+  ],
+  "template": [
+    {
+      "id": "right-lower",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "model.bottom",
+      "align": "center"
+    },
+    {
+      "id": "right-upper",
+      "top": "model.top",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "right-lower.top",
+      "align": "center"
+    }
+  ],
+  "layout": {
+    "right-upper": [
+      "thermometer"
+    ],
+    "right-lower": [
+      "heat",
+      "cool"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/1-what-is-a-chemical-reaction.json"
+}

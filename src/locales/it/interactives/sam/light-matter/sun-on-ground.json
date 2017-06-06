@@ -1,0 +1,220 @@
+{
+  "title": "Luce solare, infrarossi, CO2 e terra",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come la luce interagisce con sia il suolo che il CO₂.",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": "Nota: Quando si carica il modello * Infrarosso su CO₂* l'infrarosso proveniente dalla parte inferiore del modello viene emesso dal suolo.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "sun-on-ground",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnGround.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "sun-on-co2",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnCO2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "sun-on-ground-and-co2",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnGroundAndCO2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "ir-on-co2",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/IROnCO2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    },
+    {
+      "name": "slowMotion",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  set('timeStep', 0.18);",
+        "} else {",
+        "  set('timeStep', 0.4180000126361847);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+
+  ],
+  "filteredOutputs": [
+    {
+      "name": "averageTemperature",
+      "property": "temperature",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature"
+    }
+  ],
+  "helpTips": [
+
+  ],
+  "hideExportDataControl": false,
+  "components": [
+    {
+      "id": "text-select-model",
+      "type": "text",
+      "text": "**Seleziona un modello**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "text-photon-key",
+      "type": "text",
+      "text": "*Fotoni*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "select-model",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Sole a terra",
+          "selected": true,
+          "action": "loadModel('sun-on-ground');"
+        },
+        {
+          "text": "Sole su CO₂",
+          "action": "loadModel('sun-on-co2');"
+        },
+        {
+          "text": "Infrarossi su CO₂",
+          "action": "loadModel('ir-on-co2');"
+        },
+        {
+          "text": "Sole su terra e CO₂",
+          "action": "loadModel('sun-on-ground-and-co2');"
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "averageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Temperatura",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "enable-light-source",
+      "type": "checkbox",
+      "text": "Sorgente luminosa",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "lightSourceEnabled",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Visualizza calore nelle molecole",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "slow-mo",
+      "type": "checkbox",
+      "text": "Rallentatore",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slowMotion",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "key-photon",
+      "type": "image",
+      "src": "photonKey.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "text-select-model"
+      ],
+      [
+        "select-model"
+      ],
+      [
+        "text-photon-key"
+      ],
+      [
+        "key-photon"
+      ]
+    ],
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      [
+        "enable-light-source"
+      ],
+      [
+        "ke-shading",
+        "slow-mo"
+      ]
+    ]
+  },
+  "template": "left-right-bottom",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/sun-on-ground.json"
+}

@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/DNA-to-proteins/1-dna-to-protein.json",
   "en-US": "interactives/sam/DNA-to-proteins/1-dna-to-protein.json",
-  "nn-NO": "locales/nn/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+  "nn-NO": "locales/nn/interactives/sam/DNA-to-proteins/1-dna-to-protein.json",
+  "it": "locales/it/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }

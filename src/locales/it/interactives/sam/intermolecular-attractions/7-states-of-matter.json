@@ -1,0 +1,107 @@
+{
+  "title": "Stati della materia",
+  "publicationStatus": "draft",
+  "subtitle": "Esplora Coulomb e attrazioni intermolecolari",
+  "about": [
+    "Quali tipi di modelli tendono a formarsi? Come cambia il Van der Waals",
+    "Attrazione influenzano il punto di fusione e di ebollizione della sostanza?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "setElementProperties(2, {epsilon: -0.275});"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "epsilon-slider",
+      "min": 0.05,
+      "max": 0.5,
+      "initialValue": 0.275,
+      "labels": [
+        {
+          "value": 0.05,
+          "label": "weak"
+        },
+        {
+          "value": 0.275,
+          "label": "medium"
+        },
+        {
+          "value": 0.5,
+          "label": "strong"
+        }
+      ],
+      "steps": 2,
+      "title": "Attrazione di Van der Waals",
+      "action": "setElementProperties(2, { epsilon: -value });"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 400,
+      "max": 5000,
+      "initialValue": 650,
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 650,
+          "label": "0 C"
+        },
+        {
+          "value": 2566,
+          "label": "100 C"
+        },
+        {
+          "value": 4482,
+          "label": "200 C"
+        }
+      ],
+      "steps": 499,
+      "title": "Temperatura",
+      "action": "set({ targetTemperature: value });"
+    },
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "property": "targetTemperature",
+      "min": 0,
+      "max": 4500,
+      "labels": [
+        {
+          "value": 650,
+          "label": "0 C"
+        },
+        {
+          "value": 2566,
+          "label": "100 C"
+        },
+        {
+          "value": 4482,
+          "label": "200 C"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      [
+        "epsilon-slider",
+        "temperature-slider"
+      ]
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/7-states-of-matter.json"
+}

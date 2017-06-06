@@ -1,0 +1,79 @@
+{
+  "title": "Obbligazioni dell'idrogeno: un tipo speciale di attrazione",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come le molecole polari interagiscono tramite legami di idrogeno.",
+  "fontScale": 0.99,
+  "about": [
+    "Esplorare legami di idrogeno che formano tra molecole polari, come l'acqua. I legami idrogeno sono mostrati con linee tratteggiate.",
+    "",
+    "Mostra le spese parziali e gestisci il modello. Dove si formano legami di idrogeno? Prova a cambiare la temperatura",
+    "Del modello. Come fa il modello di legame di idrogeno spiegare il reticolo che compone cristalli di ghiaccio?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page6$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page6/page6$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step"
+      },
+      "onLoad": "set({temperatureControl: true}); set({targetTemperature: 10000});"
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "show_bonds",
+      "text": "Mostrare legami di idrogeno",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_charge",
+      "text": "Mostra tariffe parziali",
+      "property": "showChargeSymbols"
+    },
+    {
+      "type": "checkbox",
+      "id": "slow_motion2",
+      "text": "Rallentatore",
+      "action": "if (value) { set({timeStep: 0.1}) } else { set({timeStep: 1})};"
+    },
+    {
+      "type": "button",
+      "id": "cool",
+      "text": "Freddo",
+      "action": "adjustTemperature(0.9);"
+    },
+    {
+      "type": "button",
+      "id": "heat",
+      "text": "Calore",
+      "action": "adjustTemperature(1.1); limitHighTemperature(25000);"
+    },
+    {
+      "type": "barGraph",
+      "id": "thermometer",
+      "property": "temperature",
+      "title": "Termometro",
+      "labels": 0,
+      "min": 0,
+      "max": 25000
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      "cool",
+      "heat",
+      "show_bonds",
+      "show_charge",
+      "slow_motion2"
+    ]
+  },
+  "template": "simple",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json"
+}

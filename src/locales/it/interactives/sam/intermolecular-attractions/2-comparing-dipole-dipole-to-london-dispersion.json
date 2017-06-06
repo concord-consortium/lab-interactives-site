@@ -1,0 +1,154 @@
+{
+  "title": "Confronto di dipolo-dipolo alla dispersione di Londra",
+  "publicationStatus": "public",
+  "subtitle": "Esplora la differenza tra forze attraenti tra molecole polari e non polari.",
+  "about": [
+    "Esplora i diversi punti di forza della dispersione dipolo-dipolo (polare) e di Londra (non polare)",
+    "attrazioni. Queste attrazioni intermolecolari sono mostrate da linee tratteggiate tra le coppie di molecole.",
+    "",
+    "Scegliere un paio di molecole dal menu a discesa e \"tirare\" sulla stella per separare",
+    "molecules. Which type of intermolecular attraction is strongest?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/instructions.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Esplora le diverse forze attraenti tra le molecole polari e non polari trascinando l'immagine \"stella\" trovata nelle seguenti simulazioni.",
+            "x": 0.3,
+            "y": 1.7,
+            "fontSize": 0.12,
+            "width": 2.7
+          },
+          {
+            "text": "Scegli una coppia di molecole dal menu qui sotto.",
+            "x": 0.3,
+            "y": 0.4,
+            "fontSize": 0.12,
+            "width": 2.7
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "npPulling",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/npPulling.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.12
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "polarPulling",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/polarPulling.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.12
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "polarNpPulling",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page2/polarNpPulling.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.12
+          }
+        ]
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "pulldown1",
+      "options": [
+        {
+          "text": "Seleziona una coppia di molecole",
+          "action": "loadModel('instructions');"
+        },
+        {
+          "text": "Estraete due molecole non polari",
+          "action": "loadModel('npPulling');"
+        },
+        {
+          "text": "Estraete due molecole polari",
+          "action": "loadModel('polarPulling');"
+        },
+        {
+          "text": "Estrarre le molecole non polari e polari",
+          "action": "loadModel('polarNpPulling');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resette",
+      "action": "reloadModel();"
+    }
+  ],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/2-comparing-dipole-dipole-to-london-dispersion.json"
+}

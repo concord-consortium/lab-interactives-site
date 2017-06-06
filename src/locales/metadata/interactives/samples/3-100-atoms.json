@@ -2,5 +2,6 @@
   "nb-NO": "locales/nb/interactives/samples/3-100-atoms.json",
   "en-US": "interactives/samples/3-100-atoms.json",
   "nn-NO": "locales/nn/interactives/samples/3-100-atoms.json",
-  "ru": "locales/ru/interactives/samples/3-100-atoms.json"
+  "ru": "locales/ru/interactives/samples/3-100-atoms.json",
+  "it": "locales/it/interactives/samples/3-100-atoms.json"
 }

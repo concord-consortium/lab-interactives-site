@@ -1,0 +1,58 @@
+{
+  "title": "Vista molecolare di un gas",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come le molecole in un gas si muovono l'uno rispetto all'altro.",
+  "aspectRatio": 1.2,
+  "about": [
+    "Le molecole sono in movimento costante. \"Marcare due atomi,\" quindi eseguire il modello per vedere",
+    "come le molecole si muovono tra loro. Come le distanze tra il gas",
+    "le molecole cambiano nel tempo?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page2/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": true
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Segna due atomi",
+      "action": "markAtoms(randomAtoms(2));"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Mostra le attrazioni",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Traccia un atomo casuale",
+      "action": "traceAtom(randomAtoms(1));"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Rimuovere la traccia",
+      "action": "untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "show-attractions"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/2-two-types-of-gases.json"
+}

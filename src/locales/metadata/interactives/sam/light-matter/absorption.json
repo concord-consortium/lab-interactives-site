@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/light-matter/absorption.json",
   "en-US": "interactives/sam/light-matter/absorption.json",
-  "nn-NO": "locales/nn/interactives/sam/light-matter/absorption.json"
+  "nn-NO": "locales/nn/interactives/sam/light-matter/absorption.json",
+  "it": "locales/it/interactives/sam/light-matter/absorption.json"
 }

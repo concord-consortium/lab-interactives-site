@@ -1,0 +1,27 @@
+{
+  "title": "Introduzione alla luce e ai fotoni",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": "",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "light1$0",
+      "url": "models/lab-version/1/md2d/sam/light-matter/introducing-light-and-photons.json",
+      "importedFrom": "imports/legacy-mw-content/rites/light1$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+
+  ],
+  "layout": {
+    "bottom": [
+
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/introducing-light-and-photons.json"
+}

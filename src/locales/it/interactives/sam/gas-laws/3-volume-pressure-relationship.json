@@ -1,0 +1,108 @@
+{
+  "title": "La relazione di volume-pressione",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come il volume di un gas influenza la pressione.",
+  "about": [
+    "I gas possono essere compressi in volumi più piccoli. Come influenza la compressione di un gas sulla sua pressione?",
+    "",
+    "Eseguire il modello, quindi modificare il volume dei contenitori e osservare la variazione della pressione.",
+    "La parete mobile converte l'effetto dei collisioni molecolari in pressione e funge da manometro.",
+    "Cosa succede alla pressione quando il volume cambia?",
+    "",
+    "----",
+    "*Nota: Anche se gli atomi in questo modello sono in un piano piano, il volume viene calcolato utilizzando 0,1 nm come profondità del contenitore.*"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page3/page3noScale$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "volume",
+      "unitAbbreviation": "nm³",
+      "label": "Volume",
+      "initialValue": 0.3,
+      "onChange": [
+        "var newX = value / 0.1 / get('height'),",
+        "    maxX = 0,",
+        "    scaleFactor;",
+        "for(var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x > maxX) maxX = getAtomProperties(i).x;",
+        "}",
+        "scaleFactor = (newX - 0.1) / maxX;",
+        "batch(function() {",
+        "  for(i = 0; i < getNumberOfAtoms(); i++) {",
+        "    setAtomProperties(i, { x: getAtomProperties(i).x * scaleFactor });",
+        "  }",
+        "  setObstacleProperties(0, { x: newX });",
+        "});",
+        "if (scaleFactor < 1) {",
+        "  minimizeEnergy();",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pressureProbeInstantaneous",
+      "unitType": "pressure",
+      "label": "Manometro",
+      "value": [
+        "return getObstacleProperties(0).westProbeValue;"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressureProbeFiltered",
+      "unitType": "pressure",
+      "label": "Manometro",
+      "property": "pressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 2500
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "increase-volume",
+      "text": "Volume &#8593;",
+      "action": "if (get('volume') < 0.7) { set({ volume: get('volume') + 0.05 }) };"
+    },
+    {
+      "type": "button",
+      "id": "decrease-volume",
+      "text": "Volume &#8595;",
+      "action": "if (get('volume') > 0.14) { set({ volume: get('volume') - 0.05 }) };"
+    },
+    {
+      "type": "numericOutput",
+      "id": "current-volume",
+      "label": "Volume del gas",
+      "property": "volume",
+      "displayValue": "return format('.2f')(value)"
+    },
+    {
+      "type": "barGraph",
+      "id": "bar-graph",
+      "min": 0,
+      "max": 2.5,
+      "title": "Pressure (Bar)",
+      "property": "pressureProbeFiltered"
+    }
+  ],
+  "layout": {
+    "right": [
+      "bar-graph"
+    ]
+  },
+  "template": "narrow-right",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/3-volume-pressure-relationship.json"
+}

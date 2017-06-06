@@ -1,0 +1,202 @@
+{
+  "title": "DNA alla proteina",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come il codice incorporato nel DNA viene tradotto in una proteina.",
+  "aspectRatio": 1.05,
+  "category": "Biology",
+  "subCategory": "Genetics",
+  "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+  "about": [
+    "Fare clic su **Trascrivere** per ingrandire il nucleo cellulare e vedere il cromosoma svelare per esporre le filie del DNA. Il DNA si separa e si crea un filamento mRNA corrispondendo nucleotidi complementari",
+     "",
+     "Clicca **Traduci** per vedere che l'mRNA lascia il nucleo per il citoplasma e si attacca a un ribosoma. Le molecole di tRNA portano in aminoacidi e gli aminoacidi vengono aggiunti nell'ordine corretto raggruppando nucleotidi complementari",
+     "",
+     "Dopo la traduzione, ispeziona la proteina per vedere come è ripiegata la sequenza di aminoacidi"
+   ],
+  "fontScale": 0.65,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "intro-cells"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "transcribe",
+      "text": "Trascrivere",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "transcribe-step",
+      "text": "Trasmetti passo dopo passo",
+      "action": [
+        "if (DNAStateBefore ('dna')) {",
+        "  animateToDNAState('transcription:1');",
+        "} else { ",
+        "  transcribeDNAStep();",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate",
+      "text": "Tradurre",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "}",
+        "if (get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate-step",
+      "text": "Traduci passo dopo passo",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "} else {",
+        "  translateDNAStep();",
+        "}"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "label1",
+      "text": "Clic"
+    },
+    {
+      "type": "text",
+      "id": "label2",
+      "text": "per vedere il pieno mRNA creato o"
+    },
+    {
+      "type": "text",
+      "id": "label3",
+      "text": "Clic"
+    },
+    {
+      "type": "text",
+      "id": "label4",
+      "text": "per generare proteine complete da mRNA o"
+    },
+    {
+      "type": "button",
+      "id": "start",
+      "text": "Avviare/continuare il modello",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop",
+      "text": "Stop",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resetta",
+      "action": "reloadModel();"
+    },
+    {
+      "type": "button",
+      "id": "prev-state-jump",
+      "text": "<< Saltare",
+      "action": "jumpToPrevDNAState();"
+    },
+    {
+      "type": "button",
+      "id": "next-state",
+      "text": "Continuare un passo",
+      "action": "animateToNextDNAState();"
+    },
+    {
+      "type": "button",
+      "id": "next-state-jump",
+      "text": "Saltare >>",
+      "action": "jumpToNextDNAState();"
+    },
+    {
+      "type": "button",
+      "id": "dna-dialog",
+      "text": "Modifica il DNA",
+      "action": "openDNADialog();"
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1",
+        "transcribe",
+        "label2",
+        "transcribe-step"
+      ],
+      [
+        "label3",
+        "translate",
+        "label4",
+        "translate-step"
+      ],
+      [
+        "start",
+        "stop",
+        "reset",
+        "dna-dialog"
+      ],
+      [
+        "prev-state-jump",
+        "next-state",
+        "next-state-jump"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.25 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ],
+   "lang": "it",
+   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+}

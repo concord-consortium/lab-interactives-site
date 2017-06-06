@@ -1,0 +1,142 @@
+{
+  "title": "Polarità e forza attraente",
+  "publicationStatus": "public",
+  "subtitle": "Esplora le diverse forze attraenti tra molecole di polarità variabile.",
+  "about": [
+    "Le attrattive tra le molecole polari variano. Scegli una coppia di molecole dal menu a discesa",
+    "Menu e \"tirare\" sulla stella per separare le molecole. Perché la polarità ha un effetto",
+    "Sulla forza dell'attrazione tra le molecole?"
+  ],
+  "aspectRatio": 1.4,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page4/instructions.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Esplora le diverse forze attraenti tra molecole di polarità variabile.",
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.14,
+            "width": 3.2
+          },
+          {
+            "text": "Scegli una coppia di molecole dal menu qui sotto.",
+            "x": 0.4,
+            "y": 0.6,
+            "fontSize": 0.14,
+            "width": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "leastPolarPull",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page4/leastPolarPull.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Molte molecole di polarità",
+            "x": 1.48,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "medPolarPull",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page4/medPolarPull.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Medium polarity molecules",
+            "x": 1.45,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    },
+    {
+      "type": "md2d",
+      "id": "mostPolarPull",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page4/mostPolarPull.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Molte molecole di polarità",
+            "x": 1.48,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      },
+      "onLoad": "start();"
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "pulldown1",
+      "options": [
+        {
+          "text": "Seleziona una coppia di molecole",
+          "action": "loadModel('instructions');"
+        },
+        {
+          "text": "Bassa polarità",
+          "action": "loadModel('leastPolarPull');"
+        },
+        {
+          "text": "Polarità media",
+          "action": "loadModel('medPolarPull');"
+        },
+        {
+          "text": "Elevata polarità",
+          "action": "loadModel('mostPolarPull');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "ResetTE",
+      "action": "reloadModel();"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/4-strengthening-dipole-dipole-attractions.json"
+}

@@ -1,0 +1,336 @@
+{
+  "title": "La colata della lattina di soda",
+  "publicationStatus": "draft",
+  "subtitle": "Esplora come il calore e il numero di molecole influenzano l'equilibrio di pressione tra due gas.",
+  "about": [
+    "Il modello è un modello incompleto di una lattina di soda. ",
+    "Attualmente sta mostrando molecole di gas all'interno e all'esterno della lattina di soda prima che si tuffa nell'acqua di ghiaccio. ",
+    "Il rettangolo al centro del modello rappresenta una micro-sezione della parete di soda. ",
+    "Progettare un modello che indica cosa succede dopo il tappeto è posto in acqua di ghiaccio. ",
+    "Utilizza gli strumenti ai lati del modello per rappresentare più accuratamente l'esperimento. ",
+    "Utilizzare strumenti per riscaldare e raffreddare le molecole dove è appropriato. "
+  ],
+  "aspectRatio": 1.6,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page7$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page7/page7$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVelocityVectors": true,
+        "textBoxes": [
+          {
+            "text": "Parete della lattina",
+            "x": 1.7465425109863282,
+            "y": 1.43,
+            "width": 0.5,
+            "textAlign": "center",
+            "layer": 1,
+            "hostType": "RectangularObstacle",
+            "hostIndex": 0
+          },
+          {
+            "text": "Interno della lattina di soda",
+            "x": 0.02,
+            "y": 0.25,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,190,210)"
+          },
+          {
+            "text": "Fuori della lattina di soda",
+            "x": 2.88,
+            "y": 0.25,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(240,240,119)"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "purpleAtoms",
+      "value": [
+        "var count = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  if (getAtomProperties(i).element == 3) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count;"
+      ]
+    },
+    {
+      "name": "yellowAtoms",
+      "value": [
+        "var count = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count;"
+      ]
+    },
+    {
+      "name": "vxMean",
+      "unitType": "velocity",
+      "value": [
+        "var vxSum = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  vxSum += Math.abs(getAtomProperties(i).vx);",
+        "}",
+        "return vxSum / atomNum;"
+      ]
+    },
+    {
+      "name": "vyMean",
+      "unitType": "velocity",
+      "value": [
+        "var vySum = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  vySum += Math.abs(getAtomProperties(i).vy);",
+        "}",
+        "return vySum / atomNum;"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "show-velocity",
+      "text": "Show velocity vectors",
+      "property": "showVelocityVectors"
+    },
+    {
+      "type": "numericOutput",
+      "id": "purple-atoms",
+      "property": "purpleAtoms"
+    },
+    {
+      "type": "numericOutput",
+      "id": "yellow-atoms",
+      "property": "yellowAtoms"
+    },
+    {
+      "type": "text",
+      "id": "purple-label",
+      "text": "Molecole viola",
+      "width": "6em"
+    },
+    {
+      "type": "text",
+      "id": "yellow-label",
+      "text": "Molecole gialle",
+      "width": "6em"
+    },
+    {
+      "type": "button",
+      "id": "add-inside",
+      "text": "Inserisci",
+      "width": "6em",
+      "action": [
+        "var elemNum = 3;",
+        "var maxX = getObstacleProperties(0).x - getElementProperties(elemNum).sigma;",
+        "addAtom({ element: elemNum, x: maxX * Math.random()  , y: get('height') * Math.random(), vx: get('vxMean'), vy: get('vyMean')});"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "add-outside",
+      "text": "Inserisci",
+      "width": "6em",
+      "action": [
+        "var elemNum = 1;",
+        "var minX = getObstacleProperties(0).x + getObstacleProperties(0).width + getElementProperties(elemNum).sigma;",
+        "addAtom({ element: elemNum, x: (get('width') - minX) * Math.random() + minX , y: get('height') * Math.random(), vx: get('vxMean'), vy: get('vyMean')});"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "remove-inside",
+      "text": "Rimuovere",
+      "width": "6em",
+      "action": [
+        "var firstFound = false;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x < getObstacleProperties(0).x) {",
+        "    if (!firstFound) { firstFound = true; }",
+        "    else { removeAtom(i); break; }",
+        "  }",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "remove-outside",
+      "text": "Rimuovere",
+      "width": "6em",
+      "action": [
+        "var firstFound = false;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x > (getObstacleProperties(0).x + getObstacleProperties(0).width)) {",
+        "    if (!firstFound) { firstFound = true; }",
+        "    else { removeAtom(i); break; }",
+        "  }",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "heat-inside",
+      "text": "Calore",
+      "width": "6em",
+      "action": [
+        "if (get('temperature') < 10000) {",
+        "  batch(function () {",
+        "    var obsX = getObstacleProperties(0).x;",
+        "    for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "      var atom = getAtomProperties(i);",
+        "      if (atom.x < obsX) {",
+        "        setAtomProperties(i, { vx: atom.vx * 1.1, vy: atom.vy * 1.1 }, false, false)",
+        "      }",
+        "    }",
+        "  });",
+        "}",
+        "else {",
+        "    alert('Max temperature reached.');",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "heat-outside",
+      "text": "Calore",
+      "width": "6em",
+      "action": [
+        "if (get('temperature') < 10000) {",
+        "  batch(function () {",
+        "    var obsX = getObstacleProperties(0).x;",
+        "    for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "      var atom = getAtomProperties(i);",
+        "      if (atom.x > obsX) {",
+        "         setAtomProperties(i, { vx: atom.vx * 1.1, vy: atom.vy * 1.1 }, false, false)",
+        "      }",
+        "    }",
+        "  });",
+        "}",
+        "else {",
+        "    alert('Max temperature reached.');",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "cool-inside",
+      "text": "Freddo",
+      "width": "6em",
+      "action": [
+        "batch(function () {",
+        "  var obsX = getObstacleProperties(0).x;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    var atom = getAtomProperties(i);",
+        "    if (atom.x < obsX) {",
+        "      setAtomProperties(i, { vx: atom.vx * 0.9, vy: atom.vy * 0.9 }, false, false)",
+        "    }",
+        "  }",
+        "});"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "cool-outside",
+      "text": "Freddo",
+      "width": "6em",
+      "action": [
+        "batch(function () {",
+        "  var obsX = getObstacleProperties(0).x;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    var atom = getAtomProperties(i);",
+        "    if (atom.x > obsX) {",
+        "      setAtomProperties(i, { vx: atom.vx * 0.9, vy: atom.vy * 0.9}, false, false)",
+        "    }",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "purple-label"
+      ],
+      [
+        "purple-atoms"
+      ],
+      [
+        "add-inside"
+      ],
+      [
+        "remove-inside"
+      ],
+      [
+        "heat-inside"
+      ],
+      [
+        "cool-inside"
+      ]
+    ],
+    "right": [
+      [
+        "yellow-label"
+      ],
+      [
+        "yellow-atoms"
+      ],
+      [
+        "add-outside"
+      ],
+      [
+        "remove-outside"
+      ],
+      [
+        "heat-outside"
+      ],
+      [
+        "cool-outside"
+      ]
+    ],
+    "bottom": [
+      "show-velocity"
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "3em",
+      "right": "model.left",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right",
+      "top": "3em",
+      "left": "model.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/7b-why-did-the-can-collapse.json"
+}

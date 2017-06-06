@@ -1,0 +1,56 @@
+{
+  "title": "Attrazioni intermolecolari e stati di materia",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come gli stati della materia sono legati alla forza delle attrazioni intermolecolari.",
+  "aspectRatio": 1.2,
+  "about": [
+    "Ci sono tre stati di materia solida, liquida e gas. Esegui il modello e cambia il modello",
+    "Forza delle attrazioni tra le molecole. Come cambia la forza dell'attrazione",
+    "Tra le molecole influenzano lo stato di quel materiale?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page5/page5$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "epsilon",
+      "initialValue": 0.144,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "epsilon-slider",
+      "min": 0.01,
+      "max": 0.16,
+      "labels": [
+        {
+          "value": 0.01,
+          "label": "Weak"
+        },
+        {
+          "value": 0.16,
+          "label": "Strong"
+        }
+      ],
+      "steps": 50,
+      "title": "Attrazione tra gli atomi",
+      "property": "epsilon"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "epsilon-slider"
+    ]
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/5-interatomic-interactions-and-states.json"
+}

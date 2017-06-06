@@ -200,5 +200,6 @@
       "width": "model.width",
       "align": "center"
     }
-  ]
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/gasAbsorption.json"
 }

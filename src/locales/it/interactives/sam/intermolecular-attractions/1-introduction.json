@@ -1,0 +1,55 @@
+{
+  "title": "Vedere le Attrattive Intermolecolari",
+  "publicationStatus": "public",
+  "subtitle": "Un interattivo molto semplice con molecole polari sulla sinistra e molecole non polari sulla destra.",
+  "category": "Chemistry",
+  "subCategory": "Interactions",
+  "screenshot": "http://screenshots.lab.concord.org/intermolecular-attractions-intro.png",
+  "about": [
+    "Tutta la materia è attratta da ogni altra materia. Come funziona?",
+    "",
+    "Questo interattivo mostra molecole polari (con cariche) e molecole non polari in a",
+    "contenitore tra di loro. Trascinare le molecole in giro per vedere come sono attratti",
+    "l'un l'altro. Le linee tratteggiate indicano le attrazioni intermolecolari."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page1/page1$0.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Trascinare le molecole vicine l'uno all'altro e cercare le attrazioni intermolecolari.",
+            "x": 0.6,
+            "y": 2.05,
+            "width": 2.3,
+            "fontScale": 1.4,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(245,245,245)"
+          }
+        ]
+      }
+    }
+  ],
+  "components": [],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json"
+}

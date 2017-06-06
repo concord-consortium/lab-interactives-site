@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/diffusion/3-mass.json",
   "en-US": "interactives/sam/diffusion/3-mass.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/3-mass.json"
+  "nn-NO": "locales/nn/interactives/sam/diffusion/3-mass.json",
+  "it": "locales/it/interactives/sam/diffusion/3-mass.json"
 }

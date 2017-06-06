@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/sam/light-matter/light-matter-feature-test.json",
   "en-US": "interactives/sam/light-matter/light-matter-feature-test.json",
-  "nn-NO": "locales/nn/interactives/sam/light-matter/light-matter-feature-test.json"
+  "nn-NO": "locales/nn/interactives/sam/light-matter/light-matter-feature-test.json",
+  "it": "locales/it/interactives/sam/light-matter/light-matter-feature-test.json"
 }

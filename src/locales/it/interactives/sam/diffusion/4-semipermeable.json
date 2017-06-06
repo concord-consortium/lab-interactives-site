@@ -1,0 +1,83 @@
+{
+  "title": "Diffusione attraverso una membrana semipermeabile",
+  "publicationStatus": "public",
+  "subtitle": "Come influisce la dimensione dei pori sulla diffusione di molecole diverse?",
+  "about": "Le membrane biologiche sono selettivamente permeabili; Alcune molecole possono attraversare mentre altri non possono. Un modo per influenzare questo è attraverso la dimensione dei pori. Cambiare la dimensione dei pori con il cursore per modificare la permeabilità della membrana ai diversi tipi di molecole. Traccia una molecola individuale per vedere il cammino che ci vuole.",
+  "aspectRatio": 1.2,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/semipermeable/semipermeable$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "unitsScheme": "mks"
+      },
+      "onLoad": [
+
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "tracedAtom",
+      "initialValue": -99,
+      "onChange": ""
+    },
+    {
+      "name": "poreSize",
+      "initialValue": 0.2,
+      "onChange": [
+        "var h = get('height');",
+        "var barrierHeight = (h - 2*value)/3;",
+        "setObstacleProperties(0,{height: barrierHeight, y: 2*(barrierHeight + value)});",
+        "setObstacleProperties(1,{height: barrierHeight, y: barrierHeight + value});",
+        "setObstacleProperties(2,{height: barrierHeight, y: 0});"
+      ]
+    },
+    {
+      "name": "tracingAtom",
+      "initialValue": false,
+      "onChange": [
+        "if (!value) {",
+        "  untraceAtom();",
+        "} else {",
+        "  var idx = randomAtoms(1);",
+        "  traceAtom(idx);",
+        "  set('tracedAtom',idx);",
+        "}"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "barrier-height",
+      "min": 0,
+      "max": 1,
+      "steps": 50,
+      "title": "Dimensione dei pori",
+      "property": "poreSize"
+    },
+    {
+      "type": "checkbox",
+      "id": "trace-atom",
+      "text": "Molecola di traccia",
+      "property": "tracingAtom"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "barrier-height",
+      "trace-atom"
+    ],
+    "right": [
+
+    ]
+  },
+  "template": "simple",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/4-semipermeable.json"
+}

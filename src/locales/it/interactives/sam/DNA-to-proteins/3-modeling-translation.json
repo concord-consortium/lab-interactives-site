@@ -1,0 +1,119 @@
+{
+  "title": "Modellazione della traduzione",
+  "publicationStatus": "public",
+  "subtitle": "Esplora come una proteina è fatta da una sequenza mRNA.",
+  "about": [
+    "La traduzione, o la fabbricazione di una proteina da una sequenza mRNA, si verifica sui ribosomi. Gli aminoacidi vengono portati al ribosoma dai RNA di trasferimento (tRNAs).",
+    "",
+    "Il tRNA si accoppia con l'mRNA accoppiando nucleotidi complementari. Questo assicura che l'aminoacido corretto sia aggiunto alla proteina.",
+    "",
+    "Puoi identificare quale sarà il codone tRNA per ogni tripletto di nucleotidi mRNA?"
+  ],
+  "fontScale": 0.8,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "translation:0"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "translate",
+      "text": "Tradurre",
+      "action": [
+        "if (get('DNAState') === 'translation-end') set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate-step",
+      "text": "Traduci passo dopo passo",
+      "action": "translateDNAStep();"
+    },
+    {
+      "type": "text",
+      "id": "label3",
+      "text": "Click"
+    },
+    {
+      "type": "text",
+      "id": "label4",
+      "text": "per generare proteine da mRNA o"
+    },
+    {
+      "type": "button",
+      "id": "start",
+      "text": "Avviare/continuare il modello",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop",
+      "text": "Stop",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Resette",
+      "action": "reloadModel();"
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label3",
+        "translate",
+        "label4",
+        "translate-step"
+      ],
+      [
+        "start",
+        "stop",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.2 * interactive.height",
+      "top": "model.bottom",
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ],
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/3-modeling-translation.json"
+}

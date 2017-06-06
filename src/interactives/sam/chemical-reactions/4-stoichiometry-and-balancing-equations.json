@@ -245,5 +245,6 @@
     "right-lower": [
       "model-pulldown"
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/4-stoichiometry-and-balancing-equations.json"
 }

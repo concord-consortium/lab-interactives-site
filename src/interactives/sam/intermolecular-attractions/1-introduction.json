@@ -49,5 +49,6 @@
       "potentialEnergy"
     ],
     "perTick": []
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json"
 }

@@ -1,0 +1,153 @@
+{
+  "title": "Spectra di assorbimento",
+  "publicationStatus": "draft",
+  "subtitle": "Esplora come la luce interagisce miscelato di elementi",
+  "about": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.8,
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "emission-spec",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/emissionSpc$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementA",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementA.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementB",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementB.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementC",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementC.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "elementD",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/absorption/elementD.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "id": "text-select-model",
+      "text": "**Scegli una sostanza da caricare**"
+    },
+    {
+      "type": "radio",
+      "id": "select-model",
+      "options": [
+        {
+          "text": "Miscela A",
+          "action": "loadModel('elementA');",
+          "selected": true
+        },
+        {
+          "text": "Miscela B",
+          "action": "loadModel('elementB');"
+        },
+        {
+          "text": "Miscela C",
+          "action": "loadModel('elementC');"
+        },
+        {
+          "text": "Miscela D",
+          "action": "loadModel('elementD');"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-light-source",
+      "text": "Luce brillare sulla miscela",
+      "textOn": "right",
+      "property": "lightSourceEnabled"
+    },
+    {
+      "type": "text",
+      "id": "spectrometer-label",
+      "text": "**Spettrometro**"
+    },
+    {
+      "id": "spectrometer",
+      "type": "spectrometer",
+      "upperBound": 15,
+      "lowerBound": 2
+    },
+    {
+      "id": "speed-slider",
+      "type": "slider",
+      "min": 0.005,
+      "max": 1,
+      "steps": 100,
+      "title": "Simulation speed",
+      "labels": [
+        {
+          "value": "0.005",
+          "label": "slow"
+        },
+        {
+          "value": "1",
+          "label": "fast"
+        }
+      ],
+      "width": "9em",
+      "property": "timeStep"
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "text-select-model"
+      ],
+      [
+        "select-model"
+      ],
+      [
+        "spectrometer-label"
+      ],
+      [
+        "spectrometer"
+      ]
+    ],
+    "bottom": [
+      "enable-light-source"
+    ]
+  },
+  "template": "left-right-bottom",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/absorption.json"
+}

@@ -114,5 +114,6 @@
         "temperature-slider"
       ]
     ]
-  }
+  },
+  "i18nMetadata": "locales/metadata/interactives/samples/4-100-atoms-conceptual.json"
 }

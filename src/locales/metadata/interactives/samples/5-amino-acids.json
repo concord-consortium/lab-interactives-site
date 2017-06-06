@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/samples/5-amino-acids.json",
   "en-US": "interactives/samples/5-amino-acids.json",
-  "nn-NO": "locales/nn/interactives/samples/5-amino-acids.json"
+  "nn-NO": "locales/nn/interactives/samples/5-amino-acids.json",
+  "it": "locales/it/interactives/samples/5-amino-acids.json"
 }

@@ -1,0 +1,137 @@
+{
+  "title": "Polimeri e monomeri",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+    "I carboidrati, le proteine e gli acidi nucleici sono costruiti dalle piccole unità molecolari che sono "
+     "Legati tra loro da forti legami covalenti.Le piccole unità molecolari si chiamano",
+     "Monomeri (*mono* significa uno o singolo) e sono collegati tra loro in catene lunghe",
+     "Polimeri chiamati (*poly* significa molti o multipli) Ogni diverso tipo di macromolecola",
+     "Tranne i lipidi, è costruito da un diverso set di monomeri che si assomigliano"
+     "Composizione e dimensione.Lipidi non sono polimeri, perché non sono costruiti dai monomeri",
+     "(Unità con composizione simile)",
+    "",
+    "Utilizza il modello qui sotto per costruire due diversi tipi di polimeri: la tua sfida è creare",
+     "Una catena di unità identiche (un omopolimero) e una catena di unità diverse (un eteropolimero)",
+    "",
+    "###Sfida 1: costruire un omopolimero###",
+    "",
+    "- Selezionare uno dei tipi di monomero e aggiungere circa 15 monomeri cliccando ovunque.",
+     "Nella camera di reazione di polimerizzazione*."
+     "- Fare clic sul pulsante di riproduzione per avviare la reazione.",
+     "",
+     "###Sfida 2: costruire un eteropolimero###",
+     "- Ripristinare e aggiungere circa 5 di ogni monomero in qualsiasi punto della camera di reazione.",
+     "- Clicca il pulsante di riproduzione per avviare la reazione.",
+   ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "catalysis",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.json",
+      "importedFrom": "imports/legacy-mw-content/sam-activities/chemical-reactions/polymerization/polymers-monomers$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "x": 2.7,
+            "backgroundColor": "#f8f8f8"
+          }
+        ]
+      },
+      "onLoad": [
+        "onClick('background', function (x, y) {",
+        "  var vx = (Math.random() * 2 - 1) * 1e-5;",
+        "  var vy = (Math.random() * 2 - 1) * 1e-5;",
+        "  addAtom({element: get('userSelectedElement'), x: x, y: y, vx: vx, vy: vy});",
+        "});"
+      ],
+      "modelOptions": {
+        "chemicalReactions": {
+          "createAngularBonds": false,
+          "noLoops": true,
+          "valenceElectrons": [
+            2,
+            2,
+            2
+          ],
+          "bondEnergy": {
+            "0-0": 0.5,
+            "1-1": 0.5,
+            "2-2": 0.5,
+            "0-1": 0.5,
+            "0-2": 0.5,
+            "0-3": 0.5,
+            "1-2": 0.5,
+            "1-3": 0.5,
+            "2-3": 0.5,
+            "0=0": 0.01,
+            "1=1": 0.01,
+            "2=2": 0.01,
+            "0=1": 0.01,
+            "0=2": 0.01,
+            "0=3": 0.01,
+            "1=2": 0.01,
+            "1=3": 0.01,
+            "2=3": 0.01
+          },
+          "activationEnergy": {
+            "default": 10
+          }
+        }
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "userSelectedElement",
+      "initialValue": 0
+    }
+  ],
+  "components": [
+    {
+      "id": "element-pulldown",
+      "type": "pulldown",
+      "label": "Fai clic sullo sfondo da aggiungere",
+      "property": "userSelectedElement",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "monomer 1",
+          "value": 0
+        },
+        {
+          "text": "monomer 2",
+          "value": 1
+        },
+        {
+          "text": "monomer 3",
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "helpTips": [
+    {
+      "text": [
+        "###Sfida 1: costruire un omopolimero###",
+        "",
+        "- Selezionare uno dei tipi di monomero e aggiungere circa 15 monomeri facendo clic su un punto qualsiasi",
+        "Nella camera di *reazione di polimerizzazione*.",
+        "- Fai clic sul pulsante di riproduzione per avviare la reazione.",
+        "",
+        "###Sfida 2: costruire un eteropolimero###",
+        "- Ripristinare e aggiungere circa 5 di ciascun monomero in qualsiasi punto della camera di reazione.",
+        "- Fai clic sul pulsante di riproduzione per avviare la reazione."
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "element-pulldown"
+    ]
+  },
+  "template": "simple",
+  "lang": "it",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/7-polymers-monomers.json"
+}

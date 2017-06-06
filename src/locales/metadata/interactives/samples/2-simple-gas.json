@@ -1,5 +1,6 @@
 {
   "nb-NO": "locales/nb/interactives/samples/2-simple-gas.json",
   "en-US": "interactives/samples/2-simple-gas.json",
-  "nn-NO": "locales/nn/interactives/samples/2-simple-gas.json"
+  "nn-NO": "locales/nn/interactives/samples/2-simple-gas.json",
+  "it": "locales/it/interactives/samples/2-simple-gas.json"
 }
