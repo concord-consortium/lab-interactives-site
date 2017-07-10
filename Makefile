@@ -160,11 +160,8 @@ submodule-update-tags:
 #
 # ------------------------------------------------
 
-node_modules: node_modules/d3
-	npm install
-
-node_modules/d3:
-	npm install vendor/d3
+node_modules:
+	yarn || npm install
 
 # ------------------------------------------------
 #

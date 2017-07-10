@@ -7,6 +7,8 @@
 
 Install the latest stable version of node with installers available here: [http://nodejs.org/#download](http://nodejs.org/#download)
 
+Install yarn using homebrew: `brew install yarn` or check other installation methods: https://yarnpkg.com/en/docs/install#mac-tab
+
 ## Linux (Ubuntu)
 
 To install the latest stable versions of node you first need to add this PPA repositories:
@@ -22,3 +24,5 @@ For this to work as intended python software properties must also be installed.
 Now install node and npm:
 
     $ sudo apt-get install nodejs npm
+    
+2. Install Yarn: https://yarnpkg.com/en/docs/install#linux-tab
