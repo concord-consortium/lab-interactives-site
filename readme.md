@@ -22,7 +22,7 @@ third-parties and are distributed under either BSD, MIT, or Apache 2.0 licenses.
 ### Prerequisites:
 
 - [RVM, Ruby 2.0 and Bundler](developer-doc/setup-ruby.md)
-- [node.js and npm](developer-doc/setup-node.md)
+- [node.js, npm and yarn](developer-doc/setup-node.md)
 - [additional Linux notes](developer-doc/linux-notes.md)
 
 ### Setup the local Lab repository for development

@@ -1,6 +1,6 @@
 {
-  "name": "lab",
-  "version": "0.8.0",
+  "name": "lab-interactives-site",
+  "version": "1.0.0",
   "description": "HTML5-based scientific models, visualizations, graphing, and probeware",
   "keywords": [
     "molecule",
@@ -11,14 +11,14 @@
     "svg",
     "d3"
   ],
-  "homepage": "http://lab.dev.concord.org/",
+  "homepage": "http://lab.concord.org/",
   "author": {
     "name": "Stephen Bannasch",
     "url": "https://github.com/stepheneb"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/concord-consortium/lab.git"
+    "url": "https://github.com/concord-consortium/lab-interacties-site.git"
   },
   "dependencies": {
     "optimist": ">=0.6.0",
@@ -44,15 +44,5 @@
     "should": "3.0.1",
     "sinon": ">=1.7.3",
     "chai": ">=1.7.2"
-  },
-  "directories": {
-    "bin": "node-bin"
-  },
-  "files": [
-    "md-engine/2d-molecules.js",
-    "md-engine/2d-molecules.min.js"
-  ],
-  "scripts": {
-    "test": "./node_modules/vows/bin/vows"
   }
 }
