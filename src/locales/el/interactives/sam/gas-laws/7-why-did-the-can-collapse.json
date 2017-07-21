@@ -1,0 +1,701 @@
+{
+  "title": "Ισορροπία Πίεσης",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε  τον τρόπο με τον οποίο η θερμότητα και ο αριθμός των μορίων επηρεάζουν την ισορροπία πίεσης μεταξύ δύο αερίων.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.9,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/7-why-did-the-can-collapse.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Αέρια υπάρχουν και στις δυο πλευρές ενός κινούμενου εμβόλου, το οποίο παραμένει στην ίδια θέση",
+    "(περισσότερο ή λιγότερο) όταν τρέχετε το μοντέλο επειδή η πίεση του αερίου πάνω στο έμβολο βρίσκεται σε κατάσταση ισορροπίας.",
+    "",
+    "Πρόσθεστε μωβ μόρια αερίου και παρακολουθήστε τι παθαίνει το έμβολο. Επαναφέρατε το μοντέλο. Τώρα προσθέστε",
+    "κίτρινα μόρια αερίου. Τι παθαίνει το έμβολο;",
+    "",
+    "Προσπαθήστε να θερμάνετε ή να ψύξετε τα μόρια του αερίου. Εξηγήστε τη μεταβολή της ισορροπίας για κάθε",
+    "αλλαγή χωριστά. Ποια είχε μεγαλύτερη επίδραση στην ισορροπία -- η αλλαγή του αριθμού των μορίων αερίου",
+    "ή η αλλαγή της θερμοκρασίας; Γιατί;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page7$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page7/page7$0.json",
+      "onLoad": [
+        "set('updateAtomIndicesCount',1);",
+        "callEvery(get('timeStep')*get('timeStepsPerTick'), function(t) {",
+        "  batch(function(){",
+        "    setTemperatureOfAtoms(get('purpleAtomIndices'),get('purpleAtomTemperature'));",
+        "    setTemperatureOfAtoms(get('yellowAtomIndices'),get('yellowAtomTemperature'));",
+        "  });",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVelocityVectors": true,
+        "textBoxes": [
+          {
+            "text": "Έμβολο",
+            "x": 1.7465425109863282,
+            "y": 1.43,
+            "width": 0.5,
+            "textAlign": "center",
+            "layer": 1,
+            "hostType": "RectangularObstacle",
+            "hostIndex": 0
+          }
+        ]
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "updateAtomIndicesCount",
+      "initialValue": 1,
+      "onChange": [
+        "var purpleAtomIndices = [],",
+        "    yellowAtomIndices = [],",
+        "    i;",
+        "for (i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if( getAtomProperties(i).element === 1 ) {",
+        "    yellowAtomIndices.push(i);",
+        "  } else {",
+        "    purpleAtomIndices.push(i);",
+        "  }",
+        "}",
+        "set('purpleAtomIndices',purpleAtomIndices);",
+        "set('yellowAtomIndices',yellowAtomIndices);"
+      ]
+    },
+    {
+      "name": "purpleAtomIndices",
+      "initialValue": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        59
+      ],
+      "onChange": ""
+    },
+    {
+      "name": "yellowAtomIndices",
+      "initialValue": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "onChange": ""
+    },
+    {
+      "name": "purpleAtomTemperature",
+      "initialValue": 500,
+      "onChange": ""
+    },
+    {
+      "name": "yellowAtomTemperature",
+      "initialValue": 500,
+      "onChange": ""
+    }
+  ],
+  "outputs": [
+    {
+      "name": "westPressureProbeInstantaneous",
+      "value": [
+        "return getObstacleProperties(0).westProbeValue;"
+      ],
+      "label": "Μετρητής Πίεσης",
+      "unitType": "pressure"
+    },
+    {
+      "name": "eastPressureProbeInstantaneous",
+      "value": [
+        "return getObstacleProperties(0).eastProbeValue;"
+      ],
+      "label": "Μετρητής Πίεσης",
+      "unitType": "pressure"
+    },
+    {
+      "name": "purpleAtoms",
+      "value": "return getNumberOfAtoms(function(atom) { return atom.element === 3; });"
+    },
+    {
+      "name": "yellowAtoms",
+      "value": "return getNumberOfAtoms(function(atom) { return atom.element === 1; });"
+    },
+    {
+      "name": "vxMean",
+      "value": [
+        "var vxSum = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  vxSum += Math.abs(getAtomProperties(i).vx);",
+        "}",
+        "return vxSum / atomNum;"
+      ],
+      "unitType": "velocity"
+    },
+    {
+      "name": "vyMean",
+      "value": [
+        "var vySum = 0;",
+        "var atomNum = getNumberOfAtoms();",
+        "for (var i = 0; i < atomNum; i++) {",
+        "  vySum += Math.abs(getAtomProperties(i).vy);",
+        "}",
+        "return vySum / atomNum;"
+      ],
+      "unitType": "velocity"
+    },
+    {
+      "name": "temperatureInside",
+      "value": [
+        "return getTemperatureOfAtoms(get('purpleAtomIndices'));"
+      ],
+      "unitType": "temperature"
+    },
+    {
+      "name": "temperatureOutside",
+      "value": [
+        "return getTemperatureOfAtoms(get('yellowAtomIndices'));"
+      ],
+      "unitType": "temperature"
+    },
+    {
+      "name": "volumeInside",
+      "value": [
+        "return 0.1 * get('height') * getObstacleProperties(0).x;"
+      ],
+      "unitType": "length"
+    },
+    {
+      "name": "volumeOutside",
+      "value": [
+        "return 0.1 * get('height') * (get('width')-getObstacleProperties(0).x-getObstacleProperties(0).width);"
+      ],
+      "unitType": "length"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "westPressureProbeFiltered",
+      "property": "westPressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Μετρητής Πίεσης",
+      "unitType": "pressure"
+    },
+    {
+      "name": "eastPressureProbeFiltered",
+      "property": "eastPressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Μετρητής Πίεσης",
+      "unitType": "pressure"
+    }
+  ],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "show-velocity",
+      "type": "checkbox",
+      "text": "Εμφάνιση διανυσμάτων ταχύτητας",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showVelocityVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "purple-atoms",
+      "type": "numericOutput",
+      "property": "purpleAtoms",
+      "label": "Μωβ",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "6em",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "yellow-atoms",
+      "type": "numericOutput",
+      "property": "yellowAtoms",
+      "label": "Κίτρινα",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "6em",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "add-inside",
+      "type": "button",
+      "action": [
+        "var elemNum = 3;",
+        "var maxX = getObstacleProperties(0).x - getElementProperties(elemNum).sigma;",
+        "addAtom({ element: elemNum, x: maxX * Math.random()  , y: get('height') * Math.random(), vx: get('vxMean'), vy: get('vyMean')});",
+        "set('updateAtomIndicesCount',get('updateAtomIndicesCount')+1);"
+      ],
+      "text": "+",
+      "width": "3em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "add-outside",
+      "type": "button",
+      "action": [
+        "var elemNum = 1;",
+        "var minX = getObstacleProperties(0).x + getObstacleProperties(0).width + getElementProperties(elemNum).sigma;",
+        "addAtom({ element: elemNum, x: (get('width') - minX) * Math.random() + minX , y: get('height') * Math.random(), vx: get('vxMean'), vy: get('vyMean')});",
+        "set('updateAtomIndicesCount',get('updateAtomIndicesCount')+1);"
+      ],
+      "text": "+",
+      "width": "3em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "remove-inside",
+      "type": "button",
+      "action": [
+        "var firstFound = false;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x < getObstacleProperties(0).x) {",
+        "    if (!firstFound) { firstFound = true; }",
+        "    else { removeAtom(i); break; }",
+        "  }",
+        "}",
+        "set('updateAtomIndicesCount',get('updateAtomIndicesCount')+1);"
+      ],
+      "text": "-",
+      "width": "3em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "remove-outside",
+      "type": "button",
+      "action": [
+        "var firstFound = false;",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).x > (getObstacleProperties(0).x + getObstacleProperties(0).width)) {",
+        "    if (!firstFound) { firstFound = true; }",
+        "    else { removeAtom(i); break; }",
+        "  }",
+        "}",
+        "set('updateAtomIndicesCount',get('updateAtomIndicesCount')+1);"
+      ],
+      "text": "-",
+      "width": "3em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "heat-inside",
+      "type": "button",
+      "action": [
+        "if (get('purpleAtomTemperature') < 5000) {",
+        "  set('purpleAtomTemperature', get('purpleAtomTemperature')*1.1);",
+        "}"
+      ],
+      "text": "Αύξηση",
+      "width": "5em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "heat-outside",
+      "type": "button",
+      "action": [
+        "if (get('yellowAtomTemperature') < 5000) {",
+        "  set('yellowAtomTemperature', get('yellowAtomTemperature')*1.1);",
+        "}"
+      ],
+      "text": "Αύξηση",
+      "width": "5em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "cool-inside",
+      "type": "button",
+      "action": [
+        "if (get('purpleAtomTemperature') > 0) {",
+        "  set('purpleAtomTemperature', get('purpleAtomTemperature')*0.9);",
+        "}"
+      ],
+      "text": "Μείωση",
+      "width": "5em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "cool-outside",
+      "type": "button",
+      "action": [
+        "if (get('yellowAtomTemperature') > 0) {",
+        "  set('yellowAtomTemperature', get('yellowAtomTemperature')*0.9);",
+        "}"
+      ],
+      "text": "Μείωση",
+      "width": "5em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "temperature-inside",
+      "type": "barGraph",
+      "property": "temperatureInside",
+      "min": 0,
+      "max": 5000,
+      "title": "T",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "temperature-outside",
+      "type": "barGraph",
+      "property": "temperatureOutside",
+      "min": 0,
+      "max": 5000,
+      "title": "T",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "pressure-inside",
+      "type": "barGraph",
+      "property": "westPressureProbeFiltered",
+      "min": 0,
+      "max": 4,
+      "title": "P",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "pressure-outside",
+      "type": "barGraph",
+      "property": "eastPressureProbeFiltered",
+      "min": 0,
+      "max": 4,
+      "title": "P",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "volume-inside",
+      "type": "barGraph",
+      "property": "volumeInside",
+      "min": 0,
+      "max": 1,
+      "title": "V",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "volume-outside",
+      "type": "barGraph",
+      "property": "volumeOutside",
+      "min": 0,
+      "max": 1,
+      "title": "V",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.5em",
+      "height": "10em",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "text-inside-heat",
+      "type": "text",
+      "text": "Ρύθμιση θερμοκρασίας",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "text-outside-heat",
+      "type": "text",
+      "text": "Ρύθμιση θερμοκρασίας",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "left-graphs": [
+      "temperature-inside",
+      "pressure-inside",
+      "volume-inside"
+    ],
+    "left-count": [
+      "purple-atoms"
+    ],
+    "left-spinner": [
+      [
+        "add-inside"
+      ],
+      [
+        "remove-inside"
+      ]
+    ],
+    "left-heat-label": [
+      "text-inside-heat"
+    ],
+    "left-heat": [
+      "cool-inside",
+      "heat-inside"
+    ],
+    "right-graphs": [
+      "temperature-outside",
+      "pressure-outside",
+      "volume-outside"
+    ],
+    "right-count": [
+      "yellow-atoms"
+    ],
+    "right-spinner": [
+      [
+        "add-outside"
+      ],
+      [
+        "remove-outside"
+      ]
+    ],
+    "right-heat-label": [
+      "text-outside-heat"
+    ],
+    "right-heat": [
+      "cool-outside",
+      "heat-outside"
+    ],
+    "footer": [
+      "show-velocity"
+    ]
+  },
+  "template": [
+    {
+      "id": "left-graphs",
+      "top": "model.top",
+      "right": "model.left",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "left-count",
+      "top": "left-graphs.bottom",
+      "left": "left-graphs.left",
+      "height": "4.5em",
+      "align": "right",
+      "fontScale": 0.8
+    },
+    {
+      "id": "left-spinner",
+      "top": "left-graphs.bottom",
+      "left": "left-count.right",
+      "align": "left",
+      "fontScale": 0.6
+    },
+    {
+      "id": "left-heat-label",
+      "top": "left-count.bottom",
+      "left": "left-graphs.left",
+      "fontScale": 0.8
+    },
+    {
+      "id": "left-heat",
+      "top": "left-heat-label.bottom",
+      "left": "left-graphs.left",
+      "fontScale": 0.65
+    },
+    {
+      "id": "right-graphs",
+      "top": "model.top",
+      "left": "model.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-count",
+      "left": "right-graphs.left",
+      "top": "right-graphs.bottom",
+      "height": "4.5em",
+      "align": "right",
+      "fontScale": 0.8,
+      "padding-left": "1em"
+    },
+    {
+      "id": "right-spinner",
+      "left": "right-count.right",
+      "top": "right-graphs.bottom",
+      "align": "left",
+      "fontScale": 0.6
+    },
+    {
+      "id": "right-heat-label",
+      "left": "right-graphs.left",
+      "top": "right-count.bottom",
+      "fontScale": 0.8,
+      "padding-left": "0.5em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right-heat",
+      "left": "right-graphs.left",
+      "top": "right-heat-label.bottom",
+      "fontScale": 0.65,
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "footer",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em",
+      "fontScale": 0.8
+    }
+  ]
+}
