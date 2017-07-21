@@ -1,0 +1,171 @@
+{
+  "title": "Τι είναι η χημική αντίδραση;",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/chemical-reactions/1-what-is-a-chemical-reaction.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Μια χημική αντίδραση μπορεί να συμβεί με τρεις διαφορετικούς τρόπους:",
+    "",
+    "- Ένας χημικός δεσμός σχηματίζεται.",
+    "- Ένας χημικός δεσμός σπάει.",
+    "- Ένα ή περισσότερα ηλεκτρόνια μεταφέρονται ανάμεσα σε άτομα ή μόρια.",
+    "",
+    "Διερευνήστε τις αντιδράσεις στις οποίες χημικοί δεσμοί σχηματίζονται ή σπάνε με αυτό το μοντέλο.",
+    "Πατήστε Έναρξη, έπειτα θερμάνετε ή ψύξτε τα άτομα για να δείτε πώς επιδρά η θερμοκρασία ",
+    "στην ισορροπία μεταξύ των σχηματιζόμενων δεσμών και αυτών που σπάνε."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.json",
+      "importedFrom": "models-converted/lab-version/1/md2d/sam-activities/chemical-reactions/original-interactives-in-pages/page1/page1$0.mml",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "reactionsExplanationFlat.png": "reactionsExplanationFlat.svg"
+        }
+      },
+      "modelOptions": {
+        "chemicalReactions": {
+          "bondEnergy": {
+            "1-1": 2,
+            "2-2": 4
+          },
+          "activationEnergy": {
+            "1+2-2": 0.02,
+            "2+1-1": 0.02
+          }
+        }
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [
+    {
+      "name": "filteredTemperature",
+      "property": "temperature",
+      "type": "RunningAverage",
+      "period": 2500
+    }
+  ],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "heat",
+      "type": "button",
+      "action": [
+        "if (get('temperature') > 100000) {",
+        "  setComponentDisabled('heat', true);",
+        "  return;",
+        "}",
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 1.1, vy: props.vy * 1.1});",
+        "  }",
+        "});"
+      ],
+      "text": "Θέρμανση",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "cool",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var props;",
+        "  for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "    props = getAtomProperties(i);",
+        "    setAtomProperties(i, {vx: props.vx * 0.9, vy: props.vy * 0.9});",
+        "  }",
+        "});",
+        "if (get('temperature') < 100000) {",
+        "  setComponentDisabled('heat', false);",
+        "}"
+      ],
+      "text": "Ψύξη",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "filteredTemperature",
+      "min": 0,
+      "max": 100000,
+      "title": "Θερμοκρασία",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "χαμηλή"
+        },
+        {
+          "value": 100000,
+          "label": "υψηλή"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right-upper": [
+      "thermometer"
+    ],
+    "right-lower": [
+      "heat",
+      "cool"
+    ]
+  },
+  "template": [
+    {
+      "id": "right-lower",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "model.bottom",
+      "align": "center"
+    },
+    {
+      "id": "right-upper",
+      "top": "model.top",
+      "left": "model.right",
+      "right": "interactive.right",
+      "bottom": "right-lower.top",
+      "align": "center"
+    }
+  ]
+}
