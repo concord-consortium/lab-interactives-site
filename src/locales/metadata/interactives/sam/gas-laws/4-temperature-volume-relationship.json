@@ -2,5 +2,6 @@
   "nb-NO": "locales/nb/interactives/sam/gas-laws/4-temperature-volume-relationship.json",
   "en-US": "interactives/sam/gas-laws/4-temperature-volume-relationship.json",
   "nn-NO": "locales/nn/interactives/sam/gas-laws/4-temperature-volume-relationship.json",
-  "it": "locales/it/interactives/sam/gas-laws/4-temperature-volume-relationship.json"
+  "it": "locales/it/interactives/sam/gas-laws/4-temperature-volume-relationship.json",
+  "el": "locales/el/interactives/sam/gas-laws/4-temperature-volume-relationship.json"
 }
