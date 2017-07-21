@@ -85,7 +85,7 @@
       "xProperty": "ticks",
       "title": "Contaminantes",
       "titlePosition": "left",
-      "buttonsLayout": "orizzontale",
+      "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
