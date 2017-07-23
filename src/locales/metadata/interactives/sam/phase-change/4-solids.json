@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/phase-change/4-solids.json",
   "en-US": "interactives/sam/phase-change/4-solids.json",
+  "el": "locales/el/interactives/sam/phase-change/4-solids.json",
+  "nb-NO": "locales/nb/interactives/sam/phase-change/4-solids.json",
   "nn-NO": "locales/nn/interactives/sam/phase-change/4-solids.json",
   "ru": "locales/ru/interactives/sam/phase-change/4-solids.json",
   "it": "locales/it/interactives/sam/phase-change/4-solids.json"

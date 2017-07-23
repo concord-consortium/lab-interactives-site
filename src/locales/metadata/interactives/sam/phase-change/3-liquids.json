@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/phase-change/3-liquids.json",
   "en-US": "interactives/sam/phase-change/3-liquids.json",
+  "el": "locales/el/interactives/sam/phase-change/3-liquids.json",
+  "nb-NO": "locales/nb/interactives/sam/phase-change/3-liquids.json",
   "nn-NO": "locales/nn/interactives/sam/phase-change/3-liquids.json",
   "ru": "locales/ru/interactives/sam/phase-change/3-liquids.json",
   "it": "locales/it/interactives/sam/phase-change/3-liquids.json"

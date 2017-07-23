@@ -1,0 +1,99 @@
+{
+  "title": "Μοριακή Θεώρηση ενός Στερεού",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Τι μορφή έχει ένα στερεό σε μοριακό επίπεδο;",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/4-solids.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Τα μόρια βρίσκονται σε διαρκή κίνηση — ακόμη και εκείνα ενός στερεού σώματος! \"Σημαδέψτε δύο άτομα\" και έπειτα",
+    "τρέξτε το μοντέλο για να δείτε πώς τα μόρια ενός στερεού σώματος κινούνται το ένα σε σχέση με το άλλο. Πώς",
+    "θα περιγράφατε την κίνηση και τη διευθέτηση των μορίων σε ένα στερεό;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page4/page4$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showVDWLines": true
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "mark-two-atoms",
+      "type": "button",
+      "action": "markAtoms(randomAtoms(2));",
+      "text": "Σημαδέψτε δύο άτομα",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-attractions",
+      "type": "checkbox",
+      "text": "Εμφάνιση ελκτικών αλληλεπιδράσεων",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showVDWLines",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "trace-atom",
+      "type": "button",
+      "action": "traceAtom(randomAtoms(1));",
+      "text": "Εμφάνιση ίχνους τυχαίου ατόμου",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "untrace-atom",
+      "type": "button",
+      "action": "untraceAtom();",
+      "text": "Κατάργηση ίχνους",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "mark-two-atoms",
+      "trace-atom",
+      "untrace-atom",
+      "show-attractions"
+    ]
+  },
+  "template": "simple"
+}

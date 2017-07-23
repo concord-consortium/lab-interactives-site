@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/phase-change/2-two-types-of-gases.json",
   "en-US": "interactives/sam/phase-change/2-two-types-of-gases.json",
+  "el": "locales/el/interactives/sam/phase-change/2-two-types-of-gases.json",
+  "nb-NO": "locales/nb/interactives/sam/phase-change/2-two-types-of-gases.json",
   "nn-NO": "locales/nn/interactives/sam/phase-change/2-two-types-of-gases.json",
   "it": "locales/it/interactives/sam/phase-change/2-two-types-of-gases.json"
 }
