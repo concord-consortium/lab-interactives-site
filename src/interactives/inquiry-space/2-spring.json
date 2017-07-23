@@ -114,7 +114,7 @@
     },
     {
       "name": "startingDisplacement",
-      "label": "Starting distance From equilibrium",
+      "label": "Starting distance from equilibrium",
       "unitType": "length",
       "onChange": [
         "var newLength = get('equilibriumLength') - value;",
