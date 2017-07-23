@@ -1,0 +1,277 @@
+{
+  "title": "Ενέργεια εκκρεμούς",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Energy conservation and transformation in a pendulum.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Σύρε το εκκρεμές για να ορίσεις το αρχικό ύψος και παρατήρησε πώς το ύψος συνδέεται με τη δυναμική ενέργεια.",
+    " Στη συνέχεια άφησε το εκκρεμές και παρατήρησε τη μεταβολή της δυναμικής ενέργειας σε κινητική και τελικά",
+    " σε θερμική (αύξηση της θερμοκρασίας της σφαίρας και του αέρα γύρω από τη σφαίρα) καθώς το εκκρεμές ",
+    "παύει να ταλαντώνεται.",
+    "***",
+    "*Αυτή η προσομοίωση προσαρμόστηκε από [το Interactions project](https://concord.org/projects/interactions \"το Interactions Project\") ",
+    "με χρηματοδότηση από το National Science Foundation (DRL-1232388) σε συνεργασία με ",
+    "[το CREATE for STEM Institute](http://create4stem.msu.edu/ \"το CREATE for STEM Institute\") στο Michigan State University. Για να μάθετε περισσότερα, ",
+    "[επισκεφτείτε τη συλλογή Interactions curriculum](https://learn.concord.org/interactions \"επισκεφτείτε τη συλλογή Interactions curriculum\") στο ",
+    "όπου είναι ενσωματωμένη αυτή η προσομοίωση.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pendulumEnergy",
+      "url": "locales/el/models/lab-version/1/md2d/interactions/pendulumEnergy.json",
+      "onLoad": [
+        "// Restore previous angle",
+        "onDrag('atom', function (x, y, d, i) {",
+        "  if(i === 1 && get('time') === 0){",
+        "    setAtomProperties(0, {x: 1.25, y: 1.25});",
+        "    var atom = getAtomProperties(1),",
+        "      angle = Math.min(Math.PI/2, Math.max(-Math.PI/2, Math.atan2(atom.x - 1.25, 1.25 - atom.y)));",
+        "    set('startingAngle', angle * rad2deg);",
+        "  }",
+        "});",
+        "// Disable atom dragging once started",
+        "onStart(function(){",
+        "  setAtomProperties(1, {draggableWhenStopped: 0});",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "textBoxes": [
+          {
+            "text": "Όρισε το αρχικό ύψος σύροντας τη σφαίρα.",
+            "x": 0,
+            "y": 1.5,
+            "layer": 1,
+            "fontSize": 0.12,
+            "anchor": "upper-left"
+          }
+        ]
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 1,
+        "modelSampleRate": 60
+      }
+    }
+  ],
+  "propertiesToRetain": [
+    "startingAngle"
+  ],
+  "parameters": [
+    {
+      "name": "startingAngle",
+      "initialValue": 45,
+      "onChange": "setAtomProperties(1, {x: 1.25 + Math.sin(value * deg2rad), y: 1.25 - Math.cos(value * deg2rad)});"
+    },
+    {
+      "name": "minThermalEnergy",
+      "initialValue": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "name": "kineticEnergy",
+      "value": [
+        "var atom = getAtomProperties(1); return 0.5 * atom.mass * (atom.vx * atom.vx + atom.vy * atom.vy);"
+      ],
+      "label": "Κινητική Ενέργεια",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "potentialEnergy",
+      "value": [
+        "var atom = getAtomProperties(1), pin = getAtomProperties(0), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * (bond.length - (pin.y - atom.y));"
+      ],
+      "label": "Δυναμική Ενέργεια",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "totalEnergy",
+      "value": [
+        "var atom = getAtomProperties(1), bond = getRadialBondProperties(0); return atom.mass * get('gravitationalField') * bond.length * (1 - Math.cos(get('startingAngle') * deg2rad)) + get('minThermalEnergy');"
+      ],
+      "label": "Ολική Ενέργεια",
+      "unitAbbreviation": "J"
+    },
+    {
+      "name": "thermalEnergy",
+      "value": [
+        "return get('totalEnergy') - get('kineticEnergy') - get('potentialEnergy')"
+      ],
+      "label": "Θερμική Ενέργεια",
+      "unitAbbreviation": "J"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "potentialEnergyGraph",
+      "type": "barGraph",
+      "property": "potentialEnergy",
+      "min": 0,
+      "max": 2.5,
+      "title": "Δυναμική Ενέργεια (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.6em",
+      "height": "100%",
+      "barColor": "#4c952f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "kineticEnergyGraph",
+      "type": "barGraph",
+      "property": "kineticEnergy",
+      "min": 0,
+      "max": 2.5,
+      "title": "Κινητική Ενέργεια (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.6em",
+      "height": "100%",
+      "barColor": "#3f2168",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermalEnergyGraph",
+      "type": "barGraph",
+      "property": "thermalEnergy",
+      "min": 0,
+      "max": 2.5,
+      "title": "Θερμική Ενέργεια (J)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1.6em",
+      "height": "100%",
+      "barColor": "#95602f",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "propertiesGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": false,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "potentialEnergy",
+        "kineticEnergy",
+        "thermalEnergy",
+        "totalEnergy"
+      ],
+      "xProperty": "displayTime",
+      "title": "Ενέργεια ως προς το Χρόνο",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Χρόνος (s)",
+      "xmin": 0,
+      "xmax": 8,
+      "ylabel": "Ενέργεια (J)",
+      "ymin": -0.2,
+      "ymax": 2.8,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#70c64e",
+        "#814ec6",
+        "#c6884e",
+        "#7c7c7c"
+      ],
+      "legendLabels": [
+        "Δυναμική Ενέργεια",
+        "Κινητική Ενέργεια",
+        "Θερμική Ενέργεια",
+        "Ολική Ενέργεια"
+      ],
+      "legendVisible": true,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "propertiesGraph"
+    ],
+    "bottom": [
+      "potentialEnergyGraph",
+      "kineticEnergyGraph",
+      "thermalEnergyGraph"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "height": "model.height",
+      "padding-top": "0.5em",
+      "align": "center"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "model.width * 1.3",
+      "bottom": "interactive.bottom",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }
+  ]
+}
