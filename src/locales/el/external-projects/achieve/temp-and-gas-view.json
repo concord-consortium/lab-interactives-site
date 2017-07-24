@@ -9,7 +9,7 @@
   "aspectRatio": 1.2,
   "fontScale": 1,
   "lang": "el",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/external-projects/achieve/temp-and-gas-view.json",
   "credits": "",
   "helpOnLoad": false,
   "aboutOnLoad": false,
