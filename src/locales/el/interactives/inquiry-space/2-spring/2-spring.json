@@ -9,7 +9,7 @@
   "aspectRatio": 1.55,
   "fontScale": 0.8,
   "lang": "el",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/inquiry-space/2-spring.json",
   "credits": "",
   "helpOnLoad": false,
   "aboutOnLoad": false,
