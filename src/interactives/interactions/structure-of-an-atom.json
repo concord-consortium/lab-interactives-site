@@ -9,7 +9,7 @@
   "aspectRatio": 1.5,
   "fontScale": 1.0302457466918715,
   "lang": "en-US",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactions/structure-of-atom.json",
   "credits": "",
   "helpOnLoad": true,
   "aboutOnLoad": false,
