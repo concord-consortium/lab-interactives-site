@@ -11,6 +11,8 @@
   ],
   "aspectRatio": 1.7,
   "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata":  "locales/metadata/interactives/inquiry-space/1-pendulum.json",  
   "models": [
     {
       "type": "md2d",

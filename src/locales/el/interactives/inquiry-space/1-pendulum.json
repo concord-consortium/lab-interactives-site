@@ -1,0 +1,389 @@
+{
+  "title": "Εκκρεμές",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερεύνησε τους παράγοντες που επηρεάζουν την περίοδο του εκκρεμούς.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "lang": "el",
+  "i18nMetadata":  "locales/metadata/interactives/inquiry-space/1-pendulum.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Πάτησε το κουμπί Έναρξη. Παρακολούθησε στη γραφική παράσταση πως αλλάζει η γωνία εκτροπής του εκκρεμούς καθώς",
+    "αυτό ταλαντώνεται. Χρησιμοποίησε το γράφημα για να υπολογίσεις την περίοδο του εκκρεμούς. Προσάρμοσε την",
+    "κλίμακα στη γραφική παράσταση, σύροντας τις τιμές στους άξονες. Άλλαξε κάθε μεταβλητή – βαρύτητα, μήκος ράβδου,",
+    "γωνία εκτροπής και μάζα σφαίρας – και παρατήρησε πώς επηρεάζει η κάθε μια την περίοδο του εκκρεμούς. Μπορείς να εξηγήσεις γιατί;",
+    "Δοκίμασε να μεταβάλλεις την απόσβεση. Αλλάζει η περίοδος;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "pendulum1$0",
+      "url": "models-converted/lab-version/1/md2d/inquiry-space/pendulum/pendulum1$0.json",
+      "onLoad": [
+        "function setGraphRange() {",
+        "  setComponentAttributes('propertiesGraph', {'xmax': get('actualDuration')*1.1});",
+        "}",
+        "function resetAngle() {",
+        "  set({startingAngle: get('startingAngle')});",
+        "}",
+        "function stopMotion() {",
+        "  stop();",
+        "  setAtomProperties(1, { vx: 0, vy: 0 });",
+        "}",
+        "onPropertyChange('rodLength', resetAngle);",
+        "onPropertyChange('ballMass', resetAngle);",
+        "onPropertyChange('gravitationalField', resetAngle);",
+        "onPropertyChange('damping', resetAngle);",
+        "onPropertyChange('startingAngle', stopMotion);",
+        "var actualDuration = get('actualDuration');",
+        "onPropertyChange('actualDuration', function() {",
+        "  if (actualDuration !== (actualDuration = get('actualDuration'))) {",
+        "    setGraphRange();",
+        "  }",
+        "});",
+        "setGraphRange();"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "controlButtonStyle": "video",
+        "gridLines": true,
+        "showClock": true,
+        "velocityVectors": {
+          "length": 10
+        }
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 0.998,
+        "modelSampleRate": 60,
+        "useDuration": true
+      }
+    }
+  ],
+  "propertiesToRetain": [
+    "gravity",
+    "rodLength",
+    "startingAngle",
+    "ballMass",
+    "damping"
+  ],
+  "parameters": [
+    {
+      "name": "gravity",
+      "initialValue": 9.8,
+      "onChange": "set('gravitationalField', value);",
+      "label": "Βαρύτητα",
+      "unitType": "acceleration"
+    },
+    {
+      "name": "rodLength",
+      "initialValue": 100,
+      "onChange": "var len = value/100, a0 = getAtomProperties(0), a1 = getAtomProperties(1), angle = Math.atan((a1.x-a0.x)/(a0.y-a1.y)); setRadialBondProperties(0, { length: len }); setAtomProperties(1, {x: a0.x+Math.sin(angle)*len, y: a0.y-Math.cos(angle)*len, vx: 0, vy: 0});",
+      "label": "Μήκος ράβδου",
+      "unitAbbreviation": "cm"
+    },
+    {
+      "name": "startingAngle",
+      "initialValue": 45,
+      "onChange": "var a0 = getAtomProperties(0), angle = value*deg2rad, len = getRadialBondProperties(0).length; setAtomProperties(1, {x: a0.x+Math.sin(angle)*len, y: a0.y-Math.cos(angle)*len, vx: 0, vy: 0});",
+      "label": "Γωνία εκτροπής",
+      "unitAbbreviation": "°"
+    },
+    {
+      "name": "ballMass",
+      "initialValue": 250,
+      "onChange": "setElementProperties(3, { mass: value/1000 });",
+      "label": "Μάζα σφαίρας",
+      "unitAbbreviation": "g"
+    },
+    {
+      "name": "damping",
+      "initialValue": 0,
+      "onChange": "setAtomProperties(1, { friction: value });",
+      "label": "Απόσβεση",
+      "unitType": "dampingCoefficient"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "currentAngle",
+      "value": [
+        "var a0 = getAtomProperties(0),",
+        "    a1 = getAtomProperties(1),",
+        "    ang = Math.atan2(a1.y-a0.y, a1.x-a0.x) * rad2deg;",
+        "return (a1.x < a0.x && a1.y >= a0.y) ? ang - 270 : ang + 90;"
+      ],
+      "label": "Γωνία",
+      "unitAbbreviation": "°"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "gravity",
+      "rodLength",
+      "startingAngle",
+      "ballMass",
+      "damping"
+    ],
+    "perTick": [
+      "currentAngle"
+    ]
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "gravity-slider",
+      "type": "slider",
+      "min": 0.8,
+      "max": 19.8,
+      "steps": 38,
+      "title": "Βαρύτητα (m/s²)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 20,
+          "label": "20"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "gravity",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "length-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 200,
+      "steps": 19,
+      "title": "Μήκος ράβδου (cm)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 10,
+          "label": "10 cm"
+        },
+        {
+          "value": 200,
+          "label": "2 m"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "rodLength",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "angle-slider",
+      "type": "slider",
+      "min": 0,
+      "max": 90,
+      "steps": 45,
+      "title": "Γωνία εκτροπής (&deg;)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 90,
+          "label": "90"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "startingAngle",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "mass-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 400,
+      "steps": 39,
+      "title": "Μάζα της σφαίρας (g)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 10,
+          "label": "10"
+        },
+        {
+          "value": 400,
+          "label": "400"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "ballMass",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "damping-slider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "steps": 20,
+      "title": "Απόσβεση (Newton ανά m/s)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 1,
+          "label": "1"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "property": "damping",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "current-angle-display",
+      "type": "numericOutput",
+      "property": "currentAngle",
+      "label": "",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "propertiesGraph",
+      "type": "graph",
+      "resetAxesOnReset": false,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "currentAngle"
+      ],
+      "xProperty": "displayTime",
+      "title": "Γωνία εκκρεμούς",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Χρόνος  (s)",
+      "xmin": 0,
+      "xmax": 5.4999780000000005,
+      "ylabel": "auto",
+      "ymin": -100,
+      "ymax": 100,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2r",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "propertiesGraph"
+    ],
+    "bottom": [
+      [
+        "gravity-slider",
+        "length-slider",
+        "angle-slider"
+      ],
+      [
+        "mass-slider",
+        "damping-slider",
+        "current-angle-display"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "width": "interactive.width"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "model.width",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }
+  ]
+}
