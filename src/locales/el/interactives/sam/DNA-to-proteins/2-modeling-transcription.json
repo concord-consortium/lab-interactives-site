@@ -1,0 +1,183 @@
+{
+  "title": "Μοντελοποίηση της μεταγραφής",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τη διαδικασία με την οποία παράγεται ένα αντίγραφο mRNA με πρότυπο το DNA.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.05,
+  "fontScale": 0.8,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/2-modeling-transcription.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Η μία αλυσίδα του DNA χρησιμοποιείται ως πρότυπο για τη δημιουργία ενός αντιγράφου mRNA. Η διαδικασία αυτή ονομάζεται μεταγραφή. Το αντίγραφο mRNA χρειάζεται να παραχθεί επειδή το DNA δε μπορεί να εγκαταλείψει τον πυρήνα.",
+    "",
+    "Σύμπλοκα πρωτεϊνών ξετυλίγουν τη δίκλωνη έλικα του DNA ώστε να επιτραπεί η πρόσδεση συμπληρωματικών στην αλληλουχία DNA νουκλεοτιδίων mRNA. Το ζευγάρωμα των νουκλεοτιδίων είναι πολύ συγκεκριμένο.",
+    "",
+    "Χρησιμοποιήστε τα πλήκτρα **A**, **U**, **G** και **C** για να τοποθετήσετε το σωστό νουκλεοτίδιο mRNA απέναντι από κάθε νουκλεοτίδιο DNA."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page2/page2$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGTTGACTCTAACTCGCATCCGCACTGTG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "begin",
+      "type": "button",
+      "action": "animateToDNAState('transcription:0');",
+      "text": "Προετοιμασία για μεταγραφή",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "transcribeA",
+      "type": "button",
+      "action": "transcribeDNAStep('A');",
+      "text": "A",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "transcribeC",
+      "type": "button",
+      "action": "transcribeDNAStep('C');",
+      "text": "C",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "transcribeG",
+      "type": "button",
+      "action": "transcribeDNAStep('G');",
+      "text": "G",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "transcribeU",
+      "type": "button",
+      "action": "transcribeDNAStep('U');",
+      "text": "U",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Επαναφορά",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label1A",
+      "type": "text",
+      "text": "Κάντε κλικ στο",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label1B",
+      "type": "text",
+      "text": "για το διαχωρισμό των αλυσίδων του DNA.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "Στη συνέχεια κάντε κλικ στο πλήκτρο που αντιστοιχεί στο σωστό **συμπληρωματικό** νουκλεοτίδιο RNA για να προχωρήσετε στο επόμενο βήμα της διαδικασίας της μεταγραφής:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label1A",
+        "begin",
+        "label1B"
+      ],
+      [
+        "label2"
+      ],
+      [
+        "transcribeA",
+        "transcribeU",
+        "transcribeG",
+        "transcribeC",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.3 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center"
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ]
+}
