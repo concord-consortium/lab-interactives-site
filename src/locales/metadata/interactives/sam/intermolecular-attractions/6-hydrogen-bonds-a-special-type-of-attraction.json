@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
   "en-US": "interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
-  "nn-NO": "locales/nn/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
-  "it": "locales/it/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json"
+  "el": "locales/el/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
+  "it": "locales/it/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
+  "nb-NO": "locales/nb/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
+  "nn-NO": "locales/nn/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json"
 }
