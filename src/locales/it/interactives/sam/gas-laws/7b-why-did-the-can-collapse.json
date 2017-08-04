@@ -189,7 +189,7 @@
       "text": "Calore",
       "width": "6em",
       "action": [
-        "if (get('temperature') < 10000) {",
+        "if (get('temperature') < 6000) {",
         "  batch(function () {",
         "    var obsX = getObstacleProperties(0).x;",
         "    for (var i = 0; i < getNumberOfAtoms(); i++) {",
@@ -211,7 +211,7 @@
       "text": "Calore",
       "width": "6em",
       "action": [
-        "if (get('temperature') < 10000) {",
+        "if (get('temperature') < 6000) {",
         "  batch(function () {",
         "    var obsX = getObstacleProperties(0).x;",
         "    for (var i = 0; i < getNumberOfAtoms(); i++) {",
