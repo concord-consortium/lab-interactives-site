@@ -336,7 +336,7 @@
     "gridLines": false,
     "atomNumbers": false,
     "enableAtomTooltips": false,
-    "enableKeyboardHandlers": true,
+    "enableKeyboardHandlers": false,
     "atomTraceColor": "#6913c5",
     "velocityVectors": {
       "color": "#000",
