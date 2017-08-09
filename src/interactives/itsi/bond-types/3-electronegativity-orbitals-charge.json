@@ -89,7 +89,7 @@
       "top": "model.top + model.height/3",
       "left": "model.right",
       "height": "9em",
-      "width": "14em",
+      "width": "18em",
       "padding-left": "0.7em",
       "align": "center"
     }
