@@ -14,7 +14,7 @@
     {
       "type": "md2d",
       "id": "initial",
-      "url": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/page7$0.json",
+      "url": "models/lab-version/1/md2d/itsi/chemical-reactions/limiting-reactions/page7$0.json",
       "importedFrom": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/page7$0.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -23,7 +23,7 @@
     {
       "type": "md2d",
       "id": "perfect",
-      "url": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/combustion.json",
+      "url": "models/lab-version/1/md2d/itsi/chemical-reactions/limiting-reactions/combustion.json",
       "importedFrom": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/combustion.mml",
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -32,7 +32,7 @@
     {
       "type": "md2d",
       "id": "limited",
-      "url": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/combustionLimited.json",
+      "url": "models/lab-version/1/md2d/itsi/chemical-reactions/limiting-reactions/combustionLimited.json",
       "importedFrom": "models-converted/lab-version/1/md2d/itsi/chemical-reactions/page7/combustionLimited.mml",
       "viewOptions": {
         "controlButtons": "play_reset"

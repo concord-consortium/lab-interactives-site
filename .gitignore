@@ -15,5 +15,6 @@ Thumbs.db
 *.sublime-workspace
 .project
 /*.log
+.idea
 
 src/models/lab-version/1/md2d/sensing-science/land-of-bump/saved-lob-code.rtf
