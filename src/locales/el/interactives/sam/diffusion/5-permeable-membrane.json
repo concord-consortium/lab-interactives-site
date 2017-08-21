@@ -1,0 +1,491 @@
+{
+  "title": "Διάχυση Κατά Μήκος μιας Διαπερατής Μεμβράνης",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Ανταλλαγή αερίων κατά μήκος της κυτταρικής μεμβράνης",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.8,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/diffusion/5-permeable-membrane.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Οι κυτταρικές μεμβράνες αποτελούνται από δύο στιβάδες φωσφολιπιδίων (φωσφολιπιδική διπλοστιβάδα). Κάποια μόρια είναι ικανά να διασχίζουν απευθείας τη μεμβράνη, χωρίς τη χρήση ειδικών μεμβρανικών καναλιών.",
+    "",
+    "Το οξυγόνο και το διοξείδιο του άνθρακα είναι δυο μόρια που μπορούν να διασχίσουν ελεύθερα την κυτταρική μεμβράνη. Στα αερόβια κύτταρα, το οξυγόνο είναι απαραίτητο για τη λειτουργία των κυττάρων ενώ το διοξείδιο του άνθρακα παράγεται ως παραπροϊόν του μεταβολισμού τους. Συνεπώς, το κύτταρο “επιθυμεί” την είσοδο του οξυγόνου και την απομάκρυνση του διοξειδίου του άνθρακα. Ωστόσο, τα μόρια δε μετακινούνται μόνο προς μια κατεύθυνση–διαχέονται τυχαία κατά μήκος της μεμβράνης.",
+    "",
+    "Ρυθμίστε το μοντέλο με υψηλή συγκέντρωση οξυγόνου και χαμηλή συγκέντρωση διοξειδίου του άνθρακα εξωτερικά του κυττάρου και χαμηλή συγκέντρωση οξυγόνου και υψηλή συγκέντρωση διοξειδίου του άνθρακα εσωτερικά του κυττάρου. Σε ποια κατεύθυνση μετακινούνται τα μόρια του οξυγόνου και του διοξειδίου του άνθρακα;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page2/page2mw5$0.json",
+      "onLoad": [
+        "onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "imageMapping": {
+          "membraneNoPores.png": "membrane.svg",
+          "oxygenCO2Key.png": "oxygenCO2Key.svg"
+        }
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "setCountTrigger",
+      "initialValue": 4,
+      "onChange": [
+        "var x,y,vx,vy,w,h,i,nAtomsToAdd;",
+        "stop();",
+        "batch(function(){",
+        "  for (i = getNumberOfAtoms(); i > 0; i--) {",
+        "    removeAtom(0);",
+        "  }",
+        "});",
+        "w = get('width');",
+        "h = get('height');",
+        "batch(function(){",
+        "  nAtomsToAdd = get('initialLeftO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: x, y: y, vx: vx, vy: vy, element: 0})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialLeftCO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: x, y: y, vx: vx, vy: vy, element: 1})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialRightO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: w/2+x, y: y, vx: vx, vy: vy, element: 0})) nAtomsToAdd--;",
+        "  }",
+        "  nAtomsToAdd = get('initialRightCO2');",
+        "  while (nAtomsToAdd > 0) {",
+        "    x = randomFloat(w/2);",
+        "    y = randomFloat(h);",
+        "    vx = randomFloat(0.02)-0.01;",
+        "    vy = randomFloat(0.02)-0.01;",
+        "    if (addAtom({x: w/2+x, y: y, vx: vx, vy: vy, element: 1})) nAtomsToAdd--;",
+        "  }",
+        "});",
+        "set('targetTemperature',500);"
+      ]
+    },
+    {
+      "name": "initialLeftCO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialLeftO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialRightCO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "initialRightO2",
+      "initialValue": 0,
+      "onChange": [
+        "set('setCountTrigger',get('setCountTrigger')+1);"
+      ]
+    },
+    {
+      "name": "markingAtoms",
+      "initialValue": false,
+      "onChange": [
+        "if (value) { ",
+        "  onSelect(function (x, y, w, h) { markAtoms(atomsWithinRect(x, y, w, h)); });",
+        "} else {",
+        "  onSelect(null);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "nLeftO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nLeftCO2",
+      "value": "return atomsWithinRect(0, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "nRightO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 0).length;"
+    },
+    {
+      "name": "nRightCO2",
+      "value": "return atomsWithinRect(get('width')/2, 0, get('width')/2, get('height'), 1).length;"
+    },
+    {
+      "name": "leftConcentrationO2",
+      "value": [
+        "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "leftConcentrationCO2",
+      "value": [
+        "  return get('nLeftCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationO2",
+      "value": [
+        "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    },
+    {
+      "name": "rightConcentrationCO2",
+      "value": [
+        "  return get('nRightCO2') / (get('width') / 2 * get('height') * 0.1);"
+      ]
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "inside-above-label",
+      "type": "text",
+      "text": "Εσωτερικά του κυττάρου",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "outside-above-label",
+      "type": "text",
+      "text": "Εξωτερικά του κυττάρου",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "inside-right-label",
+      "type": "text",
+      "text": "Εσωτερικά του κυττάρου",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "outside-right-label",
+      "type": "text",
+      "text": "Εξωτερικά του κυττάρου",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "left-concentration-CO2",
+      "type": "barGraph",
+      "property": "leftConcentrationCO2",
+      "min": 0,
+      "max": 100,
+      "title": "CO₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(225,243,253)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "left-concentration-O2",
+      "type": "barGraph",
+      "property": "leftConcentrationO2",
+      "min": 0,
+      "max": 100,
+      "title": "O₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(242,234,27)",
+      "fillColor": "rgb(225,243,253)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "right-concentration-CO2",
+      "type": "barGraph",
+      "property": "rightConcentrationCO2",
+      "min": 0,
+      "max": 100,
+      "title": "CO₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(143,113,178)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "right-concentration-O2",
+      "type": "barGraph",
+      "property": "rightConcentrationO2",
+      "min": 0,
+      "max": 100,
+      "title": "O₂",
+      "titleOn": "top",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "1em",
+      "height": "15em",
+      "barColor": "rgb(242,234,27)",
+      "fillColor": "rgb(243,222,223)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-left-concentration-co2",
+      "type": "pulldown",
+      "label": "CO₂",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "Κανένα",
+          "value": 0
+        },
+        {
+          "text": "Χαμηλή συγκέντρωση",
+          "value": 10
+        },
+        {
+          "text": "Υψηλή συγκέντρωση",
+          "value": 50
+        }
+      ],
+      "property": "initialLeftCO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-left-concentration-o2",
+      "type": "pulldown",
+      "label": "O₂",
+      "labelOn": "right",
+      "options": [
+        {
+          "text": "Κανένα",
+          "value": 0
+        },
+        {
+          "text": "Χαμηλή συγκέντρωση",
+          "value": 10
+        },
+        {
+          "text": "Υψηλή συγκέντρωση",
+          "value": 50
+        }
+      ],
+      "property": "initialLeftO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-right-concentration-co2",
+      "type": "pulldown",
+      "label": "CO₂",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Κανένα",
+          "value": 0
+        },
+        {
+          "text": "Χαμηλή συγκέντρωση",
+          "value": 10
+        },
+        {
+          "text": "Υψηλή συγκέντρωση",
+          "value": 50
+        }
+      ],
+      "property": "initialRightCO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-right-concentration-o2",
+      "type": "pulldown",
+      "label": "O₂",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Κανένα",
+          "value": 0
+        },
+        {
+          "text": "Χαμηλή συγκέντρωση",
+          "value": 10
+        },
+        {
+          "text": "Υψηλή συγκέντρωση",
+          "value": 50
+        }
+      ],
+      "property": "initialRightO2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right-inside": [
+      [
+        "inside-right-label"
+      ],
+      [
+        "left-concentration-O2",
+        "left-concentration-CO2"
+      ]
+    ],
+    "right-outside": [
+      [
+        "outside-right-label"
+      ],
+      [
+        "right-concentration-O2",
+        "right-concentration-CO2"
+      ]
+    ],
+    "bottom-left": [
+      [
+        "select-left-concentration-o2"
+      ],
+      [
+        "select-left-concentration-co2"
+      ]
+    ],
+    "bottom-right": [
+      [
+        "select-right-concentration-o2"
+      ],
+      [
+        "select-right-concentration-co2"
+      ]
+    ],
+    "below": [],
+    "above-left": [
+      "inside-above-label"
+    ],
+    "above-right": [
+      "outside-above-label"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "9.5em",
+      "align": "right"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "right": "model.right",
+      "width": "model.width/2",
+      "align": "right"
+    },
+    {
+      "id": "below",
+      "top": "bottom-left.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center"
+    },
+    {
+      "id": "above-left",
+      "left": "model.left",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "left"
+    },
+    {
+      "id": "above-right",
+      "right": "model.right",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "right"
+    },
+    {
+      "id": "right-inside",
+      "left": "model.right",
+      "top": "above-right.top",
+      "height": "model.height",
+      "align": "center"
+    },
+    {
+      "id": "right-outside",
+      "left": "right-inside.right",
+      "top": "above-right.top",
+      "height": "model.height",
+      "align": "center"
+    }
+  ]
+}

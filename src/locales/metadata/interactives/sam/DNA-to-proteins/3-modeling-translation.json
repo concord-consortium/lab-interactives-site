@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
   "en-US": "interactives/sam/DNA-to-proteins/3-modeling-translation.json",
-  "nn-NO": "locales/nn/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
-  "it": "locales/it/interactives/sam/DNA-to-proteins/3-modeling-translation.json"
+  "el": "locales/el/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
+  "it": "locales/it/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
+  "nb-NO": "locales/nb/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
+  "nn-NO": "locales/nn/interactives/sam/DNA-to-proteins/3-modeling-translation.json"
 }

@@ -1,0 +1,81 @@
+{
+  "title": "Διαμοριακές Ελκτικές Αλληλεπιδράσεις και Καταστάσεις της Ύλης",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τη σχέση των καταστάσεων της ύλης με την ισχύ των διαμοριακών ελκτικών αλληλεπιδράσεων.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/phase-change/5-interatomic-interactions-and-states.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Οι καταστάσεις της ύλης είναι τρεις—στερεό, υγρό και αέριο. Τρέξτε το μοντέλο και αλλάξτε την",
+    "ισχύ των ελκτικών αλληλεπιδράσεων μεταξύ των μορίων. Πώς η αλλαγή της ισχύος της ελκτικής αλληλεπίδρασης",
+    "μεταξύ των μορίων επηρεάζει την κατάσταση της ύλης;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page5/page5$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "epsilon",
+      "initialValue": 0.144,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "epsilon-slider",
+      "type": "slider",
+      "min": 0.01,
+      "max": 0.16,
+      "steps": 50,
+      "title": "Έλξη μεταξύ μορίων",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 0.01,
+          "label": "Ασθενής"
+        },
+        {
+          "value": 0.16,
+          "label": "Ισχυρή"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "epsilon",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "epsilon-slider"
+    ]
+  },
+  "template": "simple"
+}

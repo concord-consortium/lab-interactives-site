@@ -1,0 +1,206 @@
+{
+  "title": "Δομή του ατόμου",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Χαρτογραφώντας τη θέση των ηλεκτρονίων.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 1.0302457466918715,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactions/structure-of-atom.json",  
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Παρατηρήστε την πιθανή θέση των ηλεκτρονίων γύρω από το άτομο. Βρείτε τα ίχνη των ηλεκτρονίων με την πάροδο του χρόνου για να βγάλετε συμπεράσματα αναφορικά με τη θέση ",
+    "που είναι πιο πιθανό να βρεθούν γύρω από τον πυρήνα του ατόμου. Πώς σχετίζεται το μοτίβο των ιχνών που αφήνουν τα ηλεκτρόνια με το μοντέλο του νέφους των ηλεκτρονίων;",
+    "***",
+    "*Αυτή η προσομοίωση προσαρμόστηκε από [το Interactions project](https://concord.org/projects/interactions \"το Interactions Project\") ",
+    "με χρηματοδότηση από το National Science Foundation (DRL-1232388) σε συνεργασία με ",
+    "[το CREATE for STEM Institute](http://create4stem.msu.edu/ \"το CREATE for STEM Institute\") στο Michigan State University. Για να μάθετε περισσότερα, ",
+    "[επισκεφτείτε τη συλλογή Interactions curriculum](https://learn.concord.org/interactions \"επισκεφτείτε τη συλλογή Interactions curriculum\") στο ",
+    "όπου είναι ενσωματωμένη αυτή η προσομοίωση.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "electron-darts",
+      "url": "models/lab-version/1/md2d/interactions/structure-of-atom/structure.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/electron-darts/electronDarts$0.mml",
+      "onLoad": [
+        "// Hide the green text",
+        "//var savedText = getTextBoxProperties(2).text;",
+        "//setTextBoxProperties(2, {text: ''});",
+        "function throwDart(){",
+        "  var randomAngle = 2 * Math.PI * Math.random(),",
+        "      randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.07,",
+        "    height: 0.07,",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    x: get('viewPortWidth') * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "    y: get('viewPortHeight') * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    fence: 0,",
+        "    color: 'rgba(255, 0, 0, 0.4)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: 1",
+        "  });",
+        "};",
+        "callEvery(1,function(){",
+        "     if(get('time')>=get('LastDartThrow')+get('timeGap')){",
+        "       if(!get('trace')){",
+        "          if (getNumberOfShapes()>1){",
+        "            removeShape(1);",
+        "            removeShape(1);",
+        "          }",
+        "          throwDart();",
+        "          throwDart();",
+        "       }else{",
+        "         batch(function () {",
+        "           throwDart();",
+        "           throwDart();",
+        "         });",
+        "       }",
+        "       set('LastDartThrow',get('time'));",
+        "      }",
+        "});",
+        "throwDart();",
+        "throwDart();",
+        "start();"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "timeGap",
+      "initialValue": 100
+    },
+    {
+      "name": "LastDartThrow",
+      "initialValue": 0
+    },
+    {
+      "name": "trace",
+      "initialValue": false,
+      "onChange": [
+        "batch(function() {",
+        "  var shapeNum = getNumberOfShapes()-1;",
+        "  for(var i = 0; i<shapeNum; i++) {",
+        "    removeShape(1);",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Είναι αδύνατον να γνωρίζουμε ταυτόχρονα τόσο την ακριβή θέση όσο και την ταχύτητα ενός ηλεκτρονίου. Η προσομοίωση εμφανίζει τη θέση των ηλεκτρονίων σε διάφορες χρονικές στιγμές. Διερευνήστε το μοτίβο εύρεσης των ηλεκτρονίων."
+      ],
+      "showcase": true
+    }
+  ],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "trace-electrons",
+      "type": "checkbox",
+      "text": "Ίχνη Ηλεκτρονίων",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "trace",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "timestep-slider",
+      "type": "slider",
+      "min": 5,
+      "max": 200,
+      "steps": 50,
+      "title": "Καθυστέρηση εύρεσης ηλεκτρονίων",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 5,
+          "label": "μικρή"
+        },
+        {
+          "value": 200,
+          "label": "μεγάλη"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "timeGap",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "key",
+      "type": "image",
+      "src": "atom-key.svg",
+      "urlRelativeTo": "model",
+      "width": "auto",
+      "height": "8em",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right-top": [
+      [
+        "timestep-slider"
+      ],
+      [
+        "trace-electrons"
+      ]
+    ],
+    "right-bottom": [
+      "key"
+    ]
+  },
+  "template": [
+    {
+      "id": "right-top",
+      "left": "model.right",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "padding-bottom": "2em",
+      "align": "center"
+    },
+    {
+      "id": "right-bottom",
+      "left": "model.right",
+      "width": "model.width",
+      "top": "right-top.bottom",
+      "align": "center"
+    }
+  ]
+}

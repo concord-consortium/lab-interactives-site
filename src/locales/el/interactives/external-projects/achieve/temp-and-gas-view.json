@@ -1,0 +1,82 @@
+{
+  "title": "Μόρια Αερίου σε Κίνηση",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τον τρόπο με τον οποίο η θερμοκρασία επηρεάζει ένα αέριο σε μοριακό επίπεδο.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/external-projects/achieve/temp-and-gas-view.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Τα μόρια βρίσκονται σε συνεχή κίνηση. Αλλάξτε τη θερμοκρασία και παρατηρήστε τη ",
+    "σχέση ανάμεσα στη θερμοκρασία και την κίνηση των μορίων του αερίου.",
+    "------",
+    "This interactive was developed in collaboration with Achieve (www.achieve.org)."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page2$0",
+      "url": "models/lab-version/1/md2d/external-projects/achieve/gas.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 50,
+      "max": 5000,
+      "steps": 499,
+      "title": "Θερμοκρασία",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 50,
+          "label": "Χαμηλή"
+        },
+        {
+          "value": 2500,
+          "label": "Μεσαία"
+        },
+        {
+          "value": 5000,
+          "label": "Υψηλή"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "targetTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "temperature-slider"
+    ]
+  },
+  "template": "simple"
+}

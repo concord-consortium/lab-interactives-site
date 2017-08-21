@@ -1,0 +1,119 @@
+{
+  "title": "Σχέση Θερμοκρασίας-Πίεσης",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τον τρόπο με τον οποίο η θερμοκρασία επηρεάζει την πίεση που ασκείται από ένα αέριο.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/5-temperature-pressure-relationship.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": "Τρέξτε το μοντέλο και αλλάξτε τη θερμοκρασία. Πώς επηρεάζεται η πίεση από την αλλαγή της θερμοκρασίας;",
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page5/page5$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Μετρητής πίεσης →",
+            "x": 2.15,
+            "y": 2.27,
+            "width": 1.05,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [
+    {
+      "name": "pressureProbeInstantaneous",
+      "value": [
+        "return getObstacleProperties(0).westProbeValue;"
+      ],
+      "label": "Μετρητής πίεσης",
+      "unitType": "pressure"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressureProbeFiltered",
+      "property": "pressureProbeInstantaneous",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Μετρητής πίεσης",
+      "unitType": "pressure"
+    }
+  ],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 100,
+      "max": 1000,
+      "steps": 50,
+      "title": "Θερμοκρασία",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 1000,
+          "label": "1000 K"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "targetTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "bar-graph",
+      "type": "barGraph",
+      "property": "pressureProbeFiltered",
+      "min": 0,
+      "max": 0.8,
+      "title": "Πίεση (Bar)",
+      "titleOn": "right",
+      "labels": 5,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "bar-graph"
+    ]
+  },
+  "template": "narrow-right"
+}

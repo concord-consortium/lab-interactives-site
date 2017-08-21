@@ -1,0 +1,146 @@
+{
+  "title": "Σχέση Αριθμού Μορίων - Όγκου Αερίου",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τον τρόπο με τον οποίο ο όγκος του αερίου σχετίζεται με τον αριθμό των μορίων του.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/6-number-volume-relationship.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Το μοντέλο περιέχει μόρια αερίου υπό σταθερή πίεση. Το έμβολο μετακινείται όταν",
+    "ο όγκος του αερίου αυξάνεται ή μειώνεται. Τρέξτε το μοντέλο και επιλέξτε διαφορετικό αριθμό",
+    "μορίων από το μενού κύλισης. Ποια είναι η σχέση ανάμεσα στον αριθμό των",
+    "μορίων και τον όγκο του αερίου;",
+    "",
+    "----",
+    "*Παρατήρηση: Μολονότι τα άτομα του μοντέλου καταλαμβάνουν το επίπεδο, ο όγκος υπολογίζεται θεωρώντας ότι το βάθος του δοχείου είναι ίσο με 0.1 nm.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page6/page6noScale$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Έμβολο στο οποίο ασκείται σταθερή πίεση.",
+            "x": 1.973017120361328,
+            "y": 1.7,
+            "width": 0.5,
+            "fontScale": 1.1,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "hostType": "RectangularObstacle",
+            "hostIndex": 0,
+            "backgroundColor": "rgb(250,250,250)",
+            "textAlign": "center"
+          }
+        ]
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "atomsCount",
+      "initialValue": 120,
+      "onChange": [
+        "var obsX = getObstacleProperties(0).x;",
+        "/* Ensure that available volume is enough for 100 molecules. */",
+        "if (value >= 100 && obsX < 1) { obsX = 1; setObstacleProperties(0, {x: obsX}); }",
+        "batch(function () {",
+        "  var atomsCount = getNumberOfAtoms();",
+        "  var xMax = obsX - getElementProperties(3).sigma;",
+        "  var h = get('height');",
+        "  while (atomsCount < value) {",
+        "    if (addAtom({ element: 3, x: xMax * Math.random(), y: h * Math.random()})) ",
+        "      atomsCount += 1;",
+        "  }",
+        "  while (atomsCount > value) {",
+        "    removeAtom(getNumberOfAtoms() - 1);",
+        "    atomsCount -= 1;",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "volume",
+      "value": [
+        "return getObstacleProperties(0).x * get('height') * 0.1;"
+      ],
+      "label": "Όγκος",
+      "unitAbbreviation": "nm³"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "pulldown1",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "120 μόρια",
+          "value": 120
+        },
+        {
+          "text": "100 μόρια",
+          "value": 100
+        },
+        {
+          "text": "80 μόρια",
+          "value": 80
+        },
+        {
+          "text": "60 μόρια",
+          "value": 60
+        },
+        {
+          "text": "40 μόρια",
+          "value": 40
+        },
+        {
+          "text": "20 μόρια",
+          "value": 20
+        }
+      ],
+      "property": "atomsCount",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "current-volume",
+      "type": "numericOutput",
+      "property": "volume",
+      "label": "Όγκος αερίου",
+      "units": "nm³",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {},
+  "template": "simple"
+}

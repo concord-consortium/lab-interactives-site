@@ -1,0 +1,429 @@
+{
+  "title": "Ελατήριο και Σώμα",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερεύνησε τους παράγοντες που επηρεάζουν την περίοδο του ελατηρίου.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.55,
+  "fontScale": 0.8,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/inquiry-space/2-spring.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Επίλεξε το κουμπί Έναρξη. Παρατήρησε στη γραφική παράσταση πώς αλλάζει το ύψος στο οποίο φτάνει το σώμα καθώς",
+    "κινείται πάνω - κάτω. Χρησιμοποίησε το γράφημα για να υπολογίσεις την περίοδο του συστήματος ελατήριο-σώμα.",
+    "Προσάρμοσε την κλίμακα της γραφικής παράστασης σύροντας τα νούμερα στους άξονες. Άλλαξε τις τιμές των παραμέτρων – βαρύτητα,",
+    "σταθερά του ελατηρίου, θέση έναρξης της ταλάντωσης και μάζα σώματος – παρατήρησε πώς κάθε μια παράμετρος επηρεάζει την περίοδο του συστήματος.",
+    "Μπορείς να εξηγήσεις γιατί; Διαφέρει από τη σχέση που βρήκες για το εκκρεμές; Δοκίμασε να αλλάξεις",
+    "τις τιμές της απόσβεσης. Μεταβάλλεται η περίοδος του συστήματος;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "spring-mass",
+      "url": "models-converted/lab-version/1/md2d/inquiry-space/pendulum/spring-mass$0.json",
+      "onLoad": [
+        "function setGraphRange() {",
+        "  setComponentAttributes('propertiesGraph', {'xmax': get('actualDuration')*1.1});",
+        "}",
+        "function resetDisplacement() {",
+        "  set({startingDisplacement: get('startingDisplacement')});",
+        "}",
+        "function stopMotion() {",
+        "  stop();",
+        "  setAtomProperties(1, { vx: 0, vy: 0 });",
+        "}",
+        "onPropertyChange('springConstant', resetDisplacement);",
+        "onPropertyChange('ballMass', resetDisplacement);",
+        "onPropertyChange('gravitationalField', resetDisplacement);",
+        "onPropertyChange('damping', resetDisplacement);",
+        "onPropertyChange('startingDisplacement', stopMotion);",
+        "callEvery(1, function() {",
+        "   if ((Math.floor(getTime()) >= get('experimentDuration')) && get('durationEnabled')) {",
+        "     stop();",
+        "   }",
+        "});",
+        "var actualDuration = get('actualDuration');",
+        "onPropertyChange('actualDuration', function() {",
+        "  if (actualDuration !== (actualDuration = get('actualDuration'))) {",
+        "    setGraphRange();",
+        "  }",
+        "});",
+        "setGraphRange();"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "controlButtonStyle": "video",
+        "gridLines": true,
+        "showClock": true,
+        "velocityVectors": {
+          "length": 10
+        }
+      },
+      "modelOptions": {
+        "unitsScheme": "mks",
+        "timeStepsPerTick": 167,
+        "timeStep": 0.998,
+        "modelSampleRate": 60,
+        "useDuration": true
+      }
+    }
+  ],
+  "propertiesToRetain": [
+    "gravity",
+    "ballMass",
+    "springConstant",
+    "startingDisplacement",
+    "damping"
+  ],
+  "parameters": [
+    {
+      "name": "gravity",
+      "initialValue": 9.8,
+      "onChange": "set('gravitationalField', value);",
+      "label": "Βαρύτητα",
+      "unitType": "acceleration"
+    },
+    {
+      "name": "ballMass",
+      "initialValue": 100,
+      "onChange": "setElementProperties(3, { mass: value/1000 });",
+      "label": "Μάζα σώματος",
+      "unitAbbreviation": "g"
+    },
+    {
+      "name": "springConstant",
+      "initialValue": 6.7,
+      "onChange": "setRadialBondProperties(0, { strength: value });",
+      "label": "Σταθερά του ελατηρίου",
+      "unitType": "stiffness"
+    },
+    {
+      "name": "startingDisplacement",
+      "initialValue": 0.3,
+      "onChange": [
+        "var newLength = get('equilibriumLength') - value;",
+        "setAtomProperties(1, { y: getAtomProperties(0).y - newLength });"
+      ],
+      "label": "Αρχική απόσταση από θέση ισορροπίας",
+      "unitType": "length"
+    },
+    {
+      "name": "damping",
+      "initialValue": 0,
+      "onChange": "setAtomProperties(1, { friction: value });",
+      "label": "Απόσβεση",
+      "unitType": "dampingCoefficient"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "currentDisplacement",
+      "value": "return get('equilibriumLength') - (getAtomProperties(0).y - getAtomProperties(1).y);",
+      "label": "Απόσταση από θέση ισορροπίας",
+      "unitType": "length"
+    },
+    {
+      "name": "equilibriumLength",
+      "value": "return getRadialBondProperties(0).length + ((get('ballMass')/1000) * get('gravitationalField') / get('springConstant'));",
+      "label": "Μήκος ελατηρίου σε θέση ισορροπίας",
+      "unitType": "length"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "gravity",
+      "springConstant",
+      "startingDisplacement",
+      "ballMass",
+      "damping"
+    ],
+    "perTick": [
+      "currentDisplacement"
+    ]
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "gravity-slider",
+      "type": "slider",
+      "min": 0.8,
+      "max": 19.8,
+      "steps": 38,
+      "title": "Βαρύτητα (m/s²)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 20,
+          "label": "20"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "gravity",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "spring-constant-slider",
+      "type": "slider",
+      "min": 3,
+      "max": 30,
+      "steps": 290,
+      "title": "Σταθερά ελατηρίου (N/m)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "value": 30,
+          "label": "30"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.1f')(value)",
+      "property": "springConstant",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "length-slider",
+      "type": "slider",
+      "min": -0.6,
+      "max": 0.6,
+      "steps": 24,
+      "title": "Θέση έναρξης (m)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": -0.6,
+          "label": "-0.6"
+        },
+        {
+          "value": 0.6,
+          "label": "0.6"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "property": "startingDisplacement",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Starting distance from equilibrium position",
+      "helpIcon": false
+    },
+    {
+      "id": "mass-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 250,
+      "steps": 39,
+      "title": "Mass of the ball (g)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 10,
+          "label": "10"
+        },
+        {
+          "value": 250,
+          "label": "250"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('f')(value)",
+      "property": "ballMass",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "damping-slider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "steps": 20,
+      "title": "Απόσβεση (N per m/s)",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 1,
+          "label": "1"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "property": "damping",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "Damping force in Newtons per m/s",
+      "helpIcon": false
+    },
+    {
+      "id": "equilibrium-display",
+      "type": "numericOutput",
+      "property": "equilibriumLength",
+      "label": "",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "velocity-vectors",
+      "type": "checkbox",
+      "text": "Εμφάνισε διάνυσμα ταχύτητας",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showVelocityVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "displacement-display",
+      "type": "numericOutput",
+      "property": "currentDisplacement",
+      "label": "",
+      "units": "",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "propertiesGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": true,
+      "enableZooming": true,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "currentDisplacement"
+      ],
+      "xProperty": "displayTime",
+      "title": "Απόσταση από θέση ισορροπίας",
+      "titlePosition": "center",
+      "buttonsStyle": "icons",
+      "buttonsLayout": "vertical",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Χρόνος (s)",
+      "xmin": 0,
+      "xmax": 5.4999780000000005,
+      "ylabel": "Απόσταση (m)",
+      "ymin": -0.6,
+      "ymax": 0.6,
+      "xTickCount": 5,
+      "yTickCount": 6,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#a00000",
+        "#2ca000",
+        "#2c00a0"
+      ],
+      "legendLabels": [],
+      "legendVisible": false,
+      "syncXAxis": false,
+      "syncYAxis": false,
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "propertiesGraph"
+    ],
+    "bottom": [
+      [
+        "gravity-slider",
+        "spring-constant-slider",
+        "length-slider"
+      ],
+      [
+        "mass-slider",
+        "damping-slider",
+        "velocity-vectors"
+      ],
+      [
+        "equilibrium-display",
+        "displacement-display"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "top",
+      "bottom": "model.top",
+      "width": "interactive.width"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "width": "model.width",
+      "height": "model.height",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }
+  ]
+}

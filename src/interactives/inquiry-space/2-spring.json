@@ -12,6 +12,8 @@
   ],
   "aspectRatio": 1.55,
   "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/inquiry-space/2-spring.json",  
   "models": [
     {
       "type": "md2d",
@@ -114,7 +116,7 @@
     },
     {
       "name": "startingDisplacement",
-      "label": "Starting distance From equilibrium",
+      "label": "Starting distance from equilibrium",
       "unitType": "length",
       "onChange": [
         "var newLength = get('equilibriumLength') - value;",

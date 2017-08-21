@@ -1,0 +1,224 @@
+{
+  "title": "Μεταλλάξεις",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τον τρόπο με τον οποίο μια αλλαγή στην αλληλουχία του DNA μπορεί να αλλάξει την αλληλουχία των αμινοξέων της παραγόμενης πρωτεΐνης.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 0.75,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/4-mutations.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Οι μεταλλάξεις είναι λάθη στην αλληλουχία του DNA. Χρησιμοποιήστε το πλήκτρο **Επεξεργασία DNA** για να αλλάξετε όλη την αλληλουχία DNA ή κάντε κλικ σε ένα νουκλεοτίδιο για να πραγματοποιήσετε μια μετάλλαξη προσθήκης, έλλειψης ή αντικατάστασης. Πώς η αλλαγή της αλληλουχίας DNA επηρεάζει την παραγόμενη πρωτεΐνη;",
+    "",
+    "Μπορείτε να μεταβείτε απευθείας από την αλληλουχία DNA στην τελική πρωτεΐνη και αντίστροφα χρησιμοποιώντας τα πλήκτρα **Εμφάνιση DNA** και **Εμφάνιση πρωτεΐνης**.",
+    "",
+    "Υπάρχουν κάποιοι τύποι μεταλλάξεων που είναι πιο επιβλαβείς σε σχέση με κάποιους άλλους;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNAState": "dna"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "transcribe",
+      "type": "button",
+      "action": [
+        "if (DNAStateAfter('transcription-end'))",
+        "  set('DNAState', 'dna');",
+        "animateToDNAState('transcription-end');"
+      ],
+      "text": "Μεταγραφή",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "translate",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation:0') || get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ],
+      "text": "Μετάφραση",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Επαναφορά",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Παύση",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "next-state",
+      "type": "button",
+      "action": "animateToNextDNAState();",
+      "text": "Συνέχεια βήμα προς βήμα",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "dna-dialog",
+      "type": "button",
+      "action": "openDNADialog();",
+      "text": "Επεξεργασία DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-protein",
+      "type": "button",
+      "action": "set('DNAState', 'translation-end');",
+      "text": "Εμφάνιση πρωτεΐνης",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-dna",
+      "type": "button",
+      "action": "set('DNAState', 'dna');",
+      "text": "Εμφάνιση DNA",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Έναρξη/συνέχεια μοντέλου",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label",
+      "type": "text",
+      "text": "Κάντε κλικ σε ένα νουκλεοτίδιο για να πραγματοποιήσετε μια μετάλλαξη ή ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "buffer",
+      "type": "text",
+      "text": "|",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "label",
+        "dna-dialog"
+      ],
+      [
+        "show-dna",
+        "transcribe",
+        "buffer",
+        "translate",
+        "show-protein"
+      ],
+      [
+        "next-state",
+        "start",
+        "stop",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.3 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ]
+}

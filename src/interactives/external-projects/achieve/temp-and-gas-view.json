@@ -3,6 +3,8 @@
   "publicationStatus": "public",
   "subtitle": "Explore how temperature affects a gas at the atomic level.",
   "aspectRatio": 1.2,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/external-projects/achieve/temp-and-gas-view.json",  
   "about": [
     "Molecules are in constant motion. Adjust the temperature slider and observe the ",
     "relationship between temperature and the motion of gas molecules.",

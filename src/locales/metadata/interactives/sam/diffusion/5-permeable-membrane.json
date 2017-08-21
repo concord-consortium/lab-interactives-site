@@ -1,6 +1,7 @@
 {
-  "nb-NO": "locales/nb/interactives/sam/diffusion/5-permeable-membrane.json",
   "en-US": "interactives/sam/diffusion/5-permeable-membrane.json",
-  "nn-NO": "locales/nn/interactives/sam/diffusion/5-permeable-membrane.json",
-  "it": "locales/it/interactives/sam/diffusion/5-permeable-membrane.json"
+  "el": "locales/el/interactives/sam/diffusion/5-permeable-membrane.json",
+  "it": "locales/it/interactives/sam/diffusion/5-permeable-membrane.json",
+  "nb-NO": "locales/nb/interactives/sam/diffusion/5-permeable-membrane.json",
+  "nn-NO": "locales/nn/interactives/sam/diffusion/5-permeable-membrane.json"
 }

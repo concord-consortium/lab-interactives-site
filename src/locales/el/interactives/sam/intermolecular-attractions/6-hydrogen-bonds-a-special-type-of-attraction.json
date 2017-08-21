@@ -1,0 +1,139 @@
+{
+  "title": "Δεσμοί Υδρογόνου: Ένας Ιδιαίτερος Τύπος Ελκτικής Αλληλεπίδρασης",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τον τρόπο με τον οποίο τα πολικά μόρια αλληλεπιδρούν με δεσμούς υδρογόνου.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 0.99,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/6-hydrogen-bonds-a-special-type-of-attraction.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Διερευνήστε το σχηματισμό των δεσμών υδρογόνου μεταξύ πολικών μορίων, όπως το νερό. Οι δεσμοί υδρογόνου εμφανίζονται με διακεκομμένες γραμμές.",
+    "",
+    "Εμφανίστε τα μερικά ηλεκτρικά φορτία και τρέξτε το μοντέλο. Πού σχηματίζονται οι δεσμοί υδρογόνου; Δοκιμάστε να αλλάξετε τη θερμοκρασία",
+    "του μοντέλου. Με ποιον τρόπο το μοτίβο των δεσμών υδρογόνου εξηγεί το σχηματισμό του πλέγματος που φτιάχνει τους κρυστάλλους πάγου;"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page6$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page6/page6$0.json",
+      "onLoad": "set({temperatureControl: true}); set({targetTemperature: 10000});",
+      "viewOptions": {
+        "controlButtons": "play_reset_step"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "show_bonds",
+      "type": "checkbox",
+      "text": "Εμφάνιση δεσμών υδρογόνου",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showVDWLines",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show_charge",
+      "type": "checkbox",
+      "text": "Εμφάνιση μερικών ηλεκτρικών φορτίων",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showChargeSymbols",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "slow_motion2",
+      "type": "checkbox",
+      "text": "Αργή κίνηση",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "retainProperty": true,
+      "action": "if (value) { set({timeStep: 0.1}) } else { set({timeStep: 1})};",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false,
+      "initialValue": false
+    },
+    {
+      "id": "cool",
+      "type": "button",
+      "action": "adjustTemperature(0.9);",
+      "text": "Μείωση θερμοκρασίας",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "heat",
+      "type": "button",
+      "action": "adjustTemperature(1.1); limitHighTemperature(25000);",
+      "text": "Αύξηση θερμοκρασίας",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 25000,
+      "title": "Θερμόμετρο",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      "cool",
+      "heat",
+      "show_bonds",
+      "show_charge",
+      "slow_motion2"
+    ]
+  },
+  "template": "simple"
+}

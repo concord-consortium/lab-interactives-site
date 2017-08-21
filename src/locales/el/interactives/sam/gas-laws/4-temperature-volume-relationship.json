@@ -1,0 +1,106 @@
+{
+  "title": "Σχέση Θερμοκρασίας-Όγκου",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Διερευνήστε τη σχέση μεταξύ της θερμοκρασίας και του όγκου ενός αερίου.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "el",
+  "i18nMetadata": "locales/metadata/interactives/sam/gas-laws/4-temperature-volume-relationship.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Το μοντέλο αυτό περιέχει μόρια αερίου στην αριστερή πλευρά και ένα έμβολο που μετακινείται όταν",
+    "ο όγκος του αερίου αυξάνεται ή μειώνεται, διατηρώντας την πίεσή του σταθερή. Τρέξτε το μοντέλο και",
+    "αλλάξτε τη θερμοκρασία. Γιατί μετακινείται το έμβολο όταν αλλάζει η θερμοκρασία;",
+    "",
+    "----",
+    "*Παρατήρηση: Μολονότι τα άτομα του μοντέλου καταλαμβάνουν το επίπεδο, ο όγκος υπολογίζεται θεωρώντας ότι το βάθος του δοχείου είναι ίσο με 0.1 nm.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page4$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/gas-laws/original-interactives-in-pages/page4/page4noScale$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "textBoxes": [
+          {
+            "text": "Έμβολο στο οποίο ασκείται σταθερή πίεση.",
+            "x": 1.973017120361328,
+            "y": 1.7,
+            "width": 0.5,
+            "fontSize": 0.13,
+            "textAlign": "center"
+          }
+        ]
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [
+    {
+      "name": "volume",
+      "value": [
+        "return getObstacleProperties(0).x * get('height') * 0.1;"
+      ],
+      "label": "Όγκος",
+      "unitAbbreviation": "nm³"
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 100,
+      "max": 1000,
+      "steps": 50,
+      "title": "Θερμοκρασία",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 1000,
+          "label": "1000 K"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "targetTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "current-volume",
+      "type": "numericOutput",
+      "property": "volume",
+      "label": "Όγκος αερίου",
+      "units": "nm³",
+      "orientation": "horizontal",
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "return format('.2f')(value)",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {},
+  "template": "simple"
+}

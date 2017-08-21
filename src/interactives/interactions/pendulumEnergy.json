@@ -9,7 +9,7 @@
   "aspectRatio": 1.5,
   "fontScale": 0.8,
   "lang": "en-US",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactions/pendulumEnergy.json",
   "credits": "",
   "helpOnLoad": false,
   "aboutOnLoad": true,
