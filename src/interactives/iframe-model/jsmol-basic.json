@@ -2,6 +2,10 @@
   "title": "JSmol model",
   "publicationStatus": "public",
   "subtitle": "This is an external JSmol model included using Lab iframe model type",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
   "about": [
     "Open Interactive JSON editor to see three ways of communication with JSmol model:",
     "",

@@ -2,6 +2,10 @@
   "title": "DNA: The Double Helix",
   "publicationStatus": "public",
   "subtitle": "Explore the structure of DNA.",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
   "about": [
     "Use the controls to explore this fragment of a much longer DNA strand.",
     "Can you find the four different base pairs that DNA is constructed from?"

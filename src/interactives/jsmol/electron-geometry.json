@@ -2,6 +2,10 @@
   "title": "Electron Geometry",
   "publicationStatus": "public",
   "subtitle": "Explore examples of different molecular shapes",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
   "about": [
     "Molecules assume different shapes due to patterns of shared and unshared electrons.",
     "In these examples all electrons affecting the shape of the molecules are shared ",

@@ -2,6 +2,10 @@
   "title": "Unshared Electrons and the \"Bent\" Shape",
   "publicationStatus": "public",
   "subtitle": "Why is water not linear?",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
   "about": [
     "Use the 3D model to see how unshared electrons repel ",
     "those that are shared in the bonds between hydrogen ",

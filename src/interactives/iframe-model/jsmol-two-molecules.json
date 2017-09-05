@@ -2,6 +2,10 @@
   "title": "JSmol model with two molecules",
   "publicationStatus": "public",
   "subtitle": "Demo presenting multiple JSmol molecules and interactions with them",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
   "about": [
     "Open Interactive JSON editor to see how two molecules are defined and how to commonicate with",
     "them.",
