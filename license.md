@@ -89,6 +89,8 @@ Here is a list of projects and resources included in the in the `vendor/` direct
 30. [seedrandom](https://github.com/davidbau/seedrandom): [BSD](http://www.opensource.org/licenses/BSD-2-Clause)
 31. [chosen](https://github.com/harvesthq/chosen): [MIT](http://www.opensource.org/licenses/MIT)
 
+Some interactives use [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license.
+
 In addition there is one fontface directory in `vendor/fonts` that is distributed
 under a compatible open source license:
 
