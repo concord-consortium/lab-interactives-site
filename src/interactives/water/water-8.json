@@ -35,15 +35,15 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions":{
-        "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html#xMax=125&xMin=-125",
-        "template": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamA.json",
+        "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html#xMax=120&xMin=-90",
+        "template": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamC.json",
         "rainProbability": 0,
         "evapProbability": 0,
         "rainCountOptions":  {
-          "x": 10,
+          "x": 18,
           "y": 5,
-          "dx": 50,
-          "dy": 30,
+          "dx": 32,
+          "dy": 22,
           "debug": false
         },
         "controls": {
