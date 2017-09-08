@@ -37,7 +37,7 @@
       "modelOptions":{
         "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html#xMax=120&xMin=-90",
         "template": "state/low-res/WaterModel-Gaining-Losing-Stream-StreamC.json",
-        "rainProbability": 0,
+        "rainProbability": 1,
         "evapProbability": 0,
         "rainCountOptions":  {
           "x": 18,
@@ -47,7 +47,7 @@
           "debug": false
         },
         "controls": {
-          "wells": "irrigation",
+          "wells": "removal",
           "remove": "well"
         }
       },
@@ -68,7 +68,7 @@
     },
     {
       "name": "rainCount",
-      "value": "return iframeOutput('rainCount') || 28"
+      "value": "return iframeOutput('rainCount') || 720"
     },
     {
       "name": "well1",
