@@ -65,7 +65,7 @@
         "      }",
         "      if (a.x < 0.3 && Math.abs(a.y - 1.25 < 0.2)) {",
         "        // make sure that atoms don't get stuck behind the small rectangle and don't block new atoms",
-        "        setAtomProperties(i, {vx: 0.0004});",
+        "        setAtomProperties(i, {vx: 0.0003});",
         "      }",
         "    }",
         "  });",
@@ -88,7 +88,9 @@
       "type": "button",
       "action": [
         "var element = Math.floor(Math.random() * 3) + 1;",
-        "addAtom({element: element, x: 0.1, y: 1.25, vy: Math.random() * 0.0008 - 0.0004});"
+        "var vy =  0.00003;",
+        "if (Math.random() > 0.5) vy = vy * -1;",
+        "addAtom({element: element, x: 0.1, y: 1.25, vy: vy});"
       ],
       "text": "Insert a molecule",
       "width": "",
