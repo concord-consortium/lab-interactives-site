@@ -1,0 +1,248 @@
+{
+  "title": "Gravitational Field",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Manipulate the mass and location of the objects to explore how the objects' masses and locations affect the shape of the gravitational field around them.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.31,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "(1) Change the masses of one or both objects and observe how this affects the shape of the ",
+    "gravitational field around them. (2) Move one of the objects closer or further away from the ",
+    "other object observe how this affects the shape of the gravitational field around them.",
+    "***",
+    "*This simulation was developed by [the ELeVATE project](http://create4stem.msu.edu/node/3431 \"the ELeVATE Project\") ",
+    "with funding from the National Science Foundation (DRL-1431725) in partnership with ",
+    "[the Concord Consortium](https://concord.org \"the Concord Consortium\")."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "amount-charge",
+      "url": "models/lab-version/1/md2d/external-projects/ELeVATE/grav-field-model.json",
+      "onLoad": [
+        "set('showElectricField',true);",
+        "set('left-particle-charge',1);",
+        "set('right-particle-charge',1);",
+        "stop();"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "electricFieldDensity": 24,
+        "electricFieldColor": "rgb(0,255,0)",
+        "forceVectors": {
+          "length": 17
+        },
+        "textBoxes": [
+          {
+            "text": "     Particle B     \n \n \n",
+            "hostType": "Atom",
+            "hostIndex": 0,
+            "layer": 1,
+            "color": "rgb(255, 255, 0)",
+            "textAlign": "center",
+            "width": 0.15,
+            "fontScale": 0.7
+          },
+          {
+            "text": "     Particle A     \n \n \n",
+            "hostType": "Atom",
+            "hostIndex": 1,
+            "layer": 1,
+            "color": "rgb(255, 255, 0)",
+            "textAlign": "center",
+            "width": 0.15,
+            "fontScale": 0.7
+          }
+        ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "left-particle-charge",
+      "initialValue": 1,
+      "onChange": "setAtomProperties(1,{charge: value});"
+    },
+    {
+      "name": "right-particle-charge",
+      "initialValue": 1,
+      "onChange": "setAtomProperties(0,{charge: -value});"
+    },
+    {
+      "name": "x-cord",
+      "initialValue": 2.57
+    },
+    {
+      "name": "show-second-atom",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  setAtomProperties(0, {charge: get('right-particle-charge'), visible: true, pinned:0, x:get('x-cord')});",
+        "setTextBoxProperties(0, {color: 'rgb(255, 255, 0)'}); ",
+        "setComponentDisabled('set-right-particle-charge',false);",
+        "} else {",
+        "set('x-cord',getAtomProperties(0).x);",
+        "  setAtomProperties(0, {charge: 0, visible: false, pinned:1, x:8});",
+        "setTextBoxProperties(0, {color: 'rgba(0, 0, 0,0)'}); ",
+        "setComponentDisabled('set-right-particle-charge',true);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Drag the particles around and use the controls below to explore gravitational forces and fields."
+      ],
+      "showcase": true
+    }
+  ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "left-particle-charge",
+      "right-particle-charge",
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "set-left-particle-charge",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "steps": 9,
+      "title": "Particle A",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 1,
+          "label": "M"
+        },
+        {
+          "value": 5,
+          "label": "5xM"
+        },
+        {
+          "value": 10,
+          "label": "10xM"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "left-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "set-right-particle-charge",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "steps": 10,
+      "title": "Particle B",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 1,
+          "label": "M"
+        },
+        {
+          "value": 5,
+          "label": "5xM"
+        },
+        {
+          "value": 10,
+          "label": "10xM"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "right-particle-charge",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-show-forces",
+      "type": "checkbox",
+      "text": "Show forces",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showForceVectors",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-show-electric-field",
+      "type": "checkbox",
+      "text": "Show electric field",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showElectricField",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "set-left-particle-charge",
+        "set-right-particle-charge"
+      ],
+      [
+        "select-show-forces",
+        "select-show-electric-field"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width",
+      "align": "center"
+    }
+  ]
+}

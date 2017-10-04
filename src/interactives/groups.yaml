@@ -417,3 +417,7 @@
 - :path: external-projects/msu
   :name: "Michigan State University Interactives"
   :category: Curriculum
+
+- :path: external-projects/ELeVATE
+  :name: "ELeVATE Interactives"
+  :category: Curriculum
