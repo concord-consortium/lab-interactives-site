@@ -37,10 +37,10 @@
     "showClock": false,
     "markColor": "#f8b500",
     "keShading": false,
-    "chargeShading": true,
+    "chargeShading": false,
     "useThreeLetterCode": true,
     "aminoAcidColorScheme": "hydrophobicity",
-    "showChargeSymbols": true,
+    "showChargeSymbols": false,
     "showVDWLines": false,
     "VDWLinesCutoff": "medium",
     "showVelocityVectors": false,
@@ -85,7 +85,7 @@
     ],
     "element": [
       2,
-      0
+      2
     ],
     "vx": [
       0,
@@ -96,8 +96,8 @@
       0
     ],
     "charge": [
-      -2,
-      2
+      -1,
+      1
     ],
     "friction": [
       0,
@@ -124,16 +124,16 @@
       0.3
     ],
     "epsilon": [
-      -0.15000000596046448,
       -0.1,
-      -0.10357142984867096,
+      -0.1,
+      -0.1,
       -0.1,
       -0.1
     ],
     "color": [
       -16711936,
       -9066941,
-      -3406594,
+      -3750202,
       -3750202,
       -855310
     ]
