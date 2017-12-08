@@ -6,7 +6,7 @@
   "category": "Biology",
   "subCategory": "Molecular biology",
   "screenshot": "http://screenshots.lab.concord.org/1-dropping-dye-on-click.png",
-  "aspectRatio": 1.25,
+  "aspectRatio": 1.15,
   "fontScale": 1,
   "lang": "en-US",
   "i18nMetadata": "locales/metadata/interactives/sam/diffusion/1-dropping-dye-on-click.json",
@@ -24,15 +24,18 @@
     "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
     "which this simulation is embedded.*"
   ],
-  "theme": "",
-  "showTopBar": true,
-  "showBottomBar": true,
-  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
+      "url": "models/lab-version/1/md2d/interactions/dropping-dye/dropping-dye.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "showClock": true,
+        "imageMapping": {
+          "waterDyeKey.png": "waterDyeKey.svg"
+        }
+      },
       "onLoad": [
         "function onClickHandler(x, y) {",
         "  start();",
@@ -43,17 +46,9 @@
         "}",
         "onClick('background', onClickHandler);",
         "onClick('atom', onClickHandler);"
-      ],
-      "viewOptions": {
-        "controlButtons": "play_reset",
-        "showClock": true,
-        "imageMapping": {
-          "waterDyeKey.png": "waterDyeKey.svg"
-        }
-      }
+      ]
     }
   ],
-  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "tracedAtom",
@@ -66,14 +61,11 @@
       "onChange": ""
     }
   ],
-  "outputs": [],
-  "filteredOutputs": [],
-  "helpTips": [],
-  "dataSets": [],
   "components": [
     {
-      "id": "trace",
       "type": "button",
+      "id": "trace",
+      "text": "Trace a random molecule",
       "action": [
         "batch(function () {",
         "  var atomID = randomAtoms(1);",
@@ -87,18 +79,32 @@
         "  setAtomProperties(atomID, {marked: 0}, false, false);",
         "  traceAtom(atomID);",
         "});"
+      ]
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 25,
+      "max": 500,
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 25,
+          "label": "Low"
+        },
+        {
+          "value": 500,
+          "label": "High"
+        }
       ],
-      "text": "Trace a random molecule",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
+      "steps": 100,
+      "title": "Temperature",
+      "property": "targetTemperature"
     }
   ],
   "layout": {
     "under-model": [
-      "trace"
+      "temperature-slider","trace"
     ]
   },
   "template": [
