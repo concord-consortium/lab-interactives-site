@@ -165,7 +165,7 @@
     {
       "id": "key",
       "type": "image",
-      "src": "atom-key.svg",
+      "src": "atom-key_el.svg",
       "urlRelativeTo": "model",
       "width": "auto",
       "height": "8em",
