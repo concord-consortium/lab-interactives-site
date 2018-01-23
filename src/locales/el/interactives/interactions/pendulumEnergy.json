@@ -2,7 +2,7 @@
   "title": "Ενέργεια εκκρεμούς",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Energy conservation and transformation in a pendulum.",
+  "subtitle": "Διατήρηση και μετατροπή ενέργειας κατά την ταλάντωση εκκρεμούς.",
   "category": "",
   "subCategory": "",
   "screenshot": "",
@@ -33,7 +33,7 @@
     {
       "type": "md2d",
       "id": "pendulumEnergy",
-      "url": "locales/el/models/lab-version/1/md2d/interactions/pendulumEnergy.json",
+      "url": "models/lab-version/1/md2d/interactions/pendulumEnergy.json",
       "onLoad": [
         "// Restore previous angle",
         "onDrag('atom', function (x, y, d, i) {",

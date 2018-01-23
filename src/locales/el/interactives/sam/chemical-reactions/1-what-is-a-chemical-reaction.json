@@ -37,7 +37,7 @@
       "viewOptions": {
         "controlButtons": "play_reset",
         "imageMapping": {
-          "reactionsExplanationFlat.png": "reactionsExplanationFlat.svg"
+          "reactionsExplanationFlat.png": "reactionsExplanationFlat_el.svg"
         }
       },
       "modelOptions": {
