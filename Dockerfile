@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 WORKDIR /srv
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && apt-get install -y apt-utils
 
 # Install RVM
 RUN apt-get install -y curl
@@ -20,7 +20,7 @@ RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.
 RUN apt-get update && apt-get install -y yarn
 
 # Setup app
-RUN locale-gen en_US.UTF-8
+RUN apt-get install -y locales && locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 RUN apt-get install -y git libxslt-dev libxml2-dev python-pip
 RUN pip install supervisor
