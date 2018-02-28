@@ -37,7 +37,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://models-resources.concord.org/jsmol/embeddable-polarization.html",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
         "molecule": "models/polarization/propane.mol"
       },
       "onLoad": [
