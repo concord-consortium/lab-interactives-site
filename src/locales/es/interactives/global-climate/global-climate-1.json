@@ -310,7 +310,7 @@
       "showRays",
       "showHeat"
     ],
-    "perTick": []
+    "perTick": [],
     "lang": "es",
   "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json"
   }
