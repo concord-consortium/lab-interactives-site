@@ -197,7 +197,7 @@
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
       "ylabel": "Gases invernadero en el modelo",
