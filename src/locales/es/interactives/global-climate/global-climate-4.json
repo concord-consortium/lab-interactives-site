@@ -1,24 +1,24 @@
 {
-  "title": "Climate Change 4",
+  "title": "Cambio Climático 4",
   "publicationStatus": "public",
-  "subtitle": "The Relationship Between Ocean Temperature and Atmospheric Water Vapor Levels",
+  "subtitle": "La relación entre la temperatura del océano y los niveles de vapor de agua atmosféricos",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore how the temperature of the planet affects the amount of water vapor in the air.   ",
+    "Explora cómo la temperatua del planeta afecta la cantidad de vapor de agua en el aire.   ",
     "",
-    "The temperature slider changes the average global temperature, affecting both the atmospheric and oceanic temperatures.",
-    "Change the temperature, and watch the graphs to see what happens to the amount of water vapor in the air and the amount of",
-    "carbon dioxide in the air and ocean. Make sure that you wait long enough to see the effect.  ",
+    "El deslizador 'Temperatura' cambia la temperatura global promedio, afectando tanto la temperatura atmosférica como oceánica.",
+    "Cambia la temperatura moviendo el deslizado y observa los gráficos para ver qué sucede con el vapor de agua en el aire y la cantidad de",
+    "dióxido de carbono en el aire y en el océano. Asegúrate de esperar lo suficiente como para poder apreciar el efecto.  ",
     "",
-    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
-    "and atmosphere and ocean (lower graph).    ",
+    "Los gráficos muestran el cambio relativo de la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano",
+    "y la atmósfera y el océano (gráfico inferior).    ",
     "",
-    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
+    "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
-  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
-              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
-              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+  "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
               "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
@@ -65,30 +65,30 @@
   "outputs": [
     {
       "name": "year",
-      "label": "Year",
+      "label": "Año",
       "format": "d",
       "unitName": "Year",
       "value": "return iframeOutput('year');"
     },
     {
       "name": "temperatureChange",
-      "label": "Temperature Change",
+      "label": "Cambio de Temperatura",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
     },
     {
       "name": "oceanTemperatureChange",
-      "label": "Ocean Temperature Change",
+      "label": "Cambio en la temperatura del océano",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('oceanTemperatureChange');"
     },
     {
       "name": "airCO2Concentration",
-      "label": "AIr CO₂ Concentration",
+      "label": "Concentración de CO₂ en el aire",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -96,7 +96,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Ocean CO₂ Concentration",
+      "label": "Concentración de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -104,7 +104,7 @@
     },
     {
       "name": "vaporConcentration",
-      "label": "Vapor Concentration",
+      "label": "Concentración de vapor",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -133,17 +133,17 @@
         "oceanTemperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temperature Change",
+      "title": "Cambio de temperatura",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Temperature (°C)",
+      "ylabel": "Temperatura (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
@@ -160,8 +160,8 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "Air temperature",
-        "Ocean temperature"
+        "Temperatura del aire",
+        "Temperatura del océano"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
@@ -190,7 +190,7 @@
         "vaporConcentration"
       ],
       "xProperty": "year",
-      "title": "Greenhouse Gas Concentration",
+      "title": "Concentración de gases invernadero",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
@@ -200,7 +200,7 @@
       "xlabel": "Time (year)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Greenhouse gases in the model",
+      "ylabel": "Gases invernadero en el modelo",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
@@ -218,9 +218,9 @@
         "#000000"
       ],
       "legendLabels": [
-        "CO₂ in Atmosphere",
-        "CO₂ in Ocean",
-        "Water Vapor in Atmosphere"
+        "CO₂ en la Atmósfera",
+        "CO₂ en el Océano",
+        "Vapor de agua en la atmósfera"
       ],
       "legendVisible": true,
       "syncXAxis": "temperatureGraph",
@@ -256,7 +256,7 @@
       "min": 0,
       "max": 20,
       "steps": 100,
-      "title": "Temperature",
+      "title": "Temperatura",
       "fillColor": "#459ACE",
       "labels": [
         {
@@ -277,7 +277,7 @@
     {
       "id": "showLabel",
       "type": "text",
-      "text": "Show:",
+      "text": "Mostrar:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -296,7 +296,7 @@
     {
       "id": "showRaysCheckbox",
       "type": "checkbox",
-      "text": "Rays",
+      "text": "Rayos",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -307,7 +307,7 @@
     {
       "id": "showHeatCheckbox",
       "type": "checkbox",
-      "text": "Heat",
+      "text": "Calor",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
