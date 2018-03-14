@@ -71,7 +71,7 @@
       "name": "year",
       "label": "Año",
       "format": "d",
-      "unitName": "Year",
+      "unitName": "Año",
       "value": "return iframeOutput('year');"
     },
     {
