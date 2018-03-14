@@ -1,26 +1,26 @@
 {
-  "title": "Climate Change 6",
+  "title": "Cambio Climático 6",
   "publicationStatus": "public",
-  "subtitle": "The Effect of Albedo",
+  "subtitle": "El efecto del albedo",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Albedo describes how much sunlight is reflected back into space without being absorbed by the surface. ",
-    "Albedo varies greatly depending on the type of surface the sunlight hits.",
+    "El albedo describe cuánta luz solar se refleja devuelta al espacio sin ser absorbida por la superficie. ",
+    "El albedo varía mucho dependiendo del tipo de superficie en el que incide la luz solar.",
     "",
-    "Use the **Ice cover** slider to change the albedo in the model.",
+    "Utiliza el deslizador **Capa de hielo** para cambiar el albedo en el modelo.",
     "",
-    "Watch the graphs to see what happens to the temperature and the amount of greenhouse gases in the atmosphere and ocean.",
-    "Make sure that you wait long enough to see the effect.  ",
+    "Observa los gráficos para ver qué sucede con la temperatura y la cantidad de gases invernadero en la atmósfea y el océano.",
+    "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.  ",
     "",
-    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
-    "and atmosphere (lower graph).    ",
+    "Los gráficos muestran el cambio relativo de la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano",
+    "y la atmósfera (gráfico inferior).    ",
     "",
-    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
+    "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
-  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
-              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
-              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+  "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
               "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
@@ -62,22 +62,22 @@
   "outputs": [
     {
       "name": "year",
-      "label": "Year",
+      "label": "Año",
       "format": "d",
-      "unitName": "Year",
+      "unitName": "Año",
       "value": "return iframeOutput('year');"
     },
     {
       "name": "temperatureChange",
-      "label": "Temperature Change",
+      "label": "Cambio de temperatura",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
     },
     {
       "name": "airCO2Concentration",
-      "label": "AIr CO₂ Concentration",
+      "label": "Concentración de CO₂ en el aire",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -85,7 +85,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Ocean CO₂ Concentration",
+      "label": "Concentración de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -93,7 +93,7 @@
     },
     {
       "name": "vaporConcentration",
-      "label": "Vapor Concentration",
+      "label": "Concentración de vapor",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -121,17 +121,17 @@
         "temperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temperature Change",
+      "title": "Cambio de temperatura",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Temperature (°C)",
+      "ylabel": "Temperatura (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
@@ -148,7 +148,7 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "Air temperature"
+        "Temperatura del aire"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
@@ -177,7 +177,7 @@
         "vaporConcentration"
       ],
       "xProperty": "year",
-      "title": "Greenhouse Gas Concentration",
+      "title": "Concentración de gases invernadero",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
@@ -187,7 +187,7 @@
       "xlabel": "Time (year)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Greenhouse gases in the model",
+      "ylabel": "Gases invernadero en el modelo",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
@@ -205,9 +205,9 @@
         "#000000"
       ],
       "legendLabels": [
-        "CO₂ in Atmosphere",
-        "CO₂ in Ocean",
-        "Water Vapor in Atmosphere"
+        "CO₂ en la Atmósfera",
+        "CO₂ en el Océano",
+        "Vapor de agua en la atmósfera"
       ],
       "legendVisible": true,
       "syncXAxis": "temperatureGraph",
@@ -224,11 +224,11 @@
       "labels": [
         {
           "value": "20",
-          "label": "slow"
+          "label": "lento"
         },
         {
           "value": "60",
-          "label": "fast"
+          "label": "rápido"
         }
       ],
       "width": "7em",
@@ -243,7 +243,7 @@
       "min": 0,
       "max": 1,
       "steps": 100,
-      "title": "Ice cover",
+      "title": "Capa de hielo",
       "fillColor": "#459ACE",
       "labels": [
         {
@@ -264,7 +264,7 @@
     {
       "id": "showLabel",
       "type": "text",
-      "text": "Show:",
+      "text": "Mostrar:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -283,7 +283,7 @@
     {
       "id": "showRaysCheckbox",
       "type": "checkbox",
-      "text": "Rays",
+      "text": "Rayos",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -294,7 +294,7 @@
     {
       "id": "showHeatCheckbox",
       "type": "checkbox",
-      "text": "Heat",
+      "text": "Calor",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
