@@ -445,6 +445,8 @@
       "showHeat",
       "humanEmissionRate"
     ],
-    "perTick": []
+    "perTick": [],
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-8.json"
   }
 }
