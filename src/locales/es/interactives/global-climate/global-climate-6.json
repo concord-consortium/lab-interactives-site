@@ -419,6 +419,8 @@
       "showHeat",
       "icePercent"
     ],
-    "perTick": []
+    "perTick": [],
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-6.json"
   }
 }
