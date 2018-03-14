@@ -1,29 +1,30 @@
 {
-  "title": "Climate Change 5",
+  "title": "Cambio Climático 5",
   "publicationStatus": "public",
-  "subtitle": "Changing Carbon Dioxide Emissions and the Effect on Temperature and Water Vapor",
+  "subtitle": "El cambio en las emisiones de dióxido de carbono y el efecto sobre la temperatura y el vapor de agua",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explore the effect of changing human emissions of carbon dioxide on the temperature",
-    "and amount of water vapor in the atmosphere.",
+    "Explora el efecto del cambio en las emisiones humanas de dióxido de carbono en la temperatura",
+    "y la cantidad de vapor de agua en la atmósfera.",
     "",
-    "The **Human emissions** slider controls how much carbon dioxide comes out of the power plant.",
-    "Zero percent (0%) means that there are no human emissions. One hundred percent (100%) means that human",
-    "emissions are the same as in the year 2010. Two hundred percent (200%) means that human emissions are double",
-    "the 2010 level.",
+    "Los deslizadores **Emisiones humanas** controlan cuánto dióxido de carbono emana de la central de producción de energía.",
+    "Cero porciento (0%) significa que no hay emisiones humanas. Cien porciento (100%) significa que las emisiones humanas",
+    "son las mismas que en el año 2010. Doscientos porciento (200%) significa que las emisiones humanas duplican",
+    "el nivel de emisiones de 2010.",
     "",
-    "Change the emissions level, and watch the graphs to see what happens to the temperature, amount of carbon",
-    "dioxide in the air and water, and amount of water vapor in the air. Make sure that you wait long enough to see the effect.",
+    "Cambia el nivel de emisiones (moviendo el deslizador), y observa los gráficos para ver qué sucede con la temperatura, ",
+    "la cantidad de dióxido de carbono en el aire y el agua, y la cantidad de vapor de aguad en el aire. ",
+    "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.",
     "",
-    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
-    "and atmosphere (lower graph) and ocean (lower graph).",
+    "Los gráficos muestran el cambio relativo de la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano",
+    "y la atmósfera (gráfico inferior) y el océano (gráfico inferior).    ",
     "",
-    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
+    "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
-  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
-              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
-              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+  "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
               "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
@@ -68,22 +69,22 @@
   "outputs": [
     {
       "name": "year",
-      "label": "Year",
+      "label": "Año",
       "format": "d",
       "unitName": "Year",
       "value": "return iframeOutput('year');"
     },
     {
       "name": "temperatureChange",
-      "label": "Temperature Change",
+      "label": "Cambio de Temperatura",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
     },
     {
       "name": "airCO2Concentration",
-      "label": "AIr CO₂ Concentration",
+      "label": "Concentración de CO₂ en el aire",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -91,7 +92,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Ocean CO₂ Concentration",
+      "label": "Concentración de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -99,7 +100,7 @@
     },
     {
       "name": "vaporConcentration",
-      "label": "Vapor Concentration",
+      "label": "Concentración de vapor",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -127,17 +128,17 @@
         "temperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temperature Change",
+      "title": "Cambio de temperatura",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Temperature (°C)",
+      "ylabel": "Temperatura (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
@@ -154,7 +155,7 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "Air temperature"
+        "Temperatura del aire"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
@@ -183,7 +184,7 @@
         "vaporConcentration"
       ],
       "xProperty": "year",
-      "title": "Greenhouse Gas Concentration",
+      "title": "Concentración de gases invernadero",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
@@ -193,7 +194,7 @@
       "xlabel": "Time (year)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Greenhouse gases in the model",
+      "ylabel": "Gases invernadero en el modelo",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
@@ -211,9 +212,9 @@
         "#000000"
       ],
       "legendLabels": [
-        "CO₂ in Atmosphere",
-        "CO₂ in Ocean",
-        "Water Vapor in Atmosphere"
+        "CO₂ en la Atmósfera",
+        "CO₂ en el Océano",
+        "Vapor de agua en la atmósfera"
       ],
       "legendVisible": true,
       "syncXAxis": "temperatureGraph",
@@ -230,11 +231,11 @@
       "labels": [
         {
           "value": "20",
-          "label": "slow"
+          "label": "lento"
         },
         {
           "value": "60",
-          "label": "fast"
+          "label": "rápido"
         }
       ],
       "width": "7em",
@@ -249,7 +250,7 @@
       "min": 0,
       "max": 1,
       "steps": 10,
-      "title": "Human emissions (% of 2010 levels)",
+      "title": "Emisiones humanas (% de los niveles de 2010)",
       "fillColor": "#459ACE",
       "labels": [
         {
