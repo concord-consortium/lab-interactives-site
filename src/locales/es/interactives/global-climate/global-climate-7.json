@@ -1,27 +1,27 @@
 {
-  "title": "Climate Change 7",
+  "title": "Cambio Climático 7",
   "publicationStatus": "public",
-  "subtitle": "The Effect of Clouds",
+  "subtitle": "El efecto de las nubes",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Clouds affect the temperature of Earth's atmosphere and surface. ",
-    "How clouds affect temperature is a balance between how much sunlight is reflected away from Earth's surface",
-    "(a cooling effect) and how much outgoing infrared radiation is absorbed and re-radiated into the atmosphere",
-    "(a warming effect).",
+    "Las nubes afectan la temperatura de la superficie y de la atmósfera de la Tierra. ",
+    "El grado en que las nubes afectan a la temperatura es un balance entre cuánta luz solar es reflejada hacia afuera desde la superficie de la Tierra",
+    "(efecto de enfriamiento) y cuánta radiación infrarroja saliente es absorbida y re-irradiada a la atmósfera",
+    "(efecto de calentamiento).",
     "",
-    "Change the number of clouds in the model. Follow energy packets to see how they interact with the clouds.",
-    "Watch the graphs to see what happens to the temperature and the amount of greenhouse gases in the atmosphere and ocean.",
-    "Make sure that you wait long enough to see the effect.  ",
+    "Cambia la cantidad de nubes en el modelo. Sigue los paquetes de energía para ver cómo interactúan con las nubes.",
+    "Observa los gráficos para ver qué sucede con la temperatura y la cantidad de gases invernadero en la atmósfera y el océano.",
+    "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.  ",
     "",
-    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
-    "and atmosphere (lower graph).    ",
+    "Los gráficos muestran el cambio relativo de la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano",
+    "y la atmósfera (gráfico inferior).    ",
     "",
-    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean."
+    "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
-  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
-              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
-              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+  "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
               "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
   "theme": [
     "has",
@@ -74,22 +74,22 @@
     },
     {
       "name": "year",
-      "label": "Year",
+      "label": "Año",
       "format": "d",
-      "unitName": "Year",
+      "unitName": "Año",
       "value": "return iframeOutput('year');"
     },
     {
       "name": "temperatureChange",
-      "label": "Temperature Change",
+      "label": "Cambio de temperatura",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
     },
     {
       "name": "airCO2Concentration",
-      "label": "AIr CO₂ Concentration",
+      "label": "Concentración de CO₂ en el aire",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -97,7 +97,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Ocean CO₂ Concentration",
+      "label": "Concentración de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -105,7 +105,7 @@
     },
     {
       "name": "vaporConcentration",
-      "label": "Vapor Concentration",
+      "label": "Concentración de vapor",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -121,10 +121,10 @@
         "// called before iframe can register its methods (before iframe communication is started).",
         "if (value) {",
         "  post('addSunraySpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
+        "  setComponentAttributes('followEnergyButton', {text: 'Dejar de seguir'});",
         "} else {",
         "  post('removeSpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
+        "  setComponentAttributes('followEnergyButton', {text: 'Seguir energía'});",
         "}"
       ]
     },
@@ -136,10 +136,10 @@
         "// called before iframe can register its methods (before iframe communication is started).",
         "if (value) {",
         "  post('addCO2Spotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
+        "  setComponentAttributes('followCO2Button', {text: 'Dejar de seguir'});",
         "} else {",
         "  post('removeSpotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
+        "  setComponentAttributes('followCO2Button', {text: 'Seguir CO₂'});",
         "}"
       ]
     }
@@ -165,17 +165,17 @@
         "temperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temperature Change",
+      "title": "Cambio de temperatura",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Temperature (°C)",
+      "ylabel": "Temperatura (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
@@ -192,7 +192,7 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "Air temperature"
+        "Temperatura del aire"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
@@ -221,17 +221,17 @@
         "vaporConcentration"
       ],
       "xProperty": "year",
-      "title": "Greenhouse Gas Concentration",
+      "title": "Concentración de gases invernadero",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Greenhouse gases in the model",
+      "ylabel": "Gases invernadero en el modelo",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
@@ -249,9 +249,9 @@
         "#000000"
       ],
       "legendLabels": [
-        "CO₂ in Atmosphere",
-        "CO₂ in Ocean",
-        "Water Vapor in Atmosphere"
+       "CO₂ en la Atmósfera",
+        "CO₂ en el Océano",
+        "Vapor de agua en la atmósfera"
       ],
       "legendVisible": true,
       "syncXAxis": "temperatureGraph",
@@ -268,11 +268,11 @@
       "labels": [
         {
           "value": "20",
-          "label": "slow"
+          "label": "lento"
         },
         {
           "value": "60",
-          "label": "fast"
+          "label": "rápido"
         }
       ],
       "width": "7em",
@@ -284,7 +284,7 @@
     {
       "id": "showLabel",
       "type": "text",
-      "text": "Show:",
+      "text": "Mostrar:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -303,7 +303,7 @@
     {
       "id": "showRaysCheckbox",
       "type": "checkbox",
-      "text": "Rays",
+      "text": "Rayos",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -314,7 +314,7 @@
     {
       "id": "showHeatCheckbox",
       "type": "checkbox",
-      "text": "Heat",
+      "text": "Calor",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -329,7 +329,7 @@
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
       ],
-      "text": "Follow energy packet",
+      "text": "Seguir energía",
       "width": "12em",
       "height": "",
       "disabled": false
@@ -341,7 +341,7 @@
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
       ],
-      "text": "Follow CO₂",
+      "text": "Seguir CO₂",
       "width": "12em",
       "height": "",
       "disabled": false
@@ -350,7 +350,7 @@
       "id": "addCloudButton",
       "type": "button",
       "action": "addCloud();",
-      "text": "Add cloud",
+      "text": "Agregar nube",
       "width": "12em",
       "height": "",
       "disabled": false
@@ -359,7 +359,7 @@
       "id": "removeCloudButton",
       "type": "button",
       "action": "subtractCloud();",
-      "text": "Remove cloud",
+      "text": "Quitar nube",
       "width": "12em",
       "height": "",
       "disabled": false
