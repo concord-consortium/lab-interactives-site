@@ -1,0 +1,553 @@
+{
+  "title": "Climate Change",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Making Predictions About Future Climate",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.1,
+  "fontScale": 0.7,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Explore how changing human emissions might affect the temperature in the future.",
+    "The amount of ice cover and number of clouds in the model change in response to temperature and water vapor",
+    "levels.",
+    "",
+    "The **Human emissions** slider controls how much carbon dioxide comes out of the power plant.",
+    "Zero percent (0%) means that there are no human emissions. One hundred percent (100%) means that human",
+    "emissions are the same as in the year 2010. Two hundred percent (200%) means that human emissions are double",
+    "the 2010 level.",
+    "",
+    "The graphs show relative change of temperature of the planet (uppper graph) and concentration of greenhouse gases in the ocean",
+    "and atmosphere (lower graph) and ocean (lower graph).",
+    "",
+    "**NOTE:** This model does not show the actual concentration of greenhouse gases in the atmosphere and ocean.",
+    "",
+  "Follow an energy packet or molecule of carbon dioxide to see how they interact with other components in the atmosphere.",
+  "How do energy packets interact with the ice and clouds?",
+  "",
+  "What is the relationship between carbon dioxide emissions and temperature?",
+  "What happens to the level of carbon dioxide in the ocean as temperatures rise?",
+  "What happens to the level of water vapor as the temperature rises?",
+  "What happens to the number of clouds as the temperature rises?",
+  "What happens to the ice cover as the temperature rises?"
+  ],
+  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar",
+    "graph-title-bg"
+  ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "onLoad": [
+        "post('createCO2', 15);",
+        "post('updateVapor');",
+        "post('updateClouds');",
+        "post('updateIce');",
+        "function disableComponents(value) {",
+        "  setComponentDisabled('showGasesCheckbox', value);",
+        "  setComponentDisabled('showRaysCheckbox', value);",
+        "  setComponentDisabled('showHeatCheckbox', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "modelOptions": {
+        "url": "//models-resources.concord.org/agentscript/global-climate/lab-embeddable.html#ocean=true",
+        "animRate": 60,
+        "showGases": true,
+        "showRays": true,
+        "showHeat": true,
+        "oceanAbsorbtionChangable": true,
+        "cloudsFormedByVapor": true,
+        "iceFormedByTemperature": true,
+        "initialTemperature": 4,
+        "temperature": 4,
+        "temperaturePerHeat": 0.16,
+        "vaporPerDegreeModifier": 14,
+        "albedo": 0.31,
+        "oceanZeroAbsorbtionTemp": 45,
+        "nCO2Emission": 0.05,
+        "humanEmissionRate": 0.5
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "followEnergy",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addSunraySpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
+        "}"
+      ]
+    },
+    {
+      "name": "followCO2",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addCO2Spotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "spotlightActive",
+      "value": "return iframeOutput('spotlightActive');"
+    },
+    {
+      "name": "year",
+      "value": "return iframeOutput('year');",
+      "label": "Year",
+      "unitName": "Year"
+    },
+    {
+      "name": "temperatureChange",
+      "value": "return iframeOutput('temperatureChange');",
+      "label": "Temperature Change",
+      "unitName": "degrees Celsius",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "airCO2Concentration",
+      "value": "return iframeOutput('airCO2Concentration');",
+      "label": "AIr CO₂ Concentration",
+      "unitName": "",
+      "unitAbbreviation": ""
+    },
+    {
+      "name": "oceanCO2Concentration",
+      "value": "return iframeOutput('oceanCO2Concentration');",
+      "label": "Ocean CO₂ Concentration",
+      "unitName": "",
+      "unitAbbreviation": ""
+    },
+    {
+      "name": "vaporConcentration",
+      "value": "return iframeOutput('vaporConcentration');",
+      "label": "Vapor Concentration",
+      "unitName": "",
+      "unitAbbreviation": ""
+    }
+  ],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "year",
+      "temperatureChange",
+      "airCO2Concentration",
+      "oceanCO2Concentration",
+      "vaporConcentration",
+      "showGases",
+      "showRays",
+      "showHeat",
+      "humanEmissionRate"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "year",
+      "temperatureChange",
+      "airCO2Concentration",
+      "oceanCO2Concentration",
+      "vaporConcentration",
+      "showGases",
+      "showRays",
+      "showHeat",
+      "humanEmissionRate"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "temperatureGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "temperatureChange"
+      ],
+      "xProperty": "year",
+      "title": "Temperature Change",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (year)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Temperature (°C)",
+      "ymin": -12,
+      "ymax": 12,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#ff0000",
+        "#0000ff"
+      ],
+      "legendLabels": [
+        "Air temperature"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "co2Graph",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "co2Graph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "hideAxisValues": false,
+      "properties": [
+        "airCO2Concentration",
+        "oceanCO2Concentration",
+        "vaporConcentration"
+      ],
+      "xProperty": "year",
+      "title": "Greenhouse Gas Concentration",
+      "titlePosition": "left",
+      "buttonsStyle": "text",
+      "buttonsLayout": "horizontal",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Time (year)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Greenhouse gases in the model",
+      "ymin": 0,
+      "ymax": 30,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#009966",
+        "#0000ff",
+        "#000000"
+      ],
+      "legendLabels": [
+        "CO₂ in Atmosphere",
+        "CO₂ in Ocean",
+        "Water Vapor in Atmosphere"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "temperatureGraph",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "speedSlider",
+      "type": "slider",
+      "min": 20,
+      "max": 60,
+      "steps": 10,
+      "title": "",
+      "titlePosition": "top",
+      "fillColor": "#2DA343",
+      "labels": [
+        {
+          "value": "20",
+          "label": "slow"
+        },
+        {
+          "value": "60",
+          "label": "fast"
+        }
+      ],
+      "width": "7em",
+      "height": "auto",
+      "property": "animRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "emissionSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "steps": 10,
+      "title": "Human emissions (% of 2010 levels)",
+      "titlePosition": "top",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0%"
+        },
+        {
+          "value": 0.25,
+          "label": "50%"
+        },
+        {
+          "value": 0.5,
+          "label": "100%"
+        },
+        {
+          "value": 0.75,
+          "label": "150%"
+        },
+        {
+          "value": 1,
+          "label": "200%"
+        }
+      ],
+      "width": "20em",
+      "height": "auto",
+      "property": "humanEmissionRate",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "showLabel",
+      "type": "text",
+      "text": "Show:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "showGasesCheckbox",
+      "type": "checkbox",
+      "text": "Gases",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showGases",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "showRaysCheckbox",
+      "type": "checkbox",
+      "text": "Rays",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showRays",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "showHeatCheckbox",
+      "type": "checkbox",
+      "text": "Heat",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showHeat",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "followEnergyButton",
+      "type": "button",
+      "action": [
+        "set('followCO2', false);",
+        "set('followEnergy', !get('followEnergy'));"
+      ],
+      "text": "Follow energy packet",
+      "width": "12em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "followCO2Button",
+      "type": "button",
+      "action": [
+        "set('followEnergy', false);",
+        "set('followCO2', !get('followCO2'));"
+      ],
+      "text": "Follow CO₂",
+      "width": "12em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+  "layout": {
+    "rightTop": [
+      "temperatureGraph"
+    ],
+    "rightBottom": [
+      "co2Graph"
+    ],
+    "bottomLeft": [
+      ["emissionSlider"],
+      [
+        "followEnergyButton",
+        "followCO2Button"
+      ]
+    ],
+    "playback-container": [
+      "playback"
+    ],
+    "bottom-1": [
+      "speedSlider"
+    ],
+    "bottom-row-1": [
+      "showLabel"
+    ],
+    "bottom-row-2": [
+      "showGasesCheckbox"
+    ],
+    "bottom-row-3": [
+      "showRaysCheckbox"
+    ],
+    "bottom-row-4": [
+      "showHeatCheckbox"
+    ]
+  },
+  "template": [
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "top": "rightTop.bottom",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom-1",
+      "top": "model.bottom",
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
+    },
+    {
+      "id": "bottom-row-1",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottom-row-2",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-1.right"
+    },
+    {
+      "id": "bottom-row-3",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-2.right"
+    },
+    {
+      "id": "bottom-row-4",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-3.right"
+    }
+  ]
+}

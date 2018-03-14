@@ -1,0 +1,445 @@
+{
+  "title": "Cambio Climático 5",
+  "publicationStatus": "public",
+  "subtitle": "El cambio en las emisiones de dióxido de carbono y el efecto sobre la temperatura y el vapor de agua",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Explora el efecto del cambio en las emisiones humanas de dióxido de carbono en la temperatura",
+    "y la cantidad de vapor de agua en la atmósfera.",
+    "",
+    "El deslizador **Emisiones humanas** permite controlar cuánto dióxido de carbono emana de la central de producción de energía.",
+    "Cero porciento (0%) significa que no hay emisiones humanas. Cien porciento (100%) significa que las emisiones humanas",
+    "son las mismas que en el año 2010. Doscientos porciento (200%) significa que las emisiones humanas duplican",
+    "el nivel de emisiones de 2010.",
+    "",
+    "Cambia el nivel de emisiones (moviendo el deslizador), y observa los gráficos para ver qué sucede con la temperatura, ",
+    "la cantidad de dióxido de carbono en el aire y el agua, y la cantidad de vapor de aguad en el aire. ",
+    "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.",
+    "",
+    "Los gráficos muestran el cambio relativo de la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano",
+    "y la atmósfera (gráfico inferior).    ",
+    "",
+    "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
+  ],
+  "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
+              "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+              "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
+              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
+  "theme": [
+    "has",
+    "standalone-playback",
+    "no-slider-bar",
+    "graph-title-bg"
+  ],
+  "aspectRatio": 1.1,
+  "fontScale": 0.7,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions": {
+        "url": "//models-resources.concord.org/agentscript/global-climate/lab-embeddable.html#ocean=true",
+        "animRate": 60,
+        "showGases": true,
+        "showRays": true,
+        "showHeat": true,
+        "humanEmissionRate": 0.5,
+        "albedo": 0.55,
+        "nCO2Emission": 0.1,
+        "oceanCO2Absorbtion": 0.7
+      },
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "post('step', 50);",
+        "function disableComponents(value) {",
+        "  setComponentDisabled('showGasesCheckbox', value);",
+        "  setComponentDisabled('showRaysCheckbox', value);",
+        "  setComponentDisabled('showHeatCheckbox', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "year",
+      "label": "Año",
+      "format": "d",
+      "unitName": "Año",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "temperatureChange",
+      "label": "Cambio de Temperatura",
+      "format": "3.1f",
+      "unitName": "grados Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('temperatureChange');"
+    },
+    {
+      "name": "airCO2Concentration",
+      "label": "Concentración de CO₂ en el aire",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('airCO2Concentration');"
+    },
+    {
+      "name": "oceanCO2Concentration",
+      "label": "Concentración de CO₂ en el océano",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('oceanCO2Concentration');"
+    },
+    {
+      "name": "vaporConcentration",
+      "label": "Concentración de vapor",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('vaporConcentration');"
+    }
+  ],
+  "components": [
+    {
+      "id": "temperatureGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "temperatureChange"
+      ],
+      "xProperty": "year",
+      "title": "Cambio de temperatura",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Tiempo (año)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Temperatura (°C)",
+      "ymin": -12,
+      "ymax": 12,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#ff0000",
+        "#0000ff"
+      ],
+      "legendLabels": [
+        "Temperatura del aire"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "co2Graph",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "co2Graph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "airCO2Concentration",
+        "oceanCO2Concentration",
+        "vaporConcentration"
+      ],
+      "xProperty": "year",
+      "title": "Concentración de gases invernadero",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Tiempo (año)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Gases invernadero en el modelo",
+      "ymin": 0,
+      "ymax": 30,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "tooltip": "",
+      "dataColors": [
+        "#009966",
+        "#0000ff",
+        "#000000"
+      ],
+      "legendLabels": [
+        "CO₂ en la Atmósfera",
+        "CO₂ en el Océano",
+        "Vapor de agua en la atmósfera"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "temperatureGraph",
+      "syncYAxis": false
+    },
+    {
+      "id": "speedSlider",
+      "type": "slider",
+      "min": 20,
+      "max": 60,
+      "steps": 10,
+      "title": "",
+      "fillColor": "#2DA343",
+      "labels": [
+        {
+          "value": "20",
+          "label": "lento"
+        },
+        {
+          "value": "60",
+          "label": "rápido"
+        }
+      ],
+      "width": "7em",
+      "height": "auto",
+      "property": "animRate",
+      "retainProperty": true,
+      "disabled": false
+    },
+    {
+      "id": "emissionSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "steps": 10,
+      "title": "Emisiones humanas (% de los niveles de 2010)",
+      "fillColor": "#459ACE",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0%"
+        },
+        {
+          "value": 0.25,
+          "label": "50%"
+        },
+        {
+          "value": 0.5,
+          "label": "100%"
+        },
+        {
+          "value": 0.75,
+          "label": "150%"
+        },
+        {
+          "value": 1,
+          "label": "200%"
+        }
+      ],
+      "width": "25em",
+      "height": "auto",
+      "property": "humanEmissionRate",
+      "retainProperty": true,
+      "disabled": false
+    },
+    {
+      "id": "showLabel",
+      "type": "text",
+      "text": "Mostrar:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "showGasesCheckbox",
+      "type": "checkbox",
+      "text": "Gases",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showGases",
+      "retainProperty": true,
+      "disabled": false
+    },
+    {
+      "id": "showRaysCheckbox",
+      "type": "checkbox",
+      "text": "Rayos",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showRays",
+      "retainProperty": true,
+      "disabled": false
+    },
+    {
+      "id": "showHeatCheckbox",
+      "type": "checkbox",
+      "text": "Calor",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "showHeat",
+      "retainProperty": true,
+      "disabled": false
+    },
+    {
+      "id": "playback",
+      "type": "playback",
+      "stepping": true
+    }
+  ],
+  "layout": {
+    "rightTop": [
+      "temperatureGraph"
+    ],
+    "rightBottom": [
+      "co2Graph"
+    ],
+    "bottomLeft": [
+      "emissionSlider"
+    ],
+    "playback-container": [
+      "playback"
+    ],
+    "bottom-1": [
+      "speedSlider"
+    ],
+    "bottom-row-1": [
+      "showLabel"
+    ],
+    "bottom-row-2": [
+      "showGasesCheckbox"
+    ],
+    "bottom-row-3": [
+      "showRaysCheckbox"
+    ],
+    "bottom-row-4": [
+      "showHeatCheckbox"
+    ]
+  },
+  "template": [
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "top": "rightTop.bottom",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "bottomLeft",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "playback-container",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.75em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom-1",
+      "top": "model.bottom",
+      "left": "playback-container.right",
+      "padding-bottom": "0.5em"
+    },
+    {
+      "id": "bottom-row-1",
+      "top": "bottom-1.bottom",
+      "left": "model.left"
+    },
+    {
+      "id": "bottom-row-2",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-1.right"
+    },
+    {
+      "id": "bottom-row-3",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-2.right"
+    },
+    {
+      "id": "bottom-row-4",
+      "top": "bottom-1.bottom",
+      "left": "bottom-row-3.right"
+    }
+  ],
+  "logging": {
+    "properties": [
+      "year",
+      "temperatureChange",
+      "airCO2Concentration",
+      "oceanCO2Concentration",
+      "vaporConcentration",
+      "showGases",
+      "showRays",
+      "showHeat",
+      "humanEmissionsRate"
+    ]
+  },
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "year",
+      "temperatureChange",
+      "airCO2Concentration",
+      "oceanCO2Concentration",
+      "vaporConcentration",
+      "showGases",
+      "showRays",
+      "showHeat",
+      "humanEmissionsRate"
+    ],
+    "perTick": [],
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-5.json"
+  }
+}

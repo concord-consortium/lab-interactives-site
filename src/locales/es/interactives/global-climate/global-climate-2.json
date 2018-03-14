@@ -1,7 +1,7 @@
 {
-  "title": "Cambio climático 1",
+  "title": "Cambio Climático 2",
   "publicationStatus": "public",
-  "subtitle": "Interacciones entre el suelo terrestre y la atmósfera (sin gráficos)",
+  "subtitle": "Interacciones entre el suelo terrestre y la atmósfera (con gráficos)",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
@@ -9,7 +9,11 @@
     "",
     "Clic en el botón **¡Erupción!** para liberar dióxido de carbono.",
     "Seguir un paquete de energía o molécula de dióxido de carbono para ver qué sucede cuando hay más dióxido de carbono en la atmósfera.",
-    ""
+    "",
+    "Estos gráficos muestran el cambio relativo en la temperatura del planeta (gráfico superior) y la concentración de",
+    "gases invernadero en la atmósfera (gráfico inferior).",
+    "",
+    "**NOTA**: Este modelo no muestra la concentración actual de gases invernadero en la atmósfera."
   ],
  "credits": ["Este interactivo de [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
@@ -18,9 +22,10 @@
   "theme": [
     "has",
     "standalone-playback",
-    "no-slider-bar"
+    "no-slider-bar",
+    "graph-title-bg"
   ],
-  "aspectRatio": 1,
+  "aspectRatio": 1.1,
   "fontScale": 0.8,
   "models": [
     {
@@ -43,7 +48,6 @@
         "controlButtons": "play_reset"
       },
       "onLoad": [
-        "post('createCO2', 4);",
         "onPropertyChange('spotlightActive', function() {",
         "  if (get('spotlightActive')) return;",
         "  // Agent may leave model area what causes spotlight deactivation.",
@@ -100,9 +104,139 @@
     {
       "name": "spotlightActive",
       "value": "return iframeOutput('spotlightActive');"
+    },
+    {
+      "name": "year",
+      "label": "Año",
+      "format": "d",
+      "unitName": "Year",
+      "value": "return iframeOutput('year');"
+    },
+    {
+      "name": "temperatureChange",
+      "label": "Cambio de temperatura",
+      "format": "3.1f",
+      "unitName": "grados Celsius",
+      "unitAbbreviation": "°C",
+      "value": "return iframeOutput('temperatureChange');"
+    },
+    {
+      "name": "CO2Concentration",
+      "label": "Concentración de CO₂",
+      "format": "3.0f",
+      "unitName": "",
+      "unitAbbreviation": "",
+      "value": "return iframeOutput('CO2Concentration');"
     }
   ],
   "components": [
+    {
+      "id": "temperatureGraph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "temperatureChange"
+      ],
+      "xProperty": "year",
+      "title": "Cambio de temperatura",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Tiempo (año)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Temperatura (°C)",
+      "ymin": -6,
+      "ymax": 12,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "dataColors": [
+        "#ff0000",
+        "#0000ff",
+        "#000000"
+      ],
+      "legendLabels": [
+        "Temperatura del aire"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "co2Graph",
+      "syncYAxis": false,
+      "helpIcon": false
+    },
+    {
+      "id": "co2Graph",
+      "type": "graph",
+      "resetAxesOnReset": true,
+      "enableAutoScaleButton": true,
+      "enableAxisScaling": false,
+      "enableZooming": false,
+      "autoScaleX": true,
+      "autoScaleY": true,
+      "enableSelectionButton": false,
+      "clearSelectionOnLeavingSelectMode": false,
+      "enableDrawButton": false,
+      "drawProperty": null,
+      "markAllDataPoints": false,
+      "showRulersOnSelection": false,
+      "fontScaleRelativeToParent": true,
+      "properties": [
+        "CO2Concentration"
+      ],
+      "xProperty": "year",
+      "title": "Concentración de CO₂",
+      "titlePosition": "left",
+      "buttonsLayout": "horizontal",
+      "buttonsStyle": "text",
+      "lineWidth": 2,
+      "width": "100%",
+      "height": "100%",
+      "xlabel": "Tiempo (año)",
+      "xmin": 2014,
+      "xmax": 2022,
+      "ylabel": "Gases invernadero en el modelo",
+      "ymin": 0,
+      "ymax": 100,
+      "xTickCount": 4,
+      "yTickCount": 5,
+      "xscaleExponent": 0.5,
+      "yscaleExponent": 0.5,
+      "xFormatter": "d",
+      "yFormatter": ".2r",
+      "lines": true,
+      "bars": false,
+      "dataColors": [
+        "#009966",
+        "#0000ff",
+        "#000000"
+      ],
+      "legendLabels": [
+        "CO₂ en la atmósfera"
+      ],
+      "legendVisible": true,
+      "syncXAxis": "temperatureGraph",
+      "syncYAxis": false
+    },
     {
       "id": "speedSlider",
       "type": "slider",
@@ -173,7 +307,7 @@
       "type": "button",
       "action": "subtractCO2();",
       "text": "Quitar CO₂",
-      "width": "14em",
+      "width": "12em",
       "height": "",
       "disabled": false
     },
@@ -185,7 +319,7 @@
         "set('followEnergy', !get('followEnergy'));"
       ],
       "text": "Seguir paquete de energía",
-      "width": "14em",
+      "width": "12em",
       "height": "",
       "disabled": false
     },
@@ -197,7 +331,7 @@
         "set('followCO2', !get('followCO2'));"
       ],
       "text": "Seguir CO₂",
-      "width": "14em",
+      "width": "12em",
       "height": "",
       "disabled": false
     },
@@ -206,7 +340,7 @@
       "type": "button",
       "action": "erupt();",
       "text": "¡Erupción!",
-      "width": "14em",
+      "width": "12em",
       "height": "",
       "disabled": false
     },
@@ -217,6 +351,12 @@
     }
   ],
   "layout": {
+    "rightTop": [
+      "temperatureGraph"
+    ],
+    "rightBottom": [
+      "co2Graph"
+    ],
     "playback-container": [
       "playback"
     ],
@@ -247,6 +387,22 @@
     ]
   },
   "template": [
+    {
+      "id": "rightTop",
+      "left": "model.right",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-bottom": "1em",
+      "padding-left": "0.5em"
+    },
+    {
+      "id": "rightBottom",
+      "left": "model.right",
+      "top": "rightTop.bottom",
+      "width": "0.7 * model.width",
+      "height": "model.height * 1.1",
+      "padding-left": "0.5em"
+    },
     {
       "id": "playback-container",
       "top": "model.bottom",
@@ -288,6 +444,9 @@
   ],
   "logging": {
     "properties": [
+      "year",
+      "temperatureChange",
+      "CO2Concentration",
       "spotlightActive",
       "temperatureChange",
       "CO2Concentration",
@@ -301,6 +460,9 @@
   "exports": {
     "selectionComponents": [],
     "perRun": [
+      "year",
+      "temperatureChange",
+      "CO2Concentration",
       "spotlightActive",
       "temperatureChange",
       "CO2Concentration",
@@ -312,6 +474,6 @@
     ],
     "perTick": [],
     "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json"
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-2.json"
   }
 }
