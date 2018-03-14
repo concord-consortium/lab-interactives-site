@@ -492,6 +492,8 @@
       "followCO2",
       "spotlightActive"
     ],
-    "perTick": []
+    "perTick": [],
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-7.json"
   }
 }
