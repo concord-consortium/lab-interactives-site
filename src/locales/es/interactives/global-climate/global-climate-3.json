@@ -149,7 +149,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Concentracin de CO₂ en el océano",
+      "label": "Concentración de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -206,7 +206,7 @@
       ],
       "legendLabels": [
         "Temperatura del aire",
-        "Temperature del océano"
+        "Temperatura del océano"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
