@@ -8,7 +8,7 @@
     "Explora el efecto del cambio en las emisiones humanas de dióxido de carbono en la temperatura",
     "y la cantidad de vapor de agua en la atmósfera.",
     "",
-    "Los deslizadores **Emisiones humanas** controlan cuánto dióxido de carbono emana de la central de producción de energía.",
+    "El deslizador **Emisiones humanas** permite controlar cuánto dióxido de carbono emana de la central de producción de energía.",
     "Cero porciento (0%) significa que no hay emisiones humanas. Cien porciento (100%) significa que las emisiones humanas",
     "son las mismas que en el año 2010. Doscientos porciento (200%) significa que las emisiones humanas duplican",
     "el nivel de emisiones de 2010.",
