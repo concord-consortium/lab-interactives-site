@@ -49,10 +49,10 @@
         "oceanTemperature": 10,
         "nCO2Emission": 0.5,
         "keyLabels": [
-          "solar radiation",
-          "infrared radiation",
-          "carbon dioxide",
-          "heat"
+          "radiación solar",
+          "radiación infrarroja",
+          "dióxido de carbono",
+          "calor"
         ]
       },
       "viewOptions": {
@@ -88,10 +88,10 @@
         "// called before iframe can register its methods (before iframe communication is started).",
         "if (value) {",
         "  post('addSunraySpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Stop following'});",
+        "  setComponentAttributes('followEnergyButton', {text: 'Dejar de seguir'});",
         "} else {",
         "  post('removeSpotlight');",
-        "  setComponentAttributes('followEnergyButton', {text: 'Follow energy packet'});",
+        "  setComponentAttributes('followEnergyButton', {text: 'Seguir energía'});",
         "}"
       ]
     },
@@ -103,10 +103,10 @@
         "// called before iframe can register its methods (before iframe communication is started).",
         "if (value) {",
         "  post('addCO2Spotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Stop following'});",
+        "  setComponentAttributes('followCO2Button', {text: 'Dejar de seguir'});",
         "} else {",
         "  post('removeSpotlight');",
-        "  setComponentAttributes('followCO2Button', {text: 'Follow CO₂'});",
+        "  setComponentAttributes('followCO2Button', {text: 'Seguir CO₂'});",
         "}"
       ]
     }
@@ -118,30 +118,30 @@
     },
     {
       "name": "year",
-      "label": "Year",
+      "label": "Año",
       "format": "d",
       "unitName": "Year",
       "value": "return iframeOutput('year');"
     },
     {
       "name": "temperatureChange",
-      "label": "Temperature Change",
+      "label": "Cambio de temperatura",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('temperatureChange');"
     },
     {
       "name": "oceanTemperatureChange",
-      "label": "Ocean Temperature Change",
+      "label": "Cambio temperatura del océano",
       "format": "3.1f",
-      "unitName": "degrees Celsius",
+      "unitName": "grados Celsius",
       "unitAbbreviation": "°C",
       "value": "return iframeOutput('oceanTemperatureChange');"
     },
     {
       "name": "airCO2Concentration",
-      "label": "AIr CO₂ Concentration",
+      "label": "Concentración de CO₂ en el aire",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -149,7 +149,7 @@
     },
     {
       "name": "oceanCO2Concentration",
-      "label": "Ocean CO₂ Concentration",
+      "label": "Concentracin de CO₂ en el océano",
       "format": "3.0f",
       "unitName": "",
       "unitAbbreviation": "",
@@ -178,17 +178,17 @@
         "oceanTemperatureChange"
       ],
       "xProperty": "year",
-      "title": "Temperature Change",
+      "title": "Cambio de temperatura",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Temperature (°C)",
+      "ylabel": "Temperatura (°C)",
       "ymin": -12,
       "ymax": 12,
       "xTickCount": 4,
@@ -205,8 +205,8 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "Air temperature",
-        "Ocean temperature"
+        "Temperatura del aire",
+        "Temperature del océano"
       ],
       "legendVisible": true,
       "syncXAxis": "co2Graph",
@@ -234,17 +234,17 @@
         "oceanCO2Concentration"
       ],
       "xProperty": "year",
-      "title": "CO₂ Concentration",
+      "title": "Concentración de CO₂",
       "titlePosition": "left",
       "buttonsLayout": "horizontal",
       "buttonsStyle": "text",
       "lineWidth": 2,
       "width": "100%",
       "height": "100%",
-      "xlabel": "Time (year)",
+      "xlabel": "Tiempo (año)",
       "xmin": 2014,
       "xmax": 2022,
-      "ylabel": "Greenhouse gases in the model",
+      "ylabel": "Gases invernadero en el modelo",
       "ymin": 0,
       "ymax": 30,
       "xTickCount": 4,
@@ -261,8 +261,8 @@
         "#0000ff"
       ],
       "legendLabels": [
-        "CO₂ in Atmosphere",
-        "CO₂ in Ocean"
+        "CO₂ en la Atmósfera",
+        "CO₂ en el Océano"
       ],
       "legendVisible": true,
       "syncXAxis": "temperatureGraph",
@@ -291,7 +291,7 @@
       "property": "animRate",
       "retainProperty": true,
       "disabled": false,
-      "tooltip": "Change the speed of the model."
+      "tooltip": "Cambiar la velocidad de ejecución del modelo."
     },
     {
       "id": "tempSlider",
@@ -299,7 +299,7 @@
       "min": 0,
       "max": 20,
       "steps": 100,
-      "title": "Temperature",
+      "title": "Temperatura",
       "fillColor": "#459ACE",
       "labels": [
         {
@@ -320,7 +320,7 @@
     {
       "id": "showLabel",
       "type": "text",
-      "text": "Show:",
+      "text": "Mostrar:",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -339,7 +339,7 @@
     {
       "id": "showRaysCheckbox",
       "type": "checkbox",
-      "text": "Rays",
+      "text": "Rayos",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -350,7 +350,7 @@
     {
       "id": "showHeatCheckbox",
       "type": "checkbox",
-      "text": "Heat",
+      "text": "Calor",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -365,7 +365,7 @@
         "set('followCO2', false);",
         "set('followEnergy', !get('followEnergy'));"
       ],
-      "text": "Follow energy packet",
+      "text": "Seguir energía",
       "width": "12em",
       "height": "",
       "disabled": false
@@ -377,7 +377,7 @@
         "set('followEnergy', false);",
         "set('followCO2', !get('followCO2'));"
       ],
-      "text": "Follow CO₂",
+      "text": "Seguir CO₂",
       "width": "12em",
       "height": "",
       "disabled": false
