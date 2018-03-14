@@ -1,16 +1,16 @@
 {
   "title": "Cambio Climático 3",
   "publicationStatus": "public",
-  "subtitle": "La relación entre la temperatura del océano y los nivles de dióxido de carbono en la atmósfera",
+  "subtitle": "La relación entre la temperatura del océano y los niveles de dióxido de carbono en la atmósfera",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explora cmo la temperatura del océano afecta la concentración ",
+    "Explora cómo la temperatura del océano afecta la concentración ",
     "de dióxido de carbono en el aire y en el océano.",
     "",
-    "Los controles deslizantes de temperatura cambian la temperatura global promedio, afectando las temperaturas de la atmósfera y del océano.",
+    "El deslizador 'Temperatura' permite cambiar la temperatura global promedio, afectando las temperaturas de la atmósfera y del océano.",
     "",
-    "Cambia la temperatura y observa los gráficos para ver qué ocurre con la cantidad de dióxido de carbono en el océano ",
+    "Cambia la temperatura moviendo el deslizador y observa los gráficos para ver qué ocurre con la cantidad de dióxido de carbono en el océano ",
     "y la atmósfera. Asegúrate de esperar lo suficiente como para ver el efecto.",
     "",
     "Los gráficos muestran los cambios relativos en la temperatura del planeta (gráfico superior) y la concentración de gases invernadero en el océano ",
@@ -279,11 +279,11 @@
       "labels": [
         {
           "value": "20",
-          "label": "slow"
+          "label": "lento"
         },
         {
           "value": "60",
-          "label": "fast"
+          "label": "rápido"
         }
       ],
       "width": "7em",
