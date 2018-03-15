@@ -10,6 +10,8 @@
   "fontScale": 0.8,
   "lang": "en-US",
   "i18nMetadata": "",
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/HAS_sunlight_on_ground.json",
   "helpOnLoad": false,
   "about": "Note: When loading the *Infrared on CO₂* model the infrared coming from the bottom of the model is emitted from the ground.",
   "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
