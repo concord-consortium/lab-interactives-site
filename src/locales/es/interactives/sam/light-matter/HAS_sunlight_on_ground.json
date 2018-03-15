@@ -101,7 +101,7 @@
     {
       "id": "text-select-model",
       "type": "text",
-      "text": "**Select a model**",
+      "text": "**Elegir un modelo:**",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -109,7 +109,7 @@
     {
       "id": "text-photon-key",
       "type": "text",
-      "text": "*Photons*",
+      "text": "*Fotones*",
       "width": "auto",
       "height": "auto",
       "tooltip": ""
@@ -235,5 +235,5 @@
     ]
   },
   "template": "left-right-bottom",
-  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/HAS_sunlight_on_ground.json"
+
 }
