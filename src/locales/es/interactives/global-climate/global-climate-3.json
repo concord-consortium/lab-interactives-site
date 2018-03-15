@@ -8,7 +8,7 @@
     "Explora cómo la temperatura del océano afecta la concentración ",
     "de dióxido de carbono en el aire y en el océano.",
     "",
-    "El deslizador 'Temperatura' permite cambiar la temperatura global promedio, afectando las temperaturas de la atmósfera y del océano.",
+    "*Instrucciones:* El deslizador 'Temperatura' permite cambiar la temperatura global promedio, afectando las temperaturas de la atmósfera y del océano.",
     "",
     "Cambia la temperatura moviendo el deslizador y observa los gráficos para ver qué ocurre con la cantidad de dióxido de carbono en el océano ",
     "y la atmósfera. Asegúrate de esperar lo suficiente como para ver el efecto.",
@@ -18,6 +18,8 @@
     "",
     "**NOTA**: Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera."
   ],
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-3.json"
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -520,8 +522,7 @@
       "showHeat",
       "fixedTemperature"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-3.json"
+    "perTick": []
+    
   }
 }
