@@ -11,6 +11,8 @@
     "Seguir un paquete de energía o molécula de dióxido de carbono para ver qué sucede cuando hay más dióxido de carbono en la atmósfera.",
     ""
   ],
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json",
  "credits": ["Este interactivo de [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
