@@ -10,7 +10,7 @@
     "(efecto de enfriamiento) y cuánta radiación infrarroja saliente es absorbida y re-irradiada a la atmósfera",
     "(efecto de calentamiento).",
     "",
-    "Cambia la cantidad de nubes en el modelo. Sigue los paquetes de energía para ver cómo interactúan con las nubes.",
+    "*Instrucciones:* Cambia la cantidad de nubes en el modelo. Sigue los paquetes de energía para ver cómo interactúan con las nubes.",
     "Observa los gráficos para ver qué sucede con la temperatura y la cantidad de gases invernadero en la atmósfera y el océano.",
     "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.  ",
     "",
@@ -19,6 +19,8 @@
     "",
     "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
+      "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-7.json",
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -492,8 +494,6 @@
       "followCO2",
       "spotlightActive"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-7.json"
+    "perTick": []
   }
 }
