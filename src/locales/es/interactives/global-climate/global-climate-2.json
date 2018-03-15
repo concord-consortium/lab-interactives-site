@@ -15,6 +15,8 @@
     "",
     "**NOTA**: Este modelo no muestra la concentración actual de gases invernadero en la atmósfera."
   ],
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-2.json"
  "credits": ["Este interactivo de [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -472,8 +474,7 @@
       "showRays",
       "showHeat"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-2.json"
+    "perTick": []
+    
   }
 }
