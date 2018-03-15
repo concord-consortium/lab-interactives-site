@@ -5,7 +5,7 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "Explora cómo la temperatua del planeta afecta la cantidad de vapor de agua en el aire.   ",
+    "*Instrucciones:* Explora cómo la temperatua del planeta afecta la cantidad de vapor de agua en el aire.   ",
     "",
     "El deslizador 'Temperatura' cambia la temperatura global promedio, afectando tanto la temperatura atmosférica como oceánica.",
     "Cambia la temperatura (moviendo el deslizador) y observa los gráficos para ver qué sucede con el vapor de agua en el aire y la cantidad de",
@@ -16,6 +16,8 @@
     "",
     "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
+  "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-4.json",
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -434,8 +436,6 @@
       "showHeat",
       "fixedTemperature"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-4.json"
+    "perTick": []
   }
 }
