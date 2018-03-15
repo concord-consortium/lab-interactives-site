@@ -10,6 +10,8 @@
   "fontScale": 0.8,
   "lang": "en-US",
   "i18nMetadata": "",
+    "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json",
   "helpOnLoad": false,
   "about": "Nota: Cuando se carga el modelo *Infrarrojo sobre CO₂* la radiación infrarroja que viene desde abajo del modelo es emitida desde el suelo.",
   "credits": ["Este interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
