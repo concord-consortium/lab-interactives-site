@@ -5,8 +5,6 @@
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json",
     "Explorar cómo la radiación solar (las flechas amarillas) interactúa con el suelo terrestre y los gases en la atmósfera.",
     "",
     "Clic en el botón **¡Erupción!** para liberar dióxido de carbono.",
