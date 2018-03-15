@@ -9,7 +9,7 @@
     "La cantidad de cobertura de hielo y el número de nubes en el modelo cambian en respuesta a los niveles de la temperatura",
     "y el vapor de agua.",
     "",
-    "El deslizador **Emisiones humanas** controla cuánto dióxido de carbono emana de la central de producción energética.",
+    "*Instrucciones:* El deslizador **Emisiones humanas** controla cuánto dióxido de carbono emana de la central de producción energética.",
     "Cero porciento (0%) significa que no hay emisiones humanas. Cien porciento (100%) significa que las emisiones humanas",
     "son las mismas que en el año 2010. Doscientos porciento (200%) significa que las emisiones humanas duplican",
     "el nivel de emisiones de 2010.",
@@ -19,6 +19,8 @@
     "",
     "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
+      "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-8.json",
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -446,8 +448,7 @@
       "showHeat",
       "humanEmissionRate"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-8.json"
+    "perTick": []
+
   }
 }
