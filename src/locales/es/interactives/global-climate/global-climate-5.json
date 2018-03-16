@@ -8,7 +8,7 @@
     "Explora el efecto del cambio en las emisiones humanas de dióxido de carbono en la temperatura",
     "y la cantidad de vapor de agua en la atmósfera.",
     "",
-    "El deslizador **Emisiones humanas** permite controlar cuánto dióxido de carbono emana de la central de producción de energía.",
+    "*Instrucciones:* El deslizador **Emisiones humanas** permite controlar cuánto dióxido de carbono emana de la central de producción de energía.",
     "Cero porciento (0%) significa que no hay emisiones humanas. Cien porciento (100%) significa que las emisiones humanas",
     "son las mismas que en el año 2010. Doscientos porciento (200%) significa que las emisiones humanas duplican",
     "el nivel de emisiones de 2010.",
@@ -22,6 +22,8 @@
     "",
     "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
+      "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-5.json",
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -438,8 +440,6 @@
       "showHeat",
       "humanEmissionsRate"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-5.json"
+    "perTick": []
   }
 }

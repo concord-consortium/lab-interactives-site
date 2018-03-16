@@ -11,6 +11,7 @@
     "Follow an energy packet or molecule of carbon dioxide to see what happens when there is more carbon dioxide in the atmosphere.",
     ""
   ],
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-1.json",
  "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
               "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) in partnership with the ",

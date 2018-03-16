@@ -8,7 +8,7 @@
     "El albedo describe cuánta luz solar se refleja hacia el espacio sin ser absorbida por la superficie. ",
     "El albedo varía mucho dependiendo del tipo de superficie en la cual incide la luz solar.",
     "",
-    "Utiliza el deslizador **Capa de hielo** para cambiar el albedo en el modelo.",
+    "*Instrucciones:* Utiliza el deslizador **Capa de hielo** para cambiar el albedo en el modelo.",
     "",
     "Observa los gráficos para ver qué sucede con la temperatura y la cantidad de gases invernadero en la atmósfera y el océano.",
     "Asegúrate de esperar lo suficiente como para poder apreciar el efecto.  ",
@@ -18,6 +18,8 @@
     "",
     "**NOTA:** Este modelo no muestra la concentración actual de gases de efecto invernadero en la atmósfera y el océano."
   ],
+      "lang": "es",
+  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-6.json",
   "credits": ["Este módulo interactivo [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") ",
               "fue desarrollado en el marco de una serie de grants de la [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
               "(DRL-0929774, DRL-1220756 ) en conjunto con la ",
@@ -419,8 +421,6 @@
       "showHeat",
       "icePercent"
     ],
-    "perTick": [],
-    "lang": "es",
-  "i18nMetadata": "locales/metadata/interactives/global-climate/global-climate-6.json"
+    "perTick": []
   }
 }
