@@ -8,8 +8,6 @@
   "screenshot": "",
   "aspectRatio": 1.7,
   "fontScale": 0.8,
-  "lang": "en-US",
-  "i18nMetadata": "",
     "lang": "es",
   "i18nMetadata": "locales/metadata/interactives/sam/light-matter/HAS_sunlight_on_ground.json",
   "helpOnLoad": false,
