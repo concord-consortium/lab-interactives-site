@@ -162,7 +162,7 @@
     {
       "id": "enable-light-source",
       "type": "checkbox",
-      "text": "Fuente lumínica on",
+      "text": "Fuente lumínica SÍ/NO",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
