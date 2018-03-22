@@ -162,7 +162,7 @@
     {
       "id": "enable-light-source",
       "type": "checkbox",
-      "text": "Fuente lumínica on",
+      "text": "Fuente lumínica SÍ/NO",
       "textOn": "right",
       "width": "auto",
       "height": "auto",
@@ -198,7 +198,7 @@
     {
       "id": "key-photon",
       "type": "image",
-      "src": "photonKey.svg",
+      "src": "http://resources.has.concord.org/espanol/resources/climate/photonKey-ES.png",
       "width": "10em",
       "height": "auto",
       "tooltip": ""
