@@ -239,11 +239,11 @@
       "labels": [
         {
           "value": "20",
-          "label": "slow"
+          "label": "lento"
         },
         {
           "value": "60",
-          "label": "fast"
+          "label": "rápido"
         }
       ],
       "width": "7em",
