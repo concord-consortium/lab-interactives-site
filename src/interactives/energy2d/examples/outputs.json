@@ -23,6 +23,14 @@
       "value": "return getTemperatureAt(7.5, 5);"
     }
   ],
+  "exports": {
+    "perRun": [
+    ],
+    "perTick": [
+      "leftPartTemp",
+      "rightPartTemp"
+    ]
+  },
   "components": [
     {
       "type": "barGraph",
