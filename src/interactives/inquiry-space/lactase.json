@@ -18,11 +18,20 @@
         "temperatureFuncDef": [[0,0.2],[10,0.5],[15,0.7],[20,0.9],[23,0.95],[30,0.98],[37,1],[40,0.95],[47,0.45],[50,0.35],[60,0.05],[65,0.02],[70,0.01],[80,0],[100,0]]
       },
       "viewOptions": {
-        "aspectRatio": 0.4,
+        "aspectRatio": 0.28,
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
       },
       "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('lactose-slider', value);",
+        "  setComponentDisabled('ph-slider', value);",
+        "  setComponentDisabled('temperature-slider', value);",
+        "}",
+        "disableComponents(false);",
+        "onStart(function () {",
+          "disableComponents(true);",
+        "});"
       ]
     }
   ],
@@ -91,7 +100,7 @@
           "label": "1000"
         }
       ],
-      "steps": 10,
+      "steps": 50,
       "title": "Concentration of lactose (mg/dL)",
       "property": "lactose",
       "width": "82%"
@@ -185,7 +194,8 @@
       "left": "model.right",
       "right": "interactive.right",
       "align": "center",
-      "margin-right": "1em"
+      "margin-right": "1em",
+      "margin-bottom": "2em"
     }
   ]
 }
