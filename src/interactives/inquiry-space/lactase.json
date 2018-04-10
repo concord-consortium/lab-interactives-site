@@ -4,7 +4,7 @@
   "subtitle": "",
   "about": [
   ],
-  "aspectRatio": 0.9,
+  "aspectRatio": 1.25,
   "fontScale": 0.9,
   "lang": "en-US",
   "models": [
@@ -18,7 +18,7 @@
         "temperatureFuncDef": [[0,0.2],[10,0.5],[15,0.7],[20,0.9],[23,0.95],[30,0.98],[37,1],[40,0.95],[47,0.45],[50,0.35],[60,0.05],[65,0.02],[70,0.01],[80,0],[100,0]]
       },
       "viewOptions": {
-        "aspectRatio": 0.28,
+        "aspectRatio": 0.4,
         "controlButtons": "play_reset",
         "controlButtonStyle": "text"
       },
@@ -180,22 +180,24 @@
   "template": [
     {
       "id": "top",
-      "top": "interactive.top",
+      "top": "model.top",
       "left": "model.right",
-      "right": "interactive.right",
-      "height": "interactive.height * 0.5",
+      "width": "interactive.width - model.width",
+      "min-width": "25em",
+      "height": "interactive.height * 0.65",
       "margin-left": "1em",
       "margin-right": "1em",
-      "margin-bottom": "3em"
+      "margin-bottom": "1.5em"
     },
     {
       "id": "bottom",
       "top": "top.bottom",
       "left": "model.right",
-      "right": "interactive.right",
+      "width": "interactive.width - model.width",
+      "min-width": "25em",
       "align": "center",
       "margin-right": "1em",
-      "margin-bottom": "2em"
+      "margin-bottom": "1em"
     }
   ]
 }
