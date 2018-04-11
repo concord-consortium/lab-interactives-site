@@ -1,8 +1,13 @@
 {
-  "title": "Lactase Enzyme",
+  "title": "Lactase Enzyme Simulation",
   "publicationStatus": "public",
   "subtitle": "",
   "about": [
+    "**Lactase Enzyme Action**",
+    "",
+    "Lactase is an enzyme that catalyzes the breakdown of lactose into glucose and galactose. The speed at which lactose is broken down is regulated by the temperature and pH of the environment.",
+    "",
+    "Measure the level of glucose in the lactose/lactase solution in the test tube using a glucose meter. Use the sliders to explore how changing the solution affects glucose production."
   ],
   "aspectRatio": 1.25,
   "fontScale": 0.9,
@@ -35,6 +40,18 @@
       ]
     }
   ],
+  "helpTips": [
+    {
+      "component": ["temperature-slider", "ph-slider", "lactose-slider"],
+      "text": [
+        "**Experiment with the Lactase/Lactose Solution **",
+        "",
+        "Use the sliders to make changes to the concentration of lactose, the pH, and the temperature of the solution in the test tube."
+      ],
+      "showcase": true
+    }
+  ],
+  "helpOnLoad": true,
   "outputs": [
     {
       "name": "glucose",
