@@ -45,6 +45,11 @@
       "name": "wasMarked",
       "initialValue": 0,
       "onChange": ""
+    },
+    {
+      "name": "slowMotionState",
+      "initialValue": 0,
+      "onChange": "if (value) { set({timeStep: 0.1}) } else { set({timeStep: 1})};"
     }
   ],
   "components": [
@@ -66,11 +71,17 @@
         "  traceAtom(atomID);",
         "});"
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "slowMotionButton",
+      "text": "Slow motion",
+      "property": "slowMotionState"
     }
   ],
   "layout": {
     "under-model": [
-      "trace"
+      "trace", "slowMotionButton"
     ]
   },
   "template": [
