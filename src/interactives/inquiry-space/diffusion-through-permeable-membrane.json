@@ -15,7 +15,7 @@
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-through-permeable-membrane.json",
+      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-through-permeable-membrane/diffusion-through-permeable-membrane.json",
       "viewOptions": {
         "controlButtons": "play_reset",
         "imageMapping": {

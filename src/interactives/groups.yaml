@@ -38,6 +38,10 @@
   :name: "Inquiry Space"
   :category: Curriculum
 
+- :path: inquiry-space/pendulum
+  :name: "Inquiry Space"
+  :category: Curriculum
+
 - :path: interactions
   :name: "Interactions Project"
   :category: Curriculum
