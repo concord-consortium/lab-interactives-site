@@ -2,7 +2,7 @@
   "title": "Diffusion of a Drop",
   "publicationStatus": "public",
   "subtitle": "Add a drop of dye anywhere in the container, and watch it diffuse through the water.",
-  "aspectRatio": 1.25,
+  "aspectRatio": 1.15,
   "category": "Biology",
   "subCategory": "Molecular biology",
   "screenshot": "http://screenshots.lab.concord.org/1-dropping-dye-on-click.png",
@@ -15,6 +15,9 @@
       "type": "md2d",
       "id": "model1",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page1/page1$0.json",
+      "modelOptions": {
+        "temperatureControl": true
+      },
       "viewOptions": {
         "controlButtons": "play_reset",
         "showClock": true,
@@ -77,11 +80,32 @@
       "id": "slowMotionButton",
       "text": "Slow motion",
       "property": "slowMotionState"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 200,
+      "max": 500,
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 200,
+          "label": "Low"
+        },
+        {
+          "value": 500,
+          "label": "High"
+        }
+      ],
+      "steps": 100,
+      "title": "Temperature",
+      "property": "targetTemperature"
     }
+
   ],
   "layout": {
     "under-model": [
-      "trace", "slowMotionButton"
+      "temperature-slider","trace", "slowMotionButton"
     ]
   },
   "template": [
