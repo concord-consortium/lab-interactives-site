@@ -38,14 +38,14 @@
     },
     {
       "name": "leftConcentrationO2",
-      "label": "Inside O₂ concentration",
+      "label": "O₂ in",
       "value": [
         "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     },
     {
       "name": "rightConcentrationO2",
-      "label": "Outside O₂ concentration",
+      "label": "O₂ out",
       "value": [
         "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
@@ -108,18 +108,28 @@
     {
       "name": "initialLeftO2",
       "initialValue": 0,
-      "label": "Initial inside O₂ concentration",
       "onChange": [
-        "set('setCountTrigger',get('setCountTrigger')+1);"
+        "set('setCountTrigger',get('setCountTrigger')+1);",
+        "set('initialLeftO2conc', value/ (get('width') / 2 * get('height') * 0.1));"
       ]
     },
     {
       "name": "initialRightO2",
-      "label": "Initial outside O₂ concentration",
       "initialValue": 0,
       "onChange": [
-        "set('setCountTrigger',get('setCountTrigger')+1);"
+        "set('setCountTrigger',get('setCountTrigger')+1);",
+        "set('initialRightO2conc', value/ (get('width') / 2 * get('height') * 0.1));"
       ]
+    },
+    {
+      "name": "initialLeftO2conc",
+      "initialValue": 0,
+      "label": "Initial O₂ in"
+    },
+    {
+      "name": "initialRightO2conc",
+      "label": "Initial O₂ out",
+      "initialValue": 0
     },
     {
       "name": "markingAtoms",
@@ -135,8 +145,8 @@
   ],
   "exports": {
     "perRun": [
-      "initialLeftO2",
-      "initialRightO2"
+      "initialLeftO2conc",
+      "initialRightO2conc"
     ],
     "perTick": [
       "leftConcentrationO2",
