@@ -1,0 +1,161 @@
+{
+  "title": "Aquapores and semi-permeable membranes",
+  "publicationStatus": "public",
+  "subtitle": "Exchanging particular molecules across a cell membrane",
+  "about": [
+    ""
+  ],
+  "aspectRatio": 1.28,
+  "fontScale": 1.01,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "no-channels",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-no-channels.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "aquapore-1",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-1.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "aquapore-2",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-2.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "aquapore-3",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-3.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "aquapore-4",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-4.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "aquapore-5",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-5.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "outputs": [],
+  "parameters": [],
+  "components": [
+    {
+      "type": "text",
+      "id": "inside-above-label",
+      "text": "Inside cell"
+    },
+    {
+      "type": "text",
+      "id": "outside-above-label",
+      "text": "Outside cell"
+    },
+    {
+      "type": "text",
+      "id": "selection-title",
+      "text": "**Select one**"
+    },
+    {
+      "type": "radio",
+      "id": "select-molecule",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Positive ion (Na⁺)",
+          "action": [
+            "loadModel('aquapore-1');"
+          ]
+        },
+        {
+          "text": "Negative ion (Cl⁻)",
+          "action": [
+            "loadModel('aquapore-2');"
+          ]
+        },
+        {
+          "text": "Small non-polar (CO₂)",
+          "action": [
+            "loadModel('aquapore-3');"
+          ]
+        },
+        {
+          "text": "Small polar (H₂O)",
+          "action": [
+            "loadModel('aquapore-4');"
+          ]
+        },
+        {
+          "text": "Medium polar (sugar)",
+          "action": [
+            "loadModel('aquapore-5');"
+          ]
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "bottom-title": [
+      "selection-title"
+    ],
+    "bottom-buttons":[
+      "select-molecule"
+    ],
+    "above-left": [
+      "inside-above-label"
+    ],
+    "above-right": [
+      "outside-above-label"
+    ]
+  },
+  "template": [
+    {
+      "id": "above-left",
+      "left": "model.left",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "left"
+    },
+    {
+      "id": "above-right",
+      "right": "model.right",
+      "bottom": "model.top",
+      "width": "model.width/2",
+      "height": "2em",
+      "align": "right"
+    },
+    {
+      "id": "bottom-title",
+      "left": "model.left",
+      "top": "model.bottom",
+      "align": "left",
+      "margin-top": "0.5em"
+    },
+    {
+      "id": "bottom-buttons",
+      "left": "model.left",
+      "top": "bottom-title.bottom",
+      "align": "left"
+    }
+  ]
+}
