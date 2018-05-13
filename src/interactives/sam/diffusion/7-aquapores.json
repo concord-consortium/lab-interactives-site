@@ -36,6 +36,9 @@
       "type": "md2d",
       "id": "aquapore-3",
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/page7/aquapore-3.json",
+      "onLoad": [
+        "setElementProperties(1, { color: -608212 });"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset"
       }
