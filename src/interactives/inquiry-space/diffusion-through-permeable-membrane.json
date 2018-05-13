@@ -38,14 +38,14 @@
     },
     {
       "name": "leftConcentrationO2",
-      "label": "O₂ in",
+      "label": "O₂ out",
       "value": [
         "  return get('nLeftO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
     },
     {
       "name": "rightConcentrationO2",
-      "label": "O₂ out",
+      "label": "O₂ in",
       "value": [
         "  return get('nRightO2') / (get('width') / 2 * get('height') * 0.1);"
       ]
@@ -124,11 +124,11 @@
     {
       "name": "initialLeftO2conc",
       "initialValue": 0,
-      "label": "Initial O₂ in"
+      "label": "Initial O₂ out"
     },
     {
       "name": "initialRightO2conc",
-      "label": "Initial O₂ out",
+      "label": "Initial O₂ in",
       "initialValue": 0
     },
     {
@@ -157,22 +157,22 @@
     {
       "type": "text",
       "id": "inside-above-label",
-      "text": "Inside cell"
-    },
-    {
-      "type": "text",
-      "id": "outside-above-label",
       "text": "Outside cell"
     },
     {
       "type": "text",
+      "id": "outside-above-label",
+      "text": "Inside cell"
+    },
+    {
+      "type": "text",
       "id": "inside-right-label",
-      "text": "Inside"
+      "text": "Outside"
     },
     {
       "type": "text",
       "id": "outside-right-label",
-      "text": "Outside"
+      "text": "Inside"
     },
     {
       "type": "barGraph",

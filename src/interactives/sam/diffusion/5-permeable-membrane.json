@@ -327,7 +327,7 @@
   "layout": {
     "right-inside": [
       [
-        "inside-right-label"
+        "outside-right-label"
       ],
       [
         "left-concentration-O2",
@@ -336,7 +336,7 @@
     ],
     "right-outside": [
       [
-        "outside-right-label"
+        "inside-right-label"
       ],
       [
         "right-concentration-O2",
@@ -363,10 +363,10 @@
 
     ],
     "above-left": [
-      "inside-above-label"
+      "outside-above-label"
     ],
     "above-right": [
-      "outside-above-label"
+      "inside-above-label"
     ]
   },
   "template": [
