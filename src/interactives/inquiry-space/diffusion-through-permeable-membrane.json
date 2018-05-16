@@ -210,7 +210,7 @@
       "labelOn": "right",
       "options": [
         {
-          "text": "None",
+          "text": "Select concentration",
           "value": 0
         },
         {
@@ -231,7 +231,7 @@
       "labelOn": "left",
       "options": [
         {
-          "text": "None",
+          "text": "Select concentration",
           "value": 0
         },
         {

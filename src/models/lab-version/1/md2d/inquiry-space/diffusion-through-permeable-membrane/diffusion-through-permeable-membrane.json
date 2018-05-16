@@ -24,7 +24,7 @@
   "DNAMutations": true,
   "useQuantumDynamics": false,
   "useChemicalReactions": false,
-  "useDuration": true,
+  "useDuration": "codap",
   "requestedDuration": 60000,
   "skipPECheckOnAddAtom": false,
   "viewOptions": {
