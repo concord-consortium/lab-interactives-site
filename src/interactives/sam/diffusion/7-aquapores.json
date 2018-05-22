@@ -76,7 +76,7 @@
     {
       "type": "text",
       "id": "selection-title",
-      "text": "**Select one**"
+      "text": "**Select ion or molecule:**"
     },
     {
       "type": "radio",
