@@ -25,7 +25,7 @@
   "useQuantumDynamics": false,
   "useChemicalReactions": false,
   "useDuration": "codap",
-  "requestedDuration": 60000,
+  "requestedDuration": 90000,
   "skipPECheckOnAddAtom": false,
   "viewOptions": {
     "viewPortWidth": 5,
