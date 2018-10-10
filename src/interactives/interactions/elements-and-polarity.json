@@ -35,7 +35,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://concord-consortium.github.io/jsmol-models/embeddable.html"
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
       },
       "onLoad": [
         "post('jsmolScript', 'set background black;');"

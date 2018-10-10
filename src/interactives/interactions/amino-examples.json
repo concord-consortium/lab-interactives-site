@@ -22,7 +22,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
         "m0:molecule": "models/amino-examples/ser.mol2",
         "m1:molecule": "models/amino-examples/val.mol2",
         "m2:molecule": "models/amino-examples/his.mol",
