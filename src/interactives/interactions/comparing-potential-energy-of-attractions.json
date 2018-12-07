@@ -1,0 +1,246 @@
+{
+  "title": "Comparing Potential Energy of Attractions",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore the difference in attractive forces between polar and non-polar molecules.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": true,
+  "aboutOnLoad": false,
+  "about": [
+    "Explore the change in potential energy when molecules are separated from each other.",
+    "",
+    "First, choose a pair of molecules or atoms from the drop-down menu and \"pull\" on the green star to separate them.",
+    "Then, compare observations of the potential energy of each molecule or scenario tested.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "npPulling",
+      "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/npPulling.json",
+      "onLoad": [
+        "start(); setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+        "set('breakEnergy',10.5);",
+        "set('finalPotential',33);",
+        "set('potentialFactor',15);",
+        "callEvery(25, function() {",
+        "  var x1 = getAtomProperties(0).x,",
+        "      y1 = getAtomProperties(0).y,",
+        "      x2 = getAtomProperties(3).x,",
+        "      y2 = getAtomProperties(3).y,",
+        "      distx = x1-x2,",
+        "      disty = y1-y2,",
+        "      distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.19;",
+        "  set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.167)+get('breakEnergy'));",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.12
+          }
+        ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "polarPulling",
+      "url": "models/lab-version/1/md2d/interactions/comparing-potential-energy-of-bond/polarPulling.json",
+      "onLoad": [
+        "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+        "set('breakEnergy',10);",
+        "set('finalPotential',28.5);",
+        "set('potentialFactor',8);",
+        "callEvery(25, function() {",
+        "  var x1 = getAtomProperties(0).x,",
+        "      y1 = getAtomProperties(0).y,",
+        "      x2 = getAtomProperties(3).x,",
+        "      y2 = getAtomProperties(3).y,",
+        "      distx = x1-x2,",
+        "      disty = y1-y2,",
+        "      distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
+        "  set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.12
+          }
+        ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "countPotential",
+      "initialValue": 16.97951193289041
+    },
+    {
+      "name": "breakEnergy",
+      "initialValue": 10.5
+    },
+    {
+      "name": "potentialFactor",
+      "initialValue": 15
+    },
+    {
+      "name": "finalPotential",
+      "initialValue": 33
+    },
+    {
+      "name": "atomdragged",
+      "initialValue": false
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [
+    {
+      "component": "",
+      "text": [
+        "Compare the energy it takes to separate molecules from each other."
+      ],
+      "showcase": true
+    },
+    {
+      "component": "pulldown1",
+      "text": "Select two molecules or atoms to pull apart.",
+      "showcase": true
+    }
+  ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
+  "components": [
+    {
+      "id": "pulldown1",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "pull two nonpolar molecules apart from each other",
+          "action": "loadModel('npPulling');",
+          "selected": true
+        },
+        {
+          "text": "pull two polar molecules apart from each other",
+          "action": "loadModel('polarPulling');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "bargraph",
+      "type": "barGraph",
+      "property": "countPotential",
+      "min": 0,
+      "max": 100,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 100,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "bargraph"
+    ],
+    "bottom": [
+      "pulldown1",
+      "reset"
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "height": "model.height"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom"
+    }
+  ]
+}
