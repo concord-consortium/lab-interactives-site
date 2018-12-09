@@ -1,0 +1,44 @@
+{
+  "title": "Protein pocket shape and charge",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore how the shape and charge of a ligand affects the ability to bind to a protein.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Drage the small molecules (ligands) around to see how they might fit (or not) in the active site of a protein. ",
+    "Try to notice both how both shape and charge might affect how strongly the molecules might attract to each other.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "activeSite",
+      "url": "models-converted/lab-version/1/md2d/interactions/protein-shape-charge/protein-shape-charge.json",
+      "importedFrom": "imports/legacy-mw-content/interactions/protein-shape-charge/protein-shape-charge.mml",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
+        "enableKeyboardHandlers": false
+      }
+    }
+  ],
+  "layout": {}
+}
