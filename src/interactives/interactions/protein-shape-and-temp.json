@@ -1,0 +1,129 @@
+{
+  "title": "Protein Shape and Temperature",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "How does temperature affect the stability of a protein?",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 0.95,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Generate various proteins and all them to fold under different temperature conditions. If you find a stable protein shape, can you affect it by changing the temperature?",
+    "***",
+    "*This simulation was adapted by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "amino-acids$0",
+      "url": "models/lab-version/1/md2d/interactions/protein-folding-exploring/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "showClock": false,
+        "images": [
+          {
+            "imageUri": "polarity-key.png",
+            "imageX": 3.5,
+            "imageY": 2.95,
+            "scale": 0.28
+          }
+        ]
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": "setSolvent(value);"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "random-protein-button",
+      "type": "button",
+      "action": "reloadModel(); generateRandomProtein(40);",
+      "text": "Generate new random protein",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "pe-graph",
+      "type": "barGraph",
+      "property": "potentialEnergy",
+      "min": -40,
+      "max": 30,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 10,
+      "max": 5000,
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 10,
+          "label": "Low"
+        },
+        {
+          "value": 2500,
+          "label": "Medium"
+        },
+        {
+          "value": 5000,
+          "label": "High"
+        }
+      ],
+      "steps": 499,
+      "title": "Temperature",
+      "property": "targetTemperature"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "random-protein-button",
+        "temperature-slider"
+      ]
+    ],
+    "right": [
+      "pe-graph"
+    ]
+  },
+  "template": "simple"
+}
