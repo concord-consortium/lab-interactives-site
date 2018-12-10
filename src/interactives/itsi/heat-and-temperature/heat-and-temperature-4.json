@@ -24,7 +24,7 @@
         "  var a1y = a1Props.y;",
         "  var a2x = a2Props.x;",
         "  var a2y = a2Props.y;",
-        "  addLine({x1: a1x, x2: a2x, y1: a1y, y2: a2y});",
+        "  addLine({x1: a1x, x2: a2x, y1: a1y, y2: a2y, lineColor: '#b4b4b4', lineWeight: 4});",
         "}",
         "var c = 5, hasPlayed = false;",
         "function countdown() {",
