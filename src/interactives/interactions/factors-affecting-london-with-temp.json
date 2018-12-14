@@ -4,23 +4,30 @@
   "subtitle": "Explore how differences in molecular size and shape affect the strength of London dispersion attractions.",
   "about": [
     "Some non-polar molecules have stronger attractions than others. Choose a pair of",
-    "molecules from the drop-down menu and \"pull\" on the star to separate the molecules.",
-    "Why do size and shape affect the strength of attraction between two non-polar molecules?"
+    "molecules from the drop-down menu and \"pull\" on the star to separate the molecules. ",
+    "Why do size and shape affect the strength of attraction between two non-polar molecules? ",
+    "How does temperature affect the ability of the moleucles to stay stuck together?",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
   ],
-  "aspectRatio": 1.4,
+  "aspectRatio": 1.5,
   "models": [
     {
       "type": "md2d",
       "id": "instructions",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/instructions.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/instructions.json",
       "viewOptions": {
         "controlButtons": "",
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between molecules of varying size and shape. Look for how the area of close contact between the molecules influences their attraction.",
+            "text": "Explore the different attractive forces between molecules of varying size and shape. Look for how the area of close contact between the molecules influences their attraction. Explore how temperature affects the ability of the molecules to stick together.",
             "x": 0.4,
-            "y": 1.7,
+            "y": 1.9,
             "fontSize": 0.14,
             "width": 3.2
           },
@@ -37,13 +44,14 @@
     {
       "type": "md2d",
       "id": "npSmallStraight",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npSmallStraight.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/npSmallStraight.json",
       "modelOptions": {
         "temperatureControl": true,
         "targetTemperature": 25
       },
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false,
         "imageMapping": {
           "star.png": "star.svg"
@@ -64,12 +72,14 @@
     {
       "type": "md2d",
       "id": "npLargeStraight",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npLargeStraight.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/npLargeStraight.json",
       "modelOptions": {
-        "temperatureControl": true
+        "temperatureControl": true,
+        "targetTemperature": 25
       },
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false,
         "imageMapping": {
           "star.png": "star.svg"
@@ -90,12 +100,14 @@
     {
       "type": "md2d",
       "id": "npStraightJagged",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightJagged.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/npStraightJagged.json",
       "modelOptions": {
-        "temperatureControl": true
+        "temperatureControl": true,
+        "targetTemperature": 25
       },
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false,
         "imageMapping": {
           "star.png": "star.svg"
@@ -116,12 +128,14 @@
     {
       "type": "md2d",
       "id": "npStraightRound",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npStraightRound.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/npStraightRound.json",
       "modelOptions": {
-        "temperatureControl": true
+        "temperatureControl": true,
+        "targetTemperature": 25
       },
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false,
         "imageMapping": {
           "star.png": "star.svg"
@@ -142,12 +156,14 @@
     {
       "type": "md2d",
       "id": "npCurvedRound",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page5/npCurvedRound.json",
+      "url": "models/lab-version/1/md2d/interactions/factors-affecting-london/npCurvedRound.json",
       "modelOptions": {
-        "temperatureControl": true
+        "temperatureControl": true,
+        "targetTemperature": 25
       },
       "viewOptions": {
-        "controlButtons": "",
+        "controlButtons": "reset",
+        "controlButtonStyle": "text",
         "enableKeyboardHandlers": false,
         "imageMapping": {
           "star.png": "star.svg"
@@ -199,34 +215,45 @@
     },
     {
       "type": "button",
-      "id": "reset",
-      "text": "Reset",
-      "action": "reloadModel();"
+      "id": "heat-button",
+      "text": "Increase temp.",
+      "action": "set({targetTemperature: get('targetTemperature')+100});"
     },
     {
-      "type": "slider",
-      "id": "temperature-slider",
-      "min": 10,
-      "max": 500,
-      "displayValue": "",
-      "labels": [
-        {
-          "value": 5,
-          "label": "Low"
-        },
-        {
-          "value": 250,
-          "label": "Medium"
-        },
-        {
-          "value": 500,
-          "label": "High"
-        }
-      ],
-      "steps": 499,
+      "type": "button",
+      "id": "cool-button",
+      "text": "Decrease temp.",
+      "action": "var temp = get('targetTemperature'); set({targetTemperature: (temp > 100 ? temp - 100: 10)});"
+    },
+    {
+      "id": "temp",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 1500,
       "title": "Temperature",
-      "property": "targetTemperature"
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 6,
+      "labelFormat": "0f",
+      "barWidth": "1em",
+      "height": "100%",
+      "barColor": "#ff0000",
+      "fillColor": "#fff",
+      "tooltip": ""
     }
   ],
-  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/5-strengthening-london-dispersion-attraction.json"
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/5-strengthening-london-dispersion-attraction.json",
+  "layout": {
+    "bottom":
+      [
+        "pulldown1",
+        "heat-button",
+        "cool-button"
+      ],
+    "right":[
+      "temp"
+     ]
+  }
 }
