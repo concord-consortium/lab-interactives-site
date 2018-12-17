@@ -217,7 +217,16 @@
       "type": "button",
       "id": "heat-button",
       "text": "Increase temp.",
-      "action": "set({targetTemperature: get('targetTemperature')+100});"
+      "action": [
+        "set({targetTemperature: get('targetTemperature')+100});",
+        "setComponentDisabled('heat-button', true);",
+        "setComponentAttributes('heat-button', {text: 'Heat again in 5'});",
+        "setTimeout(function() { setComponentAttributes('heat-button', {text: 'Heat again in 4'}) }, 1000)",
+        "setTimeout(function() { setComponentAttributes('heat-button', {text: 'Heat again in 3'}) }, 2000)",
+        "setTimeout(function() { setComponentAttributes('heat-button', {text: 'Heat again in 2'}) }, 3000)",
+        "setTimeout(function() { setComponentAttributes('heat-button', {text: 'Heat again in 1'}) }, 4000)",
+        "setTimeout(function() { setComponentDisabled('heat-button', false); setComponentAttributes('heat-button', {text: 'Increase temp.'});}, 5000)"
+      ]
     },
     {
       "type": "button",
