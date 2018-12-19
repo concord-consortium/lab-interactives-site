@@ -1,5 +1,5 @@
-#s3_id: <%= ENV['S3_ACCESS_KEY_ID'] %>
-#s3_secret: <%= ENV['S3_SECRET_KEY'] %>
+s3_id: <%= ENV['S3_ACCESS_KEY_ID'] %>
+s3_secret: <%= ENV['S3_SECRET_KEY'] %>
 s3_bucket: lab.concord.org
 s3_endpoint: us-east-1
 gzip:
@@ -11,15 +11,15 @@ gzip:
   - .json
   - .e2d
 
-<% if ENV['TRAVIS_BRANCH'] == 'master' %>
+  <% if ENV['TRAVIS_BRANCH'] == 'master' %>
 # In this case we are going to deploy this branch to the top level of the domain
 # and version/<SITE_VERSION>, so we need to ignore the old versions and branch folders.
 ignore_on_server: ^(version/(?!<%= Regexp.escape(ENV['SITE_VERSION']) %>(/|\.tar\.gz))|branch/)
-<% else %>
+  <% else %>
 # In this case we are going to deploy this code to a subfolder of the branch folder.
 # So ignore everything except this folder.
 ignore_on_server: ^(?!<%= Regexp.escape(ENV['DEPLOY_DIR']) %>/)
-<% end %>
+  <% end %>
 max_age:
   # Default cache:
   "*": 21600 # 6 hours in seconds
