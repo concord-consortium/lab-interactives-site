@@ -1,13 +1,13 @@
 {
-  "title": "Mouse fur color receptor protein",
+  "title": "DNA to Protein",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Explore how part of the protein receptor is made from DNA.",
+  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
   "aspectRatio": 1.05,
-  "fontScale": 0.65,
+  "fontScale": 0.95,
   "lang": "en-US",
   "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json",
   "credits": "",
@@ -34,7 +34,7 @@
         "enableKeyboardHandlers": false
       },
       "modelOptions": {
-        "DNA": "ATAGCCATCACCAAAAACCGCAACCTGCACTCGCCCATGTATTCCTTCATCTGCTGTCTG",
+        "DNA": "ATG",
         "DNAState": "intro-cells"
       }
     }
@@ -47,6 +47,17 @@
   "dataSets": [],
   "components": [
     {
+      "id": "dna-dialog",
+      "type": "button",
+      "action": "openDNADialog();",
+      "text": "Enter a DNA sequence",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "Click and paste your favorite DNA sequence here",
+      "helpIcon": false
+    },
+	{
       "id": "transcribe",
       "type": "button",
       "action": [
@@ -82,6 +93,11 @@
       "id": "translate",
       "type": "button",
       "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "}",
+        "if (get('DNAState') === 'translation-end')",
         "  set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
       ],
@@ -217,21 +233,13 @@
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
-    },
-    {
-      "id": "dna-dialog",
-      "type": "button",
-      "action": "openDNADialog();",
-      "text": "Edit DNA",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
     }
   ],
   "layout": {
     "model-bottom": [
+      [
+        "dna-dialog"
+      ],
       [
         "label1",
         "transcribe",
@@ -247,8 +255,8 @@
       [
         "start",
         "stop",
-        "reset",
-        "dna-dialog"
+        "reset"
+        
       ],
       [
         "prev-state-jump",
