@@ -31,7 +31,15 @@
       "url": "models/lab-version/1/CBio-mc1r-model.json",
       "viewOptions": {
         "controlButtons": "",
-        "enableKeyboardHandlers": false
+        "enableKeyboardHandlers": false,
+        "images": [
+          {
+            "imageUri": "polarity-key.png",
+            "imageX": 3.5,
+            "imageY": 2.95,
+            "scale": 0.28
+          }
+        ]
       },
       "modelOptions": {
         "DNA": "ATAGCCATCACCAAAAACCGCAACCTGCACTCGCCCATGTATTCCTTCATCTGCTGTCTG",
