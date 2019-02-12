@@ -82,7 +82,7 @@
         "  transcribeDNAStep();",
         "}"
       ],
-      "text": "Transcribe step by step",
+      "text": "Transcribe one base at a time",
       "width": "",
       "height": "",
       "disabled": false,
@@ -119,7 +119,7 @@
         "  translateDNAStep();",
         "}"
       ],
-      "text": "Translate step by step",
+      "text": "Translate one amino acid at a time",
       "width": "",
       "height": "",
       "disabled": false,
@@ -127,18 +127,26 @@
       "helpIcon": false
     },
     {
-      "id": "label1",
+      "id": "label0",
       "type": "text",
-      "text": "Click",
+      "text": "Step 1 :",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
       "helpIcon": false
     },
     {
+      "id": "label1",
+      "type": "text",
+      "text": "Step 2: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },    {
       "id": "label2",
       "type": "text",
-      "text": "to see full mRNA strand created or",
+      "text": "to make an mRNA strand, or",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
@@ -147,7 +155,7 @@
     {
       "id": "label3",
       "type": "text",
-      "text": "Click",
+      "text": "Step 3: ",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
@@ -156,7 +164,7 @@
     {
       "id": "label4",
       "type": "text",
-      "text": "to generate full protein from mRNA or",
+      "text": "to generate a segment of the protein, or",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
@@ -238,7 +246,8 @@
   "layout": {
     "model-bottom": [
       [
-        "dna-dialog"
+        "label0",
+	"dna-dialog"
       ],
       [
         "label1",
@@ -247,7 +256,6 @@
         "transcribe-step"
       ],
       [
-        "label3",
         "translate",
         "label4",
         "translate-step"
