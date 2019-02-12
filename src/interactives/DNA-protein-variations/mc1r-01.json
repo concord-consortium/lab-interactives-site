@@ -171,13 +171,22 @@
       "helpIcon": false
     },
     {
-      "id": "start",
+      "id": "label5",
+      "type": "text",
+      "text": "Controls:",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "resume",
       "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
       ],
-      "text": "Start/continue model",
+      "text": "Resume",
       "width": "",
       "height": "",
       "disabled": false,
@@ -185,13 +194,13 @@
       "helpIcon": false
     },
     {
-      "id": "stop",
+      "id": "pause",
       "type": "button",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
       ],
-      "text": "Stop",
+      "text": "Pause",
       "width": "",
       "height": "",
       "disabled": false,
@@ -247,7 +256,7 @@
     "model-bottom": [
       [
         "label0",
-	"dna-dialog"
+		"dna-dialog"
       ],
       [
         "label1",
@@ -256,20 +265,18 @@
         "transcribe-step"
       ],
       [
+        "label3",
         "translate",
         "label4",
         "translate-step"
       ],
       [
-        "start",
-        "stop",
-        "reset"
-        
+        "label5"       
       ],
       [
-        "prev-state-jump",
-        "next-state",
-        "next-state-jump"
+        "pause",
+        "resume",
+        "reset"       
       ]
     ]
   },
@@ -280,7 +287,7 @@
       "height": "0.25 * interactive.height",
       "top": "model.bottom",
       "right": "interactive.right",
-      "align": "center",
+      "align": "left",
       "fontScale": 0.8
     },
     {
