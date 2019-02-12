@@ -1,8 +1,8 @@
 {
-  "title": "Mouse fur color receptor protein",
+  "title": "DNA to Protein",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Explore how part of the protein receptor is made from DNA.",
+  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
@@ -28,10 +28,10 @@
     {
       "type": "md2d",
       "id": "page3$0",
-      "url": "models/lab-version/1/CBio-mc1r-model.json",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
       "viewOptions": {
         "controlButtons": "",
-        "enableKeyboardHandlers": false,
+        "enableKeyboardHandlers": false
       },
       "modelOptions": {
         "DNA": "ATAGCCATCACCAAAAACCGCAACCTGCACTCGCCCATGTATTCCTTCATCTGCTGTCTG",
