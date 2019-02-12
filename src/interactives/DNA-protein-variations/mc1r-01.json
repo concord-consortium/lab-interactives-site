@@ -82,11 +82,6 @@
       "id": "translate",
       "type": "button",
       "action": [
-        "if (DNAStateBefore('transcription-end')) {",
-        "  alert('Translation can only occur after transcription is complete.');",
-        "  return;",
-        "}",
-        "if (get('DNAState') === 'translation-end')",
         "  set('DNAState', 'translation:0');",
         "animateToDNAState('translation-end');"
       ],
