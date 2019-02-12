@@ -1,8 +1,8 @@
 {
-  "title": "DNA to Protein",
+  "title": "Mouse Fur Color: receptor protein",
   "publicationStatus": "public",
   "labEnvironment": "production",
-  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
+  "subtitle": "Explore the DNA difference between light and dark brown mouse fur",
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
@@ -422,7 +422,7 @@
     {
       "id": "label4",
       "type": "text",
-      "text": "to generate a segment of the protein, or",
+      "text": "to generate the chain of amino acids, or",
       "width": "auto",
       "height": "auto",
       "tooltip": "",
