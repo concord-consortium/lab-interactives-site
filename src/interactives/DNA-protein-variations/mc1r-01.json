@@ -35,7 +35,7 @@
       },
       "modelOptions": {
         "DNA": "ATAGCCATCACCAAAAACCGCAACCTGCACTCGCCCATGTATTCCTTCATCTGCTGTCTG",
-        "DNAState": "transcription-end"
+        "DNAState": "intro-cells"
       }
     }
   ],
