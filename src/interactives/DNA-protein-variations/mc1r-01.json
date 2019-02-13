@@ -189,6 +189,15 @@
       "helpIcon": false
     },
    {
+      "id": "label7",
+      "type": "text",
+      "text": "                            ConnectedBio",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+   {
       "id": "resume",
       "type": "button",
       "action": [
@@ -278,6 +287,9 @@
 	"label6",
 	"prev-state-jump",
 	"next-state-jump"
+      ],
+      [
+	"label7"
       ]
     ]
   },
