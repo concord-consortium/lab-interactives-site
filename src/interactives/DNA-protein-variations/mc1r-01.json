@@ -180,6 +180,15 @@
       "helpIcon": false
     },
     {
+      "id": "label6",
+      "type": "text",
+      "text": "                  ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+   {
       "id": "resume",
       "type": "button",
       "action": [
@@ -222,18 +231,7 @@
       "id": "prev-state-jump",
       "type": "button",
       "action": "jumpToPrevDNAState();",
-      "text": "<< Jump",
-      "width": "",
-      "height": "",
-      "disabled": false,
-      "tooltip": "",
-      "helpIcon": false
-    },
-    {
-      "id": "next-state",
-      "type": "button",
-      "action": "animateToNextDNAState();",
-      "text": "Continue one step",
+      "text": "<< Skip",
       "width": "",
       "height": "",
       "disabled": false,
@@ -244,7 +242,7 @@
       "id": "next-state-jump",
       "type": "button",
       "action": "jumpToNextDNAState();",
-      "text": "Jump >>",
+      "text": "Skip >>",
       "width": "",
       "height": "",
       "disabled": false,
@@ -276,7 +274,10 @@
       [
         "pause",
         "resume",
-        "reset"       
+        "reset",
+	"label6",
+	"prev-state-jump",
+	"next-state-jump"
       ]
     ]
   },
