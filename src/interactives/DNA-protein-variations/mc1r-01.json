@@ -50,7 +50,7 @@
       "id": "dna-dialog",
       "type": "button",
       "action": "openDNADialog();",
-      "text": "Enter a DNA sequence",
+      "text": "Enter or edit a DNA sequence",
       "width": "",
       "height": "",
       "disabled": false,
