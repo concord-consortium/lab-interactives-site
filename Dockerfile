@@ -3,12 +3,12 @@ FROM ubuntu:xenial
 WORKDIR /srv
 RUN apt-get update && apt-get upgrade -y && apt-get install -y apt-utils
 
-# Install RVM
-RUN apt-get install -y curl
-RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+# Install RVM partially taken from here: https://stackoverflow.com/a/43613426/3195497
+RUN apt-get install -y curl gnupg2
+# This line came from a suggestion in a rvm error message
+RUN gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 RUN curl -sSL https://get.rvm.io | bash -s stable
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; rvm install ruby-2.0.0-p247"
-RUN echo "source /usr/local/rvm/scripts/rvm" >> /root/.bashrc
+RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm install ruby-2.0.0-p247"
 
 # Install Node.js
 RUN apt-get install -y nodejs npm
@@ -29,10 +29,10 @@ RUN pip install supervisor
 RUN apt-get clean
 
 COPY . /srv/
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; gem install bundle"
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; bundle install"
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; gem install rb-readline"
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm; make everything"
+RUN /bin/bash -c -l "gem install bundle"
+RUN /bin/bash -c -l "bundle install"
+RUN /bin/bash -c -l "gem install rb-readline"
+RUN /bin/bash -c -l "make everything"
 
 EXPOSE 9292
-CMD ["/bin/bash", "-c", "source /usr/local/rvm/scripts/rvm; /usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]
+CMD ["/bin/bash", "-l", "-c", "/usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]
