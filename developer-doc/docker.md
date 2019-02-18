@@ -12,25 +12,43 @@ You will need to first install Docker. Instructions can be found here:
 
 ## Build and Run a Container
 
+1. `docker-compose build`
+2. `docker-compose up`
+
+By default you can connect to the site at http://localhost:9292
+
+## Opening an additional terminal
+
+You can open a second terminal and run:
+
+    docker-compose app /bin/bash -l
+
+This will allow you to run other commands like `make all`.
+
+## Using a docker proxy
+
+With a docker proxy you can avoid port conflicts with 9292, and the domain name of the site is friendlier.  Once setup, you can access the site at: http://labinteractives.docker
+
+To use this approach you need to:
+- install and setup the proxy
+- configure docker-compose to use a random port instead of 9292
+
+The proxy we use is https://github.com/codekitchen/dinghy-http-proxy it has support for OS X, Linux, and Windows. At the link above you need to look at the section: [Using Outside of Dinghy](https://github.com/codekitchen/dinghy-http-proxy#using-outside-of-dinghy)
+
+docker-compose can be configured by adding a `.env` file at the top of the repository with the contents
+
+    COMPOSE_FILE=docker-compose.yml:docker/dev/docker-compose-random-ports.yml
+
+## Notes for running without docker-compose
+
 To build and run a container:
 
 1. `docker build -t lab-interactives-site .`
 2. `docker run --name interactives -p 9292:9292 -p 35729:35729 lab-interactives-site`
 
-If you have `docker-compose` installed, this process is even easier:
+Now you can connect to the server with http://localhost:9292
 
-1. `docker-compose build`
-2. `docker-compose up`
-
-Once the container is running you will find it at: http://labinteractives.docker
-
-You can open a second terminal and run:
-
-    docker exec -ti <container_name> /bin/bash
-
-This will allow you to run other commands like `make all`.
-
-## Extra Notes For `docker-machine`/`boot2docker`
+## Notes For `docker-machine`/`boot2docker`
 
 To connect to the [LiveReload](http://livereload.com/extensions/#installing-sections) server, you'll have to create an SSH tunnel after the container has started.
 
