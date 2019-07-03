@@ -425,3 +425,7 @@
 - :path: external-projects/ELeVATE
   :name: "ELeVATE Interactives"
   :category: Curriculum
+
+- :path: connected-bio/DNA-to-proteins
+  :name: "Connected Bio"
+  :category: Curriculum
