@@ -1,24 +1,24 @@
 {
-  "title": "DNA to Protein (Connected Bio)",
+  "title": "Geniverse Gene to Protein",
   "publicationStatus": "public",
-  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
-  "aspectRatio": 1.05,
-  "category": "Biology",
-  "subCategory": "Genetics",
-  "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+  "subtitle": "",
   "about": [
-    "Click **Transcribe** to zoom into the cell nucleus and see the chromosome unravel to expose the strands of DNA. The DNA separates and an mRNA strand is created by matching complementary nucleotides.",
-    "",
-    "Click **Translate** to watch the mRNA leave the nucleus for the cytoplasm and attach to a ribosome. tRNA molecules bring in amino acids and the amino acids are added in the correct order by matching complementary nucleotides.",
-    "",
-    "After translation, inspect the protein to see how the amino acid sequence folded."
+    "Geniverse Gene to Protein Genie"
   ],
+  "aspectRatio": 1.05,
   "fontScale": 0.65,
   "models": [
     {
       "type": "md2d",
       "id": "page3$0",
       "url": "models-converted/lab-version/1/md2d/connected-bio/DNA-to-proteins/page1.json",
+      "viewOptions": {
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGGTGTGTCTGGGAGAATGCCGATGGCTTCACATGTTTCCATTCCTCATGGTATCACTT",
+        "DNAState": "intro-cells"
+      },
       "onLoad": [
         "var atomCount = getNumberOfAtoms();",
         "var atomElements = [];",
@@ -110,26 +110,40 @@
         "}",
 
         "onPropertyChange('time', checkForParticles);",
-        "// callEvery(50, checkForParticles);"
-      ],
-      "viewOptions": {
-        "controlButtons": "",
-        "enableKeyboardHandlers": false
-      },
-      "modelOptions": {
-        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
-        "DNAState": "intro-cells"
-      }
+        "// callEvery(50, checkForParticles);",
+
+        "onPropertyChange('state', function(s) {",
+        "  console.log('animating to '+s);",
+        "  animateToDNAState(s); ",
+        "});",
+        "onPropertyChange('snapState', function(s) {",
+        "  console.log('snapping to '+s);",
+        "  set('DNAState', s); ",
+        "});"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "state",
+      "initialValue": "intro-cells"
+    },
+    {
+      "name": "snapState",
+      "initialValue": "intro-cells"
+    },
+    {
+      "name": "restraintsAdded",
+      "initialValue": false
     }
   ],
   "components": [
     {
       "type": "button",
       "id": "transcribe",
-      "text": "Transcribe",
+      "text": "Transcribe all",
       "action": [
-        "if (DNAStateAfter('transcription-end'))",
-        "  set('DNAState', 'dna');",
+        "set('geneticEngineState', 'dna');",
         "animateToDNAState('transcription-end');"
       ]
     },
@@ -137,25 +151,14 @@
       "type": "button",
       "id": "transcribe-step",
       "text": "Transcribe step by step",
-      "action": [
-        "if (DNAStateBefore ('dna')) {",
-        "  animateToDNAState('transcription:1');",
-        "} else { ",
-        "  transcribeDNAStep();",
-        "}"
-      ]
+      "action": "transcribeDNAStep();"
     },
     {
       "type": "button",
       "id": "translate",
-      "text": "Translate",
+      "text": "Translate all",
       "action": [
-        "if (DNAStateBefore('transcription-end')) {",
-        "  alert('Translation can only occur after transcription is complete.');",
-        "  return;",
-        "}",
-        "if (get('DNAState') === 'translation-end')",
-        "  set('DNAState', 'translation:0');",
+        "set('geneticEngineState', 'transcription-end');",
         "animateToDNAState('translation-end');"
       ]
     },
@@ -163,111 +166,46 @@
       "type": "button",
       "id": "translate-step",
       "text": "Translate step by step",
-      "action": [
-        "if (DNAStateBefore('transcription-end')) {",
-        "  alert('Translation can only occur after transcription is complete.');",
-        "  return;",
-        "} else {",
-        "  translateDNAStep();",
-        "}"
-      ]
-    },
-    {
-      "type": "text",
-      "id": "label1",
-      "text": "Click"
-    },
-    {
-      "type": "text",
-      "id": "label2",
-      "text": "to see full mRNA strand created or"
-    },
-    {
-      "type": "text",
-      "id": "label3",
-      "text": "Click"
-    },
-    {
-      "type": "text",
-      "id": "label4",
-      "text": "to generate full protein from mRNA or"
+      "action": "translateDNAStep();"
     },
     {
       "type": "button",
-      "id": "start",
-      "text": "Start/continue model",
+      "id": "unfold",
+      "text": "Unfold protein",
       "action": [
-        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
-        "else start();"
+        "var num = getNumberOfAtoms();                                        ",
+        "var x1  = get('viewPortX') - 0.5;                                    ",
+        "var x2  = get('viewPortX') + get('viewPortWidth') + 0.5;             ",
+        "var y   = get('viewPortY') + get('viewPortHeight') / 2;              ",
+        "var restraintsAdded = get('restraintsAdded');                        ",
+        "if (!restraintsAdded) {                                              ",
+        "  addRestraint({atomIndex: 0, k: 50, x0: x1, y0: y});                ",
+        "  addRestraint({atomIndex: num-1, k: 50, x0: x2, y0: y})             ",
+        "  set('restraintsAdded', true);                                      ",
+        "} else {                                                             ",
+        "  setRestraintProperties(0, {k:50, x0: x1, y0: y});                  ",
+        "  setRestraintProperties(1, {atomIndex: num-1, k:50, x0: x2, y0: y});",
+        "}                                                                    "
       ]
     },
     {
       "type": "button",
-      "id": "stop",
-      "text": "Stop",
+      "id": "refold",
+      "text": "Refold protein",
       "action": [
-        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
-        "else stop();"
+        "if (get('restraintsAdded')) {        ",
+        " setRestraintProperties(0, {k:0});   ",
+        " setRestraintProperties(1, {k:0});   ",
+        "}                                    "
       ]
     },
     {
       "type": "button",
       "id": "reset",
       "text": "Reset",
-      "action": "reloadModel();"
-    },
-    {
-      "type": "button",
-      "id": "prev-state-jump",
-      "text": "<< Jump",
-      "action": "jumpToPrevDNAState();"
-    },
-    {
-      "type": "button",
-      "id": "next-state",
-      "text": "Continue one step",
-      "action": "animateToNextDNAState();"
-    },
-    {
-      "type": "button",
-      "id": "next-state-jump",
-      "text": "Jump >>",
-      "action": "jumpToNextDNAState();"
-    },
-    {
-      "type": "button",
-      "id": "dna-dialog",
-      "text": "Edit DNA",
-      "action": "openDNADialog();"
+      "action": "set('snapState', 'dna');"
     }
   ],
-  "layout": {
-    "model-bottom": [
-      [
-        "label1",
-        "transcribe",
-        "label2",
-        "transcribe-step"
-      ],
-      [
-        "label3",
-        "translate",
-        "label4",
-        "translate-step"
-      ],
-      [
-        "start",
-        "stop",
-        "reset",
-        "dna-dialog"
-      ],
-      [
-        "prev-state-jump",
-        "next-state",
-        "next-state-jump"
-      ]
-    ]
-  },
   "template": [
     {
       "id": "model-bottom",
@@ -290,5 +228,23 @@
       "width": "0.5 * (interactive.width - model.width) - 5"
     }
   ],
-  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+  "layout": {
+    "model-bottom": [
+      [
+        "transcribe",
+        "transcribe-step"
+      ],
+      [
+        "translate",
+        "translate-step"
+      ],
+      [
+        "unfold",
+        "refold"
+      ],
+      [
+        "reset"
+      ]
+    ]
+  }
 }
