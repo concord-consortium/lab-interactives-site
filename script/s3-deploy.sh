@@ -57,4 +57,5 @@ fi
 # It was downloaded either by ./script/popluate-standalone.sh or this script.
 rm lab.tar.gz
 
-bundle exec s3_website push --site _site --config-dir config
+bundle exec s3_website install
+java -cp $(bundle show s3_website)/*.jar s3.website.Push --site _site --config-dir config
