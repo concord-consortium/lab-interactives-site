@@ -2,7 +2,7 @@
   "title": "DNA to Protein (Connected Bio)",
   "publicationStatus": "public",
   "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
-  "aspectRatio": 1.05,
+  "aspectRatio": 1,
   "category": "Biology",
   "subCategory": "Genetics",
   "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
@@ -22,8 +22,7 @@
       "onLoad": [
         "var atomCount = getNumberOfAtoms();",
         "var atomElements = [];",
-        "var backgroundImage = 'AminoAcid/Back.svg'",
-        "",
+        "var backgroundImage = 'AminoAcid/Back.png';",
         "function checkForParticles() {",
         "  // Check whether we have already removed images (happens when jumping back a step)",
         "  var atomsWithoutImages = getNumberOfAtoms() > 0 && get('images').length == 0;",
@@ -52,13 +51,13 @@
         "          'imageLayerPosition': 1,",
         "          'visible': true,",
         "          'rotation': 0,",
-        "          'scale': 0.04,",
+        "          'scale': 1,",
         "          'opacity': 1",
         "        }",
         "      );",
         "      addImage(",
         "        {",
-        "          'imageUri': 'AminoAcid/' + aa.abbreviation + '.svg',",
+        "          'imageUri': 'AminoAcid/' + aa.abbreviation + '.png',",
         "          'imageX': a.x,",
         "          'imageY': a.y,",
         "          'imageHostType': 'Atom',",
@@ -67,7 +66,7 @@
         "          'imageLayerPosition': 2,",
         "          'visible': true,",
         "          'rotation': 0,",
-        "          'scale': 0.04,",
+        "          'scale': 1,",
         "          'opacity': 1",
         "        }",
         "      );",
@@ -109,7 +108,7 @@
         "            var a = getAtomProperties(i);",
         "            addImage(",
         "              {",
-        "                'imageUri': 'AminoAcid/' + getAminoAcid(a.element).abbreviation + '.svg',",
+        "                'imageUri': 'AminoAcid/' + getAminoAcid(a.element).abbreviation + '.png',",
         "                'imageX': a.x,",
         "                'imageY': a.y,",
         "                'imageHostType': 'Atom',",
@@ -118,7 +117,7 @@
         "                'imageLayerPosition': 2,",
         "                'visible': true,",
         "                'rotation': 0,",
-        "                'scale': 0.04,",
+        "                'scale': 1,",
         "                'opacity': 1",
         "              }",
         "            );",
@@ -140,6 +139,12 @@
         "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
         "DNAState": "intro-cells"
       }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "restraintsAdded",
+      "initialValue": false
     }
   ],
   "components": [
@@ -193,23 +198,40 @@
       ]
     },
     {
+      "id": "step1Label",
       "type": "text",
-      "id": "label1",
-      "text": "Click"
+      "text": "Step 1 :",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step2Label",
+      "type": "text",
+      "text": "Step 2: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step3Label",
+      "type": "text",
+      "text": "Step 3: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
     },
     {
       "type": "text",
-      "id": "label2",
+      "id": "label-fullmrna",
       "text": "to see full mRNA strand created or"
     },
     {
       "type": "text",
-      "id": "label3",
-      "text": "Click"
-    },
-    {
-      "type": "text",
-      "id": "label4",
+      "id": "label-fullprotein",
       "text": "to generate full protein from mRNA or"
     },
     {
@@ -267,32 +289,70 @@
       "id": "dna-dialog",
       "text": "Edit DNA",
       "action": "openDNADialog();"
+    },
+    {
+      "type": "button",
+      "id": "unfold",
+      "text": "Unfold protein",
+      "action": [
+        "var num = getNumberOfAtoms();                                        ",
+        "var x1  = get('viewPortX') - 0.5;                                    ",
+        "var x2  = get('viewPortX') + get('viewPortWidth') + 0.5;             ",
+        "var y   = get('viewPortY') + get('viewPortHeight') / 2;              ",
+        "var restraintsAdded = get('restraintsAdded');                        ",
+        "if (!restraintsAdded) {                                              ",
+        "  addRestraint({atomIndex: 0, k: 50, x0: x1, y0: y});                ",
+        "  addRestraint({atomIndex: num-1, k: 50, x0: x2, y0: y})             ",
+        "  set('restraintsAdded', true);                                      ",
+        "} else {                                                             ",
+        "  setRestraintProperties(0, {k:50, x0: x1, y0: y});                  ",
+        "  setRestraintProperties(1, {atomIndex: num-1, k:50, x0: x2, y0: y});",
+        "}                                                                    "
+      ]
+    },
+    {
+      "type": "button",
+      "id": "refold",
+      "text": "Refold protein",
+      "action": [
+        "if (get('restraintsAdded')) {        ",
+        " setRestraintProperties(0, {k:0});   ",
+        " setRestraintProperties(1, {k:0});   ",
+        "}                                    "
+      ]
     }
   ],
   "layout": {
     "model-bottom": [
       [
-        "label1",
+        "step1Label",
+        "dna-dialog"
+      ],
+      [
+        "step2Label",
         "transcribe",
-        "label2",
+        "label-fullmrna",
         "transcribe-step"
       ],
       [
-        "label3",
+        "step3Label",
         "translate",
-        "label4",
+        "label-fullprotein",
         "translate-step"
       ],
       [
-        "start",
-        "stop",
-        "reset",
-        "dna-dialog"
+        "unfold",
+        "refold"
       ],
       [
         "prev-state-jump",
         "next-state",
         "next-state-jump"
+      ],
+      [
+        "start",
+        "stop",
+        "reset"
       ]
     ]
   },
@@ -303,8 +363,8 @@
       "top": "model.bottom",
       "left": "interactive.left",
       "right": "interactive.right",
-      "align": "center",
-      "fontScale": 0.8
+      "align": "left",
+      "fontScale": 0.9
     },
     {
       "id": "right-padding-container",
