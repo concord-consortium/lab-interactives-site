@@ -24,6 +24,9 @@
         "var atomElements = [];",
         "var backgroundImage = 'AminoAcid/Back.png';",
         "function checkForParticles() {",
+        "  var tooManyImages = get('images').length > (getNumberOfAtoms()*2);",
+        "  if (tooManyImages) clearImages();",
+
         "  // Check whether we have already removed images (happens when jumping back a step)",
         "  var atomsWithoutImages = getNumberOfAtoms() > 0 && get('images').length == 0;",
         "  // Clear our arrays and counters and re-add images",
@@ -74,13 +77,7 @@
         "  }",
         "  else if (atomCount > getNumberOfAtoms()){ ",
         "    // user may have jumped back in time and removed atoms - wipe out images and they should automatically be re-added",
-        "    let images = get('images');",
-        "    for (var i = images.length - 1; i >= 0; i--){",
-        "      removeImage(i);",
-        "      console.log('removed ' + i);",
-        "    }",
-        "    atomCount = 0;",
-        "    atomElements = []",
+        "    clearImages();",
         "  }",
         "  else { ",
         "    checkImages();",
@@ -128,6 +125,15 @@
         "  }",
         "}",
 
+        "function clearImages() {",
+        "  let images = get('images');",
+        "  for (var i = images.length - 1; i >= 0; i--){",
+        "    removeImage(i);",
+        "  }",
+        "  if (atomCount) atomCount = 0;",
+        "  if (atomElements) atomElements = []",
+        "}",
+
         "onPropertyChange('time', checkForParticles);",
         "// callEvery(50, checkForParticles);"
       ],
@@ -153,8 +159,13 @@
       "id": "transcribe",
       "text": "Transcribe",
       "action": [
-        "if (DNAStateAfter('transcription-end'))",
-        "  set('DNAState', 'dna');",
+        "if (DNAStateAfter('transcription-end')){",
+        "// user can click this after having previously run the sim. wipe out images and they should automatically be re-added",
+        "let images = get('images');",
+        "for (var i = images.length - 1; i >= 0; i--){",
+        "  removeImage(i);",
+        "}",
+        "set('DNAState', 'dna');}",
         "animateToDNAState('transcription-end');"
       ]
     },
@@ -267,7 +278,6 @@
         "let images = get('images');",
         "for (var i = images.length - 1; i >= 0; i--){",
         "  removeImage(i);",
-        "  console.log('removed ' + i);",
         "}",
         "jumpToPrevDNAState();"
       ]
@@ -288,7 +298,10 @@
       "type": "button",
       "id": "dna-dialog",
       "text": "Edit DNA",
-      "action": "openDNADialog();"
+      "action": [
+        "set('images', []);",
+        "openDNADialog();"
+      ]
     },
     {
       "type": "button",
