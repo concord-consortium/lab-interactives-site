@@ -22,7 +22,7 @@
       "onLoad": [
         "var atomCount = getNumberOfAtoms();",
         "var atomElements = [];",
-        "var backgroundImage = 'AminoAcid/Back.png';",
+        "var backgroundImage = '/AminoAcid/Back.png';",
         "function checkForParticles() {",
         "  var tooManyImages = get('images').length > (getNumberOfAtoms()*2);",
         "  if (tooManyImages) clearImages();",
@@ -60,7 +60,7 @@
         "      );",
         "      addImage(",
         "        {",
-        "          'imageUri': 'AminoAcid/' + aa.abbreviation + '.png',",
+        "          'imageUri': '/AminoAcid/' + aa.abbreviation + '.png',",
         "          'imageX': a.x,",
         "          'imageY': a.y,",
         "          'imageHostType': 'Atom',",
@@ -105,7 +105,7 @@
         "            var a = getAtomProperties(i);",
         "            addImage(",
         "              {",
-        "                'imageUri': 'AminoAcid/' + getAminoAcid(a.element).abbreviation + '.png',",
+        "                'imageUri': '/AminoAcid/' + getAminoAcid(a.element).abbreviation + '.png',",
         "                'imageX': a.x,",
         "                'imageY': a.y,",
         "                'imageHostType': 'Atom',",
@@ -172,7 +172,7 @@
     {
       "type": "button",
       "id": "transcribe-step",
-      "text": "Transcribe step by step",
+      "text": "Transcribe one base at a time",
       "action": [
         "if (DNAStateBefore ('dna')) {",
         "  animateToDNAState('transcription:1');",
@@ -198,7 +198,7 @@
     {
       "type": "button",
       "id": "translate-step",
-      "text": "Translate step by step",
+      "text": "Translate one amino acid at a time",
       "action": [
         "if (DNAStateBefore('transcription-end')) {",
         "  alert('Translation can only occur after transcription is complete.');",
@@ -236,19 +236,28 @@
       "helpIcon": false
     },
     {
+      "id": "controlsLabel",
+      "type": "text",
+      "text": "Controls: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
       "type": "text",
       "id": "label-fullmrna",
-      "text": "to see full mRNA strand created or"
+      "text": "to make an mRNA strand, or"
     },
     {
       "type": "text",
       "id": "label-fullprotein",
-      "text": "to generate full protein from mRNA or"
+      "text": "to generate a segment of the protein or "
     },
     {
       "type": "button",
       "id": "start",
-      "text": "Start/continue model",
+      "text": "Resume",
       "action": [
         "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
         "else start();"
@@ -257,7 +266,7 @@
     {
       "type": "button",
       "id": "stop",
-      "text": "Stop",
+      "text": "Pause",
       "action": [
         "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
         "else stop();"
@@ -272,7 +281,7 @@
     {
       "type": "button",
       "id": "prev-state-jump",
-      "text": "<< Jump",
+      "text": "<< Skip",
       "action": [
         "// user may have jumped back in time and removed atoms - wipe out images and they should automatically be re-added",
         "let images = get('images');",
@@ -284,20 +293,14 @@
     },
     {
       "type": "button",
-      "id": "next-state",
-      "text": "Continue one step",
-      "action": "animateToNextDNAState();"
-    },
-    {
-      "type": "button",
       "id": "next-state-jump",
-      "text": "Jump >>",
+      "text": "Skip >>",
       "action": "jumpToNextDNAState();"
     },
     {
       "type": "button",
       "id": "dna-dialog",
-      "text": "Edit DNA",
+      "text": "Enter or Edit a DNA Sequence",
       "action": [
         "openDNADialog();",
         "let images = get('images');",
@@ -305,7 +308,8 @@
         "  removeImage(i);",
         "}",
         "jumpToPrevDNAState();"
-      ]
+      ],
+      "tooltip": "Click and paste your favorite DNA sequence here"
     },
     {
       "type": "button",
@@ -358,18 +362,14 @@
         "translate-step"
       ],
       [
+        "controlsLabel",
+        "stop",
+        "start",
+        "reset",
+        "prev-state-jump",
+        "next-state-jump",
         "unfold",
         "refold"
-      ],
-      [
-        "prev-state-jump",
-        "next-state",
-        "next-state-jump"
-      ],
-      [
-        "start",
-        "stop",
-        "reset"
       ]
     ]
   },
