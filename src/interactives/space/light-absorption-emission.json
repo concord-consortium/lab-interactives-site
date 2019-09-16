@@ -1,8 +1,23 @@
 {
   "title": "Light absorption / emission",
   "publicationStatus": "public",
+  "labEnvironment": "production",
   "subtitle": "Absorption & Emission of Photons",
-   "aboutOnLoad": true,
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.4,
+  "fontScale": 0.95,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
+    "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
+    "(DRL-0929774, DRL-1220756 ) in partnership with the ",
+    "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
   "about": [
     "Discover what happens when a particular frequency of light is absorbed by an atom.",
     "",
@@ -15,23 +30,24 @@
     "",
     "Which frequency of light is absorbed and re-emitted by these atoms?",
     "How does the model represent this?"
-    ],
- "credits": ["This [High-Adventure Science](http://has.concord.org \"High-Adventure Science\") interactive ",
-              "was developed under a series of grants from the [National Science Foundation](http://nsf.gov \"National Science Foundation\") ",
-              "(DRL-0929774, DRL-1220756 ) in partnership with the ",
-              "[National Geographic Society](http://nationalgeographic.org/education/ \"National Geographic Society\")."],
-  "aspectRatio": 1.4,
-  "fontScale": 0.95,
+  ],
   "theme": [
     "has",
     "standalone-playback",
     "no-slider-bar"
   ],
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
       "id": "elementA",
       "url": "models-converted/lab-version/1/md2d/space/light-absorption-emission/HASlight$0.json",
+      "onLoad": [
+        "setElementProperties(3, {epsilon: 0});",
+        "setLightSourceNumber(4);"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset",
         "backgroundColor": "#fff"
@@ -39,13 +55,10 @@
       "modelOptions": {
         "timeStep": 3,
         "timeStepsPerTick": 5
-      },
-      "onLoad": [
-        "setElementProperties(3, {epsilon: 0});",
-        "setLightSourceNumber(4);"
-      ]
+      }
     }
   ],
+  "propertiesToRetain": [],
   "parameters": [
     {
       "name": "lightSourceFrequency",
@@ -58,17 +71,24 @@
       "onChange": "setLightSourcePeriod(600 - value);"
     }
   ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
   "components": [
     {
       "id": "playback",
-      "type": "playback"
+      "type": "playback",
+      "stepping": true
     },
     {
-      "type": "slider",
       "id": "light-source-frequency",
+      "type": "slider",
       "min": 4.8,
       "max": 12.6,
       "steps": 17,
+      "title": "Energy of monochromatic light source",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 5.4,
@@ -79,15 +99,22 @@
           "label": "Ultraviolet"
         }
       ],
+      "width": "auto",
+      "height": "auto",
       "property": "lightSourceFrequency",
-      "title": "Energy of monochromatic light source"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
     },
     {
-      "type": "slider",
       "id": "light-source-intensity",
+      "type": "slider",
       "min": 0,
       "max": 200,
       "steps": 50,
+      "title": "Intensity of light source",
+      "titlePosition": "top",
       "labels": [
         {
           "value": 20,
@@ -98,8 +125,25 @@
           "label": "Strong"
         }
       ],
+      "width": "auto",
+      "height": "auto",
       "property": "lightSourceIntensity",
-      "title": "Intensity of light source"
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "key",
+      "type": "image",
+      "src": "interactives/space/wave_length_key.png",
+      "urlRelativeTo": "page",
+      "width": "auto",
+      "height": "7em",
+      "tooltip": "",
+      "helpIcon": false
     }
-  ]
+  ],
+  "layout": {},
+  "template": "simple"
 }
