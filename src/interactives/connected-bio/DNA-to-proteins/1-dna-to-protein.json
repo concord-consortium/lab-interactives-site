@@ -142,7 +142,7 @@
         "enableKeyboardHandlers": false
       },
       "modelOptions": {
-        "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+        "DNA": "AAA",
         "DNAState": "intro-cells"
       }
     }
@@ -159,14 +159,21 @@
       "id": "transcribe",
       "text": "Transcribe",
       "action": [
-        "if (DNAStateAfter('transcription-end')){",
-        "// user can click this after having previously run the sim. wipe out images and they should automatically be re-added",
-        "let images = get('images');",
-        "for (var i = images.length - 1; i >= 0; i--){",
-        "  removeImage(i);",
-        "}",
-        "set('DNAState', 'dna');}",
-        "animateToDNAState('transcription-end');"
+        "// If this is at the start of the simulation, user must enter a DNA sequence to prevent errors",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateAfter('transcription-end')){",
+        "  // user can click this after having previously run the sim. wipe out images and they should automatically be re-added",
+        "  let images = get('images');",
+        "  for (var i = images.length - 1; i >= 0; i--){",
+        "    removeImage(i);",
+        "  }",
+        "  set('DNAState', 'dna');}",
+        "  animateToDNAState('transcription-end');",
+        "}"
       ]
     },
     {
@@ -174,10 +181,17 @@
       "id": "transcribe-step",
       "text": "Transcribe one base at a time",
       "action": [
-        "if (DNAStateBefore ('dna')) {",
-        "  animateToDNAState('transcription:1');",
-        "} else { ",
-        "  transcribeDNAStep();",
+        "// We could be at the start of the simulation, so check we have DNA to work with",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateBefore ('dna')) {",
+        "    animateToDNAState('transcription:1');",
+        "  } else { ",
+        "    transcribeDNAStep();",
+        "  }",
         "}"
       ]
     },
@@ -295,13 +309,23 @@
       "type": "button",
       "id": "next-state-jump",
       "text": "Skip >>",
-      "action": "jumpToNextDNAState();"
+      "action": [
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  jumpToNextDNAState();",
+        "}"
+      ]
     },
     {
       "type": "button",
       "id": "dna-dialog",
       "text": "Enter or Edit a DNA Sequence",
       "action": [
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') set('DNA', '');",
         "openDNADialog();",
         "let images = get('images');",
         "for (var i = images.length - 1; i >= 0; i--){",
