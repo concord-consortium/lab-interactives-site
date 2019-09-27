@@ -273,8 +273,15 @@
       "id": "start",
       "text": "Resume",
       "action": [
-        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
-        "else start();"
+        "// We could be at the start of the simulation, so check we have DNA to work with",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "  else start();",
+        "};"
       ]
     },
     {
