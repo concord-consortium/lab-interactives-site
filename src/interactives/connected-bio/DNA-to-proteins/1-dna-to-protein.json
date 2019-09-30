@@ -1,0 +1,430 @@
+{
+  "title": "DNA to Protein (Connected Bio)",
+  "publicationStatus": "public",
+  "subtitle": "Explore how the code embedded in DNA is translated into a protein.",
+  "aspectRatio": 1,
+  "category": "Biology",
+  "subCategory": "Genetics",
+  "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+  "about": [
+    "Click **Transcribe** to zoom into the cell nucleus and see the chromosome unravel to expose the strands of DNA. The DNA separates and an mRNA strand is created by matching complementary nucleotides.",
+    "",
+    "Click **Translate** to watch the mRNA leave the nucleus for the cytoplasm and attach to a ribosome. tRNA molecules bring in amino acids and the amino acids are added in the correct order by matching complementary nucleotides.",
+    "",
+    "After translation, inspect the protein to see how the amino acid sequence folded."
+  ],
+  "fontScale": 0.65,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/connected-bio/DNA-to-proteins/page1.json",
+      "onLoad": [
+        "var atomCount = getNumberOfAtoms();",
+        "var atomElements = [];",
+        "var backgroundImage = 'AminoAcid/Back.png';",
+        "function checkForParticles() {",
+        "  var tooManyImages = get('images').length > (getNumberOfAtoms()*2);",
+        "  if (tooManyImages) clearImages();",
+
+        "  // Check whether we have already removed images (happens when jumping back a step)",
+        "  var atomsWithoutImages = getNumberOfAtoms() > 0 && get('images').length == 0;",
+        "  // Clear our arrays and counters and re-add images",
+        "  if (atomsWithoutImages) { atomCount = 0; atomElements = []; }",
+        "  ",
+        "  if (getNumberOfAtoms() > atomCount){ ",
+        "    // Find out how many new atoms have appeared. Could be many if user skipped animation",
+        "    var newAtomCount = getNumberOfAtoms() - atomCount;",
+        "    while (atomCount < getNumberOfAtoms()){ ",
+        "      atomCount++; ",
+        "      var a = getAtomProperties(atomCount - 1);",
+        "      atomElements.push(a.element);",
+        "      // Amino Acids have element numbers from index 5 to index 24",
+        "      // see https://github.com/concord-consortium/lab/blob/057539e26bf6c87f7e00a0bd0b7799117b838da4/src/lab/models/md2d/models/modeler.js#L475",
+        "      // and https://github.com/concord-consortium/lab/blob/master/src/lab/models/md2d/models/aminoacids-props.js for full list",
+        "      var aa = getAminoAcid(a.element);",
+        "      addImage(",
+        "        {",
+        "          'imageUri': backgroundImage,",
+        "          'imageX': a.x,",
+        "          'imageY': a.y,",
+        "          'imageHostType': 'Atom',",
+        "          'imageHostIndex': atomCount - 1,",
+        "          'imageLayer': 1,",
+        "          'imageLayerPosition': 1,",
+        "          'visible': true,",
+        "          'rotation': 0,",
+        "          'scale': 1,",
+        "          'opacity': 1",
+        "        }",
+        "      );",
+        "      addImage(",
+        "        {",
+        "          'imageUri': 'AminoAcid/' + aa.abbreviation + '.png',",
+        "          'imageX': a.x,",
+        "          'imageY': a.y,",
+        "          'imageHostType': 'Atom',",
+        "          'imageHostIndex': atomCount - 1,",
+        "          'imageLayer': 1,",
+        "          'imageLayerPosition': 2,",
+        "          'visible': true,",
+        "          'rotation': 0,",
+        "          'scale': 1,",
+        "          'opacity': 1",
+        "        }",
+        "      );",
+        "    };",
+        "  }",
+        "  else if (atomCount > getNumberOfAtoms()){ ",
+        "    // user may have jumped back in time and removed atoms - wipe out images and they should automatically be re-added",
+        "    clearImages();",
+        "  }",
+        "  else { ",
+        "    checkImages();",
+        "  }",
+        "}",
+
+        "function checkImages() { ",
+        "  if (getNumberOfAtoms() > 0){",
+        "    // AA could be changed from one type to another via menu",
+        "    // if this happens, we may need a different image",
+
+        "    for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "      var a = getAtomProperties(i);",
+        "      if (a != undefined && atomElements[i] !== a.element) {",
+        "        // update the tracking array - we now know we need to change this image",
+        "        atomElements[i] = a.element;",
+
+        "        // The intention here is to update the image for the atoms that have changed type.",
+        "        // This can be done while the model is stopped but",
+        "        // the image appearance will not changed until the model is restarted. ",
+        "        let images = get('images');",
+        "        for (var j = 0; j < images.length; j++){",
+        "          if (images[j].imageHostIndex == i && images[j].imageUri != backgroundImage){",
+        "            removeImage(j);",
+        "            var a = getAtomProperties(i);",
+        "            addImage(",
+        "              {",
+        "                'imageUri': 'AminoAcid/' + getAminoAcid(a.element).abbreviation + '.png',",
+        "                'imageX': a.x,",
+        "                'imageY': a.y,",
+        "                'imageHostType': 'Atom',",
+        "                'imageHostIndex': i,",
+        "                'imageLayer': 1,",
+        "                'imageLayerPosition': 2,",
+        "                'visible': true,",
+        "                'rotation': 0,",
+        "                'scale': 1,",
+        "                'opacity': 1",
+        "              }",
+        "            );",
+        "          }",
+        "        }",
+        "      }",
+        "    }",
+        "  }",
+        "}",
+
+        "function clearImages() {",
+        "  let images = get('images');",
+        "  for (var i = images.length - 1; i >= 0; i--){",
+        "    removeImage(i);",
+        "  }",
+        "  if (atomCount) atomCount = 0;",
+        "  if (atomElements) atomElements = []",
+        "}",
+
+        "onPropertyChange('time', checkForParticles);",
+        "// callEvery(50, checkForParticles);"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "AAA",
+        "DNAState": "intro-cells"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "restraintsAdded",
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "transcribe",
+      "text": "Transcribe",
+      "action": [
+        "// If this is at the start of the simulation, user must enter a DNA sequence to prevent errors",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateAfter('transcription-end')){",
+        "  // user can click this after having previously run the sim. wipe out images and they should automatically be re-added",
+        "  let images = get('images');",
+        "  for (var i = images.length - 1; i >= 0; i--){",
+        "    removeImage(i);",
+        "  }",
+        "  set('DNAState', 'dna');}",
+        "  animateToDNAState('transcription-end');",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "transcribe-step",
+      "text": "Transcribe one base at a time",
+      "action": [
+        "// We could be at the start of the simulation, so check we have DNA to work with",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateBefore ('dna')) {",
+        "    animateToDNAState('transcription:1');",
+        "  } else { ",
+        "    transcribeDNAStep();",
+        "  }",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate",
+      "text": "Translate",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "}",
+        "if (get('DNAState') === 'translation-end')",
+        "  set('DNAState', 'translation:0');",
+        "animateToDNAState('translation-end');"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "translate-step",
+      "text": "Translate one amino acid at a time",
+      "action": [
+        "if (DNAStateBefore('transcription-end')) {",
+        "  alert('Translation can only occur after transcription is complete.');",
+        "  return;",
+        "} else {",
+        "  translateDNAStep();",
+        "}"
+      ]
+    },
+    {
+      "id": "step1Label",
+      "type": "text",
+      "text": "Step 1 :",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step2Label",
+      "type": "text",
+      "text": "Step 2: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step3Label",
+      "type": "text",
+      "text": "Step 3: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "controlsLabel",
+      "type": "text",
+      "text": "Controls: ",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "text",
+      "id": "label-fullmrna",
+      "text": "to make an mRNA strand, or"
+    },
+    {
+      "type": "text",
+      "id": "label-fullprotein",
+      "text": "to generate a segment of the protein or "
+    },
+    {
+      "type": "button",
+      "id": "start",
+      "text": "Resume",
+      "action": [
+        "// We could be at the start of the simulation, so check we have DNA to work with",
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "  else start();",
+        "};"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "stop",
+      "text": "Pause",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": "reloadModel();"
+    },
+    {
+      "type": "button",
+      "id": "prev-state-jump",
+      "text": "<< Skip",
+      "action": [
+        "// user may have jumped back in time and removed atoms - wipe out images and they should automatically be re-added",
+        "let images = get('images');",
+        "for (var i = images.length - 1; i >= 0; i--){",
+        "  removeImage(i);",
+        "}",
+        "jumpToPrevDNAState();"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "next-state-jump",
+      "text": "Skip >>",
+      "action": [
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') {",
+        "  set('DNA', '');",
+        "  openDNADialog();",
+        "} else {",
+        "  jumpToNextDNAState();",
+        "}"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "dna-dialog",
+      "text": "Enter or Edit a DNA Sequence",
+      "action": [
+        "let dna = get('DNA');",
+        "if (dna === 'AAA' || dna === '') set('DNA', '');",
+        "openDNADialog();",
+        "let images = get('images');",
+        "for (var i = images.length - 1; i >= 0; i--){",
+        "  removeImage(i);",
+        "}",
+        "jumpToPrevDNAState();"
+      ],
+      "tooltip": "Click and paste your favorite DNA sequence here"
+    },
+    {
+      "type": "button",
+      "id": "unfold",
+      "text": "Unfold protein",
+      "action": [
+        "var num = getNumberOfAtoms();                                        ",
+        "var x1  = get('viewPortX') - 0.5;                                    ",
+        "var x2  = get('viewPortX') + get('viewPortWidth') + 0.5;             ",
+        "var y   = get('viewPortY') + get('viewPortHeight') / 2;              ",
+        "var restraintsAdded = get('restraintsAdded');                        ",
+        "if (!restraintsAdded) {                                              ",
+        "  addRestraint({atomIndex: 0, k: 50, x0: x1, y0: y});                ",
+        "  addRestraint({atomIndex: num-1, k: 50, x0: x2, y0: y})             ",
+        "  set('restraintsAdded', true);                                      ",
+        "} else {                                                             ",
+        "  setRestraintProperties(0, {k:50, x0: x1, y0: y});                  ",
+        "  setRestraintProperties(1, {atomIndex: num-1, k:50, x0: x2, y0: y});",
+        "}                                                                    "
+      ]
+    },
+    {
+      "type": "button",
+      "id": "refold",
+      "text": "Refold protein",
+      "action": [
+        "if (get('restraintsAdded')) {        ",
+        " setRestraintProperties(0, {k:0});   ",
+        " setRestraintProperties(1, {k:0});   ",
+        "}                                    "
+      ]
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "step1Label",
+        "dna-dialog"
+      ],
+      [
+        "step2Label",
+        "transcribe",
+        "label-fullmrna",
+        "transcribe-step"
+      ],
+      [
+        "step3Label",
+        "translate",
+        "label-fullprotein",
+        "translate-step"
+      ],
+      [
+        "controlsLabel",
+        "stop",
+        "start",
+        "reset",
+        "prev-state-jump",
+        "next-state-jump",
+        "unfold",
+        "refold"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "height": "0.25 * interactive.height",
+      "top": "model.bottom",
+      "left": "interactive.left",
+      "right": "interactive.right",
+      "align": "left",
+      "fontScale": 0.9
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ],
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+}
