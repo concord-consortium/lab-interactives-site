@@ -14,11 +14,11 @@
   "helpOnLoad": false,
   "aboutOnLoad": false,
   "about": [
-    "All matter is attracted to all other matter. How does this work?",
+    "Alt stoff tiltrekkes av annet stoff. Hvordan kan vi forklare dette?",
     "",
-    "This interactive shows polar molecules (with charges) and non-polar molecules in a",
-    "container with each other. Drag molecules around to see how they are attracted to",
-    "each other. Dotted lines indicate intermolecular attractions."
+    "Denne simuleringa viser polare molekyler (med ladninger) og ikke-polare molekyler i en",
+    "beholder. Dra molekyler rundt, og observer hvordan de er tiltrukker av",
+    "hverandre. Stiplede linjer angir krefter mellom molekylene."
   ],
   "theme": "",
   "showTopBar": true,
@@ -34,7 +34,7 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Drag the molecules close to each other and look for intermolecular attractions.",
+            "text": "Dra molekylene mot hverandre og se etter krefter mellom molekylene."
             "x": 0.6,
             "y": 2.05,
             "width": 2.3,
