@@ -27,7 +27,13 @@
     }
   ],
   "components": [
-   {
+    {
+      "type": "checkbox",
+      "id": "IMF-lines",
+      "text": "Show attractions between molecules",
+      "property": "showVDWLines"
+    },
+    {
       "type": "slider",
       "id": "epsilon-slider",
       "min": 0.18,
@@ -53,7 +59,7 @@
   "layout": {
     "bottom": [
       [
-        "epsilon-slider"
+        "epsilon-slider","IMF-lines"
       ]
     ]
   },
