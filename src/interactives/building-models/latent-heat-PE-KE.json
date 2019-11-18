@@ -1,0 +1,164 @@
+{
+  "title": "PE vs. KE During Phase Change",
+  "publicationStatus": "published",
+  "subtitle": "",
+  "aspectRatio": 1.9270833333333333,
+  "fontScale": 0.88,
+  "about": [
+    ""
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "latentheat2$0",
+      "url": "models/lab-version/1/md2d/building-models/latent-heat-PE-KE.json",
+      "viewOptions": {
+        "controlButtons": ""
+      },
+      "modelOptions": {
+        "timeStep": 2.5
+      },
+      "onLoad": [
+        "setComponentDisabled('start-heating', false);",
+        "callEvery(200, function() {",
+        "  if (get('experimentRunning')) {",
+        "    var numAtoms, i, props, newVx, newVy, ratio, vXConstant, vYConstant;",
+        "    batch(function(){",
+        "      numAtoms = getNumberOfAtoms()",
+        "      for(i=0; i<numAtoms; i++){",
+        "        // The idea here is to add the same amount of KE to every atom, and to keep",
+        "        // the direction of the velocity the same",
+        "        props = getAtomProperties(i);",
+        "        ratio = props.vx*props.vx/(props.vy*props.vy);",
+        "        vXConstant = 0.000000002*ratio/(1+ratio);",
+        "        vYConstant = 0.000000002 - vXConstant;",
+        "        if(props.vx >= 0) newVx =  Math.sqrt(vXConstant+props.vx*props.vx);",
+        "        if(props.vx < 0) newVx = - Math.sqrt(vXConstant+props.vx*props.vx);",
+        "        if(props.vy >= 0) newVy =  Math.sqrt(vYConstant+props.vy*props.vy);",
+        "        if(props.vy < 0) newVy = - Math.sqrt(vYConstant+props.vy*props.vy);",
+        "        setAtomProperties(i, {vx:newVx, vy:newVy});",
+        "      }",
+        "    });",
+        "    var runningTime = get('time') - get('timeExperimentStarted');",
+        "    set('experimentTime', runningTime/1000);",
+        "    set('scaledPE', ((get('potentialEnergy') + 155) * 20)+1200);",
+        "    if (runningTime > 200000) stop();",
+        "  }",
+        "});"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "temperatureFiltered",
+      "unitType": "temperature",
+      "label": "Temperature",
+      "property": "temperature",
+      "type": "RunningAverage",
+      "period": 5000
+    },
+    {
+      "name": "potentialFiltered",
+      "unitType": "energy",
+      "label": "Potential Energy",
+      "property": "scaledPE",
+      "type": "RunningAverage",
+      "period": 5000
+    }
+   ],
+  "parameters": [
+    {
+      "name": "timeExperimentStarted",
+      "initialValue": 0,
+      "onChange": ""
+    },
+    {
+      "name": "experimentRunning",
+      "initialValue": false,
+      "onChange": ""
+    },
+    {
+      "name": "experimentTime",
+      "label": "Experiment time",
+      "initialValue": 0,
+      "onChange": ""
+    },
+    {
+      "name": "scaledPE",
+      "label": "Potential Energy",
+      "initialValue": 0,
+      "onChange": ""
+    }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "id": "start-heating",
+      "text": "Start adding heat",
+      "action": [
+        "if (isStopped()) {",
+        "  setComponentDisabled('start-heating', true);",
+        "  start();",
+        "}",
+        "set('timeExperimentStarted', get('time'));",
+        "set('experimentRunning', true);"
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset-experiment",
+      "text": "Reset experiment",
+      "action": [
+        "reloadModel();",
+        "set('experimentRunning', false);"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "temperature-energy-graph",
+      "title": "Energy (KE:red, PE:green)",
+      "xlabel": "Time",
+      "ylabel": "Kinetic and Potential Energy",
+      "hideAxisValues": true,
+      "ymin": 0,
+      "ymax": 6000,
+      "xmin": 0,
+      "xmax": 210,
+      "lines": false,
+      "lineWidth": 2,
+      "yTickCount": 5,
+      "xTickCount": 5,
+      "xFormatter": ".2s",
+      "yFormatter": ".2s",
+      "xProperty": "experimentTime",
+      "properties": [
+        "temperatureFiltered",
+        "scaledPE"
+      ]
+    }
+  ],
+  "layout": {
+    "right-lines": [
+      "temperature-energy-graph"
+    ],
+    "bottom": [
+      "start-heating", "reset-experiment"
+    ]
+  },
+  "template": [
+    {
+      "id": "right-lines",
+      "top": "model.top",
+      "bottom": "interactive.bottom",
+      "left": "model.right",
+      "width": "20em",
+      "padding-left": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "width": "interactive.width",
+      "padding-top": "1em"
+    }
+  ]
+}
