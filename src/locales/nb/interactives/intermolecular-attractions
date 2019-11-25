@@ -34,7 +34,7 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Dra molekylene mot hverandre og se etter krefter mellom molekylene."
+            "text": "Dra molekylene mot hverandre og se etter krefter mellom molekylene.",
             "x": 0.6,
             "y": 2.05,
             "width": 2.3,
