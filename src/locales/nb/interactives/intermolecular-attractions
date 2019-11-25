@@ -1,0 +1,76 @@
+{
+  "title": "Observer krefter mellom molekyler",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "En enkel interaktivitet med polare molekyler til venstre, og ikke-polare molekyler til høyre.",
+  "category": "Chemistry",
+  "subCategory": "Interactions",
+  "screenshot": "http://screenshots.lab.concord.org/intermolecular-attractions-intro.png",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Alt stoff tiltrekkes av annet stoff. Hvordan kan vi forklare dette?",
+    "",
+    "Denne simuleringa viser polare molekyler (med ladninger) og ikke-polare molekyler i en",
+    "beholder. Dra molekyler rundt, og observer hvordan de er tiltrukker av",
+    "hverandre. Stiplede linjer angir krefter mellom molekylene."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/intermolecular-attraction/original-interactives-in-pages/page1/page1$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Dra molekylene mot hverandre og se etter krefter mellom molekylene.",
+            "x": 0.6,
+            "y": 2.05,
+            "width": 2.3,
+            "fontScale": 1.4,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(245,245,245)"
+          }
+        ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
+  "components": [],
+  "layout": {},
+  "template": "simple"
+}
