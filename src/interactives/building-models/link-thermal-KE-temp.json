@@ -41,7 +41,7 @@
         "set({ targetTemperature: get('targetTemperature') + get('dTemp')});",
         "setComponentDisabled('remove-energy', false);"
       ],
-      "text": "Heat substance (add thermal energy)",
+      "text": "Add thermal energy (heat)",
       "width": "",
       "height": "",
       "disabled": false,
@@ -59,7 +59,7 @@
         "  setComponentDisabled('remove-energy', true);",
         "}"
       ],
-      "text": "Cool substance (remove thermal energy)",
+      "text": "Remove thermal energy (cool)",
       "width": "",
       "height": "",
       "disabled": false,
