@@ -1,9 +1,9 @@
 {
-  "title": "Exploring attractions between molecules",
+  "title": "Exploring attractions between particles",
   "publicationStatus": "sample",
   "subtitle": "",
   "about": [
-    "Adjust the attractive forces between moleucles and observe their behavior."
+    "Adjust the attractive forces between particles and observe their behavior."
   ],
   "aspectRatio": 1.13,
   "fontScale": 1.02,
@@ -30,7 +30,7 @@
     {
       "type": "checkbox",
       "id": "IMF-lines",
-      "text": "Show attractions between molecules",
+      "text": "Show attractions between particles",
       "property": "showVDWLines"
     },
     {
@@ -52,7 +52,7 @@
         }
       ],
       "steps": 199,
-      "title": "Attraction between molecules",
+      "title": "Attraction between particles",
       "property": "epsilon"
     }
   ],
