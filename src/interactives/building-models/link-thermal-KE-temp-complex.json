@@ -146,7 +146,7 @@
       "id": "atom-instructions",
       "type": "text",
       "text": [
-        "Click on an atom to remove it, or click an empty space to add an atom",
+        "Click on a particle to remove it, or click an empty space to add a particle",
         "",
         "with zero kinetic energy. _(Hint: This is easier if you stop the model first.)_"
       ]
