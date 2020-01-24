@@ -3,8 +3,7 @@
   "publicationStatus": "public",
   "subtitle": "Utforsk forskjellen i tiltrekkande krefter mellom polare og ikkje-polare molekyl..",
   "about": [
-    "Utforsk forskjellen i styrke mellom kreftene som verkar mellom polare molekyl og kreftene som verkar 
- ",
+    "Utforsk forskjellen i styrke mellom kreftene som verkar mellom polare molekyl og kreftene som verkar",
     "mellom ikkje-polare molekyl. Kreftene mellom molekyla er viste med stipla linjer mellom molekylpara.",
     "",
     "Vel to molekyl frå nedtrekkmenyen og  \"pull\"i stjerna for å skilje  ",
@@ -107,7 +106,7 @@
           "action": "loadModel('instructions');"
         },
         {
-          "text": Dra to ikkje-polare molekyl frå kvarandre.",
+          "text": "Dra to ikkje-polare molekyl frå kvarandre.",
           "action": "loadModel('npPulling');"
         },
         {
