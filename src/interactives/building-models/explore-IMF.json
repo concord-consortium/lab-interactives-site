@@ -1,0 +1,76 @@
+{
+  "title": "Exploring attractions between particles",
+  "publicationStatus": "sample",
+  "subtitle": "",
+  "about": [
+    "Adjust the attractive forces between particles and observe their behavior."
+  ],
+  "aspectRatio": 1.13,
+  "fontScale": 1.02,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/building-models/100-atoms.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "showVDWLines": false
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "epsilon",
+      "initialValue": 0.21,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "IMF-lines",
+      "text": "Show attractions between particles",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "slider",
+      "id": "epsilon-slider",
+      "min": 0.18,
+      "max": 0.25,
+      "width": "16em",
+      "align": "center",
+      "displayValue": "",
+      "labels": [
+        {
+          "value": 0.18,
+          "label": "Weak"
+        },
+        {
+          "value": 0.25,
+          "label": "Strong"
+        }
+      ],
+      "steps": 199,
+      "title": "Attraction between particles",
+      "property": "epsilon"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "epsilon-slider","IMF-lines"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}

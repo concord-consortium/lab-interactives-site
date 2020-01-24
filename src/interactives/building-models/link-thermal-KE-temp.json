@@ -1,0 +1,89 @@
+{
+  "title": "Linking Thermal Energy, Kinetic Energy, and Temperature",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "aspectRatio": 1.1666666667,
+  "fontScale": 1.0,
+  "theme": [
+    "hide-legends"
+  ],
+  "about": [
+    ""
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty",
+      "url": "models/lab-version/1/md2d/building-models/empty-model-2.5x2.5.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "start();",
+        "set({ targetTemperature: 101});"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+  ],
+  "parameters": [
+    {
+      "name": "dTemp",
+      "initialValue": 100
+    }
+  ],
+  "components": [
+    {
+      "id": "add-energy",
+      "type": "button",
+      "action": [
+        "set({ targetTemperature: get('targetTemperature') + get('dTemp')});",
+        "setComponentDisabled('remove-energy', false);"
+      ],
+      "text": "Add thermal energy (heat)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "remove-energy",
+      "type": "button",
+      "action": [
+        "if (get('targetTemperature') > get('dTemp')) {",
+        "   set({ targetTemperature: get('targetTemperature') - get('dTemp')});",
+        "}",
+        "if (get('targetTemperature') < get('dTemp')) {",
+        "  setComponentDisabled('remove-energy', true);",
+        "}"
+      ],
+      "text": "Remove thermal energy (cool)",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "barGraph",
+      "id": "temp-graph",
+      "min": 0,
+      "max": 2000,
+      "title": "Temperature",
+      "property": "targetTemperature",
+      "units": false,
+      "gridLines": 10,
+      "labels": []
+    }
+  ],
+  "layout": {
+    "right": [
+      "temp-graph"
+    ],
+    "bottom": [
+      ["add-energy"], ["remove-energy"]
+    ]
+  }
+}
