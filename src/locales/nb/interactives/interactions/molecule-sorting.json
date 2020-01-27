@@ -9,7 +9,7 @@
   "aspectRatio": 1.45,
   "fontScale": 1,
   "lang": "nb-NO",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactives/interactions/molecule-sorting.json",
   "credits": "Thomas Bedin",
   "helpOnLoad": false,
   "aboutOnLoad": true,
