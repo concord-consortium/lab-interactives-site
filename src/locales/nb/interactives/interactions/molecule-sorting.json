@@ -1,0 +1,141 @@
+{
+  "title": "Sortering av molekyler",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Tilsett ulike molekyler til olje og vann. Observ�r hvordan molekylene oppf�rer seg.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.45,
+  "fontScale": 1,
+  "lang": "nb-NO",
+  "i18nMetadata": "",
+  "credits": "Thomas Bedin",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Tilsett ulike molekyler til en blanding av olje og vann. Observer hvor molekylene oftest ender opp. ",
+    "De tre fargene p� molekylene (lilla, oransj og gr�) representerer polare og ikke-polare ",
+    "molekyler med hydrofile og hydrofobe egenskaper. Kan du finne ut hvilke som er polare, ",
+    "ikke-polare eller begge deler ut i fra hvordan de blander seg med olje og vann?",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+    ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/molecular-sorting/model.json",
+      "onLoad": [
+        "start();",
+        "callEvery(50, function() {",
+        "  batch(function() {",
+        "    var BY = get('height') * 0.5;",
+        "    var FORCE_RATIO = 0.00005;",
+        "    for (var i = 0, len = getNumberOfAtoms(); i < len; i++) {",
+        "      var a = getAtomProperties(i);",
+        "      if (a.element === 1) {",
+        "        if (Math.abs(a.y - BY) > 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * (a.y - BY), friction: 0.03});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0, friction: 0});",
+        "        }",
+        "      }",
+        "      else if (a.element === 2) {",
+        "        if (a.y < BY - 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * -0.2});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0});",
+        "        }",
+        "      }",
+        "      else if (a.element === 3) {",
+        "        if (a.y > BY + 0.05) {",
+        "          setAtomProperties(i, {charge: FORCE_RATIO * 0.2});",
+        "        } else {",
+        "          setAtomProperties(i, {charge: 0});",
+        "        }",
+        "      }",
+        "      if (a.x < 0.3 && Math.abs(a.y - 1.25 < 0.2)) {",
+        "        // pass p� at atomene ikke setter seg fast bak det lille rektangelet og blokkerer for nye atomer",
+        "        setAtomProperties(i, {vx: 0.0003});",
+        "      }",
+        "    }",
+        "  });",
+        "})"
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "insert-molecule",
+      "type": "button",
+      "action": [
+        "var element = Math.floor(Math.random() * 3) + 1;",
+        "var vy =  0.00003;",
+        "if (Math.random() > 0.5) vy = vy * -1;",
+        "addAtom({element: element, x: 0.1, y: 1.25, vy: vy});"
+      ],
+      "text": "Tilsett molekyl",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": [
+        "reloadModel();"
+      ],
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      "insert-molecule",
+      "reset"
+    ],
+    "right": []
+  },
+  "template": [
+    {
+      "id": "right",
+      "top": "model.top",
+      "bottom": "model.bottom",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "1em"
+    },
+    {
+      "id": "bottom",
+      "top": "right.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "padding-top": "0.5em",
+      "align": "center"
+    }
+  ]
+}
