@@ -1,0 +1,154 @@
+{
+  "title": "Miceller",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Utforsk den potensielle energien til molekyler i olje og vann.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.1,
+  "fontScale": 1,
+  "lang": "nb-NO",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Velg om molekylene skal være i olje eller vann og observer hvordan de påvirkes av ",
+    "omgivelsene og de andre molekylene. Disse molekylene har hydrofile (polare) og hydrofobe ",
+    "(ikke-polare) deler. Disse påvirkes ulikt av omgivelsene de er i. Legg merke til hvordan den ",
+    "potensielle energien endrer seg når molekylene går sammen i miceller.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/micelles/model.json",
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('drag', true);",
+        "});",
+        "onStop(function() {",
+        "  setComponentDisabled('drag', false);",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": [
+        "if (value === 'water') {",
+        "  set('backgroundColor', '#A2E0F9');",
+        "  setTextBoxProperties(0, {text: 'Vann'})",
+        "  setAtomProperties(3, {charge: 20})",
+        "} else if (value === 'oil') {",
+        "  set('backgroundColor', '#FFE200');",
+        "  setTextBoxProperties(0, {text: 'Olje'})",
+        "  setAtomProperties(3, {charge: -20})",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "pe-graph",
+      "type": "barGraph",
+      "property": "potentialEnergy",
+      "min": -150,
+      "max": 40,
+      "title": "Potensiell energi",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "solvent",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "Velg løsemiddel",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Vann (polar)",
+          "value": "water"
+        },
+        {
+          "text": "Olje (ikke-polar)",
+          "value": "oil"
+        }
+      ],
+      "property": "solvent",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "drag",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "Flytt/roter molekyl",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Flytt molekyl",
+          "value": "translate"
+        },
+        {
+          "text": "Roter molekyl",
+          "value": "rotate"
+        }
+      ],
+      "property": "onAtomDrag",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "pe-graph"
+    ],
+    "bottom": [
+      [
+        "solvent"
+      ],
+      [
+        "drag"
+      ]
+    ]
+  },
+  "template": "simple"
+}

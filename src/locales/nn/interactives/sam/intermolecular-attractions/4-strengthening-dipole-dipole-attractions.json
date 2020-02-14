@@ -1,11 +1,11 @@
 {
-  "title": "Polarity and Attractive Strength",
+  "title": "Polaritet og tiltrekkande krefter",
   "publicationStatus": "public",
-  "subtitle": "Explore the different attractive forces between molecules of varying polarity.",
+  "subtitle": "Utforsk dei ulike tiltrekkande kreftene mellom molekyl med ulik grad av polaritet.",
   "about": [
-    "Attractions between polar molecules vary. Choose a pair of molecules from the drop-down",
-    "menu and \"pull\" on the star to separate the molecules. Why does polarity have an effect",
-    "on the strength of attraction between molecules?"
+    "Dei tiltrekkande kreftene mellom polare molekyl varierer. Vel molekylpar frå",
+    "nedtrekksmenyen, og \"dra\" i stjerna for å dra molekyla frå kvarandre. Kvifor har polariteten til",
+    "molekyla betyding for styrken på dei tiltrekkande kreftene mellom molekyla?"
   ],
   "aspectRatio": 1.4,
   "models": [
@@ -21,14 +21,14 @@
         },
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between molecules of varying polarity.",
+            "text": "Utforsk dei ulike tiltrekkande kreftene mellom molekyl med varierande polaritet.",
             "x": 0.4,
             "y": 1.7,
             "fontSize": 0.14,
             "width": 3.2
           },
           {
-            "text": "Choose a pair of molecules from the menu below.",
+            "text": "Vel molekylpar frå menyen under.",
             "x": 0.4,
             "y": 0.6,
             "fontSize": 0.14,
@@ -49,7 +49,7 @@
         },
         "textBoxes": [
           {
-            "text": "Low polarity molecules",
+            "text": "Molekyl som er lite polare.",
             "x": 1.48,
             "y": 1.87,
             "layer": 1,
@@ -72,7 +72,8 @@
         },
         "textBoxes": [
           {
-            "text": "Medium polarity molecules",
+            "text": "Molekyl med middels polaritet.
+",
             "x": 1.45,
             "y": 1.87,
             "layer": 1,
@@ -95,7 +96,7 @@
         },
         "textBoxes": [
           {
-            "text": "High polarity molecules",
+            "text": "Molekyl som er veldig polare.",
             "x": 1.48,
             "y": 1.87,
             "layer": 1,
@@ -104,7 +105,7 @@
           }
         ]
       },
-      "onLoad": "start();"
+      "onLoad": "start();"ø
     }
   ],
   "components": [
@@ -113,19 +114,19 @@
       "id": "pulldown1",
       "options": [
         {
-          "text": "Select a pair of molecules",
+          "text": "Vel eit molekylpar",
           "action": "loadModel('instructions');"
         },
         {
-          "text": "Low polarity",
+          "text": "Lav polaritet",
           "action": "loadModel('leastPolarPull');"
         },
         {
-          "text": "Medium polarity",
+          "text": "Middels polaritet",
           "action": "loadModel('medPolarPull');"
         },
         {
-          "text": "High polarity",
+          "text": "Høg polaritet",
           "action": "loadModel('mostPolarPull');"
         }
       ]
@@ -133,7 +134,7 @@
     {
       "type": "button",
       "id": "reset",
-      "text": "Reset",
+      "text": "Tilbakestill",
       "action": "reloadModel();"
     }
   ],

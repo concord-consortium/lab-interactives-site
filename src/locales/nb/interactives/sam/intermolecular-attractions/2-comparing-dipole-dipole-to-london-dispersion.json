@@ -1,13 +1,13 @@
 {
-  "title": "Comparing Dipole-Dipole to London Dispersion",
+  "title": "Sammenlign krefter mellom polare molekyler og krefter mellom ikke-polare molekyler",
   "publicationStatus": "public",
-  "subtitle": "Explore the difference in attractive forces between polar and non-polar molecules.",
+  "subtitle": "Utforsk forskjellen i tiltrekkende krefter mellom polare og ikke-polare molekyler.",
   "about": [
-    "Explore the different strengths of dipole-dipole (polar) and London dispersion (non-polar)",
-    "attractions. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
+    "Utforsk forskjellen i styrke mellom kreftene som virker mellom polare molekyler og kreftene som virker ",
+    "mellom ikke-polare molekyler. Kreftene mellom molekylene er vist med stiplede linjer mellom molekylparene.",
     "",
-    "Choose a pair of molecules from the drop-down menu and \"pull\" on the star to separate the",
-    "molecules. Which type of intermolecular attraction is strongest?"
+    "Velg to molekyler fra nedtrekksmenyen og  \"pull\" i stjerna for å skille ",
+    "dem fra hverandre. Når er kreftene mellom molekylene sterkest?"
   ],
   "models": [
     {
@@ -19,14 +19,14 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between polar and non-polar molecules by dragging the \"star\" image found in the following simulations.",
+            "text": "Utforsk de ulike tiltrekkende kreftene mellom polare og ikke-polare molekyler ved å trekke i \"star\" bildet i disse simuleringene.",
             "x": 0.3,
             "y": 1.7,
             "fontSize": 0.12,
             "width": 2.7
           },
           {
-            "text": "Choose a pair of molecules from the menu below.",
+            "text": "Velg molekylpar fra menyen under.",
             "x": 0.3,
             "y": 0.4,
             "fontSize": 0.12,
@@ -102,19 +102,19 @@
       "id": "pulldown1",
       "options": [
         {
-          "text": "Select a pair of molecules",
+          "text": "Velg et molekylpar",
           "action": "loadModel('instructions');"
         },
         {
-          "text": "Pull apart two non-polar molecules",
+          "text": "Dra to ikke-polare molekyler fra hverandre",
           "action": "loadModel('npPulling');"
         },
         {
-          "text": "Pull apart two polar molecules",
+          "text": "Dra to polare molekyler fra hverandre",
           "action": "loadModel('polarPulling');"
         },
         {
-          "text": "Pull apart a non-polar and polar molecules",
+          "text": "Dra polart og ikke-polart molekyl fra hverandre",
           "action": "loadModel('polarNpPulling');"
         }
       ]
@@ -122,7 +122,7 @@
     {
       "type": "button",
       "id": "reset",
-      "text": "Reset",
+      "text": "Tilbakestill",
       "action": "reloadModel();"
     }
   ],
