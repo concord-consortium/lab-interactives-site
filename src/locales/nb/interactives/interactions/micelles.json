@@ -9,7 +9,7 @@
   "aspectRatio": 1.1,
   "fontScale": 1,
   "lang": "nb-NO",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactives/interactions/micelles.json",
   "credits": "",
   "helpOnLoad": false,
   "aboutOnLoad": true,
