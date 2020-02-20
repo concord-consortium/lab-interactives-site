@@ -1,4 +1,4 @@
-/*global SITE_CONFIG, Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
+/*global SITE_CONFIG, Lab, iframePhone, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
@@ -107,7 +107,7 @@
         // set the default interactive, from the first interactive in
         // the first group returned from the server
         var firstGroupPath = interactiveDescriptions.groups[0].path;
-        var firstInteractive = _.find(interactiveDescriptions.interactives, function(interactive){
+        var firstInteractive = interactiveDescriptions.interactives.find(function(interactive){
           return interactive.groupKey === firstGroupPath;
         });
         document.location.hash = firstInteractive.path;
@@ -356,7 +356,7 @@
           .attr('disabled', true));
     saveOptionsToCookie();
     interactives = interactiveDescriptions.interactives;
-    groups = _.filter(interactiveDescriptions.groups, function(group) {
+    groups = interactiveDescriptions.groups.filter(function(group) {
       var curriculumFilter = $("#curriculum-filter").is(':checked'),
           examplesFilter = $("#examples-filter").is(':checked'),
           benchmarksFilter = $("#benchmarks-filter").is(':checked'),
@@ -368,7 +368,7 @@
       if (testsFilter && group.category === "Tests") return true;
       return false;
     });
-    _.each(groups, function (group) {
+    groups.forEach(function (group) {
       var publicFilter = $("#public").is(':checked'),
           draftFilter = $("#draft").is(':checked'),
           brokenFilter = $("#broken").is(':checked'),
@@ -425,7 +425,7 @@
       str = cookie[1].split(";")[0];
       settings = str.split('&').map(function (i) { return i.split('='); });
       $serializedControls.each(function(i, el) {
-        var match = _.find(settings, function(e) { return e[0] === el.id; }, this);
+        var match = settings.find(function(e) { return e[0] === el.id; }, this);
         switch(el.tagName) {
           case "INPUT":
           if (match && el.id === match[0]) {
@@ -517,7 +517,7 @@
   function setupSelectGroups(){
 
     $selectInteractiveGroups.empty();
-    _.each(groups, function(group) {
+    groups.forEach(function(group) {
       var publicFilter = $("#public").is(':checked');
       var draftFilter = $("#draft").is(':checked');
 
