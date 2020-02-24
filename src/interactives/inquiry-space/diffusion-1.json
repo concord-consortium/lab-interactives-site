@@ -1,0 +1,118 @@
+{
+  "title": "Diffusion 1",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+  ],
+  "aspectRatio": 2.2,
+  "fontScale": 0.85,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-1/model-aqua.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function addAtoms(element, charge, count) {",
+        "  var added = 0;",
+        "  var attempts = 0;",
+        "  while (added < count && attempts < count * 4) {",
+        "     if (addAtom({ x: 2.35 * Math.random(), y: 2.5 * Math.random(), vx: Math.random() * 0.001 - 0.0005, vy: Math.random() * 0.001 - 0.0005, element, charge })) {",
+        "        added += 1;",
+        "     }",
+        "     attempts += 1;",
+        "  }",
+        "}",
+        "function removeAtoms(element) {",
+        "  const atomsCount = getNumberOfAtoms();",
+        "  for (var i = 0; i < atomsCount; i++) { removeAtom(0); }",
+        "}",
+        "function setupModel() {",
+        "  batch(function() {",
+        "    removeAtoms();",
+        "    if (get('positiveIon')) { addAtoms(0, 0.2, 30); }",
+        "    if (get('negativeIon')) { addAtoms(4, -0.2, 30); }",
+        "    if (get('smallPolar')) { addAtoms(2, 0, 30); }",
+        "  });",
+        "}",
+        "setupModel();",
+        "onPropertyChange('positiveIon', function() { setupModel(); });",
+        "onPropertyChange('negativeIon', function() { setupModel(); });",
+        "onPropertyChange('smallPolar', function() { setupModel(); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "positiveIon",
+      "initialValue": true
+    },
+    {
+      "name": "negativeIon",
+      "initialValue": false
+    },
+    {
+      "name": "smallPolar",
+      "initialValue": false
+    },
+    {
+      "name": "aquaporins",
+      "onChange": [
+        "setImageProperties(1, {visible: value});",
+        "setImageProperties(2, {visible: value});",
+        "setImageProperties(3, {visible: value});",
+        "setImageProperties(4, {visible: value});",
+        "setImageProperties(5, {visible: value});",
+        "setImageProperties(6, {visible: !value});",
+        "setObstacleProperties(7, {permeability: value ? [2] : []});",
+        "setObstacleProperties(8, {permeability: value ? [2] : []});"
+      ],
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "type": "checkbox",
+      "id": "positive-ion",
+      "text": "Positive Ion (Na+)",
+      "property": "positiveIon"
+    },
+    {
+      "type": "checkbox",
+      "id": "negative-ion",
+      "text": "Negative Ion (Cl-)",
+      "property": "negativeIon"
+    },
+    {
+      "type": "checkbox",
+      "id": "small-polar",
+      "text": "Small Polar (H2O)",
+      "property": "smallPolar"
+    },
+    {
+      "type": "checkbox",
+      "id": "aquaporins",
+      "text": "With Aquaporins",
+      "property": "aquaporins"
+    }
+  ],
+  "layout": {
+    "right": [
+      ["positive-ion"],
+      ["negative-ion"],
+      ["small-polar"],
+      ["aquaporins"]
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-top": "3.5em",
+      "min-width": "12em"
+    }
+  ]
+}
