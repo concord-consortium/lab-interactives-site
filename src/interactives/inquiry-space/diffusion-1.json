@@ -4,13 +4,13 @@
   "subtitle": "",
   "about": [
   ],
-  "aspectRatio": 2.2,
+  "aspectRatio": 1.25,
   "fontScale": 0.85,
   "models": [
     {
       "type": "md2d",
       "id": "model1",
-      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-1/model-aqua.json",
+      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-1/model.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       },
@@ -74,6 +74,16 @@
   ],
   "components": [
     {
+      "id": "outside",
+      "type": "text",
+      "text": "Outside"
+    },
+    {
+      "id": "inside",
+      "type": "text",
+      "text": "Inside"
+    },
+    {
       "type": "checkbox",
       "id": "positive-ion",
       "text": "Positive Ion (Na+)",
@@ -99,7 +109,13 @@
     }
   ],
   "layout": {
-    "right": [
+    "top-left": [
+      "outside"
+    ],
+    "top-right": [
+      "inside"
+    ],
+    "bottom": [
       ["positive-ion"],
       ["negative-ion"],
       ["small-polar"],
@@ -108,11 +124,28 @@
   },
   "template": [
     {
-      "id": "right",
-      "left": "model.right",
-      "padding-left": "1em",
-      "padding-top": "3.5em",
+      "id": "top-left",
+      "bottom": "model.top",
+      "left": "model.left"
+    },
+    {
+      "id": "top-right",
+      "bottom": "model.top",
+      "right": "model.right"
+    },
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "top": "model.bottom",
+      "padding-left": "17em",
+      "padding-top": "1em",
       "min-width": "12em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "padding-right": "1em"
     }
   ]
 }
