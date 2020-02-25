@@ -106,6 +106,21 @@
       "id": "aquaporins",
       "text": "With Aquaporins",
       "property": "aquaporins"
+    },
+    {
+      "type": "image",
+      "id": "img-cl",
+      "src": "cl.png"
+    },
+    {
+      "type": "image",
+      "id": "img-na",
+      "src": "na.png"
+    },
+    {
+      "type": "image",
+      "id": "img-water",
+      "src": "water.png"
     }
   ],
   "layout": {
@@ -116,9 +131,9 @@
       "inside"
     ],
     "bottom": [
-      ["positive-ion"],
-      ["negative-ion"],
-      ["small-polar"],
+      ["positive-ion", "img-na"],
+      ["negative-ion", "img-cl"],
+      ["small-polar", "img-water"],
       ["aquaporins"]
     ]
   },
