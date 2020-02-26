@@ -4,7 +4,7 @@
   "subtitle": "",
   "about": [
   ],
-  "aspectRatio": 1.25,
+  "aspectRatio": 1.35,
   "fontScale": 0.85,
   "models": [
     {
@@ -12,7 +12,8 @@
       "id": "model1",
       "url": "models/lab-version/1/md2d/inquiry-space/diffusion-1/model.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
       "onLoad": [
         "function addAtoms(element, charge, count) {",
@@ -130,11 +131,15 @@
     "top-right": [
       "inside"
     ],
-    "bottom": [
+    "bottom-left": [
       ["positive-ion", "img-na"],
       ["negative-ion", "img-cl"],
-      ["small-polar", "img-water"],
-      ["aquaporins"]
+      ["small-polar", "img-water"]
+    ],
+    "bottom-right": [
+      [],
+      ["aquaporins"],
+      []
     ]
   },
   "template": [
@@ -149,12 +154,18 @@
       "right": "model.right"
     },
     {
-      "id": "bottom",
-      "left": "model.left",
+      "id": "bottom-left",
       "top": "model.bottom",
-      "padding-left": "17em",
-      "padding-top": "1em",
-      "min-width": "12em"
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "padding-left": "3.4em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "right": "model.right",
+      "padding-top": "2.5em",
+      "padding-right": "6em"
     },
     {
       "id": "right",
