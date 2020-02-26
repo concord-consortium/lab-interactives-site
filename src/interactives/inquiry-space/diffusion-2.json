@@ -4,15 +4,16 @@
   "subtitle": "",
   "about": [
   ],
-  "aspectRatio": 0.95,
-  "fontScale": 1,
+  "aspectRatio": 1,
+  "fontScale": 0.8,
   "models": [
     {
       "type": "md2d",
       "id": "model1",
       "url": "models/lab-version/1/md2d/inquiry-space/diffusion-2/model.json",
       "viewOptions": {
-        "controlButtons": "play_reset"
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
       },
       "onLoad": [
         "const noConcentration = 50;",
@@ -71,9 +72,45 @@
       ]
     },
     {
+      "name": "waterInside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.element === 2 && props.x > 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count;"
+      ]
+    },
+    {
       "name": "pressureOutside",
       "value": [
-        "return get('waterOutside') * 0.65;"
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.x < 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count * 0.5;"
+      ]
+    },
+    {
+      "name": "pressureInside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.x > 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count * 0.5;"
       ]
     }
   ],
@@ -81,6 +118,12 @@
     {
       "name": "pressureOutsideFiltered",
       "property": "pressureOutside",
+      "type": "RunningAverage",
+      "period": 10000
+    },
+    {
+      "name": "pressureInsideFiltered",
+      "property": "pressureInside",
       "type": "RunningAverage",
       "period": 10000
     }
@@ -139,9 +182,20 @@
       ]
     },
     {
+      "type": "image",
+      "id": "graph1-label",
+      "src": "graph1-label.svg",
+      "height": "2.5em"
+    },
+    {
+      "type": "image",
+      "id": "graph2-label",
+      "src": "graph2-label.svg",
+      "height": "2.5em"
+    },
+    {
       "type": "graph",
-      "id": "graph",
-      "title": "Osmosis in plant cells",
+      "id": "graph-water",
       "xlabel": "Time",
       "ylabel": "",
       "ymin": 0,
@@ -150,14 +204,43 @@
       "hideAxisValues": true,
       "enableZooming": false,
       "enableAutoScaleButton": false,
-      "legendVisible": true,
+      "title": "",
       "legendLabels": [
-        "Number of H2O mol outside",
-        "Pressure outside"
+        "Water outside",
+        "Water inside"
       ],
       "properties": [
         "waterOutside",
-        "pressureOutsideFiltered"
+        "waterInside"
+      ],
+      "dataColors": [
+        "#4D79FD",
+        "#C8645F"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "graph-pressure",
+      "xlabel": "Time",
+      "ylabel": "",
+      "ymin": 0,
+      "ymax": 70,
+      "xmax": 40,
+      "hideAxisValues": true,
+      "enableZooming": false,
+      "enableAutoScaleButton": false,
+      "title": "",
+      "legendLabels": [
+        "Pressure outside",
+        "Pressure Inside"
+      ],
+      "properties": [
+        "pressureOutsideFiltered",
+        "pressureInsideFiltered"
+      ],
+      "dataColors": [
+        "#4D79FD",
+        "#C8645F"
       ]
     }
   ],
@@ -168,14 +251,23 @@
     "top-right": [
       "inside"
     ],
-    "bottom-left": [
+    "middle-left": [
       "salt-outside"
     ],
-    "bottom-right": [
+    "middle-right": [
       "salt-inside"
     ],
-    "bottom": [
-      "graph"
+    "middle2-left": [
+      "graph1-label"
+    ],
+    "middle2-right": [
+      "graph2-label"
+    ],
+    "bottom-left": [
+      "graph-water"
+    ],
+    "bottom-right": [
+      "graph-pressure"
     ]
   },
   "template": [
@@ -190,30 +282,54 @@
       "right": "model.right"
     },
     {
-      "id": "bottom-left",
-      "top": "model.bottom",
-      "left": "model.left",
-      "padding-top": "1em"
-    },
-    {
-      "id": "bottom-right",
-      "top": "model.bottom",
-      "right": "model.right",
-      "padding-top": "1em"
-    },
-    {
       "id": "right",
       "top": "model.top",
       "left": "model.right",
       "padding-right": "1em"
     },
     {
-      "id": "bottom",
+      "id": "middle-left",
+      "top": "model.bottom",
       "left": "model.left",
+      "right": "model.width * 0.5",
+      "padding-top": "1em",
+      "align": "center"
+    },
+    {
+      "id": "middle-right",
+      "top": "model.bottom",
+      "left": "model.width * 0.5",
       "right": "model.right",
-      "top": "bottom-left.bottom",
-      "height": "14em",
-      "padding-top": "1em"
+      "padding-top": "1em",
+      "align": "center"
+    },
+    {
+      "id": "middle2-left",
+      "top": "middle-left.bottom",
+      "left": "model.left",
+      "right": "model.width * 0.5",
+      "align": "center"
+    },
+    {
+      "id": "middle2-right",
+      "top": "middle-right.bottom",
+      "left": "model.width * 0.5",
+      "right": "model.right",
+      "align": "center"
+    },
+    {
+      "id": "bottom-left",
+      "top": "middle2-left.bottom - 10",
+      "left": "model.left",
+      "right": "model.width * 0.5",
+      "height": "15em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "middle2-right.bottom - 10",
+      "left": "model.width * 0.5",
+      "right": "model.right",
+      "height": "15em"
     }
   ]
 }
