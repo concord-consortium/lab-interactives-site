@@ -5,7 +5,7 @@
   "about": [
   ],
   "aspectRatio": 1,
-  "fontScale": 0.8,
+  "fontScale": 0.9,
   "models": [
     {
       "type": "md2d",
@@ -185,13 +185,13 @@
       "type": "image",
       "id": "graph1-label",
       "src": "graph1-label.svg",
-      "height": "2.5em"
+      "height": "2em"
     },
     {
       "type": "image",
       "id": "graph2-label",
       "src": "graph2-label.svg",
-      "height": "2.5em"
+      "height": "2em"
     },
     {
       "type": "graph",
@@ -322,14 +322,14 @@
       "top": "middle2-left.bottom - 10",
       "left": "model.left",
       "right": "model.width * 0.5",
-      "height": "15em"
+      "height": "13em"
     },
     {
       "id": "bottom-right",
       "top": "middle2-right.bottom - 10",
       "left": "model.width * 0.5",
       "right": "model.right",
-      "height": "15em"
+      "height": "13em"
     }
   ]
 }
