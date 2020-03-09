@@ -5,6 +5,7 @@
       // Default interactive aspect ratio.
   var DEF_ASPECT_RATIO = 1.3,
       BENCHMARK_API_URL = "https://script.google.com/macros/s/AKfycbzosXAVPdVRFUrF6FRI42dzQb2IGLnF9GlIbj9gUpeWpXALKgM/exec",
+      LAB_ENV = window.location.href.match(/interactives-?([a-z]*)\.html/)[1],
 
       origin,
       interactiveDescriptions,
@@ -294,6 +295,7 @@
     setupModelCodeEditor();
     setupSnapshotButton();
     setupBenchmarks();
+    setupOfflineDownload();
     setupEnergyGraph();
     // All the extra items are sortable
     // $(".sortable").sortable({
@@ -342,7 +344,7 @@
     window.location = newHref;
   }
   // Set Lab environment select based on the current URL (interactives.html page version).
-  $selectLabEnvironment.val(window.location.href.match(/interactives-?([a-z]*)\.html/)[1]);
+  $selectLabEnvironment.val(LAB_ENV);
   $selectLabEnvironment.change(selectLabEnvironmentHandler);
 
   function setupSelectList() {
@@ -848,6 +850,44 @@
         complete: function() { $('#submit-success').text("Sent!"); }
       });
     });
+  }
+
+  function setupOfflineDownload() {
+    var API = 'https://tv4jg3zewi.execute-api.us-east-1.amazonaws.com/production/interactive?interactivePath=';
+    var $button = $('#download-offline');
+
+    function archiveGenerated(result) {
+      if (result.url) {
+        $button.html('<a href="' + result.url + '" target="_blank">Download</a>');
+        $button.removeClass('disabled');
+      } else {
+        error(result);
+      }
+    }
+
+    function error(err) {
+      $button.html('Download failed');
+      console.error(err);
+    }
+
+    function initDownload() {
+      var interactivePath = window.location.hash.substr(1);
+      $.ajax({
+        url: API + interactivePath,
+        success: archiveGenerated,
+        error: error
+      });
+      $button.addClass('disabled');
+      $button.text('Please wait...');
+    }
+
+    // Offline archive includes production version of Lab only.
+    if (LAB_ENV === '' || LAB_ENV === 'production') {
+      $button.off('click');
+      $button.one('click', initDownload);
+    } else {
+      $button.addClass('disabled');
+    }
   }
 
   //
