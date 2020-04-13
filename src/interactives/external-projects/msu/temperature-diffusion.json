@@ -25,7 +25,7 @@
       "id": "model1",
       "url": "models/lab-version/1/md2d/external-projects/msu/diffusion-temperature-model.json",
       "onLoad": [
-        "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default', numberOfAtoms: 0});",
+        "set({ timeStep: 0.00015, timeStepsPerTick: 75, modelSampleRate: 'default' });",
         "onPropertyChange('time', function(t) {",
         "  var atoms               = atomsWithinRect(6.75, 0, 0.25, 1.96, 2);",
         "  var nNewAtomsInTarget   = 0;",
