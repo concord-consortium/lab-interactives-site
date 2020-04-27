@@ -24,7 +24,6 @@
       }]
     },
     "onLoad": [
-      "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
       "setComponentDisabled('add-atom-button', false);",
       "setTextBoxProperties(0, {text: 'Try to form a molecule with and without a third atom.'});",
       "onPropertyChange('numberOfElement1AtomsInView', function() {",
