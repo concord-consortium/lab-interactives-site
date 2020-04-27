@@ -12,7 +12,6 @@
       "controlButtons": "play_reset"
     },
     "onLoad": [
-      "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
       "onPropertyChange('numberOfElement1AtomsInView', function() {",
       "  if (get('numberOfElement1AtomsInView') < 2) {",
       "    stop();",
