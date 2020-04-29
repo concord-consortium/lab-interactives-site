@@ -1,8 +1,9 @@
 {
-  "title": "Diffusion 2",
+  "title": "Osmosis, equilibrium, and osmotic pressure",
   "publicationStatus": "public",
   "subtitle": "",
   "about": [
+    "Explore how salt concentrations inside and outside of a cell affect the movement of water and the pressure inside and outside of a cell."
   ],
   "aspectRatio": 1,
   "fontScale": 0.9,
@@ -33,11 +34,11 @@
         "function setupModel() {",
         "  batch(function() {",
         "    if (get('saltInside') === 'none') { addAtoms(2, 0, noConcentration, true); }",
-        "    if (get('saltInside') === 'low') { addAtoms(2, 0, lowConcentration[0], true); addAtoms(0, 0.2, lowConcentration[1], true); addAtoms(4, -0.2, lowConcentration[1], true); }",
-        "    if (get('saltInside') === 'high') { addAtoms(2, 0, highConcentration[0], true); addAtoms(0, 0.2, highConcentration[1], true); addAtoms(4, -0.2, highConcentration[1], true); }",
+        "    if (get('saltInside') === 'low') { addAtoms(2, 0, lowConcentration[0], true); addAtoms(0, 0.0, lowConcentration[1], true); addAtoms(4, 0.0, lowConcentration[1], true); }",
+        "    if (get('saltInside') === 'high') { addAtoms(2, 0, highConcentration[0], true); addAtoms(0, 0.0, highConcentration[1], true); addAtoms(4, 0.0, highConcentration[1], true); }",
         "    if (get('saltOutside') === 'none') { addAtoms(2, 0, noConcentration, false); }",
-        "    if (get('saltOutside') === 'low') { addAtoms(2, 0, lowConcentration[0], false); addAtoms(0, 0.2, lowConcentration[1], false); addAtoms(4, -0.2, lowConcentration[1], false); }",
-        "    if (get('saltOutside') === 'high') { addAtoms(2, 0, highConcentration[0], false); addAtoms(0, 0.2, highConcentration[1], false); addAtoms(4, -0.2, highConcentration[1], false); }",
+        "    if (get('saltOutside') === 'low') { addAtoms(2, 0, lowConcentration[0], false); addAtoms(0, 0.0, lowConcentration[1], false); addAtoms(4, 0.0, lowConcentration[1], false); }",
+        "    if (get('saltOutside') === 'high') { addAtoms(2, 0, highConcentration[0], false); addAtoms(0, 0.0, highConcentration[1], false); addAtoms(4, 0.0, highConcentration[1], false); }",
         "  });",
         "}",
         "setupModel();",

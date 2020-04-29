@@ -1,8 +1,9 @@
 {
-  "title": "Diffusion 1",
+  "title": "Diffusion: The role of aquaporins",
   "publicationStatus": "public",
   "subtitle": "",
   "about": [
+    "All of the ions or molecules in this simulation are polar or charged. Explore what can and can't pass through the membrane with and without aquaporins present."
   ],
   "aspectRatio": 1.35,
   "fontScale": 0.85,
@@ -33,8 +34,8 @@
         "function setupModel() {",
         "  batch(function() {",
         "    removeAtoms();",
-        "    if (get('positiveIon')) { addAtoms(0, 0.2, 30); }",
-        "    if (get('negativeIon')) { addAtoms(4, -0.2, 30); }",
+        "    if (get('positiveIon')) { addAtoms(0, 0, 30); }",
+        "    if (get('negativeIon')) { addAtoms(4, 0, 30); }",
         "    if (get('smallPolar')) { addAtoms(2, 0, 30); }",
         "  });",
         "}",

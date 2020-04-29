@@ -158,44 +158,13 @@
     "forceVectorsDirectionOnly": false,
     "onAtomDrag": "translate"
   },
-  "pairwiseLJProperties": [
-    {
-      "element1": 1,
-      "element2": 3,
-      "sigma": 0.14,
-      "epsilon": -0.009999999776482582
-    },
-    {
-      "element1": 0,
-      "element2": 2,
-      "sigma": 0.09170000076293945,
-      "epsilon": -0.20000000596046447
-    },
-    {
-      "element1": 0,
-      "element2": 1,
-      "sigma": 0.07,
-      "epsilon": -0.009999999776482582
-    },
-    {
-      "element1": 1,
-      "element2": 2,
-      "sigma": 0.09170000076293945,
-      "epsilon": -0.009999999776482582
-    },
-    {
-      "element1": 0,
-      "element2": 3,
-      "sigma": 0.14,
-      "epsilon": -0.1
-    }
-  ],
+  "pairwiseLJProperties": [  ],
   "elements": {
     "mass": [
       20,
-      40,
-      60,
-      80,
+      20,
+      20,
+      20,
       20
     ],
     "sigma": [
@@ -206,11 +175,11 @@
       0.07
     ],
     "epsilon": [
-      -0.20000000298023224,
-      -0.009999999776482582,
-      -0.009999999776482582,
-      -0.1,
-      -0.20000000298023224
+      -0.01,
+      -0.01,
+      -0.01,
+      -0.01,
+      -0.01
     ],
     "color": [
       -65536,
