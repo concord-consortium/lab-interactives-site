@@ -17,7 +17,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "http://models-resources.concord.org/jsmol/embeddable.html"
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html"
       },
       "onLoad": [
       	"post('jsmolScript', 'script models/pearson-demo/but2ene-1.pdb;');",
