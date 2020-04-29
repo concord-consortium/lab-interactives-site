@@ -38,8 +38,7 @@
       "options": [
         {
           "text": "Temperature",
-          "action": "",
-          "disabled": true
+          "action": ""
         },
         {
           "text": "Thermal energy",
