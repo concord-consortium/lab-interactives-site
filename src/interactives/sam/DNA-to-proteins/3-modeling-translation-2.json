@@ -1,0 +1,134 @@
+{
+  "title": "Modeling Translation",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore how a protein is made from an mRNA sequence.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 0.8,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/3-modeling-translation.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Translation, or making a protein from an mRNA sequence, occurs on ribosomes. The amino acids are brought to the ribosome by transfer RNAs (tRNAs).",
+    "",
+    "The tRNA pairs up with the mRNA by matching up complementary nucleotides. This ensures that the correct amino acid is added to the protein.",
+    "",
+    "Can you identify what the tRNA codon will be for each triplet of mRNA nucleotides?"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page3$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false
+      },
+      "modelOptions": {
+        "DNA": "ATGGGGTTTACATAG",
+        "DNAState": "translation:0"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "translate-step",
+      "type": "button",
+      "action": "translateDNAStep();",
+      "text": "Translate step by step",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+        "else start();"
+      ],
+      "text": "Start/continue model",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "action": [
+        "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+        "else stop();"
+      ],
+      "text": "Stop",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "action": "reloadModel();",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "model-bottom": [
+      [
+        "translate-step"
+      ],
+      [
+        "start",
+        "stop",
+        "reset"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "model-bottom",
+      "left": "interactive.left",
+      "height": "0.2 * interactive.height",
+      "top": "model.bottom",
+      "right": "interactive.right",
+      "align": "center",
+      "fontScale": 0.8
+    },
+    {
+      "id": "right-padding-container",
+      "left": "model.right",
+      "width": 10
+    },
+    {
+      "id": "model-centering-container",
+      "top": "interactive.top",
+      "right": "model.left",
+      "width": "0.5 * (interactive.width - model.width) - 5"
+    }
+  ]
+}
