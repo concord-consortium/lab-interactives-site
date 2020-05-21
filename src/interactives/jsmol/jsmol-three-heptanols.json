@@ -1,0 +1,100 @@
+{
+  "title": "JSmol with Three Hepatanols",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Surfaces displaying electrostatic potential",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Open Interactive JSON editor to see how two molecules are defined and how to commonicate with",
+    "them.",
+    "",
+    "You have to define special property **moleculesCount** after # in the JSmol embeddable page URL.",
+    "You cannot define this parameter inside standard model properties section.",
+    "",
+    "To communicate with models, you can use exactly the same techniques like for single molecule.",
+    "To define scope of JSmol script or property, use special prefixes: **m0:**, **m1:**, **m2:**, etc.",
+    "",
+    "When you do not specify prefix, script or property will be applied to **all** molecules."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
+        "m0:molecule": "models/heptanols/1-heptanol.mol2",
+        "m1:molecule": "models/heptanols/1-7-heptanediol.mol2",
+        "m2:molecule": "models/heptanols/1-4-7-heptanetriol.mol2",
+       "showAxes": true,
+        "m0:showFrank": false,
+        "m1:showFrank": false,
+        "m2:showFrank": false
+      },
+      "onLoad": [
+        "post('jsmolScript', 'm0: axes off; zoom 90; set echo top center; font echo 14 sansserif bold; color echo black; echo 1-heptanol; isosurface mySurface reversecolor colorscheme rwb resolution 4 solvent 1.2 map mep');",
+        "post('jsmolScript', 'm1: axes off; zoom 90; set echo top center; font echo 14 sansserif bold; color echo black; echo 1,7-heptanediol; isosurface mySurface on; isosurface mySurface reversecolor colorscheme rwb resolution 4 solvent 1.2 map mep');",
+        "post('jsmolScript', 'm2: axes off; zoom 90; set echo top center; font echo 14 sansserif bold; color echo black; echo 1,4,7-heptanetriol; isosurface mySurface on; isosurface mySurface reversecolor colorscheme rwb resolution 4 solvent 1.2 map mep');"
+      ],
+
+      "viewOptions": {
+        "aspectRatio": 2.5,
+        "controlButtons": "reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "vdw-on-left",
+      "type": "button",
+      "action": "post('jsmolScript', 'select *; isosurface translucent 0.7');",
+      "text": "Translucent surfaces",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "vdw-on-right",
+      "type": "button",
+      "action": "post('jsmolScript', 'isosurface opaque');",
+      "text": "Solid surfaces",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "vdw-on-left",
+        "vdw-on-right"
+      ]
+    ]
+  },
+  "template": "simple"
+}
