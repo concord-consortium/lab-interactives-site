@@ -134,7 +134,7 @@
         "  break;",
         "case 'displayall':",
         "  post('jsmolScript', 'script models/dna2/move-to-original-position.spt');",
-        "  post('jsmolScript', 'script /models/dna2/dna-horizontal.spt;');",
+        "  post('jsmolScript', 'script models/dna2/dna-horizontal.spt;');",
         "  set('color',get('color'));",
         "  break;",
         "}"
