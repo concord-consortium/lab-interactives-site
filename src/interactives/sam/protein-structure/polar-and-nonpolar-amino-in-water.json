@@ -1,0 +1,52 @@
+{
+  "title": "Polar and non-polar amino acids in water",
+  "publicationStatus": "public",
+  "subtitle": "Cooling liquids",
+  "aspectRatio": 1.3,
+  "about": [
+  ],
+  "models": [
+     {
+      "type": "md2d",
+      "id": "polar-amino",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/protein-structure/polar-amino.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    },
+     {
+      "type": "md2d",
+      "id": "nonpolar-amino",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/protein-structure/nonpolar-amino.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "parameters": [],
+  "components": [
+    {
+      "id": "model-select",
+      "type": "radio",
+      "orientation": "horizontal",
+      "options": [
+        {
+          "text": "Polar amino acid",
+          "action": "loadModel('polar-amino');",
+          "selected": true
+        },
+        {
+          "text": "Nonpolar amino acid",
+          "action": "loadModel('nonpolar-amino');"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["model-select"]
+    ]
+  }
+}
