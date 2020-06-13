@@ -18,6 +18,10 @@
   :name: "Science of Atoms and Molecules: DNA-to-proteins"
   :category: Curriculum
 
+- :path: sam/protein-structure
+  :name: "Science of Atoms and Molecules: Four levels of protien structure"
+  :category: Curriculum
+
 - :path: sam/diffusion
   :name: "Science of Atoms and Molecules: Diffusion"
   :category: Curriculum
