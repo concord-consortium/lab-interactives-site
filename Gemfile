@@ -8,7 +8,7 @@ gem 'i18n',               "~> 0.6.4"
 gem "s3_website",         "~> 3.1.0"
 
 group :app do
-  gem "rack",               "~> 1.5.2"
+  gem "rack",               "~> 2.1.4"
   gem "rake",               "~> 10.1.0"
   gem "sass",               "~> 3.2.5"
   gem 'bourbon',            "~> 3.1.1"
