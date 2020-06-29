@@ -1,0 +1,59 @@
+{
+  "title": "The 's' and 'p' Atomic Orbitals",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "These models represent two different areas occupied by electrons surrounding the nucleus of an atom. These regions around the atom where its electrons are likely to be found are called atomic orbitals. Each of these orbitals can hold 2 electrons. Note that only one of the three p orbitals is shown here."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/orbitals/HF.mol2",
+        "m1:molecule": "models/orbitals/p-orbital.mol",
+        "showAxes": false,
+        "m0:showFrank": false,
+        "m1:showFrank": false
+      },
+     "onLoad": [
+       "post('jsmolScript', 'm0:set background black; set echo top center; color echo lightgreen; font echo 16 arial bold; echo \"An s orbital\"; restrict atomno=2; center atomno=2; set echo myecho2 0% 0%; font echo 14 arial; color echo yellow; echo \"surface marking an 80%|chance of finding an electron|within that region\"; color atom red; spacefill 4%; lcaoCartoon scale 0.7; lcaoCartoon color hotpink translucent; lcaoCartoon create \"s\"; zoom 300; spin on;');",
+       "post('jsmolScript', 'm1:set background black; reset;center {0 0 0}; rotate z -89.67; rotate y 97.24; rotate z 163.53; set echo top center; color echo lightgreen; font echo 16 arial bold; echo \"A p orbital\"; display none; display carbon; color red; spacefill 4%; isosurface sign gold hotpink phase atomicOrbital 2 1 1 ;color isosurface translucent; zoom 100; spin on;');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 2.2,
+        "controlButtons": "reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [],
+  "layout": {
+    "bottom": []
+  },
+  "template": "simple"
+}
