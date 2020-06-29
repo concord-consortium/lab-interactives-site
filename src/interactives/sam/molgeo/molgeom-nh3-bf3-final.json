@@ -1,0 +1,57 @@
+{
+  "title": "Molecular Geometry of NH3 and BF3",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Compare the shapes of NH3 and BF3, both of which have four atoms. What makes their shapes different? Look carefully at the Lewis dot structures to discover the reason."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": false,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/molgeo/p7-nh3-bf3/nh3.pdb",
+        "m1:molecule": "models/molgeo/p7-nh3-bf3/bf3.pdb",
+        "showAxes": false,
+        "m0:showFrank": false,
+        "m1:showFrank": false
+      },
+       "onLoad": [
+        "post('jsmolScript', 'm0: set background black; cpk 20%; wireframe 0.1; set measures off; measures off; measure 1 2; measure 2 3; measure 3 4; measure 1 3; measure 1 4; measure 2 4; spin on; set echo nh3echo 0% 100%; set echo nh3echo IMAGE \"models/molgeo/p7-nh3-bf3/lewisNH3_small.gif\";');",
+        "post('jsmolScript', 'm1: set background black; cpk 20%; wireframe 0.1; set measures off; measures off; measure 1 2; measure 2 3; measure 3 4; measure 1 3; measure 1 4; measure 2 4; spin on; set echo bf3echo 0% 100%; set echo bf3echo IMAGE \"models/molgeo/p7-nh3-bf3/lewisBF3_small.gif\";');"
+      ],
+
+      "viewOptions": {
+        "aspectRatio": 1.62
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [],
+  "layout": {},
+  "template": []
+}
