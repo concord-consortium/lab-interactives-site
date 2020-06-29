@@ -34,6 +34,14 @@
   :name: "Science of Atoms and Molecules: Chemical Reactions"
   :category: Curriculum
 
+- :path: sam/chemical-bonds
+  :name: "Science of Atoms and Molecules: Chemical Bonds"
+  :category: Curriculum
+
+- :path: sam/molgeo
+  :name: "Science of Atoms and Molecules: Molecular Geometry"
+  :category: Curriculum
+
 - :path: inquiry-examples/pendulum
   :name: "Inquiry Examples: Pendulums"
   :category: Curriculum
