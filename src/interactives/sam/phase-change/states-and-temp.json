@@ -1,0 +1,198 @@
+{
+  "title": "States of Matter: Molecular Attractions and Temperature",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.21,
+  "fontScale": 1,
+  "helpOnLoad": false,
+  "about": [
+    "Explore how energy and the attraction between moleucles affect how molecules move in this simulation."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
+      "onLoad": "",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "markColor": "#FF0000"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "charge",
+      "initialValue": false,
+      "onChange": [
+        "batch(function(){",
+        "  var count = getNumberOfAtoms();",
+        "  var chargeVal;",
+        "  if (value) { chargeVal = 1.5 } else { chargeVal = 0; }",
+        "  for (var i=0; i < count; i++) {",
+        "    setAtomProperties(i, {charge: chargeVal}, false, false);",
+        "    chargeVal *= -1;",
+        "  }",
+        "  set('chargeShading', value);",
+        "});"
+      ]
+    },
+    {
+      "name": "epsilon",
+      "initialValue": 0.14,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "dataSets": [],
+  "components": [
+    {
+      "id": "mark-two-atoms",
+      "type": "button",
+      "action": "untraceAtom(); markAtoms(randomAtoms(2));",
+      "text": "Mark two molecules",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "trace-atom",
+      "type": "button",
+      "action": "var a = randomAtoms(1); traceAtom(a); markAtoms(a);",
+      "text": "Trace a random molecule",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "epsilon-slider",
+      "type": "slider",
+      "min": 0.001,
+      "max": 0.3,
+      "steps": 4,
+      "title": "Attractions",
+      "labels": [
+        {
+          "value": 0.001,
+          "label": "A"
+        },
+        {
+          "value": 0.076,
+          "label": "B"
+        },
+        {
+          "value": 0.15,
+          "label": "C"
+        },
+        {
+          "value": 0.225,
+          "label": "D"
+        },
+        {
+          "value": 0.29,
+          "label": "E"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "property": "epsilon",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 2774,
+      "steps": 100,
+      "title": "Temperature",
+      "labels": [
+        {
+          "value": 200,
+          "label": " Low"
+        },
+        {
+          "value": 2774,
+          "label": "High"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "targetTemperature",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 2774,
+      "title": "Temperature (°C)",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "-273 c"
+        },
+        {
+          "value": 273,
+          "label": "0 c"
+        },
+        {
+          "value": 773,
+          "label": "500 c"
+        },
+        {
+          "value": 1273,
+          "label": "1000 c"
+        },
+        {
+          "value": 1773,
+          "label": "1500 c"
+        },
+        {
+          "value": 2273,
+          "label": "2000 c"
+        },
+        {
+          "value": 2773,
+          "label": "2500 c"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "3r",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+   {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Remove trace",
+      "action": "unmarkAllAtoms(); untraceAtom();"
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+        ["epsilon-slider","temperature-slider"],
+        ["mark-two-atoms","trace-atom","untrace-atom"]
+    ]
+  },
+  "template": "simple"
+}
