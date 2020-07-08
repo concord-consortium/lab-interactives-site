@@ -1,0 +1,81 @@
+{
+  "title": "States of Matter and Attractions between Molecules",
+  "publicationStatus": "public",
+  "subtitle": "Explore how states of matter are related to the strength of intermolecular attractions.",
+  "aspectRatio": 1.05,
+  "about": [
+    "There are three states of matter—solid, liquid and gas. Run the model and change the",
+    "strength of attractions between the molecules. How does changing the force of attraction",
+    "between molecules affect the state of that material?"
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page5$0",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/phase-change/original-interactives-in-pages/page5/page5$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text",
+        "showVDWLines": true,
+        "markColor": "#ff0000"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "epsilon",
+      "initialValue": 0.144,
+      "onChange": "setElementProperties(2, { epsilon: -value });"
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "epsilon-slider",
+      "min": 0.01,
+      "max": 0.16,
+      "labels": [
+        {
+          "value": 0.01,
+          "label": "Weak"
+        },
+        {
+          "value": 0.16,
+          "label": "Strong"
+        }
+      ],
+      "steps": 50,
+      "title": "Attraction between atoms",
+      "property": "epsilon"
+    },
+    {
+      "type": "button",
+      "id": "mark-two-atoms",
+      "text": "Mark two atoms",
+      "action": "untraceAtom(); markAtoms(randomAtoms(2));"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Show attractions",
+      "property": "showVDWLines"
+    },
+    {
+      "type": "button",
+      "id": "trace-atom",
+      "text": "Trace a random atom",
+      "action": "var a = randomAtoms(1); traceAtom(a); markAtoms(a);"
+    },
+    {
+      "type": "button",
+      "id": "untrace-atom",
+      "text": "Remove trace",
+      "action": "unmarkAllAtoms(); untraceAtom();"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["epsilon-slider","show-attractions"],["mark-two-atoms","trace-atom","untrace-atom"]
+    ]
+  }
+}
