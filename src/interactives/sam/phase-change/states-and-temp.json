@@ -20,6 +20,7 @@
       "viewOptions": {
         "controlButtons": "play_reset",
         "controlButtonStyle": "text",
+        "showVDWLines": true,
         "markColor": "#FF0000"
       }
     }
@@ -61,6 +62,12 @@
       "text": "Mark two molecules",
       "disabled": false,
       "tooltip": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "show-attractions",
+      "text": "Show attractions",
+      "property": "showVDWLines"
     },
     {
       "id": "trace-atom",
@@ -190,7 +197,7 @@
       "thermometer"
     ],
     "bottom": [
-        ["epsilon-slider","temperature-slider"],
+        ["show-attractions","epsilon-slider","temperature-slider"],
         ["mark-two-atoms","trace-atom","untrace-atom"]
     ]
   },
