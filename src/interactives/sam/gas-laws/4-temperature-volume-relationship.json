@@ -30,6 +30,15 @@
       }
     }
   ],
+  "exports": {
+    "perRun": [
+      "targetTemperature"
+    ],
+    "perTick": [
+      "Time",
+      "volume"
+    ]
+  },
   "outputs": [
     {
       "name": "volume",
