@@ -38,7 +38,8 @@
     },
     {
       "name": "proteinChainType",
-      "initialValue":"random mix"
+      "initialValue":"random mix",
+      "label": "Protein Chain Type"
     }
   ],
   "components": [

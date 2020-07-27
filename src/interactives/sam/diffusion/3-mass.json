@@ -104,7 +104,8 @@
     },
     {
       "name": "MolecularMass",
-      "initialValue": 40
+      "initialValue": 40,
+      "label": "Molecular Mass"
     },
     {
       "name": "selectedTemperature",
