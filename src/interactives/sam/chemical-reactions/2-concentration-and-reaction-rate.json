@@ -34,7 +34,7 @@
         "setComponentDisabled('add10', false);",
         "onPropertyChange('time', function(t) {",
         "  var pComp = get('percentReactionComplete');",
-        "  if ((pComp >= 80) && (get('TimeToGreaterThan80Percent') == 'less than 80%')) { ",
+        "  if ((pComp >= 80) && (get('TimeToGreaterThan80Percent') == 'incomplete')) { ",
         "    set({TimeToGreaterThan80Percent: get('displayTime')});",
         "  }",
         "});",
