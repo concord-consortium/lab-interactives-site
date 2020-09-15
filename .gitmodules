@@ -55,9 +55,6 @@
 [submodule "vendor/jquery-selectBoxIt"]
 	path = vendor/jquery-selectBoxIt
 	url = git://github.com/gfranko/jquery.selectBoxIt.js.git
-[submodule "vendor/fingerprintjs"]
-	path = vendor/fingerprintjs
-	url = https://github.com/Valve/fingerprintjs
 [submodule "vendor/pixi.js"]
 	path = vendor/pixi.js
 	url = https://github.com/concord-consortium/pixi.js.git

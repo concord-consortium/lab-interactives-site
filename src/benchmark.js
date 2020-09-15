@@ -28,7 +28,7 @@ $(function () {
   var $info = $("#info");
   var $iframe = $("#iframe-interactive");
   var phone;
-  var fingerprint = new Fingerprint().get();
+  var fingerprint = "mock fingerprint";
 
   var resultsKeys = (function () {
     var keys = [];

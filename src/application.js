@@ -783,12 +783,7 @@
   // Benchmarks
   //
   function getFingerprint() {
-    if (SITE_CONFIG.SITE_ENV === 'production') {
-      // fake fingerprint on production because library won't be loaded
-      return "mock fingerprint";
-    } else {
-      return new Fingerprint().get(); // semi-unique browser id
-    }
+    return "mock fingerprint";
   }
 
   function setupBenchmarks() {
