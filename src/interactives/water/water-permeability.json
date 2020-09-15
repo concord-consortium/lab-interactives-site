@@ -1,0 +1,119 @@
+{
+  "title": "Water - Permeability",
+  "publicationStatus": "public",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+  ],
+  "theme": ["has", "standalone-playback"],
+  "aspectRatio": 2,
+  "fontScale": 1,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "url": "models/lab-version/1/iframe-model/iframe-model.json",
+      "modelOptions":{
+        "url": "//models-resources.concord.org/agentscript/water/lab-embeddable.html#greenSoil=true",
+        "template": "state/low-res/permeability.json",
+        "rainProbability": 0.5,
+        "evapProbability": 0,
+        "controls": {
+          "wells": false,
+          "water": false,
+          "draw": false,
+          "remove": false
+        }
+      },
+      "viewOptions": {
+        "aspectRatio": 2.8,
+        "controlButtons": "play_reset"
+      },
+      "onLoad": [
+        "function disableComponents(value) {",
+        "  setComponentDisabled('followRainButton', value);",
+        "}",
+        "disableComponents(true);",
+        "onStart(function() { disableComponents(false); });",
+        "onStop(function() { disableComponents(true); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "followRain",
+      "initialValue": false,
+      "onChange": [
+        "// Note that we have to use .post() instead of method shortcuts, as this handler is",
+        "// called before iframe can register its methods (before iframe communication is started).",
+        "if (value) {",
+        "  post('addRainSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Stop following'});",
+        "} else {",
+        "  post('removeSpotlight');",
+        "  setComponentAttributes('followRainButton', {text: 'Follow water droplet'});",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+  ],
+  "helpTips": [
+  ],
+  "components": [
+    {
+      "id": "followRainButton",
+      "type": "button",
+      "action": [
+        "set('followRain', !get('followRain'));"
+      ],
+      "text": "Follow water droplet",
+      "width": "14em"
+    },
+    {
+      "id": "rainSlider",
+      "type": "slider",
+      "min": 0,
+      "max": 1,
+      "title": "Rain amount",
+      "steps": 50,
+      "labels": [
+        {
+          "value": "left",
+          "label": "<i class='fa fa-sun-o' style='font-size: 1.5em;'></i>"
+        },
+        {
+          "value": "right",
+          "label": "<i class='fa fa-umbrella' style='font-size: 1.5em; margin-right: 0.5em;'></i>"
+        }
+      ],
+      "property": "rainProbability"
+    },
+    {
+      "id": "playback",
+      "type": "playback"
+    }
+  ],
+  "template": [
+    {
+      "id": "bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "top": "model.bottom",
+      "padding-top": "0.5em",
+      "padding-right": "0.5em",
+      "align": "center"
+    },
+    {
+      "id": "right-padding",
+      "width": "0.7em",
+      "left": "model.right",
+      "top": "model.top"
+    }
+  ],
+  "layout": {
+    "bottom": [
+      ["rainSlider", "playback", "followRainButton"]
+    ]
+  }
+}
