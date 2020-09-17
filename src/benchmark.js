@@ -1,4 +1,4 @@
-/*global iframePhone, Fingerprint, alert*/
+/*global iframePhone, alert*/
 
 /**
  * IMPORTANT: to test a specific Lab version, you have to ensure that interactives.json file
