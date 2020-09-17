@@ -127,7 +127,6 @@ else
 <script src='vendor/codemirror/addon/format/formatting.js' type='text/javascript'></script>
 <script src='vendor/codemirror/addon/edit/matchbrackets.js' type='text/javascript'></script>
 <script src='vendor/codemirror/addon/edit/closebrackets.js' type='text/javascript'></script>
-<script src='vendor/fingerprintjs/fingerprint.min.js' type='text/javascript'></script>
 <script src='vendor/chosen/chosen.jquery.min.js' type='text/javascript'></script>
   HEREDOC
 end

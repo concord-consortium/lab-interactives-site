@@ -6,7 +6,7 @@
   "about": [
   ],
   "theme": ["has", "standalone-playback"],
-  "aspectRatio": 2,
+  "aspectRatio": 1.6,
   "fontScale": 1,
   "models": [
     {
