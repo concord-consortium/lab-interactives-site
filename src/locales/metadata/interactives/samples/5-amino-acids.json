@@ -3,5 +3,15 @@
   "en-US": "interactives/samples/5-amino-acids.json",
   "nn-NO": "locales/nn/interactives/samples/5-amino-acids.json",
   "it": "locales/it/interactives/samples/5-amino-acids.json",
-  "el": "locales/el/interactives/samples/5-amino-acids.json"
+  "el": "locales/el/interactives/samples/5-amino-acids.json",
+  "es": "locales/es/interactives/samples/5-amino-acids.json",
+  "tr": "locales/tr/interactives/samples/5-amino-acids.json",
+  "de": "locales/de/interactives/samples/5-amino-acids.json",
+  "zh": "locales/zh/interactives/samples/5-amino-acids.json",
+  "fr": "locales/fr/interactives/samples/5-amino-acids.json",
+  "pt": "locales/pt/interactives/samples/5-amino-acids.json",
+  "ar": "locales/ar/interactives/samples/5-amino-acids.json",
+  "ja": "locales/ja/interactives/samples/5-amino-acids.json",
+  "ko": "locales/ko/interactives/samples/5-amino-acids.json",
+  "nl": "locales/nl/interactives/samples/5-amino-acids.json"
 }
