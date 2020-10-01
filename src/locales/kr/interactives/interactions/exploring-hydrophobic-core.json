@@ -8,7 +8,7 @@
     "screenshot": "",
     "aspectRatio": 1.7,
     "fontScale": 0.85,
-    "lang": "ko",
+    "lang": "kr",
     "i18nMetadata": "locales/metadata/interactives/interactions/exploring-hydrophobic-core.json",
     "credits": [
         "\uc774 \ub300\ud654 \ud615\uc740 [Concord Consortium] (https://concord.org/)\uc5d0\uc11c [Next-Generation Molecular Workbench] (http://mw.concord.org/nextgen/) \uc18c\ud504\ud2b8\uc6e8\uc5b4\ub97c \uc0ac\uc6a9\ud558\uc5ec \uc81c\uc791\ub418\uc5c8\uc73c\uba70 \ubcf4\uc870\uae08\uc73c\ub85c \uc790\uae08\uc774 \uc9c0\uc6d0\ub429\ub2c8\ub2e4. [Google.org] (https://www.google.org/)\uc5d0\uc11c",
