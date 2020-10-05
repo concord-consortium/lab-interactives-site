@@ -1,0 +1,265 @@
+{
+    "title": "Esplorando Hydrophobic Core",
+    "publicationStatus": "public",
+    "labEnvironment": "production",
+    "subtitle": "Esplorazione di regioni polari e non polari su diverse proteine.",
+    "category": "",
+    "subCategory": "",
+    "screenshot": "",
+    "aspectRatio": 1.7,
+    "fontScale": 0.85,
+    "lang": "it",
+    "i18nMetadata": "locales/metadata/interactives/interactions/exploring-hydrophobic-core.json",
+    "credits": [
+        "Questo interattivo \u00e8 stato creato dal [Concord Consortium] (https://concord.org/) utilizzando il nostro software [Next-Generation Molecular Workbench] (http://mw.concord.org/nextgen/), con un finanziamento di una sovvenzione da [Google.org] (https://www.google.org/).",
+        "Questo dispositivo interattivo utilizza anche [JSMol] (https://sourceforge.net/projects/jsmol/), concesso in licenza con la licenza [LGPL] (http://www.gnu.org/licenses/lgpl.html)."
+    ],
+    "helpOnLoad": false,
+    "aboutOnLoad": true,
+    "about": [
+        "Selezionare diverse proteine \u200b\u200be scegliere quali parti della ",
+        "molecola proteica evidenziare.",
+        "***",
+        "Fare clic e trascinare la molecola per ruotarla.",
+        "Osserva dove finiscono le parti polari e non polari della proteina e come influenzano la struttura complessiva della molecola proteica pi\u00f9 grande.",
+        "Questa simulazione \u00e8 stata sviluppata dal progetto Interactions con il finanziamento della National Science Foundation (DRL-1232388) in collaborazione con il CREATE for STEM Institute della Michigan State University.",
+        "Per saperne di pi\u00f9,",
+        "visita la raccolta di curriculum Interazioni in cui \u00e8 incorporata questa simulazione."
+    ],
+    "theme": "",
+    "showTopBar": true,
+    "showBottomBar": true,
+    "padding": 10,
+    "models": [
+        {
+            "type": "iframe-model",
+            "id": "iframe-model",
+            "model": {
+                "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+            },
+            "onLoad": [
+                "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
+                "",
+                "function deleteNonProtein() {",
+                "  return 'select not protein; delete selected;';",
+                "}",
+                "",
+                "function setStyle() {",
+                "  var value = get('style');",
+                "  if (value === 'spacefill') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
+                "  } else if (value === 'ball-and-stick') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
+                "  }",
+                "}",
+                "",
+                "function setColor() {",
+                "  var value = get('color');",
+                "  if (value === 'element') {",
+                "    return 'select all; color cpk;';",
+                "  } else if (value === 'amino-acid') {",
+                "    return 'select all; color shapely;';",
+                "  } else if (value === 'polarity') {",
+                "    return 'select polar; color [x488728]; select hydrophobic; color [xE2AA31];';",
+                "  }",
+                "}",
+                "",
+                "function setTranslucency() {",
+                "  var value = get('translucency');",
+                "  if (!value) {",
+                "    return 'select all; color opaque;';",
+                "  } else if (value === 'hydrophobic') {",
+                "    return 'select hydrophobic; color atoms translucent 7; select polar; color atoms opaque; ';",
+                "  } else if (value === 'hydrophilic') {",
+                "    return 'select hydrophobic; color atoms opaque; select polar; color atoms translucent 7;';",
+                "  }",
+                "}",
+                "",
+                "function update(propertyName) {",
+                "  var script = deleteNonProtein();",
+                "  script += setStyle();",
+                "  script += setColor();",
+                "  script += setTranslucency();",
+                "  post('jsmolScript', script);",
+                "}",
+                "",
+                "onPropertyChange('molecule', update);",
+                "onPropertyChange('color', update);",
+                "onPropertyChange('style', update);",
+                "onPropertyChange('translucency', update);",
+                "",
+                "update(get('style'));"
+            ],
+            "viewOptions": {
+                "aspectRatio": 1,
+                "controlButtons": ""
+            },
+            "modelOptions": {
+                "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
+            }
+        }
+    ],
+    "propertiesToRetain": [],
+    "parameters": [
+        {
+            "name": "style",
+            "initialValue": "spacefill"
+        },
+        {
+            "name": "color",
+            "initialValue": "polarity"
+        },
+        {
+            "name": "translucency",
+            "initialValue": false
+        },
+        {
+            "name": "sidechainOnly",
+            "initialValue": true
+        },
+        {
+            "name": "image",
+            "initialValue": false,
+            "onChange": [
+                "post('jsmolScript', 'set echo off;' + (value ? ' set echo top center; set echo IMAGE \"models/exploring-hydrophobic-core/' + value + '\"' : ''));"
+            ]
+        }
+    ],
+    "outputs": [],
+    "filteredOutputs": [],
+    "helpTips": [],
+    "dataSets": [],
+    "components": [
+        {
+            "id": "molecule",
+            "type": "pulldown",
+            "label": "Proteina",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Albumina (presente nel bianco d'uovo)",
+                    "value": "models/exploring-hydrophobic-core/1RK9.pdb"
+                },
+                {
+                    "text": "Insulina (regola lo zucchero nel sangue)",
+                    "value": "models/exploring-hydrophobic-core/2hiu.pdb"
+                },
+                {
+                    "text": "Lisozima (antibiotico in lacrime e saliva)",
+                    "value": "models/exploring-hydrophobic-core/2lyz.pdb"
+                },
+                {
+                    "text": "Enzima di restrizione (taglia il DNA)",
+                    "value": "models/exploring-hydrophobic-core/1eri.pdb"
+                }
+            ],
+            "property": "molecule",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "style",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Stile",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Tutti gli atomi (palla e bastone)",
+                    "value": "ball-and-stick"
+                },
+                {
+                    "text": "Tutti gli atomi (spacefill)",
+                    "value": "spacefill"
+                }
+            ],
+            "property": "style",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "color",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Colore",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Polarit\u00e0 (idrofobica / idrofila)",
+                    "value": "polarity"
+                },
+                {
+                    "text": "Elemento",
+                    "value": "element"
+                },
+                {
+                    "text": "Amminoacido",
+                    "value": "amino-acid"
+                }
+            ],
+            "property": "color",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "translucency",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Traslucenza",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Nessuna",
+                    "value": false
+                },
+                {
+                    "text": "Non polare (idrofobo)",
+                    "value": "hydrophobic"
+                },
+                {
+                    "text": "Polare / carico (idrofilo)",
+                    "value": "hydrophilic"
+                }
+            ],
+            "property": "translucency",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        }
+    ],
+    "layout": {
+        "right": [
+            [
+                "molecule"
+            ],
+            [
+                "translucency"
+            ],
+            [
+                "style"
+            ],
+            [
+                "color"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "right",
+            "top": "model.top",
+            "left": "model.right",
+            "margin-left": "0.5em",
+            "margin-right": "0.5em"
+        }
+    ]
+}

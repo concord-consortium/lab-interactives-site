@@ -1,17 +1,17 @@
 {
-    "title": "Da DNA a proteine",
+    "title": "DNA naar prote\u00efne",
     "publicationStatus": "public",
-    "subtitle": "Esplora come il codice incorporato nel DNA viene tradotto in una proteina.",
+    "subtitle": "Ontdek hoe de code die in DNA is ingebed, wordt vertaald in een eiwit.",
     "aspectRatio": 1.05,
     "category": "Biology",
     "subCategory": "Genetics",
     "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
     "about": [
-        "Fare clic su ** Trascrivi ** per ingrandire il nucleo della cellula e vedere il cromosoma svelarsi per esporre i filamenti di DNA. Il DNA si separa e un filamento di mRNA viene creato abbinando nucleotidi complementari.",
+        "Klik op ** Transcriberen ** om in te zoomen op de celkern en zie hoe het chromosoom zich ontrafelt om de strengen DNA bloot te leggen. Het DNA scheidt zich en een mRNA-streng wordt gemaakt door complementaire nucleotiden te matchen.",
         "",
-        "Fare clic su ** Translate ** per osservare l'mRNA lasciare il nucleo per il citoplasma e attaccarsi a un ribosoma. Le molecole di tRNA apportano amminoacidi e gli amminoacidi vengono aggiunti nell'ordine corretto facendo corrispondere i nucleotidi complementari.",
+        "Klik op Transleren om te zien hoe het mRNA de kern verlaat voor het\ncytoplasma en hecht aan een ribosoom. tRNA-moleculen brengen aminozuren binnen en die worden in de juiste volgorde toegevoegd door complementaire nucleotiden samen te brengen.",
         "",
-        "Dopo la traduzione, ispeziona la proteina per vedere come si \u00e8 piegata la sequenza di amminoacidi."
+        "Inspecteer na vertaling het eiwit om te zien hoe de aminozuursequentie is gevouwen."
     ],
     "fontScale": 0.65,
     "models": [
@@ -33,7 +33,7 @@
         {
             "type": "button",
             "id": "transcribe",
-            "text": "Trascrivere",
+            "text": "Transcriberen",
             "action": [
                 "if (DNAStateAfter('transcription-end'))",
                 "  set('DNAState', 'dna');",
@@ -43,7 +43,7 @@
         {
             "type": "button",
             "id": "transcribe-step",
-            "text": "Trascrivi passo dopo passo",
+            "text": "Transcribeer stap voor stap",
             "action": [
                 "if (DNAStateBefore ('dna')) {",
                 "  animateToDNAState('transcription:1');",
@@ -55,7 +55,7 @@
         {
             "type": "button",
             "id": "translate",
-            "text": "Traduci",
+            "text": "Vertalen",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -69,7 +69,7 @@
         {
             "type": "button",
             "id": "translate-step",
-            "text": "Traduci passo dopo passo",
+            "text": "Vertaal stap voor stap",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -82,27 +82,27 @@
         {
             "type": "text",
             "id": "label1",
-            "text": "Clic"
+            "text": "Klik"
         },
         {
             "type": "text",
             "id": "label2",
-            "text": "per vedere il filamento completo di mRNA creato o"
+            "text": "om de volledige mRNA-streng gemaakt te zien of"
         },
         {
             "type": "text",
             "id": "label3",
-            "text": "Clic"
+            "text": "Klik"
         },
         {
             "type": "text",
             "id": "label4",
-            "text": "per generare proteine \u200b\u200bcomplete da mRNA o"
+            "text": "om volledig eiwit uit mRNA te genereren of"
         },
         {
             "type": "button",
             "id": "start",
-            "text": "Avvia / continua modello",
+            "text": "Model starten / voortzetten",
             "action": [
                 "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
                 "else start();"
@@ -111,7 +111,7 @@
         {
             "type": "button",
             "id": "stop",
-            "text": "Fermare",
+            "text": "Hou op",
             "action": [
                 "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
                 "else stop();"
@@ -120,31 +120,31 @@
         {
             "type": "button",
             "id": "reset",
-            "text": "Ripristina",
+            "text": "Reset",
             "action": "reloadModel();"
         },
         {
             "type": "button",
             "id": "prev-state-jump",
-            "text": "<< Salta",
+            "text": "<< Springen",
             "action": "jumpToPrevDNAState();"
         },
         {
             "type": "button",
             "id": "next-state",
-            "text": "Continua un passaggio",
+            "text": "Ga een stap verder",
             "action": "animateToNextDNAState();"
         },
         {
             "type": "button",
             "id": "next-state-jump",
-            "text": "Salta >>",
+            "text": "Spring >>",
             "action": "jumpToNextDNAState();"
         },
         {
             "type": "button",
             "id": "dna-dialog",
-            "text": "Modifica DNA",
+            "text": "Bewerk DNA",
             "action": "openDNADialog();"
         }
     ],
@@ -197,6 +197,6 @@
             "width": "0.5 * (interactive.width - model.width) - 5"
         }
     ],
-    "lang": "it",
+    "lang": "nl",
     "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }

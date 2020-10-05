@@ -1,17 +1,17 @@
 {
-    "title": "Da DNA a proteine",
+    "title": "DNA'dan Proteine",
     "publicationStatus": "public",
-    "subtitle": "Esplora come il codice incorporato nel DNA viene tradotto in una proteina.",
+    "subtitle": "DNA'ya g\u00f6m\u00fcl\u00fc kodun bir proteine nas\u0131l \u00e7evrildi\u011fini ke\u015ffedin.",
     "aspectRatio": 1.05,
     "category": "Biology",
     "subCategory": "Genetics",
     "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
     "about": [
-        "Fare clic su ** Trascrivi ** per ingrandire il nucleo della cellula e vedere il cromosoma svelarsi per esporre i filamenti di DNA. Il DNA si separa e un filamento di mRNA viene creato abbinando nucleotidi complementari.",
+        "H\u00fccre \u00e7ekirde\u011fini yak\u0131nla\u015ft\u0131rmak ve DNA ipliklerini a\u00e7\u0131\u011fa \u00e7\u0131karmak i\u00e7in kromozomun \u00e7\u00f6z\u00fclmesini g\u00f6rmek i\u00e7in Transkribe t\u0131klay\u0131n. DNA ayr\u0131l\u0131r ve tamamlay\u0131c\u0131 n\u00fckleotidler e\u015fle\u015ftirilerek bir mRNA ipli\u011fi olu\u015fturulur.",
         "",
-        "Fare clic su ** Translate ** per osservare l'mRNA lasciare il nucleo per il citoplasma e attaccarsi a un ribosoma. Le molecole di tRNA apportano amminoacidi e gli amminoacidi vengono aggiunti nell'ordine corretto facendo corrispondere i nucleotidi complementari.",
+        "mRNA'n\u0131n sitoplazmaya \u00e7ekirdekten ayr\u0131lmas\u0131n\u0131 ve bir ribozoma ba\u011flanmas\u0131n\u0131 izlemek i\u00e7in \u00c7evir'e t\u0131klay\u0131n. tRNA molek\u00fclleri, amino asitleri getirir ve amino asitler, tamamlay\u0131c\u0131 n\u00fckleotidleri e\u015fle\u015ftirerek do\u011fru s\u0131rada eklenir.",
         "",
-        "Dopo la traduzione, ispeziona la proteina per vedere come si \u00e8 piegata la sequenza di amminoacidi."
+        "\u00c7eviriden sonra, amino asit dizisinin nas\u0131l katland\u0131\u011f\u0131n\u0131 g\u00f6rmek i\u00e7in proteini inceleyin."
     ],
     "fontScale": 0.65,
     "models": [
@@ -33,7 +33,7 @@
         {
             "type": "button",
             "id": "transcribe",
-            "text": "Trascrivere",
+            "text": "Transkribe edin",
             "action": [
                 "if (DNAStateAfter('transcription-end'))",
                 "  set('DNAState', 'dna');",
@@ -43,7 +43,7 @@
         {
             "type": "button",
             "id": "transcribe-step",
-            "text": "Trascrivi passo dopo passo",
+            "text": "Ad\u0131m ad\u0131m transkribe edin",
             "action": [
                 "if (DNAStateBefore ('dna')) {",
                 "  animateToDNAState('transcription:1');",
@@ -55,7 +55,7 @@
         {
             "type": "button",
             "id": "translate",
-            "text": "Traduci",
+            "text": "\u00c7evirmek",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -69,7 +69,7 @@
         {
             "type": "button",
             "id": "translate-step",
-            "text": "Traduci passo dopo passo",
+            "text": "Ad\u0131m ad\u0131m \u00e7evirin",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -82,27 +82,27 @@
         {
             "type": "text",
             "id": "label1",
-            "text": "Clic"
+            "text": "T\u0131klay\u0131n"
         },
         {
             "type": "text",
             "id": "label2",
-            "text": "per vedere il filamento completo di mRNA creato o"
+            "text": "olu\u015fturulan tam mRNA dizisini g\u00f6rmek i\u00e7in veya"
         },
         {
             "type": "text",
             "id": "label3",
-            "text": "Clic"
+            "text": "T\u0131klay\u0131n"
         },
         {
             "type": "text",
             "id": "label4",
-            "text": "per generare proteine \u200b\u200bcomplete da mRNA o"
+            "text": "mRNA'dan tam protein \u00fcretmek i\u00e7in veya"
         },
         {
             "type": "button",
             "id": "start",
-            "text": "Avvia / continua modello",
+            "text": "Modeli ba\u015flat / devam et",
             "action": [
                 "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
                 "else start();"
@@ -111,7 +111,7 @@
         {
             "type": "button",
             "id": "stop",
-            "text": "Fermare",
+            "text": "Dur",
             "action": [
                 "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
                 "else stop();"
@@ -120,31 +120,31 @@
         {
             "type": "button",
             "id": "reset",
-            "text": "Ripristina",
+            "text": "S\u0131f\u0131rla",
             "action": "reloadModel();"
         },
         {
             "type": "button",
             "id": "prev-state-jump",
-            "text": "<< Salta",
+            "text": "<< Atla",
             "action": "jumpToPrevDNAState();"
         },
         {
             "type": "button",
             "id": "next-state",
-            "text": "Continua un passaggio",
+            "text": "Bir ad\u0131m devam edin",
             "action": "animateToNextDNAState();"
         },
         {
             "type": "button",
             "id": "next-state-jump",
-            "text": "Salta >>",
+            "text": "Atla >>",
             "action": "jumpToNextDNAState();"
         },
         {
             "type": "button",
             "id": "dna-dialog",
-            "text": "Modifica DNA",
+            "text": "DNA'y\u0131 d\u00fczenleyin",
             "action": "openDNADialog();"
         }
     ],
@@ -197,6 +197,6 @@
             "width": "0.5 * (interactive.width - model.width) - 5"
         }
     ],
-    "lang": "it",
+    "lang": "tr",
     "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }

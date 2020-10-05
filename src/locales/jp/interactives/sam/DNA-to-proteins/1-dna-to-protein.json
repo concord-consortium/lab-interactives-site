@@ -1,17 +1,17 @@
 {
-    "title": "Da DNA a proteine",
+    "title": "DNA\u304b\u3089\u30bf\u30f3\u30d1\u30af\u8cea",
     "publicationStatus": "public",
-    "subtitle": "Esplora come il codice incorporato nel DNA viene tradotto in una proteina.",
+    "subtitle": "DNA\u306b\u57cb\u3081\u8fbc\u307e\u308c\u305f\u30b3\u30fc\u30c9\u304c\u30bf\u30f3\u30d1\u30af\u8cea\u306b\u3069\u306e\u3088\u3046\u306b\u5909\u63db\u3055\u308c\u308b\u304b\u3092\u63a2\u308a\u307e\u3059\u3002",
     "aspectRatio": 1.05,
     "category": "Biology",
     "subCategory": "Genetics",
     "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
     "about": [
-        "Fare clic su ** Trascrivi ** per ingrandire il nucleo della cellula e vedere il cromosoma svelarsi per esporre i filamenti di DNA. Il DNA si separa e un filamento di mRNA viene creato abbinando nucleotidi complementari.",
+        "[\u8ee2\u5199]\u3092\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3001\u7d30\u80de\u6838\u304c\u62e1\u5927\u3057\u3001\u67d3\u8272\u4f53\u304c\u89e3\u4f53\u3057\u3066DNA\u306e\u9396\u3092\u898b\u3048\u308b\u3088\u3046\u306b\u3059\u308b\u3002 DNA\u304c\u5206\u96e2\u3057\u3001\u76f8\u88dc\u7684\u306a\u30cc\u30af\u30ec\u30aa\u30c1\u30c9\u306e\u5bfe\u5408\u306b\u3088\u3063\u3066mRNA\u9396\u304c\u4f5c\u6210\u3055\u308c\u308b\u3002",
         "",
-        "Fare clic su ** Translate ** per osservare l'mRNA lasciare il nucleo per il citoplasma e attaccarsi a un ribosoma. Le molecole di tRNA apportano amminoacidi e gli amminoacidi vengono aggiunti nell'ordine corretto facendo corrispondere i nucleotidi complementari.",
+        "[\u7ffb\u8a33]\u3092\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3001mRNA\u304c\u6838\u304b\u3089\u7d30\u80de\u8cea\u306b\u79fb\u52d5\u3057\u3001\u30ea\u30dc\u30bd\u30fc\u30e0\u306b\u4ed8\u7740\u3059\u308b\u3053\u3068\u304c\u78ba\u8a8d\u3067\u304d\u308b\u3002 tRNA\u5206\u5b50\u306f\u30a2\u30df\u30ce\u9178\u3092\u53d6\u308a\u8fbc\u307f\u3001\u30a2\u30df\u30ce\u9178\u306f\u76f8\u88dc\u7684\u306a\u30cc\u30af\u30ec\u30aa\u30c1\u30c9\u306e\u5bfe\u5408\u306b\u3088\u3063\u3066\u6b63\u3057\u3044\u9806\u5e8f\u3067\u7d50\u5408\u3055\u308c\u308b\u3002",
         "",
-        "Dopo la traduzione, ispeziona la proteina per vedere come si \u00e8 piegata la sequenza di amminoacidi."
+        "\u7ffb\u8a33\u5f8c\u3001\u30bf\u30f3\u30d1\u30af\u8cea\u3092\u8abf\u3079\u3066\u3001\u30a2\u30df\u30ce\u9178\u914d\u5217\u304c\u3069\u306e\u3088\u3046\u306b\u6298\u308a\u305f\u305f\u307e\u308c\u3066\u3044\u308b\u304b\u3092\u78ba\u8a8d\u3057\u307e\u3059\u3002"
     ],
     "fontScale": 0.65,
     "models": [
@@ -33,7 +33,7 @@
         {
             "type": "button",
             "id": "transcribe",
-            "text": "Trascrivere",
+            "text": "\u8ee2\u5199",
             "action": [
                 "if (DNAStateAfter('transcription-end'))",
                 "  set('DNAState', 'dna');",
@@ -43,7 +43,7 @@
         {
             "type": "button",
             "id": "transcribe-step",
-            "text": "Trascrivi passo dopo passo",
+            "text": "\u4e00\u6bb5\u305a\u3064\u8ee2\u5199",
             "action": [
                 "if (DNAStateBefore ('dna')) {",
                 "  animateToDNAState('transcription:1');",
@@ -55,7 +55,7 @@
         {
             "type": "button",
             "id": "translate",
-            "text": "Traduci",
+            "text": "\u7ffb\u8a33\u3059\u308b",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -69,7 +69,7 @@
         {
             "type": "button",
             "id": "translate-step",
-            "text": "Traduci passo dopo passo",
+            "text": "\u30b9\u30c6\u30c3\u30d7\u30d0\u30a4\u30b9\u30c6\u30c3\u30d7\u3067\u7ffb\u8a33",
             "action": [
                 "if (DNAStateBefore('transcription-end')) {",
                 "  alert('Translation can only occur after transcription is complete.');",
@@ -82,27 +82,27 @@
         {
             "type": "text",
             "id": "label1",
-            "text": "Clic"
+            "text": "\u30af\u30ea\u30c3\u30af"
         },
         {
             "type": "text",
             "id": "label2",
-            "text": "per vedere il filamento completo di mRNA creato o"
+            "text": "\u4f5c\u6210\u3055\u308c\u305f\u5b8c\u5168\u306amRNA\u9396\u3092\u898b\u308b\u305f\u3081"
         },
         {
             "type": "text",
             "id": "label3",
-            "text": "Clic"
+            "text": "\u30af\u30ea\u30c3\u30af"
         },
         {
             "type": "text",
             "id": "label4",
-            "text": "per generare proteine \u200b\u200bcomplete da mRNA o"
+            "text": "mRNA\u304b\u3089\u5b8c\u5168\u306a\u30bf\u30f3\u30d1\u30af\u8cea\u3092\u751f\u6210\u3059\u308b\u3001\u307e\u305f\u306f"
         },
         {
             "type": "button",
             "id": "start",
-            "text": "Avvia / continua modello",
+            "text": "\u30e2\u30c7\u30eb\u306e\u958b\u59cb/\u7d9a\u884c",
             "action": [
                 "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
                 "else start();"
@@ -111,7 +111,7 @@
         {
             "type": "button",
             "id": "stop",
-            "text": "Fermare",
+            "text": "\u3084\u3081\u308b",
             "action": [
                 "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
                 "else stop();"
@@ -120,31 +120,31 @@
         {
             "type": "button",
             "id": "reset",
-            "text": "Ripristina",
+            "text": "\u30ea\u30bb\u30c3\u30c8",
             "action": "reloadModel();"
         },
         {
             "type": "button",
             "id": "prev-state-jump",
-            "text": "<< Salta",
+            "text": "<<\u30b8\u30e3\u30f3\u30d7",
             "action": "jumpToPrevDNAState();"
         },
         {
             "type": "button",
             "id": "next-state",
-            "text": "Continua un passaggio",
+            "text": "\u4e00\u6b69\u7d9a\u3051\u308b",
             "action": "animateToNextDNAState();"
         },
         {
             "type": "button",
             "id": "next-state-jump",
-            "text": "Salta >>",
+            "text": "\u30b8\u30e3\u30f3\u30d7>>",
             "action": "jumpToNextDNAState();"
         },
         {
             "type": "button",
             "id": "dna-dialog",
-            "text": "Modifica DNA",
+            "text": "DNA\u3092\u7de8\u96c6",
             "action": "openDNADialog();"
         }
     ],
@@ -197,6 +197,6 @@
             "width": "0.5 * (interactive.width - model.width) - 5"
         }
     ],
-    "lang": "it",
+    "lang": "jp",
     "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
 }

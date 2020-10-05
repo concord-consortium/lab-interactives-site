@@ -1,13 +1,13 @@
 {
-    "title": "Ripiegamento delle proteine",
+    "title": "\u86cb\u767d\u8d28\u6298\u53e0",
     "publicationStatus": "public",
     "category": "Biology",
     "subCategory": "Molecular biology",
     "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
-    "subtitle": "Come si piegano i peptidi in conformazioni stabili?",
+    "subtitle": "\u80bd\u5982\u4f55\u6298\u53e0\u6210\u7a33\u5b9a\u7684\u6784\u8c61\uff1f",
     "fontScale": 0.6,
     "about": [
-        "Esplora il ruolo delle interazioni idrofobiche e idrofile nel ripiegamento delle proteine. Genera una stringa peptidica casuale e osserva come si piega in un ambiente acquoso. Cambia il solvente per vedere cosa succede se il peptide si trova in un ambiente oleoso o in un vuoto invece che in un ambiente acquoso."
+        "\u63a2\u7d22\u758f\u6c34\u548c\u4eb2\u6c34\u76f8\u4e92\u4f5c\u7528\u5728\u86cb\u767d\u8d28\u6298\u53e0\u4e2d\u7684\u6548\u5e94\u3002 \u4ea7\u751f\u968f\u673a\u7684\u591a\u80bd\u94fe\uff0c\u5e76\u89c2\u5bdf\u5176\u5728\u6c34\u6027\u73af\u5883\u4e2d\u5982\u4f55\u6298\u53e0\u3002 \u66f4\u6539\u6eb6\u5242\u4ee5\u67e5\u770b\u5982\u679c\u80bd\u5728\u6cb9\u6027\u73af\u5883\u6216\u771f\u7a7a\u73af\u5883\u4e2d\u800c\u4e0d\u662f\u5728\u6c34\u6027\u73af\u5883\u4e2d\u4f1a\u53d1\u751f\u4ec0\u4e48\u3002"
     ],
     "models": [
         {
@@ -31,7 +31,7 @@
         {
             "type": "checkbox",
             "id": "show-labels",
-            "text": "Utilizzare tre codici di lettere",
+            "text": "\u4f7f\u7528\u4e09\u4e2a\u6838\u82f7\u9178\u4e3a\u4e00\u7ec4\u7684\u5bc6\u7801\u5b50",
             "property": "useThreeLetterCode"
         },
         {
@@ -40,20 +40,20 @@
             "property": "solvent",
             "options": [
                 {
-                    "text": "Seleziona il tipo di solvente",
+                    "text": "\u9009\u62e9\u6eb6\u5242\u7c7b\u578b",
                     "disabled": true,
                     "selected": true
                 },
                 {
-                    "text": "Vuoto",
+                    "text": "\u771f\u7a7a",
                     "value": "vacuum"
                 },
                 {
-                    "text": "Olio",
+                    "text": "\u6cb9",
                     "value": "oil"
                 },
                 {
-                    "text": "acqua",
+                    "text": "\u6c34",
                     "value": "water"
                 }
             ]
@@ -64,24 +64,24 @@
             "property": "aminoAcidColorScheme",
             "options": [
                 {
-                    "text": "Selezionare la combinazione di colori per gli amminoacidi",
+                    "text": "\u9009\u62e9\u6c28\u57fa\u9178\u7684\u914d\u8272\u65b9\u6848",
                     "disabled": true,
                     "selected": true
                 },
                 {
-                    "text": "Nessuno",
+                    "text": "\u6ca1\u6709",
                     "value": "none"
                 },
                 {
-                    "text": "Caricare",
+                    "text": "\u7535\u8377",
                     "value": "charge"
                 },
                 {
-                    "text": "Idrofobicit\u00e0",
+                    "text": "\u758f\u6c34\u6027",
                     "value": "hydrophobicity"
                 },
                 {
-                    "text": "Carica e idrofobicit\u00e0",
+                    "text": "\u7535\u8377\u548c\u758f\u6c34\u6027",
                     "value": "chargeAndHydro"
                 }
             ]
@@ -89,7 +89,7 @@
         {
             "type": "button",
             "id": "phobic-button",
-            "text": "Tutto idrofobico",
+            "text": "\u5168\u90e8\u758f\u6c34",
             "action": [
                 "batch(function () {",
                 "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
@@ -102,7 +102,7 @@
         {
             "type": "button",
             "id": "philic-button",
-            "text": "Tutto idrofilo",
+            "text": "\u5168\u4eb2\u6c34",
             "action": [
                 "batch(function () {",
                 "  var philicAA = [6,7,8,10,11,13,16,20,21];",
@@ -115,7 +115,7 @@
         {
             "type": "button",
             "id": "mostly-phobic-button",
-            "text": "Per lo pi\u00f9 idrofobo",
+            "text": "\u4e3b\u8981\u662f\u758f\u6c34\u7684",
             "action": [
                 "batch(function () {",
                 "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
@@ -132,7 +132,7 @@
         {
             "type": "button",
             "id": "mostly-philic-button",
-            "text": "Prevalentemente idrofilo",
+            "text": "\u4e3b\u8981\u662f\u4eb2\u6c34\u7684",
             "action": [
                 "batch(function () {",
                 "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
@@ -149,7 +149,7 @@
         {
             "type": "button",
             "id": "random-button",
-            "text": "Mix casuale",
+            "text": "\u968f\u673a\u6df7\u5408",
             "action": [
                 "batch(function () {",
                 "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
@@ -161,7 +161,7 @@
         {
             "type": "button",
             "id": "random-protein-button",
-            "text": "Genera proteine casuali",
+            "text": "\u4ea7\u751f\u968f\u673a\u86cb\u767d\u8d28",
             "action": "generateRandomProtein(40);"
         }
     ],
@@ -178,6 +178,6 @@
         ]
     },
     "template": "simple",
-    "lang": "it",
+    "lang": "zh",
     "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
 }

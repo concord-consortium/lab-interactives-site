@@ -1,0 +1,265 @@
+{
+    "title": "Hidrofobik \u00c7ekirde\u011fi Ke\u015ffetmek",
+    "publicationStatus": "public",
+    "labEnvironment": "production",
+    "subtitle": "Farkl\u0131 proteinler \u00fczerindeki polar ve nonpolar b\u00f6lgeleri ke\u015ffetmek.",
+    "category": "",
+    "subCategory": "",
+    "screenshot": "",
+    "aspectRatio": 1.7,
+    "fontScale": 0.85,
+    "lang": "tr ",
+    "i18nMetadata": "locales/metadata/interactives/interactions/exploring-hydrophobic-core.json",
+    "credits": [
+        "Bu interaktif [Concord Consortium] (https://concord.org/) taraf\u0131ndan [Next-Generation Molecular Workbench] (http://mw.concord.org/nextgen/) yaz\u0131l\u0131m\u0131m\u0131z kullan\u0131larak bir hibe ile finanse edilerek olu\u015fturulmu\u015ftur. [Google.org] (https://www.google.org/) adresinden.",
+        "Bu interaktif ayr\u0131ca, [LGPL] (http://www.gnu.org/licenses/lgpl.html) lisans\u0131 alt\u0131nda lisanslanm\u0131\u015f [JSMol] (https://sourceforge.net/projects/jsmol/) kullan\u0131r."
+    ],
+    "helpOnLoad": false,
+    "aboutOnLoad": true,
+    "about": [
+        "Farkl\u0131 proteinleri se\u00e7in ve protein molek\u00fcl\u00fcn\u00fcn hangi k\u0131s\u0131mlar\u0131n\u0131n vurgulanaca\u011f\u0131n\u0131 se\u00e7in. ",
+        "D\u00f6nd\u00fcrmek i\u00e7in molek\u00fcl\u00fc t\u0131klay\u0131n ve s\u00fcr\u00fckleyin.",
+        "***",
+        "Proteinin polar ve apolar olmayan k\u0131s\u0131mlar\u0131n\u0131n nerede sona erdi\u011fini ve daha b\u00fcy\u00fck protein molek\u00fcl\u00fcn\u00fcn genel yap\u0131s\u0131n\u0131 nas\u0131l etkiledi\u011fini g\u00f6zlemleyin.",
+        "Bu sim\u00fclasyon,",
+        "Michigan Eyalet \u00dcniversitesi'ndeki CREATE for STEM Enstit\u00fcs\u00fc ile ortakla\u015fa Ulusal Bilim Vakf\u0131'ndan (DRL-1232388) fon sa\u011flanan Etkile\u015fimler projesi taraf\u0131ndan geli\u015ftirilmi\u015ftir.",
+        "Daha fazlas\u0131n\u0131 \u00f6\u011frenmek i\u00e7in,",
+        "bu sim\u00fclasyonun g\u00f6m\u00fcl\u00fc oldu\u011fu Etkile\u015fimler m\u00fcfredat\u0131 koleksiyonunu ziyaret edin."
+    ],
+    "theme": "",
+    "showTopBar": true,
+    "showBottomBar": true,
+    "padding": 10,
+    "models": [
+        {
+            "type": "iframe-model",
+            "id": "iframe-model",
+            "model": {
+                "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+            },
+            "onLoad": [
+                "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
+                "",
+                "function deleteNonProtein() {",
+                "  return 'select not protein; delete selected;';",
+                "}",
+                "",
+                "function setStyle() {",
+                "  var value = get('style');",
+                "  if (value === 'spacefill') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
+                "  } else if (value === 'ball-and-stick') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
+                "  }",
+                "}",
+                "",
+                "function setColor() {",
+                "  var value = get('color');",
+                "  if (value === 'element') {",
+                "    return 'select all; color cpk;';",
+                "  } else if (value === 'amino-acid') {",
+                "    return 'select all; color shapely;';",
+                "  } else if (value === 'polarity') {",
+                "    return 'select polar; color [x488728]; select hydrophobic; color [xE2AA31];';",
+                "  }",
+                "}",
+                "",
+                "function setTranslucency() {",
+                "  var value = get('translucency');",
+                "  if (!value) {",
+                "    return 'select all; color opaque;';",
+                "  } else if (value === 'hydrophobic') {",
+                "    return 'select hydrophobic; color atoms translucent 7; select polar; color atoms opaque; ';",
+                "  } else if (value === 'hydrophilic') {",
+                "    return 'select hydrophobic; color atoms opaque; select polar; color atoms translucent 7;';",
+                "  }",
+                "}",
+                "",
+                "function update(propertyName) {",
+                "  var script = deleteNonProtein();",
+                "  script += setStyle();",
+                "  script += setColor();",
+                "  script += setTranslucency();",
+                "  post('jsmolScript', script);",
+                "}",
+                "",
+                "onPropertyChange('molecule', update);",
+                "onPropertyChange('color', update);",
+                "onPropertyChange('style', update);",
+                "onPropertyChange('translucency', update);",
+                "",
+                "update(get('style'));"
+            ],
+            "viewOptions": {
+                "aspectRatio": 1,
+                "controlButtons": ""
+            },
+            "modelOptions": {
+                "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
+            }
+        }
+    ],
+    "propertiesToRetain": [],
+    "parameters": [
+        {
+            "name": "style",
+            "initialValue": "spacefill"
+        },
+        {
+            "name": "color",
+            "initialValue": "polarity"
+        },
+        {
+            "name": "translucency",
+            "initialValue": false
+        },
+        {
+            "name": "sidechainOnly",
+            "initialValue": true
+        },
+        {
+            "name": "image",
+            "initialValue": false,
+            "onChange": [
+                "post('jsmolScript', 'set echo off;' + (value ? ' set echo top center; set echo IMAGE \"models/exploring-hydrophobic-core/' + value + '\"' : ''));"
+            ]
+        }
+    ],
+    "outputs": [],
+    "filteredOutputs": [],
+    "helpTips": [],
+    "dataSets": [],
+    "components": [
+        {
+            "id": "molecule",
+            "type": "pulldown",
+            "label": "Protein",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Alb\u00fcmin (yumurta beyaz\u0131nda bulunur)",
+                    "value": "models/exploring-hydrophobic-core/1RK9.pdb"
+                },
+                {
+                    "text": "\u0130ns\u00fclin (kan \u015fekerini d\u00fczenler)",
+                    "value": "models/exploring-hydrophobic-core/2hiu.pdb"
+                },
+                {
+                    "text": "Lizozim (g\u00f6zya\u015flar\u0131da ve t\u00fck\u00fcr\u00fckte antibiyotik)",
+                    "value": "models/exploring-hydrophobic-core/2lyz.pdb"
+                },
+                {
+                    "text": "K\u0131s\u0131tlama Enzimi (DNA'y\u0131 keser)",
+                    "value": "models/exploring-hydrophobic-core/1eri.pdb"
+                }
+            ],
+            "property": "molecule",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "style",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Tarz\u0131",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "T\u00fcm atomlar (top ve \u00e7ubuk)",
+                    "value": "ball-and-stick"
+                },
+                {
+                    "text": "T\u00fcm atomlar (bo\u015fluk doldurma)",
+                    "value": "spacefill"
+                }
+            ],
+            "property": "style",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "color",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Renk",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Polarite (hidrofobik / hidrofilik)",
+                    "value": "polarity"
+                },
+                {
+                    "text": "Element",
+                    "value": "element"
+                },
+                {
+                    "text": "Amino asit",
+                    "value": "amino-acid"
+                }
+            ],
+            "property": "color",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "translucency",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "Yar\u0131 saydaml\u0131k",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "Hi\u00e7biri",
+                    "value": false
+                },
+                {
+                    "text": "Kutupsuz (hidrofobik)",
+                    "value": "hydrophobic"
+                },
+                {
+                    "text": "Polar / \u015farjl\u0131 (hidrofilik)",
+                    "value": "hydrophilic"
+                }
+            ],
+            "property": "translucency",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        }
+    ],
+    "layout": {
+        "right": [
+            [
+                "molecule"
+            ],
+            [
+                "translucency"
+            ],
+            [
+                "style"
+            ],
+            [
+                "color"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "right",
+            "top": "model.top",
+            "left": "model.right",
+            "margin-left": "0.5em",
+            "margin-right": "0.5em"
+        }
+    ]
+}
