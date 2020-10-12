@@ -21,7 +21,7 @@
   ],
   "theme": "",
   "showTopBar": true,
-  "showBottomBar": false,
+  "showBottomBar": true,
   "padding": 10,
   "models": [
     {
