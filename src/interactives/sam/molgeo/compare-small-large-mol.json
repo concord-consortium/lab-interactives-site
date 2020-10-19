@@ -29,8 +29,8 @@
       "id": "iframe-model",
       "model": {
         "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
-        "m0:molecule": "https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/small-mol/methane.mol2",
-        "m1:molecule": "https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/large-mol/dlpe.pdb"
+        "m0:molecule": "models/intro2macro/small-mol/methane.mol2",
+        "m1:molecule": "models/intro2macro/large-mol/dlpe.pdb"
       },
       "onLoad": [
         "post('jsmolScript', 'm0: set antialiasdisplay true; spacefill 100%; zoom 20');",
@@ -60,16 +60,16 @@
       "onChange": [
         "switch(value) {",
         "  case 'methane':",
-        "  post('jsmolScript', 'm0: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/small-mol/methane.mol2; spacefill 100%; zoom 20; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/methane.mol2; spacefill 100%; zoom 20; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'propane':",
-        "  post('jsmolScript', 'm0: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/small-mol/propane.pdb; spacefill 100%; zoom 25; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/propane.pdb; spacefill 100%; zoom 25; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'benzene':",
-        "  post('jsmolScript', 'm0: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/small-mol/benzene.pdb; spacefill 100%; zoom 30; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/benzene.pdb; spacefill 100%; zoom 30; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'caffeine':",
-        "  post('jsmolScript', 'm0: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/small-mol/caffeine.mol2; spacefill 100%; zoom 45; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/caffeine.mol2; spacefill 100%; zoom 45; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "}"
       ]
@@ -80,21 +80,21 @@
       "onChange": [
         "switch(value) {",
         "  case 'lipid':",
-        "  post('jsmolScript', 'm1: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/large-mol/dlpe.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/dlpe.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'insulin':",
-        "  post('jsmolScript', 'm1: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/large-mol/insulin.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/insulin.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'dna':",
-        "  post('jsmolScript', 'm1: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/large-mol/dna1.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/dna1.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "  case 'glycogen':",
-        "  post('jsmolScript', 'm1: load https://learn-resources.concord.org/sam-riitest/98-intro-to-macromol/jsmol/large-mol/glycogen.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/glycogen.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
         "  return;",
         "}"
       ]
     },
-        {
+    {
       "name": "show",
       "initialValue": "Carbon",
       "onChange": [
@@ -155,7 +155,7 @@
           "text": "Propane ",
           "value": "propane"
         },
-                {
+        {
           "text": "Benzene ",
           "value": "benzene"
         },
