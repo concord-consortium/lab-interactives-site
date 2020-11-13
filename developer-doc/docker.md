@@ -13,17 +13,22 @@ You will need to first install Docker. Instructions can be found here:
 ## Build and Run a Container
 
 1. `docker-compose build`
-2. `docker-compose up`
+2. `docker-compose run --rm app /bin/bash -l -c "make everything"`
+3. `docker-compose up`
 
 By default you can connect to the site at http://localhost:9292
+
+This container should automatically rebuild any changes you make to interactives.
+It says it is reloading the browser after doing this, but that part is not working.
+So you will need to reload the browser manually after making changes.
 
 ## Opening an additional terminal
 
 You can open a second terminal and run:
 
-    docker-compose app /bin/bash -l
+    docker-compose exec app /bin/bash -l
 
-This will allow you to run other commands like `make all`.
+This will allow you to run other commands.
 
 ## Using a docker proxy
 
@@ -35,9 +40,7 @@ To use this approach you need to:
 
 The proxy we use is https://github.com/codekitchen/dinghy-http-proxy it has support for OS X, Linux, and Windows. At the link above you need to look at the section: [Using Outside of Dinghy](https://github.com/codekitchen/dinghy-http-proxy#using-outside-of-dinghy)
 
-docker-compose can be configured by adding a `.env` file at the top of the repository with the contents
-
-    COMPOSE_FILE=docker-compose.yml:docker/dev/docker-compose-random-ports.yml
+docker-compose can be configured by copying the demo `.env.sample` to `.env` file at the top of the repository
 
 ## Notes for running without docker-compose
 
