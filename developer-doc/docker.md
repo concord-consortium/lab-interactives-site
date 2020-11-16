@@ -18,6 +18,8 @@ You will need to first install Docker. Instructions can be found here:
 
 By default you can connect to the site at http://localhost:9292
 
+A useful starting place is http://localhost:9292/interactives.html
+
 This container should automatically rebuild any changes you make to interactives.
 It says it is reloading the browser after doing this, but that part is not working.
 So you will need to reload the browser manually after making changes.
