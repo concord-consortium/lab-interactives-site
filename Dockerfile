@@ -32,7 +32,15 @@ COPY . /srv/
 RUN /bin/bash -c -l "gem install bundle"
 RUN /bin/bash -c -l "bundle install"
 RUN /bin/bash -c -l "gem install rb-readline"
-RUN /bin/bash -c -l "make everything"
+
+# This builds all of the files into the docker image's file system
+# however when the image is run by docker-compose and /srv/ is mounted
+# to the local folder, all of these build products are lost and need to be
+# recreated. So it doesn't make sense to build the files here
+# RUN /bin/bash -c -l "make everything"
 
 EXPOSE 9292
-CMD ["/bin/bash", "-l", "-c", "/usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]
+# Since we are not doing the make everything above, this supervisord command
+# has been moved to docker-compose, otherwise just bringing up the container will fail
+# CMD ["/bin/bash", "-l", "-c", "/usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]
+CMD ["/bin/bash", "-l"]
