@@ -1,0 +1,152 @@
+{
+  "title": "Evaporator Bottle",
+  "publicationStatus": "draft",
+  "subtitle": "",
+  "about": [],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models/lab-version/1/md2d/basic-examples/evaporator-bottle.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      },
+      "onLoad": ""
+    }
+  ],
+  "parameters": [
+    {
+      "name": "epsilon",
+      "initialValue": 0.07,
+      "onChange": "setElementProperties(2, { epsilon: -value }); setElementProperties(3, { epsilon: -value });"
+    },
+    {
+      "name": "scaledGravity",
+      "initialValue": 6,
+      "onChange": "set('gravitationalField', value * 1e-7);"
+    },
+    {
+      "name": "lightWaterMass",
+      "initialValue": 30,
+      "onChange": "setElementProperties(2, { mass: value });"
+    },
+    {
+      "name": "heavyWaterMass",
+      "initialValue": 600,
+      "onChange": "setElementProperties(3, { mass: value }); setElementProperties(1, { mass: value * 1.5 });"
+    }
+  ],
+  "components": [
+    {
+      "type": "slider",
+      "id": "epsilon-slider",
+      "min": 0.01,
+      "max": 0.9,
+      "displayValue": "return format('.3f')(value)",
+      "labels": [
+        {
+          "value": 0.0,
+          "label": "Weak"
+        },
+        {
+          "value": 0.9,
+          "label": "Strong"
+        }
+      ],
+      "steps": 100,
+      "title": "Van der Waals attraction",
+      "property": "epsilon"
+    },
+    {
+      "type": "slider",
+      "id": "temperature-slider",
+      "min": 100,
+      "max": 5000,
+      "displayValue": "return format('f')(value)",
+      "labels": [
+        {
+          "value": 100,
+          "label": "100 K"
+        },
+        {
+          "value": 10000,
+          "label": "10000 K"
+        }
+      ],
+      "steps": 100,
+      "title": "Temperature",
+      "property": "targetTemperature"
+    },
+    {
+      "type": "slider",
+      "id": "gravity-slider",
+      "min": 0,
+      "max": 30,
+      "displayValue": "return format('f')(value)",
+      "labels": [
+        {
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "value": 30,
+          "label": "Strong"
+        }
+      ],
+      "steps": 100,
+      "title": "Gravity",
+      "property": "scaledGravity"
+    },
+    {
+      "type": "slider",
+      "id": "light-water-mass-slider",
+      "min": 1,
+      "max": 300,
+      "displayValue": "return format('f')(value)",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 300,
+          "label": "300"
+        }
+      ],
+      "steps": 100,
+      "title": "Light Water Particle Mass",
+      "property": "lightWaterMass"
+    },
+    {
+      "type": "slider",
+      "id": "heavy-water-mass-slider",
+      "min": 1,
+      "max": 1000,
+      "displayValue": "return format('f')(value)",
+      "labels": [
+        {
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "value": 1000,
+          "label": "1000"
+        }
+      ],
+      "steps": 100,
+      "title": "Heavy Water Particle Mass",
+      "property": "heavyWaterMass"
+    }
+  ],
+  "layout": {
+    "right": [
+      ["temperature-slider"],
+      ["epsilon-slider"],
+      ["gravity-slider"],
+      ["light-water-mass-slider"],
+      ["heavy-water-mass-slider"]
+    ],
+    "bottom": [
+    ]
+  }
+}
