@@ -17,7 +17,7 @@
   "parameters": [
     {
       "name": "epsilon",
-      "initialValue": 0.07,
+      "initialValue": 0.17,
       "onChange": "setElementProperties(2, { epsilon: -value }); setElementProperties(3, { epsilon: -value });"
     },
     {
@@ -27,12 +27,12 @@
     },
     {
       "name": "lightWaterMass",
-      "initialValue": 30,
+      "initialValue": 25,
       "onChange": "setElementProperties(2, { mass: value });"
     },
     {
       "name": "heavyWaterMass",
-      "initialValue": 600,
+      "initialValue": 300,
       "onChange": "setElementProperties(3, { mass: value }); setElementProperties(1, { mass: value * 1.5 });"
     }
   ],
