@@ -37,7 +37,7 @@
     "chargeShading": true,
     "useThreeLetterCode": true,
     "aminoAcidColorScheme": "hydrophobicity",
-    "showChargeSymbols": true,
+    "showChargeSymbols": false,
     "showVDWLines": false,
     "VDWLinesCutoff": "medium",
     "showVelocityVectors": false,
