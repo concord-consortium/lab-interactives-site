@@ -1,0 +1,257 @@
+{
+  "title": "Polarity, Attractive Strength, and Potential Energy",
+  "publicationStatus": "public",
+  "subtitle": "Explore the different attractive forces between molecules of varying polarity and the PE when close or separated.",
+  "about": [
+    "Attractions between polar molecules vary. Choose a pair of molecules from the drop-down",
+    "menu and \"pull\" on the star to separate the molecules. Why does polarity have an effect",
+    "on the strength of attraction between molecules? How doe the potential energy of the system change",
+    "when the molecules are close together vs. separated from each other"
+  ],
+  "aspectRatio": 1.6,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models/lab-version/1/md2d/inquiry-space/PE-and-IMF/instructions.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Explore the different attractive forces between molecules of varying polarity.",
+            "x": 0.4,
+            "y": 1.7,
+            "fontSize": 0.14,
+            "width": 3.2
+          },
+          {
+            "text": "Choose a pair of molecules from the menu below.",
+            "x": 0.4,
+            "y": 0.6,
+            "fontSize": 0.14,
+            "width": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "leastPolarPull",
+      "url": "models/lab-version/1/md2d/inquiry-space/PE-and-IMF/leastPolarPull.json",
+      "onLoad": [
+        "start();",
+        "set('breakEnergy',10);",
+        "set('finalPotential',35);",
+        "set('potentialFactor',30);",
+        "callEvery(25, function() {",
+        "  var x1 = getAtomProperties(0).x,",
+        "      y1 = getAtomProperties(0).y,",
+        "      x2 = getAtomProperties(8).x,",
+        "      y2 = getAtomProperties(8).y,",
+        "      distx = x1-x2,",
+        "      disty = y1-y2,",
+        "      distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
+        "  set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Low polarity molecules",
+            "x": 1.48,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "medPolarPull",
+      "url": "models/lab-version/1/md2d/inquiry-space/PE-and-IMF/medPolarPull.json",
+      "onLoad": [
+        "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+        "set('breakEnergy',10);",
+        "set('finalPotential',70);",
+        "set('potentialFactor',60);",
+        "callEvery(25, function() {",
+        "  var x1 = getAtomProperties(0).x,",
+        "      y1 = getAtomProperties(0).y,",
+        "      x2 = getAtomProperties(8).x,",
+        "      y2 = getAtomProperties(8).y,",
+        "      distx = x1-x2,",
+        "      disty = y1-y2,",
+        "      distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
+        "  set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "Medium polarity molecules",
+            "x": 1.45,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "mostPolarPull",
+      "url": "models/lab-version/1/md2d/inquiry-space/PE-and-IMF/mostPolarPull.json",
+      "onLoad": [
+        "start();setPairwiseLJProperties(0, 2, { epsilon: 0 }); ",
+        "set('breakEnergy',10);",
+        "set('finalPotential',120);",
+        "set('potentialFactor',103);",
+        "callEvery(25, function() {",
+        "  var x1 = getAtomProperties(0).x,",
+        "      y1 = getAtomProperties(0).y,",
+        "      x2 = getAtomProperties(8).x,",
+        "      y2 = getAtomProperties(8).y,",
+        "      distx = x1-x2,",
+        "      disty = y1-y2,",
+        "      distance = Math.pow((distx*distx)+(disty*disty),0.5)-0.05;",
+        "  set('countPotential', get('finalPotential')-get('potentialFactor')*Math.pow(distance,-0.5)+get('breakEnergy'));",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "imageMapping": {
+          "star.png": "star.svg"
+        },
+        "textBoxes": [
+          {
+            "text": "High polarity molecules",
+            "x": 1.48,
+            "y": 1.87,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(250,250,250)"
+          }
+        ]
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "countPotential",
+      "initialValue": 0
+    },
+    {
+      "name": "breakEnergy",
+      "initialValue": 10.5
+    },
+    {
+      "name": "potentialFactor",
+      "initialValue": 15
+    },
+    {
+      "name": "finalPotential",
+      "initialValue": 33
+    },
+    {
+      "name": "atomdragged",
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "type": "pulldown",
+      "id": "pulldown1",
+      "options": [
+        {
+          "text": "Select a pair of molecules",
+          "action": "loadModel('instructions');"
+        },
+        {
+          "text": "Low polarity",
+          "action": "loadModel('leastPolarPull');"
+        },
+        {
+          "text": "Medium polarity",
+          "action": "loadModel('medPolarPull');"
+        },
+        {
+          "text": "High polarity",
+          "action": "loadModel('mostPolarPull');"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "reset",
+      "text": "Reset",
+      "action": "reloadModel();"
+    },
+    {
+      "id": "bargraph",
+      "type": "barGraph",
+      "property": "countPotential",
+      "min": 0,
+      "max": 100,
+      "title": "Potential Energy",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 0,
+          "label": "low"
+        },
+        {
+          "value": 100,
+          "label": "high"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "i18nMetadata": "",
+  "layout": {
+    "right": [
+      "bargraph"
+    ],
+    "bottom": [
+      "pulldown1",
+      "reset"
+    ]
+  },
+  "template": [
+    {
+      "id": "right",
+      "left": "model.right",
+      "height": "model.height"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom"
+    }
+  ]
+}
