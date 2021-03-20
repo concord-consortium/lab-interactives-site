@@ -59,6 +59,21 @@
     "enableAtomTooltips": false,
     "enableKeyboardHandlers": true,
     "atomTraceColor": "#6913c5",
+    "images": [
+      {
+        "imageUri": "heating.gif",
+        "imageX": 1.4,
+        "imageY": 2.45,
+        "imageHostType": "",
+        "imageHostIndex": 0,
+        "imageLayer": 1,
+        "imageLayerPosition": 3,
+        "visible": false,
+        "rotation": 0,
+        "scale": 1,
+        "opacity": 1
+      }
+    ],
     "velocityVectors": {
       "color": "#000",
       "width": 0.01,
