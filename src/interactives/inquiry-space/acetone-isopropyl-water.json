@@ -1,0 +1,92 @@
+{
+  "title": "Comparing Polarity of Acetone, Isopropyl Alcohol, and Water",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Surfaces displaying electrostatic potential",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Drag molecules around to see surface charge on each."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
+        "m0:molecule": "models/acetone-isopropyl-water/acetone.mol",
+        "m1:molecule": "models/acetone-isopropyl-water/isopropyl-alcohol.mol",
+        "m2:molecule": "models/acetone-isopropyl-water/water.mol",
+       "showAxes": true,
+        "m0:showFrank": false,
+        "m1:showFrank": false,
+        "m2:showFrank": false
+      },
+      "onLoad": [
+        "post('jsmolScript', 'm0: set antialiasDisplay ON; axes off; zoom 80; set echo top center; font echo 14 sansserif bold; color echo black; echo acetone;');",
+        "post('jsmolScript', 'm1: set antialiasDisplay ON; axes off; zoom 90; set echo top center; font echo 14 sansserif bold; color echo black; echo isopropyl alcohol;');",
+        "post('jsmolScript', 'm2: set antialiasDisplay ON; axes off; zoom 50; set echo top center; font echo 14 sansserif bold; color echo black; echo water;');"
+      ],
+
+      "viewOptions": {
+        "aspectRatio": 2.5,
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "vdw-on-left",
+      "type": "button",
+      "action": "post('jsmolScript', 'select *; isosurface translucent 0.7');",
+      "text": "Translucent surfaces",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "vdw-on-right",
+      "type": "button",
+      "action": "post('jsmolScript', 'isosurface opaque');",
+      "text": "Solid surfaces",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "vdw-on-left",
+        "vdw-on-right"
+      ]
+    ]
+  },
+  "template": "simple"
+}
