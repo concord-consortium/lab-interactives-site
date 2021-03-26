@@ -75,7 +75,7 @@
       "name": "starch-visible",
       "initialValue": false,
       "onChange": [
-        "setImageProperties(1, { visible: value }); setComponentDisabled('add-starch', value);"
+        "setImageProperties(1, { visible: value }); setComponentAttributes('add-starch', { text: value ? 'Remove Branched Starch' : 'Add Branched Starch' });"
       ]
     }
   ],
@@ -201,7 +201,7 @@
       "type": "button",
       "id": "add-starch",
       "text": "Add Branched Starch",
-      "action": "set('starch-visible', true);"
+      "action": "set('starch-visible', !get('starch-visible'));"
     }
   ],
   "layout": {
