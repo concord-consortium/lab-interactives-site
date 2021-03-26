@@ -438,6 +438,14 @@
   :name: "ELeVATE Interactives"
   :category: Curriculum
 
-- :path: connected-bio/DNA-to-proteins
+- :path: connected-bio
   :name: "Connected Bio"
+  :category: Curriculum
+
+- :path: connected-bio/DNA-to-proteins
+  :name: "Connected Bio: DNA to Proteins"
+  :category: Curriculum
+
+- :path: connected-bio/sugar-starch
+  :name: "Connected Bio: Sugar Starch"
   :category: Curriculum
