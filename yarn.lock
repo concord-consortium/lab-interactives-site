@@ -1314,9 +1314,9 @@ uid2@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/uid2/-/uid2-0.0.2.tgz#107fb155c82c1136620797ed4c88cf2b08f6aab8"
 
-underscore@>=1.4.3, underscore@>=1.5.1:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+underscore@>=1.12.1, underscore@>=1.4.3:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.12.1.tgz#7bb8cc9b3d397e201cf8553336d262544ead829e"
 
 underscore@~1.4:
   version "1.4.4"
