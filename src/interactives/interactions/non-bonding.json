@@ -114,7 +114,7 @@
       "setInterval(function(){",
       "  batch(randomizeElectrons);",
       "  batch(updateVisualization);",
-      "}, 50);",
+      "}, 200);",
       "onDrag('atom', function (x, y, d, i) {",
       "  var minX = i == 0 ? 1.1 : getAtomProperties(0).x + 0.16,",
       "      maxX = i == 1 ? 5.8 : getAtomProperties(1).x - 0.16,",
