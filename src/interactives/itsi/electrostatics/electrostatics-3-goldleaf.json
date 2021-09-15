@@ -16,7 +16,29 @@
       "viewOptions": {
         "controlButtons": ""
       },
-      "onLoad": []
+      "onLoad": [
+        "var bonds = getNumberOfRadialBonds();",
+        "var existingLines = getNumberOfLines();",
+        "for (var i = 0; i < bonds; i++) {",
+        "  var b = getRadialBondProperties(i);",
+        "  var a1 = getAtomProperties(b.atom1);",
+        "  var a2 = getAtomProperties(b.atom2);",
+        "  addLine({x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y, beginStyle: 'none', endStyle: 'none', fence: 0, lineColor: 'rgb(239,158,0', lineWeight: 3, lineDashes: 'none', visible: 1});",
+        "  setAtomProperties(b.atom1, {vx:0, vy:0, charge:0, epsilon: 0}, false, false);",
+        "  setAtomProperties(b.atom2, {vx:0, vy:0, charge:0, epsilon: 0}, false, false);",
+        "}",
+        "setInterval(function() {",
+        "  batch(function() {",
+        "    var bonds = getNumberOfRadialBonds();",
+        "    for (var i = 0; i < bonds; i++) {",
+        "      var b = getRadialBondProperties(i);",
+        "      var a1 = getAtomProperties(b.atom1);",
+        "      var a2 = getAtomProperties(b.atom2);",
+        "      setLineProperties(i+existingLines, {x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y, beginStyle: 'none', endStyle: 'none', fence: 0, lineColor: 'rgb(239,158,0', lineWeight: 3, lineDashes: 'none', visible: 1});",
+        "    }",
+        "  });",
+        "}, 100);"
+      ]
     }
   ],
   "parameters": [
@@ -55,6 +77,7 @@
         "    for (var i = 0; i < textBoxesToMove.length; i++) {",
         "      setTextBoxProperties(textBoxesToMove[i], {hostType: 'Atom', hostIndex: textBoxDestinations[i]});",
         "    }",
+        "    var bonds = getNumberOfRadialBonds();",
         "  });",
         "  start();",
         "}, 500);",
