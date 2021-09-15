@@ -34,7 +34,7 @@
         "      var b = getRadialBondProperties(i);",
         "      var a1 = getAtomProperties(b.atom1);",
         "      var a2 = getAtomProperties(b.atom2);",
-        "      setLineProperties(i+existingLines, {x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y, beginStyle: 'none', endStyle: 'none', fence: 0, lineColor: 'rgb(239,158,0', lineWeight: 3, lineDashes: 'none', visible: 1});",
+        "      setLineProperties(i+existingLines, {x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y});",
         "    }",
         "  });",
         "}, 100);"
