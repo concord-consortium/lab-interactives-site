@@ -1,0 +1,54 @@
+{
+  "title": "Seeing Intermolecular Attractions (polar only)",
+  "publicationStatus": "public",
+  "subtitle": "Exploring interactions between polar molecules",
+  "category": "Chemistry",
+  "subCategory": "Interactions",
+  "screenshot": "http://screenshots.lab.concord.org/intermolecular-attractions-intro.png",
+  "about": [
+    "All matter is attracted to all other matter. How does this work?",
+    "",
+    "This interactive shows simple polar molecules in a",
+    "container. Drag the molecules around to see when they are attracted to",
+    "each other. Dotted lines indicate intermolecular attractions."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "page1$0",
+      "url": "models/lab-version/1/md2d/building-models/seeing-interactions-model.json",
+      "modelOptions": {
+        "useDuration": false
+      },
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Drag the molecules close to each other and look for intermolecular attractions.",
+            "x": 0.6,
+            "y": 2.05,
+            "width": 2.3,
+            "fontScale": 1.4,
+            "layer": 1,
+            "frame": "rounded rectangle",
+            "backgroundColor": "rgb(245,245,245)"
+          }
+        ]
+      }
+    }
+  ],
+  "components": [],
+  "logging": {
+    "properties": [
+      "potentialEnergy"
+    ]
+  },
+  "exports": {
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json"
+}

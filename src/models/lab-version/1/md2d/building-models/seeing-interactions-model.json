@@ -1,0 +1,245 @@
+{
+  "type": "md2d",
+  "imagePath": "",
+  "dnaEngineImagesPath": "",
+  "width": 3.5,
+  "height": 2.2,
+  "unitsScheme": "md2d",
+  "lennardJonesForces": true,
+  "coulombForces": true,
+  "temperatureControl": false,
+  "gravitationalField": false,
+  "timeStep": 1,
+  "dielectricConstant": 1,
+  "realisticDielectricEffect": true,
+  "solventForceFactor": 1.25,
+  "solventForceType": 0,
+  "additionalSolventForceMult": 4,
+  "additionalSolventForceThreshold": 10,
+  "polarAAEpsilon": -2,
+  "viscosity": 1,
+  "timeStepsPerTick": 50,
+  "DNAState": "dna",
+  "DNA": "",
+  "DNAMutations": true,
+  "useQuantumDynamics": false,
+  "useChemicalReactions": false,
+  "useDuration": false,
+  "requestedDuration": null,
+  "skipPECheckOnAddAtom": false,
+  "viewOptions": {
+    "viewPortWidth": 3.5,
+    "viewPortHeight": 2.2,
+    "viewPortZoom": 1,
+    "viewPortX": 0,
+    "viewPortY": 0,
+    "viewPortDrag": false,
+    "backgroundColor": "rgba(225,239,222,255)",
+    "showClock": false,
+    "markColor": "#f8b500",
+    "atomRadiusScale": 1,
+    "keShading": false,
+    "keShadingMinEnergy": 0,
+    "keShadingMaxEnergy": 0.2,
+    "chargeShading": true,
+    "chargeShadingStyle": "biology",
+    "aminoAcidColorScheme": "hydrophobicity",
+    "aminoAcidLabels": true,
+    "useThreeLetterCode": true,
+    "showChargeSymbols": true,
+    "showVDWLines": true,
+    "VDWLinesCutoff": "medium",
+    "showVelocityVectors": false,
+    "showForceVectors": false,
+    "showElectricField": false,
+    "electricFieldDensity": 18,
+    "electricFieldColor": "auto",
+    "showAtomTrace": false,
+    "images": [],
+    "imageMapping": {},
+    "textBoxes": [
+      {
+        "text": "Drag the molecules close to each other and look for intermolecular attractions.",
+        "x": 0.6,
+        "y": 2.05,
+        "anchor": "upper-left",
+        "layer": 1,
+        "width": 2.3,
+        "frame": "rounded rectangle",
+        "backgroundColor": "rgb(245,245,245)",
+        "strokeWidthEms": 0.03,
+        "strokeOpacity": 1,
+        "strokeColor": "#000000",
+        "rotate": 0,
+        "fontSize": 0.12
+      }
+    ],
+    "xlabel": false,
+    "ylabel": false,
+    "xunits": false,
+    "yunits": false,
+    "controlButtons": "",
+    "gridLines": false,
+    "atomNumbers": false,
+    "enableAtomTooltips": false,
+    "enableKeyboardHandlers": false,
+    "atomTraceColor": "#6913c5",
+    "velocityVectors": {
+      "color": "#000",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectors": {
+      "color": "#169C30",
+      "width": 0.01,
+      "length": 2
+    },
+    "forceVectorsDirectionOnly": false,
+    "onAtomDrag": "translate"
+  },
+  "atoms": {
+    "x": [
+      0.8180841276260504,
+      0.8130413155430711,
+      2.5827042368913857,
+      2.585599332591959,
+      1.7896330758426968,
+      1.546084251587094,
+      1.8494806800153551,
+      1.6061124765917603
+    ],
+    "y": [
+      0.7763686616994536,
+      1.0199174859550564,
+      0.8953856507490638,
+      1.1481033928231201,
+      1.3607414559925095,
+      1.3556986439095302,
+      0.45870780989892296,
+      0.46935568820224755
+    ],
+    "element": [
+      0,
+      3,
+      0,
+      3,
+      0,
+      3,
+      0,
+      3
+    ],
+    "vx": [
+      -0.0001168419706451932,
+      -0.0000888930278793708,
+      0.0000922949643519783,
+      0.0000016946230479551568,
+      -0.0001168419706451932,
+      -0.0000888930278793708,
+      -0.0001168419706451932,
+      -0.0000888930278793708
+    ],
+    "vy": [
+      -0.0003701892826073812,
+      -0.00013847099412468033,
+      -0.000057844936094662265,
+      0.0002076545229996862,
+      -0.0003701892826073812,
+      -0.00013847099412468033,
+      -0.0003701892826073812,
+      -0.00013847099412468033
+    ],
+    "charge": [
+      2,
+      -2,
+      2,
+      -2,
+      2,
+      -2,
+      2,
+      -2
+    ],
+    "friction": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pinned": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "radialBonds": {
+    "atom1": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "atom2": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "length": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "strength": [
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "type": [
+      101,
+      101,
+      101,
+      101
+    ]
+  },
+  "elements": {
+    "mass": [
+      120,
+      240,
+      360,
+      480,
+      600
+    ],
+    "sigma": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.3
+    ],
+    "epsilon": [
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1,
+      -0.1
+    ],
+    "color": [
+      -4233370,
+      -1,
+      -9092186,
+      -6240044,
+      -855310
+    ]
+  },
+  "pairwiseLJProperties": []
+}
