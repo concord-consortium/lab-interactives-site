@@ -5,7 +5,10 @@
   "aspectRatio": 1.1666666667,
   "fontScale": 1.0,
   "about": [
-    ""
+    "These two atoms are attracted via intermolecular forces. Explore how changing their ",
+    "kinetic energy can overcome those attractive forces, and observe how the temperature ",
+    "(average kinetic energy) and potential energy of the atoms changes when the intermolecular ",
+    "forces are overcome."
   ],
   "models": [
     {
