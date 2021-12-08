@@ -88,9 +88,8 @@
       "id": "add-energy",
       "type": "button",
       "action": [
-        "addKEToAtoms(get('dKE'),[0,1]);",
-        "repaintIfReady();",
-        "setComponentDisabled('remove-energy', false);"
+        "addKEToAtoms(get('dKE'));",
+        "repaintIfReady();"
       ],
       "text": "Increase KE of atoms",
       "width": "",
@@ -103,9 +102,8 @@
       "id": "remove-energy",
       "type": "button",
       "action": [
-        "addKEToAtoms(get('dKE')*-1,[0,1]);",
-        "repaintIfReady();",
-        "setComponentDisabled('remove-energy', false);"
+        "addKEToAtoms(get('dKE')*-1);",
+        "repaintIfReady();"
       ],
       "text": "Decrease KE of atoms",
       "width": "",
