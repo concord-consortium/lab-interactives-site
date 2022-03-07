@@ -138,11 +138,11 @@
   "parameters": [
     {
       "name": "leftValue",
-      "initialValue": 0.77
+      "initialValue": 3.66
     },
     {
       "name": "rightValue",
-      "initialValue": 3.66
+      "initialValue": 0.77
     },
     {
       "name": "chargeView",
