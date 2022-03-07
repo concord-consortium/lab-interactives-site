@@ -28,7 +28,7 @@
       "type": "iframe-model",
       "id": "iframe-model",
       "model": {
-        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
+        "url": "http://concord-consortium.github.io/jsmol-models/embeddable.html#moleculesCount=3",
         "m0:molecule": "models/acetone-isopropyl-water/acetone.mol",
         "m1:molecule": "models/acetone-isopropyl-water/isopropyl-alcohol.mol",
         "m2:molecule": "models/acetone-isopropyl-water/water.mol",
