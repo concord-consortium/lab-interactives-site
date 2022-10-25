@@ -760,12 +760,6 @@
       $('#authored_screenshot_img').attr('src','');
       $('#authored_screenshot_img').hide();
     }
-    $('#export_interactive').on('click', function(e) {
-      e.preventDefault();
-      if (typeof Shutterbug !== 'undefined') {
-        Shutterbug.snapshot("#iframe-interactive", "#image_output");
-      }
-    });
   }
 
   // general format helper for both editors
