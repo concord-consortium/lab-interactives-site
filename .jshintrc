@@ -1,5 +1,5 @@
 {
-  "predef": ["$", "d3", "define", "_gaq"],
+  "predef": ["$", "d3", "define", "gtag"],
 
   "browser" : true,
 
