@@ -37,7 +37,7 @@
       "id": "autumn-button",
       "type": "button",
       "action": "set('targetTemperature', 500);",
-      "text": "<img src='models-converted/lab-version/1/md2d/itsi/heatv2/heat_itsi_models/fall-icon-for-seasons.png' width='100%' />",
+      "text": "<img src='models-converted/lab-version/1/md2d/itsi/heatv2/heat_itsi_models/fall-icon-for-seasons2.png' width='100%' />",
       "width": "6.5em",
       "height": "6.5em",
       "disabled": false,
