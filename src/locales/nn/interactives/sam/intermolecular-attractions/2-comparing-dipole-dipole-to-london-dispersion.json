@@ -1,13 +1,13 @@
 {
-  "title": "Comparing Dipole-Dipole to London Dispersion",
+  "title": "Samanlikn krefter mellom polare molekyl og krefter mellom ikkje-polare molekyl",
   "publicationStatus": "public",
-  "subtitle": "Explore the difference in attractive forces between polar and non-polar molecules.",
-  "about": [
-    "Explore the different strengths of dipole-dipole (polar) and London dispersion (non-polar)",
-    "attractions. These intermolecular attractions are shown by dotted lines between the pairs of molecules.",
+  "subtitle": "Utforsk forskjellen i tiltrekkande krefter mellom polare og ikkje-polare molekyl..",
+  "about": [ 
+    "Utforsk forskjellen i styrke mellom kreftene som verkar mellom polare molekyl og kreftene som verkar",
+    "mellom ikkej-polare molekyl. Kreftene mellom molekyla er viste med stipla linjer mellom molekylpara.",
     "",
-    "Choose a pair of molecules from the drop-down menu and \"pull\" on the star to separate the",
-    "molecules. Which type of intermolecular attraction is strongest?"
+    "Vel to molekyl frå nedtrekkmenyen og  \"dra\" i stjerna for å skilje  ",
+    "dei frå kvarandre. Når er kreftene mellom molekyl sterkast?"
   ],
   "models": [
     {
@@ -19,14 +19,14 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between polar and non-polar molecules by dragging the \"star\" image found in the following simulations.",
+            "text": "Utforsk dei ulike tiltrekkande kreftene mellom polare og ikkje-polare molekyl ved å trekkje i \"star\" -biletet i desse simuleringane.",
             "x": 0.3,
             "y": 1.7,
             "fontSize": 0.12,
             "width": 2.7
           },
           {
-            "text": "Choose a pair of molecules from the menu below.",
+            "text": "Vel molekylpar frå menyen under.",
             "x": 0.3,
             "y": 0.4,
             "fontSize": 0.12,
@@ -102,19 +102,19 @@
       "id": "pulldown1",
       "options": [
         {
-          "text": "Select a pair of molecules",
+          "text": "Vel eit molekylpar.",
           "action": "loadModel('instructions');"
         },
         {
-          "text": "Pull apart two non-polar molecules",
+          "text": "Dra to ikkje-polare molekyl frå kvarandre.",
           "action": "loadModel('npPulling');"
         },
         {
-          "text": "Pull apart two polar molecules",
+          "text": "Dra to polare molekyl frå kvarandre",
           "action": "loadModel('polarPulling');"
         },
         {
-          "text": "Pull apart a non-polar and polar molecules",
+          "text": "Dra polart og ikkje-polart molekyl frå kvarandre.",
           "action": "loadModel('polarNpPulling');"
         }
       ]
@@ -122,10 +122,10 @@
     {
       "type": "button",
       "id": "reset",
-      "text": "Reset",
+      "text": "Tilbakestill",
       "action": "reloadModel();"
     }
   ],
-  "lang": "nn-NO",
+  "lang": "nb-NO",
   "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/2-comparing-dipole-dipole-to-london-dispersion.json"
 }
