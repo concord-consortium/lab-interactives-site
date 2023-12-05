@@ -1,0 +1,183 @@
+{
+    "title": "O dobramento de prote\u00ednas",
+    "publicationStatus": "public",
+    "category": "Biology",
+    "subCategory": "Molecular biology",
+    "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
+    "subtitle": "Como os pept\u00eddeos se dobram em conforma\u00e7\u00f5es est\u00e1veis?",
+    "fontScale": 0.6,
+    "about": [
+        "Explore o papel das intera\u00e7\u00f5es hidrof\u00f3bicas e hidrof\u00edlicas no dobramento de prote\u00ednas. Gerar um polipept\u00eddeo aleat\u00f3rio e observe como ela se dobra em um ambiente aquoso. Mude o solvente para ver o que acontece se o pept\u00eddeo estiver em um ambiente oleoso ou v\u00e1cuo em vez de um ambiente aquoso."
+    ],
+    "models": [
+        {
+            "type": "md2d",
+            "id": "amino-acids$0",
+            "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
+            "viewOptions": {
+                "controlButtons": "play_reset_step",
+                "showClock": false
+            }
+        }
+    ],
+    "parameters": [
+        {
+            "name": "solvent",
+            "initialValue": "water",
+            "onChange": "setSolvent(value);"
+        }
+    ],
+    "components": [
+        {
+            "type": "checkbox",
+            "id": "show-labels",
+            "text": "Use c\u00f3digos de tr\u00eas letras",
+            "property": "useThreeLetterCode"
+        },
+        {
+            "type": "pulldown",
+            "id": "select-solvent",
+            "property": "solvent",
+            "options": [
+                {
+                    "text": "Selecione o tipo de solvente",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "V\u00e1cuo",
+                    "value": "vacuum"
+                },
+                {
+                    "text": "\u00d3leo",
+                    "value": "oil"
+                },
+                {
+                    "text": "\u00c1gua",
+                    "value": "water"
+                }
+            ]
+        },
+        {
+            "type": "pulldown",
+            "id": "select-color-scheme",
+            "property": "aminoAcidColorScheme",
+            "options": [
+                {
+                    "text": "Selecione o esquema de cores para os amino\u00e1cidos",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "Nenhum",
+                    "value": "none"
+                },
+                {
+                    "text": "Carga",
+                    "value": "charge"
+                },
+                {
+                    "text": "Hidrof\u00f3bicidade",
+                    "value": "hydrophobicity"
+                },
+                {
+                    "text": "Carga e hidrof\u00f3bicidade",
+                    "value": "chargeAndHydro"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "id": "phobic-button",
+            "text": "Todos Hidrof\u00f3bicos",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "philic-button",
+            "text": "Todos Hidrof\u00edlicos",
+            "action": [
+                "batch(function () {",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-phobic-button",
+            "text": "Principalmente hidrof\u00f3bico",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-philic-button",
+            "text": "Principalmente hidrof\u00edlico",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-button",
+            "text": "Mix Aleat\u00f3rio",
+            "action": [
+                "batch(function () {",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-protein-button",
+            "text": "Gerar prote\u00edna aleat\u00f3ria",
+            "action": "generateRandomProtein(40);"
+        }
+    ],
+    "layout": {
+        "bottom": [
+            [
+                "show-labels",
+                "select-color-scheme",
+                "select-solvent"
+            ],
+            [
+                "random-protein-button"
+            ]
+        ]
+    },
+    "template": "simple",
+    "lang": "pt",
+    "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
+}

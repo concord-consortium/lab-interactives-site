@@ -1,0 +1,60 @@
+{
+  "title": "Two Representations of a 'p' Atomic Orbital",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.7,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "The regions around the atom where its electrons are likely to be found are called atomic orbitals. These models show different ways to represent a p orbital, where two electrons higher in energy than the 's' electrons are found. (Note, only one of the three p orbitals is shown here.) The representation on the left uses a surface to indicate the spherical region inside of which the electron is likely to be found about 80% of the time. On the right, the density of the blue dots represents the likelihood of finding the electrons."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/orbitals/p-orbital.mol",
+        "m1:molecule": "models/orbitals/p-orbital.mol",
+        "showAxes": false,
+        "m0:showFrank": false,
+        "m1:showFrank": false
+      },
+     "onLoad": [
+       "post('jsmolScript', 'm0:set background black; reset;center {0 0 0}; rotate z -89.67; rotate y 97.24; rotate z 163.53; translate y 10; set echo top center; color echo lightgreen; font echo 16 arial bold; echo \"A p orbital:|surface representation\"; display none; display carbon; color red; spacefill 4%; isosurface sign gold hotpink phase atomicOrbital 2 1 1; color isosurface translucent; spin on;');",
+        "post('jsmolScript', 'm1:set background black; reset;center {0 0 0}; rotate z -89.67; rotate y 97.24; rotate z 163.53; zoom 170.81; translate y 10; set echo top center; color echo lightgreen; font echo 16 arial bold; echo \"A p orbital:|density representation\"; select all; cpk 2%; color atoms red;isosurface my sign blue blue phase atomicOrbital 2 1 1 POINTS 15000 1; spin on;');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 2.2,
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [],
+  "layout": {
+    "bottom": []
+  },
+  "template": "simple"
+}

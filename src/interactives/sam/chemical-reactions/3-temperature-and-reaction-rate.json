@@ -31,15 +31,39 @@
       },
       "onLoad": [
         "setComponentDisabled('temperature-slider', false);",
+        "onPropertyChange('time', function(t) {",
+        "  var pComp = get('percentReactionComplete');",
+        "  if ((pComp >= 80) && (get('TimeToGreaterThan80Percent') == 'incomplete')) { ",
+        "    set({TimeToGreaterThan80Percent: get('displayTime')});",
+        "  }",
+        "});",
         "onStart(function() {",
         "  setComponentDisabled('temperature-slider', true);",
         "});"
       ]
     }
   ],
+  "exports": {
+    "perRun": [
+      "targetTemperature",
+      "TimeToGreaterThan80Percent"
+    ],
+    "perTick": [
+      "Time",
+      "percentReactionComplete"
+    ]
+  },
+  "parameters":[
+    {
+      "name": "TimeToGreaterThan80Percent",
+      "initialValue": "incomplete",
+      "label": "Time to > 80 complete",
+      "unitAbbreviation": "ps"
+    }
+  ],
   "outputs": [
     {
-      "name": "reactionComplete",
+      "name": "percentReactionComplete",
       "value": [
         "var atoms = getNumberOfAtoms();",
         "var bonds = getNumberOfRadialBonds();",
@@ -72,7 +96,7 @@
     {
       "id": "reaction-complete",
       "type": "barGraph",
-      "property": "reactionComplete",
+      "property": "percentReactionComplete",
       "title": "Reaction Complete",
       "labels": 10,
       "labelFormat": ".0f",

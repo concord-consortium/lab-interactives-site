@@ -1,0 +1,104 @@
+{
+  "title": "Molecular Geometry of Carbon Dioxide",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.2,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "The shape of CO2 is determined by the way that pairs of electrons are shared in the bonds between the atoms. In any molecule, it is the number of electron pairs, and whether any pairs are unshared, makes a big difference in the shape."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
+        "molecule": "https://learn-resources.concord.org/sam-riitest/109-molecular-geometry/co2.mol",
+        "showAxes": false
+      },
+      "onLoad": [
+        "post('jsmolScript', 'set background black; wireframe 0.1;cpk 20%; isosurface delete lcaoCartoon pz (atomno=3);color isosurface translucent {146,211,227}; spin on;set echo co2echo 0% 0%; #set echo co2echo IMAGE \"mol-geo-jsmol/legendp5.gif\";');",
+        "setComponentDisabled('m01-spin', true);",
+        "setComponentDisabled('m01-nospin', false);"
+      ],
+
+      "viewOptions": {
+        "aspectRatio": 1.7,
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "electrons",
+      "initialValue": true,
+      "onChange": [
+        "if (value) post('jsmolScript', 'isosurface on');",
+        "else       post('jsmolScript', 'isosurface off');"
+      			  ]
+    }
+],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+	{
+      "id": "electrons",
+      "type": "checkbox",
+      "text": "show electron pairs around central atom",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "electrons",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "button",
+      "id": "m01-spin",
+      "text": "Spin molecules",
+      "action": [
+        "post('jsmolScript', 'm0: spin on');",
+        "post('jsmolScript', 'm1: spin on');",
+        "setComponentDisabled('m01-spin', true);",
+        "setComponentDisabled('m01-nospin', false);"
+      ]
+    },
+      {
+      "type": "button",
+      "id": "m01-nospin",
+      "text": "Stop spinning",
+      "action": [
+        "post('jsmolScript', 'm0: spin off');",
+        "post('jsmolScript', 'm1: spin off');",
+        "setComponentDisabled('m01-spin', false);",
+        "setComponentDisabled('m01-nospin', true);"
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": [["electrons"],["m01-spin","m01-nospin"]]
+  },
+  "template": "simple"
+}

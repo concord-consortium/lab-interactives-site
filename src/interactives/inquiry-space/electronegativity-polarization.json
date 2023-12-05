@@ -1,0 +1,247 @@
+{
+  "title": "Electronegativity and Polarization",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Observe polarization of a molecule.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Set the elctronegativity on two bonded atoms and observe how this affects the way electrons become distributed and ",
+    "the shape of the molecule. Observe the molecules using both the surface charge view and the electron distribution view."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "polarization",
+      "url": "models/lab-version/1/md2d/inquiry-space/electronegativity-polarization/polarization.json",
+      "onLoad": [
+        "var i,left,right,uri,images,img,balanced,leftText,rightText,leftColor,rightColor,leftX,rightX,",
+        "    maxElectrons = 2;",
+        "for (var e = 0; e < maxElectrons; e++) {",
+        "  addShape({",
+        "    type: 'ellipse',",
+        "    width: 0.02,",
+        "    height: 0.02,",
+        "    x: getAtomProperties(e).x,",
+        "    y: getAtomProperties(e).y,",
+        "    fence: 0,",
+        "    color: 'rgb(255, 0, 0)',",
+        "    lineColor: 'black',",
+        "    lineDashes: 'none',",
+        "    lineWeight: 0,",
+        "    layer: 1,",
+        "    layerPosition: 100,",
+        "    visible: !get('viz')",
+        "  });",
+        "};",
+        "function randomizeElectrons(){",
+        "  var ellipse,",
+        "      randomAngle,",
+        "      randomDistance;",
+        "  for (var e = 0; e < maxElectrons; e++) {",
+        "    var dif = (get('rightValue') - get('leftValue'))/2,",
+        "        side = (dif > 0) ? 1 : 0;",
+        "    if (Math.random() > Math.abs(dif)) { ",
+        "      side = e;",
+        "    }",
+        "    ellipse = getShapeProperties(side);",
+        "    randomAngle = 2 * Math.PI * Math.random();",
+        "    randomDistance = Math.sqrt(-2 * Math.log(Math.random()));",
+        "    // Convert random angle and distance from polar",
+        "    // to rectangular coordinates",
+        "    setShapeProperties(getNumberOfShapes() - maxElectrons + e, {",
+        "      x: ellipse.x + ellipse.width * (0.5 + 0.125 * randomDistance * Math.cos(randomAngle)),",
+        "      y: ellipse.y + ellipse.height * (0.5 + 0.125 * randomDistance * Math.sin(randomAngle)),",
+        "    })",
+        "  }",
+        "}",
+        "function updateText(left, right) {",
+        "  var balanced = right == left;",
+        "  leftText   = balanced ? 'no charge' : left < right ? 'partial positive charge' : 'partial negative charge';",
+        "  rightText  = balanced ? 'no charge' : right < left ? 'partial positive charge' : 'partial negative charge';",
+        "  leftColor  = balanced ? 'green' : left < right ? 'blue' : 'red';",
+        "  rightColor = balanced ? 'green' : right < left ? 'blue' : 'red';",
+        "  leftX      = balanced ? 0.33 : 0.13;",
+        "  rightX     = balanced ? 1.08 : 0.88;",
+        "  setTextBoxProperties(0, {text: leftText,  color: leftColor,  x: leftX});",
+        "  setTextBoxProperties(1, {text: rightText, color: rightColor, x: rightX});",
+        "}",
+        "function getURI(dif) {",
+        "  return 'images/' + format('0.2f')(dif).replace('.','_').replace('-','neg') + '.svg';",
+        "}",
+        "function updateField() {",
+        "  set('backgroundColor', '#eeeeee');",
+        "  setShapeProperties(0, {visible: false});",
+        "  setShapeProperties(1, {visible: false});",
+        "  setShapeProperties(2, {visible: false});",
+        "  setShapeProperties(3, {visible: false});",
+        "  left = get('leftValue');",
+        "  right = get('rightValue');",
+        "  uri = getURI(right - left);",
+        "  setImageProperties(0, {visible: true, imageUri: uri});",
+        "  setImageProperties(1, {visible: true});",
+        "  updateText(left, right);",
+        "}",
+        "function updateCloud() {",
+        "  var dif, squeeze, leftSize, rightSize, y, x0, x1;",
+        "  set('backgroundColor', '#131313');",
+        "  setImageProperties(0, {visible: false});",
+        "  setImageProperties(1, {visible: false});",
+        "  left = get('leftValue');",
+        "  right = get('rightValue');",
+        "  dif = (right - left)/6;",
+        "  squeeze = 0.1 + Math.abs(dif/4);",
+        "  leftSize = 1-dif",
+        "  rightSize = 1+dif",
+        "  y = getAtomProperties(0).y;",
+        "  x0 = getAtomProperties(0).x - leftSize/2 + (leftSize*squeeze/2);",
+        "  x1 = getAtomProperties(1).x - rightSize/2 - (rightSize*squeeze/2);",
+        "  setShapeProperties(0, {visible: true, width: leftSize, height: leftSize-(leftSize*squeeze), y: y - (leftSize-(leftSize*squeeze)) / 2, x: x0});",
+        "  setShapeProperties(1, {visible: true, width: rightSize, height: rightSize-(rightSize*squeeze), y: y - (rightSize-(rightSize*squeeze)) / 2, x: x1});",
+        "  setShapeProperties(2, {visible: true});",
+        "  setShapeProperties(3, {visible: true});",
+        "  updateText(left, right);",
+        "}",
+        "function updateView() {",
+        "  if (get('chargeView')) {",
+        "    updateField();",
+        "  } else {",
+        "    updateCloud();",
+        "  }",
+        "}",
+        "setInterval(function(){",
+        "  batch(randomizeElectrons);",
+        "}, 80);",
+        "onPropertyChange('leftValue', updateView);",
+        "onPropertyChange('rightValue', updateView);",
+        "onPropertyChange('chargeView', updateView);",
+        "updateView()"
+      ],
+      "viewOptions": {
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "leftValue",
+      "initialValue": 3.66
+    },
+    {
+      "name": "rightValue",
+      "initialValue": 0.77
+    },
+    {
+      "name": "chargeView",
+      "initialValue": true
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "type": "slider",
+      "id": "left-slider",
+      "min": 0.77,
+      "max": 3.66,
+      "property": "leftValue",
+      "labels": [
+        {
+          "value": 0.77,
+          "label": "Low"
+        },
+        {
+          "value": 3.66,
+          "label": "High"
+        }
+      ],
+      "steps": 17,
+      "title": "Left Atom Electronegativity"
+    },
+    {
+      "type": "slider",
+      "id": "right-slider",
+      "min": 0.77,
+      "max": 3.66,
+      "property": "rightValue",
+      "labels": [
+        {
+          "value": 0.77,
+          "label": "Low"
+        },
+        {
+          "value": 3.66,
+          "label": "High"
+        }
+      ],
+      "steps": 17,
+      "title": "Right Atom Electronegativity"
+    },
+    {
+      "id": "view-radio",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "Molecule visualization",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Charge on surface molecule view",
+          "value": true
+        },
+        {
+          "text": "Electron distribution view     ",
+          "value": false
+        }
+      ],
+      "property": "chargeView",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right-top": [
+      ["left-slider"],
+      ["right-slider"]
+    ],
+    "right-bottom": [
+      "view-radio"
+    ]
+  },
+  "template": [
+    {
+      "id": "right-top",
+      "top": "model.top + model.height/6",
+      "left": "model.right",
+      "height": "model.height/2.5",
+      "padding-left": "0.7em",
+      "align": "center"
+    },
+    {
+      "id": "right-bottom",
+      "top": "right-top.bottom",
+      "left": "model.right",
+      "height": "model.height/2.5",
+      "padding-left": "0.7em",
+      "padding-top": "2em",
+      "align": "left"
+    }
+  ]
+}

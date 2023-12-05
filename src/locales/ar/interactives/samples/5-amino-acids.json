@@ -1,0 +1,183 @@
+{
+    "title": "\u0627\u0644\u0628\u0631\u0648\u062a\u064a\u0646 \u0644\u0644\u0637\u064a",
+    "publicationStatus": "public",
+    "category": "Biology",
+    "subCategory": "Molecular biology",
+    "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
+    "subtitle": "\u0643\u064a\u0641 \u062a\u0646\u062b\u0646\u064a \u0627\u0644\u0628\u0628\u062a\u064a\u062f\u0627\u062a \u0625\u0644\u0649 \u062a\u0643\u0648\u064a\u0646\u0627\u062a \u0645\u0633\u062a\u0642\u0631\u0629\u061f",
+    "fontScale": 0.6,
+    "about": [
+        "\u0627\u0643\u062a\u0634\u0641 \u062f\u0648\u0631 \u0627\u0644\u062a\u0641\u0627\u0639\u0644\u0627\u062a \u0627\u0644\u0643\u0627\u0631\u0647\u0629 \u0644\u0644\u0645\u0627\u0621 \u0648\u0627\u0644\u0645\u0627\u0621 \u0641\u064a \u0637\u064a \u0627\u0644\u0628\u0631\u0648\u062a\u064a\u0646. \u0642\u0645 \u0628\u0625\u0646\u0634\u0627\u0621 \u0633\u0644\u0633\u0644\u0629 \u0639\u0634\u0648\u0627\u0626\u064a\u0629 \u0645\u0646 \u0627\u0644\u0628\u0628\u062a\u064a\u062f \u0648\u0634\u0627\u0647\u062f \u0643\u064a\u0641 \u062a\u0637\u0648\u064a \u0641\u064a \u0628\u064a\u0626\u0629 \u0645\u0627\u0626\u064a\u0629. \u0642\u0645 \u0628\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0645\u0630\u064a\u0628 \u0644\u0645\u0639\u0631\u0641\u0629 \u0645\u0627 \u064a\u062d\u062f\u062b \u0625\u0630\u0627 \u0643\u0627\u0646 \u0627\u0644\u0628\u0628\u062a\u064a\u062f \u0641\u064a \u0628\u064a\u0626\u0629 \u0632\u064a\u062a\u064a\u0629 \u0623\u0648 \u0641\u0631\u0627\u063a \u0628\u062f\u0644\u0627\u064b \u0645\u0646 \u0628\u064a\u0626\u0629 \u0645\u0627\u0626\u064a\u0629."
+    ],
+    "models": [
+        {
+            "type": "md2d",
+            "id": "amino-acids$0",
+            "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
+            "viewOptions": {
+                "controlButtons": "play_reset_step",
+                "showClock": false
+            }
+        }
+    ],
+    "parameters": [
+        {
+            "name": "solvent",
+            "initialValue": "water",
+            "onChange": "setSolvent(value);"
+        }
+    ],
+    "components": [
+        {
+            "type": "checkbox",
+            "id": "show-labels",
+            "text": "\u0627\u0633\u062a\u062e\u062f\u0645 \u0627\u0644\u0631\u0645\u0648\u0632 \u0627\u0644\u0645\u0643\u0648\u0646\u0629 \u0645\u0646 \u062b\u0644\u0627\u062b\u0629 \u0623\u062d\u0631\u0641",
+            "property": "useThreeLetterCode"
+        },
+        {
+            "type": "pulldown",
+            "id": "select-solvent",
+            "property": "solvent",
+            "options": [
+                {
+                    "text": "\u062d\u062f\u062f \u0646\u0648\u0639 \u0627\u0644\u0645\u0630\u064a\u0628",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "\u0645\u0643\u0646\u0633\u0629 \u0643\u0647\u0631\u0628\u0627\u0621",
+                    "value": "vacuum"
+                },
+                {
+                    "text": "\u0646\u0641\u0637",
+                    "value": "oil"
+                },
+                {
+                    "text": "\u0645\u0627\u0621",
+                    "value": "water"
+                }
+            ]
+        },
+        {
+            "type": "pulldown",
+            "id": "select-color-scheme",
+            "property": "aminoAcidColorScheme",
+            "options": [
+                {
+                    "text": "\u062d\u062f\u062f \u0646\u0638\u0627\u0645 \u0627\u0644\u0623\u0644\u0648\u0627\u0646 \u0644\u0644\u0623\u062d\u0645\u0627\u0636 \u0627\u0644\u0623\u0645\u064a\u0646\u064a\u0629",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "\u0623\u0633\u0644\u0648\u0628",
+                    "value": "none"
+                },
+                {
+                    "text": "\u0627\u0644\u0634\u062d\u0646\u0629",
+                    "value": "charge"
+                },
+                {
+                    "text": "\u0643\u0631\u0647 \u0627\u0644\u0645\u0627\u0621",
+                    "value": "hydrophobicity"
+                },
+                {
+                    "text": "\u0627\u0644\u0634\u062d\u0646 \u0648\u0627\u0644\u0643\u0631\u0627\u0647\u064a\u0629 \u0644\u0644\u0645\u0627\u0621",
+                    "value": "chargeAndHydro"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "id": "phobic-button",
+            "text": "\u0643\u0644 \u0645\u0633\u0639\u0648\u0631",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "philic-button",
+            "text": "\u0643\u0644 \u0645\u0627\u0621",
+            "action": [
+                "batch(function () {",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-phobic-button",
+            "text": "\u0641\u064a \u0627\u0644\u063a\u0627\u0644\u0628 \u0643\u0627\u0631\u0647 \u0644\u0644\u0645\u0627\u0621",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-philic-button",
+            "text": "\u0645\u0627\u0621 \u0641\u064a \u0627\u0644\u063a\u0627\u0644\u0628",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-button",
+            "text": "\u0645\u0632\u064a\u062c \u0639\u0634\u0648\u0627\u0626\u064a",
+            "action": [
+                "batch(function () {",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-protein-button",
+            "text": "\u062a\u0648\u0644\u064a\u062f \u0628\u0631\u0648\u062a\u064a\u0646 \u0639\u0634\u0648\u0627\u0626\u064a",
+            "action": "generateRandomProtein(40);"
+        }
+    ],
+    "layout": {
+        "bottom": [
+            [
+                "show-labels",
+                "select-color-scheme",
+                "select-solvent"
+            ],
+            [
+                "random-protein-button"
+            ]
+        ]
+    },
+    "template": "simple",
+    "lang": "ar",
+    "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
+}

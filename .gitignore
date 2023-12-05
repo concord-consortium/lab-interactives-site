@@ -7,6 +7,9 @@
 npm-debug.log
 /vendor/shutterbug
 
+# config files
+.env
+
 # system-generated files
 .DS_Store
 Thumbs.db

@@ -14,6 +14,19 @@
       }
     }
   ],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    }
+  ],
   "components": [
     {
       "type": "slider",

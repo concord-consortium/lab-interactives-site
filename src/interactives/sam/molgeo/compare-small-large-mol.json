@@ -1,0 +1,304 @@
+{
+  "title": "Comparing Small Molecules to Macromolecules",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.1,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Use the menus to compare the relative sizes of various small molecules with lipid, protein, nucleic acid, and carbohydrate macromolecules."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/intro2macro/small-mol/methane.mol2",
+        "m1:molecule": "models/intro2macro/large-mol/dlpe.pdb"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'm0: set antialiasdisplay true; spacefill 100%; zoom 20');",
+        "post('jsmolScript', 'm1: set antialiasdisplay true; spacefill 100%;');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 1.95,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "m0Spin",
+      "initialValue": true,
+      "onChange": "post('jsmolScript', 'm0: spin ' + (value ? 'on; spinFlag = true' : 'off; spinFlag = false'));"
+    },
+    {
+      "name": "m1Spin",
+      "initialValue": true,
+      "onChange": "post('jsmolScript', 'm1: spin ' + (value ? 'on; spinFlag = true' : 'off; spinFlag = false'));"
+    },
+    {
+      "name": "m0View",
+      "initialValue": "Methane ",
+      "onChange": [
+        "switch(value) {",
+        "  case 'methane':",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/methane.mol2; spacefill 100%; zoom 20; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'propane':",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/propane.pdb; spacefill 100%; zoom 25; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'benzene':",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/benzene.pdb; spacefill 100%; zoom 30; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'caffeine':",
+        "  post('jsmolScript', 'm0: load models/intro2macro/small-mol/caffeine.mol2; spacefill 100%; zoom 45; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "name": "m1View",
+      "initialValue": "membrane lipid",
+      "onChange": [
+        "switch(value) {",
+        "  case 'lipid':",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/dlpe.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'insulin':",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/insulin.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'dna':",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/dna1.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "  case 'glycogen':",
+        "  post('jsmolScript', 'm1: load models/intro2macro/large-mol/glycogen.pdb; spacefill 100%; if spinFlag == true; spin on; else spin off; endif;');",
+        "  return;",
+        "}"
+      ]
+    },
+    {
+      "name": "show",
+      "initialValue": "Carbon",
+      "onChange": [
+        "switch(value) {",
+        "  case 'oxygen':       post('jsmolScript', 'select all; color opaque; select not oxygen; color atoms translucent -1;'); break;",
+        "  case 'nitrogen':    post('jsmolScript', 'select all; color opaque; select not nitrogen; color atoms translucent -1;'); break;",
+        "  case 'sulfur':    post('jsmolScript', 'select all; color opaque; select not sulfur; color atoms translucent -1;'); break;",
+        "  case 'phosphorus':    post('jsmolScript', 'select all; color opaque; select not phosphorus; color atoms translucent -1;'); break;",
+        "  case 'carbon': post('jsmolScript', 'select all; color opaque; select not carbon; color atoms translucent -1;'); break;",
+        "  case 'hydrogen':    post('jsmolScript', 'select all; color opaque; select not hydrogen; color atoms translucent -1;'); break;",
+        "  case 'reset':    post('jsmolScript', 'select all; color opaque;'); break;",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "m0-spin",
+      "type": "checkbox",
+      "text": "Spin",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "m0Spin",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "m1-spin",
+      "type": "checkbox",
+      "text": "Spin",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "m1Spin",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "m0-view",
+      "type": "pulldown",
+      "label": "View",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Methane &nbsp;",
+          "value": "methane"
+        },
+        {
+          "text": "Propane ",
+          "value": "propane"
+        },
+        {
+          "text": "Benzene ",
+          "value": "benzene"
+        },
+        {
+          "text": "Caffeine ",
+          "value": "caffeine"
+        }
+      ],
+      "property": "m0View",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "m1-view",
+      "type": "pulldown",
+      "label": "View",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Membrane lipid &nbsp;",
+          "value": "lipid"
+        },
+        {
+          "text": "Insulin",
+          "value": "insulin"
+        },
+        {
+          "text": "DNA",
+          "value": "dna"
+        },
+        {
+          "text": "Glycogen",
+          "value": "glycogen"
+        }
+      ],
+      "property": "m1View",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "**Highlight an element**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-as",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "oxygen",
+          "value": "oxygen"
+        },
+        {
+          "text": "nitrogen",
+          "value": "nitrogen"
+        },
+        {
+          "text": "sulfur",
+          "value": "sulfur"
+        },
+        {
+          "text": "phosphorus",
+          "value": "phosphorus"
+        },
+        {
+          "text": "carbon",
+          "value": "carbon"
+        },
+        {
+          "text": "hydrogen",
+          "value": "hydrogen"
+        },
+        {
+          "text": "reset",
+          "value": "reset"
+        }
+      ],
+      "property": "show",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom-m0": [
+      [
+        "m0-view"
+      ],
+      [
+        "m0-spin"
+      ]
+    ],
+    "bottom-m1": [
+      [
+        "m1-view"
+      ],
+      [
+        "m1-spin"
+      ]
+    ],
+    "bottom-both": [
+      [
+        "show-as"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom-m0",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width * 0.5"
+    },
+    {
+      "id": "bottom-m1",
+      "top": "model.bottom",
+      "left": "bottom-m0.right",
+      "width": "model.width * 0.5"
+    },
+    {
+      "id": "bottom-both",
+      "top": "bottom-m0.bottom *1.1",
+      "left": "model.left",
+      "width": "model.width"
+    },
+    {
+      "id": "label1",
+      "top": "bottom-m0.bottom *1.03",
+      "left": "model.left",
+      "width": "model.width"
+    }
+  ]
+}

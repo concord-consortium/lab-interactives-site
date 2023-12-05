@@ -1,4 +1,4 @@
-/*global iframePhone, Fingerprint, alert*/
+/*global iframePhone, alert*/
 
 /**
  * IMPORTANT: to test a specific Lab version, you have to ensure that interactives.json file
@@ -28,7 +28,7 @@ $(function () {
   var $info = $("#info");
   var $iframe = $("#iframe-interactive");
   var phone;
-  var fingerprint = new Fingerprint().get();
+  var fingerprint = "mock fingerprint";
 
   var resultsKeys = (function () {
     var keys = [];

@@ -11,6 +11,7 @@
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/DiffusionTemp/DiffusionBarrier$0.json",
       "viewOptions": {
         "controlButtons": "play",
+        "controlButtonStyle": "text",
         "textBoxes": [
           {
             "text": "Gas sensor",
@@ -48,6 +49,13 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": [
+      "targetTemperature",
+      "experimentTime"
+    ],
+    "perTick": []
+  },
   "parameters": [
     {
       "name": "tracedAtom",
@@ -110,7 +118,7 @@
       "text": "Remove barrier",
       "action": [
         "if (isStopped()) {",
-        "  alert('Press play before removing the barrier');",
+        "  alert('Press start before removing the barrier');",
         "} else if (getNumberOfObstacles() > 0) { ",
         "  removeObstacle(0); ",
         "  set('timeBarrierRemoved', get('time'));",

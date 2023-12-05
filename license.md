@@ -82,7 +82,6 @@ Here is a list of projects and resources included in the in the `vendor/` direct
 23. [jQuery selectBoxIt](https://github.com/gfranko/jQuery.selectBoxIt.js): [MIT](http://www.opensource.org/licenses/MIT)
 24. [mustache](https://github.com/janl/mustache.js): [MIT](http://www.opensource.org/licenses/MIT)
 25. [markdown-js](https://github.com/evilstreak/markdown-js): [MIT](http://www.opensource.org/licenses/MIT)
-26. [fingerprintjs](https://github.com/Valve/fingerprintjs): [MIT](http://www.opensource.org/licenses/MIT)
 27. [pixi.js](https://github.com/GoodBoyDigital/pixi.js): [MIT](http://www.opensource.org/licenses/MIT)
 28. [canvg](https://code.google.com/p/canvg): [MIT](http://www.opensource.org/licenses/MIT)
 29. [fastclick](https://github.com/ftlabs/fastclick): [MIT](http://www.opensource.org/licenses/MIT)

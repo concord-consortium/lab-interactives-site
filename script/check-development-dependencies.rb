@@ -18,15 +18,7 @@ end
 def ruby_check
   minimum = "= #{@required_ruby_version}-p#{@minimum_ruby_patchlevel}"
   recommended = "= #{@required_ruby_version}-p#{@recommended_ruby_patchlevel}"
-  if RUBY_VERSION != @required_ruby_version && RUBY_PATCHLEVEL >= @minimum_ruby_patchlevel
-    @errors["Ruby"] = {
-      "requirement" => "#{minimum} to #{recommended}",
-      "details" => <<-HEREDOC
-  ==> Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} installed
-      HEREDOC
-    }
-  end
-  if RUBY_VERSION != @required_ruby_version && RUBY_PATCHLEVEL == @recommended_ruby_patchlevel
+  if RUBY_VERSION != @required_ruby_version || RUBY_PATCHLEVEL != @recommended_ruby_patchlevel
     @recommendations["Ruby"] = {
       "suggest" => recommended,
       "details" => <<-HEREDOC

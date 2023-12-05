@@ -11,6 +11,7 @@
       "url": "models-converted/lab-version/1/md2d/sam-activities/diffusion/DiffusionTemp/DiffusionMass.json",
       "viewOptions": {
         "controlButtons": "play",
+        "controlButtonStyle": "text",
         "textBoxes": [
           {
             "text": "Gas sensor",
@@ -49,6 +50,14 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": [
+      "MolecularMass",
+      "targetTemperature",
+      "experimentTime"
+    ],
+    "perTick": []
+  },
   "parameters": [
     {
       "name": "gasElementType",
@@ -57,6 +66,7 @@
         "for (var i = 0; i < 17; i++) {",
         "  setAtomProperties(i, {element: value});",
         "}",
+        "set({MolecularMass: getElementProperties(value).mass});",
         "setTemperatureOfAtoms([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],500);"
       ]
     },
@@ -91,6 +101,11 @@
       "unitType": "time",
       "initialValue": 0,
       "onChange": ""
+    },
+    {
+      "name": "MolecularMass",
+      "initialValue": 40,
+      "label": "Molecular Mass"
     },
     {
       "name": "selectedTemperature",
@@ -148,7 +163,7 @@
       "text": "Remove barrier",
       "action": [
         "if (isStopped()) {",
-        "  alert('Press play before removing the barrier');",
+        "  alert('Press start before removing the barrier');",
         "} else if (getNumberOfObstacles() > 0) { ",
         "  removeObstacle(0); ",
         "  set('timeBarrierRemoved', get('time'));",

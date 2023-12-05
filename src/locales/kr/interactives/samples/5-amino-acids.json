@@ -1,0 +1,183 @@
+{
+    "title": "\ub2e8\ubc31\uc9c8 \ud3f4\ub529",
+    "publicationStatus": "public",
+    "category": "Biology",
+    "subCategory": "Molecular biology",
+    "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
+    "subtitle": "\ud3a9\ud2f0\ub4dc\ub4e4\uc740 \uc5b4\ub5bb\uac8c \uc548\uc815\uc801\uc778 \ud615\ud0dc\ub85c \uc811\ud788\ub098\uc694?",
+    "fontScale": 0.6,
+    "about": [
+        "\ub2e8\ubc31\uc9c8 \ud3f4\ub529\uc5d0\uc11c \uc18c\uc218\uc131 \ubc0f \uce5c\uc218\uc131 \uc0c1\ud638 \uc791\uc6a9\uc758 \uc5ed\ud560\uc744 \ud0d0\uad6c\ud569\ub2c8\ub2e4. \ud3a9\ud0c0\uc774\ub4dc \uc0ac\uc2ac\uc744 \ubb34\uc791\uc704\ub85c \uc0dd\uc131\ud55c \ub4a4 \uc218\uc131 \ud658\uacbd\uc5d0\uc11c \uc5b4\ub5bb\uac8c \uc811\ud788\ub294 \uc9c0 \uad00\ucc30\ud558\uc2dc\uc624. \uc6a9\ub9e4\ub97c \ubcc0\uacbd\ud558\uc5ec \ud3a9\ud0c0\uc774\ub4dc\uac00 \uc218\uc131 \ud658\uacbd\uc774 \uc544\ub2cc \uc720\uc131 \ud658\uacbd \ud639\uc740 \uc9c4\uacf5 \uc0c1\ud0dc\uc5d0\uc788\ub294 \uacbd\uc6b0 \uc5b4\ub5bb\uac8c \ubcc0\ud558\ub294\uc9c0 \ud655\uc778\ud558\uc2dc\uc624."
+    ],
+    "models": [
+        {
+            "type": "md2d",
+            "id": "amino-acids$0",
+            "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
+            "viewOptions": {
+                "controlButtons": "play_reset_step",
+                "showClock": false
+            }
+        }
+    ],
+    "parameters": [
+        {
+            "name": "solvent",
+            "initialValue": "water",
+            "onChange": "setSolvent(value);"
+        }
+    ],
+    "components": [
+        {
+            "type": "checkbox",
+            "id": "show-labels",
+            "text": "\ud2b8\ub9ac\ud50c\ub81b \ucf54\ub4dc \uc0ac\uc6a9",
+            "property": "useThreeLetterCode"
+        },
+        {
+            "type": "pulldown",
+            "id": "select-solvent",
+            "property": "solvent",
+            "options": [
+                {
+                    "text": "\uc6a9\ub9e4 \uc720\ud615 \uc120\ud0dd",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "\uc9c4\uacf5",
+                    "value": "vacuum"
+                },
+                {
+                    "text": "\uae30\ub984",
+                    "value": "oil"
+                },
+                {
+                    "text": "\ubb3c",
+                    "value": "water"
+                }
+            ]
+        },
+        {
+            "type": "pulldown",
+            "id": "select-color-scheme",
+            "property": "aminoAcidColorScheme",
+            "options": [
+                {
+                    "text": "\uc544\ubbf8\ub178\uc0b0\uc758 \uc0c9 \uad6c\uc131\ud45c \uc120\ud0dd",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "\uc5c6\uc74c",
+                    "value": "none"
+                },
+                {
+                    "text": "\uc804\ud558",
+                    "value": "charge"
+                },
+                {
+                    "text": "\uc18c\uc218\uc131",
+                    "value": "hydrophobicity"
+                },
+                {
+                    "text": "\uc804\ud558 \ubc0f \uc18c\uc218\uc131",
+                    "value": "chargeAndHydro"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "id": "phobic-button",
+            "text": "\ubaa8\ub4e0 \uc18c\uc218\uc131",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "philic-button",
+            "text": "\ubaa8\ub4e0 \uce5c\uc218\uc131",
+            "action": [
+                "batch(function () {",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-phobic-button",
+            "text": "\ub300\ubd80\ubd84 \uc18c\uc218\uc131",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-philic-button",
+            "text": "\ub300\ubd80\ubd84 \uce5c\uc218\uc131",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-button",
+            "text": "\ub79c\ub364 \ubbf9\uc2a4",
+            "action": [
+                "batch(function () {",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-protein-button",
+            "text": "\ubb34\uc791\uc704 \ub2e8\ubc31\uc9c8 \uc0dd\uc131",
+            "action": "generateRandomProtein(40);"
+        }
+    ],
+    "layout": {
+        "bottom": [
+            [
+                "show-labels",
+                "select-color-scheme",
+                "select-solvent"
+            ],
+            [
+                "random-protein-button"
+            ]
+        ]
+    },
+    "template": "simple",
+    "lang": "kr",
+    "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
+}

@@ -1,0 +1,117 @@
+{
+  "title": "States of Matter",
+  "publicationStatus": "",
+  "labEnvironment": "production",
+  "subtitle": "Temperature and Density of Materials",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/7-states-of-matter.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "What kinds of patterns tend to form? How does changing the temperature",
+    "affect the packing density of the atoms?"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "100-atoms-charged",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/100-atoms$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 400,
+      "max": 5000,
+      "steps": 499,
+      "title": "Temperature",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 650,
+          "label": "0 C"
+        },
+        {
+          "value": 2566,
+          "label": "100 C"
+        },
+        {
+          "value": 4482,
+          "label": "200 C"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "retainProperty": true,
+      "action": "set({ targetTemperature: value });",
+      "initialValue": 648.8978,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "targetTemperature",
+      "min": 0,
+      "max": 4500,
+      "title": "",
+      "titleOn": "right",
+      "labels": [
+        {
+          "value": 650,
+          "label": "0 C"
+        },
+        {
+          "value": 2566,
+          "label": "100 C"
+        },
+        {
+          "value": 4482,
+          "label": "200 C"
+        }
+      ],
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      [
+        "temperature-slider"
+      ]
+    ]
+  },
+  "template": "simple"
+}

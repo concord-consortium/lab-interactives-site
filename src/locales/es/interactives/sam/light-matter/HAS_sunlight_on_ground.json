@@ -198,7 +198,7 @@
     {
       "id": "key-photon",
       "type": "image",
-      "src": "http://resources.has.concord.org/espanol/resources/climate/photonKey-ES.png",
+      "src": "https://has-resources.concord.org/resources/Pre-post/photonKey-Spanish.png",
       "width": "10em",
       "height": "auto",
       "tooltip": ""

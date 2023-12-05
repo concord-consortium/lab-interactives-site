@@ -1,0 +1,21 @@
+{
+  "title": "Obstacle Permeability",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": "Some atoms should not interact with the obstacle.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "obstacle-permeability",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/obstacle-permeability.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "modelTimeLabel": true
+      }
+    }
+  ],
+  "components": [
+  ],
+  "layout": {
+  }
+}

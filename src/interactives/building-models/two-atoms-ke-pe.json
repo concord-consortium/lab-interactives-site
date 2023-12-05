@@ -1,0 +1,148 @@
+{
+  "title": "Overcoming IMF with KE",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "aspectRatio": 1.1666666667,
+  "fontScale": 1.0,
+  "about": [
+    "These two atoms are attracted via intermolecular forces. Explore how changing their ",
+    "kinetic energy can overcome those attractive forces, and observe how the temperature ",
+    "(average kinetic energy) and potential energy of the atoms changes when the intermolecular ",
+    "forces are overcome."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "empty",
+      "url": "models/lab-version/1/md2d/building-models/two-atoms-ke-pe.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "dKE",
+      "initialValue": 0.01
+    }
+  ],
+  "components": [
+    {
+      "id": "step-back-10",
+      "type": "button",
+      "action": [
+        "stop();",
+        "for (var i=0; i<10; i++) { stepBack(); };"
+      ],
+      "text": "<<< Step back",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step-back-1",
+      "type": "button",
+      "action": [
+        "stop();",
+        "stepBack();"
+      ],
+      "text": "< Step back",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step-forward-10",
+      "type": "button",
+      "action": [
+        "stop();",
+        "for (var i=0; i<10; i++) { stepForward(); };"
+      ],
+      "text": "Step forward >>>",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "step-forward-1",
+      "type": "button",
+      "action": [
+        "stop();",
+        "stepForward();"
+      ],
+      "text": "Step forward >",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "add-energy",
+      "type": "button",
+      "action": [
+        "addKEToAtoms(get('dKE'));",
+        "repaintIfReady();"
+      ],
+      "text": "Increase KE of atoms",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "remove-energy",
+      "type": "button",
+      "action": [
+        "addKEToAtoms(get('dKE')*-1);",
+        "repaintIfReady();"
+      ],
+      "text": "Decrease KE of atoms",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "type": "barGraph",
+      "id": "temp-graph",
+      "min": 0,
+      "max": 2000,
+      "title": "Temperature/Average KE",
+      "property": "temperature",
+      "units": false,
+      "gridLines": 10,
+      "labels": []
+    },
+    {
+      "type": "barGraph",
+      "id": "PE-graph",
+      "min": -0.105,
+      "max": 0,
+      "title": "Potential energy",
+      "property": "potentialEnergy",
+      "units": false,
+      "gridLines": 10,
+      "labels": []
+    }
+  ],
+  "layout": {
+    "right": [
+      "temp-graph",
+      "PE-graph"
+    ],
+    "bottom": [
+      ["add-energy", "remove-energy"],
+      ["step-back-10","step-back-1","step-forward-1","step-forward-10"]
+    ]
+  }
+}

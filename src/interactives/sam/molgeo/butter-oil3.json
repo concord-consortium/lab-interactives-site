@@ -1,0 +1,173 @@
+{
+  "title": "Butter vs. Oil",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 0.94,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/)."
+  ],
+  "temperatureControl": true,
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": "Butter is solid at room temperature, but oil is in a liquid state and must be refrigerated to become solid. Starting with both as solids, explore the molecular attractions that account for this difference in behavior.",
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "instructions",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/molecular-geometry/model-oil-butter-instructions.json",
+      "viewOptions": {
+        "controlButtons": "",
+        "enableKeyboardHandlers": false,
+        "textBoxes": [
+          {
+            "text": "Explore the attractive forces between butter molecules, and compare to the forces between oil molecules by heating them in the following simulations.",
+            "x": 0.3,
+            "y": 3.3,
+            "fontSize": 0.12,
+            "width": 2.7
+          },
+          {
+            "text": "Choose oil or butter molecules below. Then heat them up to see when the butter or oil \"melts\"—that is, when do the molecules move freely away from each other?",
+            "x": 0.3,
+            "y": 2.3,
+            "fontSize": 0.12,
+            "width": 2.7
+          }
+        ]
+      },
+      "modelOptions": {
+        "useDuration": false
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "ButterMolecules",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/molecular-geometry/butter.json",
+      "onLoad": "start();",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      },
+      "modelOptions": {
+        "temperatureControl": true
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "OilMolecules",
+      "url": "models-converted/lab-version/1/md2d/sam-activities/molecular-geometry/oil.json",
+      "onLoad": "start();",
+      "viewOptions": {
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      },
+      "modelOptions": {
+        "temperatureControl": true
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "model-pulldown",
+      "type": "pulldown",
+      "label": "Select",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Select butter or oil &nbsp",
+          "action": "loadModel('instructions');",
+          "selected": true
+        },
+        {
+          "text": "Butter",
+          "action": "loadModel('ButterMolecules');"
+        },
+        {
+          "text": "Oil",
+          "action": "loadModel('OilMolecules');"
+        }
+      ],
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "temperature-slider",
+      "type": "slider",
+      "min": 10,
+      "max": 5000,
+      "steps": 499,
+      "title": "Temperature",
+      "titlePosition": "top",
+      "labels": [
+        {
+          "value": 10,
+          "label": "Low"
+        },
+        {
+          "value": 2500,
+          "label": "Medium"
+        },
+        {
+          "value": 5000,
+          "label": "High"
+        }
+      ],
+      "width": "auto",
+      "height": "auto",
+      "displayValue": "",
+      "property": "targetTemperature",
+      "retainProperty": false,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "thermometer",
+      "type": "barGraph",
+      "property": "temperature",
+      "min": 0,
+      "max": 5000,
+      "title": "Thermometer",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "thermometer"
+    ],
+    "bottom": [
+      "model-pulldown",
+      "temperature-slider"
+    ]
+  },
+  "template": "simple"
+}

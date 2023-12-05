@@ -42,7 +42,10 @@
         "    var runningTime = get('time') - get('timeExperimentStarted');",
         "    set('experimentTime', runningTime/1000);",
         "    set('scaledPE', ((get('potentialEnergy') + 155) * 20)+1200);",
-        "    if (runningTime > 200000) stop();",
+        "    if (runningTime > 200000) {",
+        "      setImageProperties(0, {visible: false});",
+        "      stop();",
+        "    }",
         "  }",
         "});"
       ]
@@ -99,6 +102,7 @@
         "if (isStopped()) {",
         "  setComponentDisabled('start-heating', true);",
         "  start();",
+        "  setImageProperties(0, {visible: true});",
         "}",
         "set('timeExperimentStarted', get('time'));",
         "set('experimentRunning', true);"

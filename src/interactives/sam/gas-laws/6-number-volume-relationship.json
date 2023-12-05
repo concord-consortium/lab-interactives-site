@@ -37,6 +37,15 @@
       }
     }
   ],
+  "exports": {
+    "perRun": [
+      "atomsCount"
+    ],
+    "perTick": [
+      "Time",
+      "volume"
+    ]
+  },
   "outputs": [
     {
       "name": "volume",
@@ -50,6 +59,7 @@
   "parameters": [
     {
       "name": "atomsCount",
+      "label": "Number of atoms",
       "initialValue": 120,
       "onChange": [
         "var obsX = getObstacleProperties(0).x;",

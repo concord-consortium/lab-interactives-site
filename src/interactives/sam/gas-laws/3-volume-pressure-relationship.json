@@ -22,6 +22,15 @@
       }
     }
   ],
+  "exports": {
+    "perRun": [
+      "volume"
+    ],
+    "perTick": [
+      "Time",
+      "pressureProbeInstantaneous"
+    ]
+  },
   "parameters": [
     {
       "name": "volume",

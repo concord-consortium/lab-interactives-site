@@ -7,3 +7,4 @@ services:
       - .:/srv
     environment:
       VIRTUAL_HOST: labinteractives.docker
+    command: ["/bin/bash", "-l", "-c", "/usr/local/bin/supervisord -c /srv/config/supervisord.conf -j /tmp/supervisord.pid"]

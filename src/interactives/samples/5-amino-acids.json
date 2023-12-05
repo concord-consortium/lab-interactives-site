@@ -20,11 +20,26 @@
       }
     }
   ],
+  "exports": {
+    "perRun": [
+      "proteinChainType",
+      "solvent"
+    ],
+    "perTick": [
+      "Time",
+      "potentialEnergy"
+    ]
+  },
   "parameters": [
     {
       "name": "solvent",
       "initialValue": "water",
       "onChange": "setSolvent(value);"
+    },
+    {
+      "name": "proteinChainType",
+      "initialValue":"random mix",
+      "label": "Protein Chain Type"
     }
   ],
   "components": [
@@ -91,6 +106,7 @@
       "id": "phobic-button",
       "text": "All hydrophobic",
       "action": [
+        "set({proteinChainType:'all hydrophobic'});",
         "batch(function () {",
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
@@ -104,6 +120,7 @@
       "id": "philic-button",
       "text": "All hydrophilic",
       "action": [
+        "set({proteinChainType:'all hydrophilic'});",
         "batch(function () {",
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
@@ -117,6 +134,7 @@
       "id": "mostly-phobic-button",
       "text": "Mostly hydrophobic",
       "action": [
+        "set({proteinChainType:'mostly hydrophobic'});",
         "batch(function () {",
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
@@ -134,6 +152,7 @@
       "id": "mostly-philic-button",
       "text": "Mostly hydrophilic",
       "action": [
+        "set({proteinChainType:'mostly hydrophilic'});",
         "batch(function () {",
         "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
         "  var philicAA = [6,7,8,10,11,13,16,20,21];",
@@ -151,6 +170,7 @@
       "id": "random-button",
       "text": "Random mix",
       "action": [
+        "set({proteinChainType:'random mix'});",
         "batch(function () {",
         "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
         "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
@@ -162,7 +182,10 @@
       "type": "button",
       "id": "random-protein-button",
       "text": "Generate random protein",
-      "action": "generateRandomProtein(40);"
+      "action": [
+        "set({proteinChainType:'random mix'});",
+        "generateRandomProtein(40);"
+      ]
     }
   ],
   "layout": {

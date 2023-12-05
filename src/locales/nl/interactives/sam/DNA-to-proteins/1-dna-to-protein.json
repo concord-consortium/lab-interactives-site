@@ -1,0 +1,202 @@
+{
+    "title": "DNA naar prote\u00efne",
+    "publicationStatus": "public",
+    "subtitle": "Ontdek hoe de code die in DNA is ingebed, wordt vertaald in een eiwit.",
+    "aspectRatio": 1.05,
+    "category": "Biology",
+    "subCategory": "Genetics",
+    "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+    "about": [
+        "Klik op ** Transcriberen ** om in te zoomen op de celkern en zie hoe het chromosoom zich ontrafelt om de strengen DNA bloot te leggen. Het DNA scheidt zich en een mRNA-streng wordt gemaakt door complementaire nucleotiden te matchen.",
+        "",
+        "Klik op Transleren om te zien hoe het mRNA de kern verlaat voor het\ncytoplasma en hecht aan een ribosoom. tRNA-moleculen brengen aminozuren binnen en die worden in de juiste volgorde toegevoegd door complementaire nucleotiden samen te brengen.",
+        "",
+        "Inspecteer na vertaling het eiwit om te zien hoe de aminozuursequentie is gevouwen."
+    ],
+    "fontScale": 0.65,
+    "models": [
+        {
+            "type": "md2d",
+            "id": "page3$0",
+            "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+            "viewOptions": {
+                "controlButtons": "",
+                "enableKeyboardHandlers": false
+            },
+            "modelOptions": {
+                "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+                "DNAState": "intro-cells"
+            }
+        }
+    ],
+    "components": [
+        {
+            "type": "button",
+            "id": "transcribe",
+            "text": "Transcriberen",
+            "action": [
+                "if (DNAStateAfter('transcription-end'))",
+                "  set('DNAState', 'dna');",
+                "animateToDNAState('transcription-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "transcribe-step",
+            "text": "Transcribeer stap voor stap",
+            "action": [
+                "if (DNAStateBefore ('dna')) {",
+                "  animateToDNAState('transcription:1');",
+                "} else { ",
+                "  transcribeDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate",
+            "text": "Vertalen",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "}",
+                "if (get('DNAState') === 'translation-end')",
+                "  set('DNAState', 'translation:0');",
+                "animateToDNAState('translation-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate-step",
+            "text": "Vertaal stap voor stap",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "} else {",
+                "  translateDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "text",
+            "id": "label1",
+            "text": "Klik"
+        },
+        {
+            "type": "text",
+            "id": "label2",
+            "text": "om de volledige mRNA-streng gemaakt te zien of"
+        },
+        {
+            "type": "text",
+            "id": "label3",
+            "text": "Klik"
+        },
+        {
+            "type": "text",
+            "id": "label4",
+            "text": "om volledig eiwit uit mRNA te genereren of"
+        },
+        {
+            "type": "button",
+            "id": "start",
+            "text": "Model starten / voortzetten",
+            "action": [
+                "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+                "else start();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "stop",
+            "text": "Hou op",
+            "action": [
+                "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+                "else stop();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "reset",
+            "text": "Reset",
+            "action": "reloadModel();"
+        },
+        {
+            "type": "button",
+            "id": "prev-state-jump",
+            "text": "<< Springen",
+            "action": "jumpToPrevDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state",
+            "text": "Ga een stap verder",
+            "action": "animateToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state-jump",
+            "text": "Spring >>",
+            "action": "jumpToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "dna-dialog",
+            "text": "Bewerk DNA",
+            "action": "openDNADialog();"
+        }
+    ],
+    "layout": {
+        "model-bottom": [
+            [
+                "label1",
+                "transcribe",
+                "label2",
+                "transcribe-step"
+            ],
+            [
+                "label3",
+                "translate",
+                "label4",
+                "translate-step"
+            ],
+            [
+                "start",
+                "stop",
+                "reset",
+                "dna-dialog"
+            ],
+            [
+                "prev-state-jump",
+                "next-state",
+                "next-state-jump"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "model-bottom",
+            "left": "interactive.left",
+            "height": "0.25 * interactive.height",
+            "top": "model.bottom",
+            "right": "interactive.right",
+            "align": "center",
+            "fontScale": 0.8
+        },
+        {
+            "id": "right-padding-container",
+            "left": "model.right",
+            "width": 10
+        },
+        {
+            "id": "model-centering-container",
+            "top": "interactive.top",
+            "right": "model.left",
+            "width": "0.5 * (interactive.width - model.width) - 5"
+        }
+    ],
+    "lang": "nl",
+    "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+}

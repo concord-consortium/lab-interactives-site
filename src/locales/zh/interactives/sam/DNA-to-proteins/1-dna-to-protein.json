@@ -1,0 +1,202 @@
+{
+    "title": "DNA\u5230\u86cb\u767d\u8d28",
+    "publicationStatus": "public",
+    "subtitle": "\u63a2\u7d22\u5d4c\u5165\u5728DNA\u4e2d\u7684\u4ee3\u7801\u5982\u4f55\u7ffb\u8bd1\u6210\u86cb\u767d\u8d28\u3002",
+    "aspectRatio": 1.05,
+    "category": "Biology",
+    "subCategory": "Genetics",
+    "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+    "about": [
+        "\u5355\u51fb\u201c\u8f6c\u5f55\u201d\u4ee5\u653e\u5927\u7ec6\u80de\u6838\uff0c\u5e76\u67e5\u770b\u67d3\u8272\u4f53\u89e3\u5f00\u4ee5\u66b4\u9732DNA\u94fe\u3002 DNA\u94fe\u5206\u5f00\u540e\uff0c\u5e76\u901a\u8fc7\u6838\u82f7\u9178\u78b1\u57fa\u4e92\u8865\u914d\u5bf9\u4ea7\u751fmRNA\u94fe\u3002",
+        "",
+        "\u5355\u51fb**\u7ffb\u8bd1**\uff0c\u89c2\u5bdfmRNA\u79bb\u5f00\u7ec6\u80de\u6838\u8fdb\u5165\u7ec6\u80de\u8d28\u5e76\u9644\u7740\u5728\u6838\u7cd6\u4f53\u4e0a\u3002 tRNA\u5206\u5b50\u5f15\u5165\u6c28\u57fa\u9178\uff0c\u5e76\u901a\u8fc7\u5339\u914d\u4e92\u8865\u6838\u82f7\u9178\u4ee5\u6b63\u786e\u7684\u987a\u5e8f\u6dfb\u52a0\u6c28\u57fa\u9178\u3002",
+        "",
+        "\u7ffb\u8bd1\u540e\uff0c\u68c0\u67e5\u86cb\u767d\u8d28\u4ee5\u67e5\u770b\u6c28\u57fa\u9178\u5e8f\u5217\u5982\u4f55\u6298\u53e0\u3002"
+    ],
+    "fontScale": 0.65,
+    "models": [
+        {
+            "type": "md2d",
+            "id": "page3$0",
+            "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+            "viewOptions": {
+                "controlButtons": "",
+                "enableKeyboardHandlers": false
+            },
+            "modelOptions": {
+                "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+                "DNAState": "intro-cells"
+            }
+        }
+    ],
+    "components": [
+        {
+            "type": "button",
+            "id": "transcribe",
+            "text": "\u8f6c\u5f55",
+            "action": [
+                "if (DNAStateAfter('transcription-end'))",
+                "  set('DNAState', 'dna');",
+                "animateToDNAState('transcription-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "transcribe-step",
+            "text": "\u5206\u6b65\u8f6c\u5f55",
+            "action": [
+                "if (DNAStateBefore ('dna')) {",
+                "  animateToDNAState('transcription:1');",
+                "} else { ",
+                "  transcribeDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate",
+            "text": "\u7ffb\u8bd1",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "}",
+                "if (get('DNAState') === 'translation-end')",
+                "  set('DNAState', 'translation:0');",
+                "animateToDNAState('translation-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate-step",
+            "text": "\u9010\u6b65\u7ffb\u8bd1",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "} else {",
+                "  translateDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "text",
+            "id": "label1",
+            "text": "\u70b9\u51fb"
+        },
+        {
+            "type": "text",
+            "id": "label2",
+            "text": "\u67e5\u770b\u5b8c\u6574\u7684mRNA\u94fe\u4ea7\u751f\u6216"
+        },
+        {
+            "type": "text",
+            "id": "label3",
+            "text": "\u70b9\u51fb"
+        },
+        {
+            "type": "text",
+            "id": "label4",
+            "text": "\u4ecemRNA\u751f\u6210\u5168\u86cb\u767d\u6216"
+        },
+        {
+            "type": "button",
+            "id": "start",
+            "text": "\u5f00\u59cb/\u7ee7\u7eed\u6a21\u578b",
+            "action": [
+                "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+                "else start();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "stop",
+            "text": "\u505c\u6b62",
+            "action": [
+                "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+                "else stop();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "reset",
+            "text": "\u91cd\u542f",
+            "action": "reloadModel();"
+        },
+        {
+            "type": "button",
+            "id": "prev-state-jump",
+            "text": "<<\u8df3",
+            "action": "jumpToPrevDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state",
+            "text": "\u7ee7\u7eed\u4e00\u6b65",
+            "action": "animateToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state-jump",
+            "text": "\u8df3\u8f6c>>",
+            "action": "jumpToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "dna-dialog",
+            "text": "\u7f16\u8f91DNA",
+            "action": "openDNADialog();"
+        }
+    ],
+    "layout": {
+        "model-bottom": [
+            [
+                "label1",
+                "transcribe",
+                "label2",
+                "transcribe-step"
+            ],
+            [
+                "label3",
+                "translate",
+                "label4",
+                "translate-step"
+            ],
+            [
+                "start",
+                "stop",
+                "reset",
+                "dna-dialog"
+            ],
+            [
+                "prev-state-jump",
+                "next-state",
+                "next-state-jump"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "model-bottom",
+            "left": "interactive.left",
+            "height": "0.25 * interactive.height",
+            "top": "model.bottom",
+            "right": "interactive.right",
+            "align": "center",
+            "fontScale": 0.8
+        },
+        {
+            "id": "right-padding-container",
+            "left": "model.right",
+            "width": 10
+        },
+        {
+            "id": "model-centering-container",
+            "top": "interactive.top",
+            "right": "model.left",
+            "width": "0.5 * (interactive.width - model.width) - 5"
+        }
+    ],
+    "lang": "zh",
+    "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+}

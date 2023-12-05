@@ -1,0 +1,524 @@
+{
+  "title": "Conduction Between Two Solids",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "GRASP",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 0.75,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": "",
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "vacuum",
+      "url": "models/lab-version/1/md2d/grasp/heat-transfer/vacuum.json",
+      "onLoad": [
+        "var leftAtoms = [];",
+        "var rightAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 0) {",
+        "    leftAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    rightAtoms.push(i);",
+        "  }",
+        "}",
+        "set('leftAtomsIndices', leftAtoms);",
+        "set('rightAtomsIndices', rightAtoms);"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "atomRadiusScale": 1.13
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "leftAtomsIndices",
+      "initialValue": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "name": "rightAtomsIndices",
+      "initialValue": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ]
+    },
+    {
+      "name": "barAtomsIndices",
+      "initialValue": []
+    },
+    {
+      "name": "markedBlock",
+      "initialValue": "none",
+      "onChange": [
+        "if (getNumberOfShapes() > 0) removeShape(0);",
+        "if (value === 'left') {",
+        "  addShape({",
+        "    type: 'rectangle',",
+        "    x: 0.03,",
+        "    y: 0.03,",
+        "    width: 1.1,",
+        "    height: 1.94,",
+        "    color: '#FFE5C5',",
+        "    lineColor: 'transparent',",
+        "    layer: 0",
+        "  });",
+        "} else if (value === 'right') {",
+        "  addShape({",
+        "    type: 'rectangle',",
+        "    x: 2.37,",
+        "    y: 0.03,",
+        "    width: 1.1,",
+        "    height: 1.94,",
+        "    color: '#FFE5C5',",
+        "    lineColor: 'transparent',",
+        "    layer: 0",
+        "  });",
+        "}"
+      ]
+    },
+    {
+      "name": "leftAtomsTargetTemp",
+      "initialValue": 50,
+      "onChange": "setTemperatureOfAtoms(get('leftAtomsIndices'), value);"
+    },
+    {
+      "name": "rightAtomsTargetTemp",
+      "initialValue": 600,
+      "onChange": "setTemperatureOfAtoms(get('rightAtomsIndices'), value);"
+    },
+    {
+      "name": "bar",
+      "initialValue": "none",
+      "onChange": [
+        "// First, remove old bar.",
+        "var barAtomsIndices = get('barAtomsIndices');",
+        "for (var i = getNumberOfAtoms() - 1; i >= 0; i--) {",
+        "  if (getAtomProperties(i).element === 3) { removeAtom(i); }",
+        "}",
+        "if (value === 'thin' || value === 'thick') {",
+        "  var xDiff = 0.155;",
+        "  var atomIndices = value === 'thick' ? atomsWithinRect(0.76, 0.4, 0.3, 1.2) : atomsWithinRect(0.8, 0.8, 0.3, 0.53);",
+        "  var barIndices = [];",
+        "  for (var i = 0; i < atomIndices.length; i++) {",
+        "    var a = getAtomProperties(atomIndices[i]);",
+        "    var x = a.x + xDiff;",
+        "    var y = a.y;",
+        "    while (x < 3) {",
+        "      if (addAtom({x: x, y: y, element: 3})) {",
+        "        barIndices.push(getNumberOfAtoms() - 1);",
+        "      }",
+        "      x += xDiff;",
+        "    }",
+        "  }",
+        "  // Try to minize impact on block temperatures.",
+        "  minimizeEnergy();",
+        "  setTemperatureOfAtoms(barIndices, 250); tick(); setTemperatureOfAtoms(barIndices, 250); tick();",
+        "  setTemperatureOfAtoms(barIndices, 250); tick(); setTemperatureOfAtoms(barIndices, 250);",
+        "}"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "rightAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('rightAtomsIndices'));"
+      ],
+      "label": "Temperature of Molecules on Right",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('leftAtomsIndices'));"
+      ],
+      "label": "Temperature of Molecules on Left",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "rightAtomsTempAvg",
+      "value": [
+        "var timestep = get('timeStep');",
+        "if (timestep > 0.99) return get('rightAtomsTempAvg1');",
+        "if (timestep > 0.19) return get('rightAtomsTempAvg2');",
+        "return get('rightAtomsTempAvg3');"
+      ],
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg",
+      "value": [
+        "var timestep = get('timeStep');",
+        "if (timestep > 0.99) return get('leftAtomsTempAvg1');",
+        "if (timestep > 0.19) return get('leftAtomsTempAvg2');",
+        "return get('leftAtomsTempAvg3');"
+      ],
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "rightAtomsTempAvg1",
+      "property": "rightAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg1",
+      "property": "leftAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "rightAtomsTempAvg2",
+      "property": "rightAtomsTemp",
+      "type": "RunningAverage",
+      "period": 1000,
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg2",
+      "property": "leftAtomsTemp",
+      "type": "RunningAverage",
+      "period": 1000,
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "rightAtomsTempAvg3",
+      "property": "rightAtomsTemp",
+      "type": "RunningAverage",
+      "period": 350,
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "leftAtomsTempAvg3",
+      "property": "leftAtomsTemp",
+      "type": "RunningAverage",
+      "period": 350,
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "select-speed",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "Speed:",
+      "labelOn": "left",
+      "options": [
+        {
+          "text": "Fast",
+          "value": 1
+        },
+        {
+          "text": "Medium",
+          "value": 0.2
+        },
+        {
+          "text": "Slow",
+          "value": 0.05
+        }
+      ],
+      "property": "timeStep",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "bar-graph",
+      "type": "barGraph",
+      "property": "rightAtomsTempAvg",
+      "min": 0,
+      "max": 800,
+      "title": "Temperature of Molecules on Right",
+      "titleOn": "right",
+      "labels": 5,
+      "units": true,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "bar-graph2",
+      "type": "barGraph",
+      "property": "leftAtomsTempAvg",
+      "min": 0,
+      "max": 800,
+      "title": "Temperature of Molecules on Left",
+      "titleOn": "right",
+      "labels": 5,
+      "units": true,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-ke",
+      "type": "checkbox",
+      "text": "K. E. Shading",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "instructions",
+      "type": "text",
+      "text": "Choose a material to fill the space between the two solids.",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "select-model-buttons",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Vacuum",
+          "value": "none"
+        },
+        {
+          "text": "Thick long bar",
+          "value": "thick"
+        },
+        {
+          "text": "Thin long bar",
+          "value": "thin"
+        }
+      ],
+      "property": "bar",
+      "retainProperty": false,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "instructions"
+      ],
+      [
+        "select-model-buttons"
+      ],
+      [
+        "show-ke",
+        "select-speed"
+      ]
+    ],
+    "right": [
+      "bar-graph"
+    ],
+    "left": [
+      "bar-graph2"
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "width": "model.width",
+      "align": "center",
+      "padding-top": "0.5em"
+    },
+    {
+      "id": "left",
+      "top": "model.top",
+      "right": "model.left",
+      "height": "interactive.height",
+      "padding-right": "0.5em",
+      "align": "right",
+      "min-width": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "height": "interactive.height",
+      "padding-left": "0.5em",
+      "padding-right": "0.5em",
+      "min-width": "6em"
+    }
+  ]
+}

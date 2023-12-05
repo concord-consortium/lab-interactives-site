@@ -1,0 +1,60 @@
+{
+  "title": "Comparing the Polarity of Pentane and 1-Pentanol",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.35,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Pentane and 1-pentanol differ by only a single atom. Investigate the striking effect on their polarity."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/pentanol/pentane.mol2",
+        "m1:molecule": "models/pentanol/1pentanol.mol2",
+        "showAxes": false,
+        "m0:showFrank": false,
+        "m1:showFrank": false
+      },
+       "onLoad": [
+        "post('jsmolScript', 'm0: set background black; moveto 0.0 { -17 505 863 38.7} 78.3 1.8 20.4 {4.46 0.16149986 -8.565499} 4.7; isosurface reversecolor colorscheme \"rwb\" solvent 0.1 resolution 6 map mep; color isosurface translucent; set echo top center; set echo IMAGE \"models/pentanol/pentaneComp.png\";');",
+        "post('jsmolScript', 'm1: set background black; moveto 0.0 { -1000 -11 22 173.6} 80.0 -1.5 20.1 {12.19285 -10.99115 -1.0716001} 5.3; isosurface reversecolor colorscheme \"rwb\" solvent 0.1 resolution 6 map mep; color isosurface translucent; set echo top center; set echo IMAGE \"models/pentanol/pentanolComp.png\";');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 1.62,
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [],
+  "layout": {
+    "bottom": []
+  },
+  "template": "simple"
+}

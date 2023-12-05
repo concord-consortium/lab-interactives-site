@@ -1,0 +1,178 @@
+{
+  "title": "Diffusion: The role of aquaporins",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+    "All of the ions or molecules in this simulation are polar or charged. Explore what can and can't pass through the membrane with and without aquaporins present."
+  ],
+  "aspectRatio": 1.35,
+  "fontScale": 0.85,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-1/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "function addAtoms(element, charge, count) {",
+        "  var added = 0;",
+        "  var attempts = 0;",
+        "  while (added < count && attempts < count * 4) {",
+        "     if (addAtom({ x: 2.35 * Math.random(), y: 2.5 * Math.random(), vx: Math.random() * 0.001 - 0.0005, vy: Math.random() * 0.001 - 0.0005, element, charge })) {",
+        "        added += 1;",
+        "     }",
+        "     attempts += 1;",
+        "  }",
+        "}",
+        "function removeAtoms(element) {",
+        "  const atomsCount = getNumberOfAtoms();",
+        "  for (var i = 0; i < atomsCount; i++) { removeAtom(0); }",
+        "}",
+        "function setupModel() {",
+        "  batch(function() {",
+        "    removeAtoms();",
+        "    if (get('positiveIon')) { addAtoms(0, 0, 30); }",
+        "    if (get('negativeIon')) { addAtoms(4, 0, 30); }",
+        "    if (get('smallPolar')) { addAtoms(2, 0, 30); }",
+        "  });",
+        "}",
+        "setupModel();",
+        "onPropertyChange('positiveIon', function() { setupModel(); });",
+        "onPropertyChange('negativeIon', function() { setupModel(); });",
+        "onPropertyChange('smallPolar', function() { setupModel(); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "positiveIon",
+      "initialValue": true
+    },
+    {
+      "name": "negativeIon",
+      "initialValue": false
+    },
+    {
+      "name": "smallPolar",
+      "initialValue": false
+    },
+    {
+      "name": "aquaporins",
+      "onChange": [
+        "setImageProperties(1, {visible: value});",
+        "setImageProperties(2, {visible: value});",
+        "setImageProperties(3, {visible: value});",
+        "setImageProperties(4, {visible: value});",
+        "setImageProperties(5, {visible: value});",
+        "setImageProperties(6, {visible: !value});",
+        "setObstacleProperties(7, {permeability: value ? [2] : []});",
+        "setObstacleProperties(8, {permeability: value ? [2] : []});"
+      ],
+      "initialValue": false
+    }
+  ],
+  "components": [
+    {
+      "id": "outside",
+      "type": "text",
+      "text": "Outside"
+    },
+    {
+      "id": "inside",
+      "type": "text",
+      "text": "Inside"
+    },
+    {
+      "type": "checkbox",
+      "id": "positive-ion",
+      "text": "Positive Ion (Na+)",
+      "property": "positiveIon"
+    },
+    {
+      "type": "checkbox",
+      "id": "negative-ion",
+      "text": "Negative Ion (Cl-)",
+      "property": "negativeIon"
+    },
+    {
+      "type": "checkbox",
+      "id": "small-polar",
+      "text": "Small Polar (H2O)",
+      "property": "smallPolar"
+    },
+    {
+      "type": "checkbox",
+      "id": "aquaporins",
+      "text": "With Aquaporins",
+      "property": "aquaporins"
+    },
+    {
+      "type": "image",
+      "id": "img-cl",
+      "src": "cl.png"
+    },
+    {
+      "type": "image",
+      "id": "img-na",
+      "src": "na.png"
+    },
+    {
+      "type": "image",
+      "id": "img-water",
+      "src": "water.png"
+    }
+  ],
+  "layout": {
+    "top-left": [
+      "outside"
+    ],
+    "top-right": [
+      "inside"
+    ],
+    "bottom-left": [
+      ["positive-ion", "img-na"],
+      ["negative-ion", "img-cl"],
+      ["small-polar", "img-water"]
+    ],
+    "bottom-right": [
+      [],
+      ["aquaporins"],
+      []
+    ]
+  },
+  "template": [
+    {
+      "id": "top-left",
+      "bottom": "model.top",
+      "left": "model.left"
+    },
+    {
+      "id": "top-right",
+      "bottom": "model.top",
+      "right": "model.right"
+    },
+    {
+      "id": "bottom-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "padding-top": "0.5em",
+      "padding-left": "3.4em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "model.bottom",
+      "right": "model.right",
+      "padding-top": "2.5em",
+      "padding-right": "6em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "padding-right": "1em"
+    }
+  ]
+}

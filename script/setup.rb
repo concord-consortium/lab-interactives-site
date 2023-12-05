@@ -65,9 +65,9 @@ CONFIG = YAML.load_file(branch_config)
 config_lab_root_url = CONFIG[:lab_root_url] || {}
 
 LAB_ROOT_URL = {
-  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/version/1.16.5/lab",
-  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/version/1.16.5/lab",
-  :staging     => config_lab_root_url[:staging]     || "//lab-framework.concord.org/version/1.16.5/lab",
+  :default     => config_lab_root_url[:default]     || "//lab-framework.concord.org/version/1.17.2/lab",
+  :production  => config_lab_root_url[:production]  || "//lab-framework.concord.org/version/1.17.2/lab",
+  :staging     => config_lab_root_url[:staging]     || "//lab-framework.concord.org/version/1.17.2/lab",
   :development => config_lab_root_url[:development] || "//lab-framework.concord.org/branch/master/lab",
   :local       => config_lab_root_url[:local]       || "//localhost:9191/lab"
 }
@@ -83,15 +83,14 @@ EMBEDDABLE_PAGE = {
 # setup partial for Google Analytics
 if ENV['GA_ACCOUNT_ID']
   ANALYTICS = <<-HEREDOC
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '#{ENV['GA_ACCOUNT_ID']}']);
-    _gaq.push(['_setAllowAnchor', true]);
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=#{ENV['GA_ACCOUNT_ID']}"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '#{ENV['GA_ACCOUNT_ID']}');
   </script>
   HEREDOC
 else
@@ -127,7 +126,6 @@ else
 <script src='vendor/codemirror/addon/format/formatting.js' type='text/javascript'></script>
 <script src='vendor/codemirror/addon/edit/matchbrackets.js' type='text/javascript'></script>
 <script src='vendor/codemirror/addon/edit/closebrackets.js' type='text/javascript'></script>
-<script src='vendor/fingerprintjs/fingerprint.min.js' type='text/javascript'></script>
 <script src='vendor/chosen/chosen.jquery.min.js' type='text/javascript'></script>
   HEREDOC
 end

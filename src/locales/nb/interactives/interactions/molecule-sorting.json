@@ -10,7 +10,7 @@
   "fontScale": 1,
   "lang": "nb-NO",
   "i18nMetadata": "locales/metadata/interactives/interactions/molecule-sorting.json",
-  "credits": "",
+  "credits": "Thomas Bedin",
   "helpOnLoad": false,
   "aboutOnLoad": true,
   "about": [

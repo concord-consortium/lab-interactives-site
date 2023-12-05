@@ -1,0 +1,8 @@
+<svg width="223" height="40" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <text xml:space="preserve" text-anchor="start" font-family="Lato, Arial, sans-serif" font-size="24" id="svg_1" y="30" x="0" stroke-width="0" stroke="#000" fill="#000000">Water</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Lato, Arial, sans-serif" font-size="24" id="svg_2" y="30" x="71" stroke-width="0" stroke="#000" fill="#4d79fd">outside</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Lato, Arial, sans-serif" font-size="24" id="svg_3" y="30" x="151" stroke-width="0" stroke="#000" fill="#000000">/</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="30" x="160" stroke-width="0" fill="#c8645f">inside</text>
+ </g>
+</svg>

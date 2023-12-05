@@ -16,7 +16,21 @@
       "viewOptions": {
         "controlButtons": ""
       },
-      "onLoad": []
+      "onLoad": [
+        "var bonds = getNumberOfRadialBonds();",
+        "var endOfNeedle = [42, 55];",
+        "  var a1 = getAtomProperties(endOfNeedle[0]);",
+        "  var a2 = getAtomProperties(endOfNeedle[1]);",
+        "  addLine({x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y, beginStyle: 'none', endStyle: 'none', fence: 0, lineColor: 'rgb(125,125,125', lineWeight: 3, lineDashes: 'none', visible: 1});",
+        "setInterval(function() {",
+        "  batch(function() {",
+        "    var needle = getNumberOfLines()-1;",
+        "    var a1 = getAtomProperties(endOfNeedle[0]);",
+        "    var a2 = getAtomProperties(endOfNeedle[1]);",
+        "    setLineProperties(needle, {x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y});",
+        "  });",
+        "}, 100);"
+      ]
     }
   ],
   "parameters": [

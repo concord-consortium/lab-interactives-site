@@ -245,7 +245,6 @@ public/vendor: \
 	public/vendor/requirejs \
 	public/vendor/text \
 	public/vendor/domReady \
-	public/vendor/fingerprintjs \
 	public/vendor/shutterbug \
 	public/vendor/lab-energy2d-java \
 	public/vendor/iframe-phone/iframe-phone.js \
@@ -403,11 +402,6 @@ public/vendor/codemirror:
 public/vendor/lab-energy2d-java: vendor/lab-energy2d-java
 	mkdir -p public/vendor/lab-energy2d-java
 	cp -r vendor/lab-energy2d-java/dist/* public/vendor/lab-energy2d-java/
-
-public/vendor/fingerprintjs:
-	mkdir -p public/vendor/fingerprintjs
-	cp vendor/fingerprintjs/fingerprint.min.js public/vendor/fingerprintjs
-	cp vendor/fingerprintjs/README.md public/vendor/fingerprintjs
 
 public/vendor/shutterbug:
 	mkdir -p public/vendor/shutterbug

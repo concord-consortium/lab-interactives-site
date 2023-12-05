@@ -34,7 +34,6 @@
       "id": "forming-molecular-bond",
       "url": "models/lab-version/1/md2d/interactions/breaking-molecular-bond.json",
       "onLoad": [
-        "callAt(0, function() { set('fakeTotalEnergy', get('totalEnergy')); });",
         "onPropertyChange('numberOfElement1AtomsInView', function() {",
         "  if (get('numberOfElement1AtomsInView') < 2) {",
         "    stop();",

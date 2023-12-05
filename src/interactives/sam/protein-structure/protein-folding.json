@@ -1,0 +1,231 @@
+{
+  "title": "Amino Acids",
+  "publicationStatus": "draft",
+  "labEnvironment": "production",
+  "subtitle": "A basic test of the proteins engine.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.8,
+  "fontScale": 0.6,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Using this interactive you can:",
+    "",
+    "- change type of amino acids (right click on the amino acid to open a special context menu)",
+    "- watch their behavior in vacuum, oil and water"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "amino-acids$0",
+      "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
+      "viewOptions": {
+        "controlButtons": "play_reset_step",
+        "modelTimeLabel": true
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "solvent",
+      "initialValue": "water",
+      "onChange": "setSolvent(value);"
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "select-solvent",
+      "type": "pulldown",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Select the solvent type",
+          "selected": true,
+          "disabled": true
+        },
+        {
+          "text": "Vacuum",
+          "value": "vacuum"
+        },
+        {
+          "text": "Oil",
+          "value": "oil"
+        },
+        {
+          "text": "Water",
+          "value": "water"
+        }
+      ],
+      "property": "solvent",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "phobic-button",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
+        "  }",
+        "});"
+      ],
+      "text": "All Hydrophobic",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "philic-button",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
+        "  }",
+        "});"
+      ],
+      "text": "All Hydrophilic",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "mostly-phobic-button",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+        "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+        "  var phobic, philic;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+        "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+        "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
+        "  }",
+        "});"
+      ],
+      "text": "Mostly Hydrophobic",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "mostly-philic-button",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+        "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+        "  var phobic, philic;",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+        "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+        "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
+        "  }",
+        "});"
+      ],
+      "text": "Mostly Hydrophilic",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "random-button",
+      "type": "button",
+      "action": [
+        "batch(function () {",
+        "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
+        "  }",
+        "});"
+      ],
+      "text": "Random Mix",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "random-protein-button",
+      "type": "button",
+      "action": "generateRandomProtein(80);",
+      "text": "Generate Random Protein",
+      "width": "14em",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "select-solvent"
+      ]
+    ],
+    "right": [
+      [
+        "random-protein-button"
+      ],
+      [
+        "phobic-button"
+      ],
+      [
+        "philic-button"
+      ],
+      [
+        "mostly-phobic-button"
+      ],
+      [
+        "mostly-philic-button"
+      ],
+      [
+        "random-button"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "padding-top": "1em",
+      "top": "model.bottom"
+    },
+    {
+      "id": "right",
+      "top": "2em",
+      "width": "16em",
+      "left": "model.right",
+      "padding-left": "1em",
+      "align": "left"
+    }
+  ]
+}

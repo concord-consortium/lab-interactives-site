@@ -32,6 +32,12 @@
       "onLoad": [
         "setComponentDisabled('add2', false);",
         "setComponentDisabled('add10', false);",
+        "onPropertyChange('time', function(t) {",
+        "  var pComp = get('percentReactionComplete');",
+        "  if ((pComp >= 80) && (get('TimeToGreaterThan80Percent') == 'incomplete')) { ",
+        "    set({TimeToGreaterThan80Percent: get('displayTime')});",
+        "  }",
+        "});",
         "onStart(function() {",
         "  setComponentDisabled('add2', true);",
         "  setComponentDisabled('add10', true);",
@@ -39,15 +45,38 @@
       ]
     }
   ],
+  "exports": {
+    "perRun": [
+      "numberOfAtoms",
+      "TimeToGreaterThan80Percent"
+    ],
+    "perTick": [
+      "Time",
+      "percentReactionComplete"
+    ]
+  },
   "outputs": [
     {
-      "name": "reactionComplete",
+      "name": "percentReactionComplete",
       "value": [
         "var atoms = getNumberOfAtoms();",
         "var bonds = getNumberOfRadialBonds();",
         "return atoms > 0 ? bonds / (0.5 * atoms) * 100 : 0;"
       ],
       "unitAbbreviation": "%"
+    }
+  ],
+  "parameters":[
+    {
+      "name": "numberOfAtoms",
+      "initialValue": 0,
+      "label": "Number of Atoms"
+    },
+    {
+      "name": "TimeToGreaterThan80Percent",
+      "initialValue": "incomplete",
+      "label": "Time to > 80 complete",
+      "unitAbbreviation": "ps"
     }
   ],
   "components": [
@@ -61,7 +90,9 @@
         "    addRandomAtom(1);",
         "    setAtomProperties(i, {vx: Math.random() * 2e-5 - 1e-5, vy: Math.random() * 2e-5 - 1e-5});",
         "  }",
-        "});"
+        "});",
+        "set({numberOfAtoms: getNumberOfAtoms()});"
+
       ],
       "text": "Add 2 atoms"
     },
@@ -75,14 +106,15 @@
         "    addRandomAtom(1);",
         "    setAtomProperties(i, {vx: Math.random() * 2e-5 - 1e-5, vy: Math.random() * 2e-5 - 1e-5});",
         "  }",
-        "});"
+        "});",
+        "set({numberOfAtoms: getNumberOfAtoms()});"
       ],
       "text": "Add 10 atoms"
     },
     {
       "id": "reaction-complete",
       "type": "barGraph",
-      "property": "reactionComplete",
+      "property": "percentReactionComplete",
       "title": "Reaction Complete",
       "labels": 10,
       "labelFormat": ".0f",

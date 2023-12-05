@@ -1,63 +1,60 @@
 [submodule "vendor/d3"]
 	path = vendor/d3
-	url = git://github.com/mbostock/d3.git
+	url = https://github.com/mbostock/d3.git
 [submodule "vendor/science.js"]
 	path = vendor/science.js
-	url = git://github.com/jasondavies/science.js.git
+	url = https://github.com/jasondavies/science.js.git
 [submodule "vendor/sizzle"]
 	path = vendor/sizzle
-	url = git://github.com/jquery/sizzle.git
+	url = https://github.com/jquery/sizzle.git
 [submodule "vendor/hijs"]
 	path = vendor/hijs
-	url = git://github.com/cloudhead/hijs.git
+	url = https://github.com/cloudhead/hijs.git
 [submodule "vendor/modernizr"]
 	path = vendor/modernizr
-	url = git://github.com/Modernizr/Modernizr.git
+	url = https://github.com/Modernizr/Modernizr.git
 [submodule "vendor/jquery"]
 	path = vendor/jquery
-	url = git://github.com/jquery/jquery.git
+	url = https://github.com/jquery/jquery.git
 [submodule "vendor/d3-plugins"]
 	path = vendor/d3-plugins
-	url = git://github.com/d3/d3-plugins.git
+	url = https://github.com/d3/d3-plugins.git
 [submodule "vendor/requirejs"]
 	path = vendor/requirejs
-	url = git://github.com/jrburke/requirejs.git
+	url = https://github.com/jrburke/requirejs.git
 [submodule "vendor/text"]
 	path = vendor/text
-	url = git://github.com/requirejs/text.git
+	url = https://github.com/requirejs/text.git
 [submodule "vendor/almond"]
 	path = vendor/almond
-	url = git://github.com/jrburke/almond.git
+	url = https://github.com/jrburke/almond.git
 [submodule "vendor/domReady"]
 	path = vendor/domReady
-	url = git://github.com/requirejs/domReady.git
+	url = https://github.com/requirejs/domReady.git
 [submodule "vendor/codemirror"]
 	path = vendor/codemirror
-	url = git://github.com/marijnh/CodeMirror.git
+	url = https://github.com/marijnh/CodeMirror.git
 [submodule "vendor/tinysort"]
 	path = vendor/tinysort
-	url = git://github.com/Sjeiti/TinySort.git
+	url = https://github.com/Sjeiti/TinySort.git
 [submodule "vendor/coffee-script"]
 	path = vendor/coffee-script
-	url = git://github.com/jashkenas/coffee-script.git
+	url = https://github.com/jashkenas/coffee-script.git
 [submodule "vendor/require-cs"]
 	path = vendor/require-cs
-	url = git://github.com/jrburke/require-cs.git
+	url = https://github.com/jrburke/require-cs.git
 [submodule "vendor/jquery-ui-touch-punch"]
 	path = vendor/jquery-ui-touch-punch
-	url = git://github.com/furf/jquery-ui-touch-punch.git
+	url = https://github.com/furf/jquery-ui-touch-punch.git
 [submodule "vendor/underscore"]
 	path = vendor/underscore
-	url = git://github.com/documentcloud/underscore.git
+	url = https://github.com/documentcloud/underscore.git
 [submodule "vendor/jquery-context-menu"]
 	path = vendor/jquery-context-menu
-	url = git://github.com/medialize/jQuery-contextMenu.git
+	url = https://github.com/medialize/jQuery-contextMenu.git
 [submodule "vendor/jquery-selectBoxIt"]
 	path = vendor/jquery-selectBoxIt
-	url = git://github.com/gfranko/jquery.selectBoxIt.js.git
-[submodule "vendor/fingerprintjs"]
-	path = vendor/fingerprintjs
-	url = https://github.com/Valve/fingerprintjs
+	url = https://github.com/gfranko/jquery.selectBoxIt.js.git
 [submodule "vendor/pixi.js"]
 	path = vendor/pixi.js
 	url = https://github.com/concord-consortium/pixi.js.git
@@ -66,7 +63,7 @@
 	url = https://github.com/ftlabs/fastclick.git
 [submodule "vendor/lab-sensor-applet-interface"]
 	path = vendor/lab-sensor-applet-interface
-	url = git://github.com/concord-consortium/lab-sensor-applet-interface.git
+	url = https://github.com/concord-consortium/lab-sensor-applet-interface.git
 [submodule "vendor/seedrandom"]
 	path = vendor/seedrandom
 	url = https://github.com/davidbau/seedrandom.git

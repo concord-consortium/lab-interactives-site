@@ -8,8 +8,7 @@
   "screenshot": "",
   "aspectRatio": 1.7,
   "fontScale": 0.85,
-  "lang": "en-US",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactives/interactions/exploring-hydrophobic-core.json",
   "credits": [
     "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
     "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."

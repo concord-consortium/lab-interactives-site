@@ -62,6 +62,25 @@
       }
     }
   ],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "windSpeed",
+      "numCars",
+      "numFactories",
+      "temperature",
+      "sunlightAmount",
+      "rainRate",
+      "carPollutionRate",
+      "factoryPollutionRate",
+      "electricCarPercentage"
+    ],
+    "perTick": [
+      "ticks",
+      "primaryAQI",
+      "secondaryAQI"
+    ]
+  },
   "propertiesToRetain": [],
   "parameters": [],
   "outputs": [
@@ -416,7 +435,7 @@
     }
   ],
   "layout": {
-    
+
      "playback-container": [
       "playback"
     ],
@@ -456,7 +475,7 @@
         "aqiGraph"
       ]
     ]
-    
+
   },
  "template": [
     {

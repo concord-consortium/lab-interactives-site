@@ -1,0 +1,202 @@
+{
+    "title": "ADN en prot\u00e9ine",
+    "publicationStatus": "public",
+    "subtitle": "D\u00e9couvrez comment le code int\u00e9gr\u00e9 \u00e0 l'ADN est traduit en prot\u00e9ine.",
+    "aspectRatio": 1.05,
+    "category": "Biology",
+    "subCategory": "Genetics",
+    "screenshot": "http://screenshots.lab.concord.org/1-dna-to-protein.png",
+    "about": [
+        "Cliquez sur ** Transcrire ** pour zoomer sur le noyau cellulaire et voir le chromosome se d\u00e9m\u00ealer pour exposer les brins d'ADN. L'ADN se s\u00e9pare et un brin d'ARNm est cr\u00e9\u00e9 en faisant correspondre des nucl\u00e9otides compl\u00e9mentaires.",
+        "",
+        "Cliquez sur ** Traduire ** pour regarder l'ARNm quitter le noyau pour le cytoplasme et se fixer \u00e0 un ribosome. Les mol\u00e9cules d'ARNt apportent des acides amin\u00e9s et les acides amin\u00e9s sont ajout\u00e9s dans le bon ordre en faisant correspondre les nucl\u00e9otides compl\u00e9mentaires.",
+        "",
+        "Apr\u00e8s la traduction, inspectez la prot\u00e9ine pour voir comment la s\u00e9quence d'acides amin\u00e9s s'est repli\u00e9e."
+    ],
+    "fontScale": 0.65,
+    "models": [
+        {
+            "type": "md2d",
+            "id": "page3$0",
+            "url": "models-converted/lab-version/1/md2d/sam-activities/DNA-to-proteins/page3/page3$0.json",
+            "viewOptions": {
+                "controlButtons": "",
+                "enableKeyboardHandlers": false
+            },
+            "modelOptions": {
+                "DNA": "ATGCCAGGCGGCGAGAGCTTGCTAATTGGCTTATAG",
+                "DNAState": "intro-cells"
+            }
+        }
+    ],
+    "components": [
+        {
+            "type": "button",
+            "id": "transcribe",
+            "text": "Transcrire",
+            "action": [
+                "if (DNAStateAfter('transcription-end'))",
+                "  set('DNAState', 'dna');",
+                "animateToDNAState('transcription-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "transcribe-step",
+            "text": "Transcrire \u00e9tape par \u00e9tape",
+            "action": [
+                "if (DNAStateBefore ('dna')) {",
+                "  animateToDNAState('transcription:1');",
+                "} else { ",
+                "  transcribeDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate",
+            "text": "Traduire",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "}",
+                "if (get('DNAState') === 'translation-end')",
+                "  set('DNAState', 'translation:0');",
+                "animateToDNAState('translation-end');"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "translate-step",
+            "text": "Traduire \u00e9tape par \u00e9tape",
+            "action": [
+                "if (DNAStateBefore('transcription-end')) {",
+                "  alert('Translation can only occur after transcription is complete.');",
+                "  return;",
+                "} else {",
+                "  translateDNAStep();",
+                "}"
+            ]
+        },
+        {
+            "type": "text",
+            "id": "label1",
+            "text": "Cliquez sur"
+        },
+        {
+            "type": "text",
+            "id": "label2",
+            "text": "pour voir le brin d'ARNm complet cr\u00e9\u00e9 ou"
+        },
+        {
+            "type": "text",
+            "id": "label3",
+            "text": "Cliquez sur"
+        },
+        {
+            "type": "text",
+            "id": "label4",
+            "text": "pour g\u00e9n\u00e9rer une prot\u00e9ine compl\u00e8te \u00e0 partir de l'ARNm ou"
+        },
+        {
+            "type": "button",
+            "id": "start",
+            "text": "D\u00e9marrer / continuer le mod\u00e8le",
+            "action": [
+                "if (DNAStateBefore('translation-end')) animateToDNAState('translation-end');",
+                "else start();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "stop",
+            "text": "Arr\u00eatez",
+            "action": [
+                "if (DNAStateBefore('translation-end')) stopDNAAnimation();",
+                "else stop();"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "reset",
+            "text": "R\u00e9initialiser",
+            "action": "reloadModel();"
+        },
+        {
+            "type": "button",
+            "id": "prev-state-jump",
+            "text": "<< Sauter",
+            "action": "jumpToPrevDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state",
+            "text": "\u00c9tape suivante",
+            "action": "animateToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "next-state-jump",
+            "text": "Sauter >>",
+            "action": "jumpToNextDNAState();"
+        },
+        {
+            "type": "button",
+            "id": "dna-dialog",
+            "text": "Modifier l'ADN",
+            "action": "openDNADialog();"
+        }
+    ],
+    "layout": {
+        "model-bottom": [
+            [
+                "label1",
+                "transcribe",
+                "label2",
+                "transcribe-step"
+            ],
+            [
+                "label3",
+                "translate",
+                "label4",
+                "translate-step"
+            ],
+            [
+                "start",
+                "stop",
+                "reset",
+                "dna-dialog"
+            ],
+            [
+                "prev-state-jump",
+                "next-state",
+                "next-state-jump"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "model-bottom",
+            "left": "interactive.left",
+            "height": "0.25 * interactive.height",
+            "top": "model.bottom",
+            "right": "interactive.right",
+            "align": "center",
+            "fontScale": 0.8
+        },
+        {
+            "id": "right-padding-container",
+            "left": "model.right",
+            "width": 10
+        },
+        {
+            "id": "model-centering-container",
+            "top": "interactive.top",
+            "right": "model.left",
+            "width": "0.5 * (interactive.width - model.width) - 5"
+        }
+    ],
+    "lang": "fr",
+    "i18nMetadata": "locales/metadata/interactives/sam/DNA-to-proteins/1-dna-to-protein.json"
+}

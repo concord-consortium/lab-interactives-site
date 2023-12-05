@@ -1,0 +1,265 @@
+{
+    "title": "\uc18c\uc218\uc131 \ucf54\uc5b4 \ud0d0\uc0c9",
+    "publicationStatus": "public",
+    "labEnvironment": "production",
+    "subtitle": "\uc5ec\ub7ec \ub2e8\ubc31\uc9c8\ub4e4\uc758 \uadf9\uc131 \ubc0f \ube44\uadf9\uc131 \uc601\uc5ed\ub4e4\uc744 \ud0d0\uc0c9\ud558\uae30.",
+    "category": "",
+    "subCategory": "",
+    "screenshot": "",
+    "aspectRatio": 1.7,
+    "fontScale": 0.85,
+    "lang": "kr",
+    "i18nMetadata": "locales/metadata/interactives/interactions/exploring-hydrophobic-core.json",
+    "credits": [
+        "\uc774 \ub300\ud654 \ud615\uc740 [Concord Consortium] (https://concord.org/)\uc5d0\uc11c [Next-Generation Molecular Workbench] (http://mw.concord.org/nextgen/) \uc18c\ud504\ud2b8\uc6e8\uc5b4\ub97c \uc0ac\uc6a9\ud558\uc5ec \uc81c\uc791\ub418\uc5c8\uc73c\uba70 \ubcf4\uc870\uae08\uc73c\ub85c \uc790\uae08\uc774 \uc9c0\uc6d0\ub429\ub2c8\ub2e4. [Google.org] (https://www.google.org/)\uc5d0\uc11c",
+        "\uc774 \ub300\ud654 \ud615\uc740 [LGPL] (http://www.gnu.org/licenses/lgpl.html) \ub77c\uc774\uc120\uc2a4\uc5d0 \ub530\ub77c \ub77c\uc774\uc120\uc2a4\uac00 \ubd80\uc5ec \ub41c [JSMol] (https://sourceforge.net/projects/jsmol/)\ub3c4 \uc0ac\uc6a9\ud569\ub2c8\ub2e4."
+    ],
+    "helpOnLoad": false,
+    "aboutOnLoad": true,
+    "about": [
+        "\ub2e4\ub978 \ub2e8\ubc31\uc9c8\ub4e4\uc744 \uc120\ud0dd\ud55c \ub4a4 \uac15\uc870\ud560 \ub2e8\ubc31\uc9c8 \ubd80\ubd84\uc744 \uc120\ud0dd\ud558\uc2dc\uc624. ",
+        "\ubd84\uc790\ub97c \ud074\ub9ad \ubc0f \ub4dc\ub798\uadf8\ud558\uc5ec \ud68c\uc804\uc2dc\ud0ac \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+        "***",
+        "\ub2e8\ubc31\uc9c8\uc758 \uadf9\uc131 \ubc0f \ube44\uadf9\uc131 \ubd80\ubd84\uc774 \uc5b4\ub290 \uc704\uce58\uc5d0 \uc788\ub294\uc9c0",
+        "\uc54c\uc544\ubcf4\uace0 \uadf8\uac83\uc774 \uc5b4\ub5bb\uac8c \ub2e8\ubc31\uc9c8 \ubd84\uc790\uc758 \uc804\uccb4",
+        "\uad6c\uc870\uc5d0 \uc601\ud5a5\uc744 \ubbf8\uce58\ub294\uc9c0 \uad00\ucc30\ud558\uc2dc\uc624.",
+        "\uc774 \uc2dc\ubbac\ub808\uc774\uc158\uc740 \ubbf8\uc2dc\uac04 \uc8fc\ub9bd \ub300\ud559\uc758 CREATE for STEM Institute\uc640 \ud611\ub825\ud558\uc5ec National Science Foundation (DRL-1232388)\uc758 \uc790\uae08\uc744 \uc9c0\uc6d0\ud558\ub294 Interactions \ud504\ub85c\uc81d\ud2b8\uc5d0 \uc758\ud574 \uac1c\ubc1c\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+        "\uc790\uc138\ud55c \ub0b4\uc6a9\uc740 \uc774 \uc2dc\ubbac\ub808\uc774\uc158\uc774 \ud3ec\ud568 \ub41c Interactions \ucee4\ub9ac\ud058\ub7fc \uceec\ub809\uc158\uc5d0\uc11c \ucc38\uc870\ud558\uc2dc\uc624."
+    ],
+    "theme": "",
+    "showTopBar": true,
+    "showBottomBar": true,
+    "padding": 10,
+    "models": [
+        {
+            "type": "iframe-model",
+            "id": "iframe-model",
+            "model": {
+                "url": "https://models-resources.concord.org/jsmol/embeddable.html"
+            },
+            "onLoad": [
+                "post('jsmolScript', 'set background black; moveto 0.0 { 66 975 -210 137.7} 108.0 0.0 8.0 {0.10849953 -0.3850007 0.49249935} 24.1;');",
+                "",
+                "function deleteNonProtein() {",
+                "  return 'select not protein; delete selected;';",
+                "}",
+                "",
+                "function setStyle() {",
+                "  var value = get('style');",
+                "  if (value === 'spacefill') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; cpk 100%;';",
+                "  } else if (value === 'ball-and-stick') {",
+                "    return 'isosurface off; trace off; select all; restrict none; select all; wireframe 0.15; cpk 20%;';",
+                "  }",
+                "}",
+                "",
+                "function setColor() {",
+                "  var value = get('color');",
+                "  if (value === 'element') {",
+                "    return 'select all; color cpk;';",
+                "  } else if (value === 'amino-acid') {",
+                "    return 'select all; color shapely;';",
+                "  } else if (value === 'polarity') {",
+                "    return 'select polar; color [x488728]; select hydrophobic; color [xE2AA31];';",
+                "  }",
+                "}",
+                "",
+                "function setTranslucency() {",
+                "  var value = get('translucency');",
+                "  if (!value) {",
+                "    return 'select all; color opaque;';",
+                "  } else if (value === 'hydrophobic') {",
+                "    return 'select hydrophobic; color atoms translucent 7; select polar; color atoms opaque; ';",
+                "  } else if (value === 'hydrophilic') {",
+                "    return 'select hydrophobic; color atoms opaque; select polar; color atoms translucent 7;';",
+                "  }",
+                "}",
+                "",
+                "function update(propertyName) {",
+                "  var script = deleteNonProtein();",
+                "  script += setStyle();",
+                "  script += setColor();",
+                "  script += setTranslucency();",
+                "  post('jsmolScript', script);",
+                "}",
+                "",
+                "onPropertyChange('molecule', update);",
+                "onPropertyChange('color', update);",
+                "onPropertyChange('style', update);",
+                "onPropertyChange('translucency', update);",
+                "",
+                "update(get('style'));"
+            ],
+            "viewOptions": {
+                "aspectRatio": 1,
+                "controlButtons": ""
+            },
+            "modelOptions": {
+                "molecule": "models/exploring-hydrophobic-core/1RK9.pdb"
+            }
+        }
+    ],
+    "propertiesToRetain": [],
+    "parameters": [
+        {
+            "name": "style",
+            "initialValue": "spacefill"
+        },
+        {
+            "name": "color",
+            "initialValue": "polarity"
+        },
+        {
+            "name": "translucency",
+            "initialValue": false
+        },
+        {
+            "name": "sidechainOnly",
+            "initialValue": true
+        },
+        {
+            "name": "image",
+            "initialValue": false,
+            "onChange": [
+                "post('jsmolScript', 'set echo off;' + (value ? ' set echo top center; set echo IMAGE \"models/exploring-hydrophobic-core/' + value + '\"' : ''));"
+            ]
+        }
+    ],
+    "outputs": [],
+    "filteredOutputs": [],
+    "helpTips": [],
+    "dataSets": [],
+    "components": [
+        {
+            "id": "molecule",
+            "type": "pulldown",
+            "label": "\ub2e8\ubc31\uc9c8",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "\uc54c\ubd80\ubbfc (\uacc4\ub780 \ud770\uc790\uc5d0\uc11c \ubc1c\uacac)",
+                    "value": "models/exploring-hydrophobic-core/1RK9.pdb"
+                },
+                {
+                    "text": "\uc778\uc290\ub9b0 (\ud608\ub2f9 \uc870\uc808)",
+                    "value": "models/exploring-hydrophobic-core/2hiu.pdb"
+                },
+                {
+                    "text": "\ub9ac\uc18c\uc790\uc784 (\ub208\ubb3c\uacfc \uce68\uc5d0 \uc788\ub294 \uc790\uc5f0\ud56d\uc0dd\uc81c)",
+                    "value": "models/exploring-hydrophobic-core/2lyz.pdb"
+                },
+                {
+                    "text": "\uc81c\ud55c \ud6a8\uc18c (DNA \uc808\ub2e8)",
+                    "value": "models/exploring-hydrophobic-core/1eri.pdb"
+                }
+            ],
+            "property": "molecule",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "style",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "\uc2a4\ud0c0\uc77c",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "\ubaa8\ub4e0 \uc6d0\uc790 (\ubcfc\uacfc \uc2a4\ud2f1)",
+                    "value": "ball-and-stick"
+                },
+                {
+                    "text": "\ubaa8\ub4e0 \uc6d0\uc790 (spacefill)",
+                    "value": "spacefill"
+                }
+            ],
+            "property": "style",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "color",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "\uc0c9\uae54",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "\uadf9\uc131 (\uc18c\uc218\uc131 / \uce5c\uc218\uc131)",
+                    "value": "polarity"
+                },
+                {
+                    "text": "\uc694\uc18c",
+                    "value": "element"
+                },
+                {
+                    "text": "\uc544\ubbf8\ub178\uc0b0",
+                    "value": "amino-acid"
+                }
+            ],
+            "property": "color",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        },
+        {
+            "id": "translucency",
+            "type": "radio",
+            "style": "radio",
+            "orientation": "vertical",
+            "label": "\uc81c\ud55c \ud6a8\uc18c (DNA \uc808\ub2e8)",
+            "labelOn": "top",
+            "options": [
+                {
+                    "text": "\uc5c6\uc74c",
+                    "value": false
+                },
+                {
+                    "text": "\ube44\uadf9\uc131 (\uc18c\uc218\uc131)",
+                    "value": "hydrophobic"
+                },
+                {
+                    "text": "\uadf9\uc131 / \uc804\ud558 (\uce5c\uc218\uc131)",
+                    "value": "hydrophilic"
+                }
+            ],
+            "property": "translucency",
+            "retainProperty": true,
+            "disabled": false,
+            "tooltip": "",
+            "helpIcon": false
+        }
+    ],
+    "layout": {
+        "right": [
+            [
+                "molecule"
+            ],
+            [
+                "translucency"
+            ],
+            [
+                "style"
+            ],
+            [
+                "color"
+            ]
+        ]
+    },
+    "template": [
+        {
+            "id": "right",
+            "top": "model.top",
+            "left": "model.right",
+            "margin-left": "0.5em",
+            "margin-right": "0.5em"
+        }
+    ]
+}

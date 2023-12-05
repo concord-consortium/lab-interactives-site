@@ -24,6 +24,15 @@
       }
     }
   ],
+  "exports": {
+    "perRun": [
+      "targetTemperature"
+    ],
+    "perTick": [
+      "Time",
+      "pressureProbeFiltered"
+    ]
+  },
   "outputs": [
     {
       "name": "pressureProbeInstantaneous",

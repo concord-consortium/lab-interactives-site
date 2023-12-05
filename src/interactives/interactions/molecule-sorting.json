@@ -9,7 +9,7 @@
   "aspectRatio": 1.45,
   "fontScale": 1,
   "lang": "en-US",
-  "i18nMetadata": "",
+  "i18nMetadata": "locales/metadata/interactives/interactions/molecule-sorting.json",
   "credits": "",
   "helpOnLoad": false,
   "aboutOnLoad": true,

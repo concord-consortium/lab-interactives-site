@@ -1,0 +1,85 @@
+{
+  "title": "Electronegativity Affects the Type of Covalent Bond",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.6,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Atoms in a covalent bond share electrons equally or unequally, depending on how electronegative they are relative to each other. Compare the sharing of electrons when two atoms are of equal or very different electronegativity."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=2",
+        "m0:molecule": "models/electronegativity-bonding/CC.mol2",
+        "m1:molecule": "models/electronegativity-bonding/HF.mol2",
+        "showAxes": false,
+        "m0:showFrank": false,
+        "m1:showFrank": false
+      },
+     "onLoad": [
+       "post('jsmolScript', 'm0:script models/electronegativity-bonding/p8ccscript.spt;');",
+       "post('jsmolScript', 'm1:script models/electronegativity-bonding/p8ohscript.spt;');",
+        "setComponentDisabled('m01-spin', true);",
+        "setComponentDisabled('m01-nospin', false);"
+      ],
+      "viewOptions": {
+        "aspectRatio": 2.2,
+        "controlButtons": "reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+      {
+      "type": "button",
+      "id": "m01-spin",
+      "text": "Spin molecules",
+      "action": [
+        "post('jsmolScript', 'm0: spin on');",
+        "post('jsmolScript', 'm1: spin on');",
+        "setComponentDisabled('m01-spin', true);",
+        "setComponentDisabled('m01-nospin', false);"
+      ]
+    },
+      {
+      "type": "button",
+      "id": "m01-nospin",
+      "text": "Stop spinning",
+      "action": [
+        "post('jsmolScript', 'm0: spin off');",
+        "post('jsmolScript', 'm1: spin off');",
+        "setComponentDisabled('m01-spin', false);",
+        "setComponentDisabled('m01-nospin', true);"
+      ]
+    }
+  ],
+  "layout": {
+    "bottom": ["m01-spin","m01-nospin"]
+  },
+  "template": "simple"
+}

@@ -24,6 +24,7 @@
   "DNAMutations": true,
   "useQuantumDynamics": false,
   "useChemicalReactions": false,
+  "useDuration": false,
   "viewOptions": {
     "viewPortWidth": 7,
     "viewPortHeight": 1.96,

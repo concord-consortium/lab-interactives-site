@@ -1,0 +1,77 @@
+{
+  "title": "Molecular interactions between DNA and a protein",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.4,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Many proteins interact with DNA. For example, some proteins control how often a gene is copied into mRNA, and others enable DNA to fold up into chromosomes. The shape of a protein is a key factor in where and how it attaches to DNA."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
+        "molecule": "models/molgeo/p10-DNA-prot/1ysa.pdb",
+        "showAxes": false
+      },
+     "onLoad": [
+        "post('jsmolScript', 'script models/molgeo/p10-DNA-prot/DNA-prot-movie-setup.spt;');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 1.7,
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "play-movie",
+      "type": "button",
+      "action": "jsmolScript('script models/molgeo/p10-DNA-prot/DNA-prot-movie.spt;');",
+      "text": "Play movie",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+        {
+      "id": "reset",
+      "type": "button",
+      "action": "jsmolScript('exit; script models/molgeo/p10-DNA-prot/DNA-prot-movie-setup.spt;');",
+      "text": "Reset",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+
+  ],
+  "layout": {},
+  "template": "simple"
+}

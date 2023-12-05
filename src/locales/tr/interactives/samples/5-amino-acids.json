@@ -1,0 +1,183 @@
+{
+    "title": "Protein Katlanmas\u0131",
+    "publicationStatus": "public",
+    "category": "Biology",
+    "subCategory": "Molecular biology",
+    "screenshot": "http://screenshots.lab.concord.org/5-amino-acids.png",
+    "subtitle": "Peptidler nas\u0131l kararl\u0131 konformasyonlara katlan\u0131r?",
+    "fontScale": 0.6,
+    "about": [
+        "Protein katlanmas\u0131nda hidrofobik ve hidrofilik etkile\u015fimlerin rol\u00fcn\u00fc ara\u015ft\u0131r\u0131n. Rasgele bir peptit zinciri olu\u015fturun ve sulu bir ortamda nas\u0131l katland\u0131\u011f\u0131n\u0131 izleyin. Peptit sulu ortam yerine ya\u011fl\u0131 bir ortamda veya vakumda ise ne olaca\u011f\u0131n\u0131 g\u00f6rmek i\u00e7in \u00e7\u00f6z\u00fcc\u00fcy\u00fc de\u011fi\u015ftirin."
+    ],
+    "models": [
+        {
+            "type": "md2d",
+            "id": "amino-acids$0",
+            "url": "models-converted/lab-version/1/md2d/conversion-and-physics-examples/amino-acids$0.json",
+            "viewOptions": {
+                "controlButtons": "play_reset_step",
+                "showClock": false
+            }
+        }
+    ],
+    "parameters": [
+        {
+            "name": "solvent",
+            "initialValue": "water",
+            "onChange": "setSolvent(value);"
+        }
+    ],
+    "components": [
+        {
+            "type": "checkbox",
+            "id": "show-labels",
+            "text": "\u00dc\u00e7 harfli kodlar kullan\u0131n",
+            "property": "useThreeLetterCode"
+        },
+        {
+            "type": "pulldown",
+            "id": "select-solvent",
+            "property": "solvent",
+            "options": [
+                {
+                    "text": "\u00c7\u00f6z\u00fcc\u00fc tipini se\u00e7in",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "Vakum",
+                    "value": "vacuum"
+                },
+                {
+                    "text": "Ya\u011f",
+                    "value": "oil"
+                },
+                {
+                    "text": "Su",
+                    "value": "water"
+                }
+            ]
+        },
+        {
+            "type": "pulldown",
+            "id": "select-color-scheme",
+            "property": "aminoAcidColorScheme",
+            "options": [
+                {
+                    "text": "Amino asitler i\u00e7in renk \u015femas\u0131n\u0131 se\u00e7in",
+                    "disabled": true,
+                    "selected": true
+                },
+                {
+                    "text": "Hi\u00e7biri",
+                    "value": "none"
+                },
+                {
+                    "text": "Y\u00fck",
+                    "value": "charge"
+                },
+                {
+                    "text": "Hidrofobiklik",
+                    "value": "hydrophobicity"
+                },
+                {
+                    "text": "Y\u00fck ve Hidrofobiklik",
+                    "value": "chargeAndHydro"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "id": "phobic-button",
+            "text": "T\u00fcm Hidrofobik",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: phobicAA[Math.round(Math.random()*(phobicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "philic-button",
+            "text": "T\u00fcm Hidrofilik",
+            "action": [
+                "batch(function () {",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: philicAA[Math.round(Math.random()*(philicAA.length-1))]}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-phobic-button",
+            "text": "\u00c7o\u011funlukla Hidrofobik",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() > 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "mostly-philic-button",
+            "text": "\u00c7o\u011funlukla Hidrofilik",
+            "action": [
+                "batch(function () {",
+                "  var phobicAA = [5,9,12,14,15,17,18,19,22,23,24];",
+                "  var philicAA = [6,7,8,10,11,13,16,20,21];",
+                "  var phobic, philic;",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    phobic = phobicAA[Math.round(Math.random()*(phobicAA.length-1))];",
+                "    philic = philicAA[Math.round(Math.random()*(philicAA.length-1))];",
+                "    setAtomProperties(i, {element: (Math.random() < 0.2 ? phobic : philic) }, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-button",
+            "text": "Rastgele Kar\u0131\u015f\u0131m",
+            "action": [
+                "batch(function () {",
+                "  for (var i = 0; i < getNumberOfAtoms(); i++) {",
+                "    setAtomProperties(i, {element: (Math.floor(Math.random() * 20) + 5)}, false, false);",
+                "  }",
+                "});"
+            ]
+        },
+        {
+            "type": "button",
+            "id": "random-protein-button",
+            "text": "Rastgele protein \u00fcret",
+            "action": "generateRandomProtein(40);"
+        }
+    ],
+    "layout": {
+        "bottom": [
+            [
+                "show-labels",
+                "select-color-scheme",
+                "select-solvent"
+            ],
+            [
+                "random-protein-button"
+            ]
+        ]
+    },
+    "template": "simple",
+    "lang": "tr ",
+    "i18nMetadata": "locales/metadata/interactives/samples/5-amino-acids.json"
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Hemogoblin",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "aspectRatio": 1.35,
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "about": [ "A molecule for transporting oxygen and carbon dioxide in blood."
+  ],
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
+        "molecule": "models/hemoglobin/1A3N.pdb.gz"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'set background [x000000]; script models/hemoglobin/heme.spt;');"
+      ]
+    }
+  ],
+  "components": []
+}

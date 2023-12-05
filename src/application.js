@@ -1,10 +1,11 @@
-/*global SITE_CONFIG, Lab, iframePhone, _, $, Shutterbug, CodeMirror, Fingerprint, Embeddable, alert, AUTHORING: true */
+/*global SITE_CONFIG, Lab, iframePhone, $, Shutterbug, CodeMirror, Embeddable, alert, AUTHORING: true */
 /*jshint boss:true */
 
 (function() {
       // Default interactive aspect ratio.
   var DEF_ASPECT_RATIO = 1.3,
       BENCHMARK_API_URL = "https://script.google.com/macros/s/AKfycbzosXAVPdVRFUrF6FRI42dzQb2IGLnF9GlIbj9gUpeWpXALKgM/exec",
+      LAB_ENV = window.location.href.match(/interactives-?([a-z]*)\.html/)[1],
 
       origin,
       interactiveDescriptions,
@@ -107,7 +108,7 @@
         // set the default interactive, from the first interactive in
         // the first group returned from the server
         var firstGroupPath = interactiveDescriptions.groups[0].path;
-        var firstInteractive = _.find(interactiveDescriptions.interactives, function(interactive){
+        var firstInteractive = interactiveDescriptions.interactives.find(function(interactive){
           return interactive.groupKey === firstGroupPath;
         });
         document.location.hash = firstInteractive.path;
@@ -294,6 +295,7 @@
     setupModelCodeEditor();
     setupSnapshotButton();
     setupBenchmarks();
+    setupOfflineDownload();
     setupEnergyGraph();
     // All the extra items are sortable
     // $(".sortable").sortable({
@@ -342,7 +344,7 @@
     window.location = newHref;
   }
   // Set Lab environment select based on the current URL (interactives.html page version).
-  $selectLabEnvironment.val(window.location.href.match(/interactives-?([a-z]*)\.html/)[1]);
+  $selectLabEnvironment.val(LAB_ENV);
   $selectLabEnvironment.change(selectLabEnvironmentHandler);
 
   function setupSelectList() {
@@ -356,7 +358,7 @@
           .attr('disabled', true));
     saveOptionsToCookie();
     interactives = interactiveDescriptions.interactives;
-    groups = _.filter(interactiveDescriptions.groups, function(group) {
+    groups = interactiveDescriptions.groups.filter(function(group) {
       var curriculumFilter = $("#curriculum-filter").is(':checked'),
           examplesFilter = $("#examples-filter").is(':checked'),
           benchmarksFilter = $("#benchmarks-filter").is(':checked'),
@@ -368,7 +370,7 @@
       if (testsFilter && group.category === "Tests") return true;
       return false;
     });
-    _.each(groups, function (group) {
+    groups.forEach(function (group) {
       var publicFilter = $("#public").is(':checked'),
           draftFilter = $("#draft").is(':checked'),
           brokenFilter = $("#broken").is(':checked'),
@@ -425,7 +427,7 @@
       str = cookie[1].split(";")[0];
       settings = str.split('&').map(function (i) { return i.split('='); });
       $serializedControls.each(function(i, el) {
-        var match = _.find(settings, function(e) { return e[0] === el.id; }, this);
+        var match = settings.find(function(e) { return e[0] === el.id; }, this);
         switch(el.tagName) {
           case "INPUT":
           if (match && el.id === match[0]) {
@@ -517,7 +519,7 @@
   function setupSelectGroups(){
 
     $selectInteractiveGroups.empty();
-    _.each(groups, function(group) {
+    groups.forEach(function(group) {
       var publicFilter = $("#public").is(':checked');
       var draftFilter = $("#draft").is(':checked');
 
@@ -758,12 +760,6 @@
       $('#authored_screenshot_img').attr('src','');
       $('#authored_screenshot_img').hide();
     }
-    $('#export_interactive').on('click', function(e) {
-      e.preventDefault();
-      if (typeof Shutterbug !== 'undefined') {
-        Shutterbug.snapshot("#iframe-interactive", "#image_output");
-      }
-    });
   }
 
   // general format helper for both editors
@@ -780,24 +776,11 @@
   //
   // Benchmarks
   //
-  function getFingerprint() {
-    if (SITE_CONFIG.SITE_ENV === 'production') {
-      // fake fingerprint on production because library won't be loaded
-      return "mock fingerprint";
-    } else {
-      return new Fingerprint().get(); // semi-unique browser id
-    }
-  }
-
   function setupBenchmarks() {
     var $showBenchmarks = $("#show-benchmarks"),
         $benchmarksContent = $("#benchmarks-content"),
         $runBenchmarksButton = $("#run-benchmarks-button"),
-        $submitBenchmarksButton = $("#submit-benchmarks-button"),
-        $submissionInfo = $("#browser-submission-info"),
-        $showSubmissionInfo = $("#show-browser-submission-info"),
-        $browserFingerprint = $("#browser-fingerprint"),
-        fingerprint = getFingerprint();
+        $submitBenchmarksButton = $("#submit-benchmarks-button");
 
     $showBenchmarks.change(function() {
       if (this.checked) {
@@ -823,13 +806,6 @@
       });
     });
 
-    $browserFingerprint.text(fingerprint);
-
-    $showSubmissionInfo.on('click', function() {
-      $submissionInfo.toggle();
-      return false;
-    });
-
     $submitBenchmarksButton.on('click', function() {
       var data = {},
           headers = $('#model-benchmark-results th');
@@ -839,7 +815,9 @@
         data[this.innerHTML] = $('#model-benchmark-results tr.average td:nth-child('+(i+1)+')').text();
       });
 
-      data["browser id"] = fingerprint;
+      // Fingerprint used to be generated by FingerprintJS library. However, the lib caused problems and it was only done
+      // in dev environment. A mock value is set, so a complete row is sent to google spreadsheet with benchmark results.
+      data["browser id"] = "mock fingerprint";
 
       $.ajax({
         type: "POST",
@@ -848,6 +826,44 @@
         complete: function() { $('#submit-success').text("Sent!"); }
       });
     });
+  }
+
+  function setupOfflineDownload() {
+    var API = 'https://tv4jg3zewi.execute-api.us-east-1.amazonaws.com/production/interactive?interactivePath=';
+    var $button = $('#download-offline');
+
+    function archiveGenerated(result) {
+      if (result.url) {
+        $button.html('<a href="' + result.url + '" target="_blank">Download</a>');
+        $button.removeClass('disabled');
+      } else {
+        error(result);
+      }
+    }
+
+    function error(err) {
+      $button.html('Download failed');
+      console.error(err);
+    }
+
+    function initDownload() {
+      var interactivePath = window.location.hash.substr(1);
+      $.ajax({
+        url: API + interactivePath,
+        success: archiveGenerated,
+        error: error
+      });
+      $button.addClass('disabled');
+      $button.text('Please wait...');
+    }
+
+    // Offline archive includes production version of Lab only.
+    if (LAB_ENV === '' || LAB_ENV === 'production') {
+      $button.off('click');
+      $button.one('click', initDownload);
+    } else {
+      $button.addClass('disabled');
+    }
   }
 
   //

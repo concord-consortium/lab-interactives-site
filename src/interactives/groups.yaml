@@ -18,6 +18,10 @@
   :name: "Science of Atoms and Molecules: DNA-to-proteins"
   :category: Curriculum
 
+- :path: sam/protein-structure
+  :name: "Science of Atoms and Molecules: Four levels of protien structure"
+  :category: Curriculum
+
 - :path: sam/diffusion
   :name: "Science of Atoms and Molecules: Diffusion"
   :category: Curriculum
@@ -28,6 +32,14 @@
 
 - :path: sam/chemical-reactions
   :name: "Science of Atoms and Molecules: Chemical Reactions"
+  :category: Curriculum
+
+- :path: sam/chemical-bonds
+  :name: "Science of Atoms and Molecules: Chemical Bonds"
+  :category: Curriculum
+
+- :path: sam/molgeo
+  :name: "Science of Atoms and Molecules: Molecular Geometry"
   :category: Curriculum
 
 - :path: inquiry-examples/pendulum
@@ -426,6 +438,14 @@
   :name: "ELeVATE Interactives"
   :category: Curriculum
 
-- :path: connected-bio/DNA-to-proteins
+- :path: connected-bio
   :name: "Connected Bio"
+  :category: Curriculum
+
+- :path: connected-bio/DNA-to-proteins
+  :name: "Connected Bio: DNA to Proteins"
+  :category: Curriculum
+
+- :path: connected-bio/sugar-starch
+  :name: "Connected Bio: Sugar Starch"
   :category: Curriculum

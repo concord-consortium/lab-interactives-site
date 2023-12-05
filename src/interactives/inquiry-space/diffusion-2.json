@@ -1,0 +1,336 @@
+{
+  "title": "Osmosis, equilibrium, and osmotic pressure",
+  "publicationStatus": "public",
+  "subtitle": "",
+  "about": [
+    "Explore how salt concentrations inside and outside of a cell affect the movement of water and the pressure inside and outside of a cell."
+  ],
+  "aspectRatio": 1,
+  "fontScale": 0.9,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "model1",
+      "url": "models/lab-version/1/md2d/inquiry-space/diffusion-2/model.json",
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      },
+      "onLoad": [
+        "const noConcentration = 50;",
+        "const lowConcentration = [30, 20];",
+        "const highConcentration = [15, 35];",
+        "function addAtoms(element, charge, count, inside) {",
+        "  var added = 0;",
+        "  var attempts = 0;",
+        "  var baseX = inside ? 2.95 : 0;",
+        "  while (added < count && attempts < count * 4) {",
+        "     if (addAtom({ x: baseX + 2.35 * Math.random(), y: 2.5 * Math.random(), vx: Math.random() * 0.001 - 0.0005, vy: Math.random() * 0.001 - 0.0005, element, charge })) {",
+        "        added += 1;",
+        "     }",
+        "     attempts += 1;",
+        "  }",
+        "}",
+        "function setupModel() {",
+        "  batch(function() {",
+        "    if (get('saltInside') === 'none') { addAtoms(2, 0, noConcentration, true); }",
+        "    if (get('saltInside') === 'low') { addAtoms(2, 0, lowConcentration[0], true); addAtoms(0, 0.0, lowConcentration[1], true); addAtoms(4, 0.0, lowConcentration[1], true); }",
+        "    if (get('saltInside') === 'high') { addAtoms(2, 0, highConcentration[0], true); addAtoms(0, 0.0, highConcentration[1], true); addAtoms(4, 0.0, highConcentration[1], true); }",
+        "    if (get('saltOutside') === 'none') { addAtoms(2, 0, noConcentration, false); }",
+        "    if (get('saltOutside') === 'low') { addAtoms(2, 0, lowConcentration[0], false); addAtoms(0, 0.0, lowConcentration[1], false); addAtoms(4, 0.0, lowConcentration[1], false); }",
+        "    if (get('saltOutside') === 'high') { addAtoms(2, 0, highConcentration[0], false); addAtoms(0, 0.0, highConcentration[1], false); addAtoms(4, 0.0, highConcentration[1], false); }",
+        "  });",
+        "}",
+        "setupModel();",
+        "onPropertyChange('saltInside', function() { reloadModel(); });",
+        "onPropertyChange('saltOutside', function() { reloadModel(); });"
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "saltInside",
+      "initialValue": "none"
+    },
+    {
+      "name": "saltOutside",
+      "initialValue": "none"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "waterOutside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.element === 2 && props.x < 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count;"
+      ]
+    },
+    {
+      "name": "waterInside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.element === 2 && props.x > 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count;"
+      ]
+    },
+    {
+      "name": "pressureOutside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.x < 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count * 0.5;"
+      ]
+    },
+    {
+      "name": "pressureInside",
+      "value": [
+        "const atomsCount = getNumberOfAtoms();",
+        "let count = 0;",
+        "for (var i = 0; i < atomsCount; i++) {",
+        "  let props = getAtomProperties(i);",
+        "  if (props.x > 2.675) {",
+        "    count += 1;",
+        "  }",
+        "}",
+        "return count * 0.5;"
+      ]
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "pressureOutsideFiltered",
+      "property": "pressureOutside",
+      "type": "RunningAverage",
+      "period": 10000
+    },
+    {
+      "name": "pressureInsideFiltered",
+      "property": "pressureInside",
+      "type": "RunningAverage",
+      "period": 10000
+    }
+  ],
+  "components": [
+    {
+      "id": "outside",
+      "type": "text",
+      "text": "Outside"
+    },
+    {
+      "id": "inside",
+      "type": "text",
+      "text": "Inside"
+    },
+    {
+      "type": "pulldown",
+      "id": "salt-outside",
+      "label": "Salt concentration",
+      "labelOn": "left",
+      "property": "saltOutside",
+      "options": [
+        {
+          "text": "none",
+          "value": "none"
+        },
+        {
+          "text": "low",
+          "value": "low"
+        },
+        {
+          "text": "high",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "type": "pulldown",
+      "id": "salt-inside",
+      "label": "Salt concentration",
+      "labelOn": "left",
+      "property": "saltInside",
+      "options": [
+        {
+          "text": "none",
+          "value": "none"
+        },
+        {
+          "text": "low",
+          "value": "low"
+        },
+        {
+          "text": "high",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "id": "graph1-label",
+      "src": "graph1-label.svg",
+      "height": "2em"
+    },
+    {
+      "type": "image",
+      "id": "graph2-label",
+      "src": "graph2-label.svg",
+      "height": "2em"
+    },
+    {
+      "type": "graph",
+      "id": "graph-water",
+      "xlabel": "Time",
+      "ylabel": "",
+      "ymin": 0,
+      "ymax": 70,
+      "xmax": 40,
+      "hideAxisValues": true,
+      "enableZooming": false,
+      "enableAutoScaleButton": false,
+      "title": "",
+      "legendLabels": [
+        "Water outside",
+        "Water inside"
+      ],
+      "properties": [
+        "waterOutside",
+        "waterInside"
+      ],
+      "dataColors": [
+        "#4D79FD",
+        "#C8645F"
+      ]
+    },
+    {
+      "type": "graph",
+      "id": "graph-pressure",
+      "xlabel": "Time",
+      "ylabel": "",
+      "ymin": 0,
+      "ymax": 70,
+      "xmax": 40,
+      "hideAxisValues": true,
+      "enableZooming": false,
+      "enableAutoScaleButton": false,
+      "title": "",
+      "legendLabels": [
+        "Pressure outside",
+        "Pressure Inside"
+      ],
+      "properties": [
+        "pressureOutsideFiltered",
+        "pressureInsideFiltered"
+      ],
+      "dataColors": [
+        "#4D79FD",
+        "#C8645F"
+      ]
+    }
+  ],
+  "layout": {
+    "top-left": [
+      "outside"
+    ],
+    "top-right": [
+      "inside"
+    ],
+    "middle-left": [
+      "salt-outside"
+    ],
+    "middle-right": [
+      "salt-inside"
+    ],
+    "middle2-left": [
+      "graph1-label"
+    ],
+    "middle2-right": [
+      "graph2-label"
+    ],
+    "bottom-left": [
+      "graph-water"
+    ],
+    "bottom-right": [
+      "graph-pressure"
+    ]
+  },
+  "template": [
+    {
+      "id": "top-left",
+      "bottom": "model.top",
+      "left": "model.left"
+    },
+    {
+      "id": "top-right",
+      "bottom": "model.top",
+      "right": "model.right"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "left": "model.right",
+      "padding-right": "1em"
+    },
+    {
+      "id": "middle-left",
+      "top": "model.bottom",
+      "left": "model.left",
+      "right": "model.width * 0.5",
+      "padding-top": "1em",
+      "align": "center"
+    },
+    {
+      "id": "middle-right",
+      "top": "model.bottom",
+      "left": "model.width * 0.5",
+      "right": "model.right",
+      "padding-top": "1em",
+      "align": "center"
+    },
+    {
+      "id": "middle2-left",
+      "top": "middle-left.bottom",
+      "left": "model.left",
+      "right": "model.width * 0.5",
+      "align": "center"
+    },
+    {
+      "id": "middle2-right",
+      "top": "middle-right.bottom",
+      "left": "model.width * 0.5",
+      "right": "model.right",
+      "align": "center"
+    },
+    {
+      "id": "bottom-left",
+      "top": "middle2-left.bottom - 10",
+      "left": "model.left",
+      "right": "model.width * 0.5",
+      "height": "13em"
+    },
+    {
+      "id": "bottom-right",
+      "top": "middle2-right.bottom - 10",
+      "left": "model.width * 0.5",
+      "right": "model.right",
+      "height": "13em"
+    }
+  ]
+}

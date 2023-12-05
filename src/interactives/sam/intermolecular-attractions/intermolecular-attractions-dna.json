@@ -1,0 +1,400 @@
+{
+  "title": "DNA: The Double Helix",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Explore the structure of DNA.",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.26,
+  "fontScale": 0.9,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "Use the controls to explore this short fragment of DNA."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "iframe-model",
+      "id": "iframe-model",
+      "model": {
+        "url": "https://models-resources.concord.org/jsmol/embeddable.html",
+        "molecule": "models/dna2/dna1.pdb"
+      },
+      "onLoad": [
+        "post('jsmolScript', 'set background [x000000];');"
+      ],
+      "viewOptions": {
+        "aspectRatio": 2.35,
+        "controlButtons": ""
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [
+    {
+      "name": "show",
+      "initialValue": "spacefill",
+      "onChange": [
+        "switch(value) {",
+        "  case 'spacefill': post('jsmolScript', 'script models/dna2/all-off.spt; select displayed; cpk;'); break;",
+        "  case 'sticks':    post('jsmolScript', 'script models/dna2/all-off.spt; select displayed; wireframe 0.22;'); break;",
+        "  case 'b&s':       post('jsmolScript', 'script models/dna2/all-off.spt; select displayed; wireframe 0.22; cpk 0.45;'); break;",
+        "  case 'ladder':    post('jsmolScript', 'script models/dna2/all-off.spt; select displayed; cartoon on; select bases and all; wireframe 0.2; select all'); break;",
+        "}"
+      ]
+    },
+    {
+      "name": "hBonds",
+      "initialValue": false,
+      "onChange": [
+        "if (value) post('jsmolScript', 'select displayed; hbonds 0.2;');",
+        "else       post('jsmolScript', 'select all; hbonds off;');"
+      ]
+    },
+    {
+      "name": "strand1",
+      "initialValue": true,
+      "onChange": [
+        "if (value) post('jsmolScript', 'select all; labels off; display displayed or :I; refresh;');",
+        "else       post('jsmolScript', 'select all; labels off; display displayed and not :I; refresh;');"
+      ]
+    },
+    {
+      "name": "strand2",
+      "initialValue": true,
+      "onChange": [
+        "if (value) post('jsmolScript', 'select all; labels off; display displayed or :J; refresh;');",
+        "else       post('jsmolScript', 'select all; labels off; display displayed and not :J; refresh;');"
+      ]
+    },
+    {
+      "name": "color",
+      "initialValue": "elements",
+      "onChange": [
+        "switch(value) {",
+        "case 'elements':",
+        "  post('jsmolScript',",
+        "   'set echo off;'+",
+        "   'select all; color cpk;'+",
+        "   'set echo KeyEcho 0% 100%; font echo 14 sans bold; color echo white; echo Color key:;'+",
+        "   'set echo Carbonecho 25% 100%; color echo gray; font echo 14 sans bold; echo C;'+",
+        "   'set echo HydrogenEcho 30% 100%; font echo 14 sans bold; color echo white; echo H;'+",
+        "   'set echo oxyEcho 35% 100%; color echo [xff3233]; font echo 14 sans bold; echo O;'+",
+        "   'set echo nitroEcho 40% 100%; color echo [xc0baff]; font echo 14 sans bold; echo N;'+",
+        "   'set echo phosEcho 45% 100%; color echo [xfdc33e]; font echo 14 sans bold; echo P');",
+        "  break;",
+        "case 'chains':",
+        "  post('jsmolScript', 'set echo off; select :I; color purple; select :j; color gold; select all');",
+        "  break;",
+        "case 'nucleotides':",
+        "  post('jsmolScript',",
+        "   'set echo off;'+",
+        "   'select [A]; color blue; select [T]; color yellow; select [G]; color green;'+",
+        "   'select [C]; color red; select all; set echo KeyEcho 0% 100%; font echo 14 sans bold;'+",
+        "   'color echo white; echo Color key:; set echo Aecho 20% 92%; color echo blue; font echo 22 sans bold;'+",
+        "   'echo A; set echo Cecho 25% 100%; color echo red; font echo 22 sans bold; echo C; set echo Decho 30% 92%;'+",
+        "   'color echo green; font echo 22 sans bold; echo G; set echo Techo 35% 92%; color echo yellow; font echo 22 sans bold; echo T;');",
+        "  break;",
+        "}"
+      ]
+    },
+    {
+      "name": "nuc-view",
+      "initialValue": "displayall",
+      "onChange": [
+        "switch(value) {",
+        "case 'cgbasepair':",
+        "  post('jsmolScript', 'script models/dna2/move-to-original-position.spt');",
+        "  set('show','spacefill');",
+        "  post('jsmolScript', 'select all;');",
+        "  set('strand1',true);",
+        "  set('strand2',true);",
+        "  post('jsmolScript', 'script models/dna2/cgbasepair.spt');",
+        "  if (get('hBonds')===true) post('jsmolScript', 'select displayed; hbonds 0.2;');",
+        "  break;",
+        "case 'atbasepair':",
+        "  post('jsmolScript', 'script models/dna2/move-to-original-position.spt');",
+        "  set('show','spacefill');",
+        "  post('jsmolScript', 'select all;');",
+        "  set('strand1',true);",
+        "  set('strand2',true);",
+        "  post('jsmolScript', 'script models/dna2/atbasepair.spt');",
+        "  if (get('hBonds')===true) post('jsmolScript', 'select displayed; hbonds 0.2;');",
+        "  break;",
+        "case 'displayall':",
+        "  post('jsmolScript', 'script models/dna2/move-to-original-position.spt');",
+        "  post('jsmolScript', 'script models/dna2/dna-horizontal.spt;');",
+        "  set('color',get('color'));",
+        "  set('show','spacefill');",
+        "  break;",
+        "}"
+      ]
+    },
+    {
+      "name": "center",
+      "initialValue": false,
+      "onChange": [
+        "if (value) post('jsmolScript', 'set picking center');",
+        "else       post('jsmolScript', 'set picking ident');"
+      ]
+    }
+  ],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "label-top",
+      "type": "text",
+      "text": "**To zoom in or out, SHIFT-click or pinch while you drag on the DNA**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "**Show DNA as:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "show-as",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "spacefill atoms",
+          "value": "spacefill"
+        },
+        {
+          "text": "sticks",
+          "value": "sticks"
+        },
+        {
+          "text": "ball & stick",
+          "value": "b&s"
+        },
+        {
+          "text": "ladder",
+          "value": "ladder"
+        }
+      ],
+      "property": "show",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label2",
+      "type": "text",
+      "text": "**Show or hide:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "h-bonds",
+      "type": "checkbox",
+      "text": "H-bonds",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "hBonds",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "strand-1",
+      "type": "checkbox",
+      "text": "strand 1",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "strand1",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "strand-2",
+      "type": "checkbox",
+      "text": "strand 2",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "strand2",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label3",
+      "type": "text",
+      "text": "**Color by:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "color-by",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "elements",
+          "value": "elements"
+        },
+        {
+          "text": "chains",
+          "value": "chains"
+        },
+        {
+          "text": "nucleotides (ACGT)",
+          "value": "nucleotides"
+        }
+      ],
+      "property": "color",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "label4",
+      "type": "text",
+      "text": "**Display:**",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "basepairs",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "C-G basepair",
+          "value": "cgbasepair"
+        },
+        {
+          "text": "A-T basepair",
+          "value": "atbasepair"
+        },
+        {
+          "text": "All (original view)",
+          "value": "displayall"
+        }
+      ],
+      "property": "nuc-view",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+    ],
+  "layout": {
+    "bottom": [
+      "label-top"
+    ],
+    "col1": [
+      [
+        "label1"
+      ],
+      [
+        "show-as"
+      ]
+    ],
+    "col2": [
+      [
+        "label2"
+      ],
+      [
+        "h-bonds"
+      ],
+      [
+        "strand-1"
+      ],
+      [
+        "strand-2"
+      ]
+    ],
+    "col3": [
+      [
+        "label3"
+      ],
+      [
+        "color-by"
+      ]
+    ],
+    "col4": [
+      [
+        "label4"
+      ],
+      [
+        "basepairs"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "left": "model.left",
+      "right": "model.right",
+      "align": "center"
+    },
+    {
+      "id": "col1",
+      "top": "bottom.bottom",
+      "left": "interactive.left"
+    },
+    {
+      "id": "col2",
+      "top": "bottom.bottom",
+      "left": "col1.right"
+    },
+    {
+      "id": "col3",
+      "top": "bottom.bottom",
+      "left": "col2.right"
+    },
+    {
+      "id": "col4",
+      "top": "bottom.bottom",
+      "left": "col3.right"
+    }
+  ]
+}

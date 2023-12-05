@@ -1,0 +1,101 @@
+{
+  "title": "JSmol with Three Carbohydrates",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Compare sugar with two types of starch",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1.5960451977401129,
+  "fontScale": 1,
+  "lang": "en-US",
+  "i18nMetadata": "",
+  "credits": [
+    "This interactive was created by the [Concord Consortium](https://concord.org/) using our [Next-Generation Molecular Workbench](http://mw.concord.org/nextgen/) software, with funding by a grant from [Google.org](https://www.google.org/).",
+    "This interactive also uses [JSMol](https://sourceforge.net/projects/jsmol/), licensed under the [LGPL](http://www.gnu.org/licenses/lgpl.html) license."
+  ],
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
+  "about": [
+    "This interactive compares a single glucose molecule with two starch molecules made from many glucose molecules.",
+        "",
+        "To see the individual sugars that make up the starch, zoom in by clicking and dragging with the SHIFT key held down."
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [{
+    "type": "iframe-model",
+    "id": "iframe-model",
+    "model": {
+      "url": "https://models-resources.concord.org/jsmol/embeddable.html#moleculesCount=3",
+      "m0:molecule": "https://project-resources.concord.org/connectedbio/carbo3D/glucose.mol",
+      "m1:molecule": "https://project-resources.concord.org/connectedbio/carbo3D/amylose.mol",
+      "m2:molecule": "https://project-resources.concord.org/connectedbio/carbo3D/amylopectin84.pdb",
+      "showAxes": false,
+      "m0:showFrank": false,
+      "m1:showFrank": false,
+      "m2:showFrank": false
+    },
+    "onLoad": [
+      "post('jsmolScript', 'm0: reset;center {-0.0 -0.119 -0.14}; rotate z -83.83; rotate y 107.08; rotate z -112.14; set echo top center; font echo 14 sans bold; color echo black; echo glucose; zoom 70;');",
+      "post('jsmolScript', 'm1: reset;center {59.2 4.3 -10.3}; rotate z -97.91; rotate y 32.47; rotate z 44.21; zoom 120.17; set rotationRadius 65.15; set echo top center; font echo 14 sans bold; color echo black; echo amylose;');",
+      "post('jsmolScript', 'm2: reset;center {-39.9 -36 55.2}; rotate z 105.61; rotate y 101.45; rotate z -55.59; zoom 167.53; set rotationRadius 88.4; set echo top center; font echo 14 sans bold; color echo black; echo amylopectin;');"
+    ],
+    "viewOptions": {
+      "aspectRatio": 2.5,
+      "controlButtons": "reset"
+    }
+  }],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [{
+      "id": "surf-solid",
+      "type": "button",
+      "action": "post('jsmolScript', 'select *; isosurface sasurface; color isosurface [xA6D8D5];');",
+      "text": "Surfaces on",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "surf-translucent",
+      "type": "button",
+      "action": "post('jsmolScript', 'isosurface sasurface; color isosurface translucent 0.7');",
+      "text": "Surfaces translucent",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "surf-off",
+      "type": "button",
+      "action": "post('jsmolScript', 'isosurface off');",
+      "text": "Surfaces off",
+      "width": "",
+      "height": "",
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "bottom": [
+      [
+        "surf-solid",
+        "surf-translucent",
+        "surf-off"
+      ]
+    ]
+  },
+  "template": "simple"
+}

@@ -1,6 +1,10 @@
 {
   "title": "Protein Denaturation",
-  "publicationStatus": "draft",
+  "publicationStatus": "public",
+  "about": [
+    "The shape of a protien is what gives it its function. If you heat a protein to a high enough temperature it will not longer ",
+    "work as intended. Explore how heating and then cooling these proteins affects their ability to hold functional shape."
+  ],
   "aspectRatio": 1.65,
   "models": [
     {
