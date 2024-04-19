@@ -61,4 +61,4 @@ rm lab.tar.gz
 # tell the `s3_website` gem to only download the `.jar` file, then manually invoke it.
 # See: https://github.com/airbrake/airbrake-docs/commit/447ef0ca4fd2c638c1e66a3e3efc52d70ccf71fe
 bundle exec s3_website install
-java -cp $(bundle show s3_website)/*.jar s3.website.Push --site _site --config-dir config
+JAVA_TOOL_OPTIONS="-Xms1g -Xmx8g" java -cp $(bundle show s3_website)/*.jar s3.website.Push --site _site --config-dir config
