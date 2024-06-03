@@ -122,38 +122,38 @@
     {
       "element1": 0,
       "element2": 0,
-      "sigma": 0.85,
+      "sigma": 0.74,
+      "epsilon": -4.03
+    },
+    {
+      "element1": 0,
+      "element2": 1,
+      "sigma": 1.1,
+      "epsilon": -3.86
+    },
+    {
+      "element1": 0,
+      "element2": 2,
+      "sigma": 0.97,
       "epsilon": -4.36
     },
     {
-      "element1": 0,
-      "element2": 1,
-      "sigma": 1.3,
-      "epsilon": -4.13
-    },
-    {
-      "element1": 0,
-      "element2": 2,
-      "sigma": 1.1,
-      "epsilon": -3.66
-    },
-    {
       "element1": 1,
       "element2": 1,
-      "sigma": 1.81,
-      "epsilon": -3.4
+      "sigma": 1.54,
+      "epsilon": -3.24
     },
     {
       "element1": 1,
       "element2": 2,
-      "sigma": 1.75,
-      "epsilon": -3.6
+      "sigma": 1.43,
+      "epsilon": -3.34
     },
     {
       "element1": 2,
       "element2": 2,
-      "sigma": 1.75,
-      "epsilon": -1.45
+      "sigma": 1.45,
+      "epsilon": -1.36
     },
     {
       "element1": 3,
