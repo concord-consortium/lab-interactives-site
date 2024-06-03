@@ -2,5 +2,6 @@
   "nb-NO": "locales/nb/interactives/samples/4-100-atoms-conceptual.json",
   "en-US": "interactives/samples/4-100-atoms-conceptual.json",
   "nn-NO": "locales/nn/interactives/samples/4-100-atoms-conceptual.json",
-  "it": "locales/it/interactives/samples/4-100-atoms-conceptual.json"
+  "it": "locales/it/interactives/samples/4-100-atoms-conceptual.json",
+  "es": "locales/es/interactives/samples/4-100-atoms-conceptual.json"
 }
