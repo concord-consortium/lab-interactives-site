@@ -1,11 +1,11 @@
 {
-  "title": "Factors Affecting London Dispersion Attractions",
+  "title": "Faktorar som påverkar krefter mellom ikkje-polare molekyl.",
   "publicationStatus": "public",
-  "subtitle": "Explore how differences in molecular size and shape affect the strength of London dispersion attractions.",
+  "subtitle": "Utforsk korleis forskjell i molekylstorleik- og form påverkar styrken til kreftene mellom ikkje-polare molekyl.",
   "about": [
-    "Some non-polar molecules have stronger attractions than others. Choose a pair of",
-    "molecules from the drop-down menu and \"pull\" on the star to separate the molecules.",
-    "Why do size and shape affect the strength of attraction between two non-polar molecules?"
+    "Nokre ikkje-polare molekyl blir tiltrekte sterkare av kvarandre enn andre. Vel eit molekylpar",
+    "frå nedtrekksmenyen og trekk i stjerna for å \"dra\" molekyla frå kvarandre.",
+    "Kvifor påverkar storleik og form styrken på tiltrekkingskreftene mellom to ikkje-polare molekyl?"
   ],
   "aspectRatio": 1.4,
   "models": [
@@ -18,14 +18,14 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Explore the different attractive forces between molecules of varying size and shape. Look for how the area of close contact between the molecules influences their attraction.",
+            "text": "Utforsk forskjellen mellom tiltrekkande krefter mellom molekyl som av varierande storleik og form. Legg merke til korleis området kor molekyla er når kvarandre påverkar tiltrekkinga.",
             "x": 0.4,
             "y": 1.7,
             "fontSize": 0.14,
             "width": 3.2
           },
           {
-            "text": "Choose a pair of molecules from the menu below.",
+            "text": "Vel molekylpar i menyen nedanfor.",
             "x": 0.4,
             "y": 0.6,
             "fontSize": 0.14,
@@ -46,7 +46,7 @@
         },
         "textBoxes": [
           {
-            "text": "Small straight molecules",
+            "text": "Små og rette molekyl",
             "x": 1.36,
             "y": 1.85,
             "layer": 1,
@@ -69,7 +69,7 @@
         },
         "textBoxes": [
           {
-            "text": "Large straight molecules",
+            "text": "Store og rette molekyl",
             "x": 1.35,
             "y": 1.85,
             "layer": 1,
@@ -92,7 +92,7 @@
         },
         "textBoxes": [
           {
-            "text": "Large straight and bent molecules",
+            "text": "Store molekyl, bøygde og rette",
             "x": 1.08,
             "y": 1.85,
             "layer": 1,
@@ -115,7 +115,7 @@
         },
         "textBoxes": [
           {
-            "text": "Large straight and round molecules",
+            "text": "Store molekyl, runde og rette",
             "x": 1.01,
             "y": 1.85,
             "layer": 1,
@@ -138,7 +138,7 @@
         },
         "textBoxes": [
           {
-            "text": "Large curved and round molecules",
+            "text": "Store molekyl, kurva og runde",
             "x": 1.05,
             "y": 1.85,
             "layer": 1,
@@ -156,27 +156,27 @@
       "id": "pulldown1",
       "options": [
         {
-          "text": "Select a pair of molecules",
+          "text": "Velg molekylpar",
           "action": "loadModel('instructions');"
         },
         {
-          "text": "Small molecules",
+          "text": "Små molekyler",
           "action": "loadModel('npSmallStraight');"
         },
         {
-          "text": "Large straight molecules",
+          "text": "Store og rette molekyl",
           "action": "loadModel('npLargeStraight');"
         },
         {
-          "text": "Large straight and bent",
+          "text": "Store, bøygde og rette",
           "action": "loadModel('npStraightJagged');"
         },
         {
-          "text": "Large straight and circular",
+          "text": "Store, rette og runde",
           "action": "loadModel('npStraightRound');"
         },
         {
-          "text": "Large curved and circular",
+          "text": "Store, kurva og runde",
           "action": "loadModel('npCurvedRound');"
         }
       ]
@@ -184,7 +184,7 @@
     {
       "type": "button",
       "id": "reset",
-      "text": "Reset",
+      "text": "Tilbakestill",
       "action": "reloadModel();"
     }
   ],
