@@ -195,6 +195,18 @@
       "property": "targetTemperature"
     },
     {
+      "type": "spinner",
+      "id": "temperature-spinner",
+      "min": 10,
+      "max": 200,
+      "displayValue": "return format('.f')(value)",
+      "width": "7.3em",
+      "steps": 380,
+      "title": "Target Temperature",
+      "units": "K",
+      "property": "targetTemperature"
+    },
+    {
       "type": "slider",
       "id": "temperature-action-slider",
       "title": "Temperature (set via action)",
