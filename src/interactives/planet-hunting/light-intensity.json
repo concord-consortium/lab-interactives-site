@@ -45,7 +45,7 @@
         "controlButtons": "play_reset"
       },
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/light-intensity/",
+        "url": "//models-resources.concord.org/space-models/light-intensity/",
         "planet.diameter": 1
       }
     }

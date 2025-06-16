@@ -42,7 +42,7 @@
         "controlButtons": "play_reset"
       },
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "url": "//models-resources.concord.org/space-models/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true,

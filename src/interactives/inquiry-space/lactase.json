@@ -18,7 +18,7 @@
       "id": "iframe-model",
       "url": "models/lab-version/1/iframe-model/iframe-model.json",
       "modelOptions": {
-        "url": "//concord-consortium.github.io/lactase-enzyme-sim/embeddable.html",
+        "url": "//models-resources.concord.org/lactase-enzyme-sim/embeddable.html",
         "phFuncDef": [[0,0],[3.2,0.01],[3.8,0.02],[4.1,0.1],[5,0.65],[5.6,0.9],[6,1],[6.3,0.95],[6.6,0.85],[7.1,0.7],[7.3,0.45],[7.8,0.2],[8.3,0.15],[9.1,0.07],[10,0.01],[14,0]],
         "temperatureFuncDef": [[0,0.2],[10,0.5],[15,0.7],[20,0.9],[23,0.95],[30,0.98],[37,1],[40,0.95],[47,0.45],[50,0.35],[60,0.05],[65,0.02],[70,0.01],[80,0],[100,0]]
       },

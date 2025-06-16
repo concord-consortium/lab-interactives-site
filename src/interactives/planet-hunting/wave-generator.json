@@ -46,7 +46,7 @@
         "controlButtons": "play_reset"
       },
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/wave-generator/",
+        "url": "//models-resources.concord.org/space-models/wave-generator/",
         "star.vx": 0
       }
     }

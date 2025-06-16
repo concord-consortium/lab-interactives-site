@@ -15,7 +15,7 @@
   "about": [
   "Explore the gravitational effect an orbiting planet has on a star's motion.",
   "",
-  "Change the planet type to compare the effects of a rocky planet and a gaseous planet on star motion.",  
+  "Change the planet type to compare the effects of a rocky planet and a gaseous planet on star motion.",
   "",
   "Change the diameter of the planet to change the mass, and explore the effect of planet mass on star motion."
   ],
@@ -42,7 +42,7 @@
         "controlButtons": "play_reset"
       },
       "modelOptions": {
-        "url": "//concord-consortium.github.io/space-models/planet-hunting/",
+        "url": "//models-resources.concord.org/space-models/planet-hunting/",
         "timestep": 0.001,
         "planet.diameter": 1,
         "planet.rocky": true,
@@ -130,7 +130,7 @@
       "disabled": false,
       "tooltip": "",
       "helpIcon": false
-    },   
+    },
     {
       "id": "planet-mass",
       "type": "numericOutput",
