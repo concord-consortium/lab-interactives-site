@@ -1,17 +1,29 @@
 {
-  "title": "Seeing Intermolecular Attractions",
+  "title": "Observer krefter mellom molekyler",
   "publicationStatus": "public",
-  "subtitle": "A very simple interactive with polar molecules on the left and non-polar molecules on the right.",
+  "labEnvironment": "production",
+  "subtitle": "En enkel simulering med polare molekyler til venstre og ikke-polare molekyler til høyre.",
   "category": "Chemistry",
   "subCategory": "Interactions",
   "screenshot": "http://screenshots.lab.concord.org/intermolecular-attractions-intro.png",
+  "aspectRatio": 1.3,
+  "fontScale": 1,
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": false,
   "about": [
-    "All matter is attracted to all other matter. How does this work?",
+    "Alt stoff tiltrekkes til annet stoff. Hvordan foregår dette?",
     "",
-    "This interactive shows polar molecules (with charges) and non-polar molecules in a",
-    "container with each other. Drag molecules around to see how they are attracted to",
-    "each other. Dotted lines indicate intermolecular attractions."
+    "Denne simuleringa viser polare molekyler (med ladninger) og ikke-polare molekyler  ",
+    "sammen i en beholder. Dra molekylene rundt, og observer hvordan de tiltrekkes ",
+    "av hverandre. Stiplete linjer viser hvor det virker krefter mellom molekylene."
   ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
   "models": [
     {
       "type": "md2d",
@@ -22,7 +34,7 @@
         "enableKeyboardHandlers": false,
         "textBoxes": [
           {
-            "text": "Drag the molecules close to each other and look for intermolecular attractions.",
+            "text": "Dra molekylene mot hverandre, og legg merke til krefter som virker mellom molekylene.",
             "x": 0.6,
             "y": 2.05,
             "width": 2.3,
@@ -32,12 +44,33 @@
             "backgroundColor": "rgb(245,245,245)"
           }
         ]
+      },
+      "modelOptions": {
+        "useDuration": false
       }
     }
   ],
-  "components": [
-
-  ],
-  "lang": "nb-NO",
-  "i18nMetadata": "locales/metadata/interactives/sam/intermolecular-attractions/1-introduction.json"
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [],
+  "helpTips": [],
+  "exports": {
+    "selectionComponents": [],
+    "perRun": [
+      "potentialEnergy"
+    ],
+    "perTick": []
+  },
+  "logging": {
+    "enabled": true,
+    "properties": [
+      "potentialEnergy"
+    ],
+    "components": "all"
+  },
+  "dataSets": [],
+  "components": [],
+  "layout": {},
+  "template": "simple"
 }

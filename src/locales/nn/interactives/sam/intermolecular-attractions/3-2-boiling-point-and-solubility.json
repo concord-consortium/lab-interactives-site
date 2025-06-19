@@ -1,11 +1,11 @@
 {
-  "title": "Boiling Point",
+  "title": "Kokepunkt",
   "publicationStatus": "public",
-  "subtitle": "Explore what boiling looks like at the molecular level with both polar and non-polar substances.",
+  "subtitle": "Utforsk korleis vi kan observere kokepunkt på molekylnivå, men både polare og ikkje-polare forbindingar.",
   "about": [
-    "Non-polar molecules (gray) evaporate or boil more quickly than polar molecules (blue and red).",
-    "Attractions between molecules are shown with dotted lines. Run the model, then heat the liquids.",
-    "What does boiling look like at the molecular level?"
+    "Ikkje-polare molekyl (grå) fordampar eller kokar hurtigare enn polare molekyl (blå og raude).",
+    "Tiltrekkande krefter mellom molekyl er vist med stipla linjer. Køyr modellen, og varm opp væskene.",
+    "Korleis kan vi observere koking på molekylnivå?"
   ],
   "aspectRatio": 1.7,
   "models": [
@@ -22,13 +22,13 @@
     {
       "type": "button",
       "id": "cool",
-      "text": "Cool",
+      "text": "Avkjøl",
       "action": "adjustTemperature(0.9);"
     },
     {
       "type": "button",
       "id": "heat",
-      "text": "Heat",
+      "text": "Varm opp",
       "action": "adjustTemperature(1.1); limitHighTemperature(5000);"
     },
     {

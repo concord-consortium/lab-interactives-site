@@ -1,0 +1,116 @@
+{
+  "title": "Overgangen mellom polare og upolare stoffer",
+  "publicationStatus": "public",
+  "labEnvironment": "production",
+  "subtitle": "Molekyler i en blanding av olje og vann",
+  "category": "",
+  "subCategory": "",
+  "screenshot": "",
+  "aspectRatio": 1,
+  "fontScale": 1,
+  "lang": "nb-NO",
+  "i18nMetadata": "locales/metadata/interactives/interactions/polar-and-non-polar-interface.json",
+  "credits": "",
+  "helpOnLoad": false,
+  "aboutOnLoad": true,
+  "about": [
+    "Observer hvordan molekyler med hydrofile og hydrofobe områder beveger seg i en blanding av olje og vann, ",
+    "og legg merke til endringer i den potensielle energien over tid. Flytt og roter molekylene for å se ",
+    "hvordan de påvirkes av omgivelsene.",
+    "***",
+    "*This simulation was developed by [the Interactions project](https://concord.org/projects/interactions \"the Interactions Project\") ",
+    "with funding from the National Science Foundation (DRL-1232388) in partnership with ",
+    "[the CREATE for STEM Institute](http://create4stem.msu.edu/ \"the CREATE for STEM Institute\") at Michigan State University. To learn more, ",
+    "[visit the Interactions curriculum collection](https://learn.concord.org/interactions \"visit the Interactions curriculum collection\") in ",
+    "which this simulation is embedded.*"
+  ],
+  "theme": "",
+  "showTopBar": true,
+  "showBottomBar": true,
+  "padding": 10,
+  "models": [
+    {
+      "type": "md2d",
+      "id": "salt",
+      "url": "models/lab-version/1/md2d/interactions/polar-and-non-polar-interface/model.json",
+      "onLoad": [
+        "onStart(function() {",
+        "  setComponentDisabled('drag', true);",
+        "});",
+        "onStop(function() {",
+        "  setComponentDisabled('drag', false);",
+        "});"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "controlButtonStyle": "text"
+      }
+    }
+  ],
+  "propertiesToRetain": [],
+  "parameters": [],
+  "outputs": [],
+  "filteredOutputs": [
+    {
+      "name": "filteredPE",
+      "property": "potentialEnergy",
+      "type": "RunningAverage",
+      "period": 2500
+    }
+  ],
+  "helpTips": [],
+  "dataSets": [],
+  "components": [
+    {
+      "id": "pe-graph",
+      "type": "barGraph",
+      "property": "filteredPE",
+      "min": -70,
+      "max": 40,
+      "title": "Potensiell energi",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": "",
+      "helpIcon": false
+    },
+    {
+      "id": "drag",
+      "type": "radio",
+      "style": "radio",
+      "orientation": "horizontal",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Flytt molekyl",
+          "value": "translate"
+        },
+        {
+          "text": "Roter molekyl",
+          "value": "rotate"
+        }
+      ],
+      "property": "onAtomDrag",
+      "retainProperty": true,
+      "disabled": false,
+      "tooltip": "",
+      "helpIcon": false
+    }
+  ],
+  "layout": {
+    "right": [
+      "pe-graph"
+    ],
+    "bottom": [
+      "drag"
+    ]
+  },
+  "template": "simple"
+}
