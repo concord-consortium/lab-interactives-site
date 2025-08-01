@@ -13,7 +13,7 @@ group :app do
   gem "sass",               "~> 3.2.5"
   gem 'bourbon',            "~> 3.1.1"
   gem 'neat',               "~> 1.2.0"
-  gem 'kramdown',           "~> 1.3.0"
+  gem 'kramdown',           "~> 2.3.0"
   gem "mustache",           "~> 0.99.4"
 end
 
