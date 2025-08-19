@@ -19,7 +19,7 @@
   :category: Curriculum
 
 - :path: sam/protein-structure
-  :name: "Science of Atoms and Molecules: Four levels of protien structure"
+  :name: "Science of Atoms and Molecules: Four levels of protein structure"
   :category: Curriculum
 
 - :path: sam/diffusion
@@ -176,6 +176,10 @@
 
 - :path: grasp
   :name: "GRASP models"
+  :category: Curriculum
+
+- :path: lucas
+  :name: "Lucas models"
   :category: Curriculum
 
 - :path: jsmol
