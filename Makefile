@@ -487,8 +487,14 @@ public/%.html: %.md.static
 public/interactives/%.json: src/interactives/%.json
 	@cp $< $@
 
-public/models/%.json: src/models/%.json
-	@cp $< $@
+# This target is not needed because copy-resources-to-public will
+# already copy the src/models/*.json files to public/models/*.json
+# And copy-resources-to-public handles file names with $ in them. is run before src target
+# The target is left here because this is an old Makefile and removing it
+# might have some unintended consequences that are understood yet.
+# Also several of the other rules above are probably not needed for the same reason.
+# public/models/%.json: src/models/%.json
+# 	@cp $< $@
 
 .PHONY: public/interactives.json
 public/interactives.json: $(INTERACTIVE_FILES)
