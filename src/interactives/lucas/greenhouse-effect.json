@@ -9,32 +9,8 @@
   "models": [
     {
       "type": "md2d",
-      "id": "sun-on-ground",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnGround.json",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      }
-    },
-    {
-      "type": "md2d",
-      "id": "sun-on-co2",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnCO2.json",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      }
-    },
-    {
-      "type": "md2d",
       "id": "sun-on-ground-and-co2",
       "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnGroundAndCO2.json",
-      "viewOptions": {
-        "controlButtons": "play_reset"
-      }
-    },
-    {
-      "type": "md2d",
-      "id": "ir-on-co2",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/IROnCO2.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -83,47 +59,11 @@
   "hideExportDataControl": false,
   "components": [
     {
-      "id": "text-select-model",
-      "type": "text",
-      "text": "**Select a model**",
-      "width": "auto",
-      "height": "auto",
-      "tooltip": ""
-    },
-    {
       "id": "text-photon-key",
       "type": "text",
       "text": "*Photons*",
       "width": "auto",
       "height": "auto",
-      "tooltip": ""
-    },
-    {
-      "id": "select-model",
-      "type": "radio",
-      "orientation": "vertical",
-      "label": "",
-      "labelOn": "top",
-      "options": [
-        {
-          "text": "Sun on ground",
-          "selected": true,
-          "action": "loadModel('sun-on-ground');"
-        },
-        {
-          "text": "Sun on CO₂",
-          "action": "loadModel('sun-on-co2');"
-        },
-        {
-          "text": "Infrared on CO₂",
-          "action": "loadModel('ir-on-co2');"
-        },
-        {
-          "text": "Sun on ground and CO₂",
-          "action": "loadModel('sun-on-ground-and-co2');"
-        }
-      ],
-      "disabled": false,
       "tooltip": ""
     },
     {
@@ -189,20 +129,16 @@
   "layout": {
     "left": [
       [
-        "text-select-model"
-      ],
-      [
-        "select-model"
-      ],
+        "thermometer"
+      ]
+    ],
+    "right": [
       [
         "text-photon-key"
       ],
       [
         "key-photon"
       ]
-    ],
-    "right": [
-      "thermometer"
     ],
     "bottom": [
       [
@@ -214,6 +150,5 @@
       ]
     ]
   },
-  "template": "left-right-bottom",
-  "i18nMetadata": "locales/metadata/interactives/sam/light-matter/sun-on-ground.json"
+  "template": "left-right-bottom"
 }
