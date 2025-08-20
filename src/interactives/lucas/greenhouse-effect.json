@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "sun-on-ground-and-co2",
-      "url": "models-converted/lab-version/1/md2d/sam-activities/light-matter/greenhouse-gases/sunOnGroundAndCO2.json",
+      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect.json",
       "viewOptions": {
         "controlButtons": "play_reset"
       }
