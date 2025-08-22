@@ -17,6 +17,7 @@ const fileMap = {
   'src/embeddable.js': '',
   'src/interactives/': 'interactives/',
   'src/models-converted/': 'models-converted/',
+  'src/models/': 'models/',
   'src/locales/': 'locales/',
 };
 

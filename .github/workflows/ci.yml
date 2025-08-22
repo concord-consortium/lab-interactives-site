@@ -11,9 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # We might want to manually update submodules because we only need a subset of them.
-          submodules: true
+      - name: Get Submodules
+        run: |
+          git submodule init
+          git submodule update -- vendor/modernizr
+          git submodule update -- vendor/shutterbug.js
       - name: Copy files
         run: |
           node script/update-dist-using-copy.mjs
