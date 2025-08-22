@@ -1,7 +1,6 @@
 # See the README for installation instructions.
 
 # Utilities
-JS_COMPILER = ./node_modules/uglify-js/bin/uglifyjs -c -m -
 COFFEESCRIPT_COMPILER = ./node_modules/coffee-script/bin/coffee
 MARKDOWN_COMPILER = bundle exec kramdown
 SASS_COMPILER = bundle exec sass -I src -I public
@@ -125,15 +124,6 @@ clean-archives:
 .PHONY: prepare-submodules
 prepare-submodules:
 	-$(MAKE) submodule-update || $(MAKE) submodule-update-tags
-
-%.min.js: %.js
-	@rm -f $@
-ifndef LAB_DEVELOPMENT
-	$(JS_COMPILER) < $< > $@
-	@chmod ug+w $@
-else
-endif
-
 
 # ------------------------------------------------
 #
