@@ -6,6 +6,7 @@
 /node_modules
 npm-debug.log
 /vendor/shutterbug
+dist-using-copy
 
 # config files
 .env
