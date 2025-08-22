@@ -25,7 +25,7 @@ Often RVM has some additional dependencies, to view the list and directions for 
 
     $ rvm requirements
 
-> Ubuntu Linux: Often RVM doesn't recognise readline without being explictly pointed to it.
+> Ubuntu Linux: Often RVM doesn't recognize readline without being explicitly pointed to it.
 > To do this, reinstall ruby 2.0.0p247: `$ rvm reinstall 2.0.0-p247 --with-zlib1g-dev`
 
 If you already have RVM installed update to the most up-to-date stable version.
