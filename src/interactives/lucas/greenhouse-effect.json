@@ -10,7 +10,20 @@
     {
       "type": "md2d",
       "id": "sun-on-ground-and-co2",
-      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect.json",
+      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-brick.json",
+      "onLoad": [
+        "var wallAtoms = [];",
+        "var insideAirAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    wallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    insideAirAtoms.push(i);",
+        "  }",
+        "}",
+        "set('wallAtoms', wallAtoms);",
+        "set('insideAirAtoms', insideAirAtoms);"
+      ],
       "viewOptions": {
         "controlButtons": "play_reset"
       }
@@ -38,19 +51,54 @@
         "  set('timeStep', 0.4180000126361847);",
         "}"
       ]
+    },
+    {
+      "name": "wallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "insideAirAtoms",
+      "initialValue": []
     }
   ],
   "outputs": [
-
+    {
+      "name": "wallAtomsTemp",
+      "value": [
+        "var temp = getTemperatureOfAtoms(get('wallAtoms'));",
+        "console.log('wallAtomsTemp', temp);",
+        "return temp;"
+      ],
+      "label": "Temperature of Molecules in Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('insideAirAtoms'));"
+      ],
+      "label": "Temperature of Molecules of the Inside Air",
+      "unitAbbreviation": "°C"
+    }
   ],
   "filteredOutputs": [
     {
-      "name": "averageTemperature",
-      "property": "temperature",
+      "name": "wallAverageTemperature",
+      "property": "wallAtomsTemp",
       "type": "RunningAverage",
       "period": 2500,
       "label": "Average Temperature",
-      "unitType": "temperature"
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAverageTemperature",
+      "property": "insideAirAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
     }
   ],
   "helpTips": [
@@ -67,12 +115,30 @@
       "tooltip": ""
     },
     {
-      "id": "thermometer",
+      "id": "inside-thermometer",
       "type": "barGraph",
-      "property": "averageTemperature",
+      "property": "insideAirAverageTemperature",
       "min": 0,
       "max": 3000,
-      "title": "Temperature",
+      "title": "Inside Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "wall-thermometer",
+      "type": "barGraph",
+      "property": "wallAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Wall Temperature",
       "titleOn": "right",
       "labels": 0,
       "units": false,
@@ -129,7 +195,8 @@
   "layout": {
     "left": [
       [
-        "thermometer"
+        "inside-thermometer",
+        "wall-thermometer"
       ]
     ],
     "right": [
