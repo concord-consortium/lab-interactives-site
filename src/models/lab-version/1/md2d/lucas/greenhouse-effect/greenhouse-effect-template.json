@@ -1454,7 +1454,7 @@
       "radiationlessEmissionProbability": 0.37901145,
       "lightSource": {
         "on": true,
-        "frequency": 14,
+        "monochromatic": false,
         "radiationPeriod": 650,
         "numberOfBeams": 5,
         "angleOfIncidence": 3.1416
