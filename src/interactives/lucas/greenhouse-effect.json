@@ -9,8 +9,29 @@
   "models": [
     {
       "type": "md2d",
-      "id": "sun-on-ground-and-co2",
+      "id": "brick",
       "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-brick.json",
+      "onLoad": [
+        "var wallAtoms = [];",
+        "var insideAirAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    wallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    insideAirAtoms.push(i);",
+        "  }",
+        "}",
+        "set('wallAtoms', wallAtoms);",
+        "set('insideAirAtoms', insideAirAtoms);"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "glass",
+      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-glass.json",
       "onLoad": [
         "var wallAtoms = [];",
         "var insideAirAtoms = [];",
@@ -104,6 +125,26 @@
   ],
   "hideExportDataControl": false,
   "components": [
+    {
+      "id": "select-model",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Brick",
+          "selected": true,
+          "action": "loadModel('brick');"
+        },
+        {
+          "text": "Glass",
+          "action": "loadModel('glass');"
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    },
     {
       "id": "text-photon-key",
       "type": "text",
@@ -203,6 +244,9 @@
       ],
       [
         "key-photon"
+      ],
+      [
+        "select-model"
       ]
     ],
     "bottom": [
