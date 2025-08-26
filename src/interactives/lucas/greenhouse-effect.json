@@ -65,9 +65,7 @@
     {
       "name": "wallAtomsTemp",
       "value": [
-        "var temp = getTemperatureOfAtoms(get('wallAtoms'));",
-        "console.log('wallAtomsTemp', temp);",
-        "return temp;"
+        "return getTemperatureOfAtoms(get('wallAtoms'));"
       ],
       "label": "Temperature of Molecules in Wall",
       "unitAbbreviation": "°C"

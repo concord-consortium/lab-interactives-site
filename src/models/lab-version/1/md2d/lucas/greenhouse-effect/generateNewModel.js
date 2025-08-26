@@ -4,8 +4,9 @@ const seedrandom = require('../../../../../../../vendor/seedrandom/seedrandom.js
 // Set a seed for the random number generator so we are consistent
 Math.seedrandom("fixed seed");
 
-// Read the existing JSON file
-const originalModel = require('./sun-on-co2-and-ground.json');
+// This template was taken from sun-on-co2-and-ground.json
+// And then modified to be a base used by this script to generate new models
+const originalModel = require('./greenhouse-effect-template.json');
 
 // Create a new model with one atom of each element
 const newModel = JSON.parse(JSON.stringify(originalModel));
@@ -34,8 +35,11 @@ const ySpacing = 0.15714468676331222;
 const xSpacing = 0.1360912908067766;
 const yPadding = 0.15;
 const xPadding = 0.15;
+
+// These control the temperature of the wall and gas
+// But it is also based on the mass of the atoms and the number of atoms
 const vWallMax = 0.0001;
-const vGasMax = 0.001;
+const vGasMax = 0.0003;
 
 // Calculate the spacing based on the original model
 // for now we are just looking at the x spacing

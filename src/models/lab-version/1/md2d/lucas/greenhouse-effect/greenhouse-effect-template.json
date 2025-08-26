@@ -112,6 +112,14 @@
         -855310
       ]
     },
+    "pairwiseLJProperties": [
+      {
+        "sigma": 0.14,
+        "epsilon": -0.0001,
+        "element1": 1,
+        "element2": 2
+      }
+    ],
     "atoms": {
       "x": [
         0.09857234338165612,
@@ -1449,7 +1457,7 @@
         "frequency": 14,
         "radiationPeriod": 650,
         "numberOfBeams": 5,
-        "angleOfIncidence": -2.6179938
+        "angleOfIncidence": 3.1416
       }
     }
   }
