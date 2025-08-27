@@ -8,33 +8,35 @@ Math.seedrandom("fixed seed");
 // And then modified to be a base used by this script to generate new models
 const originalModel = require('./greenhouse-effect-template.json');
 
-// Create a new model with one atom of each element
-const newModel = JSON.parse(JSON.stringify(originalModel));
+function emptyModel() {
+  const newModel = JSON.parse(JSON.stringify(originalModel));
 
-// Clear existing atoms
-newModel.atoms.x = [];
-newModel.atoms.y = [];
-newModel.atoms.vx = [];
-newModel.atoms.vy = [];
-newModel.atoms.charge = [];
-newModel.atoms.friction = [];
-newModel.atoms.element = [];
-newModel.atoms.pinned = [];
-newModel.atoms.draggableWhenStopped = [];
-newModel.atoms.excitation = [];
+  // Clear existing atoms
+  newModel.atoms.x = [];
+  newModel.atoms.y = [];
+  newModel.atoms.vx = [];
+  newModel.atoms.vy = [];
+  newModel.atoms.charge = [];
+  newModel.atoms.friction = [];
+  newModel.atoms.element = [];
+  newModel.atoms.pinned = [];
+  newModel.atoms.draggableWhenStopped = [];
+  newModel.atoms.excitation = [];
 
-// Clear existing restraints
-newModel.restraints.atomIndex = [];
-newModel.restraints.k = [];
-newModel.restraints.x0 = [];
-newModel.restraints.y0 = [];
+  // Clear existing restraints
+  newModel.restraints.atomIndex = [];
+  newModel.restraints.k = [];
+  newModel.restraints.x0 = [];
+  newModel.restraints.y0 = [];
+  return newModel;
+}
 
 // Calculate the center x-coordinate
 const centerX = originalModel.width / 2;
 const ySpacing = 0.15714468676331222;
 const xSpacing = 0.1360912908067766;
-const yPadding = 0.15;
-const xPadding = 0.15;
+const yPadding = 0.1;
+const xPadding = 0.1;
 
 // These control the temperature of the wall and gas
 // But it is also based on the mass of the atoms and the number of atoms
@@ -71,97 +73,181 @@ function getRandomGasVelocity() {
   return Math.random() * (2 * vGasMax) - vGasMax;
 }
 
-function generateColumn(startY, x) {
+function generateColumn(model, startY, x, element) {
   for (let y = startY; y <= originalModel.height; y += ySpacing) {
-    newModel.atoms.x.push(x);
-    newModel.atoms.y.push(y);
-    newModel.atoms.vx.push(getRandomWallVelocity());
-    newModel.atoms.vy.push(getRandomWallVelocity());
-    newModel.atoms.charge.push(0);
-    newModel.atoms.friction.push(0);
-    newModel.atoms.element.push(1);
-    newModel.atoms.pinned.push(0);
-    newModel.atoms.draggableWhenStopped.push(0);
-    newModel.atoms.excitation.push(0);
-  
+    model.atoms.x.push(x);
+    model.atoms.y.push(y);
+    model.atoms.vx.push(getRandomWallVelocity());
+    model.atoms.vy.push(getRandomWallVelocity());
+    model.atoms.charge.push(0);
+    model.atoms.friction.push(0);
+    model.atoms.element.push(element);
+    model.atoms.pinned.push(0);
+    model.atoms.draggableWhenStopped.push(0);
+    model.atoms.excitation.push(0);
+
     // Add restraints for each atom
-    newModel.restraints.atomIndex.push(newModel.atoms.x.length - 1);
-    newModel.restraints.k.push(1000);
-    newModel.restraints.x0.push(x);
-    newModel.restraints.y0.push(y);
-  }      
+    model.restraints.atomIndex.push(model.atoms.x.length - 1);
+    model.restraints.k.push(1000);
+    model.restraints.x0.push(x);
+    model.restraints.y0.push(y);
+  }
 }
 
-function generateWall() {
+function generateWall({ model, startX, element }) {
   // Generate a lattice of element 1 atoms
-  generateColumn(yPadding, centerX);
-  generateColumn(yPadding + (ySpacing/2), centerX + originalSpacingY);
-  generateColumn(yPadding, centerX + originalSpacingY*2);
-  generateColumn(yPadding + (ySpacing/2), centerX + originalSpacingY*3);
+  generateColumn(model, yPadding, startX, element);
+  generateColumn(model, yPadding + (ySpacing/2), startX + originalSpacingY, element);
+  generateColumn(model, yPadding, startX + originalSpacingY*2, element);
+  generateColumn(model, yPadding + (ySpacing/2), startX + originalSpacingY*3, element);
 }
 
-function generateInsideGas() {
-  const gasXMin = xPadding;
-  const gasXMax = centerX - originalSpacingY;
+const gasMinDistance = originalSpacingX / 2
+function isOverlapping(model, element, x, y) {
+  for (let i = 0; i < model.atoms.x.length; i++) {
+    if (model.atoms.element[i] === element) {
+      const dx = model.atoms.x[i] - x;
+      const dy = model.atoms.y[i] - y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < gasMinDistance) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function generateInsideGas({ model, xMin, xMax, element }) {
   const gasYMin = yPadding;
   const gasYMax = originalModel.height - yPadding;
 
   // Add gas on the left
   for (let i = 0; i < 20; i++) {
-    newModel.atoms.x.push(Math.random() * (gasXMax - gasXMin));
-    newModel.atoms.y.push(Math.random() * (gasYMax - gasYMin));
-    newModel.atoms.vx.push(getRandomGasVelocity());
-    newModel.atoms.vy.push(getRandomGasVelocity());
-    newModel.atoms.charge.push(0);
-    newModel.atoms.friction.push(0);
-    newModel.atoms.element.push(2);
-    newModel.atoms.pinned.push(0);
-    newModel.atoms.draggableWhenStopped.push(0);
-    newModel.atoms.excitation.push(0);
+    // Need to make sure the new atom position doesn't overlap an existing atom
+    let x, y;
+    do {
+      x = Math.random() * (xMax - xMin) + xMin;
+      y = Math.random() * (gasYMax - gasYMin) + gasYMin;
+    } while (isOverlapping(model, element, x, y));
+    model.atoms.x.push(x);
+    model.atoms.y.push(y);
+    model.atoms.vx.push(getRandomGasVelocity());
+    model.atoms.vy.push(getRandomGasVelocity());
+    model.atoms.charge.push(0);
+    model.atoms.friction.push(0);
+    model.atoms.element.push(element);
+    model.atoms.pinned.push(0);
+    model.atoms.draggableWhenStopped.push(0);
+    model.atoms.excitation.push(0);
   }
 }
 
-generateWall();
-generateInsideGas();
-
-newModel.elements.color[1] = "rgb(0, 229, 255)";
-
-// Write the new model to a file
-fs.writeFileSync(__dirname + '/greenhouse-effect-glass.json', JSON.stringify(newModel, null, 2));
-console.log('New model generated: greenhouse-effect-glass.json');
-
-const baseEnergyLevel = newModel.quantumDynamics.elementEnergyLevels[1][0];
 // This is MW's special constant for converting between frequency and energy units
 const PLANCK_CONSTANT = 0.000019297059992532557;
 
-// Need to figure out the energy gap in frequency. So energy = freq * PLANCK_CONSTANT 
-// We need to absorb frequencies from 2.5 to 14.5
-const minFreq = 2.5;
-const maxFreq = 14.5;
-const minEnergy = minFreq * PLANCK_CONSTANT;
-const maxEnergy = maxFreq * PLANCK_CONSTANT;
+/**
+ * This uses the energyLevel of element 1 of the original one, and adds energy levels
+ * to cover every possible photon frequency. Because the absorption code includes a
+ * tolerance gap, this is finite number of energy levels.
+ * @returns 
+ */
+function absorbingEnergyLevels() {
+  const baseEnergyLevel = originalModel.quantumDynamics.elementEnergyLevels[1][0];
 
-// NOTE: we might need to optimize this so there are not so many energy levels
-// Also if the brick atom has already absorbed a photon it will not absorb another until
-// it has emitted or converted that energy to heat. If the wall is multiple atoms thick
-// this won't matter because the photon will pass through the first atom and then be absorbed
-// by the next one. But if is a problem, we might need to add extra energy levels.
-let energyDifference = minEnergy;
-let currentLevel = 0;
-const energyLevels = [baseEnergyLevel];
-while (energyDifference < maxEnergy) {
-  energyLevels.push(baseEnergyLevel + energyDifference);
-  // MD2D compares the energy of the incoming photon with a tolerance of about PLANCK_CONSTANT / 4
-  // in either direction. So if we space the energy levels by a little less than PLANCK_CONSTANT / 2, 
-  // we should be able to absorb all frequencies.
-  energyDifference += PLANCK_CONSTANT / 2.1;
+  // Need to figure out the energy gap in frequency. So energy = freq * PLANCK_CONSTANT 
+  // We need to absorb frequencies from 2.5 to 14.5
+  const minFreq = 2.5;
+  const maxFreq = 14.5;
+  const minEnergy = minFreq * PLANCK_CONSTANT;
+  const maxEnergy = maxFreq * PLANCK_CONSTANT;
+
+  // NOTE: we might need to optimize this so there are not so many energy levels
+  // Also if the brick atom has already absorbed a photon it will not absorb another until
+  // it has emitted or converted that energy to heat. If the wall is multiple atoms thick
+  // this won't matter because the photon will pass through the first atom and then be absorbed
+  // by the next one. But if is a problem, we might need to add extra energy levels.
+  let energyDifference = minEnergy;
+  let currentLevel = 0;
+  const energyLevels = [baseEnergyLevel];
+  while (energyDifference < maxEnergy) {
+    energyLevels.push(baseEnergyLevel + energyDifference);
+    // MD2D compares the energy of the incoming photon with a tolerance of about PLANCK_CONSTANT / 4
+    // in either direction. So if we space the energy levels by a little less than PLANCK_CONSTANT / 2, 
+    // we should be able to absorb all frequencies.
+    energyDifference += PLANCK_CONSTANT / 2.1;
+  }
+
+  return energyLevels;
 }
 
-// Change the properties of the wall element to try to emulate brick
-newModel.elements.color[1] = "rgb(153, 56, 3)";
-newModel.quantumDynamics.elementEnergyLevels[1] = energyLevels;
-newModel.quantumDynamics.radiationlessEmissionProbability = 0.9; // 0 to 1, 1 means it will always convert to heat
-// Write the new model to a file
-fs.writeFileSync(__dirname + '/greenhouse-effect-brick.json', JSON.stringify(newModel, null, 2));
+function writeOutModel(name, model) {
+  fs.writeFileSync(__dirname + `/${name}.json`, JSON.stringify(model, null, 2));
+  console.log(`New model generated: ${name}.json`);
+}
 
-console.log('New model generated: greenhouse-effect-brick.json');
+const radiationlessEmissionProbability = 0.95; // 0 to 1, 1 means it will always convert to heat
+
+const glassNoInsideSurface = emptyModel();
+glassNoInsideSurface.quantumDynamics.radiationlessEmissionProbability = radiationlessEmissionProbability;
+
+generateWall({
+  model: glassNoInsideSurface,
+  startX: centerX,
+  element: 1
+});
+generateInsideGas({
+  model: glassNoInsideSurface, 
+  xMin: xPadding, 
+  xMax: centerX - originalSpacingY,
+  element: 2
+});
+
+glassNoInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
+
+// Write the new model to a file
+writeOutModel('greenhouse-effect-glass', glassNoInsideSurface);
+
+// Change the properties of the outside wall element to try to emulate brick
+const brickNoInsideSurface = JSON.parse(JSON.stringify(glassNoInsideSurface));
+brickNoInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
+brickNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels();
+
+// Write the new model to a file
+writeOutModel('greenhouse-effect-brick', brickNoInsideSurface);
+
+const glassInsideSurface = emptyModel();
+glassInsideSurface.quantumDynamics.radiationlessEmissionProbability = radiationlessEmissionProbability;
+
+generateWall({
+  model: glassInsideSurface,
+  startX: xPadding,
+  element: 3
+});
+const wallWidth = originalSpacingY * 4;
+generateInsideGas({
+  model: glassInsideSurface,
+  xMin: xPadding + wallWidth,
+  xMax: centerX - originalSpacingY,
+  element: 2
+});
+generateWall({
+  model: glassInsideSurface,
+  startX: centerX,
+  element: 1
+});
+// Change the properties of the inside wall element to try to emulate brick
+glassInsideSurface.elements.color[3] = "rgb(153, 56, 3)";
+glassInsideSurface.quantumDynamics.elementEnergyLevels[3] = absorbingEnergyLevels();
+
+// Make the glass atoms look like glass
+glassInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
+// Write the new model to a file
+writeOutModel('greenhouse-effect-glass-inside', glassInsideSurface);
+
+// Change the properties of the outside wall element to try to emulate brick
+const brickInsideSurface = JSON.parse(JSON.stringify(glassInsideSurface));
+brickInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
+brickInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels();
+
+// Write the new model to a file
+writeOutModel('greenhouse-effect-brick-inside', brickInsideSurface);

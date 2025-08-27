@@ -81,27 +81,26 @@
       },
       "forceVectorsDirectionOnly": false
     },
-    "pairwiseLJProperties": [],
     "elements": {
       "mass": [
         20,
         400,
         60,
-        80,
+        400,
         600
       ],
       "sigma": [
         0.1,
         0.14,
         0.1,
-        0.1,
+        0.14,
         0.3
       ],
       "epsilon": [
         -0.1,
         -0.1,
         -0.009999999776482582,
-        -0.009999999776482582,
+        -0.1,
         -0.1
       ],
       "color": [
@@ -117,6 +116,12 @@
         "sigma": 0.14,
         "epsilon": -0.0001,
         "element1": 1,
+        "element2": 2
+      },
+      {
+        "sigma": 0.14,
+        "epsilon": -0.0001,
+        "element1": 3,
         "element2": 2
       }
     ],
@@ -1455,8 +1460,8 @@
       "lightSource": {
         "on": true,
         "monochromatic": false,
-        "radiationPeriod": 650,
-        "numberOfBeams": 5,
+        "radiationPeriod": 2400,
+        "numberOfBeams": 4,
         "angleOfIncidence": 3.1416
       }
     }
