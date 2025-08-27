@@ -8,6 +8,9 @@ Math.seedrandom("fixed seed");
 // And then modified to be a base used by this script to generate new models
 const originalModel = require('./greenhouse-effect-template.json');
 
+const modelWidth = 6;
+const modelHeight = 4;
+
 function emptyModel() {
   const newModel = JSON.parse(JSON.stringify(originalModel));
 
@@ -28,11 +31,21 @@ function emptyModel() {
   newModel.restraints.k = [];
   newModel.restraints.x0 = [];
   newModel.restraints.y0 = [];
+
+  // Adjust the width and height
+  newModel.width = modelWidth;
+  newModel.height = modelHeight;
+  newModel.viewOptions.viewPortWidth = modelWidth;
+  newModel.viewOptions.viewPortHeight = modelHeight;
+  // Adjust the sun position
+  newModel.viewOptions.images[0].imageX = modelWidth - 0.7;
+  newModel.viewOptions.images[0].imageY = modelHeight + 0.5;
+
   return newModel;
 }
 
 // Calculate the center x-coordinate
-const centerX = originalModel.width / 2;
+const centerX = modelWidth / 2;
 const ySpacing = 0.15714468676331222;
 const xSpacing = 0.1360912908067766;
 const yPadding = 0.1;
@@ -74,7 +87,7 @@ function getRandomGasVelocity() {
 }
 
 function generateColumn(model, startY, x, element) {
-  for (let y = startY; y <= originalModel.height; y += ySpacing) {
+  for (let y = startY; y <= modelHeight - originalSpacingY/2; y += ySpacing) {
     model.atoms.x.push(x);
     model.atoms.y.push(y);
     model.atoms.vx.push(getRandomWallVelocity());
@@ -117,12 +130,13 @@ function isOverlapping(model, element, x, y) {
   return false;
 }
 
+const numGasAtoms = 100;
 function generateInsideGas({ model, xMin, xMax, element }) {
   const gasYMin = yPadding;
-  const gasYMax = originalModel.height - yPadding;
+  const gasYMax = modelHeight - yPadding;
 
   // Add gas on the left
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < numGasAtoms; i++) {
     // Need to make sure the new atom position doesn't overlap an existing atom
     let x, y;
     do {
@@ -144,6 +158,14 @@ function generateInsideGas({ model, xMin, xMax, element }) {
 
 // This is MW's special constant for converting between frequency and energy units
 const PLANCK_CONSTANT = 0.000019297059992532557;
+// MD2D compares the energy of the incoming photon with a tolerance of about PLANCK_CONSTANT / 4
+// in either direction. So if we space the energy levels by a little less than PLANCK_CONSTANT / 2, 
+// we should be able to absorb all frequencies.
+const energyGap = PLANCK_CONSTANT / 2.01;
+const minFreqEmitted = energyGap / PLANCK_CONSTANT;
+const mwMinFreq = 2.5;
+const maxIRFreq = mwMinFreq + 2;
+const mwMaxFreq = 14.5;
 
 /**
  * This uses the energyLevel of element 1 of the original one, and adds energy levels
@@ -151,13 +173,11 @@ const PLANCK_CONSTANT = 0.000019297059992532557;
  * tolerance gap, this is finite number of energy levels.
  * @returns 
  */
-function absorbingEnergyLevels() {
+function absorbingEnergyLevels(minFreq, maxFreq) {
   const baseEnergyLevel = originalModel.quantumDynamics.elementEnergyLevels[1][0];
 
   // Need to figure out the energy gap in frequency. So energy = freq * PLANCK_CONSTANT 
   // We need to absorb frequencies from 2.5 to 14.5
-  const minFreq = 2.5;
-  const maxFreq = 14.5;
   const minEnergy = minFreq * PLANCK_CONSTANT;
   const maxEnergy = maxFreq * PLANCK_CONSTANT;
 
@@ -174,7 +194,7 @@ function absorbingEnergyLevels() {
     // MD2D compares the energy of the incoming photon with a tolerance of about PLANCK_CONSTANT / 4
     // in either direction. So if we space the energy levels by a little less than PLANCK_CONSTANT / 2, 
     // we should be able to absorb all frequencies.
-    energyDifference += PLANCK_CONSTANT / 2.1;
+    energyDifference += energyGap;
   }
 
   return energyLevels;
@@ -203,6 +223,7 @@ generateInsideGas({
 });
 
 glassNoInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
+glassNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, maxIRFreq);
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-glass', glassNoInsideSurface);
@@ -210,7 +231,7 @@ writeOutModel('greenhouse-effect-glass', glassNoInsideSurface);
 // Change the properties of the outside wall element to try to emulate brick
 const brickNoInsideSurface = JSON.parse(JSON.stringify(glassNoInsideSurface));
 brickNoInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
-brickNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels();
+brickNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-brick', brickNoInsideSurface);
@@ -237,17 +258,18 @@ generateWall({
 });
 // Change the properties of the inside wall element to try to emulate brick
 glassInsideSurface.elements.color[3] = "rgb(153, 56, 3)";
-glassInsideSurface.quantumDynamics.elementEnergyLevels[3] = absorbingEnergyLevels();
+glassInsideSurface.quantumDynamics.elementEnergyLevels[3] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
 
 // Make the glass atoms look like glass
 glassInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
+glassInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, maxIRFreq);
 // Write the new model to a file
 writeOutModel('greenhouse-effect-glass-inside', glassInsideSurface);
 
 // Change the properties of the outside wall element to try to emulate brick
 const brickInsideSurface = JSON.parse(JSON.stringify(glassInsideSurface));
 brickInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
-brickInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels();
+brickInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-brick-inside', brickInsideSurface);

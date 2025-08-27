@@ -1,8 +1,8 @@
 {
     "type": "md2d",
     "imagePath": "",
-    "width": 3.85,
-    "height": 2.5,
+    "width": 10,
+    "height": 6,
     "unitsScheme": "md2d",
     "lennardJonesForces": true,
     "coulombForces": true,
@@ -24,8 +24,8 @@
     "useQuantumDynamics": true,
     "useChemicalReactions": false,
     "viewOptions": {
-      "viewPortWidth": 3.85,
-      "viewPortHeight": 2.5,
+      "viewPortWidth": 10,
+      "viewPortHeight": 6,
       "viewPortZoom": 1,
       "viewPortX": 0,
       "viewPortY": 0,
@@ -52,8 +52,8 @@
           "imageHostIndex": 0,
           "imageHostType": "",
           "imageLayer": 1,
-          "imageX": 2.96,
-          "imageY": 3.26,
+          "imageX": 9.5,
+          "imageY": 6.5,
           "visible": true
         }
       ],
