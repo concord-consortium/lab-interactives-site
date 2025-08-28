@@ -2537,15 +2537,7 @@
       ],
       [
         -0.0003859411998506511,
-        -0.00037634067249118217,
-        -0.00036674014513171324,
-        -0.0003571396177722443,
-        -0.00034753909041277536,
-        -0.00033793856305330643,
-        -0.0003283380356938375,
-        -0.00031873750833436856,
-        -0.0003091369809748996,
-        -0.0002995364536154307
+        -0.0003299797258723067
       ],
       [
         -0.0003859411998506511,
@@ -2561,13 +2553,14 @@
       ]
     ],
     "photons": {},
-    "radiationlessEmissionProbability": 0.95,
+    "radiationlessEmissionProbability": 0.9,
     "lightSource": {
       "on": true,
-      "monochromatic": false,
+      "monochromatic": true,
       "radiationPeriod": 2400,
       "numberOfBeams": 4,
-      "angleOfIncidence": 3.1416
+      "angleOfIncidence": 3.1416,
+      "frequency": 5.8
     }
   }
 }

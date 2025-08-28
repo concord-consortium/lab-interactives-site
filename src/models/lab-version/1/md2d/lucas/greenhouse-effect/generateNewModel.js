@@ -11,6 +11,8 @@ const originalModel = require('./greenhouse-effect-template.json');
 const modelWidth = 6;
 const modelHeight = 4;
 
+const radiationlessEmissionProbability = 0.90; // 0 to 1, 1 means it will always convert to heat
+
 function emptyModel() {
   const newModel = JSON.parse(JSON.stringify(originalModel));
 
@@ -41,6 +43,9 @@ function emptyModel() {
   newModel.viewOptions.images[0].imageX = modelWidth - 0.7;
   newModel.viewOptions.images[0].imageY = modelHeight + 0.5;
 
+  newModel.quantumDynamics.radiationlessEmissionProbability = radiationlessEmissionProbability;
+  newModel.quantumDynamics.lightSource.monochromatic = true;
+  newModel.quantumDynamics.lightSource.frequency = lightFrequency; // This is in the middle of the visible spectrum
   return newModel;
 }
 
@@ -200,12 +205,33 @@ function absorbingEnergyLevels(minFreq, maxFreq) {
   return energyLevels;
 }
 
+const modelIRFreq = mwMinFreq + 0.4;
+const lightFrequency = modelIRFreq * 2;
+const modelIREnergy = modelIRFreq * PLANCK_CONSTANT;
+
+function brickEnergyLevels() {
+  const baseEnergyLevel = originalModel.quantumDynamics.elementEnergyLevels[1][0];
+
+  return [
+    baseEnergyLevel,
+    baseEnergyLevel + modelIREnergy,
+    baseEnergyLevel + modelIREnergy * 2
+  ]
+}
+
+function glassEnergyLevels() {
+  const baseEnergyLevel = originalModel.quantumDynamics.elementEnergyLevels[1][0];
+
+  return [
+    baseEnergyLevel,
+    baseEnergyLevel + modelIREnergy
+  ]
+}
+
 function writeOutModel(name, model) {
   fs.writeFileSync(__dirname + `/${name}.json`, JSON.stringify(model, null, 2));
   console.log(`New model generated: ${name}.json`);
 }
-
-const radiationlessEmissionProbability = 0.95; // 0 to 1, 1 means it will always convert to heat
 
 const glassNoInsideSurface = emptyModel();
 glassNoInsideSurface.quantumDynamics.radiationlessEmissionProbability = radiationlessEmissionProbability;
@@ -223,7 +249,7 @@ generateInsideGas({
 });
 
 glassNoInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
-glassNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, maxIRFreq);
+glassNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = glassEnergyLevels();
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-glass', glassNoInsideSurface);
@@ -231,7 +257,7 @@ writeOutModel('greenhouse-effect-glass', glassNoInsideSurface);
 // Change the properties of the outside wall element to try to emulate brick
 const brickNoInsideSurface = JSON.parse(JSON.stringify(glassNoInsideSurface));
 brickNoInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
-brickNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
+brickNoInsideSurface.quantumDynamics.elementEnergyLevels[1] = brickEnergyLevels();
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-brick', brickNoInsideSurface);
@@ -258,18 +284,18 @@ generateWall({
 });
 // Change the properties of the inside wall element to try to emulate brick
 glassInsideSurface.elements.color[3] = "rgb(153, 56, 3)";
-glassInsideSurface.quantumDynamics.elementEnergyLevels[3] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
+glassInsideSurface.quantumDynamics.elementEnergyLevels[3] = brickEnergyLevels();
 
 // Make the glass atoms look like glass
 glassInsideSurface.elements.color[1] = "rgb(0, 229, 255)";
-glassInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, maxIRFreq);
+glassInsideSurface.quantumDynamics.elementEnergyLevels[1] = glassEnergyLevels();
 // Write the new model to a file
 writeOutModel('greenhouse-effect-glass-inside', glassInsideSurface);
 
 // Change the properties of the outside wall element to try to emulate brick
 const brickInsideSurface = JSON.parse(JSON.stringify(glassInsideSurface));
 brickInsideSurface.elements.color[1] = "rgb(153, 56, 3)";
-brickInsideSurface.quantumDynamics.elementEnergyLevels[1] = absorbingEnergyLevels(minFreqEmitted, mwMaxFreq);
+brickInsideSurface.quantumDynamics.elementEnergyLevels[1] = brickEnergyLevels();
 
 // Write the new model to a file
 writeOutModel('greenhouse-effect-brick-inside', brickInsideSurface);
