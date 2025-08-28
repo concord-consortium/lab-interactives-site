@@ -26,6 +26,6 @@ Build process will look for `config/<branch-name>.yml` file and when it can't fi
 
 ## Supported environment variables
 
-They are mostly related to depoyment process. They are set in [`.travis.yml`](https://github.com/concord-consortium/lab-interactives-site/blob/master/.travis.yml) file (some as secure variables).
+They are mostly related to the deployment process. They are set in [`.travis.yml`](https://github.com/concord-consortium/lab-interactives-site/blob/master/.travis.yml) file (some as secure variables).
 
 - `GA_ACCOUNT_ID` - when set, it enables embedding google analytics script into the head of the HTML pages.

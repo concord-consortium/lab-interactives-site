@@ -1,0 +1,263 @@
+{
+  "title": "Greenhouse Effect",
+  "publicationStatus": "public",
+  "subtitle": "Explore how light interacts with glass and brick walls",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": "Note: When loading the *Infrared on CO₂* model the infrared coming from the bottom of the model is emitted from the ground.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "brick",
+      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-brick.json",
+      "onLoad": [
+        "var wallAtoms = [];",
+        "var insideAirAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    wallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    insideAirAtoms.push(i);",
+        "  }",
+        "}",
+        "set('wallAtoms', wallAtoms);",
+        "set('insideAirAtoms', insideAirAtoms);"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "glass",
+      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-glass.json",
+      "onLoad": [
+        "var wallAtoms = [];",
+        "var insideAirAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    wallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    insideAirAtoms.push(i);",
+        "  }",
+        "}",
+        "set('wallAtoms', wallAtoms);",
+        "set('insideAirAtoms', insideAirAtoms);"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    },
+    {
+      "name": "slowMotion",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  set('timeStep', 0.18);",
+        "} else {",
+        "  set('timeStep', 0.4180000126361847);",
+        "}"
+      ]
+    },
+    {
+      "name": "wallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "insideAirAtoms",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "wallAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('wallAtoms'));"
+      ],
+      "label": "Temperature of Molecules in Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('insideAirAtoms'));"
+      ],
+      "label": "Temperature of Molecules of the Inside Air",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "wallAverageTemperature",
+      "property": "wallAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAverageTemperature",
+      "property": "insideAirAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "helpTips": [
+
+  ],
+  "hideExportDataControl": false,
+  "components": [
+    {
+      "id": "select-model",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Brick",
+          "selected": true,
+          "action": "loadModel('brick');"
+        },
+        {
+          "text": "Glass",
+          "action": "loadModel('glass');"
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "text-photon-key",
+      "type": "text",
+      "text": "*Photons*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "inside-thermometer",
+      "type": "barGraph",
+      "property": "insideAirAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Inside Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "wall-thermometer",
+      "type": "barGraph",
+      "property": "wallAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Wall Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "enable-light-source",
+      "type": "checkbox",
+      "text": "Light source on",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "lightSourceEnabled",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Display heat in molecules",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "slow-mo",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slowMotion",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "key-photon",
+      "type": "image",
+      "src": "photonKey.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "inside-thermometer",
+        "wall-thermometer"
+      ]
+    ],
+    "right": [
+      [
+        "text-photon-key"
+      ],
+      [
+        "key-photon"
+      ],
+      [
+        "select-model"
+      ]
+    ],
+    "bottom": [
+      [
+        "enable-light-source"
+      ],
+      [
+        "ke-shading",
+        "slow-mo"
+      ]
+    ]
+  },
+  "template": "left-right-bottom"
+}

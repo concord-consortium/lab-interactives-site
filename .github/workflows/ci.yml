@@ -1,0 +1,31 @@
+name: Simple Copy Build
+
+on:
+  push:
+    branches-ignore:
+      - master
+jobs:
+  build_deploy:
+    name: Copy and Deploy Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Get Submodules
+        run: |
+          git submodule init
+          git submodule update -- vendor/modernizr
+          git submodule update -- vendor/shutterbug.js
+      - name: Copy files
+        run: |
+          node script/update-dist-using-copy.mjs
+      - uses: concord-consortium/s3-deploy-action@v1
+        with:
+          build: echo no build
+          bucket: lab.concord.org
+          prefix: test-deploy
+          folderToDeploy: dist-using-copy
+          awsAccessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          awsSecretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          deployRunUrl: https://lab.concord.org/test-deploy/__deployPath__/
