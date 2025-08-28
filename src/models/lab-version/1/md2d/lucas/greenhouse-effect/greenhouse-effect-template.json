@@ -84,9 +84,9 @@
     "elements": {
       "mass": [
         20,
-        400,
-        60,
-        400,
+        5,
+        5,
+        5,
         600
       ],
       "sigma": [
@@ -1460,8 +1460,8 @@
       "lightSource": {
         "on": true,
         "monochromatic": false,
-        "radiationPeriod": 2400,
-        "numberOfBeams": 4,
+        "radiationPeriod": 500,
+        "numberOfBeams": 5,
         "angleOfIncidence": 3.1416
       }
     }

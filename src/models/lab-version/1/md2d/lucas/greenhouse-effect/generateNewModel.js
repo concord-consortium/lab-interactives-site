@@ -113,6 +113,7 @@ function generateColumn(model, startY, x, element) {
 }
 
 function generateWall({ model, startX, element }) {
+  console.log("addingWall", { element, startX, endX: startX + originalSpacingY * 3 })
   // Generate a lattice of element 1 atoms
   generateColumn(model, yPadding, startX, element);
   generateColumn(model, yPadding + (ySpacing/2), startX + originalSpacingY, element);
@@ -135,8 +136,8 @@ function isOverlapping(model, element, x, y) {
   return false;
 }
 
-const numGasAtoms = 100;
-function generateInsideGas({ model, xMin, xMax, element }) {
+const numGasAtoms = 200;
+function generateAir({ model, xMin, xMax, element }) {
   const gasYMin = yPadding;
   const gasYMax = modelHeight - yPadding;
 
@@ -241,7 +242,7 @@ generateWall({
   startX: centerX,
   element: 1
 });
-generateInsideGas({
+generateAir({
   model: glassNoInsideSurface, 
   xMin: xPadding, 
   xMax: centerX - originalSpacingY,
@@ -271,7 +272,7 @@ generateWall({
   element: 3
 });
 const wallWidth = originalSpacingY * 4;
-generateInsideGas({
+generateAir({
   model: glassInsideSurface,
   xMin: xPadding + wallWidth,
   xMax: centerX - originalSpacingY,
@@ -281,6 +282,12 @@ generateWall({
   model: glassInsideSurface,
   startX: centerX,
   element: 1
+});
+generateAir({
+  model: glassInsideSurface,
+  xMin: centerX + wallWidth,
+  xMax: modelWidth,
+  element: 2
 });
 // Change the properties of the inside wall element to try to emulate brick
 glassInsideSurface.elements.color[3] = "rgb(153, 56, 3)";
