@@ -23,9 +23,8 @@ jobs:
         with:
           build: echo no build
           bucket: lab.concord.org
-          prefix: test-deploy
           folderToDeploy: dist-using-copy
           awsAccessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           awsSecretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          deployRunUrl: https://lab.concord.org/test-deploy/__deployPath__/
+          deployRunUrl: https://lab.concord.org/__deployPath__/
