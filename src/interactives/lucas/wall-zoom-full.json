@@ -10,7 +10,7 @@
     {
       "type": "md2d",
       "id": "brick",
-      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-brick-inside.json",
+      "url": "interactives/lucas/models/wall-zoom-brick.json",
       "onLoad": [
         "var outsideWallAtoms = [];",
         "var insideWallAtoms = [];",
@@ -26,28 +26,13 @@
         "}",
         "set('outsideWallAtoms', outsideWallAtoms);",
         "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
         "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
-        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));",
-        "callEvery(200, function() {",
-        "  var outsideAtoms = get('outsideAirAtoms');",
-        "  var targetTemperature = get('outsideAirTemperature');",
-        "  // I'm not really sure what should be in the batch",
-        "  batch(function() {",
-        "    // This will force the outside air to match a specific temperature",
-        "    // Instead we might want to adjust the temperature more slowly over time",
-        "    // So it is more like a constant heating/cooling process",
-        "    var outsideTemperature = getTemperatureOfAtoms(outsideAtoms);",
-        "    var rescalingFactor = Math.sqrt(targetTemperature / outsideTemperature);",
-        "    for (var i = 0; i < outsideAtoms.length; i++) {",
-        "      var props = getAtomProperties(outsideAtoms[i]);",
-        "      var newVx = props.vx * rescalingFactor;",
-        "      var newVy = props.vy * rescalingFactor;",
-        "      setAtomProperties(outsideAtoms[i], { vx: newVx, vy: newVy });",
-        "    }",
-        "  });",
-        "});"
-
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
       ],
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -56,7 +41,7 @@
     {
       "type": "md2d",
       "id": "glass",
-      "url": "models/lab-version/1/md2d/lucas/greenhouse-effect/greenhouse-effect-glass-inside.json",
+      "url": "interactives/lucas/models/wall-zoom-glass.json",
       "onLoad": [
         "var outsideWallAtoms = [];",
         "var insideWallAtoms = [];",
@@ -72,27 +57,13 @@
         "}",
         "set('outsideWallAtoms', outsideWallAtoms);",
         "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
         "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
-        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));",
-        "callEvery(200, function() {",
-        "  var outsideAtoms = get('outsideAirAtoms');",
-        "  var targetTemperature = get('outsideAirTemperature');",
-        "  // I'm not really sure what should be in the batch",
-        "  batch(function() {",
-        "    // This will force the outside air to match a specific temperature",
-        "    // Instead we might want to adjust the temperature more slowly over time",
-        "    // So it is more like a constant heating/cooling process",
-        "    var outsideTemperature = getTemperatureOfAtoms(outsideAtoms);",
-        "    var rescalingFactor = Math.sqrt(targetTemperature / outsideTemperature);",
-        "    for (var i = 0; i < outsideAtoms.length; i++) {",
-        "      var props = getAtomProperties(outsideAtoms[i]);",
-        "      var newVx = props.vx * rescalingFactor;",
-        "      var newVy = props.vy * rescalingFactor;",
-        "      setAtomProperties(outsideAtoms[i], { vx: newVx, vy: newVy });",
-        "    }",
-        "  });",
-        "});"
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
       ],
       "viewOptions": {
         "controlButtons": "play_reset"
@@ -109,6 +80,19 @@
         "} else {",
         "  turnOffLightSource();",
         "}"
+      ]
+    },
+    {
+      "name": "sunAngle",
+      "initialValue": 45,
+      "onChange": [
+        "var radians = value / 180 * Math.PI;",
+        "setLightSourceAngle(Math.PI + radians);",
+        "var sunPathRadius = 2;",
+        "setImageProperties(0, {",
+        "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
+        "  imageY: 2.5 + Math.sin(radians) * sunPathRadius",
+        "})"
       ]
     },
     {
@@ -133,26 +117,13 @@
     {
       "name": "outsideWallAtoms",
       "initialValue": []
+    },
+    {
+      "name": "airAtoms",
+      "initialValue": []
     }
   ],
   "outputs": [
-    {
-      "name": "insideAirAtoms",
-      "value": [
-        "var insideAirLeftEdge = 0.6;",
-        "var insideAirWidth = get('width')/2 - 0.1 - insideAirLeftEdge;",
-        "return atomsWithinRect(insideAirLeftEdge,0,insideAirWidth, get('height'));"
-      ]
-    },
-    {
-      "name": "outsideAirAtoms",
-      "value": [
-        "// Try including part of the wall",
-        "var outsideAirLeftEdge = get('width')/2 + 0.6;",
-        "var outsideAirWidth = get('width') - outsideAirLeftEdge;",
-        "return atomsWithinRect(outsideAirLeftEdge,0,outsideAirWidth, get('height'));"
-      ]
-    },
     {
       "name": "insideWallAtomsTemp",
       "value": [
@@ -172,20 +143,11 @@
     {
       "name": "insideAirAtomsTemp",
       "value": [
-        "return getTemperatureOfAtoms(get('insideAirAtoms'));"
-      ],
-      "label": "Temperature of Molecules of the Inside Air",
-      "unitAbbreviation": "°C"
-    },
-    {
-      "name": "outsideAirAtomsTemp",
-      "value": [
-        "return getTemperatureOfAtoms(get('outsideAirAtoms'));"
+        "return getTemperatureOfAtoms(get('airAtoms'));"
       ],
       "label": "Temperature of Molecules of the Inside Air",
       "unitAbbreviation": "°C"
     }
-
   ],
   "filteredOutputs": [
     {
@@ -209,15 +171,6 @@
     {
       "name": "insideAirAverageTemperature",
       "property": "insideAirAtomsTemp",
-      "type": "RunningAverage",
-      "period": 2500,
-      "label": "Average Temperature",
-      "unitType": "temperature",
-      "unitAbbreviation": "°C"
-    },
-    {
-      "name": "outsideAirAverageTemperature",
-      "property": "outsideAirAtomsTemp",
       "type": "RunningAverage",
       "period": 2500,
       "label": "Average Temperature",
@@ -315,7 +268,7 @@
     {
       "id": "outside-air-thermometer",
       "type": "barGraph",
-      "property": "outsideAirAverageTemperature",
+      "property": "outsideAirTemperature",
       "min": 0,
       "max": 3000,
       "title": "Outside Air Temperature",
@@ -376,6 +329,18 @@
       "disabled": false
     },
     {
+      "id": "sun-angle",
+      "type": "slider",
+      "title": "Sun Angle",
+      "min": 0,
+      "max": 90,
+      "steps": 100,
+      "width": "auto",
+      "height": "auto",
+      "property": "sunAngle",
+      "disabled": false
+    },
+    {
       "id": "key-photon",
       "type": "image",
       "src": "photonKey.svg",
@@ -387,10 +352,10 @@
   "layout": {
     "left": [
       [
-        "inside-wall-thermometer",
         "inside-air-thermometer",
-        "outside-wall-thermometer",
-        "outside-air-thermometer"
+        "outside-air-thermometer",
+        "inside-wall-thermometer",
+        "outside-wall-thermometer"
       ]
     ],
     "right": [
@@ -401,18 +366,41 @@
         "key-photon"
       ],
       [
-        "select-model"
+        "sun-angle"
       ]
     ],
     "bottom": [
       [
-        "enable-light-source"
-      ],
-      [
+        "enable-light-source",
         "ke-shading",
         "slow-mo"
+      ],
+      [
+        "outside-air-temperature",
+        "select-model"
       ]
     ]
   },
-  "template": "left-right-bottom"
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "height": "model.height",
+      "right": "model.left",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "height": "4.5em"
+    }
+  ]
 }

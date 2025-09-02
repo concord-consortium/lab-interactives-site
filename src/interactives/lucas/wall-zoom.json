@@ -1,0 +1,281 @@
+{
+  "title": "Greenhouse Effect",
+  "publicationStatus": "public",
+  "subtitle": "Explore how light interacts with glass and brick walls",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": "Note: When loading the *Infrared on CO₂* model the infrared coming from the bottom of the model is emitted from the ground.",
+  "models": [
+    {
+      "type": "md2d",
+      "id": "brick",
+      "url": "interactives/lucas/models/wall-zoom-brick.json",
+      "onLoad": [
+        "var outsideWallAtoms = [];",
+        "var insideWallAtoms = [];",
+        "var airAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    outsideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 3) {",
+        "    insideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    airAtoms.push(i);",
+        "  }",
+        "}",
+        "set('outsideWallAtoms', outsideWallAtoms);",
+        "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "viewPortX": 0.3721825816135532,
+        "viewPortY": 0.43428937352662444,
+        "viewPortWidth": 5.627817418386447,
+        "viewPortHeight": 2.5814212529467513
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "glass",
+      "url": "interactives/lucas/models/wall-zoom-glass.json",
+      "onLoad": [
+        "var outsideWallAtoms = [];",
+        "var insideWallAtoms = [];",
+        "var airAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    outsideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 3) {",
+        "    insideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    airAtoms.push(i);",
+        "  }",
+        "}",
+        "set('outsideWallAtoms', outsideWallAtoms);",
+        "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset",
+        "viewPortX": 0.3721825816135532,
+        "viewPortY": 0.43428937352662444,
+        "viewPortWidth": 5.627817418386447,
+        "viewPortHeight": 2.5814212529467513
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    },
+    {
+      "name": "sunAngle",
+      "initialValue": 45,
+      "onChange": [
+        "var radians = value / 180 * Math.PI;",
+        "setLightSourceAngle(Math.PI + radians);",
+        "var sunPathRadius = 2;",
+        "setImageProperties(0, {",
+        "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
+        "  imageY: 2.5 + Math.sin(radians) * sunPathRadius",
+        "})"
+      ]
+    },
+    {
+      "name": "slowMotion",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  set('timeStep', 0.18);",
+        "} else {",
+        "  set('timeStep', 0.4180000126361847);",
+        "}"
+      ]
+    },
+    {
+      "name": "outsideAirTemperature",
+      "initialValue": 1000
+    },
+    {
+      "name": "insideWallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "outsideWallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "airAtoms",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "insideWallAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('insideWallAtoms'));"
+      ],
+      "label": "Temperature of Molecules in Inside Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "outsideWallAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('outsideWallAtoms'));"
+      ],
+      "label": "Temperature of Molecules in Outside Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('airAtoms'));"
+      ],
+      "label": "Temperature of Molecules of the Inside Air",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "insideWallAverageTemperature",
+      "property": "insideWallAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "outsideWallAverageTemperature",
+      "property": "outsideWallAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAverageTemperature",
+      "property": "insideAirAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "helpTips": [],
+  "hideExportDataControl": false,
+  "components": [
+    {
+      "id": "text-photon-key",
+      "type": "text",
+      "text": "*Photons*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "inside-air-thermometer",
+      "type": "barGraph",
+      "property": "insideAirAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Inside Air Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "outside-air-thermometer",
+      "type": "barGraph",
+      "property": "outsideAirTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Outside Air Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "key-photon",
+      "type": "image",
+      "src": "photonKey.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "inside-air-thermometer"
+      ]
+    ],
+    "right": [
+      [
+        "outside-air-thermometer"
+      ]
+    ],
+    "bottom": [
+      [
+        "text-photon-key",
+        "key-photon"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "height": "model.height",
+      "right": "model.left",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    },
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "height": "4.5em"
+    }
+  ],
+  "showTopBar": false,
+  "showBottomBar": false
+}
