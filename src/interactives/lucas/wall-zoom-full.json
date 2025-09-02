@@ -91,7 +91,7 @@
         "var sunPathRadius = 2;",
         "setImageProperties(0, {",
         "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
-        "  imageY: 2.5 + Math.sin(radians) * sunPathRadius",
+        "  imageY: 2.1 + Math.sin(radians) * sunPathRadius",
         "})"
       ]
     },

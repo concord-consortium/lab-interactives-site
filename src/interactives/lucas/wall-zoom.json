@@ -27,6 +27,9 @@
         "set('outsideWallAtoms', outsideWallAtoms);",
         "set('insideWallAtoms', insideWallAtoms);",
         "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
         "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
@@ -59,6 +62,9 @@
         "set('outsideWallAtoms', outsideWallAtoms);",
         "set('insideWallAtoms', insideWallAtoms);",
         "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
         "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
         "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
@@ -93,7 +99,7 @@
         "var sunPathRadius = 2;",
         "setImageProperties(0, {",
         "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
-        "  imageY: 2.5 + Math.sin(radians) * sunPathRadius",
+        "  imageY: 2.1 + Math.sin(radians) * sunPathRadius",
         "})"
       ]
     },
