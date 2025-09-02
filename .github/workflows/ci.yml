@@ -4,6 +4,8 @@ on:
   push:
     branches-ignore:
       - master
+    tags:
+      - '*'
 jobs:
   build_deploy:
     name: Copy and Deploy Files
