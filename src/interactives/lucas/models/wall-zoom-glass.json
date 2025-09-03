@@ -92,7 +92,7 @@
     "sigma": [
       0.1,
       0.14,
-      0.1,
+      0.07,
       0.14,
       0.14
     ],
@@ -113,13 +113,13 @@
   },
   "pairwiseLJProperties": [
     {
-      "sigma": 0.14,
+      "sigma": 0.2,
       "epsilon": -0.0001,
       "element1": 1,
       "element2": 2
     },
     {
-      "sigma": 0.14,
+      "sigma": 0.2,
       "epsilon": -0.0001,
       "element1": 3,
       "element2": 2
