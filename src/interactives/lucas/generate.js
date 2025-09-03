@@ -449,9 +449,43 @@ interactive.components = interactive.components.filter(c => [
     "inside-air-thermometer",
     "outside-air-thermometer",
     "text-photon-key",
-    "key-photon"
+    "key-photon",
+    "text-ke-shading-scale",
+    "ke-shading-scale"
   ].includes(c.id)
 );
+
+interactive.template= [
+    {
+      "id": "left",
+      "top": "model.top",
+      "height": "model.height",
+      "right": "model.left",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "bottom-left",
+      "left": "model.left",
+      "top": "model.bottom",
+      "width": "model.width / 2",
+      "height": "7em"
+    },
+    {
+      "id": "bottom-right",
+      "width": "model.width / 2",
+      "top": "model.bottom",
+      "right": "model.right",
+      "height": "7em"
+    },
+  ]
 
 interactive.layout = {
   left: [
@@ -464,9 +498,19 @@ interactive.layout = {
       "outside-air-thermometer"
     ]
   ],
-  bottom: [
+  "bottom-left": [
     [
-      "text-photon-key",
+      "text-ke-shading-scale"
+    ],
+    [
+      "ke-shading-scale"
+    ]
+  ],
+  "bottom-right": [
+    [
+      "text-photon-key"
+    ],
+    [
       "key-photon"
     ]
   ]

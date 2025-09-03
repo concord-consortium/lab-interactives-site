@@ -410,6 +410,22 @@
       "width": "10em",
       "height": "auto",
       "tooltip": ""
+    },
+    {
+      "id": "text-ke-shading-scale",
+      "type": "text",
+      "text": "*Thermal Energy*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading-scale",
+      "type": "image",
+      "src": "keShadingScale.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
     }
   ],
   "layout": {
@@ -427,6 +443,12 @@
       ],
       [
         "key-photon"
+      ],
+      [
+        "text-ke-shading-scale"
+      ],
+      [
+        "ke-shading-scale"
       ],
       [
         "sun-angle"

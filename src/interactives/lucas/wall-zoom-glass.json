@@ -289,6 +289,22 @@
       "width": "10em",
       "height": "auto",
       "tooltip": ""
+    },
+    {
+      "id": "text-ke-shading-scale",
+      "type": "text",
+      "text": "*Thermal Energy*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading-scale",
+      "type": "image",
+      "src": "keShadingScale.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
     }
   ],
   "layout": {
@@ -302,9 +318,19 @@
         "outside-air-thermometer"
       ]
     ],
-    "bottom": [
+    "bottom-left": [
       [
-        "text-photon-key",
+        "text-ke-shading-scale"
+      ],
+      [
+        "ke-shading-scale"
+      ]
+    ],
+    "bottom-right": [
+      [
+        "text-photon-key"
+      ],
+      [
         "key-photon"
       ]
     ]
@@ -326,9 +352,18 @@
       "padding-right": "0.5em"
     },
     {
-      "id": "bottom",
+      "id": "bottom-left",
+      "left": "model.left",
       "top": "model.bottom",
-      "height": "4.5em"
+      "width": "model.width / 2",
+      "height": "7em"
+    },
+    {
+      "id": "bottom-right",
+      "width": "model.width / 2",
+      "top": "model.bottom",
+      "right": "model.right",
+      "height": "7em"
     }
   ],
   "showTopBar": false,
