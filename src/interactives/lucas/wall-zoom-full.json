@@ -5,7 +5,13 @@
   "aspectRatio": 1.7,
   "fontScale": 0.8,
   "helpOnLoad": false,
-  "about": "Note: When loading the *Infrared on CO₂* model the infrared coming from the bottom of the model is emitted from the ground.",
+  "about": [ 
+    "This interactive models a house like environment with a wall made of either brick or glass.",
+    "You can turn on a light source to simulate sunlight and see how the light interacts with the",
+    "wall and heats up the air and wall molecules.",
+    "",
+    "The models are generated using a script called `generate.js` in the same folder as this file."
+  ],
   "models": [
     {
       "type": "md2d",
@@ -93,6 +99,51 @@
         "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
         "  imageY: 2.1 + Math.sin(radians) * sunPathRadius",
         "})"
+      ]
+    },
+    {
+      "name": "sunIntensity",
+      "notes": [ 
+        "This is basically the DNI or direct normal intensity of the sunlight. In the real world it varies by the sun angle and atmospheric conditions.",
+        "In this model it is independent from the sun angle."
+      ],
+      "initialValue": 50,
+      "onChange": [
+        "// The light source 'intensity' is affected by both the period of the photons and the number of beams",
+        "// additionally the distance between each beam seems to change depending on the angle",
+        "// For this model we'll ignore the changes in beam spacing.",
+        "// Ideally the photons would look more like rain instead of having a fixed period and number of beams",
+        "// In that design we'd just set the photonsPerS value and then we'd randomly match it",
+        "// But currently MD2D doesn't seem to support this, nor does it have a way for scripts to add photons",
+        "// So to keep it simple for now we'll define some min and max period values and when we cross those values",
+        "// then the number of beams will be increased or decreased.",
+        "// The unit will be number of photons per second",
+        "// The period units seem to be in milliseconds, so we'll use that is what we'll use.",
+        "const maxBeams = 10;",
+        "const minPeriod = 600;",
+        "const maxPeriod = 2000;",
+        "const minPhotonsPerS = 0.5;",
+        "const maxPhotonsPerS = 10;",
+        "const photonsPerS = (value / 100) * (maxPhotonsPerS - minPhotonsPerS) + minPhotonsPerS;",
+
+        "// Start with the maximum possible beams using maxPeriod",
+        "let beams = Math.floor(photonsPerS * (maxPeriod / 1000));",
+        "if (beams < 1) beams = 1;",
+        "if (beams > maxBeams) beams = maxBeams;",
+        "let period = 1000 * beams / photonsPerS;",
+        "while (beams > 1 && period < minPeriod) {",
+        "  beams -= 1;",
+        "  period = 1000 * beams / photonsPerS;",
+        "}",
+
+        "// Clamp period to maxPeriod if needed",
+        "if (period > maxPeriod) {",
+        "  period = maxPeriod;",
+        "  beams = Math.round(photonsPerS * (period / 1000));",
+        "  if (beams < 1) beams = 1;",
+        "}",
+        "setLightSourcePeriod(period);",
+        "setLightSourceNumber(beams);"
       ]
     },
     {
@@ -338,6 +389,18 @@
       "width": "auto",
       "height": "auto",
       "property": "sunAngle",
+      "disabled": false
+    },
+    {
+      "id": "sun-intensity",
+      "type": "slider",
+      "title": "Sun Intensity",
+      "min": 0,
+      "max": 100,
+      "steps": 100,
+      "width": "auto",
+      "height": "auto",
+      "property": "sunIntensity",
       "disabled": false
     },
     {
