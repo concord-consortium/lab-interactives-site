@@ -84,17 +84,17 @@
     "elements": {
       "mass": [
         20,
-        400,
-        60,
-        400,
+        20,
+        20,
+        20,
         600
       ],
       "sigma": [
         0.1,
         0.14,
-        0.1,
+        0.07,
         0.14,
-        0.3
+        0.14
       ],
       "epsilon": [
         -0.1,
@@ -108,18 +108,18 @@
         "rgb(255,192,0)",
         "rgb(0, 255, 0)",
         -10477885,
-        -855310
+        "rgb(0, 0, 0)"
       ]
     },
     "pairwiseLJProperties": [
       {
-        "sigma": 0.14,
+        "sigma": 0.2,
         "epsilon": -0.0001,
         "element1": 1,
         "element2": 2
       },
       {
-        "sigma": 0.14,
+        "sigma": 0.2,
         "epsilon": -0.0001,
         "element1": 3,
         "element2": 2
@@ -1460,8 +1460,8 @@
       "lightSource": {
         "on": true,
         "monochromatic": false,
-        "radiationPeriod": 2400,
-        "numberOfBeams": 4,
+        "radiationPeriod": 500,
+        "numberOfBeams": 5,
         "angleOfIncidence": 3.1416
       }
     }

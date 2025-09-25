@@ -1,0 +1,491 @@
+{
+  "title": "Greenhouse Effect",
+  "publicationStatus": "public",
+  "subtitle": "Explore how light interacts with glass and brick walls",
+  "aspectRatio": 1.7,
+  "fontScale": 0.8,
+  "helpOnLoad": false,
+  "about": [ 
+    "This interactive models a house like environment with a wall made of either brick or glass.",
+    "You can turn on a light source to simulate sunlight and see how the light interacts with the",
+    "wall and heats up the air and wall molecules.",
+    "",
+    "The models are generated using a script called `generate.js` in the same folder as this file."
+  ],
+  "models": [
+    {
+      "type": "md2d",
+      "id": "brick",
+      "url": "interactives/lucas/models/wall-zoom-brick.json",
+      "onLoad": [
+        "var outsideWallAtoms = [];",
+        "var insideWallAtoms = [];",
+        "var airAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    outsideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 3) {",
+        "    insideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    airAtoms.push(i);",
+        "  }",
+        "}",
+        "set('outsideWallAtoms', outsideWallAtoms);",
+        "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
+        "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    },
+    {
+      "type": "md2d",
+      "id": "glass",
+      "url": "interactives/lucas/models/wall-zoom-glass.json",
+      "onLoad": [
+        "var outsideWallAtoms = [];",
+        "var insideWallAtoms = [];",
+        "var airAtoms = [];",
+        "for (var i = 0; i < getNumberOfAtoms(); i++) {",
+        "  if (getAtomProperties(i).element == 1) {",
+        "    outsideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 3) {",
+        "    insideWallAtoms.push(i);",
+        "  } else if(getAtomProperties(i).element == 2) {",
+        "    airAtoms.push(i);",
+        "  }",
+        "}",
+        "set('outsideWallAtoms', outsideWallAtoms);",
+        "set('insideWallAtoms', insideWallAtoms);",
+        "set('airAtoms', airAtoms);",
+        "// Setting the temperature of the wall atoms doesn't work too well.",
+        "// It seems the restraints cause the set temperature to adjust down as soon",
+        "// as the simulation starts.",
+        "setTemperatureOfAtoms(outsideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(insideWallAtoms,get('outsideAirTemperature'));",
+        "setTemperatureOfAtoms(airAtoms,get('outsideAirTemperature'));"
+      ],
+      "viewOptions": {
+        "controlButtons": "play_reset"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "lightSourceEnabled",
+      "initialValue": true,
+      "onChange": [
+        "if (value) {",
+        "  turnOnLightSource();",
+        "} else {",
+        "  turnOffLightSource();",
+        "}"
+      ]
+    },
+    {
+      "name": "sunAngle",
+      "initialValue": 45,
+      "onChange": [
+        "var radians = value / 180 * Math.PI;",
+        "setLightSourceAngle(Math.PI + radians);",
+        "var sunPathRadius = 2;",
+        "setImageProperties(0, {",
+        "  imageX: 3.5 + Math.cos(radians) * sunPathRadius,",
+        "  imageY: 2.1 + Math.sin(radians) * sunPathRadius",
+        "})"
+      ]
+    },
+    {
+      "name": "sunIntensity",
+      "notes": [ 
+        "This is basically the DNI or direct normal intensity of the sunlight. In the real world it varies by the sun angle and atmospheric conditions.",
+        "In this model it is independent from the sun angle."
+      ],
+      "initialValue": 50,
+      "onChange": [
+        "// The light source 'intensity' is affected by both the period of the photons and the number of beams",
+        "// additionally the distance between each beam seems to change depending on the angle",
+        "// For this model we'll ignore the changes in beam spacing.",
+        "// Ideally the photons would look more like rain instead of having a fixed period and number of beams",
+        "// In that design we'd just set the photonsPerS value and then we'd randomly match it",
+        "// But currently MD2D doesn't seem to support this, nor does it have a way for scripts to add photons",
+        "// So to keep it simple for now we'll define some min and max period values and when we cross those values",
+        "// then the number of beams will be increased or decreased.",
+        "// The unit will be number of photons per second",
+        "// The period units seem to be in milliseconds, so we'll use that is what we'll use.",
+        "const maxBeams = 10;",
+        "const minPeriod = 600;",
+        "const maxPeriod = 2000;",
+        "const minPhotonsPerS = 0.5;",
+        "const maxPhotonsPerS = 10;",
+        "const photonsPerS = (value / 100) * (maxPhotonsPerS - minPhotonsPerS) + minPhotonsPerS;",
+
+        "// Start with the maximum possible beams using maxPeriod",
+        "let beams = Math.floor(photonsPerS * (maxPeriod / 1000));",
+        "if (beams < 1) beams = 1;",
+        "if (beams > maxBeams) beams = maxBeams;",
+        "let period = 1000 * beams / photonsPerS;",
+        "while (beams > 1 && period < minPeriod) {",
+        "  beams -= 1;",
+        "  period = 1000 * beams / photonsPerS;",
+        "}",
+
+        "// Clamp period to maxPeriod if needed",
+        "if (period > maxPeriod) {",
+        "  period = maxPeriod;",
+        "  beams = Math.round(photonsPerS * (period / 1000));",
+        "  if (beams < 1) beams = 1;",
+        "}",
+        "setLightSourcePeriod(period);",
+        "setLightSourceNumber(beams);"
+      ]
+    },
+    {
+      "name": "slowMotion",
+      "initialValue": false,
+      "onChange": [
+        "if (value) {",
+        "  set('timeStep', 0.18);",
+        "} else {",
+        "  set('timeStep', 0.4180000126361847);",
+        "}"
+      ]
+    },
+    {
+      "name": "outsideAirTemperature",
+      "initialValue": 1000
+    },
+    {
+      "name": "insideWallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "outsideWallAtoms",
+      "initialValue": []
+    },
+    {
+      "name": "airAtoms",
+      "initialValue": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "insideWallAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('insideWallAtoms'));"
+      ],
+      "label": "Temperature of Molecules in Inside Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "outsideWallAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('outsideWallAtoms'));"
+      ],
+      "label": "Temperature of Molecules in Outside Wall",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAtomsTemp",
+      "value": [
+        "return getTemperatureOfAtoms(get('airAtoms'));"
+      ],
+      "label": "Temperature of Molecules of the Inside Air",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "filteredOutputs": [
+    {
+      "name": "insideWallAverageTemperature",
+      "property": "insideWallAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "outsideWallAverageTemperature",
+      "property": "outsideWallAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    },
+    {
+      "name": "insideAirAverageTemperature",
+      "property": "insideAirAtomsTemp",
+      "type": "RunningAverage",
+      "period": 2500,
+      "label": "Average Temperature",
+      "unitType": "temperature",
+      "unitAbbreviation": "°C"
+    }
+  ],
+  "helpTips": [
+
+  ],
+  "hideExportDataControl": false,
+  "components": [
+    {
+      "id": "select-model",
+      "type": "radio",
+      "orientation": "vertical",
+      "label": "",
+      "labelOn": "top",
+      "options": [
+        {
+          "text": "Brick",
+          "selected": true,
+          "action": "loadModel('brick');"
+        },
+        {
+          "text": "Glass",
+          "action": "loadModel('glass');"
+        }
+      ],
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "text-photon-key",
+      "type": "text",
+      "text": "*Photons*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "inside-wall-thermometer",
+      "type": "barGraph",
+      "property": "insideWallAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Inside Wall Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "inside-air-thermometer",
+      "type": "barGraph",
+      "property": "insideAirAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Inside Air Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "outside-wall-thermometer",
+      "type": "barGraph",
+      "property": "outsideWallAverageTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Outside Wall Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "outside-air-thermometer",
+      "type": "barGraph",
+      "property": "outsideAirTemperature",
+      "min": 0,
+      "max": 3000,
+      "title": "Outside Air Temperature",
+      "titleOn": "right",
+      "labels": 0,
+      "units": false,
+      "gridLines": 10,
+      "labelFormat": "0.1f",
+      "barWidth": "2em",
+      "height": "100%",
+      "barColor": "#e23c34",
+      "fillColor": "#fff",
+      "tooltip": ""
+    },
+    {
+      "id": "enable-light-source",
+      "type": "checkbox",
+      "text": "Light source on",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "lightSourceEnabled",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading",
+      "type": "checkbox",
+      "text": "Display heat in molecules",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "keShading",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "slow-mo",
+      "type": "checkbox",
+      "text": "Slow motion",
+      "textOn": "right",
+      "width": "auto",
+      "height": "auto",
+      "property": "slowMotion",
+      "disabled": false,
+      "tooltip": ""
+    },
+    {
+      "id": "outside-air-temperature",
+      "type": "slider",
+      "title": "Outside Temperature",
+      "min": 0,
+      "max": 2000,
+      "steps": 100,
+      "width": "auto",
+      "height": "auto",
+      "property": "outsideAirTemperature",
+      "disabled": false
+    },
+    {
+      "id": "sun-angle",
+      "type": "slider",
+      "title": "Sun Angle",
+      "min": 0,
+      "max": 90,
+      "steps": 100,
+      "width": "auto",
+      "height": "auto",
+      "property": "sunAngle",
+      "disabled": false
+    },
+    {
+      "id": "sun-intensity",
+      "type": "slider",
+      "title": "Sun Intensity",
+      "min": 0,
+      "max": 100,
+      "steps": 100,
+      "width": "auto",
+      "height": "auto",
+      "property": "sunIntensity",
+      "disabled": false
+    },
+    {
+      "id": "key-photon",
+      "type": "image",
+      "src": "photonKey.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "text-ke-shading-scale",
+      "type": "text",
+      "text": "*Thermal Energy*",
+      "width": "auto",
+      "height": "auto",
+      "tooltip": ""
+    },
+    {
+      "id": "ke-shading-scale",
+      "type": "image",
+      "src": "keShadingScale.svg",
+      "width": "10em",
+      "height": "auto",
+      "tooltip": ""
+    }
+  ],
+  "layout": {
+    "left": [
+      [
+        "inside-air-thermometer",
+        "outside-air-thermometer",
+        "inside-wall-thermometer",
+        "outside-wall-thermometer"
+      ]
+    ],
+    "right": [
+      [
+        "text-photon-key"
+      ],
+      [
+        "key-photon"
+      ],
+      [
+        "text-ke-shading-scale"
+      ],
+      [
+        "ke-shading-scale"
+      ],
+      [
+        "sun-angle"
+      ]
+    ],
+    "bottom": [
+      [
+        "enable-light-source",
+        "ke-shading",
+        "slow-mo"
+      ],
+      [
+        "outside-air-temperature",
+        "select-model"
+      ]
+    ]
+  },
+  "template": [
+    {
+      "id": "left",
+      "top": "model.top",
+      "height": "model.height",
+      "right": "model.left",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "right",
+      "top": "model.top",
+      "height": "model.height",
+      "left": "model.right",
+      "padding-left": "1em",
+      "padding-right": "0.5em"
+    }, 
+    {
+      "id": "bottom",
+      "top": "model.bottom",
+      "height": "4.5em"
+    }
+  ]
+}
